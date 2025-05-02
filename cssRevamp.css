@@ -1,0 +1,761 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  container-type: inline-size;
+
+  font-size: 1cqw;
+}
+
+
+#mainGame {
+  width: 100vw;
+  height: 56.25vw;
+  /* 16:9 ratio */
+  max-width: 100vh * (16/9);
+  /* Se la larghezza del viewport è maggiore dell'altezza in proporzione, limita la larghezza */
+  max-height: 100vh;
+  /* L'altezza massima è quella del viewport */
+  position: relative;
+}
+
+#content {
+  width: 90%;
+  height: 90%;
+  margin: auto;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: inset 0 0 0 2px black;
+}
+
+/* Regolazioni per diverse risoluzioni */
+@media only screen and (max-width: 768px) {
+  #mainGame {
+    width: 100vw;
+    height: 56.25vw;
+    /* 16:9 ratio per schermi piccoli */
+  }
+
+  #content {
+    font-size: 1cqw;
+    /* Testo leggermente più grande per schermi piccoli */
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  #mainGame {
+    width: 100vw;
+    height: 56.25vw;
+  }
+
+  #content {
+    font-size: 1cqw;
+    /* Testo proporzionale al viewport */
+  }
+}
+
+.bDefaultStyle {
+  background: #313131;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+}
+
+.defaultStyle {
+  background: #313131;
+  box-shadow: inset 0 0 0 0.15vw #ffffff;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+}
+
+.defaultButton {
+  background: #36454f;
+  box-shadow: inset 0 0 0 0.10vw #ffffff;
+  border-radius: 1vh;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  padding: 0.5%;
+}
+
+.defaultButton:hover {
+  filter: saturate(3);
+  /* Riduce il contrasto, quindi scurisce l'elemento */
+}
+
+.defaultButton:active {
+  filter: brightness(80%); /* Scurisce il colore del 20% */
+  transform: scale(0.97); /* Effetto pressione per il click */
+}
+
+.defaultButton5 {
+  background: #36454f;
+  box-shadow: inset 0 0 0 0.10vw #ffffff;
+  border-radius: 1vh;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  padding: 0.5%;
+
+  width: 5%;
+}
+
+.defaultButton5:hover {
+  filter: saturate(3);
+  /* Riduce il contrasto, quindi scurisce l'elemento */
+}
+
+.defaultButton5:active {
+  filter: brightness(80%); /* Scurisce il colore del 20% */
+  transform: scale(0.97); /* Effetto pressione per il click */
+}
+
+.defaultButton15 {
+  background: #36454f;
+  box-shadow: inset 0 0 0 0.10vw #ffffff;
+  border-radius: 1vh;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  padding: 0.5%;
+
+  width: 15%;
+}
+
+.defaultButton15:hover {
+  filter: saturate(3);
+  /* Riduce il contrasto, quindi scurisce l'elemento */
+}
+
+.defaultButton15:active {
+  filter: brightness(80%); /* Scurisce il colore del 20% */
+  transform: scale(0.97); /* Effetto pressione per il click */
+}
+
+.defaultButton30 {
+  background: #36454f;
+  box-shadow: inset 0 0 0 0.10vw #ffffff;
+  border-radius: 1vh;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  padding: 0.5%;
+
+  width: 30%;
+}
+
+.defaultButton30:hover {
+  filter: saturate(3);
+  /* Scurisce il colore del 15% */
+}
+
+.defaultButton30:active {
+  filter: brightness(80%); /* Scurisce il colore del 20% */
+  transform: scale(0.97); /* Effetto pressione per il click */
+}
+
+.defaultButtonSkin {
+  box-shadow: inset 0 0 0 0.15vw #ffffff;
+  border-radius: 1vh;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+
+  padding: 1.25vh;
+  margin: 1vh;
+}
+
+.defaultButtonSkinStraight {
+  background: #36454f;
+  box-shadow: inset 0 0 0 0.15vw #ffffff;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+}
+
+.defaultBar {
+
+  display: flex;
+  justify-content: center; /* Centra orizzontalmente */
+  align-items: center;
+
+  height: 200%;
+
+  box-shadow: inset 0 0 0 0.15vw #ffffff;
+  border-radius: 4vh;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+}
+
+.centerDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  text-align: center;
+}
+
+.noClick {
+  pointer-events: none;
+}
+
+/* questo mi permette di rendere il gioco ridimensionabile, credo almeno*/
+button,
+.redimension {
+  font-size: 1.25cqw;
+}
+
+
+#frontPage {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 56.25vw;
+  /* 16:9 ratio */
+  /* Se la larghezza del viewport è maggiore dell'altezza in proporzione, limita la larghezza */
+  max-height: 100vh;
+  /* L'altezza massima è quella del viewport */
+  position: relative;
+}
+
+#fp2, #fp2_content1, #fp2_content2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#fp1 {
+  height: 10%;
+  max-height: 10%;
+  min-height: 10%;
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  font-size: 1.5cqw;
+
+}
+
+.line {
+  height: 0.10vw;
+  background: #ffffff;
+  width: 100%;
+}
+
+#fp1 > div:nth-child(1) {
+  display: flex;
+
+  height: 50%;
+
+  justify-content: center;
+  align-items: center;
+}
+
+#fp1 > div:nth-child(2) {
+
+  display: flex;
+
+  height: 50%;
+
+  text-align: left;
+
+  margin-left: 1vw;
+}
+
+#fp2 {
+  height: 10%;
+  max-height: 10%;
+  min-height: 10%;
+
+  width: 100%;
+
+  flex-direction: column;
+}
+
+#fp2_content1, #fp2_content2 {
+  width: 100%;
+  height: 50%;
+
+  min-height: 50%;
+
+  margin: 0.5vw;
+}
+
+#fp3 {
+  height:65%; /* L'elemento occuperà il 75% dell'altezza del contenitore flex */
+  width: 100%;
+}
+
+.defaultBarPart1 {
+  width: 90%;
+  position: relative; /* Aggiunto per posizionare gli elementi figli in modo assoluto */
+  font-family: 'Arial', sans-serif;
+  margin: 1vw;
+
+
+  z-index: 1;
+}
+
+.defaultBarPart2 {
+
+  position: absolute;
+
+  width: 0%; /* Parte da sinistra */
+  height: 100%; /* Stessa altezza di #fp4 */
+  background-color: green;
+  transition: width 0.1s ease-in-out; /* Animazione fluida */
+
+  z-index: -1;
+
+  border-radius: 4vh;
+}
+
+.defaultBarPart3 {
+
+  box-shadow: inset 0 0 0 0.15vw #ffffff;
+  border-radius: 4vh;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 2;
+}
+
+#fp4 {
+
+  position: absolute;
+
+  top: 95%;
+  left: 0%;
+
+  height: 5%;
+  max-height: 5%;
+  min-height: 5%;
+  width: 100%;
+  z-index: 1;
+}
+
+#progressBarFp4 {
+  width: 0%; /* Parte da sinistra */
+  height: 100%; /* Stessa altezza di #fp4 */
+  background-color: green;
+  transition: width 0.30s ease-in-out; /* Animazione fluida */
+
+  z-index: 1;
+
+  border-radius: 4vh;
+}
+
+#progressInfo {
+  position: absolute; /* Assicura che non venga spinto via */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centra perfettamente */
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  white-space: nowrap; /* Evita che il testo vada a capo */
+  z-index: 10; /* Garantisce che sia sopra la barra */
+
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#options {
+  left: 0%;
+  width: 100%;
+  height: 100%;
+
+
+}
+
+#optionsButtons {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+}
+
+#resetScreen{
+  position: absolute;
+
+  z-index: 10;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-evenly;
+
+  width: 20%;
+  height: 20%;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate3d(-50%, -50%, 0);
+}
+
+#resetScreen>div {
+  display: flex;
+  justify-content: center; /* Centra orizzontalmente */
+  align-items: center;
+}
+
+#resetScreen>div>div>div {
+  display: flex;
+  justify-content: space-evenly; /* Centra orizzontalmente */
+}
+
+#r2 {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#content2_1, #content2_2, #content2_3, #content2_4, #content2_5, #content2_6 > div, #content2_7,
+#fp3_content1_1, #fp3_content1_2, #fp3_content1_3, #fp3_content1_4, #fp3_content1_5, #fp3_content1_6, #fp3_content1_7 {
+
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+}
+
+#content2_1 {
+  display: flex;
+  justify-content: center; /* Centra orizzontalmente */
+  align-items: center;
+}
+
+#bases {
+  width: 50%;
+  height: 100%;
+}
+
+.commonBase {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* Centra orizzontalmente */
+  align-items: center;
+}
+
+.base_int {
+  background-color: #697075;
+  display: flex;
+  flex-grow: 1;
+  flex-basis: 0;
+
+  width: 100%;
+}
+
+.base_int > div {
+  background-color: #697075;
+  display: flex;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+/* Il secondo elemento prende 2 "unità" di spazio */
+.base_int > div:nth-child(2) {
+  flex-grow: 2;
+}
+
+.noEvents > div {
+  pointer-events: none;
+}
+
+#content2_4{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#c2_4_challenger{
+  flex-basis: 50%; /* Imposta la base al 10% dell'altezza di frontPage */
+  flex-grow: 0; /* Non cresce oltre la base */
+  width: 70%;
+
+  margin: 1vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+#c2_4_A{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  flex-basis: 40%; /* Imposta la base al 10% dell'altezza di frontPage */
+  flex-grow: 0; /* Non cresce oltre la base */
+  height: 100%;
+
+  margin: 1vw;
+}
+
+#c2_4_A > div:first-child, #c2_4_B > div:first-child {
+  
+  font-size: 1.5cqw;
+}
+
+#c2_4_A > div, #c2_4_B > div {
+  flex-basis: 33%; /* Imposta la base al 10% dell'altezza di frontPage */
+  flex-grow: 0; /* Non cresce oltre la base */
+}
+
+#c2_4_VS{
+  flex-basis: 20%; /* Imposta la base al 10% dell'altezza di frontPage */
+  flex-grow: 0; /* Non cresce oltre la base */
+  height: 30%;
+
+  margin: 1vw;
+}
+
+#c2_4_B{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  flex-basis: 40%; /* Imposta la base al 10% dell'altezza di frontPage */
+  flex-grow: 0; /* Non cresce oltre la base */
+  height: 100%;
+
+  margin: 1vw;
+}
+
+#c2_4_win{
+  flex-basis: 50%; /* Imposta la base al 10% dell'altezza di frontPage */
+  flex-grow: 0; /* Non cresce oltre la base */
+  width: 70%;
+
+  margin: 1vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#c2_4_title{
+
+  font-size: 1.5cqw;
+
+  flex-basis: 50%; /* Imposta la base al 10% dell'altezza di frontPage */
+  flex-grow: 0; /* Non cresce oltre la base */
+  width: 100%;
+
+  margin: 1vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+#c2_4_rewards{
+  flex-basis: 50%; /* Imposta la base al 10% dell'altezza di frontPage */
+  flex-grow: 0; /* Non cresce oltre la base */
+  width: 100%;
+
+  margin: 1vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#content2_6{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#content2_6> div{
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  flex-direction: row;
+}
+
+#content2_6_hunts {
+  display: flex;
+  flex-direction: column;
+  justify-content: top; /* Porta gli elementi verso l'alto */
+  align-items: top;         /* Centra orizzontalmente */
+}
+
+#content2_6_hunts > div{
+  display: flex;
+  flex-direction: column;
+  justify-content: top; /* Porta gli elementi verso l'alto */
+  align-items: top;         /* Centra orizzontalmente */
+}
+
+#content2_6_hunt{
+  flex-basis: 50%; /* Imposta la base al 10% dell'altezza di frontPage */
+  flex-grow: 0; /* Non cresce oltre la base */
+  height: 100%;
+  width: 100%;
+
+  margin: 1vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: top; /* Centra orizzontalmente */
+  align-items: center;
+
+}
+
+#content2_6_hunt > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: left; /* Centra orizzontalmente */
+  align-items: top;
+  width: 100%;
+}
+
+.centerDiv2 {
+  display: flex;
+  position:fixed;
+  flex-direction: row;
+  justify-content: left; /* Centra orizzontalmente */
+  align-items: center;
+  width: 100%;
+}
+
+#content2_6_hunt > div >div {
+
+  flex-basis: 33%;
+}
+
+#content2_6_huntReward{
+  flex-basis: 50%; /* Imposta la base al 10% dell'altezza di frontPage */
+  flex-grow: 0; /* Non cresce oltre la base */
+  height: 100%;
+  width: 100%;
+
+  margin: 1vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: top; /* Centra orizzontalmente */
+  align-items: top;
+}
+
+#content2_6_huntReward > div{
+  display: flex;
+  flex-direction: row;
+  justify-content: left; /* Centra orizzontalmente */
+  align-items: center;
+  width: 100%;
+}
+
+#content2_6_huntReward > div >div {
+
+  flex-basis: 50%;
+}
+
+#content2_6_menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: left; /* Centra orizzontalmente */
+  align-items: center;
+}
+
+#fp1, #fp2, #fp3 {
+  margin: 1vw;
+}
+
+@keyframes colorBlink {
+  0% {  box-shadow: inset 0 0 0 3px white;}
+  40% { box-shadow: inset 0 0 0 3px red;}
+  100% { box-shadow: inset 0 0 0 3px white;}
+}
+
+#essenceValute {
+  display: flex;
+  flex-direction: column;
+}
+
+#content1_7_ascension{
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra orizzontalmente */
+  align-items: center;
+}
+
+#content1_7_ascension > div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra orizzontalmente */
+  align-items: center;
+
+  padding: 1vw;
+}
+
+#content1_7_ascension_button_text{
+  pointer-events: none;
+}
+
+#content1_7_ascension_milestones{
+  width: 50%;
+}
+
+#content1_7_ascension_milestones > div{
+  font-size: 1.5cqw;
+
+  width: 100%;
+  padding: 1vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra orizzontalmente */
+  align-items: center;
+
+  background: #36454f;
+  box-shadow: inset 0 0 0 0.15vw #ffffff;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+
+  overflow-y: auto;
+}
+
+#content2_7{
+  display: flex;
+  justify-content: top;
+  align-items: center;
+  flex-direction: column;
+}
+
+#content2_7> div{
+  display: flex;
+  justify-content: top;
+  align-items: top;
+  flex-direction: column;
+}
+
+#content2_7_energies{
+  width: 50%;
+}

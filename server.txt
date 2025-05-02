@@ -1,0 +1,5 @@
+cd desktop
+cd STRONGEST
+
+nodemon --exec "http-server" -w .
+
