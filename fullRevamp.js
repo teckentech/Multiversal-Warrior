@@ -696,6 +696,10 @@ class ShowableClass {
 
     }
 
+    this.svg = options.svg || {
+      ascensionCirclesScale: 0.3, ascensionCirclesScaleF: true,
+    }
+
     this.flashIntervals = options.flashIntervals || {
 
     }
@@ -2074,7 +2078,7 @@ function valuesSetter(type) {
 
   //HUNT REWARD 1
 
-  IFight.normalHuntingRewards.upgrade1.name = `Damage ×<span class="boldBlackBorder">${format(f(IFight.normalHuntingRewards.upgrade1.effect))}</span>`
+  IFight.normalHuntingRewards.upgrade1.name = `Damage ×<span class="boldBlackBorder">${format(f(IFight.normalHuntingRewards.upgrade1.effect), 0)}</span>`
 
   IFight.normalHuntingRewards.upgrade1.level = f(IFight.normalHuntingRewards.upgrade1.level)
 
@@ -2107,7 +2111,7 @@ function valuesSetter(type) {
 
   //HUNT REWARD 2
 
-  IFight.normalHuntingRewards.upgrade2.name = `Life ×<span class="boldBlackBorder">${format(f(IFight.normalHuntingRewards.upgrade2.effect))}</span>`
+  IFight.normalHuntingRewards.upgrade2.name = `Life ×<span class="boldBlackBorder">${format(f(IFight.normalHuntingRewards.upgrade2.effect), 0)}</span>`
 
   IFight.normalHuntingRewards.upgrade2.level = f(IFight.normalHuntingRewards.upgrade2.level)
 
@@ -2140,7 +2144,7 @@ function valuesSetter(type) {
 
   //HUNT REWARD 3
 
-  IFight.normalHuntingRewards.upgrade3.name = `Slime Multiplies Essence By ×<span class="boldBlackBorder">${format(f(IFight.normalHuntingRewards.upgrade3.effect))}</span>`
+  IFight.normalHuntingRewards.upgrade3.name = `Slime Multiplies Essence By ×<span class="boldBlackBorder">${format(f(IFight.normalHuntingRewards.upgrade3.effect), 0)}</span>`
 
   IFight.normalHuntingRewards.upgrade3.level = f(IFight.normalHuntingRewards.upgrade3.level)
 
@@ -2172,7 +2176,7 @@ function valuesSetter(type) {
 
   //HUNT REWARD 4
 
-  IFight.normalHuntingRewards.upgrade4.name = `Add <span class="boldBlackBorder">${format(f(IFight.normalHuntingRewards.upgrade4.effect).mul(f(100)))}%</span> Of Damage To Life`
+  IFight.normalHuntingRewards.upgrade4.name = `Add <span class="boldBlackBorder">${format(f(IFight.normalHuntingRewards.upgrade4.effect).mul(f(100)), 0)}%</span> Of Damage To Life`
 
   IFight.normalHuntingRewards.upgrade4.level = f(IFight.normalHuntingRewards.upgrade4.level)
 
@@ -2205,7 +2209,7 @@ function valuesSetter(type) {
 
   //HUNT REWARD 5
 
-  IFight.normalHuntingRewards.upgrade5.name = `Challenger First Reward ×<span class="boldBlackBorder">${format(f(IFight.normalHuntingRewards.upgrade5.effect))}</span>`
+  IFight.normalHuntingRewards.upgrade5.name = `Challenger First Reward ×<span class="boldBlackBorder">${format(f(IFight.normalHuntingRewards.upgrade5.effect), 0)}</span>`
 
   IFight.normalHuntingRewards.upgrade5.level = f(IFight.normalHuntingRewards.upgrade5.level)
 
@@ -2528,7 +2532,7 @@ function valuesSetter(type) {
   var sel = IUniversal.energyUpgrades.upgrade13
 
   sel.name = `Wyverns Essence/s <span class="boldBlackBorder">×log(Knights)</span> Per LVL`
-  sel.effectDesc = `×${format(f(sel.effect))}`
+  sel.effectDesc = `×${format(f(sel.effect), 0)}`
   sel.level = f(sel.level)
   if (f(IFight.normalHunting.hunt3.level).gte(2)) {
     sel.effect = f(Decimal.log2(IFight.normalHunting.hunt3.level)).mul(f(sel.level))
@@ -2670,7 +2674,7 @@ function valuesSetter(type) {
   var sel = IUniversal.energyUpgrades.upgrade20
 
   sel.name = `Universal Shards <span class="boldBlackBorder">×2</span> Per LVL`
-  sel.effectDesc = `× ${format(f(sel.effect))}`
+  sel.effectDesc = `×${format(f(sel.effect), 0)}`
   sel.level = f(sel.level)
   sel.effect = f(2).pow(f(sel.level))
   sel.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
@@ -5010,7 +5014,7 @@ function spheres(targetId, numSpheres, radiusXPercent, radiusYPercent, colorSele
     const normalizedAngle = ((angle) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI); // sempre tra 0 e 2π
     const rate = (2 * Math.PI) * (sideRate);
 
-    if (normalizedAngle< rate) {
+    if (normalizedAngle < rate) {
       if (frontActive) {
         behind.push(circle);
       }
@@ -5168,6 +5172,79 @@ function visualSvg(value) {
   return svg
 }
 
+// funzione principale per generare i cerchi
+function fibonacciUpTo(max) {
+  const seq = [1, 1];
+  while (true) {
+    const next = seq[seq.length - 1] + seq[seq.length - 2];
+    if (next > max) break;
+    seq.push(next);
+  }
+  return max < 1 ? [] : (max === 1 ? [1] : seq);
+}
+function ascensionRings(div, valore, spacingFactor = 1, padding = 0, startPercent = 0.2, scaleFactor = 1) {
+  const el = (typeof div === 'string') ? document.getElementById(div) : div;
+  if (!el) return;
+
+  let svg = el.querySelector('svg.ascension-overlay');
+  if (!svg) {
+    svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+    svg.classList.add('ascension-overlay');
+    Object.assign(svg.style, { 
+      width:'100%', 
+      height:'100%', 
+      position:'absolute', 
+      top:0, 
+      left:0,
+      zIndex: -1   // ⬅️ sempre dietro
+    });
+    el.style.position='relative';
+    el.appendChild(svg);
+  }
+
+  while (svg.firstChild) svg.removeChild(svg.firstChild);
+
+  const rect = el.getBoundingClientRect();
+  const cx = rect.width / 2;
+  const cy = rect.height / 2;
+  const maxRadius = (rect.width / 2) - padding;
+
+  const fibSeq = fibonacciUpTo(valore);
+  let step = maxRadius * spacingFactor / fibSeq.length;
+  let radii = [];
+  let currentRadius = startPercent * maxRadius;
+
+  for (let i = 0; i < fibSeq.length; i++) {
+    radii.push(currentRadius * scaleFactor);
+    currentRadius += step * Math.pow(1.2, i);
+  }
+
+  for (const r of radii) {
+    const circle = document.createElementNS(svg.namespaceURI, 'circle');
+    circle.setAttribute('cx', cx);
+    circle.setAttribute('cy', cy);
+    circle.setAttribute('r', r);
+    circle.setAttribute('data-original-r', r / scaleFactor); // salva raggio originale
+    circle.setAttribute('fill', 'none');
+    circle.setAttribute('stroke', '#8ab4ff');
+    circle.setAttribute('stroke-width', '2');
+    circle.setAttribute('stroke-opacity', '0.8');
+    svg.appendChild(circle);
+  }
+
+  svg.dataset.scale = scaleFactor; // salva fattore corrente
+}
+
+// funzione per scalare i cerchi
+function scaleAscensionRings(factor) {
+  IShowableClass.svg.ascensionCirclesScale = IShowableClass.svg.ascensionCirclesScale * factor
+
+  console.log(IShowableClass.svg.ascensionCirclesScale)
+}
+
+document.getElementById('scale-up').addEventListener('click', () => scaleAscensionRings(1.1));
+document.getElementById('scale-down').addEventListener('click', () => scaleAscensionRings(0.9));
+
 // Chiama la funzion
 
 
@@ -5277,6 +5354,10 @@ function visualMenu() {
   spheres('fp2_content2_7_svg3', tot3, 100, 60, "#0066ff", -2, 20, 2.25 / 3, false, true, -45 * Math.PI / 180);
 
   spheres('fp2_content2_7_svg4', tot4, 110, 66, "#ffd700", -2, 40, 2.25 / 3, false, true, -45 * Math.PI / 180);
+
+  //ascension Rings
+
+  ascensionRings('content2_8', IUniversal.universe, IShowableClass.svg.ascensionCirclesScale, 1, 0.5);
 }
 
 //VISUAL TRAINING
