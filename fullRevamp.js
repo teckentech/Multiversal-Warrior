@@ -1712,8 +1712,11 @@ function valuesSetter(type) {
     cDamage1 = f(IUniversalChallenger.challengers.universalChallenger.level).add(f(10))
   }
 
-
-  var cDamage2 = cDamage1.dividedBy(5).floor()
+  if (f(IUniversalChallenger.challengers.universalChallenger.level).gte(f(10))) {
+    var cDamage2 = cDamage1.dividedBy(5).floor()
+  } else {
+    cDamage2 = f(1)
+  }
 
   if (IUniversal.energyUpgrades.upgrade19.active) {
     var cDamage3 = IUniversal.energyUpgrades.upgrade19.effect;
@@ -1733,8 +1736,11 @@ function valuesSetter(type) {
     cLife1 = f(IUniversalChallenger.challengers.universalChallenger.level).add(f(10))
   }
 
-  var cLife2 = cLife1.dividedBy(5).floor()
-
+  if (f(IUniversalChallenger.challengers.universalChallenger.level).gte(f(10))) {
+    var cLife2 = cLife1.dividedBy(5).floor()
+  } else {
+    cLife2 = f(1)
+  }
   if (IUniversal.energyUpgrades.upgrade19.active) {
     var cLife3 = IUniversal.energyUpgrades.upgrade19.effect;
   }
@@ -3589,7 +3595,7 @@ function valuesSetter(type) {
     "But is that truly enough?\n" +
     "As you gaze at the endless stars, you glimpse a boundary, a limit only you can shatter\n" +
     "Breaking this limit will tear you apart\n" +
-     "but it is the only way to absorb the raw energy of a greater universe\n" +
+    "but it is the only way to absorb the raw energy of a greater universe\n" +
     "Beyond yours, there exist countless realms, some weaker, some far stronger.\n" +
     "Each time you transcend your limits, you draw in the power of another universe, energies fundamental to its very existence\n" +
     "With every energy claimed, you evolve, becoming harder to challenge, harder to overthrow\n" +
