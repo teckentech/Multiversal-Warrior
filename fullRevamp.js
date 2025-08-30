@@ -6972,7 +6972,7 @@ function format(number, type) {
 
       var num = number.mantissa
 
-      num = num.toFixed(0)
+      num = num.toFixed(2)
 
       return num + "e" + number.exponent;
     }
