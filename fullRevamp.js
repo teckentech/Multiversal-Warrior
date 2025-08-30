@@ -535,8 +535,24 @@ class Universal {
         unlocked: false,
         active: false, price: 0, priceIdentity: "universalShards", priceIdentityF: true,
       },
+    }
 
-
+    this.lore = options.lore || {
+      lore1: {
+        text: "", active: true,
+      },
+      lore2: {
+        text: "", active: true,
+      },
+      lore3: {
+        text: "", active: true,
+      },
+      lore4: {
+        text: "", active: true,
+      },
+      lore5: {
+        text: "", active: true,
+      },
     }
   }
 }
@@ -730,11 +746,11 @@ class ShowableClass {
 
 
 
-      fp2_content2_1_container: false, fp2_content2_6_container: false, fp2_content2_7_container: false, fp2_content2_11_container: false, fp2_content2_4_container: false, fp2_content2_10_container: false, fp2_content2_8_container: false, fp2_content1_8: false,
+      fp2_content2_1_container: false, fp2_content2_6_container: false, fp2_content2_7_container: false, fp2_content2_11_container: false, fp2_content2_4_container: false, fp2_content2_10_container: false, fp2_content2_8_container: false, fp2_content1_8: false, fp2_content2_12_container: false, fp2_content2_13_container: false, fp2_content2_14_container: false, fp2_content2_15_container: false, fp2_content2_16_container: false,
 
-      options: false, achievements: false, content2_1: false, content2_4: false, content2_6: false, content2_7: false, content2_8: false, content2_10: false, content2_11: false,
+      options: false, achievements: false, content2_1: false, content2_4: false, content2_6: false, content2_7: false, content2_8: false, content2_10: false, content2_11: false, content2_12: false, content2_13: false, content2_14: false, content2_15: false, content2_16: false,
 
-      fp2_content2_1: true, fp2_content2_4: true, fp2_content2_5: true, fp2_content2_6: true, fp2_achievements: false, fp2_content2_7: true, fp2_content2_8: true, fp2_content2_10: true, fp2_content2_11: true,
+      fp2_content2_1: true, fp2_content2_4: true, fp2_content2_5: true, fp2_content2_6: true, fp2_achievements: false, fp2_content2_7: true, fp2_content2_8: true, fp2_content2_10: true, fp2_content2_11: true, fp2_content2_12: true, fp2_content2_13: true, fp2_content2_14: true, fp2_content2_15: true, fp2_content2_16: true,
 
       fp3_content1_1: false, fp3_content1_2: false, fp3_content1_4: false, fp3_content1_8: false,
 
@@ -1396,10 +1412,10 @@ function visualAutomation() {
   if (IUniversal.automation.automation2.unlocked) {
     if (IUniversal.automation.automation2.active) {
       document.getElementById(`fp3_content1_8_auto2_b1`).style.backgroundColor = "#004526"
-      update("fp3_content1_8_auto2_b1", `<div class="noClick">ACTIVE</div>`)
+      update("fp3_content1_8_auto2_b1", `<div class="noClick">DEACTIVE</div>`)
     } else {
       document.getElementById(`fp3_content1_8_auto2_b1`).style.backgroundColor = "#660000"
-      update("fp3_content1_8_auto2_b1", `<div class="noClick">DEACTIVE</div>`)
+      update("fp3_content1_8_auto2_b1", `<div class="noClick">ACTIVE</div>`)
     }
   } else {
     update("fp3_content1_8_auto2_b1", `<div class="noClick">UPGRADE<div>
@@ -1411,10 +1427,10 @@ function visualAutomation() {
   if (IUniversal.automation.automation3.unlocked) {
     if (IUniversal.automation.automation3.active) {
       document.getElementById(`fp3_content1_8_auto3_b1`).style.backgroundColor = "#004526"
-      update("fp3_content1_8_auto3_b1", `<div class="noClick">ACTIVE</div>`)
+      update("fp3_content1_8_auto3_b1", `<div class="noClick">DEACTIVE</div>`)
     } else {
       document.getElementById(`fp3_content1_8_auto3_b1`).style.backgroundColor = "#660000"
-      update("fp3_content1_8_auto3_b1", `<div class="noClick">DEACTIVE</div>`)
+      update("fp3_content1_8_auto3_b1", `<div class="noClick">ACTIVE</div>`)
     }
   } else {
     update("fp3_content1_8_auto3_b1", `<div class="noClick">UPGRADE<div>
@@ -1430,10 +1446,10 @@ function visualAutomation() {
   if (IUniversal.automation.automation4.unlocked) {
     if (IUniversal.automation.automation4.active) {
       document.getElementById(`fp3_content1_8_auto4_b1`).style.backgroundColor = "#004526"
-      update("fp3_content1_8_auto4_b1", `<div class="noClick">ACTIVE</div>`)
+      update("fp3_content1_8_auto4_b1", `<div class="noClick">DEACTIVE</div>`)
     } else {
       document.getElementById(`fp3_content1_8_auto4_b1`).style.backgroundColor = "#660000"
-      update("fp3_content1_8_auto4_b1", `<div class="noClick">DEACTIVE</div>`)
+      update("fp3_content1_8_auto4_b1", `<div class="noClick">ACTIVE</div>`)
     }
   } else {
     update("fp3_content1_8_auto4_b1", `<div class="noClick">UPGRADE<div>
@@ -1450,10 +1466,10 @@ function visualAutomation() {
   if (IUniversal.automation.automation5.unlocked) {
     if (IUniversal.automation.automation5.active) {
       document.getElementById(`fp3_content1_8_auto5_b1`).style.backgroundColor = "#004526"
-      update("fp3_content1_8_auto5_b1", `<div class="noClick">ACTIVE</div>`)
+      update("fp3_content1_8_auto5_b1", `<div class="noClick">DEACTIVE</div>`)
     } else {
       document.getElementById(`fp3_content1_8_auto5_b1`).style.backgroundColor = "#660000"
-      update("fp3_content1_8_auto5_b1", `<div class="noClick">DEACTIVE</div>`)
+      update("fp3_content1_8_auto5_b1", `<div class="noClick">ACTIVE</div>`)
     }
   } else {
     update("fp3_content1_8_auto5_b1", `<div class="noClick">UPGRADE<div>
@@ -3538,6 +3554,54 @@ function valuesSetter(type) {
   //AUTOMATION 5
 
   IUniversal.automation.automation5.price = (f(10).pow(f(24)))
+
+
+
+  //LORE
+
+  //note1
+  IUniversal.lore.lore1 = "Welcome to your first universe\n" +
+    "A barren realm, the weakest among the infinite worlds scattered across existence\n" +
+    "There is only one path forward: grow stronger, by any means necessary\n" +
+    "Train, little warrior… and in time, the Multiverse itself will kneel before you";
+
+  //note2
+  IUniversal.lore.lore2 = "Challengers, Creatures, just like you\n" +
+    "Here, strength is the only measure of worth, and the only way to prove it is to win\n" +
+    "A simple law of nature. No wealth, no luck, only raw Power\n" +
+    "But if all that matters is to endlessly grasp for more Power…\n" +
+    "What meaning remains in the struggle itself?";
+
+  //note3
+  IUniversal.lore.lore3 = "There are two absolute truths in this world: you win, or you die\n" +
+    "But what truly happens when something dies?\n" +
+    "Some claim its soul merges with yours, resonating in harmony\n" +
+    "Others believe the fallen body grants its finest qualities\n" +
+    "And there are those who say it is simply the reward of killing\n" +
+    "A natural law written into existence itself\n" +
+    "No one really knows the truth.\n" +
+    "The only certainty is this: Essence flows from death, and Essence makes you stronger\n" +
+    "And that alone is enough to satisfy everyone";
+
+  //note4
+  IUniversal.lore.lore4 = "You stand at the pinnacle of this universe\n" +
+    "Nothing can defeat you\n" +
+    "But is that truly enough?\n" +
+    "As you gaze at the endless stars, you glimpse a boundary, a limit only you can shatter\n" +
+    "Breaking this limit will tear you apart\n" +
+     "but it is the only way to absorb the raw energy of a greater universe\n" +
+    "Beyond yours, there exist countless realms, some weaker, some far stronger.\n" +
+    "Each time you transcend your limits, you draw in the power of another universe, energies fundamental to its very existence\n" +
+    "With every energy claimed, you evolve, becoming harder to challenge, harder to overthrow\n" +
+    "But the question remains: how many universes lie beyond the veil?\n" +
+    "And if you never stop breaking your limits… will you one day stand at the pinnacle of all creation?";
+
+  //note5
+  IUniversal.lore.lore5 = "As your abilities refine, you begin to strike a roadblock\n" +
+    "Raw strength can take you far, but not far enough. Talent must now emerge\n" +
+    "Attributes, when properly honed, reveal their true essence, a formula for growth\n" +
+    "Yet to awaken them, you must gather fragments of other Universal Climbers like yourself\n" +
+    "Such power demands sacrifice. Are you ready to face how much further you still have to climb?";
 }
 
 function valuesSetterDinamic(type) {
@@ -3930,6 +3994,35 @@ document.getElementById("fp2_content2_11").onclick = function () {
 
   element.scrollTop = element.scrollHeight
 }
+
+//note 1
+document.getElementById("fp2_content2_12").onclick = function () {
+  changePage("mainMenu", "content2_12")
+}
+
+//note 2
+document.getElementById("fp2_content2_13").onclick = function () {
+  changePage("mainMenu", "content2_13")
+}
+
+
+//note 3
+document.getElementById("fp2_content2_14").onclick = function () {
+  changePage("mainMenu", "content2_14")
+}
+
+
+//note 4
+document.getElementById("fp2_content2_15").onclick = function () {
+  changePage("mainMenu", "content2_15")
+}
+
+
+//note 5
+document.getElementById("fp2_content2_16").onclick = function () {
+  changePage("mainMenu", "content2_16")
+}
+
 
 ///////
 
@@ -5188,17 +5281,17 @@ function ascensionRings(div, valore, spacingFactor = 1, padding = 0, startPercen
 
   let svg = el.querySelector('svg.ascension-overlay');
   if (!svg) {
-    svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+    svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
     svg.classList.add('ascension-overlay');
-    Object.assign(svg.style, { 
-      width:'100%', 
-      height:'100%', 
-      position:'absolute', 
-      top:0, 
-      left:0,
+    Object.assign(svg.style, {
+      width: '100%',
+      height: '100%',
+      position: 'absolute',
+      top: 0,
+      left: 0,
       zIndex: -1   // ⬅️ sempre dietro
     });
-    el.style.position='relative';
+    el.style.position = 'relative';
     el.appendChild(svg);
   }
 
@@ -5303,6 +5396,19 @@ function visualMenu() {
 
   document.getElementById("fp2_content2_8_image").style.backgroundImage = `url("images/ascension.png")`
 
+  //notes
+
+  document.getElementById("fp2_content2_12_image").style.backgroundImage = `url("images/note 1 version 1.png")`
+
+  document.getElementById("fp2_content2_13_image").style.backgroundImage = `url("images/note 2 version 1.png")`
+
+  document.getElementById("fp2_content2_14_image").style.backgroundImage = `url("images/note 3 version 1.png")`
+
+  document.getElementById("fp2_content2_15_image").style.backgroundImage = `url("images/note 4 version 1.png")`
+
+  document.getElementById("fp2_content2_16_image").style.backgroundImage = `url("images/note 5 version 1.png")`
+
+
 
   //svg
 
@@ -5355,9 +5461,16 @@ function visualMenu() {
 
   spheres('fp2_content2_7_svg4', tot4, 110, 66, "#ffd700", -2, 40, 2.25 / 3, false, true, -45 * Math.PI / 180);
 
-  //ascension Rings
+}
 
-  ascensionRings('content2_8', IUniversal.universe, IShowableClass.svg.ascensionCirclesScale, 1, 0.5);
+//LORE
+
+function visualLore() {
+  update("content2_12_text", IUniversal.lore.lore1)
+  update("content2_13_text", IUniversal.lore.lore2)
+  update("content2_14_text", IUniversal.lore.lore3)
+  update("content2_15_text", IUniversal.lore.lore4)
+  update("content2_16_text", IUniversal.lore.lore5)
 }
 
 //VISUAL TRAINING
@@ -5498,7 +5611,7 @@ function visualChallenger() {
   if (IFight.youStats.onFight1 == false) {
     if (f(IFight.challengers.baseChallenger.level).gt(f(IFight.challengers.baseChallenger.maxLevel))) {
       update("c2_4_VS", `<span class="boldBlackBorder noClick">MAX</span>`)
-      document.getElementById("c2_4_VS").style.backgroundColor = "#36454f"
+      document.getElementById("c2_4_VS").style.backgroundColor = "#1e8449"
     } else {
       update("c2_4_VS", `<span class="boldBlackBorder noClick">CHALLENGE</span>`)
       document.getElementById("c2_4_VS").style.backgroundColor = "#1e8449"
@@ -5641,11 +5754,11 @@ function visualChallenger() {
     update(`c2_10_challenges_${x}_p1`, sel.name)
     if (sel.active == true) {
       update(`c2_10_challenges_${x}_p2`, `<span class="boldBlackBorder noClick">STOP CHALLENGE</span>`)
-      document.getElementById(`c2_10_challenges_${x}_p2`).style.backgroundColor = "#004526"
+      document.getElementById(`c2_10_challenges_${x}_p2`).style.backgroundColor = "#972a2aff"
     }
     else {
       update(`c2_10_challenges_${x}_p2`, `<span class="boldBlackBorder noClick">CHALLENGE</span>`)
-      document.getElementById(`c2_10_challenges_${x}_p2`).style.backgroundColor = "#660000"
+      document.getElementById(`c2_10_challenges_${x}_p2`).style.backgroundColor = "#1e8449"
     }
   }
 
@@ -6234,10 +6347,10 @@ function visualAttributes() {
   update("content2_11_grid_b7_cont_1_1", `Disable Universal Cores/s, Obtain Life Steal Equal To Universal Cores/s`)
 
   if (IUniversal.attributes.lifeSteal.active) {
-    update("content2_11_grid_b7_cont_b1", `<div class="noClick">ENABLE UNIVERSAL CORES/S</div>`)
+    update("content2_11_grid_b7_cont_b1", `<div class="noClick">DEACTIVE</div>`)
     document.getElementById(`content2_11_grid_b7_cont_b1`).style.backgroundColor = "#660000"
   } else {
-    update("content2_11_grid_b7_cont_b1", `<div class="noClick">DISABLE UNIVERSAL CORES/S</div>`)
+    update("content2_11_grid_b7_cont_b1", `<div class="noClick">ACTIVE</div>`)
     document.getElementById(`content2_11_grid_b7_cont_b1`).style.backgroundColor = "#004526"
   }
 
@@ -6440,14 +6553,14 @@ async function fight(type, enemy, signal) {
   }
 
   if (type === "universalChallenger") {
-    const challenger = IUniversalChallenger.challengers.universalChallenger;
-
     var abortHandler2 = () => {
       IFight.youStats.onFight2 = false;
+      IUniversalChallenger.challengers.universalChallenger.level = f(1)
     };
 
     if (signal?.aborted) {
       IFight.youStats.onFight2 = false;
+      IUniversalChallenger.challengers.universalChallenger.level = f(1)
       return;
     }
 
@@ -6546,10 +6659,12 @@ async function fight(type, enemy, signal) {
 
     var abortHandler2 = () => {
       IFight.youStats.onFight2 = false;
+      IUniversalChallenger.challengers.universalChallenger.level = f(1)
     };
 
     if (signal?.aborted) {
       IFight.youStats.onFight2 = false;
+      IUniversalChallenger.challengers.universalChallenger.level = f(1)
       return;
     }
 
@@ -6656,10 +6771,12 @@ async function fight(type, enemy, signal) {
 
     var abortHandler2 = () => {
       IFight.youStats.onFight2 = false;
+      IUniversalChallenger.challengers.universalChallenger.level = f(1)
     };
 
     if (signal?.aborted) {
       IFight.youStats.onFight2 = false;
+      IUniversalChallenger.challengers.universalChallenger.level = f(1)
       return;
     }
 
@@ -6960,17 +7077,26 @@ function loopShow() {
   //Tabs
 
   unlockShow("fp2_content2_1_container", true)
+  unlockShow("fp2_content2_12_container", true)
 
   if (IProgress.progress.p1Check() == true || f(IUniversal.universe).gte(f(2))) {
     unlockShow("fp2_content2_4_container", true)
     document.getElementById("fp2_content2_4_image").style.opacity = "1";  // attivo 1, disattivo 0.5
     update("fp2_content2_4", "Challenger")
     document.getElementById("fp2_content2_4").style.pointerEvents = "auto";
+
+    unlockShow("fp2_content2_13_container", true)
+    document.getElementById("fp2_content2_13_image").style.opacity = "1";  // attivo 1, disattivo 0.5
+    document.getElementById("fp2_content2_13").style.pointerEvents = "auto";
   } else {
     unlockShow("fp2_content2_4_container", true)
     document.getElementById("fp2_content2_4_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
     update("fp2_content2_4", "Reach 10 Life")
     document.getElementById("fp2_content2_4").style.pointerEvents = "none";
+
+    unlockShow("fp2_content2_13_container", true)
+    document.getElementById("fp2_content2_13_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
+    document.getElementById("fp2_content2_13").style.pointerEvents = "none";
   }
 
   if (IProgress.progress.p1Check() == true || f(IUniversal.universe).gte(f(2))) {
@@ -6979,14 +7105,23 @@ function loopShow() {
       document.getElementById("fp2_content2_6_image").style.opacity = "1";  // attivo 1, disattivo 0.5
       update("fp2_content2_6", "Hunting")
       document.getElementById("fp2_content2_6").style.pointerEvents = "auto";
+
+      unlockShow("fp2_content2_14_container", true)
+      document.getElementById("fp2_content2_14_image").style.opacity = "1";  // attivo 1, disattivo 0.5
+      document.getElementById("fp2_content2_14").style.pointerEvents = "auto";
     } else {
       unlockShow("fp2_content2_6_container", true)
       document.getElementById("fp2_content2_6_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
       update("fp2_content2_6", "Defeat Challenger 3")
       document.getElementById("fp2_content2_6").style.pointerEvents = "none";
+
+      unlockShow("fp2_content2_14_container", true)
+      document.getElementById("fp2_content2_14_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
+      document.getElementById("fp2_content2_14").style.pointerEvents = "none";
     }
   } else {
     unlockShow("fp2_content2_6_container", false)
+    unlockShow("fp2_content2_14_container", false)
   }
 
   if (IProgress.progress.p2Check() == true || f(IUniversal.universe).gte(f(2))) {
@@ -6995,14 +7130,23 @@ function loopShow() {
       document.getElementById("fp2_content2_8_image").style.opacity = "1";  // attivo 1, disattivo 0.5
       update("fp2_content2_8", "Ascension")
       document.getElementById("fp2_content2_8").style.pointerEvents = "auto";
+
+      unlockShow("fp2_content2_15_container", true)
+      document.getElementById("fp2_content2_15_image").style.opacity = "1";  // attivo 1, disattivo 0.5
+      document.getElementById("fp2_content2_15").style.pointerEvents = "auto";
     } else {
       unlockShow("fp2_content2_8_container", true)
       document.getElementById("fp2_content2_8_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
       update("fp2_content2_8", "Defeat Challenger 10")
       document.getElementById("fp2_content2_8").style.pointerEvents = "none";
+
+      unlockShow("fp2_content2_15_container", true)
+      document.getElementById("fp2_content2_15_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
+      document.getElementById("fp2_content2_15").style.pointerEvents = "none";
     }
   } else {
     unlockShow("fp2_content2_8_container", false)
+    unlockShow("fp2_content2_15_container", false)
   }
 
   if (IProgress.progress.p3Check() == true || f(IUniversal.universe).gte(f(2))) {
@@ -7034,6 +7178,10 @@ function loopShow() {
       document.getElementById("fp2_content2_11").style.pointerEvents = "auto";
 
       unlockShow("fp2_content1_8", true)
+
+      unlockShow("fp2_content2_16_container", true)
+      document.getElementById("fp2_content2_16_image").style.opacity = "1";  // attivo 1, disattivo 0.5
+      document.getElementById("fp2_content2_16").style.pointerEvents = "auto";
     } else {
       unlockShow("fp2_content2_10_container", true)
       document.getElementById("fp2_content2_10_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
@@ -7044,11 +7192,17 @@ function loopShow() {
       document.getElementById("fp2_content2_11_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
       update("fp2_content2_11", "Reach Universe 5")
       document.getElementById("fp2_content2_11").style.pointerEvents = "none";
+
+      unlockShow("fp2_content2_16_container", true)
+      document.getElementById("fp2_content2_16_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
+      document.getElementById("fp2_content2_16").style.pointerEvents = "none";
     }
   } else {
     unlockShow("fp2_content2_10_container", false)
     unlockShow("fp2_content2_11_container", false)
     unlockShow("fp2_content1_8", false)
+    unlockShow("fp2_content2_16_container", false)
+
   }
 
 
@@ -7312,7 +7466,8 @@ function changePage(type, page) {
   if (type === "mainMenu") {
     // Nasconde tutto
     hideElements([
-      "content2_1", "content2_2", "fcontent2_3", "content2_4", "content2_5", "content2_6", "content2_7", "content2_8", "content2_10", "content2_11", "options", "achievements", "fp3_content1_7", "fp3_content1_8"
+      "content2_1", "content2_2", "fcontent2_3", "content2_4", "content2_5", "content2_6", "content2_7", "content2_8", "content2_10", "content2_11", "content2_12", "content2_13", "content2_14", "content2_15", "content2_16",
+      "options", "achievements", "fp3_content1_7", "fp3_content1_8", "fp3_content1_12", "fp3_content1_13", "fp3_content1_14", "fp3_content1_15", "fp3_content1_16"
     ]);
 
     if (page !== "out") {
@@ -7376,6 +7531,8 @@ function visualLoopFunction() {
 
   if (checkShow("content2_8")) {
     visualUniversal()
+    ascensionRings('content2_8', IUniversal.universe, IShowableClass.svg.ascensionCirclesScale, 1, 0.5);
+
   }
 
   if (checkShow("content2_7")) {
@@ -7383,6 +7540,8 @@ function visualLoopFunction() {
   }
 
   visualMenu()
+
+  visualLore()
 
   visualAutomation()
 
