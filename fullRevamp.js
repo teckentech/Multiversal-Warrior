@@ -3547,19 +3547,19 @@ function valuesSetter(type) {
 
   //AUTOMATION 2
 
-  IUniversal.automation.automation2.price = (f(10).pow(f(8)))
+  IUniversal.automation.automation2.price = (f(10).pow(f(7)))
 
   //AUTOMATION 3
 
-  IUniversal.automation.automation3.price = (f(10).pow(f(13)))
+  IUniversal.automation.automation3.price = (f(10).pow(f(11)))
 
   //AUTOMATION 4
 
-  IUniversal.automation.automation4.price = (f(10).pow(f(17)))
+  IUniversal.automation.automation4.price = (f(10).pow(f(15)))
 
   //AUTOMATION 5
 
-  IUniversal.automation.automation5.price = (f(10).pow(f(24)))
+  IUniversal.automation.automation5.price = (f(10).pow(f(23)))
 
 
 
