@@ -4595,7 +4595,7 @@ document.getElementById("content1_7_ascension_button").onclick = function () {
 
   if (!IUniversal.automation.automation5.unlocked) {
 
-    if ((f((IFight.challengers.baseChallenger.level)).minus(f(1))).eq(f(IFight.challengers.baseChallenger.maxLevel))) {
+    if ((f((IFight.challengers.baseChallenger.level)).minus(f(1))).gte(f(IFight.challengers.baseChallenger.maxLevel))) {
       partialResetSave(1)
 
       IUniversal.universe = f(IUniversal.universe).add(f(1))
@@ -4611,7 +4611,7 @@ document.getElementById("content1_7_ascension_button").onclick = function () {
 
     }
   } else {
-    if ((f((IFight.challengers.baseChallenger.level)).minus(f(1))).eq(f(IFight.challengers.baseChallenger.maxLevel))) {
+    if ((f((IFight.challengers.baseChallenger.level)).minus(f(1))).gte(f(IFight.challengers.baseChallenger.maxLevel))) {
       partialResetSave(2)
 
       IUniversal.universe = f(IUniversal.universe).add(f(1))
