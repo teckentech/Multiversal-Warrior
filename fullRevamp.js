@@ -5486,8 +5486,15 @@ function visualTraining() {
     var sel = ITraining.base[x]
 
     update(x + "_1", `<div>${sel.name}</div>`)
-    update(x + "_2", `<div>${sel.description}</div>`)
-    update(x + "_3", `<div>${format(sel.prod)}/s</div>`)
+
+    if (sel.name == "Damage") {
+      update(x + "_2", `<div>${sel.description}  (${format(f(IFight.youStats.damage), 0)})</div>`)
+    } else if (sel.name == "Life") {
+      update(x + "_2", `<div>${sel.description}  (${format(f(IFight.youStats.life), 0)})</div>`)
+    } else {
+      update(x + "_2", `<div>${sel.description}</div>`)
+    }
+    update(x + "_3", `<div>${format(sel.prod, 2)}/s</div>`)
 
     if (x == "base3" || x == "base4") {
 
