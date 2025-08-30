@@ -1781,7 +1781,7 @@ function valuesSetter(type) {
 
 
 
-  IUniversalChallenger.universalChallengerChallenges.c2.name = `<div>Only Training, Harder Universal Challenger</div>`
+  IUniversalChallenger.universalChallengerChallenges.c2.name = `<div>Only Training, harder Universal Challenger</div>`
 
 
   IUniversalChallenger.universalChallengerChallengesRewards.c2.level = f(IUniversalChallenger.universalChallengerChallengesRewards.c2.level)
@@ -1856,7 +1856,7 @@ function valuesSetter(type) {
     }
   }
 
-  sel.reqDescription = "Reach 1e3 Damage to Unlock Next";
+  sel.reqDescription = "Reach 1e3 Damage to unlock next";
 
   if (f(sel.level).greaterThan(f(0))) {
     sel.active = true;
@@ -1909,8 +1909,8 @@ function valuesSetter(type) {
 
   sel2.reqDescription = `
   <div class="width100">
-    <div><i>People Who Failed This Universe</i></div>
-    <div>Reach 1000 Damage to Unlock Zombie  (${format(f(IFight.youStats.damage), 1)} / 1000)</div>
+    <div><i>People who failed this universe</i></div>
+    <div>Reach 1000 Damage to unlock Zombie  (${format(f(IFight.youStats.damage), 1)} / 1000)</div>
   </div>`;
 
   if (f(sel2.level).greaterThan(f(0))) {
@@ -1963,8 +1963,8 @@ function valuesSetter(type) {
 
   sel3.reqDescription = `
   <div class="width100">
-    <div><i>Why Suddenly Every Knight Wants To Duel Me? Werent Challengers Enought?</i></div>
-    <div>Reach 1e4 Damage to Unlock Knight  (${format(f(IFight.youStats.damage), 1)} / 1e4)</div>
+    <div><i>Why suddenly every knight wants to duel me? Werent Challengers enought?</i></div>
+    <div>Reach 1e4 Damage to unlock Knight  (${format(f(IFight.youStats.damage), 1)} / 1e4)</div>
   </div>`;
 
   if (f(sel3.level).greaterThan(f(0))) {
@@ -2018,8 +2018,8 @@ function valuesSetter(type) {
 
   sel4.reqDescription = `
   <div class="width100">
-    <div><i>Demons Have Been Meeting Me, They Tell Me Im The Chosen</i></div>
-    <div>Reach 1e5 Damage to Unlock Demon  (${format(f(IFight.youStats.damage), 1)} / 1e5)</div>
+    <div><i>Demons have been meeting me, they tell me im the chosen</i></div>
+    <div>Reach 1e5 Damage to unlock Demon  (${format(f(IFight.youStats.damage), 1)} / 1e5)</div>
   </div>`;
 
   if (f(sel4.level).greaterThan(f(0))) {
@@ -2078,8 +2078,8 @@ function valuesSetter(type) {
 
   sel5.reqDescription = `
   <div class="width100">
-    <div><i>Fortunately No Wyvern Knights, I've Already Dealt With The Knights Alone</i></div>
-    <div>Reach 1e6 Damage to Unlock Wyvern  (${format(f(IFight.youStats.damage), 1)} / 1e6)</div>
+    <div><i>Fortunately no wyvern knights, i've already dealt with the knights alone</i></div>
+    <div>Reach 1e6 Damage to unlock Wyvern  (${format(f(IFight.youStats.damage), 1)} / 1e6)</div>
   </div>`;
 
   if (f(sel5.level).greaterThan(f(0))) {
@@ -2116,7 +2116,7 @@ function valuesSetter(type) {
 
   IFight.normalHuntingRewards.upgrade1.reqDescription = `
   <div class="width100">
-    <div><i class="centerDiv">Slime Cores When Ingested Makes Me Stronger</i></div>
+    <div><i class="centerDiv">Slime cores when Ingested makes me stronger</i></div>
     <div class="centerDiv">Reach 10 ${IFight.normalHunting.hunt1.name}  (${format(f(IFight.normalHunting.hunt1.level), 0)} / 10)</div>
   </div>`;
 
@@ -2149,7 +2149,7 @@ function valuesSetter(type) {
 
   IFight.normalHuntingRewards.upgrade2.reqDescription = `
   <div class="width100">
-    <div><i class="centerDiv">Understanding Zombies Life Forms Makes Me Able Inflict Curses On My Enemies! Am I Evil?</i></div>
+    <div><i class="centerDiv">Understanding zombies life forms makes me able inflict curses on my enemies! Am i evil?</i></div>
     <div class="centerDiv">Reach 10 ${IFight.normalHunting.hunt2.name}  (${format(f(IFight.normalHunting.hunt2.level), 0)} / 10)</div>
   </div>`;
 
@@ -2160,7 +2160,7 @@ function valuesSetter(type) {
 
   //HUNT REWARD 3
 
-  IFight.normalHuntingRewards.upgrade3.name = `Slime Multiplies Essence By ×<span class="boldBlackBorder">${format(f(IFight.normalHuntingRewards.upgrade3.effect), 0)}</span>`
+  IFight.normalHuntingRewards.upgrade3.name = `Slime multiplies Essence by ×<span class="boldBlackBorder">${format(f(IFight.normalHuntingRewards.upgrade3.effect), 0)}</span>`
 
   IFight.normalHuntingRewards.upgrade3.level = f(IFight.normalHuntingRewards.upgrade3.level)
 
@@ -2182,7 +2182,7 @@ function valuesSetter(type) {
 
   IFight.normalHuntingRewards.upgrade3.reqDescription = `
   <div class="width100">
-    <div><i class="centerDiv">Slime Infused With Blessings Is An Essence Concentrator</i></div>
+    <div><i class="centerDiv">Slime infused with blessings is an essence concentrator</i></div>
     <div class="centerDiv">Reach 10 ${IFight.normalHunting.hunt3.name}  (${format(f(IFight.normalHunting.hunt3.level), 0)} / 10)</div>
   </div>`;
 
@@ -2192,7 +2192,7 @@ function valuesSetter(type) {
 
   //HUNT REWARD 4
 
-  IFight.normalHuntingRewards.upgrade4.name = `Add <span class="boldBlackBorder">${format(f(IFight.normalHuntingRewards.upgrade4.effect).mul(f(100)), 0)}%</span> Of Damage To Life`
+  IFight.normalHuntingRewards.upgrade4.name = `Add <span class="boldBlackBorder">${format(f(IFight.normalHuntingRewards.upgrade4.effect).mul(f(100)), 0)}%</span> of Damage to Life`
 
   IFight.normalHuntingRewards.upgrade4.level = f(IFight.normalHuntingRewards.upgrade4.level)
 
@@ -2215,7 +2215,7 @@ function valuesSetter(type) {
 
   IFight.normalHuntingRewards.upgrade4.reqDescription = `
   <div class="width100">
-    <i class="centerDiv">The Stronger I Am, The Stronger I Spite Death</i></div>
+    <i class="centerDiv">The stronger i am, the stronger i spite death</i></div>
     <div class="centerDiv">Reach 10 ${IFight.normalHunting.hunt4.name}  (${format(f(IFight.normalHunting.hunt4.level), 0)} / 10)</div>
   </div>`;
 
@@ -2225,7 +2225,7 @@ function valuesSetter(type) {
 
   //HUNT REWARD 5
 
-  IFight.normalHuntingRewards.upgrade5.name = `Challenger First Reward ×<span class="boldBlackBorder">${format(f(IFight.normalHuntingRewards.upgrade5.effect), 0)}</span>`
+  IFight.normalHuntingRewards.upgrade5.name = `Challenger first reward ×<span class="boldBlackBorder">${format(f(IFight.normalHuntingRewards.upgrade5.effect), 0)}</span>`
 
   IFight.normalHuntingRewards.upgrade5.level = f(IFight.normalHuntingRewards.upgrade5.level)
 
@@ -2247,7 +2247,7 @@ function valuesSetter(type) {
 
   IFight.normalHuntingRewards.upgrade5.reqDescription = `
   <div class="width100">
-    <i class="centerDiv">Draconic Arts Enchance My Training... Is The Wyvern A Dragon?</i></div>
+    <i class="centerDiv">Draconic arts enchance my training... is the wyvern a dragon?</i></div>
     <div class="centerDiv">Reach 10 ${IFight.normalHunting.hunt5.name}  (${format(f(IFight.normalHunting.hunt5.level), 0)} / 10)</div></div>
   </div>`;
 
@@ -2271,11 +2271,11 @@ function valuesSetter(type) {
   //REQUISITES
   //Base
 
-  ITraining.reqDescription = `<div><i class="centerDiv">Push Yourself Beyond Your Limits, Not Only In Flesh And Bones Strength Resides</i><br>
-  <div class="centerDiv">Unlock New Training At 10 Power</div></div>`
+  ITraining.reqDescription = `<div><i class="centerDiv">Push yourself beyond your limits, not only in flesh and bones strength resides</i><br>
+  <div class="centerDiv">Unlock new training at 10 Power</div></div>`
 
-  ITraining.base.base3.reqDescription = `<div><i class="centerDiv">Push Yourself Beyond Your Limits, Not Only In Flesh And Bones Strength Resides</i><br>
-  <div class="centerDiv">Unlock New Training At 10 Power</div></div>`
+  ITraining.base.base3.reqDescription = `<div><i class="centerDiv">Push yourself beyond your limits, not only in flesh and bones strength resides</i><br>
+  <div class="centerDiv">Unlock new training at 10 Power</div></div>`
 
   ITraining.base.base4.reqDescription = `<div><i class="centerDiv">In This Reality, The Mind Sees More Than Eyes Can, Is This World Enough?</i><br>
   <div class="centerDiv">Unlock New Training At 10 Power</div></div>`;
@@ -2292,7 +2292,7 @@ function valuesSetter(type) {
   //POTENTIAL
   var sel = IUniversal.energyUpgrades.upgrade1
 
-  sel.name = `<div>Add <span class="boldBlackBorder">10/s</span> To Damage Training</div><div>×10 Per LVL</div>`
+  sel.name = `<div>Add <span class="boldBlackBorder">10/s</span> to Damage Training</div><div>×10 per LVL</div>`
   sel.effectDesc = `+${sel.effect}`
   sel.level = f(sel.level)
   if (f(sel.level).gte(f(1))) {
@@ -2312,7 +2312,7 @@ function valuesSetter(type) {
 
   var sel = IUniversal.energyUpgrades.upgrade2
 
-  sel.name = `Damage <span class="boldBlackBorder">×2</span> Per LVL`
+  sel.name = `Damage <span class="boldBlackBorder">×2</span> per LVL`
   sel.effectDesc = `×${sel.effect}`
   sel.level = f(sel.level)
   sel.effect = f(2).pow(f(sel.level))
@@ -2332,7 +2332,7 @@ function valuesSetter(type) {
 
   var sel = IUniversal.energyUpgrades.upgrade3
 
-  sel.name = `Damage Training <span class="boldBlackBorder">×5</span> Per LVL`
+  sel.name = `Damage Training <span class="boldBlackBorder">×5</span> per LVL`
   sel.effectDesc = `×${sel.effect}`
   sel.level = f(sel.level)
   sel.effect = f(5).pow(f(sel.level))
@@ -2352,7 +2352,7 @@ function valuesSetter(type) {
 
   var sel = IUniversal.energyUpgrades.upgrade4
 
-  sel.name = `<div>Damage <span class="boldBlackBorder">×</span></div> <div><span class="boldBlackBorder">log(Universe Time)</span> Per LVL</div>`
+  sel.name = `<div>Damage <span class="boldBlackBorder">×</span></div> <div><span class="boldBlackBorder">log(Universe Time)</span> per LVL</div>`
   sel.effectDesc = `×${format(f(sel.effect), 0)}`
   sel.level = f(sel.level)
   if (f(IGameData.universeTime).gte(f(3)) && IGameData.universeTime != "NaN" && IGameData.universeTime != undefined) {
@@ -2376,7 +2376,7 @@ function valuesSetter(type) {
 
   var sel = IUniversal.energyUpgrades.upgrade5
 
-  sel.name = `Damage <span class="boldBlackBorder">^1.02</span> Per LVL`
+  sel.name = `Damage <span class="boldBlackBorder">^1.02</span> per LVL`
   sel.effectDesc = `^${format(f(sel.effect), 2)}`
   sel.level = f(sel.level)
   sel.effect = f(1).add(f(0.02).mul(f(sel.level)))
@@ -2397,7 +2397,7 @@ function valuesSetter(type) {
   //WEIGHT
   var sel = IUniversal.energyUpgrades.upgrade6
 
-  sel.name = `<div>Add <span class="boldBlackBorder">10/s</span> To Life Training</div><div>×10 Per LVL</div>`
+  sel.name = `<div>Add <span class="boldBlackBorder">10/s</span> to Life Training</div><div>×10 per LVL</div>`
   sel.effectDesc = `+${sel.effect}`
   sel.level = f(sel.level)
   if (f(sel.level).gte(f(1))) {
@@ -2417,7 +2417,7 @@ function valuesSetter(type) {
 
   var sel = IUniversal.energyUpgrades.upgrade7
 
-  sel.name = `<div>Life Training <span class="boldBlackBorder">×</span></div> <div><span class="boldBlackBorder">Universe</span> Per LVL</div>`
+  sel.name = `<div>Life Training <span class="boldBlackBorder">×</span></div> <div><span class="boldBlackBorder">Universe</span> per LVL</div>`
   sel.effectDesc = `×${sel.effect}`
   sel.level = f(sel.level)
   sel.effect = f(IUniversal.universe).mul(f(sel.level))
@@ -2437,7 +2437,7 @@ function valuesSetter(type) {
 
   var sel = IUniversal.energyUpgrades.upgrade8
 
-  sel.name = `Life Training <span class="boldBlackBorder">×2</span> Per LVL`
+  sel.name = `Life Training <span class="boldBlackBorder">×2</span> per LVL`
   sel.effectDesc = `×${sel.effect}`
   sel.level = f(sel.level)
   sel.effect = f(2).pow(f(sel.level))
@@ -2457,7 +2457,7 @@ function valuesSetter(type) {
 
   var sel = IUniversal.energyUpgrades.upgrade9
 
-  sel.name = `Life <span class="boldBlackBorder">×5</span> Per LVL`
+  sel.name = `Life <span class="boldBlackBorder">×5</span> per LVL`
   sel.effectDesc = `×${sel.effect}`
   sel.level = f(sel.level)
   sel.effect = f(5).pow(f(sel.level))
@@ -2477,7 +2477,7 @@ function valuesSetter(type) {
 
   var sel = IUniversal.energyUpgrades.upgrade10
 
-  sel.name = `Life <span class="boldBlackBorder">^1.02</span> Per LVL`
+  sel.name = `Life <span class="boldBlackBorder">^1.02</span> per LVL`
   sel.effectDesc = `^${format(f(sel.effect), 2)}`
   sel.level = f(sel.level)
   sel.effect = f(1).add(f(0.02).mul(f(sel.level)))
@@ -2498,7 +2498,7 @@ function valuesSetter(type) {
   //PURITY
   var sel = IUniversal.energyUpgrades.upgrade11
 
-  sel.name = `Essence/s <span class="boldBlackBorder">×5</span> Per LVL`
+  sel.name = `Essence/s <span class="boldBlackBorder">×5</span> per LVL`
   sel.effectDesc = `×${sel.effect}`
   sel.level = f(sel.level)
   sel.effect = f(5).pow(f(sel.level))
@@ -2514,7 +2514,7 @@ function valuesSetter(type) {
 
   var sel = IUniversal.energyUpgrades.upgrade12
 
-  sel.name = `Essence/s <span class="boldBlackBorder">×log(Total Hunt Levels Per LVL)</span>`
+  sel.name = `Essence/s <span class="boldBlackBorder">×log(Total hunt levels per LVL)</span>`
   sel.effectDesc = `×${format(f(sel.effect), 0)}`
   sel.level = f(sel.level)
 
@@ -2547,7 +2547,7 @@ function valuesSetter(type) {
 
   var sel = IUniversal.energyUpgrades.upgrade13
 
-  sel.name = `Wyverns Essence/s <span class="boldBlackBorder">×log(Knights)</span> Per LVL`
+  sel.name = `Wyverns Essence/s <span class="boldBlackBorder">×log(Knights)</span> per LVL`
   sel.effectDesc = `×${format(f(sel.effect), 0)}`
   sel.level = f(sel.level)
   if (f(IFight.normalHunting.hunt3.level).gte(2)) {
@@ -2572,7 +2572,7 @@ function valuesSetter(type) {
 
   var sel = IUniversal.energyUpgrades.upgrade14
 
-  sel.name = `Each Hunt grants a free matching Upgrade: <span class="boldBlackBorder">log₁₀(Hunt)Per LVL</span>`
+  sel.name = `Each hunt grants a free matching upgrade: <span class="boldBlackBorder">log₁₀(Hunt)per LVL</span>`
   sel.effectDesc = ``
   sel.level = f(sel.level)
   sel.effect = f(sel.level)
@@ -2592,7 +2592,7 @@ function valuesSetter(type) {
 
   var sel = IUniversal.energyUpgrades.upgrade15
 
-  sel.name = `Hunts grant +<span class="boldBlackBorder">10%</span> to previous Hunt Per LVL`
+  sel.name = `Hunts grant +<span class="boldBlackBorder">10%</span> to previous hunt per LVL`
   sel.effectDesc = `${format(f(f(sel.level).mul(f(10))))}%`
   sel.level = f(sel.level)
   sel.effect = f(0.1).mul(f(sel.level))
@@ -2613,7 +2613,7 @@ function valuesSetter(type) {
   //ORIGINALITY
   var sel = IUniversal.energyUpgrades.upgrade16
 
-  sel.name = `Challenger Damage <span class="boldBlackBorder">/5</span> Per LVL`
+  sel.name = `Challenger Damage <span class="boldBlackBorder">/5</span> per LVL`
   sel.effectDesc = `/${format(f(sel.effect), 0)}`
   sel.level = f(sel.level)
   sel.effect = f(5).pow(f(sel.level))
@@ -2629,7 +2629,7 @@ function valuesSetter(type) {
 
   var sel = IUniversal.energyUpgrades.upgrade17
 
-  sel.name = `Challenger Life <span class="boldBlackBorder">/5</span> Per LVL`
+  sel.name = `Challenger Life <span class="boldBlackBorder">/5</span> per LVL`
   sel.effectDesc = `/${format(f(sel.effect), 0)}`
   sel.level = f(sel.level)
   sel.effect = f(5).pow(f(sel.level))
@@ -2649,7 +2649,7 @@ function valuesSetter(type) {
 
   var sel = IUniversal.energyUpgrades.upgrade18
 
-  sel.name = `Challenger Rewards <span class="boldBlackBorder">×2</span> Per LVL`
+  sel.name = `Challenger Rewards <span class="boldBlackBorder">×2</span> per LVL`
   sel.effectDesc = `×${format(f(sel.effect), 0)}`
   sel.level = f(sel.level)
   sel.effect = f(2).pow(f(sel.level))
@@ -2669,7 +2669,7 @@ function valuesSetter(type) {
 
   var sel = IUniversal.energyUpgrades.upgrade19
 
-  sel.name = `Universal Challenger Is <span class="boldBlackBorder">10</span> Times Weaker Per LVL`
+  sel.name = `Universal Challenger is <span class="boldBlackBorder">10</span> times weaker per LVL`
   sel.effectDesc = `/${format(f(f(1).dividedBy(sel.effect)), 0)}`
   sel.level = f(sel.level)
   sel.effect = f(0.1).pow(f(sel.level))
@@ -2689,7 +2689,7 @@ function valuesSetter(type) {
 
   var sel = IUniversal.energyUpgrades.upgrade20
 
-  sel.name = `Universal Shards <span class="boldBlackBorder">×2</span> Per LVL`
+  sel.name = `Universal Shards <span class="boldBlackBorder">×2</span> per LVL`
   sel.effectDesc = `×${format(f(sel.effect), 0)}`
   sel.level = f(sel.level)
   sel.effect = f(2).pow(f(sel.level))
@@ -2759,8 +2759,8 @@ function valuesSetter(type) {
   var sel = IUniversal.energyUpgrades.upgrade23
 
   sel.name = `<div>(Requires adiacent upgrades)</div>
-  <div>Energy Upgrades Price <span class="boldBlackBorder">/2</span> ×LVL</div>
-              <div>Except Fusion Upgrades </div>`
+  <div>Energy upgrades price <span class="boldBlackBorder">/2</span> ×LVL</div>
+              <div>Except fusion upgrades </div>`
   sel.effectDesc = `/${format(f(sel.effect))}`
   sel.level = f(sel.level)
   sel.effect = f(0.5).pow(f(sel.level))
@@ -2837,8 +2837,8 @@ function valuesSetter(type) {
   IUniversal.attributes.attributeBonus1.name = `Universal Shards ×<span class="boldBlackBorder">${format(f(IUniversal.attributes.attributeBonus1.effect))}</span>`
   IUniversal.attributes.attributeBonus2.name = `Essence ×<span class="boldBlackBorder">${format(f(IUniversal.attributes.attributeBonus2.effect))}</span>`
 
-  IUniversal.attributes.attributeBonus3.name = `Damage And Life Training ×<span class="boldBlackBorder">${format(f(IUniversal.attributes.attributeBonus3.effect))}</span>`
-  IUniversal.attributes.attributeBonus4.name = `Will And Insight Training ×<span class="boldBlackBorder">${format(f(IUniversal.attributes.attributeBonus4.effect))}</span>`
+  IUniversal.attributes.attributeBonus3.name = `Damage and Life Training ×<span class="boldBlackBorder">${format(f(IUniversal.attributes.attributeBonus3.effect))}</span>`
+  IUniversal.attributes.attributeBonus4.name = `Will and Insight Training ×<span class="boldBlackBorder">${format(f(IUniversal.attributes.attributeBonus4.effect))}</span>`
 
   IUniversal.attributes.attributeBonus5.name = `Damage ×<span class="boldBlackBorder">${format(f(IUniversal.attributes.attributeBonus5.effect))}</span>`
   IUniversal.attributes.attributeBonus6.name = `Life ×<span class="boldBlackBorder">${format(f(IUniversal.attributes.attributeBonus6.effect))}</span>`
@@ -2858,7 +2858,7 @@ function valuesSetter(type) {
                                                   <div class="boldBlackBorder">CHALLENGES</div>
                                                   <div class="line"></div>
                                                   <div>50 Critical Points</div>
-                                                  <div>100 regeneration Points</div>`
+                                                  <div>100 Regeneration Points</div>`
   }
 
   IUniversal.attributes.attributesUnlock1.req = function () {
@@ -2905,14 +2905,14 @@ function valuesSetter(type) {
 
   //CRIT
   //Crit Rate
-  IUniversal.attributes.critRate.name = `Critical Rate: <span class="boldBlackBorder">&nbsp${f(IUniversal.attributes.critRate.effect).mul(f(100))}%</span>`
+  IUniversal.attributes.critRate.name = `Critical rate: <span class="boldBlackBorder">&nbsp${f(IUniversal.attributes.critRate.effect).mul(f(100))}%</span>`
   IUniversal.attributes.critRate.level = f(IUniversal.attributes.critRate.level)
 
   IUniversal.attributes.critRate.effect = f(0.1).mul(f(IUniversal.attributes.critRate.level))
   IUniversal.attributes.critRate.price = f(10).pow(f(IUniversal.attributes.critRate.level).add(f(2)))
 
   //Crit Damage
-  IUniversal.attributes.critDamage.name = `Critical Damage: <span class="boldBlackBorder">&nbsp${f(IUniversal.attributes.critDamage.effect).mul(f(100))}%</span>`
+  IUniversal.attributes.critDamage.name = `Critical damage: <span class="boldBlackBorder">&nbsp${f(IUniversal.attributes.critDamage.effect).mul(f(100))}%</span>`
   IUniversal.attributes.critDamage.level = f(IUniversal.attributes.critDamage.level)
 
   IUniversal.attributes.critDamage.effect = f(1).add(f(0.1).mul(f(IUniversal.attributes.critDamage.level)))
@@ -2962,7 +2962,7 @@ function valuesSetter(type) {
   IUniversal.attributes.regenerationPointsName = `<span class="boldBlackBorder">${format(f(IUniversal.attributes.regenerationPoints))}</span> Regeneration Points`
 
   //max life regeneration
-  IUniversal.attributes.maxRegeneration.name = `Maximum Life Regeneration: <span class="boldBlackBorder">&nbsp${f(IUniversal.attributes.maxRegeneration.effect).mul(f(100))}</span>%`
+  IUniversal.attributes.maxRegeneration.name = `Maximum life regeneration: <span class="boldBlackBorder">&nbsp${f(IUniversal.attributes.maxRegeneration.effect).mul(f(100))}</span>%`
   IUniversal.attributes.maxRegeneration.level = f(IUniversal.attributes.maxRegeneration.level)
 
   IUniversal.attributes.maxRegeneration.effect = f(0.1).mul(f(IUniversal.attributes.maxRegeneration.level))
@@ -2970,7 +2970,7 @@ function valuesSetter(type) {
 
   //DEFENCE PENETRATION
   //Defence Penetration
-  IUniversal.attributes.defencePenetration.name = `<span class="boldBlackBorder">${format(f(IUniversal.attributes.defencePenetration.level))}</span> Damage And Life Training`
+  IUniversal.attributes.defencePenetration.name = `<span class="boldBlackBorder">${format(f(IUniversal.attributes.defencePenetration.level))}</span> Damage and Life Training`
   IUniversal.attributes.defencePenetration.level = f(IUniversal.attributes.defencePenetration.level)
 
   if (f(IUniversal.attributes.defencePenetration.level).gte(f(10))) {
@@ -2983,7 +2983,7 @@ function valuesSetter(type) {
 
   //Max Defence Penetration
 
-  IUniversal.attributes.maxDefencePenetration.name = `Maximum Defence Penetration: <span class="boldBlackBorder">&nbsp${f(IUniversal.attributes.maxDefencePenetration.effect).mul(f(100))}</span>%`
+  IUniversal.attributes.maxDefencePenetration.name = `Maximum defence penetration: <span class="boldBlackBorder">&nbsp${f(IUniversal.attributes.maxDefencePenetration.effect).mul(f(100))}</span>%`
   IUniversal.attributes.maxDefencePenetration.level = f(IUniversal.attributes.maxDefencePenetration.level)
 
   IUniversal.attributes.maxDefencePenetration.effect = f(0.1).mul(f(IUniversal.attributes.maxDefencePenetration.level))
@@ -3009,7 +3009,7 @@ function valuesSetter(type) {
   IUniversal.attributes.defence.price = f(250).mul(f(100).pow(f(IUniversal.attributes.defence.level).div(10).floor()))
 
   //Max Defence
-  IUniversal.attributes.maxDefence.name = `Maximum Defence: <span class="boldBlackBorder">&nbsp${f(IUniversal.attributes.maxDefence.effect).mul(f(100))}</span>%`
+  IUniversal.attributes.maxDefence.name = `Maximum defence: <span class="boldBlackBorder">&nbsp${f(IUniversal.attributes.maxDefence.effect).mul(f(100))}</span>%`
   IUniversal.attributes.maxDefence.level = f(IUniversal.attributes.maxDefence.level)
 
   IUniversal.attributes.maxDefence.effect = f(0.1).mul(f(IUniversal.attributes.maxDefence.level))
@@ -3048,7 +3048,7 @@ function valuesSetter(type) {
   }
 
   //Max Life Steal
-  IUniversal.attributes.lifeStealMax.name = `Maximum Life Steal: <span class="boldBlackBorder">&nbsp${f(IUniversal.attributes.lifeStealMax.effect).mul(f(100))}</span>%`
+  IUniversal.attributes.lifeStealMax.name = `Maximum life steal: <span class="boldBlackBorder">&nbsp${f(IUniversal.attributes.lifeStealMax.effect).mul(f(100))}</span>%`
   IUniversal.attributes.lifeStealMax.level = f(IUniversal.attributes.lifeStealMax.level)
 
   IUniversal.attributes.lifeStealMax.effect = f(0.1).mul(f(IUniversal.attributes.lifeStealMax.level))
@@ -3083,7 +3083,7 @@ function valuesSetter(type) {
 
   //Max Shield
 
-  IUniversal.attributes.maxShield.name = `Maximum Shield: <span class="boldBlackBorder">&nbsp${f(IUniversal.attributes.maxShield.effect).mul(f(100))}</span>%`
+  IUniversal.attributes.maxShield.name = `Maximum shield: <span class="boldBlackBorder">&nbsp${f(IUniversal.attributes.maxShield.effect).mul(f(100))}</span>%`
   IUniversal.attributes.maxShield.level = f(IUniversal.attributes.maxShield.level)
 
   IUniversal.attributes.maxShield.effect = f(0.1).mul(f(IUniversal.attributes.maxShield.level))
@@ -3158,7 +3158,7 @@ function valuesSetter(type) {
 
   if (Math.floor(f(sel.level).add(f(1)) / 4) > 0) {
     var labelEffect3 = IUniversal.huntEvolutionLabels.effect3["level" + Math.floor(f(sel.level).add(f(1)) / 4)];
-    sel.description3 = `Associated Effect Price /<span class="boldBlackBorder">${format(f(sel.effect3))}</span>`
+    sel.description3 = `Associated effect Price /<span class="boldBlackBorder">${format(f(sel.effect3))}</span>`
     sel.active3 = true
   } else {
     labelEffect3 = ""
@@ -3168,7 +3168,7 @@ function valuesSetter(type) {
 
   if (Math.floor(f(sel.level).add(f(0)) / 4) > 0) {
     var labelEffect4 = IUniversal.huntEvolutionLabels.effect4["level" + Math.floor(f(sel.level).add(f(0)) / 4)];
-    sel.description4 = `Evolution Upgrades ×<span class="boldBlackBorder">${format(f(sel.effect4))}</span>`
+    sel.description4 = `Evolution upgrades ×<span class="boldBlackBorder">${format(f(sel.effect4))}</span>`
     sel.active4 = true
   } else {
     labelEffect4 = ""
@@ -3237,7 +3237,7 @@ function valuesSetter(type) {
 
   if (Math.floor(f(sel.level).add(f(1)) / 4) > 0) {
     var labelEffect3 = IUniversal.huntEvolutionLabels.effect3["level" + Math.floor(f(sel.level).add(f(1)) / 4)];
-    sel.description3 = `Associated Effect Price /<span class="boldBlackBorder">${format(f(sel.effect3))}</span>`
+    sel.description3 = `Associated effect Price /<span class="boldBlackBorder">${format(f(sel.effect3))}</span>`
 
     sel.active3 = true
   } else {
@@ -3248,7 +3248,7 @@ function valuesSetter(type) {
 
   if (Math.floor(f(sel.level).add(f(0)) / 4) > 0) {
     var labelEffect4 = IUniversal.huntEvolutionLabels.effect4["level" + Math.floor(f(sel.level).add(f(0)) / 4)];
-    sel.description4 = ` Evolution Upgrades ×<span class="boldBlackBorder">${format(f(sel.effect4))}</span>`
+    sel.description4 = ` Evolution upgrades ×<span class="boldBlackBorder">${format(f(sel.effect4))}</span>`
 
     sel.active4 = true
   } else {
@@ -3316,7 +3316,7 @@ function valuesSetter(type) {
 
   if (Math.floor(f(sel.level).add(f(1)) / 4) > 0) {
     var labelEffect3 = IUniversal.huntEvolutionLabels.effect3["level" + Math.floor(f(sel.level).add(f(1)) / 4)];
-    sel.description3 = `Associated Effect Price /<span class="boldBlackBorder">${format(f(sel.effect3))}</span>`
+    sel.description3 = `Associated effect Price /<span class="boldBlackBorder">${format(f(sel.effect3))}</span>`
     sel.active3 = true
   } else {
     labelEffect3 = ""
@@ -3326,7 +3326,7 @@ function valuesSetter(type) {
 
   if (Math.floor(f(sel.level).add(f(0)) / 4) > 0) {
     var labelEffect4 = IUniversal.huntEvolutionLabels.effect4["level" + Math.floor(f(sel.level).add(f(0)) / 4)];
-    sel.description4 = `Evolution Upgrades ×<span class="boldBlackBorder">${format(f(sel.effect4))}</span>`
+    sel.description4 = `Evolution upgrades ×<span class="boldBlackBorder">${format(f(sel.effect4))}</span>`
     sel.active4 = true
   } else {
     labelEffect4 = ""
@@ -3393,7 +3393,7 @@ function valuesSetter(type) {
 
   if (Math.floor(f(sel.level).add(f(1)) / 4) > 0) {
     var labelEffect3 = IUniversal.huntEvolutionLabels.effect3["level" + Math.floor(f(sel.level).add(f(1)) / 4)];
-    sel.description3 = `Associated Effect Price /<span class="boldBlackBorder">${format(f(sel.effect3))}</span>`
+    sel.description3 = `Associated effect Price /<span class="boldBlackBorder">${format(f(sel.effect3))}</span>`
     sel.active3 = true
   } else {
     labelEffect3 = ""
@@ -3403,7 +3403,7 @@ function valuesSetter(type) {
 
   if (Math.floor(f(sel.level).add(f(0)) / 4) > 0) {
     var labelEffect4 = IUniversal.huntEvolutionLabels.effect4["level" + Math.floor(f(sel.level).add(f(0)) / 4)];
-    sel.description4 = `Evolution Upgrades ×<span class="boldBlackBorder">${format(f(sel.effect4))}</span>`
+    sel.description4 = `Evolution upgrades ×<span class="boldBlackBorder">${format(f(sel.effect4))}</span>`
     sel.active4 = true
   } else {
     labelEffect4 = ""
@@ -3471,7 +3471,7 @@ function valuesSetter(type) {
 
   if (Math.floor(f(sel.level).add(f(1)) / 4) > 0) {
     var labelEffect3 = IUniversal.huntEvolutionLabels.effect3["level" + Math.floor(f(sel.level).add(f(1)) / 4)];
-    sel.description3 = `Associated Effect Price /<span class="boldBlackBorder">${format(f(sel.effect3))}</span>`
+    sel.description3 = `Associated effect Price /<span class="boldBlackBorder">${format(f(sel.effect3))}</span>`
     sel.active3 = true
   } else {
     labelEffect3 = ""
@@ -3481,7 +3481,7 @@ function valuesSetter(type) {
 
   if (Math.floor(f(sel.level).add(f(0)) / 4) > 0) {
     var labelEffect4 = IUniversal.huntEvolutionLabels.effect4["level" + Math.floor(f(sel.level).add(f(0)) / 4)];
-    sel.description4 = `Evolution Upgrades ×<span class="boldBlackBorder">${format(f(sel.effect4))}</span>`
+    sel.description4 = `Evolution upgrades ×<span class="boldBlackBorder">${format(f(sel.effect4))}</span>`
     sel.active4 = true
   } else {
     labelEffect4 = ""
