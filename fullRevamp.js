@@ -1108,23 +1108,25 @@ function offExportSave() {
 }
 
 function importSave() {
-  IShowableClass.init = true;
-  resetSave()
-  var encryptedData = document.getElementById("Save").value;
-  const decryptedData = decryptData(encryptedData, secretKey);
-  try {
-    var savedGameData = JSON.parse(decryptedData);
-    for (let x in savedGameData) {
-      if (saveData[x]) {
-        deepMerge(saveData[x], savedGameData[x]);
+  if (!document.getElementById("Save").value == "") {
+    IShowableClass.init = true;
+    resetSave()
+    var encryptedData = document.getElementById("Save").value;
+    const decryptedData = decryptData(encryptedData, secretKey);
+    try {
+      var savedGameData = JSON.parse(decryptedData);
+      for (let x in savedGameData) {
+        if (saveData[x]) {
+          deepMerge(saveData[x], savedGameData[x]);
+        }
       }
+    } catch (e) {
+
     }
-  } catch (e) {
+    //resetCanvas()
 
+    IShowableClass.init = true;
   }
-  //resetCanvas()
-
-  IShowableClass.init = true;
 }
 
 function offImportSave() {
