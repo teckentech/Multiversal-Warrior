@@ -1,3 +1,4 @@
+
 var IShowableClass;
 var IGameData;
 var ITraining
@@ -4614,6 +4615,12 @@ document.getElementById("content1_7_ascension_button").onclick = function () {
     if ((f((IFight.challengers.baseChallenger.level)).minus(f(1))).gte(f(IFight.challengers.baseChallenger.maxLevel))) {
       partialResetSave(2)
 
+      if (IFight.youStats.fightController1 && typeof IFight.youStats.fightController1.abort === "function") {
+        IFight.youStats.fightController1.abort();
+        IFight.youStats.fightController1 = null;
+      }
+
+
       IUniversal.universe = f(IUniversal.universe).add(f(1))
 
       //Ascension Points
@@ -5338,7 +5345,6 @@ function ascensionRings(div, valore, spacingFactor = 1, padding = 0, startPercen
 function scaleAscensionRings(factor) {
   IShowableClass.svg.ascensionCirclesScale = IShowableClass.svg.ascensionCirclesScale * factor
 
-  console.log(IShowableClass.svg.ascensionCirclesScale)
 }
 
 document.getElementById('scale-up').addEventListener('click', () => scaleAscensionRings(1.1));
@@ -5387,7 +5393,7 @@ function visualMenu() {
 
   var image = `url("images/attributes 1.png")`
 
-  if (IUniversal.attributes.attributesUnlock1.active || true) {
+  if (IUniversal.attributes.attributesUnlock1.active) {
     image = `url("images/attributes 2.png")`
     if (IUniversal.attributes.attributesUnlock2.active) {
       image = `url("images/attributes 3.png")`
@@ -6956,30 +6962,34 @@ async function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function format(number, type) {
+
+function format(number, type, formatType = 'scientific') {
   if (number != null) {
+    // Se il formato richiesto è "scientific" (notazione scientifica)
+    if (formatType === 'scientific') {
+      if (typeof number === 'object' && number.exponent != undefined) {
+        if (number.exponent < 3) {
+          if (type != null) {
+            return (number.toNumber()).toFixed(type);
+          }
+          return (number.toNumber()).toFixed(1);
+        }
 
-    if (number.exponent < 3) {
+        if (number.exponent >= 4) {
+          let num = number.mantissa;
+          num = num.toFixed(2);
+          return num + "e" + number.exponent;
+        }
 
-      if (type != null) {
-        return (number.toNumber()).toFixed(type);
+        return number.toNumber().toFixed(1);
+      } else {
+        // Gestione di numeri primitivi (es: 12345)
+        return number.toExponential(type || 1);
       }
-
-      return (number.toNumber()).toFixed(1);
     }
-
-    if (number.exponent >= 4) {
-
-      var num = number.mantissa
-
-      num = num.toFixed(2)
-
-      return num + "e" + number.exponent;
-    }
-
-    return number.toNumber().toFixed(1);
   }
-  return number
+
+  return number;
 }
 
 function f(number) {
