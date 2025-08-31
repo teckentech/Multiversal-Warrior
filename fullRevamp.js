@@ -4601,6 +4601,11 @@ document.getElementById("content1_7_ascension_button").onclick = function () {
     if ((f((IFight.challengers.baseChallenger.level)).minus(f(1))).gte(f(IFight.challengers.baseChallenger.maxLevel))) {
       partialResetSave(1)
 
+      if (IFight.youStats.fightController1 && typeof IFight.youStats.fightController1.abort === "function") {
+        IFight.youStats.fightController1.abort();
+        IFight.youStats.fightController1 = null;
+      }
+
       IUniversal.universe = f(IUniversal.universe).add(f(1))
 
       //Ascension Points
