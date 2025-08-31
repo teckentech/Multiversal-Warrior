@@ -2167,7 +2167,7 @@ function valuesSetter(type) {
 
   //HUNT REWARD 3
 
-  IFight.normalHuntingRewards.upgrade3.name = `Slime multiplies Essence by ×<span class="boldBlackBorder">${format(f(IFight.normalHuntingRewards.upgrade3.effect), 0)}</span>`
+  IFight.normalHuntingRewards.upgrade3.name = `Essence ×<span class="boldBlackBorder">log(Slime)(${format(f(IFight.normalHuntingRewards.upgrade3.effect), 0)})</span>`
 
   IFight.normalHuntingRewards.upgrade3.level = f(IFight.normalHuntingRewards.upgrade3.level)
 
