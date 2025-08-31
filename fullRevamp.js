@@ -3539,10 +3539,13 @@ function valuesSetter(type) {
   //AUTOMATION
   //Automation 1
 
-  IUniversal.automation.automation1.level = f(IUniversal.automation.automation1.level)
-
-
   IUniversal.automation.automation1.maxLevel = f(3)
+
+    if(f(IUniversal.automation.automation1.level).gt(f(IUniversal.automation.automation1.maxLevel))){
+IUniversal.automation.automation1.level = f(IUniversal.automation.automation1.maxLevel)
+    }else{
+  IUniversal.automation.automation1.level = f(IUniversal.automation.automation1.level)
+    }
 
   ISelUpgrade.group.group1.maxNum = f(IUniversal.automation.automation1.level).add(f(1))
 
