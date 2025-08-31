@@ -3737,16 +3737,20 @@ function valuesSetterDinamic(type) {
 
 
   if (IFight.normalHuntingRewards.upgrade4.active && type != "universalChallengerChallenge1") {
-    var life2 = f(IFight.youStats.damage).add(f(IFight.normalHuntingRewards.upgrade4.effect))
+    var life2 = f(IFight.youStats.damage).mul(f(IFight.normalHuntingRewards.upgrade4.effect))
   } else {
     life2 = f(0)
   }
+
+    console.log(format(f(life2)))
 
   if (IFight.normalHuntingRewards.upgrade2.active && type != "universalChallengerChallenge1") {
     var life4 = f(IFight.normalHuntingRewards.upgrade2.effect)
   } else {
     life4 = f(1)
   }
+
+
 
   if (IUniversal.energyUpgrades.upgrade9.active) {
     var life5 = f(IUniversal.energyUpgrades.upgrade9.effect)
