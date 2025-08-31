@@ -4871,25 +4871,25 @@ document.getElementById("content2_6_huntEvolution_upgrades_b1").onclick = functi
 }
 
 document.getElementById("content2_6_huntEvolution_upgrades_b2").onclick = function () {
-  if (f(IUniversal.huntEvolution.b1.level).lt(f(IUniversal.huntEvolution.b1.maxLevel))) {
+  if (f(IUniversal.huntEvolution.b1.level).lt(f(IUniversal.huntEvolution.b2.maxLevel))) {
     buy(IUniversal.huntEvolution.b2, "level", 1, "uniChallenger")
   }
 }
 
 document.getElementById("content2_6_huntEvolution_upgrades_b3").onclick = function () {
-  if (f(IUniversal.huntEvolution.b1.level).lt(f(IUniversal.huntEvolution.b1.maxLevel))) {
+  if (f(IUniversal.huntEvolution.b1.level).lt(f(IUniversal.huntEvolution.b3.maxLevel))) {
     buy(IUniversal.huntEvolution.b3, "level", 1, "uniChallenger")
   }
 }
 
 document.getElementById("content2_6_huntEvolution_upgrades_b4").onclick = function () {
-  if (f(IUniversal.huntEvolution.b1.level).lt(f(IUniversal.huntEvolution.b1.maxLevel))) {
+  if (f(IUniversal.huntEvolution.b1.level).lt(f(IUniversal.huntEvolution.b4.maxLevel))) {
     buy(IUniversal.huntEvolution.b4, "level", 1, "uniChallenger")
   }
 }
 
 document.getElementById("content2_6_huntEvolution_upgrades_b5").onclick = function () {
-  if (f(IUniversal.huntEvolution.b1.level).lt(f(IUniversal.huntEvolution.b1.maxLevel))) {
+  if (f(IUniversal.huntEvolution.b1.level).lt(f(IUniversal.huntEvolution.b5.maxLevel))) {
     buy(IUniversal.huntEvolution.b5, "level", 1, "uniChallenger")
   }
 }
