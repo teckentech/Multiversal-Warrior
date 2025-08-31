@@ -3742,8 +3742,6 @@ function valuesSetterDinamic(type) {
     life2 = f(0)
   }
 
-    console.log(format(f(life2)))
-
   if (IFight.normalHuntingRewards.upgrade2.active && type != "universalChallengerChallenge1") {
     var life4 = f(IFight.normalHuntingRewards.upgrade2.effect)
   } else {
@@ -4906,7 +4904,7 @@ document.getElementById("content2_6_huntEvolution_upgrades_b5").onclick = functi
 //AUTOMATION
 
 document.getElementById("fp3_content1_8_auto1_b1").onclick = function () {
-  if (f(IUniversal.automation.automation1.level).lte(f(IUniversal.automation.automation1.maxLevel))) {
+  if (f(IUniversal.automation.automation1.level).lt(f(IUniversal.automation.automation1.maxLevel))) {
     buy(IUniversal.automation.automation1, "level", 1, "uniChallenger")
   }
 }
