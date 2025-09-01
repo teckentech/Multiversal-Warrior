@@ -3541,11 +3541,11 @@ function valuesSetter(type) {
 
   IUniversal.automation.automation1.maxLevel = f(3)
 
-    if(f(IUniversal.automation.automation1.level).gt(f(IUniversal.automation.automation1.maxLevel))){
-IUniversal.automation.automation1.level = f(IUniversal.automation.automation1.maxLevel)
-    }else{
-  IUniversal.automation.automation1.level = f(IUniversal.automation.automation1.level)
-    }
+  if (f(IUniversal.automation.automation1.level).gt(f(IUniversal.automation.automation1.maxLevel))) {
+    IUniversal.automation.automation1.level = f(IUniversal.automation.automation1.maxLevel)
+  } else {
+    IUniversal.automation.automation1.level = f(IUniversal.automation.automation1.level)
+  }
 
   ISelUpgrade.group.group1.maxNum = f(IUniversal.automation.automation1.level).add(f(1))
 
@@ -4611,6 +4611,11 @@ document.getElementById("content1_7_ascension_button").onclick = function () {
         IFight.youStats.fightController1 = null;
       }
 
+      if (IFight.youStats.fightController2 && typeof IFight.youStats.fightController2.abort === "function") {
+        IFight.youStats.fightController2.abort();
+        IFight.youStats.fightController2 = null;
+      }
+
       IUniversal.universe = f(IUniversal.universe).add(f(1))
 
       //Ascension Points
@@ -4626,12 +4631,6 @@ document.getElementById("content1_7_ascension_button").onclick = function () {
   } else {
     if ((f((IFight.challengers.baseChallenger.level)).minus(f(1))).gte(f(IFight.challengers.baseChallenger.maxLevel))) {
       partialResetSave(2)
-
-      if (IFight.youStats.fightController1 && typeof IFight.youStats.fightController1.abort === "function") {
-        IFight.youStats.fightController1.abort();
-        IFight.youStats.fightController1 = null;
-      }
-
 
       IUniversal.universe = f(IUniversal.universe).add(f(1))
 
