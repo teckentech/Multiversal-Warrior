@@ -1,4 +1,4 @@
-//import Decimal, { div as _div, log10 as _log10, log2, log, min } from "break_eternity.js";
+
 var IShowableClass;
 var IGameData;
 var ITraining
@@ -1645,7 +1645,7 @@ function valuesSetter(type) {
 
   var cDamage4 = cDamage1.dividedBy(10).floor()
 
-  IFight.challengers.baseChallenger.damage = _div(f(1).mul(((f(5).add(cDamage2).add(f(cDamage4))).pow((cDamage1).minus(f(1))))), f(cDamage3))
+  IFight.challengers.baseChallenger.damage = Decimal.div(f(1).mul(((f(5).add(cDamage2).add(f(cDamage4))).pow((cDamage1).minus(f(1))))), f(cDamage3))
 
   //life
 
@@ -1662,7 +1662,7 @@ function valuesSetter(type) {
 
   var cLife5 = cLife1.dividedBy(10).floor()
 
-  IFight.challengers.baseChallenger.life = _div(f(10).mul(((((f(5).add(f(cLife3)).add(f(cLife5))).pow(f(cLife1).minus(f(1))))))), f(cLife4))
+  IFight.challengers.baseChallenger.life = Decimal.div(f(10).mul(((((f(5).add(f(cLife3)).add(f(cLife5))).pow(f(cLife1).minus(f(1))))))), f(cLife4))
 
 
   //leftLife
@@ -2108,7 +2108,7 @@ function valuesSetter(type) {
   IFight.normalHuntingRewards.upgrade1.level = f(IFight.normalHuntingRewards.upgrade1.level)
 
   if (IUniversal.energyUpgrades.upgrade14.active) {
-    var extraLevel1 = f(_log10(f(IFight.normalHunting.hunt1.level).mul(f(IUniversal.energyUpgrades.upgrade14.effect)))).floor()
+    var extraLevel1 = f(Decimal.log10(f(IFight.normalHunting.hunt1.level).mul(f(IUniversal.energyUpgrades.upgrade14.effect)))).floor()
   } else {
     extraLevel1 = f(0)
   }
@@ -2141,7 +2141,7 @@ function valuesSetter(type) {
   IFight.normalHuntingRewards.upgrade2.level = f(IFight.normalHuntingRewards.upgrade2.level)
 
   if (IUniversal.energyUpgrades.upgrade14.active) {
-    var extraLevel1 = f(_log10(f(IFight.normalHunting.hunt2.level).mul(f(IUniversal.energyUpgrades.upgrade14.effect)))).floor()
+    var extraLevel1 = f(Decimal.log10(f(IFight.normalHunting.hunt2.level).mul(f(IUniversal.energyUpgrades.upgrade14.effect)))).floor()
   } else {
     extraLevel1 = f(0)
   }
@@ -2174,7 +2174,7 @@ function valuesSetter(type) {
   IFight.normalHuntingRewards.upgrade3.level = f(IFight.normalHuntingRewards.upgrade3.level)
 
   if (IUniversal.energyUpgrades.upgrade14.active) {
-    var extraLevel1 = f(_log10(f(IFight.normalHunting.hunt3.level).mul(f(IUniversal.energyUpgrades.upgrade14.effect)))).floor()
+    var extraLevel1 = f(Decimal.log10(f(IFight.normalHunting.hunt3.level).mul(f(IUniversal.energyUpgrades.upgrade14.effect)))).floor()
   } else {
     extraLevel1 = f(0)
   }
@@ -2206,7 +2206,7 @@ function valuesSetter(type) {
   IFight.normalHuntingRewards.upgrade4.level = f(IFight.normalHuntingRewards.upgrade4.level)
 
   if (IUniversal.energyUpgrades.upgrade14.active) {
-    var extraLevel1 = f(_log10(f(IFight.normalHunting.hunt4.level).mul(f(IUniversal.energyUpgrades.upgrade14.effect)))).floor()
+    var extraLevel1 = f(Decimal.log10(f(IFight.normalHunting.hunt4.level).mul(f(IUniversal.energyUpgrades.upgrade14.effect)))).floor()
   } else {
     extraLevel1 = f(0)
   }
@@ -2239,7 +2239,7 @@ function valuesSetter(type) {
   IFight.normalHuntingRewards.upgrade5.level = f(IFight.normalHuntingRewards.upgrade5.level)
 
   if (IUniversal.energyUpgrades.upgrade14.active) {
-    var extraLevel1 = f(_log10(f(IFight.normalHunting.hunt5.level).mul(f(IUniversal.energyUpgrades.upgrade14.effect)))).floor()
+    var extraLevel1 = f(Decimal.log10(f(IFight.normalHunting.hunt5.level).mul(f(IUniversal.energyUpgrades.upgrade14.effect)))).floor()
   } else {
     extraLevel1 = f(0)
   }
@@ -2365,7 +2365,7 @@ function valuesSetter(type) {
   sel.effectDesc = `×${format(f(sel.effect), 0)}`
   sel.level = f(sel.level)
   if (f(IGameData.universeTime).gte(f(3)) && IGameData.universeTime != "NaN" && IGameData.universeTime != undefined) {
-    sel.effect = f(log2(IGameData.universeTime)).mul(f(sel.level))
+    sel.effect = f(Decimal.log2(IGameData.universeTime)).mul(f(sel.level))
   } else[
     sel.effect = f(1)
   ]
@@ -2535,7 +2535,7 @@ function valuesSetter(type) {
   }
 
   if (f(tot).gte(f(3))) {
-    sel.effect = f(log2(tot)).mul(f(sel.level))
+    sel.effect = f(Decimal.log2(tot)).mul(f(sel.level))
   } else {
     sel.effect = f(1)
   }
@@ -2560,7 +2560,7 @@ function valuesSetter(type) {
   sel.effectDesc = `×${format(f(sel.effect), 0)}`
   sel.level = f(sel.level)
   if (f(IFight.normalHunting.hunt3.level).gte(2)) {
-    sel.effect = f(log2(IFight.normalHunting.hunt3.level)).mul(f(sel.level))
+    sel.effect = f(Decimal.log2(IFight.normalHunting.hunt3.level)).mul(f(sel.level))
 
   } else {
     sel.effect = f(1)
@@ -2724,7 +2724,7 @@ function valuesSetter(type) {
   sel.level = f(sel.level)
 
   if (f(IGameData.power).gte(f(3))) {
-    sel.effect = f(log2(IGameData.power)).mul(f(sel.level))
+    sel.effect = f(Decimal.log2(IGameData.power)).mul(f(sel.level))
   } else {
     sel.effect = f(1)
   }
@@ -2750,7 +2750,7 @@ function valuesSetter(type) {
               `
   sel.effectDesc = `× ${format(f(sel.effect))}`
   sel.level = f(sel.level)
-  sel.effect = f(log2(IUniversalChallenger.universalShards)).mul(f(sel.level))
+  sel.effect = f(Decimal.log2(IUniversalChallenger.universalShards)).mul(f(sel.level))
   sel.price = f(5).pow(f(sel.level).add(f(1)))
 
   if (f(sel.level).gt(f(0))) {
@@ -2967,7 +2967,7 @@ function valuesSetter(type) {
     points2 = f(1)
   }
 
-  IUniversal.attributes.regenerationPoints = f(log(IUniversal.attributes.regeneration.effect, 10)).mul(f(points2))
+  IUniversal.attributes.regenerationPoints = f(Decimal.log(IUniversal.attributes.regeneration.effect, 10)).mul(f(points2))
   IUniversal.attributes.regenerationPointsName = `<span class="boldBlackBorder">${format(f(IUniversal.attributes.regenerationPoints))}</span> Regeneration Points`
 
   //max life regeneration
@@ -3004,7 +3004,7 @@ function valuesSetter(type) {
     points2 = f(1)
   }
 
-  IUniversal.attributes.defencePenetrationPoints = f(log(IUniversal.attributes.defencePenetration.effect, 10)).mul(f(points2))
+  IUniversal.attributes.defencePenetrationPoints = f(Decimal.log(IUniversal.attributes.defencePenetration.effect, 10)).mul(f(points2))
   IUniversal.attributes.defencePenetrationPointsName = `<span class="boldBlackBorder">${format(f(IUniversal.attributes.defencePenetrationPoints))}</span> Defence Penetration Points`
 
   //DEFENCE
@@ -3049,8 +3049,8 @@ function valuesSetter(type) {
   }
 
   if (f(IUniversal.attributes.lifeSteal.level).gte(f(10))) {
-    IUniversal.attributes.shield.effect = f(log(IUniversal.attributes.lifeSteal.level, 10))
-    var points1 = f(log(IUniversal.attributes.lifeSteal.level, 10))
+    IUniversal.attributes.shield.effect = f(Decimal.log(IUniversal.attributes.lifeSteal.level, 10))
+    var points1 = f(Decimal.log(IUniversal.attributes.lifeSteal.level, 10))
   } else {
     IUniversal.attributes.shield.effect = f(1)
     points1 = f(1)
@@ -3081,8 +3081,8 @@ function valuesSetter(type) {
   IUniversal.attributes.shield.level = f(IUniversal.attributes.shield.level)
 
   if (f(IUniversal.attributes.shield.level).gte(f(10))) {
-    IUniversal.attributes.shield.effect = f(log(IUniversal.attributes.shield.level, 10))
-    var points1 = f(log(IUniversal.attributes.shield.level, 10))
+    IUniversal.attributes.shield.effect = f(Decimal.log(IUniversal.attributes.shield.level, 10))
+    var points1 = f(Decimal.log(IUniversal.attributes.shield.level, 10))
   } else {
     IUniversal.attributes.shield.effect = f(1)
     points1 = f(1)
@@ -3786,28 +3786,28 @@ function valuesSetterDinamic(type) {
   //power
 
   if (f(ITraining.base.base1.tot).gte(f(10))) {
-    var power1 = _log10(f(ITraining.base.base1.tot))
+    var power1 = Decimal.log10(f(ITraining.base.base1.tot))
   }
   else {
     power1 = f(1)
   }
 
   if (f(ITraining.base.base2.tot).gte(f(10))) {
-    var power2 = _log10(f(ITraining.base.base2.tot))
+    var power2 = Decimal.log10(f(ITraining.base.base2.tot))
   }
   else {
     power2 = f(1)
   }
 
   if (f(ITraining.base.base3.tot).gte(f(1))) {
-    var power3 = _log10(f(ITraining.base.base3.tot).add(f(10)))
+    var power3 = Decimal.log10(f(ITraining.base.base3.tot).add(f(10)))
   }
   else {
     power3 = f(1)
   }
 
   if (f(ITraining.base.base4.tot).gte(f(1))) {
-    var power4 = _log10(f(ITraining.base.base4.tot).add(f(10)))
+    var power4 = Decimal.log10(f(ITraining.base.base4.tot).add(f(10)))
   }
   else {
     power4 = f(1)
@@ -5033,7 +5033,7 @@ async function challengerOff(time) {
   var calcYou = f(IFight.challengers.baseChallenger.leftLife).div(f(playerDamage));
   var calcChallenger = f(IFight.onFightStats.leftLife).div(f(enemyDamage));
 
-  var minimum = min(calcYou, calcChallenger)
+  var minimum = Decimal.min(calcYou, calcChallenger)
 
   if (minimum.toNumber() < leftTime && IFight.youStats.onFight1) {
     if (calcYou < calcChallenger) {
@@ -5377,7 +5377,7 @@ function visualMenu() {
   document.getElementById("menu2").style.backgroundImage = `url("images/mountain.png")`
   document.getElementById("menu2").style.zIndex = 2
 
-  document.getElementById("menu3").style.backgroundImage = `url("images/Sky.png")`
+  document.getElementById("menu3").style.backgroundImage = `url("images/sky.png")`
   document.getElementById("menu3").style.zIndex = 1
 
 
