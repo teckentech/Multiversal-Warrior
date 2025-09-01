@@ -4959,6 +4959,11 @@ document.getElementById("fp3_content1_8_auto5_b1").onclick = function () {
   }
 }
 
+//discord link
+document.getElementById("options_discord").onclick = function () {
+  window.open("https://discord.gg/6wpH3wuv", "_blank");
+}
+
 //FUNCTION: PAUSE FUNCTION
 
 function pauseFunctionPassive(fun, time, bool) {

@@ -3372,3 +3372,18 @@ button,
   margin-bottom: 1.5%;
   /* Spazio tra paragrafi relativo */
 }
+
+#options_discord{
+
+  width: 8%;
+  height: auto;
+
+  aspect-ratio: 1/1;
+  border: none;
+
+    background-color: transparent;
+  background-image: url("images/discord logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
