@@ -1108,25 +1108,23 @@ function offExportSave() {
 }
 
 function importSave() {
-  if (!document.getElementById("Save").value == "") {
-    IShowableClass.init = true;
-    resetSave()
-    var encryptedData = document.getElementById("Save").value;
-    const decryptedData = decryptData(encryptedData, secretKey);
-    try {
-      var savedGameData = JSON.parse(decryptedData);
-      for (let x in savedGameData) {
-        if (saveData[x]) {
-          deepMerge(saveData[x], savedGameData[x]);
-        }
+  IShowableClass.init = true;
+  resetSave()
+  var encryptedData = document.getElementById("Save").value;
+  const decryptedData = decryptData(encryptedData, secretKey);
+  try {
+    var savedGameData = JSON.parse(decryptedData);
+    for (let x in savedGameData) {
+      if (saveData[x]) {
+        deepMerge(saveData[x], savedGameData[x]);
       }
-    } catch (e) {
-
     }
-    //resetCanvas()
+  } catch (e) {
 
-    IShowableClass.init = true;
   }
+  //resetCanvas()
+
+  IShowableClass.init = true;
 }
 
 function offImportSave() {
@@ -1700,7 +1698,7 @@ function valuesSetter(type) {
   IFight.challengerRewards.reward2.name = `Will And Insight Training ×<span class="boldBlackBorder">${format(f(IFight.challengerRewards.reward2.effect), 0)}</span>`
 
   IFight.challengerRewards.reward1.effect = (f(2).pow((f(IFight.challengerRewards.reward1.level)))).mul(f(cReward)).mul(f(cReward2))
-  IFight.challengerRewards.reward2.effect = (f(2).pow((f(IFight.challengerRewards.reward2.level)))).mul(f(cReward))
+  IFight.challengerRewards.reward2.effect = (f(2).pow((f(IFight.challengerRewards.reward2.level)))).mul(f(cReward)).mul(f(cReward2))
   //UNIVERSAL CHALLENGER
 
   //name
@@ -2169,7 +2167,7 @@ function valuesSetter(type) {
 
   //HUNT REWARD 3
 
-  IFight.normalHuntingRewards.upgrade3.name = `Essence/s ×<span class="boldBlackBorder">Slime (${format(f(IFight.normalHuntingRewards.upgrade3.effect), 0)})</span>`
+  IFight.normalHuntingRewards.upgrade3.name = `Slime multiplies Essence by ×<span class="boldBlackBorder">${format(f(IFight.normalHuntingRewards.upgrade3.effect), 0)}</span>`
 
   IFight.normalHuntingRewards.upgrade3.level = f(IFight.normalHuntingRewards.upgrade3.level)
 
@@ -3539,13 +3537,10 @@ function valuesSetter(type) {
   //AUTOMATION
   //Automation 1
 
-  IUniversal.automation.automation1.maxLevel = f(3)
+  IUniversal.automation.automation1.level = f(IUniversal.automation.automation1.level)
 
-  if (f(IUniversal.automation.automation1.level).gt(f(IUniversal.automation.automation1.maxLevel))) {
-    IUniversal.automation.automation1.level = f(IUniversal.automation.automation1.maxLevel)
-  } else {
-    IUniversal.automation.automation1.level = f(IUniversal.automation.automation1.level)
-  }
+
+  IUniversal.automation.automation1.maxLevel = f(3)
 
   ISelUpgrade.group.group1.maxNum = f(IUniversal.automation.automation1.level).add(f(1))
 
@@ -3740,7 +3735,7 @@ function valuesSetterDinamic(type) {
 
 
   if (IFight.normalHuntingRewards.upgrade4.active && type != "universalChallengerChallenge1") {
-    var life2 = f(IFight.youStats.damage).mul(f(IFight.normalHuntingRewards.upgrade4.effect))
+    var life2 = f(IFight.youStats.damage).add(f(IFight.normalHuntingRewards.upgrade4.effect))
   } else {
     life2 = f(0)
   }
@@ -3750,8 +3745,6 @@ function valuesSetterDinamic(type) {
   } else {
     life4 = f(1)
   }
-
-
 
   if (IUniversal.energyUpgrades.upgrade9.active) {
     var life5 = f(IUniversal.energyUpgrades.upgrade9.effect)
@@ -4606,16 +4599,6 @@ document.getElementById("content1_7_ascension_button").onclick = function () {
     if ((f((IFight.challengers.baseChallenger.level)).minus(f(1))).gte(f(IFight.challengers.baseChallenger.maxLevel))) {
       partialResetSave(1)
 
-      if (IFight.youStats.fightController1 && typeof IFight.youStats.fightController1.abort === "function") {
-        IFight.youStats.fightController1.abort();
-        IFight.youStats.fightController1 = null;
-      }
-
-      if (IFight.youStats.fightController2 && typeof IFight.youStats.fightController2.abort === "function") {
-        IFight.youStats.fightController2.abort();
-        IFight.youStats.fightController2 = null;
-      }
-
       IUniversal.universe = f(IUniversal.universe).add(f(1))
 
       //Ascension Points
@@ -4880,25 +4863,25 @@ document.getElementById("content2_6_huntEvolution_upgrades_b1").onclick = functi
 }
 
 document.getElementById("content2_6_huntEvolution_upgrades_b2").onclick = function () {
-  if (f(IUniversal.huntEvolution.b2.level).lt(f(IUniversal.huntEvolution.b2.maxLevel))) {
+  if (f(IUniversal.huntEvolution.b1.level).lt(f(IUniversal.huntEvolution.b1.maxLevel))) {
     buy(IUniversal.huntEvolution.b2, "level", 1, "uniChallenger")
   }
 }
 
 document.getElementById("content2_6_huntEvolution_upgrades_b3").onclick = function () {
-  if (f(IUniversal.huntEvolution.b3.level).lt(f(IUniversal.huntEvolution.b3.maxLevel))) {
+  if (f(IUniversal.huntEvolution.b1.level).lt(f(IUniversal.huntEvolution.b1.maxLevel))) {
     buy(IUniversal.huntEvolution.b3, "level", 1, "uniChallenger")
   }
 }
 
 document.getElementById("content2_6_huntEvolution_upgrades_b4").onclick = function () {
-  if (f(IUniversal.huntEvolution.b4.level).lt(f(IUniversal.huntEvolution.b4.maxLevel))) {
+  if (f(IUniversal.huntEvolution.b1.level).lt(f(IUniversal.huntEvolution.b1.maxLevel))) {
     buy(IUniversal.huntEvolution.b4, "level", 1, "uniChallenger")
   }
 }
 
 document.getElementById("content2_6_huntEvolution_upgrades_b5").onclick = function () {
-  if (f(IUniversal.huntEvolution.b5.level).lt(f(IUniversal.huntEvolution.b5.maxLevel))) {
+  if (f(IUniversal.huntEvolution.b1.level).lt(f(IUniversal.huntEvolution.b1.maxLevel))) {
     buy(IUniversal.huntEvolution.b5, "level", 1, "uniChallenger")
   }
 }
@@ -4906,7 +4889,7 @@ document.getElementById("content2_6_huntEvolution_upgrades_b5").onclick = functi
 //AUTOMATION
 
 document.getElementById("fp3_content1_8_auto1_b1").onclick = function () {
-  if (f(IUniversal.automation.automation1.level).lt(f(IUniversal.automation.automation1.maxLevel))) {
+  if (f(IUniversal.automation.automation1.level).lte(f(IUniversal.automation.automation1.maxLevel))) {
     buy(IUniversal.automation.automation1, "level", 1, "uniChallenger")
   }
 }
@@ -4957,11 +4940,6 @@ document.getElementById("fp3_content1_8_auto5_b1").onclick = function () {
       IUniversal.automation.automation5.active = true
     }
   }
-}
-
-//discord link
-document.getElementById("options_discord").onclick = function () {
-  window.open("https://discord.gg/6wpH3wuv", "_blank");
 }
 
 //FUNCTION: PAUSE FUNCTION
@@ -5360,7 +5338,6 @@ function ascensionRings(div, valore, spacingFactor = 1, padding = 0, startPercen
 // funzione per scalare i cerchi
 function scaleAscensionRings(factor) {
   IShowableClass.svg.ascensionCirclesScale = IShowableClass.svg.ascensionCirclesScale * factor
-
 }
 
 document.getElementById('scale-up').addEventListener('click', () => scaleAscensionRings(1.1));
@@ -5409,7 +5386,7 @@ function visualMenu() {
 
   var image = `url("images/attributes 1.png")`
 
-  if (IUniversal.attributes.attributesUnlock1.active) {
+  if (IUniversal.attributes.attributesUnlock1.active || true) {
     image = `url("images/attributes 2.png")`
     if (IUniversal.attributes.attributesUnlock2.active) {
       image = `url("images/attributes 3.png")`
@@ -7003,6 +6980,168 @@ function format(number, type, formatType = 'scientific') {
         return number.toExponential(type || 1);
       }
     }
+
+    // Se il formato richiesto è "letters" (notazione con lettere)
+    if (formatType === 'letters') {
+
+      if (typeof number === 'object' && number.exponent != undefined) {
+        if (number.exponent < 3) {
+          if (type != null) {
+            return (number.toNumber()).toFixed(type);
+          }
+          return (number.toNumber()).toFixed(1);
+        }
+
+        if (number.exponent >= 4) {
+          let num = number.mantissa;
+          num = num.toFixed(2);
+
+
+          //return num + "e" + number.exponent;
+        }
+
+        const units = ["", "U", "D", "T", "Qa", "Qt", "Sx", "Sp", "O", "No"];
+        const tens = ["", "Dc", "Vg", "Tg", "Qd", "Qi", "Sg", "St", "Og", "Nn"];
+        const hundreds = ["", "Ce", "Dn", "Tc", "Qe", "Qu", "Sc", "Si", "Oe", "Ne"];
+
+        // Scala per numeri sotto 1e10 (K, M, B, T, ...)
+        const smallUnits = ["", "K", "M", "B", "T", "Qa", "Qt", "Sx", "Sp", "Oc", "No"];
+
+
+        let length = (number.exponent).toString();
+
+        let formatted = "";
+
+        /*
+        let unitPlace = length >= 1 ? parseInt(numberStr[length - 1]) : 0;
+        let tenPlace = length >= 2 ? parseInt(numberStr[length - 2]) : 0;
+        let hundredPlace = length >= 3 ? parseInt(numberStr[length - 3]) : 0;
+  
+        // Unità, decine, centinaia per numeri a 3 cifre
+        if (unitPlace > 0) {
+          formatted = units[unitPlace];
+        }
+  
+        if (tenPlace > 0) {
+          formatted = tens[tenPlace] + formatted;
+        }
+  
+        if (hundredPlace > 0) {
+          formatted = hundreds[hundredPlace] + formatted;
+        }
+  
+        // Se il numero è 1e10 o maggiore, usa la scala con "U", "D", "T", ...
+        if (number >= 1e10) {
+          let exponent = Math.floor(Math.log10(number));
+          let scaleIndex = Math.floor((exponent - 1) / 3);
+          let remainingNumber = Math.floor(number / Math.pow(10, scaleIndex * 3));
+          formatted = remainingNumber + smallUnits[scaleIndex];
+        } else {
+          // Gestione per numeri più piccoli usando la scala piccola (K, M, ...)
+          if (length > 3) {
+            let thousandIndex = Math.floor((length - 1) / 3) - 1; // Aggiungere l'indice giusto per le migliaia
+            let remainingNumber = numberStr.slice(0, length - 3); // Prendere la parte superiore (migliaia e oltre)
+            formatted = remainingNumber + smallUnits[thousandIndex] + formatted;
+          }
+        }
+          */
+
+
+        //return number.toNumber().toFixed(1);
+        //return formatted || "Zero";
+      } else {
+        // Gestione di numeri primitivi (es: 12345)
+        return number.toExponential(type || 1);
+      }
+    }
+  }
+
+  return number;
+}
+
+function formatA(number, type, formatType = 'scientific') {
+  if (number != null) {
+    // Se il formato richiesto è "scientific" (notazione scientifica)
+    if (formatType === 'scientific') {
+      if (typeof number === 'object' && number.exponent != undefined) {
+        if (number.exponent < 3) {
+          if (type != null) {
+            return (number.toNumber()).toFixed(type);
+          }
+          return (number.toNumber()).toFixed(1);
+        }
+
+        if (number.exponent >= 4) {
+          let num = number.mantissa;
+          num = num.toFixed(2);
+
+          console.log(num + "e" + number.exponent)
+          return num + "e" + number.exponent;
+        }
+
+        return number.toNumber().toFixed(1);
+      } else {
+        // Gestione di numeri primitivi (es: 12345)
+        return number.toExponential(type || 1);
+      }
+    }
+
+    // Se il formato richiesto è "letters" (notazione con lettere)
+    if (formatType === 'letters') {
+
+      if (typeof number === 'object' && number.exponent != undefined) {
+        if (number.exponent < 3) {
+          if (type != null) {
+            return (number.toNumber()).toFixed(type);
+          }
+          return (number.toNumber()).toFixed(1);
+        }
+
+        if (number.exponent >= 4) {
+          let num = number.mantissa;
+          num = num.toFixed(2);
+
+          const units = ["", "U", "D", "T", "Qa", "Qt", "Sx", "Sp", "O", "No"];
+          const tens = ["", "Dc", "Vg", "Tg", "Qd", "Qi", "Sg", "St", "Og", "Nn"];
+          const hundreds = ["", "Ce", "Dn", "Tc", "Qe", "Qu", "Sc", "Si", "Oe", "Ne"];
+
+          // Scala per numeri sotto 1e10 (K, M, B, T, ...)
+          const smallUnits = ["K", "M", "B", "T", "Qa", "Qt", "Sx", "Sp", "Oc", "No"];
+
+          let car = (number.exponent).toString();
+
+          let formatted = "";
+
+          console.log(number.exponent)
+
+          if (car.length < 2) {
+            formatted += smallUnits[car.charAt(0)]
+          } else {
+            for (let x = 0; x < car.length; x++) {
+              if (x == 0) {
+                formatted += units[car.charAt(x)]
+              }
+              if (x == 1) {
+                formatted += tens[car.charAt(x)]
+              }
+              if (x == 2) {
+                formatted += hundreds[car.charAt(x)]
+              }
+            }
+          }
+
+          console.log(formatted)
+
+          //return num + "e" + number.exponent;
+        }
+
+        //return number.toNumber().toFixed(1);
+        //return formatted || "Zero";
+      } else {
+        // Gestione di numeri primitivi (es: 12345)
+        return number.toExponential(type || 1);
+      }
+    }
   }
 
   return number;
@@ -7579,6 +7718,11 @@ function visualLoopFunction() {
   }
 
   visualMenu()
+
+  let n1 = new Decimal(1e400);
+  console.log(n1.toString()); // "1e12"
+
+  //formatA(f(5e333))
 
   visualLore()
 
