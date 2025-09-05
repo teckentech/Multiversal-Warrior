@@ -1,7 +1,7 @@
-
 var IShowableClass;
 var IGameData;
-var ITraining
+var IPermanent;
+var ITraining;
 var IFight;
 var ICanCall;
 var ISelUpgrade;
@@ -47,6 +47,21 @@ class GameData {
   }
 }
 
+class Permanent {
+  constructor(options) {
+    options = options || {}
+
+    this.notationCont = options.notationCont || 0
+    this.maxNotationCont = options.notationCont || 2
+
+    this.notation = options.notation || {
+      notation0: "Letters and Scientific", notation0F: true,
+      notation1: "Scientific", notation1F: true,
+      notation2: "Letters", notation2F: true,
+    }
+  }
+}
+
 class Universal {
   constructor(options) {
     options = options || {};
@@ -70,146 +85,162 @@ class Universal {
 
     this.energyMulti = options.energyMulti || false;
 
+    this.energyLoadout = options.energyLoadout || {
+      loadout1: {
+        ascensionPoints: 0, name: "",
+        upgrade1: 0, upgrade2: 0, upgrade3: 0, upgrade4: 0, upgrade5: 0, upgrade6: 0, upgrade7: 0, upgrade8: 0, upgrade9: 0, upgrade10: 0,
+        upgrade11: 0, upgrade12: 0, upgrade13: 0, upgrade14: 0, upgrade15: 0, upgrade16: 0, upgrade17: 0, upgrade18: 0, upgrade19: 0, upgrade20: 0,
+        upgrade21: 0, upgrade22: 0, upgrade23: 0,
+      },
+
+      loadout2: {
+        ascensionPoints: 0, name: "",
+        upgrade1: 0, upgrade2: 0, upgrade3: 0, upgrade4: 0, upgrade5: 0, upgrade6: 0, upgrade7: 0, upgrade8: 0, upgrade9: 0, upgrade10: 0,
+        upgrade11: 0, upgrade12: 0, upgrade13: 0, upgrade14: 0, upgrade15: 0, upgrade16: 0, upgrade17: 0, upgrade18: 0, upgrade19: 0, upgrade20: 0,
+        upgrade21: 0, upgrade22: 0, upgrade23: 0,
+      },
+    }
+
     this.energyUpgrades = options.energyUpgrades || {
       upgrade1: {
         name: "", nameF: true, level: 0,
         effect: 0, effectDesc: "",
         price: 0,
         priceIdentity: "ascensionPoint", priceIdentityF: true,
-        showReq: false,
+        showReq: false, unlocked: false,
       },
       upgrade2: {
         name: "", nameF: true, level: 0,
         effect: 0, effectDesc: "",
         price: 0,
         priceIdentity: "ascensionPoint", priceIdentityF: true,
-        showReq: false,
+        showReq: false, unlocked: false,
       },
       upgrade3: {
         name: "", nameF: true, level: 0,
         effect: 0, effectDesc: "",
         price: 0,
         priceIdentity: "ascensionPoint", priceIdentityF: true,
-        showReq: false,
+        showReq: false, unlocked: false,
       },
       upgrade4: {
         name: "", nameF: true, level: 0,
         effect: 0, effectDesc: "",
         price: 0,
         priceIdentity: "ascensionPoint", priceIdentityF: true,
-        showReq: false,
+        showReq: false, unlocked: false,
       },
       upgrade5: {
         name: "", nameF: true, level: 0,
         effect: 0, effectDesc: "",
         price: 0,
         priceIdentity: "ascensionPoint", priceIdentityF: true,
-        showReq: false,
+        showReq: false, unlocked: false,
       },
       upgrade6: {
         name: "", nameF: true, level: 0,
         effect: 0, effectDesc: "",
         price: 0,
         priceIdentity: "ascensionPoint", priceIdentityF: true,
-        showReq: false,
+        showReq: false, unlocked: false,
       },
       upgrade7: {
         name: "", nameF: true, level: 0,
         effect: 0, effectDesc: "",
         price: 0,
         priceIdentity: "ascensionPoint", priceIdentityF: true,
-        showReq: false,
+        showReq: false, unlocked: false,
       },
       upgrade8: {
         name: "", nameF: true, level: 0,
         effect: 0, effectDesc: "",
         price: 0,
         priceIdentity: "ascensionPoint", priceIdentityF: true,
-        showReq: false,
+        showReq: false, unlocked: false,
       },
       upgrade9: {
         name: "", nameF: true, level: 0,
         effect: 0, effectDesc: "",
         price: 0,
         priceIdentity: "ascensionPoint", priceIdentityF: true,
-        showReq: false,
+        showReq: false, unlocked: false,
       },
       upgrade10: {
         name: "", nameF: true, level: 0,
         effect: 0, effectDesc: "",
         price: 0,
         priceIdentity: "ascensionPoint", priceIdentityF: true,
-        showReq: false,
+        showReq: false, unlocked: false,
       },
       upgrade11: {
         name: "", nameF: true, level: 0,
         effect: 0, effectDesc: "",
         price: 0,
         priceIdentity: "ascensionPoint", priceIdentityF: true,
-        showReq: false,
+        showReq: false, unlocked: false,
       },
       upgrade12: {
         name: "", nameF: true, level: 0,
         effect: 0, effectDesc: "",
         price: 0,
         priceIdentity: "ascensionPoint", priceIdentityF: true,
-        showReq: false,
+        showReq: false, unlocked: false,
       },
       upgrade13: {
         name: "", nameF: true, level: 0,
         effect: 0, effectDesc: "",
         price: 0,
         priceIdentity: "ascensionPoint", priceIdentityF: true,
-        showReq: false,
+        showReq: false, unlocked: false,
       },
       upgrade14: {
         name: "", nameF: true, level: 0,
         effect: 0, effectDesc: "",
         price: 0,
         priceIdentity: "ascensionPoint", priceIdentityF: true,
-        showReq: false,
+        showReq: false, unlocked: false,
       },
       upgrade15: {
         name: "", nameF: true, level: 0,
         effect: 0, effectDesc: "",
         price: 0,
         priceIdentity: "ascensionPoint", priceIdentityF: true,
-        showReq: false,
+        showReq: false, unlocked: false,
       },
       upgrade16: {
         name: "", nameF: true, level: 0,
         effect: 0, effectDesc: "",
         price: 0,
         priceIdentity: "ascensionPoint", priceIdentityF: true,
-        showReq: false,
+        showReq: false, unlocked: false,
       },
       upgrade17: {
         name: "", nameF: true, level: 0,
         effect: 0, effectDesc: "",
         price: 0,
         priceIdentity: "ascensionPoint", priceIdentityF: true,
-        showReq: false,
+        showReq: false, unlocked: false,
       },
       upgrade18: {
         name: "", nameF: true, level: 0,
         effect: 0, effectDesc: "",
         price: 0,
         priceIdentity: "ascensionPoint", priceIdentityF: true,
-        showReq: false,
+        showReq: false, unlocked: false,
       },
       upgrade19: {
         name: "", nameF: true, level: 0,
         effect: 0, effectDesc: "",
         price: 0,
         priceIdentity: "ascensionPoint", priceIdentityF: true,
-        showReq: false,
+        showReq: false, unlocked: false,
       },
       upgrade20: {
         name: "", nameF: true, level: 0,
         effect: 0, effectDesc: "",
         price: 0,
         priceIdentity: "ascensionPoint", priceIdentityF: true,
-        showReq: false,
+        showReq: false, unlocked: false,
       },
       upgrade21: {
         name: "", nameF: true, level: 0,
@@ -518,7 +549,7 @@ class Universal {
       automation1: {
         unlocked: false,
         active: false, price: 0, priceIdentity: "universalShards", priceIdentityF: true,
-        level: 0, maxLevel: 0,
+        level: 0, maxLevel: 0
       },
       automation2: {
         unlocked: false,
@@ -535,6 +566,11 @@ class Universal {
       automation5: {
         unlocked: false,
         active: false, price: 0, priceIdentity: "universalShards", priceIdentityF: true,
+      },
+      automation6: {
+        unlocked: false,
+        active: false, price: 0, priceIdentity: "universalShards", priceIdentityF: true,
+        level: 0, maxLevel: 0, option0: "", option1: "", option2: "", option3: "", selOption: 0,
       },
     }
 
@@ -606,13 +642,17 @@ class Fight {
       fightController1: "",
       fightController2: "",
       leftLife: 0,
+      leftLife2: 0,
       damage: 0,
       life: 0,
+
+
     };
 
     this.onFightStats = options.onFightStats || {
       life: 0,
       leftLife: 0,
+      leftLife2: 0,
       damage: 0,
     };
 
@@ -641,30 +681,31 @@ class Fight {
           name: "Slime", nameF: true, level: 0, effect: 0, price: 0, priceIdentity: "essence", priceIdentityF: true, active: false,
           req: function () { return }, unlocked: false,
           reqDescription: "", reqDescriptionF: true,
-          reqF: true,
+          reqF: true, showLevel: 0,
         },
         hunt2: {
           name: "Zombie", nameF: true, level: 0, effect: 0, price: 0, priceIdentity: "essence", priceIdentityF: true, active: false,
           req: function () { return }, unlocked: false,
           reqDescription: "", reqDescriptionF: true,
+          reqF: true, showLevel: 0,
         },
         hunt3: {
           name: "Knight", nameF: true, level: 0, effect: 0, price: 0, priceIdentity: "essence", priceIdentityF: true, active: false,
           req: function () { return }, unlocked: false,
           reqDescription: "", reqDescriptionF: true,
-          reqF: true,
+          reqF: true, showLevel: 0,
         },
         hunt4: {
           name: "Demon", nameF: true, level: 0, effect: 0, price: 0, priceIdentity: "essence", priceIdentityF: true, active: false,
           req: function () { return }, unlocked: false,
           reqDescription: "", reqDescriptionF: true,
-          reqF: true,
+          reqF: true, showLevel: 0,
         },
         hunt5: {
           name: "Wyvern", nameF: true, level: 0, effect: 0, price: 0, priceIdentity: "essence", priceIdentityF: true, active: false,
           req: function () { return }, unlocked: false,
           reqDescription: "", reqDescriptionF: true,
-          reqF: true,
+          reqF: true, showLevel: 0,
         }
       };
 
@@ -673,31 +714,31 @@ class Fight {
         name: "Damage × ", nameF: true, level: 0, effect: 0, price: 0, priceIdentity: "essence", priceIdentityF: true,
         req: function () { return f(IFight.normalHunting.hunt1.level).gte(f(10)) },
         reqDescription: "", reqDescriptionF: true,
-        reqF: true,
+        reqF: true, showLevel: 0,
       },
       upgrade2: {
         name: "Life × ", nameF: true, level: 0, effect: 0, price: 0, priceIdentity: "essence", priceIdentityF: true,
         req: function () { return f(IFight.normalHunting.hunt2.level).gte(f(10)) },
         reqDescription: "", reqDescriptionF: true,
-        reqF: true,
+        reqF: true, showLevel: 0,
       },
       upgrade3: {
         name: "Slime Multiplies Essence By × ", nameF: true, level: 0, effect: 0, price: 0, priceIdentity: "essence", priceIdentityF: true,
         req: function () { return f(IFight.normalHunting.hunt3.level).gte(f(10)) },
         reqDescription: "", reqDescriptionF: true,
-        reqF: true,
+        reqF: true, showLevel: 0,
       },
       upgrade4: {
         name: "Percentage Of Damage Added To Life", nameF: true, level: 0, effect: 0, price: 0, priceIdentity: "essence", priceIdentityF: true,
         req: function () { return f(IFight.normalHunting.hunt4.level).gte(f(10)) },
         reqDescription: "", reqDescriptionF: true,
-        reqF: true,
+        reqF: true, showLevel: 0,
       },
       upgrade5: {
         name: "Multiply Challenger First Reward By × ", nameF: true, level: 0, effect: 0, price: 0, priceIdentity: "essence", priceIdentityF: true,
         req: function () { return f(IFight.normalHunting.hunt5.level).gte(f(10)) },
         reqDescription: "", reqDescriptionF: true,
-        reqF: true,
+        reqF: true, showLevel: 0,
       },
     };
   }
@@ -731,7 +772,7 @@ class ShowableClass {
 
       //Valutes
 
-      essenceValute: false, universalValute: false,
+      universeValute: false, essenceValute: false,
 
       universalShardsBase: true,
       universalNodesBase: false,
@@ -755,6 +796,8 @@ class ShowableClass {
 
       fp3_content1_1: false, fp3_content1_2: false, fp3_content1_4: false, fp3_content1_8: false,
 
+      //mainMenuDirectionArrow
+      mainMenuDirectionArrow1: false, mainMenuDirectionArrow2: false, mainMenuDirectionArrow3: false, mainMenuDirectionArrow4: false,
       //Challenger
 
       c2_4_B_part1: true, c2_4_VS: true, c2_10_VS: true,
@@ -982,6 +1025,7 @@ function createClassInstance(type) {
   if (type == null) {
     IShowableClass = new ShowableClass();
     IGameData = new GameData();
+    IPermanent = new Permanent();
     ITraining = new Training();
     IFight = new Fight();
     ICanCall = new CanCall();
@@ -1009,6 +1053,7 @@ function createSaveData(type) {
     saveData = {
       IShowableClass: IShowableClass,
       IGameData: IGameData,
+      IPermanent: IPermanent,
       ITraining: ITraining,
       IFight: IFight,
       ICanCall: ICanCall,
@@ -1207,19 +1252,15 @@ function updateClass(cla, content) {
 
 function visualValute() {
 
-  if (f(IUniversal.universe).gte(f(2))) {
-    var UniversalText = `<span class="boldBlackBorder">${IUniversal.universe}</span><span class="grey"> Universe</span>`
-  } else {
-    UniversalText = ""
-  }
-  update("powerValute", `<div><span class="boldBlackBorder">${format(IGameData.power, 1)}</span><span class="grey"> Power</span></div><div>${UniversalText}</div>`)
+  update("powerValute", `<div><div>Power</div><div class="boldBlackBorder">${format(IGameData.power, 1)}</span></div>`)
+  update("universeValute", `<div><div>Universe</div><div class="boldBlackBorder">${format(IUniversal.universe, 0)}</div></div>`)
 
-  update("essenceBase", `<span class="boldBlackBorder">${format(IGameData.essence)}</span> <span class="grey"> Essence</span>`)
-  update("essenceProd", `<span class="boldBlackBorder">${format(sec(IGameData.essenceProd))}/s`)
 
-  update("universalShardsBase", `<span class="boldBlackBorder">${format(IUniversalChallenger.universalShards)}</span><span class="grey"> Universal Shards</span>`)
-  update("universalNodesBase", `<span class="boldBlackBorder">${format(IUniversalChallenger.universalNodes)}</span><span class="grey"> Universal Nodes</span>`)
-  update("universalCoresBase", `<span class="boldBlackBorder">${format(IUniversalChallenger.universalCores)}</span><span class="grey"> Universal Cores</span>`)
+  update("essenceValute", `<div><div>Essence</div><div class="boldBlackBorder">${format(IGameData.essence)}</div><div class="boldBlackBorder">${format(sec(IGameData.essenceProd))}/s</div></div>`)
+
+  update("universalShardsBase", `<div>Universal Shards</div><div class="boldBlackBorder">${format(IUniversalChallenger.universalShards)}</div>`)
+  update("universalNodesBase", `<div>Universal Nodes</div><div class="boldBlackBorder">${format(IUniversalChallenger.universalNodes)}</div>`)
+  update("universalCoresBase", `<div>Universal Cores</div><div class="boldBlackBorder">${format(IUniversalChallenger.universalCores)}</div>`)
 
 }
 
@@ -1372,6 +1413,27 @@ function checkBuy(priceIdentity, price, type) {
   }
 }
 
+function energyLoadout(action, loadout) {
+  let sel = IUniversal.energyLoadout[loadout]
+
+  if (action == "load" && f(sel.ascensionPoints).gt(f(0))) {
+    for (let x in IUniversal.energyUpgrades) {
+      IUniversal.energyUpgrades[x].level = f(sel[x])
+    }
+
+    IUniversal.ascensionPoint = f(sel.ascensionPoints)
+  }
+
+  if (action == "save") {
+    for (let x in IUniversal.energyUpgrades) {
+
+      sel[x] = f(IUniversal.energyUpgrades[x].level)
+    }
+
+    sel.ascensionPoints = f(IUniversal.ascensionPointMax).minus(f(IUniversal.ascensionPointMax).minus(f(IUniversal.ascensionPoint)))
+  }
+}
+
 function visualProgress() {
 
   var locator = IProgress.actualProgress;
@@ -1399,65 +1461,124 @@ function visualAutomation() {
   //TRAINING
 
   update("fp3_content1_8_auto1_title", `<span class="boldBlackBorder">TRAINING</span>`)
-  update("fp3_content1_8_auto1_1", `Maximum Active Trainings: ${format(f(ISelUpgrade.group.group1.maxNum), 0)}`)
+  update("fp3_content1_8_auto1_1", `Maximum active Trainings: ${format(f(ISelUpgrade.group.group1.maxNum), 0)}`)
 
   if (f(IUniversal.automation.automation1.level).equals(f(IUniversal.automation.automation1.maxLevel))) {
     update("fp3_content1_8_auto1_b1", `<div class="noClick">MAX</div>`)
+    document.getElementById(`fp3_content1_8_auto1_b1`).style.backgroundColor = "#004526"
+
   } else {
     update("fp3_content1_8_auto1_b1", `<div class="noClick">UPGRADE<div>
                                      <div class="noClick">Universal Shards: ${format(f(IUniversal.automation.automation1.price))}</div>`)
+
+    if (checkBuy(IUniversal.automation.automation1.priceIdentity, IUniversal.automation.automation1.price, "uniChallenger")) {
+      document.getElementById(`fp3_content1_8_auto1_b1`).style.backgroundColor = "#004526"
+    } else {
+      document.getElementById(`fp3_content1_8_auto1_b1`).style.backgroundColor = "#660000"
+    }
   }
 
   //HUNTING
   update("fp3_content1_8_auto2_title", `<span class="boldBlackBorder">HUNTING</span>`)
-  update("fp3_content1_8_auto2_1", `Autobuy Hunts (Doesnt Consume Essence)`)
+  update("fp3_content1_8_auto2_1", `Autobuy Hunts (Doesnt consume Essence)`)
 
   if (IUniversal.automation.automation2.unlocked) {
     if (IUniversal.automation.automation2.active) {
       document.getElementById(`fp3_content1_8_auto2_b1`).style.backgroundColor = "#004526"
-      update("fp3_content1_8_auto2_b1", `<div class="noClick">DEACTIVE</div>`)
+      update("fp3_content1_8_auto2_b1", `<div class="noClick">ON</div>`)
     } else {
       document.getElementById(`fp3_content1_8_auto2_b1`).style.backgroundColor = "#660000"
-      update("fp3_content1_8_auto2_b1", `<div class="noClick">ACTIVE</div>`)
+      update("fp3_content1_8_auto2_b1", `<div class="noClick">OFF</div>`)
     }
   } else {
     update("fp3_content1_8_auto2_b1", `<div class="noClick">UPGRADE<div>
                                      <div class="noClick">Universal Shards: ${format(f(IUniversal.automation.automation2.price))}</div>`)
+
+    if (checkBuy(IUniversal.automation.automation2.priceIdentity, IUniversal.automation.automation2.price, "uniChallenger")) {
+      document.getElementById(`fp3_content1_8_auto2_b1`).style.backgroundColor = "#004526"
+    } else {
+      document.getElementById(`fp3_content1_8_auto2_b1`).style.backgroundColor = "#660000"
+    }
   }
 
-  update("fp3_content1_8_auto3_1", `Autobuy Hunting Upgrades (Doesnt Consume Essence)`)
+  update("fp3_content1_8_auto3_1", `Autobuy hunting upgrades (doesnt consume Essence)`)
 
   if (IUniversal.automation.automation3.unlocked) {
     if (IUniversal.automation.automation3.active) {
       document.getElementById(`fp3_content1_8_auto3_b1`).style.backgroundColor = "#004526"
-      update("fp3_content1_8_auto3_b1", `<div class="noClick">DEACTIVE</div>`)
+      update("fp3_content1_8_auto3_b1", `<div class="noClick">ON</div>`)
     } else {
       document.getElementById(`fp3_content1_8_auto3_b1`).style.backgroundColor = "#660000"
-      update("fp3_content1_8_auto3_b1", `<div class="noClick">ACTIVE</div>`)
+      update("fp3_content1_8_auto3_b1", `<div class="noClick">OFF</div>`)
     }
   } else {
     update("fp3_content1_8_auto3_b1", `<div class="noClick">UPGRADE<div>
                                      <div class="noClick">Universal Shards: ${format(f(IUniversal.automation.automation3.price))}</div>`)
+
+    if (checkBuy(IUniversal.automation.automation3.priceIdentity, IUniversal.automation.automation3.price, "uniChallenger")) {
+      document.getElementById(`fp3_content1_8_auto3_b1`).style.backgroundColor = "#004526"
+    } else {
+      document.getElementById(`fp3_content1_8_auto3_b1`).style.backgroundColor = "#660000"
+    }
   }
 
   //CHALLENGER
 
   update("fp3_content1_8_auto4_title", `<span class="boldBlackBorder">CHALLENGER</span>`)
-  update("fp3_content1_8_auto4_1", `<div class="centerDiv">Auto Challenge Challenger</div>
-                                    <div class="centerDiv">(Only If Your Damage And Life Is Highter Than The Challenger's)</div>`)
+  update("fp3_content1_8_auto4_1", `<div class="centerDiv">Auto challenge Challenger</div>
+                                    <div class="centerDiv">(Only if your damage and life is highter than the challenger's)</div>`)
 
   if (IUniversal.automation.automation4.unlocked) {
     if (IUniversal.automation.automation4.active) {
       document.getElementById(`fp3_content1_8_auto4_b1`).style.backgroundColor = "#004526"
-      update("fp3_content1_8_auto4_b1", `<div class="noClick">DEACTIVE</div>`)
+      update("fp3_content1_8_auto4_b1", `<div class="noClick">ON</div>`)
     } else {
       document.getElementById(`fp3_content1_8_auto4_b1`).style.backgroundColor = "#660000"
-      update("fp3_content1_8_auto4_b1", `<div class="noClick">ACTIVE</div>`)
+      update("fp3_content1_8_auto4_b1", `<div class="noClick">OFF</div>`)
     }
   } else {
     update("fp3_content1_8_auto4_b1", `<div class="noClick">UPGRADE<div>
                                      <div class="noClick">Universal Shards: ${format(f(IUniversal.automation.automation4.price))}</div>`)
+
+    if (checkBuy(IUniversal.automation.automation4.priceIdentity, IUniversal.automation.automation4.price, "uniChallenger")) {
+      document.getElementById(`fp3_content1_8_auto4_b1`).style.backgroundColor = "#004526"
+    } else {
+      document.getElementById(`fp3_content1_8_auto4_b1`).style.backgroundColor = "#660000"
+    }
   }
+
+  //UNIVERSAL CHALLENGER
+
+  update("fp3_content1_8_auto6_title", `<span class="boldBlackBorder">UNIVERSAL CHALLENGER</span>`)
+  update("fp3_content1_8_auto6_1", `<div class="centerDiv">When you fight Universal Challenger, start closer to your maximum Universal Challenger </div>`)
+
+  if (IUniversal.automation.automation6.active) {
+    document.getElementById(`fp3_content1_8_auto6_b1`).style.backgroundColor = "#004526"
+    update("fp3_content1_8_auto6_b1", `<div class="noClick">ON</div>`)
+  } else {
+    document.getElementById(`fp3_content1_8_auto6_b1`).style.backgroundColor = "#660000"
+    update("fp3_content1_8_auto6_b1", `<div class="noClick">OFF</div>`)
+  }
+
+  if (f(IUniversal.automation.automation6.level).equals(f(IUniversal.automation.automation6.maxLevel))) {
+    update("fp3_content1_8_auto6_b1", `<div class="noClick">MAX</div>`)
+  } else {
+    update("fp3_content1_8_auto6_b1", `<div class="noClick">UPGRADE<div>
+                                     <div class="noClick">Universal Shards: ${format(f(IUniversal.automation.automation6.price))}</div>`)
+
+    if (checkBuy(IUniversal.automation.automation6.priceIdentity, IUniversal.automation.automation5.price, "uniChallenger")) {
+      document.getElementById(`fp3_content1_8_auto6_b1`).style.backgroundColor = "#004526"
+    } else {
+      document.getElementById(`fp3_content1_8_auto6_b1`).style.backgroundColor = "#660000"
+    }
+  }
+
+  update("fp3_content1_8_auto6_b2", `<div class="noClick"><</div>`)
+  update("fp3_content1_8_auto6_b3", `<div class="noClick">></div>`)
+
+  var op = `option${IUniversal.automation.automation6.selOption}`
+  update("fp3_content1_8_auto6_2", `<div class="centerDiv">${IUniversal.automation.automation6[op]}</div>`)
+
 
   //ASCENSION
 
@@ -1469,16 +1590,21 @@ function visualAutomation() {
   if (IUniversal.automation.automation5.unlocked) {
     if (IUniversal.automation.automation5.active) {
       document.getElementById(`fp3_content1_8_auto5_b1`).style.backgroundColor = "#004526"
-      update("fp3_content1_8_auto5_b1", `<div class="noClick">DEACTIVE</div>`)
+      update("fp3_content1_8_auto5_b1", `<div class="noClick">ON</div>`)
     } else {
       document.getElementById(`fp3_content1_8_auto5_b1`).style.backgroundColor = "#660000"
-      update("fp3_content1_8_auto5_b1", `<div class="noClick">ACTIVE</div>`)
+      update("fp3_content1_8_auto5_b1", `<div class="noClick">OFF</div>`)
     }
   } else {
     update("fp3_content1_8_auto5_b1", `<div class="noClick">UPGRADE<div>
                                      <div class="noClick">Universal Shards: ${format(f(IUniversal.automation.automation5.price))}</div>`)
-  }
 
+    if (checkBuy(IUniversal.automation.automation5.priceIdentity, IUniversal.automation.automation5.price, "uniChallenger")) {
+      document.getElementById(`fp3_content1_8_auto5_b1`).style.backgroundColor = "#004526"
+    } else {
+      document.getElementById(`fp3_content1_8_auto5_b1`).style.backgroundColor = "#660000"
+    }
+  }
 }
 //VALUTE
 
@@ -1618,8 +1744,12 @@ function valuesSetter(type) {
   //leftLife
 
 
-  if (!IFight.youStats.onFight1 && !IFight.youStats.onFight2) {
+  if (!IFight.youStats.onFight1) {
     IFight.youStats.leftLife = f(IFight.youStats.life)
+  }
+
+  if (!IFight.youStats.onFight2) {
+    IFight.youStats.leftLife2 = f(IFight.youStats.life)
   }
 
   //CHALLENGER
@@ -1707,6 +1837,14 @@ function valuesSetter(type) {
 
   IUniversalChallenger.challengers.universalChallenger.name = `Universal Challenger ${IUniversalChallenger.challengers.universalChallenger.level}`
 
+  //level
+
+
+  if (!IFight.youStats.onFight2) {
+    IUniversalChallenger.challengers.universalChallenger.level = f(1)
+  }
+
+
   //damage
 
   if (type == "universalChallengerChallenge2" || IUniversalChallenger.universalChallengerChallenges.c2.active) {
@@ -1765,7 +1903,7 @@ function valuesSetter(type) {
 
   //Universal challenger Rewards
 
-  IUniversalChallenger.universalChallengerRewards.reward1.name = `<div>Universal Challenger <span class="boldBlackBorder">${IUniversalChallenger.challengers.universalChallenger.maxLevel}</span></div><div><span class="boldBlackBorder">${format(sec(IUniversalChallenger.universalShardsProd), 1)}/s</span> Universal Shards</div>`
+  IUniversalChallenger.universalChallengerRewards.reward1.name = `<div>Maximum Universal Challenger <span class="boldBlackBorder">${IUniversalChallenger.challengers.universalChallenger.maxLevel}</span></div><div><span class="boldBlackBorder">${format(sec(IUniversalChallenger.universalShardsProd), 1)}/s</span> Universal Shards</div>`
 
   IUniversalChallenger.universalChallengerRewards.reward1.level = f(IUniversalChallenger.challengers.universalChallenger.maxLevel)
 
@@ -1803,7 +1941,7 @@ function valuesSetter(type) {
 
   var sel = IUniversalChallenger.universalChallengerChallengesRewards.c1
 
-  sel.name = `<div>Universal Challenger <span class="boldBlackBorder">${sel.level}</span></div><div><span class="boldBlackBorder">${format(f(sel.effect))}/s</span> Universal Nodes</div>`
+  sel.name = `<div>Maximum Universal Challenger <span class="boldBlackBorder">${sel.level}</span></div><div><span class="boldBlackBorder">${format(f(sel.effect))}/s</span> Universal Nodes</div>`
 
   if (f(IUniversalChallenger.universalChallengerChallengesRewards.c1.level).gte(f(1))) {
     sel.effect = ((f(5).pow((f(IUniversalChallenger.universalChallengerChallengesRewards.c1.level)))))
@@ -1813,7 +1951,7 @@ function valuesSetter(type) {
 
   var sel = IUniversalChallenger.universalChallengerChallengesRewards.c2
 
-  sel.name = `<div>Universal Challenger <span class="boldBlackBorder">${sel.level}</span></div><div><span class="boldBlackBorder">${format(f(sel.effect))}/s</span> Universal Cores</div>`
+  sel.name = `<div>Maximum Universal Challenger <span class="boldBlackBorder">${sel.level}</span></div><div><span class="boldBlackBorder">${format(f(sel.effect))}/s</span> Universal Cores</div>`
 
   if (f(IUniversalChallenger.universalChallengerChallengesRewards.c2.level).gte(f(1))) {
     sel.effect = ((f(10).pow((f(IUniversalChallenger.universalChallengerChallengesRewards.c2.level)))))
@@ -1829,11 +1967,7 @@ function valuesSetter(type) {
 
   sel.level = f(sel.level);
 
-  if (IUniversal.energyUpgrades.upgrade15.active) {
-    var extraEffect1 = f(IFight.normalHunting.hunt2.level).mul(IUniversal.energyUpgrades.upgrade15.effect);
-  } else {
-    extraEffect1 = f(0);
-  }
+  IFight.normalHunting.hunt1.showLevel = f(sel.level)
 
   if (IUniversal.huntEvolution.b1.active1) {
     var extraEffect2 = f(IUniversal.huntEvolution.b1.effect1);
@@ -1842,7 +1976,7 @@ function valuesSetter(type) {
   }
 
   if (sel.active) {
-    sel.effect = (f(sel.level).add(f(extraEffect1))).mul(f(1.1).mul(f(1).add(f(0.10).mul(f(sel.level))))).mul(f(extraEffect2));
+    sel.effect = (f(sel.level)).mul(f(1.1).mul(f(1).add(f(0.10).mul(f(sel.level))))).mul(f(extraEffect2));
   } else {
     sel.effect = f(0);
   }
@@ -1879,10 +2013,12 @@ function valuesSetter(type) {
   var sel2 = IFight.normalHunting.hunt2;
 
   if (IUniversal.energyUpgrades.upgrade15.active) {
-    var extraEffect1 = f(IFight.normalHunting.hunt3.level).mul(IUniversal.energyUpgrades.upgrade15.effect);
+    var extraEffect1 = f(IFight.normalHunting.hunt1.level).mul(IUniversal.energyUpgrades.upgrade15.effect);
   } else {
     extraEffect1 = f(0);
   }
+
+  sel2.showLevel = f(sel2.level).add(f(extraEffect1))
 
   if (IUniversal.huntEvolution.b2.active1) {
     var extraEffect2 = f(IUniversal.huntEvolution.b2.effect1);
@@ -1893,10 +2029,7 @@ function valuesSetter(type) {
   sel2.level = f(sel2.level);
 
   if (sel2.active) {
-    sel2.effect = f(20).mul(
-      f(sel2.level).add(f(extraEffect1))
-        .mul(f(1).add(f(0.15).mul(f(sel2.level).add(f(extraEffect1))))).mul(f(extraEffect2))
-    );
+    sel2.effect = f(20).mul(f(sel2.level).add(f(extraEffect1))).mul(f(1).add(f(0.15).mul(f(sel2.level).add(f(extraEffect1))))).mul(f(extraEffect2));
   } else {
     sel2.effect = f(0);
   }
@@ -1936,10 +2069,12 @@ function valuesSetter(type) {
   sel3.level = f(sel3.level);
 
   if (IUniversal.energyUpgrades.upgrade15.active) {
-    var extraEffect1 = f(IFight.normalHunting.hunt4.level).mul(IUniversal.energyUpgrades.upgrade15.effect);
+    var extraEffect1 = f(IFight.normalHunting.hunt2.level).mul(IUniversal.energyUpgrades.upgrade15.effect);
   } else {
     extraEffect1 = f(0);
   }
+
+  sel3.showLevel = f(sel3.level).add(f(extraEffect1))
 
   if (IUniversal.huntEvolution.b3.active1) {
     var extraEffect2 = f(IUniversal.huntEvolution.b3.effect1);
@@ -1948,10 +2083,7 @@ function valuesSetter(type) {
   }
 
   if (sel3.active) {
-    sel3.effect = f(400).mul(
-      f(sel3.level).add(f(extraEffect1))
-        .mul(f(1).add(f(0.20).mul(f(sel3.level).add(f(extraEffect1))))).mul(f(extraEffect2))
-    );
+    sel3.effect = f(400).mul(f(sel3.level).add(f(extraEffect1))).mul(f(1).add(f(0.20).mul(f(sel3.level).add(f(extraEffect1))))).mul(f(extraEffect2));
   } else {
     sel3.effect = f(0);
   }
@@ -1990,10 +2122,12 @@ function valuesSetter(type) {
   sel4.level = f(sel4.level);
 
   if (IUniversal.energyUpgrades.upgrade15.active) {
-    var extraEffect1 = f(IFight.normalHunting.hunt5.level).mul(IUniversal.energyUpgrades.upgrade15.effect);
+    var extraEffect1 = f(IFight.normalHunting.hunt3.level).mul(IUniversal.energyUpgrades.upgrade15.effect);
   } else {
     extraEffect1 = f(0);
   }
+
+  sel4.showLevel = f(sel4.level).add(f(extraEffect1))
 
   if (IUniversal.huntEvolution.b4.active1) {
     var extraEffect2 = f(IUniversal.huntEvolution.b4.effect1);
@@ -2002,10 +2136,7 @@ function valuesSetter(type) {
   }
 
   if (sel4.active) {
-    sel4.effect = f(8000).mul(
-      f(sel4.level).add(f(extraEffect1))
-        .mul(f(1).add(f(0.25).mul(f(sel4.level).add(f(extraEffect1))))).mul(f(extraEffect2))
-    );
+    sel4.effect = f(8000).mul(f(sel4.level).add(f(extraEffect1))).mul(f(1).add(f(0.25).mul(f(sel4.level).add(f(extraEffect1))))).mul(f(extraEffect2));
   } else {
     sel4.effect = f(0);
   }
@@ -2051,6 +2182,14 @@ function valuesSetter(type) {
     hunt1 = f(1);
   }
 
+  if (IUniversal.energyUpgrades.upgrade15.active) {
+    var extraEffect1 = f(IFight.normalHunting.hunt3.level).mul(IUniversal.energyUpgrades.upgrade15.effect);
+  } else {
+    extraEffect1 = f(0);
+  }
+
+  sel5.showLevel = f(sel5.level).add(f(extraEffect1))
+
   if (IUniversal.huntEvolution.b5.active1) {
     var extraEffect2 = f(IUniversal.huntEvolution.b5.effect1);
   } else {
@@ -2058,9 +2197,7 @@ function valuesSetter(type) {
   }
 
   if (sel5.active) {
-    sel5.effect = f(160000).mul(
-      f(sel5.level).mul(f(1).add(f(0.30).mul(f(sel5.level)))).mul(f(extraEffect2))
-    ).mul(f(hunt1));
+    sel5.effect = f(160000).mul(f(sel5.level).add(f(extraEffect1))).mul((f(1).add(f(0.30)).mul(f(sel5.level).add(f(extraEffect1))))).mul(f(extraEffect2)).mul(f(hunt1));
   } else {
     sel5.effect = f(0);
   }
@@ -2071,10 +2208,7 @@ function valuesSetter(type) {
     extraEffect1 = f(1);
   }
 
-
   sel5.price = f(5).mul(f(10).pow(8)).mul(f(1.6).pow(f(1).add(f(sel5.level)))).dividedBy(f(extraEffect1));
-
-
 
   sel5.req = function () {
 
@@ -2113,6 +2247,8 @@ function valuesSetter(type) {
     extraLevel1 = f(0)
   }
 
+  IFight.normalHuntingRewards.upgrade1.showLevel = f(IFight.normalHuntingRewards.upgrade1.level).add(f(extraLevel1))
+
   IFight.normalHuntingRewards.upgrade1.effect = f(2).pow(f(IFight.normalHuntingRewards.upgrade1.level).add(f(extraLevel1)))
 
   if (IUniversal.huntEvolution.b1.active3) {
@@ -2140,11 +2276,20 @@ function valuesSetter(type) {
 
   IFight.normalHuntingRewards.upgrade2.level = f(IFight.normalHuntingRewards.upgrade2.level)
 
+  if (IUniversal.energyUpgrades.upgrade15.active) {
+    var extraEffect1 = f(IFight.normalHunting.hunt1.level).mul(IUniversal.energyUpgrades.upgrade15.effect);
+  } else {
+    extraEffect1 = f(0);
+  }
+
   if (IUniversal.energyUpgrades.upgrade14.active) {
-    var extraLevel1 = f(Decimal.log10(f(IFight.normalHunting.hunt2.level).mul(f(IUniversal.energyUpgrades.upgrade14.effect)))).floor()
+    var extraLevel1 = f(Decimal.log10((f(IFight.normalHunting.hunt2.level).add(f(extraEffect1))).mul(f(IUniversal.energyUpgrades.upgrade14.effect)))).floor()
   } else {
     extraLevel1 = f(0)
   }
+
+  IFight.normalHuntingRewards.upgrade2.showLevel = f(IFight.normalHuntingRewards.upgrade2.level).add(f(extraLevel1))
+
 
   IFight.normalHuntingRewards.upgrade2.effect = f(5).pow(f(IFight.normalHuntingRewards.upgrade2.level).add(f(extraLevel1)))
 
@@ -2169,15 +2314,28 @@ function valuesSetter(type) {
 
   //HUNT REWARD 3
 
+<<<<<<< Updated upstream
   IFight.normalHuntingRewards.upgrade3.name = `Essence/s ×<span class="boldBlackBorder">Slime (${format(f(IFight.normalHuntingRewards.upgrade3.effect), 0)})</span>`
+=======
+  IFight.normalHuntingRewards.upgrade3.name = `Slime multiplies Essence ×<span class="boldBlackBorder">${format(f(IFight.normalHuntingRewards.upgrade3.effect), 0)}</span>`
+>>>>>>> Stashed changes
 
   IFight.normalHuntingRewards.upgrade3.level = f(IFight.normalHuntingRewards.upgrade3.level)
 
+  if (IUniversal.energyUpgrades.upgrade15.active) {
+    var extraEffect1 = f(IFight.normalHunting.hunt2.level).mul(IUniversal.energyUpgrades.upgrade15.effect);
+  } else {
+    extraEffect1 = f(0);
+  }
+
   if (IUniversal.energyUpgrades.upgrade14.active) {
-    var extraLevel1 = f(Decimal.log10(f(IFight.normalHunting.hunt3.level).mul(f(IUniversal.energyUpgrades.upgrade14.effect)))).floor()
+    var extraLevel1 = f(Decimal.log10((f(IFight.normalHunting.hunt3.level).add(f(extraEffect1))).mul(f(IUniversal.energyUpgrades.upgrade14.effect)))).floor()
   } else {
     extraLevel1 = f(0)
   }
+
+  IFight.normalHuntingRewards.upgrade3.showLevel = f(IFight.normalHuntingRewards.upgrade3.level).add(f(extraLevel1))
+
 
   IFight.normalHuntingRewards.upgrade3.effect = ((f(IFight.normalHuntingRewards.upgrade3.level).add(f(extraLevel1))).mul(f(1.3).pow(f(IFight.normalHunting.hunt1.level).div(f(10)))))
 
@@ -2205,11 +2363,19 @@ function valuesSetter(type) {
 
   IFight.normalHuntingRewards.upgrade4.level = f(IFight.normalHuntingRewards.upgrade4.level)
 
+  if (IUniversal.energyUpgrades.upgrade15.active) {
+    var extraEffect1 = f(IFight.normalHunting.hunt3.level).mul(IUniversal.energyUpgrades.upgrade15.effect);
+  } else {
+    extraEffect1 = f(0);
+  }
+
   if (IUniversal.energyUpgrades.upgrade14.active) {
-    var extraLevel1 = f(Decimal.log10(f(IFight.normalHunting.hunt4.level).mul(f(IUniversal.energyUpgrades.upgrade14.effect)))).floor()
+    var extraLevel1 = f(Decimal.log10((f(IFight.normalHunting.hunt4.level).add(f(extraEffect1))).mul(f(IUniversal.energyUpgrades.upgrade14.effect)))).floor()
   } else {
     extraLevel1 = f(0)
   }
+
+  IFight.normalHuntingRewards.upgrade4.showLevel = f(IFight.normalHuntingRewards.upgrade4.level).add(f(extraLevel1))
 
 
   IFight.normalHuntingRewards.upgrade4.effect = f(IFight.normalHuntingRewards.upgrade4.level).add(f(extraLevel1))
@@ -2238,11 +2404,20 @@ function valuesSetter(type) {
 
   IFight.normalHuntingRewards.upgrade5.level = f(IFight.normalHuntingRewards.upgrade5.level)
 
+  if (IUniversal.energyUpgrades.upgrade15.active) {
+    var extraEffect1 = f(IFight.normalHunting.hunt4.level).mul(IUniversal.energyUpgrades.upgrade15.effect);
+  } else {
+    extraEffect1 = f(0);
+  }
+
   if (IUniversal.energyUpgrades.upgrade14.active) {
-    var extraLevel1 = f(Decimal.log10(f(IFight.normalHunting.hunt5.level).mul(f(IUniversal.energyUpgrades.upgrade14.effect)))).floor()
+    var extraLevel1 = f(Decimal.log10((f(IFight.normalHunting.hunt5.level).add(f(extraEffect1))).mul(f(IUniversal.energyUpgrades.upgrade14.effect)))).floor()
   } else {
     extraLevel1 = f(0)
   }
+
+  IFight.normalHuntingRewards.upgrade5.showLevel = f(IFight.normalHuntingRewards.upgrade5.level).add(f(extraLevel1))
+
 
   IFight.normalHuntingRewards.upgrade5.effect = f(1).add(f(0.1).mul(f(IFight.normalHuntingRewards.upgrade5.level).add(f(extraLevel1))).mul(f(IFight.challengers.baseChallenger.level)))
 
@@ -2361,7 +2536,7 @@ function valuesSetter(type) {
 
   var sel = IUniversal.energyUpgrades.upgrade4
 
-  sel.name = `<div>Damage <span class="boldBlackBorder">×</span></div> <div><span class="boldBlackBorder">log(Universe Time)</span> per LVL</div>`
+  sel.name = `<div>Damage <span class="boldBlackBorder">×</span></div> <div><span class="boldBlackBorder">log(Universe Time ×LVL)</span></div>`
   sel.effectDesc = `×${format(f(sel.effect), 0)}`
   sel.level = f(sel.level)
   if (f(IGameData.universeTime).gte(f(3)) && IGameData.universeTime != "NaN" && IGameData.universeTime != undefined) {
@@ -2426,7 +2601,7 @@ function valuesSetter(type) {
 
   var sel = IUniversal.energyUpgrades.upgrade7
 
-  sel.name = `<div>Life Training <span class="boldBlackBorder">×</span></div> <div><span class="boldBlackBorder">Universe</span> per LVL</div>`
+  sel.name = `<div>Life Training <span class="boldBlackBorder">×</span></div> <div><span class="boldBlackBorder">Universe×LVL</span></div>`
   sel.effectDesc = `×${sel.effect}`
   sel.level = f(sel.level)
   sel.effect = f(IUniversal.universe).mul(f(sel.level))
@@ -2523,7 +2698,7 @@ function valuesSetter(type) {
 
   var sel = IUniversal.energyUpgrades.upgrade12
 
-  sel.name = `Essence/s <span class="boldBlackBorder">×log(Total hunt levels per LVL)</span>`
+  sel.name = `Essence/s <span class="boldBlackBorder">×log(Total hunt levels ×LVL)</span>`
   sel.effectDesc = `×${format(f(sel.effect), 0)}`
   sel.level = f(sel.level)
 
@@ -2556,7 +2731,7 @@ function valuesSetter(type) {
 
   var sel = IUniversal.energyUpgrades.upgrade13
 
-  sel.name = `Wyverns Essence/s <span class="boldBlackBorder">×log(Knights)</span> per LVL`
+  sel.name = `Wyverns Essence/s <span class="boldBlackBorder">×log(Knights ×LVL)</span>`
   sel.effectDesc = `×${format(f(sel.effect), 0)}`
   sel.level = f(sel.level)
   if (f(IFight.normalHunting.hunt3.level).gte(2)) {
@@ -2581,7 +2756,7 @@ function valuesSetter(type) {
 
   var sel = IUniversal.energyUpgrades.upgrade14
 
-  sel.name = `Each hunt grants a free matching upgrade: <span class="boldBlackBorder">log₁₀(Hunt)per LVL</span>`
+  sel.name = `Each hunt grants a free matching upgrade: <span class="boldBlackBorder">log₁₀(Hunt ×LVL)</span>`
   sel.effectDesc = ``
   sel.level = f(sel.level)
   sel.effect = f(sel.level)
@@ -2601,10 +2776,10 @@ function valuesSetter(type) {
 
   var sel = IUniversal.energyUpgrades.upgrade15
 
-  sel.name = `Hunts grant +<span class="boldBlackBorder">10%</span> to previous hunt per LVL`
-  sel.effectDesc = `${format(f(f(sel.level).mul(f(10))))}%`
+  sel.name = `each Hunt gives <span class="boldBlackBorder">50% ×LVL</span> of its levels to next hunt`
+  sel.effectDesc = `${format(f(f(sel.level).mul(f(50))), 0)}%`
   sel.level = f(sel.level)
-  sel.effect = f(0.1).mul(f(sel.level))
+  sel.effect = f(0.50).mul(f(sel.level))
   sel.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
 
   if (f(sel.level).gt(f(0))) {
@@ -2719,7 +2894,7 @@ function valuesSetter(type) {
   var sel = IUniversal.energyUpgrades.upgrade21
 
   sel.name = `<div>(Requires adiacent upgrades)</div>
-  <div>Damage & Life <span class="boldBlackBorder">×log(Power×LVL)</span></div>`
+  <div>Damage & Life <span class="boldBlackBorder">×log(Power ×LVL)</span></div>`
   sel.effectDesc = `×${format(f(sel.effect))}`
   sel.level = f(sel.level)
 
@@ -2746,9 +2921,9 @@ function valuesSetter(type) {
 
   sel.name = `<div>(Requires adiacent upgrades)</div>
   <div>U. Nodes & Cores</div>
-              <div><span class="boldBlackBorder">×log(U. Shards×LVL)</span></div>
+              <div><span class="boldBlackBorder">×log(U. Shards ×LVL)</span></div>
               `
-  sel.effectDesc = `× ${format(f(sel.effect))}`
+  sel.effectDesc = `× ${format(f(sel.effect), 0)}`
   sel.level = f(sel.level)
   sel.effect = f(Decimal.log2(IUniversalChallenger.universalShards)).mul(f(sel.level))
   sel.price = f(5).pow(f(sel.level).add(f(1)))
@@ -2768,7 +2943,7 @@ function valuesSetter(type) {
   var sel = IUniversal.energyUpgrades.upgrade23
 
   sel.name = `<div>(Requires adiacent upgrades)</div>
-  <div>Energy upgrades price <span class="boldBlackBorder">/2</span> ×LVL</div>
+  <div>Energy upgrades price <span class="boldBlackBorder">/2 ×LVL</span></div>
               <div>Except fusion upgrades </div>`
   sel.effectDesc = `/${format(f(sel.effect))}`
   sel.level = f(sel.level)
@@ -3567,7 +3742,21 @@ function valuesSetter(type) {
 
   IUniversal.automation.automation5.price = (f(10).pow(f(23)))
 
+  //Automation 6
 
+  IUniversal.automation.automation6.level = f(IUniversal.automation.automation6.level)
+
+  IUniversal.automation.automation6.maxLevel = f(3)
+
+  IUniversal.automation.automation6.price = (f(10).pow(10)).pow(f(IUniversal.automation.automation6.level).add(f(1)))
+
+  IUniversal.automation.automation6.option0 = "Fight from the start"
+
+  IUniversal.automation.automation6.option1 = "Fight 20 Universal Challengers from the maximum"
+
+  IUniversal.automation.automation6.option2 = "Fight 10 Universal Challengers from the maximum"
+
+  IUniversal.automation.automation6.option3 = "Fight 5 Universal Challengers from the maximum"
 
   //LORE
 
@@ -4330,6 +4519,53 @@ document.getElementById("content2_7_upgrade23_b1").onclick = function () {
   }
 }
 
+//energyLoadout
+document.getElementById("content2_7_l1_b1").onclick = function () {
+  energyLoadout("load", "loadout1")
+}
+
+document.getElementById("content2_7_l1_b2").onclick = function () {
+  energyLoadout("save", "loadout1")
+}
+
+document.getElementById("content2_7_l2_b1").onclick = function () {
+  energyLoadout("load", "loadout2")
+}
+
+document.getElementById("content2_7_l2_b2").onclick = function () {
+  energyLoadout("save", "loadout2")
+}
+
+//name loadout
+
+document.getElementById("content2_7_l_loadout1").onmouseenter = function () {
+  componentsLoadoutName("content2_7_l_loadout1", true, "loadout1");
+}
+
+document.getElementById("content2_7_l_loadout2").onmouseenter = function () {
+  componentsLoadoutName("content2_7_l_loadout2", true, "loadout2");
+}
+
+document.getElementById("content2_7_l_loadout1").onmouseleave = function () {
+  componentsLoadoutName("content2_7_l_loadout1", false, "loadout1");
+}
+
+document.getElementById("content2_7_l_loadout2").onmouseleave = function () {
+  componentsLoadoutName("content2_7_l_loadout2", false, "loadout2");
+}
+
+function componentsLoadoutName(id, enter, type) {
+  let sel = document.getElementById(id)
+  if (enter == true) {
+    sel.disabled = false;
+    IUniversal.energyLoadout[type].name = sel.value
+  }
+  if (enter == false) {
+    sel.disabled = true;
+    IUniversal.energyLoadout[type].name = sel.value
+  }
+}
+
 //Fight
 
 document.getElementById("c2_4_VS").onclick = async function () {
@@ -4396,19 +4632,18 @@ document.getElementById("c2_10_VS").onclick = async function () {
 };
 
 document.getElementById("c2_10_challenges_c1_p2").onclick = async function () {
-
-  if (!(IFight.youStats.onFight2)) {
-    IUniversalChallenger.universalChallengerChallenges.c1.active = false
-  } else {
-    IUniversalChallenger.universalChallengerChallenges.c1.active = true
-  }
-
   try {
     // Se c'è già un combattimento, fermalo
     if (IFight.youStats.fightController2 && typeof IFight.youStats.fightController2.abort === "function") {
       IFight.youStats.fightController2.abort();
       IFight.youStats.fightController2 = null;
       return; // Esce se il combattimento è stato interrotto
+    }
+
+    if (!(IFight.youStats.onFight2)) {
+      IUniversalChallenger.universalChallengerChallenges.c1.active = false
+    } else {
+      IUniversalChallenger.universalChallengerChallenges.c1.active = true
     }
 
     // Inizia un nuovo combattimento
@@ -4435,18 +4670,18 @@ document.getElementById("c2_10_challenges_c1_p2").onclick = async function () {
 
 document.getElementById("c2_10_challenges_c2_p2").onclick = async function () {
 
-  if (!(IFight.youStats.onFight2)) {
-    IUniversalChallenger.universalChallengerChallenges.c2.active = false
-  } else {
-    IUniversalChallenger.universalChallengerChallenges.c2.active = true
-  }
-
   try {
     // Se c'è già un combattimento, fermalo
     if (IFight.youStats.fightController2 && typeof IFight.youStats.fightController2.abort === "function") {
       IFight.youStats.fightController2.abort();
       IFight.youStats.fightController2 = null;
       return; // Esce se il combattimento è stato interrotto
+    }
+
+    if (!(IFight.youStats.onFight2)) {
+      IUniversalChallenger.universalChallengerChallenges.c2.active = false
+    } else {
+      IUniversalChallenger.universalChallengerChallenges.c2.active = true
     }
 
     // Inizia un nuovo combattimento
@@ -4604,8 +4839,16 @@ document.getElementById("content1_7_ascension_button").onclick = function () {
   if (!IUniversal.automation.automation5.unlocked) {
 
     if ((f((IFight.challengers.baseChallenger.level)).minus(f(1))).gte(f(IFight.challengers.baseChallenger.maxLevel))) {
+
+      //keep training active-temporary
+      var training1Status1 = ITraining.base.base1.active
+      var training1Status2 = ITraining.base.base2.active
+      var training1Status3 = ITraining.base.base3.active
+      var training1Status4 = ITraining.base.base4.active
+
       partialResetSave(1)
 
+<<<<<<< Updated upstream
       if (IFight.youStats.fightController1 && typeof IFight.youStats.fightController1.abort === "function") {
         IFight.youStats.fightController1.abort();
         IFight.youStats.fightController1 = null;
@@ -4616,6 +4859,14 @@ document.getElementById("content1_7_ascension_button").onclick = function () {
         IFight.youStats.fightController2 = null;
       }
 
+=======
+      ITraining.base.base1.active = training1Status1
+      ITraining.base.base2.active = training1Status2
+      ITraining.base.base3.active = training1Status3
+      ITraining.base.base4.active = training1Status4
+
+      //universe
+>>>>>>> Stashed changes
       IUniversal.universe = f(IUniversal.universe).add(f(1))
 
       //Ascension Points
@@ -4959,9 +5210,43 @@ document.getElementById("fp3_content1_8_auto5_b1").onclick = function () {
   }
 }
 
+<<<<<<< Updated upstream
 //discord link
 document.getElementById("options_discord").onclick = function () {
   window.open("https://discord.gg/6wpH3wuv", "_blank");
+=======
+document.getElementById("fp3_content1_8_auto6_b1").onclick = function () {
+  if (f(IUniversal.automation.automation6.level).lt(f(IUniversal.automation.automation6.maxLevel))) {
+    buy(IUniversal.automation.automation6, "level", 1, "uniChallenger")
+  }
+}
+
+document.getElementById("fp3_content1_8_auto6_b2").onclick = function () {
+  if (f(IUniversal.automation.automation6.selOption).lt(1)) {
+    IUniversal.automation.automation6.selOption = f(IUniversal.automation.automation6.level)
+  } else {
+    IUniversal.automation.automation6.selOption = f(IUniversal.automation.automation6.selOption).minus(f(1))
+
+  }
+}
+
+document.getElementById("fp3_content1_8_auto6_b3").onclick = function () {
+  if (f(IUniversal.automation.automation6.selOption).lt(IUniversal.automation.automation6.level)) {
+    IUniversal.automation.automation6.selOption = f(IUniversal.automation.automation6.selOption).add(f(1))
+  } else {
+    IUniversal.automation.automation6.selOption = f(0)
+  }
+}
+
+//notation
+
+document.getElementById("optionsMisc_notation_b1").onclick = function () {
+  if (f(IPermanent.notationCont).equals(f(IPermanent.maxNotationCont))) {
+    IPermanent.notationCont = f(0)
+  } else {
+    IPermanent.notationCont = f(IPermanent.notationCont).add(f(1))
+  }
+>>>>>>> Stashed changes
 }
 
 //FUNCTION: PAUSE FUNCTION
@@ -5154,62 +5439,149 @@ function spheres(targetId, numSpheres, radiusXPercent, radiusYPercent, colorSele
 function visualSvg(value) {
   const maxRadius = 100;
   const minRadius = 20;
+  const minRadius2 = 40;
 
   const colorScale = [
-    '#000000', // oscurità assoluta
-    '#0a0a3c', // blu notte profondo
-    '#1e1a78', // blu mistico
-    '#4b0082', // indaco (viola intenso, colore "mistico")
-    '#8b00ff', // viola brillante
-    '#ff0040', // rosso energia pura
-    '#ff6600', // arancione fiamma
-    '#ffaa00', // oro brillante
-    '#ffe066', // luce solare
-    '#ffffff'  // apice: bianco divino
+    '#000000',
+    '#0a0a3c',
+    '#1e1a78',
+    '#4b0082',
+    '#8b00ff',
+    '#ff0040',
+    '#ff6600',
+    '#ffaa00',
+    '#ffe066',
+    '#ffffff'
   ];
 
   let radius = 20;
+  let radius2 = 20;
+  let radius3 = 20;
 
-  const log10 = Math.log10(value || 1);
-  const log100 = log10 / 2;
-  const isPowerOf100 = value > 0 && Number.isInteger(log100);
+  let log10 = f(value).lte(f(0)) ? f(0) : f(value).log(f(10));
 
+  log10 = f(log10)
+
+  // base 100
+  let log100 = log10.div(f(2));
+  let isPowerOf100 = f(value).gt(f(0)) && log100.floor().eq(log100);
+
+  // base 1000
+  let log1000 = log10.div(f(3));
+  let isPowerOf1000 = f(value).gt(f(0)) && log1000.floor().eq(log100);
+
+  // base 10000
+  let log10000 = log10.div(f(4));
+  let isPowerOf10000 = f(value).gt(f(0)) && log10000.floor().eq(log10000);
   var scaleFactor = 0.8;
 
-  if (isPowerOf100 || f(value).lte(f(2))) {
-    radius = minRadius;
-  } else {
-    const lower = Math.pow(100, Math.floor(log100));
-    const upper = lower * 100;
-    const scale = (value - lower) / (upper - lower);
-
-    radius = minRadius + (maxRadius - minRadius) * scale * scaleFactor;
-  }
-
-  let colorIndex = Math.floor(log100);
+  // ---- Colore base ----
+  let colorIndex = f(log10).div(2).floor().toNumber(); // log base 100 = log10 / 2
 
   if (colorIndex < 0) {
     colorIndex = 0;
   } else {
-    if (f(value).lt(f("1e200"))) {
-      // loop finché sotto 1e110
+    if (f(value).lt(f(10).pow(f(2000)))) {
+      // loop finché sotto 1e2000
       colorIndex = colorIndex % colorScale.length;
     } else {
-      // sopra 1e110 resta fisso all'ultimo colore
+      // sopra 1e2000 resta fisso all'ultimo colore
       if (colorIndex >= colorScale.length) {
         colorIndex = colorScale.length - 1;
       }
     }
   }
 
-  const fillColor = colorScale[colorIndex];
+  // ---- Orb1 ----
+  let colorIndex2 = f(log10).div(20).floor().toNumber();
 
-  let size;
+  if (colorIndex2 < 0) {
+    colorIndex2 = 0;
+  } else {
+    if (f(value).lt(f(10).pow(f(2000)))) {
+      colorIndex2 = colorIndex2 % colorScale.length;
+    } else {
+      if (colorIndex2 >= colorScale.length) {
+        colorIndex2 = colorScale.length - 1;
+      }
+    }
+  }
+
+  // ---- Orb2 ----
+  let colorIndex3 = f(log10).div(200).floor().toNumber();
+
+  if (colorIndex3 < 0) {
+    colorIndex3 = 0;
+  } else {
+    if (f(value).lt(f(10).pow(f(2000)))) {
+      colorIndex3 = colorIndex3 % colorScale.length;
+    } else {
+      if (colorIndex3 >= colorScale.length) {
+        colorIndex3 = colorScale.length - 1;
+      }
+    }
+  }
+
+  const fillColor = colorScale[colorIndex];
+  const fillColor2 = colorScale[colorIndex2];
+  const fillColor3 = colorScale[colorIndex3];
+
+  // radius 1
+  if (isPowerOf100 || f(value).lte(f(2))) {
+    radius = minRadius;
+  } else {
+    let lower = f(100).pow(f(log100.floor()));
+    let upper = lower.mul(f(100));
+    let scale = (f(value).sub(lower)).div((upper.sub(lower)));
+
+    if (!(colorIndex >= colorScale.length)) {
+      radius = minRadius + (maxRadius - minRadius) * scale.toNumber() * scaleFactor;
+    } else {
+      radius = maxRadius * scaleFactor
+    }
+  }
+
+  // radius 2
+  if (isPowerOf1000 || f(value).lte(f(2))) {
+    radius2 = minRadius2;
+  } else {
+    let lower = f(1000).pow(f(log1000.floor()));
+    let upper = lower.mul(f(1000));
+    let scale = f(value).sub(lower).div(upper.sub(lower));
+
+    if (!(colorIndex2 >= colorScale.length)) {
+      radius2 = minRadius2 + (maxRadius - minRadius2) * scale.toNumber() * scaleFactor;
+    } else {
+      radius2 = maxRadius * scaleFactor
+    }
+  }
+
+  let size = "0%";
+  let size2 = "0%";
+  let size3 = "0%";
+
   if (f(value).lte(f(10).pow(f(20)))) {
     size = "100%";
-  } else {
-    size = "50%";
   }
+  else if (f(value).lte(f(10).pow(f(200)))) {
+    size = "50%";
+    size2 = "100%";
+    radius2 = f(maxRadius).mul(f(scaleFactor));
+  }
+  else if (f(value).lte(f(10).pow(f(2000)))) {
+    size = "33%";
+    size2 = "66%";
+    size3 = "100%";
+    radius3 = f(maxRadius).mul(f(scaleFactor));
+  }
+
+  if (f(value).gte(f(10).pow(f(2000)))) {
+    size = "33%";
+    size2 = "66%";
+    size3 = "100%";
+    radius3 = f(maxRadius).mul(f(scaleFactor));
+  }
+
 
   // Aura irregolare
   const auraPoints = [];
@@ -5227,29 +5599,7 @@ function visualSvg(value) {
     (i === 0 ? `M ${p[0]} ${p[1]}` : `L ${p[0]} ${p[1]}`)
   ).join(" ") + " Z";
 
-  // Orb1
-  const log10_part2 = Math.log10(value || 1);
-  let colorIndex2 = Math.floor(log10_part2 / 20);
-
-  if (colorIndex2 < 0) {
-    colorIndex2 = 0;
-  } else {
-    if (f(value).lt(f("1"))) {
-      // loop finché sotto 1e110
-      colorIndex2 = colorIndex2 % colorScale.length;
-    } else {
-      // sopra 1e110 resta fisso all'ultimo colore
-      if (colorIndex2 >= colorScale.length) {
-        colorIndex2 = colorScale.length - 1;
-      }
-    }
-  }
-
-  const fillColor2 = colorScale[colorIndex2];
-
-  var radius2 = maxRadius * scaleFactor;
-
-  // Aura irregolare
+  // Aura irregolare2
   const auraPoints2 = [];
   const auraRadius2 = radius2 * 1.4;
   const segments2 = 40;
@@ -5265,11 +5615,29 @@ function visualSvg(value) {
     (i === 0 ? `M ${p[0]} ${p[1]}` : `L ${p[0]} ${p[1]}`)
   ).join(" ") + " Z";
 
+  // Aura irregolare3
+  const auraPoints3 = [];
+  const auraRadius3 = radius3 * 1.4;
+  const segments3 = 40;
+  for (let i = 0; i < segments3; i++) {
+    const angle3 = (i / segments3) * 2 * Math.PI;
+    const variation3 = (Math.random() - 0.5) * (radius3 * 0.4);
+    const r = auraRadius3 + variation3;
+    const x = 150 + r * Math.cos(angle3);
+    const y = 150 + r * Math.sin(angle3);
+    auraPoints3.push([x, y]);
+  }
+  const auraPath3 = auraPoints3.map((p, i) =>
+    (i === 0 ? `M ${p[0]} ${p[1]}` : `L ${p[0]} ${p[1]}`)
+  ).join(" ") + " Z";
+
+  let stroke1 = fillColor2 == "#ffffff" ? "#000000" : "#ffffff"
+
   let orb1 = "";
   if (f(value).gte(f(10).pow(f(20)))) {
-    orb1 = `<svg width="100%" height="100%" viewBox="0 0 300 300" preserveAspectRatio="xMidYMid meet"
-       style="position:absolute; top:50%; left:50%; transform: translate(-50%, -50%); z-index:1;">
-    <path d="${auraPath2}" fill="${fillColor2}" opacity="0.25" stroke="black" stroke-width="2"/>
+    orb1 = `<svg width="${size2}" height="${size2}" viewBox="0 0 300 300" preserveAspectRatio="xMidYMid meet"
+       style="position:absolute; top:50%; left:50%; transform: translate(-50%, -50%); z-index:2;">
+    <path d="${auraPath2}" fill="${fillColor2}" opacity="0.25" stroke="${stroke1}" stroke-width="2"/>
     <circle cx="150" cy="150" r="${radius2}" fill="${fillColor2}" 
             stroke="black" stroke-width="2"/>
   </svg>`;
@@ -5277,24 +5645,37 @@ function visualSvg(value) {
     orb1 = ""
   }
 
+  let orb2 = "";
+  if (f(value).gte(f(10).pow(f(200)))) {
+    orb2 = `<svg width="${size3}" height="${size3}" viewBox="0 0 300 300" preserveAspectRatio="xMidYMid meet"
+       style="position:absolute; top:50%; left:50%; transform: translate(-50%, -50%); z-index:1;">
+    <path d="${auraPath3}" fill="${fillColor3}" opacity="0.25" stroke="${stroke1}" stroke-width="2"/>
+    <circle cx="150" cy="150" r="${radius3}" fill="${fillColor3}" 
+            stroke="black" stroke-width="2"/>
+  </svg>`;
+  } else {
+    orb2 = ""
+  }
+
   const svg = `
-<div style="position: relative; width: 100%; height: 100%;">
+  <div style="position: relative; width: 100%; height: 100%;">
   <!-- Sfera grande sotto -->
   <svg width="${size}" height="${size}" viewBox="0 0 300 300" preserveAspectRatio="xMidYMid meet"
-       style="position:absolute; top:50%; left:50%; transform: translate(-50%, -50%); z-index:2;">
-<path d="${auraPath}" fill="${fillColor}" opacity="0.25" stroke="black" stroke-width="2"/>
+       style="position:absolute; top:50%; left:50%; transform: translate(-50%, -50%); z-index:3;">
+<path d="${auraPath}" fill="${fillColor}" opacity="0.25" stroke="${stroke1}" stroke-width="2"/>
     <circle cx="150" cy="150" r="${radius}" fill="${fillColor}" 
             stroke="black" stroke-width="2"/>
   </svg>
 
   ${orb1}
+  ${orb2}
 </div>
   `;
 
   return svg
 }
 
-// funzione principale per generare i cerchi
+
 function fibonacciUpTo(max) {
   const seq = [1, 1];
   while (true) {
@@ -5377,7 +5758,7 @@ function visualMenu() {
   document.getElementById("menu2").style.backgroundImage = `url("images/mountain.png")`
   document.getElementById("menu2").style.zIndex = 2
 
-  document.getElementById("menu3").style.backgroundImage = `url("images/sky.png")`
+  document.getElementById("menu3").style.backgroundImage = `url("images/sky gradient.png")`
   document.getElementById("menu3").style.zIndex = 1
 
 
@@ -5440,9 +5821,8 @@ function visualMenu() {
 
   //svg
 
-  document.getElementById("content2_1_svg").innerHTML = visualSvg(f(ITraining.base.base1.tot).mul(f(ITraining.base.base2.tot)));
-  document.getElementById("fp2_content2_1_svg").innerHTML = visualSvg(f(ITraining.base.base1.tot).mul(f(ITraining.base.base2.tot)));
-
+  document.getElementById("content2_1_svg").innerHTML = visualSvg(f(5).mul(f(10).pow(f(450))));
+  document.getElementById("fp2_content2_1_svg").innerHTML = visualSvg(f(IFight.youStats.life).mul(f(IFight.youStats.damage)));
 
   document.getElementById("c2_4_A_image").innerHTML = visualSvg(f(IFight.youStats.life).mul(f(IFight.youStats.damage)));
 
@@ -5454,7 +5834,6 @@ function visualMenu() {
 
   document.getElementById("c2_10_A_image").innerHTML = visualSvg(f(IFight.youStats.life).mul(f(IFight.youStats.damage)));
   document.getElementById("c2_10_B_image").innerHTML = visualSvg(f(IUniversalChallenger.challengers.universalChallenger.damage).mul(f(IUniversalChallenger.challengers.universalChallenger.life)));
-
 
   //spheres
 
@@ -5489,6 +5868,11 @@ function visualMenu() {
 
   spheres('fp2_content2_7_svg4', tot4, 110, 66, "#ffd700", -2, 40, 2.25 / 3, false, true, -45 * Math.PI / 180);
 
+}
+
+//VISUAL OPTIONS
+function visualOptions() {
+  update("optionsMisc_notation_b1", `<div class="noClick">${IPermanent.notation["notation" + IPermanent.notationCont]}</div>`)
 }
 
 //LORE
@@ -5708,16 +6092,17 @@ function visualChallenger() {
 
   //UNIVERSAL CHALLENGER
 
+
   //you
   if (IFight.youStats.onFight2) {
     var YouLife = IFight.onFightStats.life
     var YouDamage = IFight.onFightStats.damage
-    var LeftLife = IFight.onFightStats.leftLife
+    var LeftLife = IFight.onFightStats.leftLife2
   }
   else {
     YouLife = IFight.youStats.life
     YouDamage = IFight.youStats.damage
-    LeftLife = IFight.youStats.leftLife
+    LeftLife = IFight.youStats.leftLife2
   }
   //Universal Challenger
   var challengerName = IUniversalChallenger.challengers.universalChallenger.name
@@ -5758,11 +6143,11 @@ function visualChallenger() {
   if (checkShow("content2_10")) {
     if (!IFight.youStats.onFight2) {
 
-      progressBar(IFight.youStats.leftLife, IFight.youStats.life, "c2_10_A_part2")
+      progressBar(IFight.youStats.leftLife2, IFight.youStats.life, "c2_10_A_part2")
       progressBar(IUniversalChallenger.challengers.universalChallenger.leftLife, IUniversalChallenger.challengers.universalChallenger.life, "c2_10_B_part2")
     }
     else {
-      progressBar(IFight.onFightStats.leftLife, IFight.onFightStats.life, "c2_10_A_part2")
+      progressBar(IFight.onFightStats.leftLife2, IFight.onFightStats.life, "c2_10_A_part2")
       progressBar(IUniversalChallenger.challengers.universalChallenger.leftLife, IUniversalChallenger.challengers.universalChallenger.life, "c2_10_B_part2")
     }
   }
@@ -5826,8 +6211,16 @@ function visualHunting() {
         document.getElementById("content2_6_" + x + "_button").style.backgroundColor = "#972a2aff"
       }
 
-      update("content2_6_" + x + "_name", `<span class="boldBlackBorder">${format(sel.level, 0)}</span> ${sel.name}`)
-      update("content2_6_" + x + "_effect", `<span class="boldBlackBorder">${format(sel.effect)}</span> Essence/s`)
+      let showL = ""
+
+      if(f(sel.level).equals(f(sel.showLevel))){
+        showL= ""
+      }else{
+        showL = `(${sel.showLevel})`
+      }
+
+      update("content2_6_" + x + "_name", `<span class="boldBlackBorder">${sel.level} ${showL}</span><div>${sel.name}</div>`)
+      update("content2_6_" + x + "_effect", `<span class="boldBlackBorder column">${format(sel.effect)}</span> Essence/s`)
       //applica pointer events:  pointer-events: none;
 
       if (IFight.huntingMulti) {
@@ -5838,7 +6231,7 @@ function visualHunting() {
 
       update("content2_6_" + x + "_req", ``)
       update("content2_6_" + x + "_upgrade", `
-                                            <div><span class="boldBlackBorder">${format(sel.price)}</span> Essence</div>`)
+                                            <div><div class="boldBlackBorder">${format(sel.price)}</div> <div>Essence</div></div>`)
     }
     else {
       unlockShow("content2_6_" + x + "_button", false)
@@ -5864,7 +6257,15 @@ function visualHunting() {
         document.getElementById("content2_6_" + x + "_button").style.backgroundColor = "#972a2aff"
       }
 
-      update("content2_6_" + x + "_name", `<span class="boldBlackBorder">${format(sel.level, 0)}</span> ${sel.name}`)
+            let showL = ""
+
+            if(f(sel.level).equals(f(sel.showLevel))){
+        showL= ""
+      }else{
+        showL = `(${sel.showLevel})`
+      }
+
+      update("content2_6_" + x + "_name", `<span class="boldBlackBorder">${format(sel.level, 0)} ${showL}</span> <div>${sel.name}</div>`)
 
       if (IFight.huntingMulti) {
         var multiText = "Buy Max"
@@ -5874,7 +6275,7 @@ function visualHunting() {
 
       update("content2_6_" + x + "_req", ``)
       update(`content2_6_` + x + `_upgrade`, `
-                                          <div><span class="boldBlackBorder">${format(sel.price)}</span> Essence</div>`)
+                                          <div ><div class="boldBlackBorder">${format(sel.price)}</div> <div>Essence</div></div>`)
     }
     else {
       unlockShow("content2_6_" + x + "_button", false)
@@ -5960,7 +6361,7 @@ function visualEnergy() {
 
   //RESPEC
 
-  update("content2_7_b1_text", `${IUniversal.ascensionPoint}/${IUniversal.ascensionPointMax} Ascension Points`)
+  update("content2_7_b1_text", `<span class="boldBlackBorder">${IUniversal.ascensionPoint}</span>/<span class="boldBlackBorder">${IUniversal.ascensionPointMax}</span> Ascension Points`)
 
   //ASCENSION MULTI
 
@@ -5971,6 +6372,15 @@ function visualEnergy() {
   }
 
   update("content2_7_b1_b", `RESPEC`)
+
+  //nameloadout
+
+  for (let x in IUniversal.energyLoadout) {
+    var sel = document.getElementById("content2_7_l_" + x)
+    if (sel.disabled) {
+      sel.value = IUniversal.energyLoadout[x].name;
+    }
+  }
 
   //IMAGE
 
@@ -6201,10 +6611,6 @@ function visualAttributes() {
     document.getElementById(`content2_11_grid_b9`).style.backgroundColor = "#660000"
   }
 
-
-
-
-
   if (IUniversal.attributes.attributesUnlock1.req()) {
     document.getElementById(`content2_11_grid_b3`).style.backgroundColor = "#004526"
   } else {
@@ -6344,7 +6750,7 @@ function visualAttributes() {
                                            <div class="centerDiv">Odds&nbsp<span class="boldBlackBorder">${format(f(IUniversal.attributes.defence.odds).mul(f(100)))}</span>%`)
   update("content2_11_grid_b5_cont_1_b1_text", `<div>${multiText}</div><div>BET</div>`)
 
-  update("content2_11_grid_b5_cont_1_d2", `<span class="boldBlackBorder">${format(f(IUniversal.attributes.defence.level))}</span> Defence`)
+  update("content2_11_grid_b5_cont_1_d2", `<span class="boldBlackBorder">${format(f(IUniversal.attributes.defence.level), 0)}</span> Defence`)
 
 
 
@@ -6382,11 +6788,11 @@ function visualAttributes() {
   update("content2_11_grid_b7_cont_1_1", `Disable Universal Cores/s, Obtain Life Steal Equal To Universal Cores/s`)
 
   if (IUniversal.attributes.lifeSteal.active) {
-    update("content2_11_grid_b7_cont_b1", `<div class="noClick">DEACTIVE</div>`)
-    document.getElementById(`content2_11_grid_b7_cont_b1`).style.backgroundColor = "#660000"
-  } else {
-    update("content2_11_grid_b7_cont_b1", `<div class="noClick">ACTIVE</div>`)
+    update("content2_11_grid_b7_cont_b1", `<div class="noClick">ON</div>`)
     document.getElementById(`content2_11_grid_b7_cont_b1`).style.backgroundColor = "#004526"
+  } else {
+    update("content2_11_grid_b7_cont_b1", `<div class="noClick">OFF</div>`)
+    document.getElementById(`content2_11_grid_b7_cont_b1`).style.backgroundColor = "#660000"
   }
 
   update("content2_11_grid_b7_cont_1_2", `Life Steal: <span class="boldBlackBorder">${format(f(IUniversal.attributes.lifeSteal.level))}</span>`)
@@ -6440,6 +6846,107 @@ function visualAttributes() {
 }
 
 //VISUAL LOOP
+
+function setUniversalChallengerLevelAutomation(type) {
+
+  if (type == "universalChallenger") {
+    if (f(IUniversal.automation.automation6.selOption).equals(f(0))) {
+      IUniversalChallenger.challengers.universalChallenger.level = f(1)
+      return
+    }
+
+    if (f(IUniversal.automation.automation6.selOption).equals(f(1))) {
+      IUniversalChallenger.challengers.universalChallenger.level = f(IUniversalChallenger.challengers.universalChallenger.maxLevel).minus(f(20))
+      if (f(IUniversalChallenger.challengers.universalChallenger.level).lt(f(1))) {
+        IUniversalChallenger.challengers.universalChallenger.level = f(1)
+      }
+      return
+    }
+
+    if (f(IUniversal.automation.automation6.selOption).equals(f(2))) {
+      IUniversalChallenger.challengers.universalChallenger.level = f(IUniversalChallenger.challengers.universalChallenger.maxLevel).minus(f(10))
+      if (f(IUniversalChallenger.challengers.universalChallenger.level).lt(f(1))) {
+        IUniversalChallenger.challengers.universalChallenger.level = f(1)
+      }
+      return
+    }
+
+    if (f(IUniversal.automation.automation6.selOption).equals(f(3))) {
+      IUniversalChallenger.challengers.universalChallenger.level = f(IUniversalChallenger.challengers.universalChallenger.maxLevel).minus(f(5))
+      if (f(IUniversalChallenger.challengers.universalChallenger.level).lt(f(1))) {
+        IUniversalChallenger.challengers.universalChallenger.level = f(1)
+      }
+      return
+    }
+  }
+
+  if (type == "universalChallengerChallenge1") {
+    if (f(IUniversal.automation.automation6.selOption).equals(f(0))) {
+      IUniversalChallenger.challengers.universalChallenger.level = f(1)
+      return
+    }
+
+    if (f(IUniversal.automation.automation6.selOption).equals(f(1))) {
+      var temp = f(IUniversalChallenger.universalChallengerChallenges.c1.maxLevel).add(f(-20))
+      IUniversalChallenger.challengers.universalChallenger.level = temp
+      if (f(IUniversalChallenger.challengers.universalChallenger.level).lt(f(1))) {
+        IUniversalChallenger.challengers.universalChallenger.level = f(1)
+      }
+      return
+    }
+
+    if (f(IUniversal.automation.automation6.selOption).equals(f(2))) {
+      var temp = f(IUniversalChallenger.universalChallengerChallenges.c1.maxLevel).add(f(-10))
+      IUniversalChallenger.challengers.universalChallenger.level = temp
+      if (f(IUniversalChallenger.challengers.universalChallenger.level).lt(f(1))) {
+        IUniversalChallenger.challengers.universalChallenger.level = f(1)
+      }
+      return
+    }
+
+    if (f(IUniversal.automation.automation6.selOption).equals(f(3))) {
+      var temp = f(IUniversalChallenger.universalChallengerChallenges.c1.maxLevel).add(f(-5))
+      IUniversalChallenger.challengers.universalChallenger.level = temp
+      if (f(IUniversalChallenger.challengers.universalChallenger.level).equals(f(1))) {
+        IUniversalChallenger.challengers.universalChallenger.level = f(1)
+      }
+      return
+
+    }
+  }
+
+  if (type == "universalChallengerChallenge2") {
+    if (f(IUniversal.automation.automation6.selOption).equals(f(0))) {
+      IUniversalChallenger.challengers.universalChallenger.level = f(1)
+      return
+    }
+
+    if (f(IUniversal.automation.automation6.selOption).equals(f(1))) {
+      IUniversalChallenger.challengers.universalChallenger.level = f(IUniversalChallenger.universalChallengerChallenges.c2.maxLevel).minus(f(20))
+      if (f(IUniversalChallenger.challengers.universalChallenger.level).lt(f(1))) {
+        IUniversalChallenger.challengers.universalChallenger.level = f(1)
+      }
+      return
+    }
+
+    if (f(IUniversal.automation.automation6.selOption).equals(f(2))) {
+      IUniversalChallenger.challengers.universalChallenger.level = f(IUniversalChallenger.universalChallengerChallenges.c2.maxLevel).minus(f(10))
+      if (f(IUniversalChallenger.challengers.universalChallenger.level).lt(f(1))) {
+        IUniversalChallenger.challengers.universalChallenger.level = f(1)
+      }
+      return
+    }
+
+    if (f(IUniversal.automation.automation6.selOption).equals(f(3))) {
+      IUniversalChallenger.challengers.universalChallenger.level = f(IUniversalChallenger.universalChallengerChallenges.c2.maxLevel).minus(f(5))
+      if (f(IUniversalChallenger.challengers.universalChallenger.level).lt(f(1))) {
+        IUniversalChallenger.challengers.universalChallenger.level = f(1)
+      }
+      return
+    }
+  }
+
+}
 
 async function fight(type, enemy, signal) {
   var tickSpeed = IGameData.tickSpeed;
@@ -6498,7 +7005,7 @@ async function fight(type, enemy, signal) {
 
     try {
       while (IFight.youStats.onFight1) {
-        await sleep(delay);
+        await sleep(500);
 
         // Controllo ad ogni iterazione se il segnale è stato abortito
         if (signal?.aborted) {
@@ -6590,12 +7097,12 @@ async function fight(type, enemy, signal) {
   if (type === "universalChallenger") {
     var abortHandler2 = () => {
       IFight.youStats.onFight2 = false;
-      IUniversalChallenger.challengers.universalChallenger.level = f(1)
+      setUniversalChallengerLevelAutomation("universalChallenger")
     };
 
     if (signal?.aborted) {
       IFight.youStats.onFight2 = false;
-      IUniversalChallenger.challengers.universalChallenger.level = f(1)
+      setUniversalChallengerLevelAutomation("universalChallenger")
       return;
     }
 
@@ -6603,7 +7110,7 @@ async function fight(type, enemy, signal) {
 
     IFight.youStats.onFight2 = true;
 
-    IUniversalChallenger.challengers.universalChallenger.level = f(1)
+    setUniversalChallengerLevelAutomation("universalChallenger")
 
     try {
       while (IFight.youStats.onFight2) {
@@ -6611,31 +7118,31 @@ async function fight(type, enemy, signal) {
 
         valuesSetterDinamic();
         IFight.onFightStats.life = IFight.youStats.life;
-        IFight.onFightStats.leftLife = IFight.youStats.leftLife;
+        IFight.onFightStats.leftLife2 = IFight.youStats.leftLife2;
         IFight.onFightStats.damage = IFight.youStats.damage;
 
         IUniversalChallenger.challengers.universalChallenger.leftLife = IUniversalChallenger.challengers.universalChallenger.life;
 
-        await sleep(delay);
-        if (f(IUniversalChallenger.challengers.universalChallenger.leftLife).greaterThan(0) && f(IFight.onFightStats.leftLife).greaterThan(0)) {
-          while (f(IUniversalChallenger.challengers.universalChallenger.leftLife).greaterThan(0) && f(IFight.onFightStats.leftLife).greaterThan(0)) {
+        await sleep(1000);
+        if (f(IUniversalChallenger.challengers.universalChallenger.leftLife).greaterThan(0) && f(IFight.onFightStats.leftLife2).greaterThan(0)) {
+          while (f(IUniversalChallenger.challengers.universalChallenger.leftLife).greaterThan(0) && f(IFight.onFightStats.leftLife2).greaterThan(0)) {
 
             if (signal?.aborted) {
               IFight.youStats.onFight2 = false;
               return;
             }
 
-            // Sincronizza leftLife esterna
-            IFight.youStats.leftLife = IFight.onFightStats.leftLife;
+
+            IFight.youStats.leftLife2 = IFight.onFightStats.leftLife2;
 
             const playerDamage = f(IFight.onFightStats.damage).mul(f(tickSpeed)).mul(f(delay).dividedBy(50));
             const enemyDamage = f(IUniversalChallenger.challengers.universalChallenger.damage).mul(f(tickSpeed)).mul(f(delay).dividedBy(50));
 
             IUniversalChallenger.challengers.universalChallenger.leftLife = f(IUniversalChallenger.challengers.universalChallenger.leftLife).minus(playerDamage);
-            IFight.onFightStats.leftLife = f(IFight.onFightStats.leftLife).minus(enemyDamage);
+            IFight.onFightStats.leftLife2 = f(IFight.onFightStats.leftLife2).minus(enemyDamage);
 
-            if (f(IFight.onFightStats.leftLife).lt(f(0)) && f(IUniversalChallenger.challengers.universalChallenger.leftLife).lt(f(0))) {
-              if (f(IFight.onFightStats.leftLife).gte(f(IFight.challengers.baseChallenger.leftLife))) {
+            if (f(IFight.onFightStats.leftLife2).lt(f(0)) && f(IUniversalChallenger.challengers.universalChallenger.leftLife).lt(f(0))) {
+              if (f(IFight.onFightStats.leftLife2).gte(f(IFight.challengers.baseChallenger.leftLife))) {
                 rewardSet("universalBase");
                 valuesSetter();
                 visualChallenger();
@@ -6665,7 +7172,7 @@ async function fight(type, enemy, signal) {
               break; // Passa al round successivo
             }
 
-            if (f(IFight.onFightStats.leftLife).lessThanOrEqualTo(0)) {
+            if (f(IFight.onFightStats.leftLife2).lessThanOrEqualTo(0)) {
               rewardSet("lostUniversalBase");
               IFight.youStats.onFight2 = false;
               valuesSetter();
@@ -6688,18 +7195,19 @@ async function fight(type, enemy, signal) {
 
   if (type === "universalChallengerChallenge1") {
 
+    let notMom = 0
     IUniversalChallenger.universalChallengerChallenges.c1.active = true;
 
     const challenger = IUniversalChallenger.challengers.universalChallenger;
 
     var abortHandler2 = () => {
       IFight.youStats.onFight2 = false;
-      IUniversalChallenger.challengers.universalChallenger.level = f(1)
+      setUniversalChallengerLevelAutomation("universalChallenger")
     };
 
     if (signal?.aborted) {
       IFight.youStats.onFight2 = false;
-      IUniversalChallenger.challengers.universalChallenger.level = f(1)
+      setUniversalChallengerLevelAutomation("universalChallenger")
       return;
     }
 
@@ -6707,8 +7215,7 @@ async function fight(type, enemy, signal) {
 
     IFight.youStats.onFight2 = true;
 
-    IUniversalChallenger.challengers.universalChallenger.level = f(1)
-
+    setUniversalChallengerLevelAutomation("universalChallengerChallenge1")
 
     try {
       while (IFight.youStats.onFight2) {
@@ -6716,32 +7223,37 @@ async function fight(type, enemy, signal) {
 
         valuesSetterDinamic("universalChallengerChallenge1")
         IFight.onFightStats.life = IFight.youStats.life;
-        IFight.onFightStats.leftLife = IFight.onFightStats.life;
+        IFight.onFightStats.leftLife2 = IFight.onFightStats.life;
         IFight.onFightStats.damage = IFight.youStats.damage;
 
-        IFight.youStats.leftLife = IFight.onFightStats.leftLife
+        IFight.youStats.leftLife2 = IFight.onFightStats.leftLife2
         visualChallenger()
 
-
         IUniversalChallenger.challengers.universalChallenger.leftLife = IUniversalChallenger.challengers.universalChallenger.life;
-
-        await sleep(delay);
-        if (f(IUniversalChallenger.challengers.universalChallenger.leftLife).greaterThan(0) && f(IFight.onFightStats.leftLife).greaterThan(0)) {
-          while (f(IUniversalChallenger.challengers.universalChallenger.leftLife).greaterThan(0) && f(IFight.onFightStats.leftLife).greaterThan(0)) {
-
+        await sleep(1000);
+        if (f(IUniversalChallenger.challengers.universalChallenger.leftLife).greaterThan(0) && f(IFight.onFightStats.leftLife2).greaterThan(0)) {
+          while (f(IUniversalChallenger.challengers.universalChallenger.leftLife).greaterThan(0) && f(IFight.onFightStats.leftLife2).greaterThan(0)) {
             if (signal?.aborted) {
               IFight.youStats.onFight2 = false;
               return;
+            }
+            notMom = notMom + 1
+            if (notMom > 10) {
+              if (IFight.youStats.fightController2 && typeof IFight.youStats.fightController2.abort === "function") {
+                IFight.youStats.fightController2.abort();
+                IFight.youStats.fightController2 = null;
+                return; // Esce se il combattimento è stato interrotto
+              }
             }
 
             const playerDamage = f(IFight.onFightStats.damage).mul(f(tickSpeed)).mul(f(delay).dividedBy(50));
             const enemyDamage = f(IUniversalChallenger.challengers.universalChallenger.damage).mul(f(tickSpeed)).mul(f(delay).dividedBy(50));
 
-            IUniversalChallenger.challengers.universalChallenger.leftLife = f(challenger.leftLife).minus(playerDamage);
-            IFight.onFightStats.leftLife = f(IFight.onFightStats.leftLife).minus(enemyDamage);
+            IUniversalChallenger.challengers.universalChallenger.leftLife = f(IUniversalChallenger.challengers.universalChallenger.leftLife).minus(playerDamage);
+            IFight.onFightStats.leftLife2 = f(IFight.onFightStats.leftLife2).minus(enemyDamage);
 
-            if (f(IFight.onFightStats.leftLife).lt(f(0)) && f(IUniversalChallenger.challengers.universalChallenger.leftLife).lt(f(0))) {
-              if (f(IFight.onFightStats.leftLife).gte(f(IFight.challengers.baseChallenger.leftLife))) {
+            if (f(IFight.onFightStats.leftLife2).lt(f(0)) && f(IUniversalChallenger.challengers.universalChallenger.leftLife).lt(f(0))) {
+              if (f(IFight.onFightStats.leftLife2).gte(f(IFight.challengers.baseChallenger.leftLife))) {
                 rewardSet("universalChallenge1Win");
                 valuesSetter();
                 visualChallenger();
@@ -6750,8 +7262,8 @@ async function fight(type, enemy, signal) {
                 flashFight("universalChallengerR")
                 break; // Passa al round successivo
               } else {
-
                 rewardSet("universalChallenge1Lost");
+
                 IFight.youStats.onFight2 = false;
                 IUniversalChallenger.universalChallengerChallenges.c1.active = false
                 valuesSetter();
@@ -6773,7 +7285,7 @@ async function fight(type, enemy, signal) {
               break; // Passa al round successivo
             }
 
-            if (f(IFight.onFightStats.leftLife).lessThanOrEqualTo(0)) {
+            if (f(IFight.onFightStats.leftLife2).lessThanOrEqualTo(0)) {
               rewardSet("universalChallenge1Lost");
               IFight.youStats.onFight2 = false;
               IUniversalChallenger.universalChallengerChallenges.c1.active = false;
@@ -6806,12 +7318,12 @@ async function fight(type, enemy, signal) {
 
     var abortHandler2 = () => {
       IFight.youStats.onFight2 = false;
-      IUniversalChallenger.challengers.universalChallenger.level = f(1)
+      setUniversalChallengerLevelAutomation("universalChallenger")
     };
 
     if (signal?.aborted) {
       IFight.youStats.onFight2 = false;
-      IUniversalChallenger.challengers.universalChallenger.level = f(1)
+      setUniversalChallengerLevelAutomation("universalChallenger")
       return;
     }
 
@@ -6819,7 +7331,7 @@ async function fight(type, enemy, signal) {
 
     IFight.youStats.onFight2 = true;
 
-    IUniversalChallenger.challengers.universalChallenger.level = f(1)
+    setUniversalChallengerLevelAutomation("universalChallengerChallenge2")
 
 
     try {
@@ -6829,17 +7341,17 @@ async function fight(type, enemy, signal) {
         valuesSetterDinamic("universalChallengerChallenge2")
         valuesSetter("universalChallengerChallenge2")
         IFight.onFightStats.life = IFight.youStats.life;
-        IFight.onFightStats.leftLife = IFight.onFightStats.life;
+        IFight.onFightStats.leftLife2 = IFight.onFightStats.life;
         IFight.onFightStats.damage = IFight.youStats.damage;
-        IFight.youStats.leftLife = IFight.onFightStats.leftLife
+        IFight.youStats.leftLife2 = IFight.onFightStats.leftLife2
 
         visualChallenger()
 
         IUniversalChallenger.challengers.universalChallenger.leftLife = IUniversalChallenger.challengers.universalChallenger.life;
 
-        await sleep(delay);
-        if (f(IUniversalChallenger.challengers.universalChallenger.leftLife).greaterThan(0) && f(IFight.onFightStats.leftLife).greaterThan(0)) {
-          while (f(IUniversalChallenger.challengers.universalChallenger.leftLife).greaterThan(0) && f(IFight.onFightStats.leftLife).greaterThan(0)) {
+        await sleep(1000);
+        if (f(IUniversalChallenger.challengers.universalChallenger.leftLife).greaterThan(0) && f(IFight.onFightStats.leftLife2).greaterThan(0)) {
+          while (f(IUniversalChallenger.challengers.universalChallenger.leftLife).greaterThan(0) && f(IFight.onFightStats.leftLife2).greaterThan(0)) {
 
             if (signal?.aborted) {
               IFight.youStats.onFight2 = false;
@@ -6850,10 +7362,10 @@ async function fight(type, enemy, signal) {
             const enemyDamage = f(challenger.damage).mul(f(tickSpeed)).mul(f(delay).dividedBy(50));
 
             IUniversalChallenger.challengers.universalChallenger.leftLife = f(IUniversalChallenger.challengers.universalChallenger.leftLife).minus(playerDamage);
-            IFight.onFightStats.leftLife = f(IFight.onFightStats.leftLife).minus(enemyDamage);
+            IFight.onFightStats.leftLife2 = f(IFight.onFightStats.leftLife2).minus(enemyDamage);
 
-            if (f(IFight.onFightStats.leftLife).lt(f(0)) && f(IUniversalChallenger.challengers.universalChallenger.leftLife).lt(f(0))) {
-              if (f(IFight.onFightStats.leftLife).gte(f(IFight.challengers.baseChallenger.leftLife))) {
+            if (f(IFight.onFightStats.leftLife2).lt(f(0)) && f(IUniversalChallenger.challengers.universalChallenger.leftLife).lt(f(0))) {
+              if (f(IFight.onFightStats.leftLife2).gte(f(IFight.challengers.baseChallenger.leftLife))) {
                 rewardSet("universalChallenge2Win");
                 valuesSetter();
                 visualChallenger();
@@ -6884,7 +7396,7 @@ async function fight(type, enemy, signal) {
               break; // Passa al round successivo
             }
 
-            if (f(IFight.onFightStats.leftLife).lessThanOrEqualTo(0)) {
+            if (f(IFight.onFightStats.leftLife2).lessThanOrEqualTo(0)) {
               rewardSet("universalChallenge2Lost");
               IFight.youStats.onFight2 = false;
               IUniversalChallenger.universalChallengerChallenges.c2.active = false;
@@ -6930,19 +7442,16 @@ function rewardSet(type) {
 
     if (f(IUniversalChallenger.challengers.universalChallenger.level).gt(f(IUniversalChallenger.challengers.universalChallenger.maxLevel).add(f(1)))) {
       IUniversalChallenger.challengers.universalChallenger.maxLevel = f(IUniversalChallenger.challengers.universalChallenger.level).minus(f(1))
-      IUniversalChallenger.challengers.universalChallenger.level = f(1)
     } else {
 
     }
 
     IUniversalChallenger.universalChallengerRewards.reward1.level = f(IUniversalChallenger.challengers.universalChallenger.level).minus(f(1))
-    IUniversalChallenger.challengers.universalChallenger.level = f(1)
   }
 
   if (type == "universalChallenge1Win") {
     IUniversalChallenger.challengers.universalChallenger.level = f(IUniversalChallenger.challengers.universalChallenger.level).add(f(1))
     IUniversalChallenger.universalChallengerChallenges.c1.level = f(IUniversalChallenger.challengers.universalChallenger.level)
-
   }
 
   if (type == "universalChallenge1Lost") {
@@ -6950,8 +7459,6 @@ function rewardSet(type) {
       IUniversalChallenger.universalChallengerChallenges.c1.maxLevel = f(IUniversalChallenger.universalChallengerChallenges.c1.level).minus(f(1))
       IUniversalChallenger.universalChallengerChallengesRewards.c1.level = f(IUniversalChallenger.universalChallengerChallenges.c1.maxLevel)
     }
-
-    IUniversalChallenger.challengers.universalChallenger.level = f(1)
   }
 
 
@@ -6967,8 +7474,6 @@ function rewardSet(type) {
       IUniversalChallenger.universalChallengerChallenges.c2.maxLevel = f(IUniversalChallenger.universalChallengerChallenges.c2.level).minus(f(1))
       IUniversalChallenger.universalChallengerChallengesRewards.c2.level = f(IUniversalChallenger.universalChallengerChallenges.c2.maxLevel)
     }
-
-    IUniversalChallenger.challengers.universalChallenger.level = f(1)
   }
 }
 
@@ -6978,11 +7483,10 @@ async function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-
-function format(number, type, formatType = 'scientific') {
+function format(number, type, formatType = IPermanent.notation["notation" + IPermanent.notationCont]) {
   if (number != null) {
     // Se il formato richiesto è "scientific" (notazione scientifica)
-    if (formatType === 'scientific') {
+    if (formatType === 'Scientific') {
       if (typeof number === 'object' && number.exponent != undefined) {
         if (number.exponent < 3) {
           if (type != null) {
@@ -6994,15 +7498,122 @@ function format(number, type, formatType = 'scientific') {
         if (number.exponent >= 4) {
           let num = number.mantissa;
           num = num.toFixed(2);
+
           return num + "e" + number.exponent;
         }
 
         return number.toNumber().toFixed(1);
       } else {
         // Gestione di numeri primitivi (es: 12345)
+return Number(number).toExponential(type || 1);
+
+      }
+    }
+<<<<<<< Updated upstream
+=======
+
+    // Se il formato richiesto è "letters" (notazione con lettere)
+    if (formatType === 'Letters') {
+
+      if (typeof number === 'object' && number.exponent != undefined) {
+        if (number.exponent < 2) {
+          if (type != null) {
+            return (number.toNumber()).toFixed(type);
+          }
+          return (number.toNumber()).toFixed(1);
+        }
+
+        if (number.exponent >= 3) {
+          const units = ["", "U", "D", "T", "Qa", "Qt", "Sx", "Sp", "O", "No"];
+          const tens = ["", "Dc", "Vg", "Tg", "Qd", "Qi", "Sg", "St", "Og", "Nn"];
+          const hundreds = ["", "Ce", "Dn", "Tc", "Qe", "Qu", "Sc", "Si", "Oe", "Ne"];
+          const smallUnits = ["k", "M", "B", "T", "Qa", "Qi", "Sx", "Sp", "Oc", "No"];
+
+          // numero reale
+          let realNumber = number.toNumber();
+
+          // esponente base 10
+          let exp = Math.floor(Math.log10(realNumber));
+
+          // numeri piccoli < 1e36
+          let conv = Math.floor(exp / 3) - 1;
+
+          // calcola num come frazione della potenza di 1000 corretta
+          let num = realNumber / Math.pow(10, (conv + 1) * 3);
+
+          let formatted = "";
+
+          if (conv < 10) {
+            formatted = `${num.toFixed(1)}${smallUnits[conv]}`;
+          } else {
+            // numeri grandi, usa centinaia/decine/unità
+            let h = Math.floor(conv / 100);
+            let t = Math.floor((conv % 100) / 10);
+            let u = conv % 10;
+            formatted = `${num.toFixed(1)}${units[u]}${tens[t]}${hundreds[h]}`;
+          }
+
+          return formatted;
+        }
+
+        return number.toNumber().toFixed(1);
+      } else {
+
         return number.toExponential(type || 1);
       }
     }
+
+    if (formatType === 'Letters and Scientific') {
+
+      if (typeof number === 'object' && number.exponent != undefined) {
+        if (number.exponent < 2) {
+          if (type != null) {
+            return (number.toNumber()).toFixed(type);
+          }
+          return (number.toNumber()).toFixed(1);
+        }
+
+        if (number.exponent >= 3) {
+
+          const units = ["", "U", "D", "T", "Qa", "Qt", "Sx", "Sp", "O", "No"];
+          const tens = ["", "Dc", "Vg", "Tg", "Qd", "Qi", "Sg", "St", "Og", "Nn"];
+          const hundreds = ["", "Ce", "Dn", "Tc", "Qe", "Qu", "Sc", "Si", "Oe", "Ne"];
+
+          // Scala per numeri sotto 1e10 (K, M, B, T, ...)
+          const smallUnits = ["k", "M", "B", "T", "Qa", "Qi", "Sx", "Sp", "Oc", "No"];
+
+          let exp = Math.floor(Math.log10(number.toNumber()));
+          let conv = Math.floor(exp / 3) - 1;
+
+          let formatted = ""
+
+          if (conv < 10) {
+
+            // Se il numero è minore di 1000, usa il numero normale
+            if (exp < 3) return number.toNumber().toFixed(type || 1);
+
+            // Calcola il numero da mostrare dividendo per la potenza di 1000 corretta
+            let num = number.toNumber() / Math.pow(10, (conv + 1) * 3);
+
+            formatted = `${num.toFixed(1)}${smallUnits[conv]}`;
+
+          } else {
+            let num = number.mantissa;
+            num = num.toFixed(2);
+
+            formatted = num + "e" + number.exponent;
+          }
+
+          return formatted
+        }
+
+        return number.toNumber().toFixed(1);
+      } else {
+
+return Number(number).toExponential(type || 1);
+      }
+    }
+>>>>>>> Stashed changes
   }
 
   return number;
@@ -7094,8 +7705,12 @@ function loopShow() {
     unlockShow("fp2_achievements", false);
 
     unlockShow("power", true);
+    unlockShow("universeValute", true);
     unlockShow("essenceValute", false);
-    unlockShow("universalValute", false);
+
+    unlockShow("universalShardsBase", false);
+    unlockShow("universalNodesBase", false);
+    unlockShow("universalCoresBase", false);
     IShowableClass.init = false;
   }
   //Valutes
@@ -7103,13 +7718,14 @@ function loopShow() {
     unlockShow("essenceValute", true)
   }
 
-  if (IProgress.progress.p4Check()) {
-    unlockShow("universalValute", true)
+  if (f(IUniversalChallenger.universalShards).gt(f(0))) {
     unlockShow("universalShardsBase", true)
   }
-
-  if (IUniversal.attributes.attributesUnlock1.req()) {
+  if (f(IUniversalChallenger.universalNodes).gt(f(0))) {
     unlockShow("universalNodesBase", true)
+  }
+
+  if (f(IUniversalChallenger.universalCores).gt(f(0))) {
     unlockShow("universalCoresBase", true)
   }
 
@@ -7317,122 +7933,142 @@ function loopShow() {
 
   //energy
 
-  if (IUniversal.energyUpgrades.upgrade1.showReq) {
+  if (IUniversal.energyUpgrades.upgrade1.showReq || IUniversal.energyUpgrades.upgrade1.unlocked) {
     unlockShow("content2_7_upgrade1_b1", true)
+    IUniversal.energyUpgrades.upgrade1.unlocked = true
   } else {
 
   }
 
-  if (IUniversal.energyUpgrades.upgrade2.showReq) {
+  if (IUniversal.energyUpgrades.upgrade2.showReq || IUniversal.energyUpgrades.upgrade2.unlocked) {
     unlockShow("content2_7_upgrade2_b1", true)
+    IUniversal.energyUpgrades.upgrade2.unlocked = true
   } else {
 
   }
 
-  if (IUniversal.energyUpgrades.upgrade3.showReq) {
+  if (IUniversal.energyUpgrades.upgrade3.showReq || IUniversal.energyUpgrades.upgrade3.unlocked) {
     unlockShow("content2_7_upgrade3_b1", true)
+    IUniversal.energyUpgrades.upgrade3.unlocked = true
   } else {
 
   }
 
-  if (IUniversal.energyUpgrades.upgrade4.showReq) {
+  if (IUniversal.energyUpgrades.upgrade4.showReq || IUniversal.energyUpgrades.upgrade4.unlocked) {
     unlockShow("content2_7_upgrade4_b1", true)
+    IUniversal.energyUpgrades.upgrade4.unlocked = true
   } else {
 
   }
-  if (IUniversal.energyUpgrades.upgrade5.showReq) {
+  if (IUniversal.energyUpgrades.upgrade5.showReq || IUniversal.energyUpgrades.upgrade5.unlocked) {
     unlockShow("content2_7_upgrade5_b1", true)
+    IUniversal.energyUpgrades.upgrade5.unlocked = true
   } else {
 
   }
 
-  if (IUniversal.energyUpgrades.upgrade6.showReq) {
+  if (IUniversal.energyUpgrades.upgrade6.showReq || IUniversal.energyUpgrades.upgrade6.unlocked) {
     unlockShow("content2_7_upgrade6_b1", true)
+    IUniversal.energyUpgrades.upgrade6.unlocked = true
   } else {
 
   }
 
-  if (IUniversal.energyUpgrades.upgrade7.showReq) {
+  if (IUniversal.energyUpgrades.upgrade7.showReq || IUniversal.energyUpgrades.upgrade7.unlocked) {
     unlockShow("content2_7_upgrade7_b1", true)
+    IUniversal.energyUpgrades.upgrade7.unlocked = true
   } else {
 
   }
 
-  if (IUniversal.energyUpgrades.upgrade8.showReq) {
+  if (IUniversal.energyUpgrades.upgrade8.showReq || IUniversal.energyUpgrades.upgrade8.unlocked) {
     unlockShow("content2_7_upgrade8_b1", true)
+    IUniversal.energyUpgrades.upgrade8.unlocked = true
   } else {
 
   }
 
-  if (IUniversal.energyUpgrades.upgrade9.showReq) {
+  if (IUniversal.energyUpgrades.upgrade9.showReq || IUniversal.energyUpgrades.upgrade9.unlocked) {
     unlockShow("content2_7_upgrade9_b1", true)
+    IUniversal.energyUpgrades.upgrade9.unlocked = true
   } else {
 
   }
 
-  if (IUniversal.energyUpgrades.upgrade10.showReq) {
+  if (IUniversal.energyUpgrades.upgrade10.showReq || IUniversal.energyUpgrades.upgrade10.unlocked) {
     unlockShow("content2_7_upgrade10_b1", true)
+    IUniversal.energyUpgrades.upgrade10.unlocked = true
   } else {
 
   }
 
-  if (IUniversal.energyUpgrades.upgrade11.showReq) {
+  if (IUniversal.energyUpgrades.upgrade11.showReq || IUniversal.energyUpgrades.upgrade11.unlocked) {
     unlockShow("content2_7_upgrade11_b1", true)
+    IUniversal.energyUpgrades.upgrade11.unlocked = true
   } else {
 
   }
 
 
-  if (IUniversal.energyUpgrades.upgrade12.showReq) {
+  if (IUniversal.energyUpgrades.upgrade12.showReq || IUniversal.energyUpgrades.upgrade12.unlocked) {
     unlockShow("content2_7_upgrade12_b1", true)
+    IUniversal.energyUpgrades.upgrade12.unlocked = true
   } else {
 
   }
 
-  if (IUniversal.energyUpgrades.upgrade13.showReq) {
+  if (IUniversal.energyUpgrades.upgrade13.showReq || IUniversal.energyUpgrades.upgrade13.unlocked) {
     unlockShow("content2_7_upgrade13_b1", true)
+    IUniversal.energyUpgrades.upgrade13.unlocked = true
   } else {
 
   }
 
-  if (IUniversal.energyUpgrades.upgrade14.showReq) {
+  if (IUniversal.energyUpgrades.upgrade14.showReq || IUniversal.energyUpgrades.upgrade14.unlocked) {
     unlockShow("content2_7_upgrade14_b1", true)
+    IUniversal.energyUpgrades.upgrade14.unlocked = true
   } else {
 
   }
 
-  if (IUniversal.energyUpgrades.upgrade15.showReq) {
+  if (IUniversal.energyUpgrades.upgrade15.showReq || IUniversal.energyUpgrades.upgrade15.unlocked) {
     unlockShow("content2_7_upgrade15_b1", true)
+    IUniversal.energyUpgrades.upgrade15.unlocked = true
   } else {
 
   }
 
-  if (IUniversal.energyUpgrades.upgrade16.showReq) {
+  if (IUniversal.energyUpgrades.upgrade16.showReq || IUniversal.energyUpgrades.upgrade16.unlocked) {
     unlockShow("content2_7_upgrade16_b1", true)
+    IUniversal.energyUpgrades.upgrade16.unlocked = true
   } else {
 
   }
 
-  if (IUniversal.energyUpgrades.upgrade17.showReq) {
+  if (IUniversal.energyUpgrades.upgrade17.showReq || IUniversal.energyUpgrades.upgrade17.unlocked) {
     unlockShow("content2_7_upgrade17_b1", true)
+    IUniversal.energyUpgrades.upgrade17.unlocked = true
   } else {
 
   }
 
-  if (IUniversal.energyUpgrades.upgrade18.showReq) {
+  if (IUniversal.energyUpgrades.upgrade18.showReq || IUniversal.energyUpgrades.upgrade18.unlocked) {
     unlockShow("content2_7_upgrade18_b1", true)
+    IUniversal.energyUpgrades.upgrade18.unlocked = true
   } else {
 
   }
 
-  if (IUniversal.energyUpgrades.upgrade19.showReq) {
+  if (IUniversal.energyUpgrades.upgrade19.showReq || IUniversal.energyUpgrades.upgrade19.unlocked) {
     unlockShow("content2_7_upgrade19_b1", true)
+    IUniversal.energyUpgrades.upgrade19.unlocked = true
   } else {
 
   }
 
-  if (IUniversal.energyUpgrades.upgrade20.showReq) {
+  if (IUniversal.energyUpgrades.upgrade20.showReq || IUniversal.energyUpgrades.upgrade20.unlocked) {
     unlockShow("content2_7_upgrade20_b1", true)
+    IUniversal.energyUpgrades.upgrade20.unlocked = true
   } else {
 
   }
@@ -7547,16 +8183,25 @@ function changePage(type, page) {
 
 function visualLoopFunction() {
 
+  unlockShow("mainMenuDirectionArrow1", false)
+  unlockShow("mainMenuDirectionArrow2", false)
+  unlockShow("mainMenuDirectionArrow3", false)
+  unlockShow("mainMenuDirectionArrow4", false)
+
   if (checkShow("content2_4") || checkShow("content2_10")) {
     visualChallenger()
   }
 
+  if (checkShow("content2_4")) {
+    menuDirectionArrow("content2_4")
+  }
+
   if (checkShow("content2_6")) {
-    visualHunting()
+    menuDirectionArrow("content2_6")
   }
 
   if (checkShow("content2_11")) {
-    visualAttributes()
+    menuDirectionArrow("content2_11_cont")
   }
 
   if (waiting == false) {
@@ -7566,19 +8211,39 @@ function visualLoopFunction() {
 
   if (checkShow("content2_1")) {
     visualTraining()
+    menuDirectionArrow("content2_1")
   }
 
   if (checkShow("content2_8")) {
-    visualUniversal()
     ascensionRings('content2_8', IUniversal.universe, IShowableClass.svg.ascensionCirclesScale, 1, 0.5);
-
   }
 
   if (checkShow("content2_7")) {
-    visualEnergy()
+    menuDirectionArrow("content2_7")
+  }
+  visualHunting()
+  visualChallenger()
+  visualAttributes()
+  visualEnergy()
+  visualUniversal()
+  visualMenu()
+  visualOptions()
+
+  //devTool1()
+
+  if (checkShow("content2_10")) {
+    menuDirectionArrow("content2_10")
   }
 
+<<<<<<< Updated upstream
   visualMenu()
+=======
+  if (checkShow("fp3_content1_8")) {
+    menuDirectionArrow("fp3_content1_8")
+  }
+
+  //formatA(f(5e333))
+>>>>>>> Stashed changes
 
   visualLore()
 
@@ -8441,8 +9106,60 @@ function automation() {
       }
     }
   }
-
   if (IUniversal.automation.automation5.active) {
     document.getElementById("content1_7_ascension_button").click();
   }
+  if (IUniversal.automation.automation5.active) {
+    document.getElementById("content1_7_ascension_button").click();
+  }
+}
+
+function menuDirectionArrow(page) {
+
+  var element = document.getElementById(page)
+
+  if (element.scrollHeight > element.clientHeight) {
+
+    /*
+    console.log("overflow")
+    console.log("scrollHeight: " + element.scrollHeight)
+    console.log("client height: " + element.clientHeight)
+    console.log("scrollTop: " + element.scrollTop)
+    console.log("margin: " + f(element.clientHeight).minus(f(element.scrollTop)))
+    console.log("totalPage: " + f(element.scrollHeight).minus(f(element.clientHeight)))
+*/
+
+    var margin = f(element.clientHeight).minus(f(element.scrollTop))
+    var totalPage = f(element.scrollHeight).minus(f(element.clientHeight))
+
+    unlockShow("mainMenuDirectionArrow1", false)
+    unlockShow("mainMenuDirectionArrow2", false)
+    unlockShow("mainMenuDirectionArrow3", false)
+    unlockShow("mainMenuDirectionArrow4", false)
+
+    //clientHeight - scrollTop = clientHeight
+    if ((f(element.clientHeight).minus(f(element.scrollTop))).equals(f(element.clientHeight))) {
+      unlockShow("mainMenuDirectionArrow1", true)
+      unlockShow("mainMenuDirectionArrow2", true)
+    }
+
+    //scrollTop != 0 && scrollTop != totalPage - 1
+    if (!(f(element.scrollTop).equals(f(0))) && !(f(element.scrollTop).equals(f(totalPage)))) {
+      unlockShow("mainMenuDirectionArrow1", true)
+      unlockShow("mainMenuDirectionArrow2", true)
+      unlockShow("mainMenuDirectionArrow3", true)
+      unlockShow("mainMenuDirectionArrow4", true)
+    }
+
+    //scrollTop = totalPage - 1
+    if (f(element.scrollTop).equals(f(totalPage))) {
+      unlockShow("mainMenuDirectionArrow3", true)
+      unlockShow("mainMenuDirectionArrow4", true)
+    }
+  }
+}
+
+function devTool1() {
+  ITraining.base.base1.tot = f(ITraining.base.base1.tot).add(1e20)
+  ITraining.base.base2.tot = f(ITraining.base.base1.tot).add(1e20)
 }
