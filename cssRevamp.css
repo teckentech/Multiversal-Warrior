@@ -12,6 +12,7 @@ body {
   container-type: inline-size;
 
   font-size: 1cqw;
+
 }
 
 #content {
@@ -247,23 +248,21 @@ body {
 }
 
 .bdefaultButtonSkin {
-  border-radius: 1vh;
+  background: #36454f;
+  border-radius: 1vw;
   color: #ffffff;
   font-family: 'Arial', sans-serif;
-
-  padding: 1%;
-  margin: 1%;
 }
 
 .defaultButtonRhombus {
-  border-radius: 1vh;
+  border-radius: 1%;
   color: #ffffff;
   font-family: 'Arial', sans-serif;
   padding: 0.5%;
 
   box-shadow:
-    0vh 0.5vh rgba(0, 0, 0, 0.7),
-    0.5vh 0vh rgba(0, 0, 0, 0.7);
+    0% 2% rgba(0, 0, 0, 0.7),
+    2% 0% rgba(0, 0, 0, 0.7);
 }
 
 .defaultButtonRhombus:hover {
@@ -279,13 +278,13 @@ body {
 
 .defaultButtonRhombus:active {
   filter: brightness(80%);
-  transform: translateY(0.2vh);
-  transform: translateX(0.2vh);
+  transform: translateY(1%);
+  transform: translateX(1%);
   transform: rotate(45deg);
 
   /* Ombra esterna più piccola per effetto pressione */
   box-shadow:
-    0.1vh 0.1vh 0.25vh rgba(0, 0, 0, 0.5);
+    0.1% 0.1% 0.25% rgba(0, 0, 0, 0.5);
 }
 
 .defaultButtonRhombus:active>* {
@@ -312,6 +311,12 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  text-align: center;
+}
+
+.centerDivTop {
+  display: flex;
+  align-items: center;
   text-align: center;
 }
 
@@ -381,19 +386,15 @@ button,
 #fp1 {
 
   position: absolute;
-  height: 8%;
-  max-height: 8%;
-  min-height: 8%;
+  height: 10%;
 
-  overflow-y: auto;
-
-  width: 99.48%;
+  width: 100%;
 
   display: flex;
   flex-direction: row;
 
 
-  font-size: 1.5cqw;
+  font-size: 1.4cqw;
 
   margin-left: 0.5%;
   z-index: 6;
@@ -546,6 +547,17 @@ button,
   text-align: center;
 }
 
+#optionsMisc {
+  width: 100%;
+      height: 20%;
+
+}
+
+#optionsMisc_notation{
+    width: 100%;
+    height: 100%;
+}
+
 #optionsButtons {
   position: relative;
   left: 0%;
@@ -554,7 +566,7 @@ button,
   width: 100%;
   height: 100%;
 
-  
+
 }
 
 #resetScreen {
@@ -877,7 +889,7 @@ button,
   width: 100%;
   position: relative;
 
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 #c2_10_fight {
@@ -1131,7 +1143,7 @@ button,
   border-radius: 0.5em;
 
   height: 55%;
-  width: 95%;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: top;
@@ -1315,6 +1327,7 @@ button,
   background-color: #3a3f54;
   border-radius: 1em;
   margin-top: 4%;
+  
   margin-left: auto;
   margin-right: auto;
 }
@@ -1377,26 +1390,48 @@ button,
   }
 }
 
+#powerValute {
+  height: 100%;
+  width: 10%;
+  left: 0%;
+  background-color: rgba(105, 122, 122, 0.5);
+}
+
+#universeValute {
+  height: 100%;
+  width: 10%;
+  left: 10%;
+  background-color: rgba(105, 122, 122, 0.5);
+}
+
 #essenceValute {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-
+  height: 100%;
+  width: 10%;
   left: 20%;
+  background-color: rgba(105, 122, 122, 0.5);
 }
 
-#universalValute {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-
-  left: 35%;
+#universalShardsBase {
+  height: 100%;
+  width: 10%;
+  left: 30%;
+  background-color: rgba(105, 122, 122, 0.5);
 }
 
-#universalShardsValute {
-  display: flex;
-  flex-direction: column;
+#universalNodesBase {
+  height: 100%;
+  width: 10%;
+  left: 40%;
+  background-color: rgba(105, 122, 122, 0.5);
 }
+
+#universalCoresBase {
+  height: 100%;
+  width: 10%;
+  left: 50%;
+  background-color: rgba(105, 122, 122, 0.5);
+}
+
 
 #content2_8 {
   position: absolute;
@@ -1854,17 +1889,17 @@ button,
 
 }
 
+
+
 #content2_7_b1 {
   display: flex;
 
   flex-direction: row;
 
-  justify-content: space-evenly;
-  align-items: center;
-  text-align: center;
+  justify-content:space-between;
 
 
-  width: 40%;
+  width: 100%;
 }
 
 #content2_7_b1>* {
@@ -1876,6 +1911,8 @@ button,
   display: flex;
   justify-content: center;
   align-items: center;
+      margin-right: 1%;
+  margin-left: 1%;
 }
 
 #content2_9 {
@@ -1907,6 +1944,84 @@ button,
   align-items: center;
 
   width: 100%;
+}
+
+#content2_7_b1_cont1{
+    width: 30%;
+}
+
+#content2_7_b1_cont2{
+    width: 30%;
+      display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  text-align: center;
+}
+
+#content2_7_b1_cont3{
+    width: 30%;
+      display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  text-align: center;
+
+    font-size: 1.25em;
+
+}
+
+#content2_7_l1{
+  width: 50%;
+
+  margin-right: 1%;
+  margin-left: 1%;
+
+    display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+#content2_7_l1_cont{
+  width: 100%;
+}
+
+#content2_7_l_loadout1{
+  width: 80%;
+}
+#content2_7_l1_b1{
+  width: 50%;
+}
+#content2_7_l1_b2{
+  width: 50%;
+}
+
+
+
+#content2_7_l2{
+  width: 50%;
+  margin-right: 1%;
+  margin-left: 1%;
+
+    display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+#content2_7_l2_cont{
+  width: 100%;
+}
+
+#content2_7_l_loadout2{
+  width: 80%;
+}
+#content2_7_l2_b1{
+  width: 50%;
+}
+#content2_7_l2_b2{
+  width: 50%;
 }
 
 #content2_5 {
@@ -2089,6 +2204,17 @@ button,
   background-color: #2c2f3a;
 }
 
+#content2_11_description{
+    background-color: transparent;
+    bottom: 0%;
+
+
+  position: absolute;
+  padding: 0.5%;
+  background-color: rgba(145, 191, 216, 0.4)
+
+}
+
 #content2_11_cont {
   position: relative;
   top: 0%;
@@ -2125,7 +2251,7 @@ button,
   width: 100%;
   height: 220%;
 
-  background-position: 110% 100%;
+  background-position: 110% -100%;
   background-repeat: no-repeat;
   background-size: 120%;
 }
@@ -2164,6 +2290,7 @@ button,
 
   border-radius: 1vw;
   box-shadow: 0 0 3vw rgba(150, 150, 150, 0.4);
+
 }
 
 #content2_11_grid_b1_cont>*,
@@ -2187,6 +2314,7 @@ button,
   align-items: center;
   flex-direction: row;
   text-align: center;
+
 }
 
 #content2_11_grid_b1_cont_1 {
@@ -2214,7 +2342,7 @@ button,
 
 #content2_11_grid_b1 {
   position: absolute;
-  top: 135%;
+  top: 170%;
   left: 24.4%;
 
   background: transparent;
@@ -2222,7 +2350,7 @@ button,
 
 #content2_11_grid_c1 {
   position: absolute;
-  top: 155%;
+  top: 190%;
   left: 18.5%;
 
   width: 20%;
@@ -2232,7 +2360,7 @@ button,
 
 #content2_11_grid_b2 {
   position: absolute;
-  top: 120%;
+  top: 155%;
   left: 69.8%;
 
   background: transparent;
@@ -2240,7 +2368,7 @@ button,
 
 #content2_11_grid_c2 {
   position: absolute;
-  top: 140%;
+  top: 175%;
   left: 63.8%;
 
   width: 20%;
@@ -2250,7 +2378,7 @@ button,
 
 #content2_11_grid_b3 {
   position: absolute;
-  top: 125%;
+  top: 160%;
   left: 41%;
 
   background: transparent;
@@ -2258,7 +2386,7 @@ button,
 
 #content2_11_grid_b4 {
   position: absolute;
-  top: 80%;
+  top: 115%;
   left: 38.6%;
 
   background: transparent;
@@ -2266,7 +2394,7 @@ button,
 
 #content2_11_grid_c4 {
   position: absolute;
-  top: 100%;
+  top: 135%;
   left: 32.6%;
 
   width: 20%;
@@ -2276,7 +2404,7 @@ button,
 
 #content2_11_grid_b5 {
   position: absolute;
-  top: 74%;
+  top: 109%;
   left: 68.4%;
 
   background: transparent;
@@ -2284,7 +2412,7 @@ button,
 
 #content2_11_grid_c5 {
   position: absolute;
-  top: 94%;
+  top: 129%;
   left: 62.4%;
 
   width: 20%;
@@ -2294,7 +2422,7 @@ button,
 
 #content2_11_grid_b6 {
   position: absolute;
-  top: 70%;
+  top: 105%;
   left: 50%;
 
   background: transparent;
@@ -2302,7 +2430,7 @@ button,
 
 #content2_11_grid_b7 {
   position: absolute;
-  top: 34.5%;
+  top: 69.5%;
   left: 35.5%;
 
   background: transparent;
@@ -2310,7 +2438,7 @@ button,
 
 #content2_11_grid_c7 {
   position: absolute;
-  top: 54.5%;
+  top: 89.5%;
   left: 29.5%;
 
   width: 20%;
@@ -2320,7 +2448,7 @@ button,
 
 #content2_11_grid_b8 {
   position: absolute;
-  top: 40%;
+  top: 75%;
   left: 59.6%;
 
   background: transparent;
@@ -2328,7 +2456,7 @@ button,
 
 #content2_11_grid_c8 {
   position: absolute;
-  top: 60%;
+  top: 95%;
   left: 53.6%;
 
   width: 20%;
@@ -2338,7 +2466,7 @@ button,
 
 #content2_11_grid_b9 {
   position: absolute;
-  top: 15%;
+  top: 50%;
   left: 40%;
 
   background: transparent;
@@ -2450,10 +2578,17 @@ button,
 }
 
 #fp3_content1_8>div {
-  margin: 1vw;
+  margin: 1%;
+  overflow-y: auto;
+  border-radius: 0.5em;
+  background-color: #2c2f3a;
+}
 
+#fp3_content1_8>div>div {
+  margin: 1%;
   border-radius: 0.5em;
   background-color: #3a3f54;
+  padding: 0.5%;
 }
 
 #fp3_content1_8_auto1 {
@@ -2524,6 +2659,28 @@ button,
   justify-content: top;
   align-items: center;
   flex-direction: column;
+}
+
+#fp3_content1_8_auto6 {
+  display: flex;
+  justify-content: top;
+  align-items: top;
+  flex-direction: column;
+}
+
+#fp3_content1_8_auto6>div {
+  display: flex;
+  justify-content: top;
+  align-items: center;
+  flex-direction: column;
+}
+
+#fp3_content1_8_auto6_c1{
+  width: 50%;
+}
+
+#fp3_content1_8_auto6_c1 > div{
+  width: 70%;
 }
 
 #menu1,
@@ -2949,7 +3106,7 @@ button,
 
 #fp2_content2_5 {
   position: absolute;
-  top: 10%;
+  top: 11%;
   left: 90%;
   width: 4%;
   height: auto;
@@ -2970,7 +3127,7 @@ button,
 
 #fp2_content1_8 {
   position: absolute;
-  top: 20%;
+  top: 21%;
   left: 90%;
   width: 4%;
 
@@ -3373,7 +3530,11 @@ button,
   /* Spazio tra paragrafi relativo */
 }
 
+<<<<<<< Updated upstream
 #options_discord{
+=======
+#options_discord {
+>>>>>>> Stashed changes
 
   width: 8%;
   height: auto;
@@ -3381,9 +3542,94 @@ button,
   aspect-ratio: 1/1;
   border: none;
 
+<<<<<<< Updated upstream
     background-color: transparent;
+=======
+  background-color: transparent;
+>>>>>>> Stashed changes
   background-image: url("images/discord logo.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+<<<<<<< Updated upstream
+=======
+}
+
+#mainMenuDirectionArrow1 {
+  position: absolute;
+  width: 4%;
+  height: auto;
+
+  bottom: 10%;
+  right: 0.5%;
+
+  aspect-ratio: 1/1;
+  border: none;
+
+  z-index: 10;
+  background-color: transparent;
+  background-image: url("images/direct arrow.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+#mainMenuDirectionArrow2 {
+  position: absolute;
+  width: 4%;
+  height: auto;
+
+  bottom: 10%;
+  left: 0.5%;
+
+  aspect-ratio: 1/1;
+  border: none;
+
+  z-index: 10;
+  background-color: transparent;
+  background-image: url("images/direct arrow.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+#mainMenuDirectionArrow3 {
+  position: absolute;
+  width: 4%;
+  height: auto;
+
+  top: 10%;
+  right: 0.5%;
+
+  aspect-ratio: 1/1;
+  border: none;
+
+  transform: scaleY(-1);
+  z-index: 10;
+  background-color: transparent;
+  background-image: url("images/direct arrow.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+#mainMenuDirectionArrow4 {
+  position: absolute;
+  width: 4%;
+  height: auto;
+
+  top: 10%;
+  left: 0.5%;
+
+  aspect-ratio: 1/1;
+  border: none;
+
+  transform: scaleY(-1);
+  z-index: 10;
+  background-color: transparent;
+  background-image: url("images/direct arrow.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+>>>>>>> Stashed changes
 }
