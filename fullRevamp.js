@@ -1869,7 +1869,7 @@ function valuesSetter(type) {
     cDamage2 = f(1)
   }
 
-  if (IUniversal.energyUpgrades.upgrade19.active) {
+  if (IUniversal.energyUpgrades.upgrade19.active && !(type == "universalChallengerChallenge2")) {
     var cDamage3 = IUniversal.energyUpgrades.upgrade19.effect;
   }
   else {
@@ -1892,7 +1892,7 @@ function valuesSetter(type) {
   } else {
     cLife2 = f(1)
   }
-  if (IUniversal.energyUpgrades.upgrade19.active) {
+  if (IUniversal.energyUpgrades.upgrade19.active && !(type == "universalChallengerChallenge2")) {
     var cLife3 = IUniversal.energyUpgrades.upgrade19.effect;
   }
   else {
