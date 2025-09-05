@@ -7195,6 +7195,7 @@ async function fight(type, enemy, signal) {
         }
       }
     } finally {
+      
       signal?.removeEventListener("abort", abortHandler2);
       IFight.youStats.onFight2 = false;
     }
@@ -7202,7 +7203,6 @@ async function fight(type, enemy, signal) {
 
   if (type === "universalChallengerChallenge1") {
 
-    let notMom = 0
     IUniversalChallenger.universalChallengerChallenges.c1.active = true;
 
     const challenger = IUniversalChallenger.challengers.universalChallenger;
@@ -7243,14 +7243,6 @@ async function fight(type, enemy, signal) {
             if (signal?.aborted) {
               IFight.youStats.onFight2 = false;
               return;
-            }
-            notMom = notMom + 1
-            if (notMom > 10) {
-              if (IFight.youStats.fightController2 && typeof IFight.youStats.fightController2.abort === "function") {
-                IFight.youStats.fightController2.abort();
-                IFight.youStats.fightController2 = null;
-                return; // Esce se il combattimento è stato interrotto
-              }
             }
 
             const playerDamage = f(IFight.onFightStats.damage).mul(f(tickSpeed)).mul(f(delay).dividedBy(50));
