@@ -99,6 +99,13 @@ class Universal {
         upgrade11: 0, upgrade12: 0, upgrade13: 0, upgrade14: 0, upgrade15: 0, upgrade16: 0, upgrade17: 0, upgrade18: 0, upgrade19: 0, upgrade20: 0,
         upgrade21: 0, upgrade22: 0, upgrade23: 0,
       },
+
+      loadout3: {
+        ascensionPoints: 0, name: "",
+        upgrade1: 0, upgrade2: 0, upgrade3: 0, upgrade4: 0, upgrade5: 0, upgrade6: 0, upgrade7: 0, upgrade8: 0, upgrade9: 0, upgrade10: 0,
+        upgrade11: 0, upgrade12: 0, upgrade13: 0, upgrade14: 0, upgrade15: 0, upgrade16: 0, upgrade17: 0, upgrade18: 0, upgrade19: 0, upgrade20: 0,
+        upgrade21: 0, upgrade22: 0, upgrade23: 0,
+      },
     }
 
     this.energyUpgrades = options.energyUpgrades || {
@@ -1411,16 +1418,16 @@ function checkBuy(priceIdentity, price, type) {
   }
 }
 
-function emptyLoadout(loadout){
+function emptyLoadout(loadout) {
   let sel = IUniversal.energyLoadout[loadout]
 
-    for (let x in IUniversal.energyUpgrades) {
-      console.log(sel[x])
-      if(!(f(sel[x]).equals(f(0)))){
-        return false
-      }
+  for (let x in IUniversal.energyUpgrades) {
+    console.log(sel[x])
+    if (!(f(sel[x]).equals(f(0)))) {
+      return false
     }
-    return true
+  }
+  return true
 }
 
 function energyLoadout(action, loadout) {
@@ -4537,6 +4544,15 @@ document.getElementById("content2_7_l2_b2").onclick = function () {
   energyLoadout("save", "loadout2")
 }
 
+document.getElementById("content2_7_l3_b1").onclick = function () {
+  energyLoadout("load", "loadout3")
+}
+
+document.getElementById("content2_7_l3_b2").onclick = function () {
+  energyLoadout("save", "loadout3")
+}
+
+
 //name loadout
 
 document.getElementById("content2_7_l_loadout1").onmouseenter = function () {
@@ -4547,12 +4563,22 @@ document.getElementById("content2_7_l_loadout2").onmouseenter = function () {
   componentsLoadoutName("content2_7_l_loadout2", true, "loadout2");
 }
 
+document.getElementById("content2_7_l_loadout3").onmouseenter = function () {
+  componentsLoadoutName("content2_7_l_loadout3", true, "loadout3");
+}
+
+
+
 document.getElementById("content2_7_l_loadout1").onmouseleave = function () {
   componentsLoadoutName("content2_7_l_loadout1", false, "loadout1");
 }
 
 document.getElementById("content2_7_l_loadout2").onmouseleave = function () {
   componentsLoadoutName("content2_7_l_loadout2", false, "loadout2");
+}
+
+document.getElementById("content2_7_l_loadout3").onmouseleave = function () {
+  componentsLoadoutName("content2_7_l_loadout3", false, "loadout3");
 }
 
 function componentsLoadoutName(id, enter, type) {
@@ -6194,9 +6220,9 @@ function visualHunting() {
 
       let showL = ""
 
-      if(f(sel.level).equals(f(sel.showLevel))){
-        showL= ""
-      }else{
+      if (f(sel.level).equals(f(sel.showLevel))) {
+        showL = ""
+      } else {
         showL = `(${sel.showLevel})`
       }
 
@@ -6238,11 +6264,11 @@ function visualHunting() {
         document.getElementById("content2_6_" + x + "_button").style.backgroundColor = "#972a2aff"
       }
 
-            let showL = ""
+      let showL = ""
 
-            if(f(sel.level).equals(f(sel.showLevel))){
-        showL= ""
-      }else{
+      if (f(sel.level).equals(f(sel.showLevel))) {
+        showL = ""
+      } else {
         showL = `(${sel.showLevel})`
       }
 
@@ -7486,7 +7512,7 @@ function format(number, type, formatType = IPermanent.notation["notation" + IPer
         return number.toNumber().toFixed(1);
       } else {
         // Gestione di numeri primitivi (es: 12345)
-return Number(number).toExponential(type || 1);
+        return Number(number).toExponential(type || 1);
 
       }
     }
@@ -7589,7 +7615,7 @@ return Number(number).toExponential(type || 1);
         return number.toNumber().toFixed(1);
       } else {
 
-return Number(number).toExponential(type || 1);
+        return Number(number).toExponential(type || 1);
       }
     }
   }

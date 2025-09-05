@@ -1947,11 +1947,11 @@ button,
 }
 
 #content2_7_b1_cont1{
-    width: 30%;
+    width: 40%;
 }
 
 #content2_7_b1_cont2{
-    width: 30%;
+    width: 40%;
       display: flex;
   justify-content: center;
   align-items: center;
@@ -1972,7 +1972,7 @@ button,
 }
 
 #content2_7_l1{
-  width: 50%;
+  width: 33%;
 
   margin-right: 1%;
   margin-left: 1%;
@@ -2000,7 +2000,7 @@ button,
 
 
 #content2_7_l2{
-  width: 50%;
+  width: 33%;
   margin-right: 1%;
   margin-left: 1%;
 
@@ -2021,6 +2021,31 @@ button,
   width: 50%;
 }
 #content2_7_l2_b2{
+  width: 50%;
+}
+
+#content2_7_l3{
+  width: 33%;
+  margin-right: 1%;
+  margin-left: 1%;
+
+    display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+#content2_7_l3_cont{
+  width: 100%;
+}
+
+#content2_7_l_loadout3{
+  width: 80%;
+}
+#content2_7_l3_b1{
+  width: 50%;
+}
+#content2_7_l3_b2{
   width: 50%;
 }
 
