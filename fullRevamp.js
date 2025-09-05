@@ -1411,10 +1411,22 @@ function checkBuy(priceIdentity, price, type) {
   }
 }
 
+function emptyLoadout(loadout){
+  let sel = IUniversal.energyLoadout[loadout]
+
+    for (let x in IUniversal.energyUpgrades) {
+      console.log(sel[x])
+      if(!(f(sel[x]).equals(f(0)))){
+        return false
+      }
+    }
+    return true
+}
+
 function energyLoadout(action, loadout) {
   let sel = IUniversal.energyLoadout[loadout]
 
-  if (action == "load" && f(sel.ascensionPoints).gt(f(0))) {
+  if (action == "load" && !emptyLoadout(loadout)) {
     for (let x in IUniversal.energyUpgrades) {
       IUniversal.energyUpgrades[x].level = f(sel[x])
     }
