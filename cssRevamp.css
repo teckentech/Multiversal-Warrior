@@ -255,7 +255,7 @@ body {
 }
 
 .defaultButtonRhombus {
-  border-radius: 1%;
+  border-radius: 1vh;
   color: #ffffff;
   font-family: 'Arial', sans-serif;
   padding: 0.5%;
@@ -3530,11 +3530,7 @@ button,
   /* Spazio tra paragrafi relativo */
 }
 
-<<<<<<< Updated upstream
-#options_discord{
-=======
 #options_discord {
->>>>>>> Stashed changes
 
   width: 8%;
   height: auto;
@@ -3542,17 +3538,11 @@ button,
   aspect-ratio: 1/1;
   border: none;
 
-<<<<<<< Updated upstream
-    background-color: transparent;
-=======
   background-color: transparent;
->>>>>>> Stashed changes
   background-image: url("images/discord logo.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-<<<<<<< Updated upstream
-=======
 }
 
 #mainMenuDirectionArrow1 {
@@ -3631,5 +3621,4 @@ button,
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
->>>>>>> Stashed changes
 }

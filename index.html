@@ -20,20 +20,21 @@
         <div id="mainMenu" class="bDefaultStyle">
             <div id="mainMenuExit"></div>
 
+            <div id="mainMenuDirectionArrow1"></div>
+            <div id="mainMenuDirectionArrow2"></div>
+
+            <div id="mainMenuDirectionArrow3"></div>
+            <div id="mainMenuDirectionArrow4"></div>
+
             <div id="fp1">
+                <div id="powerValute" class="divColumns centerDivTop  bdefaultButtonSkin"></div>
+                <div id="universeValute" class="divColumns centerDivTop  bdefaultButtonSkin"></div>
 
-                <div id="powerValute" class="divColumns"></div>
+                <div id="essenceValute" class="divColumns centerDivTop  bdefaultButtonSkin"></div>
 
-                <div id="essenceValute">
-                    <div id="essenceBase"></div>
-                    <div id="essenceProd"></div>
-                </div>
-
-                <div id="universalValute">
-                    <div id="universalShardsBase"></div>
-                    <div id="universalNodesBase"></div>
-                    <div id="universalCoresBase"></div>
-                </div>
+                <div id="universalShardsBase" class="divColumns centerDivTop  bdefaultButtonSkin"></div>
+                <div id="universalNodesBase" class="divColumns centerDivTop  bdefaultButtonSkin"></div>
+                <div id="universalCoresBase" class="divColumns centerDivTop  bdefaultButtonSkin"></div>
             </div>
 
             <div id="fp2">
@@ -338,11 +339,34 @@
                     <div id="content2_7_menu">
                         <div id="content2_7_p"></div>
                         <div id="content2_7_b1">
-                            <button id="content2_7_b1_b" class="defaultButton30">RESPEC</button>
-                            <div id="content2_7_b1_text"></div>
-                            <button id="content2_7_b2" class="defaultButton30">
-                                <div id="content2_7_b2_sel" class="noClick">MAX</div>
-                            </button>
+                            <div id="content2_7_b1_cont1" class="row">
+                                <div id="content2_7_l1">
+                                    <input class="DefaultStyle centerDiv" type="text" id="content2_7_l_loadout1"
+                                        name="loadout1" value="Loadout 1" disabled=""></input>
+                                    <div id="content2_7_l1_cont" class="row">
+                                        <button id="content2_7_l1_b1" class="defaultButton">LOAD</button>
+                                        <button id="content2_7_l1_b2" class="defaultButton">SAVE</button>
+                                    </div>
+                                </div>
+
+                                <div id="content2_7_l2">
+                                    <input class="DefaultStyle centerDiv" type="text" id="content2_7_l_loadout2"
+                                        name="loadout1" value="Loadout 2" disabled=""></input>
+                                    <div id="content2_7_l2_cont" class="row">
+                                        <button id="content2_7_l2_b1" class="defaultButton">LOAD</button>
+                                        <button id="content2_7_l2_b2" class="defaultButton">SAVE</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="content2_7_b1_cont3">
+                                <div id="content2_7_b1_text"></div>
+                            </div>
+                            <div id="content2_7_b1_cont2" class="row">
+                                <button id="content2_7_b1_b" class="defaultButton30">RESPEC</button>
+                                <button id="content2_7_b2" class="defaultButton30">
+                                    <div id="content2_7_b2_sel" class="noClick">MAX</div>
+                                </button>
+                            </div>
                         </div>
                     </div>
 
@@ -447,6 +471,11 @@
                         <div id="content2_11_grid_c8"></div>
                         <button id="content2_11_grid_b9" class="defaultButton"></button>
                     </div>
+                    <div id="content2_11_description" class="centerDivColumns">
+                        <div class="boldBlackBorder">Attributes dont directly effect any fight</div>
+                        <div class="boldBlackBorder">Buy upgrades to get points, points give bonuses</div>
+                    </div>
+
 
                     <div id="content2_11_grid_exit"></div>
                     <div id="content2_11_grid_b1_cont">
@@ -476,7 +505,8 @@
 
 
                     <div id="content2_11_grid_b2_cont">
-                        <div class="centerDiv"><span class="boldBlackBorder grassFont">LIFE REGENERATION</span></div>
+                        <div class="centerDiv"><span class="boldBlackBorder grassFont">LIFE REGENERATION</span>
+                        </div>
 
                         <div class="centerDiv">
                             <button id="content2_11_grid_b2_cont_multi" class="defaultButton30">
@@ -503,7 +533,8 @@
 
 
                     <div id="content2_11_grid_b4_cont">
-                        <div class="centerDiv"><span class="boldBlackBorder grassFont">DEFENCE PENETRATION</span></div>
+                        <div class="centerDiv"><span class="boldBlackBorder grassFont">DEFENCE PENETRATION</span>
+                        </div>
 
                         <div class="centerDiv">
                             <button id="content2_11_grid_b4_cont_multi" class="defaultButton30">
@@ -627,7 +658,8 @@
                                     <div id="c2_4_A_life"></div>
                                 </div>
                                 <div id="c2_4_A_part1" class="defaultBarPart1 boldBlackBorderObject">
-                                    <div id="c2_4_A_part2" class="defaultBarPart2 boldBlackBorderObjectLateral"></div>
+                                    <div id="c2_4_A_part2" class="defaultBarPart2 boldBlackBorderObjectLateral">
+                                    </div>
                                     <div id="c2_4_A_part3" class="defaultBarPart3"></div>
                                 </div>
                             </div>
@@ -643,7 +675,8 @@
                                 </div>
 
                                 <div id="c2_4_B_part1" class="defaultBarPart1 boldBlackBorderObject">
-                                    <div id="c2_4_B_part2" class="defaultBarPart2 boldBlackBorderObjectLateral"></div>
+                                    <div id="c2_4_B_part2" class="defaultBarPart2 boldBlackBorderObjectLateral">
+                                    </div>
                                     <div id="c2_4_B_part3" class="defaultBarPart3"></div>
                                 </div>
                             </div>
@@ -669,7 +702,8 @@
                                     <div id="c2_10_A_life"></div>
                                 </div>
                                 <div id="c2_10_A_part1" class="defaultBarPart1 boldBlackBorderObject">
-                                    <div id="c2_10_A_part2" class="defaultBarPart2 boldBlackBorderObjectLateral"></div>
+                                    <div id="c2_10_A_part2" class="defaultBarPart2 boldBlackBorderObjectLateral">
+                                    </div>
                                     <div id="c2_10_A_part3" class="defaultBarPart3"></div>
                                 </div>
                             </div>
@@ -685,7 +719,8 @@
                                 </div>
 
                                 <div id="c2_10_B_part1" class="defaultBarPart1 boldBlackBorderObject">
-                                    <div id="c2_10_B_part2" class="defaultBarPart2 boldBlackBorderObjectLateral"></div>
+                                    <div id="c2_10_B_part2" class="defaultBarPart2 boldBlackBorderObjectLateral">
+                                    </div>
                                     <div id="c2_10_B_part3" class="defaultBarPart3"></div>
                                 </div>
                             </div>
@@ -717,6 +752,13 @@
                 </div>
 
                 <div id="options" class="bDefaultStyle fp2Content">
+
+                    <div id="optionsMisc">
+                        <div id="optionsMisc_notation">
+                            <div id="optionsMisc_notation_d1">Notation</div>
+                            <button id="optionsMisc_notation_b1" class="defaultButton30"></button>
+                        </div>
+                    </div>
                     <div div="optionsButtons">
                         <button id="resetSave" class="defaultButton100 red">RESET SAVE</button>
                         <button id="exportSave" class="defaultButton100">Export Save</button>
@@ -740,7 +782,8 @@
                     </div>
 
                     <div id="opaqueScreen2"></div>
-                    <div>VERSION 1 (RELEASE)</div>
+                    <div class="boldBlackBorder">VERSION 1 (RELEASE)</div>
+                    <button id="options_discord" class="bDefaultButton"></button>
                 </div>
 
                 <div id="achievements" class="bDefaultStyle fp2Content">
@@ -763,7 +806,8 @@
                         </button>
 
                         <div id="content1_7_ascension_description">
-                            <i><span class="boldBlackBorder">Breakthrough this universe limits, reach another universe,
+                            <i><span class="boldBlackBorder">Breakthrough this universe limits, reach another
+                                    universe,
                                     Stronger Than The Last</span></i><br>
                             <span class="boldBlackBorder">Each ascension you get an Ascension Point</span><br><br>
                             <span class="boldBlackBorder">You can spend Ascension Points in Energy</span><br><br>
@@ -783,42 +827,57 @@
                 </div>
 
                 <div id="fp3_content1_8" class="bDefaultStyle fp2Content">
-                    <div id="fp3_content1_8_auto1">
-                        <div id="fp3_content1_8_auto1_title"></div>
-                        <div>
-                            <div id="fp3_content1_8_auto1_1"></div>
-                            <button id="fp3_content1_8_auto1_b1" class="defaultButton15"></button>
+                    <div>
+                        <div id="fp3_content1_8_auto1">
+                            <div id="fp3_content1_8_auto1_title"></div>
+                            <div>
+                                <div id="fp3_content1_8_auto1_1"></div>
+                                <button id="fp3_content1_8_auto1_b1" class="defaultButton15"></button>
+                            </div>
                         </div>
-                    </div>
 
-                    <div id="fp3_content1_8_auto2">
-                        <div id="fp3_content1_8_auto2_title"></div>
-                        <div>
-                            <div id="fp3_content1_8_auto2_1"></div>
-                            <button id="fp3_content1_8_auto2_b1" class="defaultButton15"></button>
+                        <div id="fp3_content1_8_auto2">
+                            <div id="fp3_content1_8_auto2_title"></div>
+                            <div>
+                                <div id="fp3_content1_8_auto2_1"></div>
+                                <button id="fp3_content1_8_auto2_b1" class="defaultButton15"></button>
+                            </div>
                         </div>
-                    </div>
 
-                    <div id="fp3_content1_8_auto3">
-                        <div>
-                            <div id="fp3_content1_8_auto3_1"></div>
-                            <button id="fp3_content1_8_auto3_b1" class="defaultButton15"></button>
+                        <div id="fp3_content1_8_auto3">
+                            <div>
+                                <div id="fp3_content1_8_auto3_1"></div>
+                                <button id="fp3_content1_8_auto3_b1" class="defaultButton15"></button>
+                            </div>
                         </div>
-                    </div>
 
-                    <div id="fp3_content1_8_auto4">
-                        <div id="fp3_content1_8_auto4_title"></div>
-                        <div>
-                            <div id="fp3_content1_8_auto4_1"></div>
-                            <button id="fp3_content1_8_auto4_b1" class="defaultButton15"></button>
+                        <div id="fp3_content1_8_auto4">
+                            <div id="fp3_content1_8_auto4_title"></div>
+                            <div>
+                                <div id="fp3_content1_8_auto4_1"></div>
+                                <button id="fp3_content1_8_auto4_b1" class="defaultButton15"></button>
+                            </div>
                         </div>
-                    </div>
 
-                    <div id="fp3_content1_8_auto5">
-                        <div id="fp3_content1_8_auto5_title"></div>
-                        <div>
-                            <div id="fp3_content1_8_auto5_1"></div>
-                            <button id="fp3_content1_8_auto5_b1" class="defaultButton15"></button>
+                        <div id="fp3_content1_8_auto6">
+                            <div id="fp3_content1_8_auto6_title"></div>
+                            <div>
+                                <div id="fp3_content1_8_auto6_1"></div>
+                                <button id="fp3_content1_8_auto6_b1" class="defaultButton15"></button>
+                                <div id="fp3_content1_8_auto6_c1" class="rows centerDiv">
+                                    <button id="fp3_content1_8_auto6_b2" class="defaultButton5"></button>
+                                    <div id="fp3_content1_8_auto6_2"></div>
+                                    <button id="fp3_content1_8_auto6_b3" class="defaultButton5"></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="fp3_content1_8_auto5">
+                            <div id="fp3_content1_8_auto5_title"></div>
+                            <div>
+                                <div id="fp3_content1_8_auto5_1"></div>
+                                <button id="fp3_content1_8_auto5_b1" class="defaultButton15"></button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -849,21 +908,24 @@
 
     </div>
     </div>
-    
+
     <!-- 1. Carica la libreria break_infinity.js -->
-    <script src="https://cdn.jsdelivr.net/npm/break_infinity.js@2"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    
+
     <!-- 2. Carica il tuo script personalizzato (che utilizza BreakInfinity.js) -->
-    <script type="module" src="fullRevamp.js?v=1.11" charset="utf-8"></script>
+    <script type="module" src="fullRevamp.js?v=1.30" charset="utf-8"></script>
 
     <!-- 3. Carica altre librerie necessarie, come crypto-js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 
     <!-- 4. Carica il file CSS per la formattazione -->
-    <link rel="stylesheet" href="cssRevamp.css?v=1.11">
+    <link rel="stylesheet" href="cssRevamp.css?v=1.30">
 
+    <script type="module">
+        import Decimal from "./libs/break_infinity.esm.js";
+        window.Decimal = Decimal; // 👈 rende Decimal globale
+    </script>
 </body>
 
 </html>

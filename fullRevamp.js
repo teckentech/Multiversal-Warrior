@@ -1153,25 +1153,23 @@ function offExportSave() {
 }
 
 function importSave() {
-  if (!document.getElementById("Save").value == "") {
-    IShowableClass.init = true;
-    resetSave()
-    var encryptedData = document.getElementById("Save").value;
-    const decryptedData = decryptData(encryptedData, secretKey);
-    try {
-      var savedGameData = JSON.parse(decryptedData);
-      for (let x in savedGameData) {
-        if (saveData[x]) {
-          deepMerge(saveData[x], savedGameData[x]);
-        }
+  IShowableClass.init = true;
+  resetSave()
+  var encryptedData = document.getElementById("Save").value;
+  const decryptedData = decryptData(encryptedData, secretKey);
+  try {
+    var savedGameData = JSON.parse(decryptedData);
+    for (let x in savedGameData) {
+      if (saveData[x]) {
+        deepMerge(saveData[x], savedGameData[x]);
       }
-    } catch (e) {
-
     }
-    //resetCanvas()
+  } catch (e) {
 
-    IShowableClass.init = true;
   }
+  //resetCanvas()
+
+  IShowableClass.init = true;
 }
 
 function offImportSave() {
@@ -1830,7 +1828,7 @@ function valuesSetter(type) {
   IFight.challengerRewards.reward2.name = `Will And Insight Training ×<span class="boldBlackBorder">${format(f(IFight.challengerRewards.reward2.effect), 0)}</span>`
 
   IFight.challengerRewards.reward1.effect = (f(2).pow((f(IFight.challengerRewards.reward1.level)))).mul(f(cReward)).mul(f(cReward2))
-  IFight.challengerRewards.reward2.effect = (f(2).pow((f(IFight.challengerRewards.reward2.level)))).mul(f(cReward))
+  IFight.challengerRewards.reward2.effect = (f(2).pow((f(IFight.challengerRewards.reward2.level)))).mul(f(cReward)).mul(f(cReward2))
   //UNIVERSAL CHALLENGER
 
   //name
@@ -2314,11 +2312,7 @@ function valuesSetter(type) {
 
   //HUNT REWARD 3
 
-<<<<<<< Updated upstream
-  IFight.normalHuntingRewards.upgrade3.name = `Essence/s ×<span class="boldBlackBorder">Slime (${format(f(IFight.normalHuntingRewards.upgrade3.effect), 0)})</span>`
-=======
   IFight.normalHuntingRewards.upgrade3.name = `Slime multiplies Essence ×<span class="boldBlackBorder">${format(f(IFight.normalHuntingRewards.upgrade3.effect), 0)}</span>`
->>>>>>> Stashed changes
 
   IFight.normalHuntingRewards.upgrade3.level = f(IFight.normalHuntingRewards.upgrade3.level)
 
@@ -3714,13 +3708,10 @@ function valuesSetter(type) {
   //AUTOMATION
   //Automation 1
 
-  IUniversal.automation.automation1.maxLevel = f(3)
+  IUniversal.automation.automation1.level = f(IUniversal.automation.automation1.level)
 
-  if (f(IUniversal.automation.automation1.level).gt(f(IUniversal.automation.automation1.maxLevel))) {
-    IUniversal.automation.automation1.level = f(IUniversal.automation.automation1.maxLevel)
-  } else {
-    IUniversal.automation.automation1.level = f(IUniversal.automation.automation1.level)
-  }
+
+  IUniversal.automation.automation1.maxLevel = f(3)
 
   ISelUpgrade.group.group1.maxNum = f(IUniversal.automation.automation1.level).add(f(1))
 
@@ -3929,7 +3920,7 @@ function valuesSetterDinamic(type) {
 
 
   if (IFight.normalHuntingRewards.upgrade4.active && type != "universalChallengerChallenge1") {
-    var life2 = f(IFight.youStats.damage).mul(f(IFight.normalHuntingRewards.upgrade4.effect))
+    var life2 = f(IFight.youStats.damage).add(f(IFight.normalHuntingRewards.upgrade4.effect))
   } else {
     life2 = f(0)
   }
@@ -3939,8 +3930,6 @@ function valuesSetterDinamic(type) {
   } else {
     life4 = f(1)
   }
-
-
 
   if (IUniversal.energyUpgrades.upgrade9.active) {
     var life5 = f(IUniversal.energyUpgrades.upgrade9.effect)
@@ -4848,25 +4837,12 @@ document.getElementById("content1_7_ascension_button").onclick = function () {
 
       partialResetSave(1)
 
-<<<<<<< Updated upstream
-      if (IFight.youStats.fightController1 && typeof IFight.youStats.fightController1.abort === "function") {
-        IFight.youStats.fightController1.abort();
-        IFight.youStats.fightController1 = null;
-      }
-
-      if (IFight.youStats.fightController2 && typeof IFight.youStats.fightController2.abort === "function") {
-        IFight.youStats.fightController2.abort();
-        IFight.youStats.fightController2 = null;
-      }
-
-=======
       ITraining.base.base1.active = training1Status1
       ITraining.base.base2.active = training1Status2
       ITraining.base.base3.active = training1Status3
       ITraining.base.base4.active = training1Status4
 
       //universe
->>>>>>> Stashed changes
       IUniversal.universe = f(IUniversal.universe).add(f(1))
 
       //Ascension Points
@@ -5210,11 +5186,6 @@ document.getElementById("fp3_content1_8_auto5_b1").onclick = function () {
   }
 }
 
-<<<<<<< Updated upstream
-//discord link
-document.getElementById("options_discord").onclick = function () {
-  window.open("https://discord.gg/6wpH3wuv", "_blank");
-=======
 document.getElementById("fp3_content1_8_auto6_b1").onclick = function () {
   if (f(IUniversal.automation.automation6.level).lt(f(IUniversal.automation.automation6.maxLevel))) {
     buy(IUniversal.automation.automation6, "level", 1, "uniChallenger")
@@ -5246,7 +5217,6 @@ document.getElementById("optionsMisc_notation_b1").onclick = function () {
   } else {
     IPermanent.notationCont = f(IPermanent.notationCont).add(f(1))
   }
->>>>>>> Stashed changes
 }
 
 //FUNCTION: PAUSE FUNCTION
@@ -5741,7 +5711,6 @@ function ascensionRings(div, valore, spacingFactor = 1, padding = 0, startPercen
 // funzione per scalare i cerchi
 function scaleAscensionRings(factor) {
   IShowableClass.svg.ascensionCirclesScale = IShowableClass.svg.ascensionCirclesScale * factor
-
 }
 
 document.getElementById('scale-up').addEventListener('click', () => scaleAscensionRings(1.1));
@@ -5790,7 +5759,7 @@ function visualMenu() {
 
   var image = `url("images/attributes 1.png")`
 
-  if (IUniversal.attributes.attributesUnlock1.active) {
+  if (IUniversal.attributes.attributesUnlock1.active || true) {
     image = `url("images/attributes 2.png")`
     if (IUniversal.attributes.attributesUnlock2.active) {
       image = `url("images/attributes 3.png")`
@@ -7509,8 +7478,6 @@ return Number(number).toExponential(type || 1);
 
       }
     }
-<<<<<<< Updated upstream
-=======
 
     // Se il formato richiesto è "letters" (notazione con lettere)
     if (formatType === 'Letters') {
@@ -7613,7 +7580,6 @@ return Number(number).toExponential(type || 1);
 return Number(number).toExponential(type || 1);
       }
     }
->>>>>>> Stashed changes
   }
 
   return number;
@@ -8235,15 +8201,11 @@ function visualLoopFunction() {
     menuDirectionArrow("content2_10")
   }
 
-<<<<<<< Updated upstream
-  visualMenu()
-=======
   if (checkShow("fp3_content1_8")) {
     menuDirectionArrow("fp3_content1_8")
   }
 
   //formatA(f(5e333))
->>>>>>> Stashed changes
 
   visualLore()
 
