@@ -55,9 +55,9 @@ class Permanent {
     this.maxNotationCont = options.notationCont || 2
 
     this.notation = options.notation || {
-      notation0: "Letters and Scientific", notation0F: true,
-      notation1: "Scientific", notation1F: true,
-      notation2: "Letters", notation2F: true,
+      notation0: "Scientific", notation0F: true,
+      notation1: "Letters", notation1F: true,
+      notation2: "Letters and Scientific", notation2F: true,
     }
   }
 }
@@ -5790,7 +5790,7 @@ function visualMenu() {
 
   //svg
 
-  document.getElementById("content2_1_svg").innerHTML = visualSvg(f(5).mul(f(10).pow(f(450))));
+  document.getElementById("content2_1_svg").innerHTML = visualSvg(f(IFight.youStats.life).mul(f(IFight.youStats.damage)));
   document.getElementById("fp2_content2_1_svg").innerHTML = visualSvg(f(IFight.youStats.life).mul(f(IFight.youStats.damage)));
 
   document.getElementById("c2_4_A_image").innerHTML = visualSvg(f(IFight.youStats.life).mul(f(IFight.youStats.damage)));
