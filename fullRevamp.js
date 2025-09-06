@@ -1738,7 +1738,6 @@ function valuesSetter(type) {
     var base3_2 = f(1)
   }
 
-
   ITraining.base.base3.prod = f(0.01).mul(f(base3_1)).mul(f(base3_2))
   ITraining.base.base3.level = f(ITraining.base.base3.level);
   ITraining.base.base3.description = `Physical Training ×<span class="boldBlackBorder">${format(f(ITraining.base.base3.tot), 2)}</span>`
@@ -3826,11 +3825,15 @@ function valuesSetterDinamic(type) {
     damage1 = f(0)
   }
 
+
   ITraining.base.base1.tot = f(ITraining.base.base1.tot)
     .add((f(damage1))
       .mul(f(IGameData.tickSpeed))
     );
 
+    if(f(ITraining.base.base1.tot).lt(f(0))){
+      ITraining.base.base1.tot = f(0)
+    }
   //Life Training
 
   if (ITraining.base.base2.active) {
@@ -3845,6 +3848,10 @@ function valuesSetterDinamic(type) {
     .add((f(life1))
       .mul(f(IGameData.tickSpeed))
     );
+
+        if(f(ITraining.base.base2.tot).lt(f(0))){
+      ITraining.base.base2.tot = f(0)
+    }
 
   //Will Training
 
@@ -3863,6 +3870,10 @@ function valuesSetterDinamic(type) {
       .mul(f(IGameData.tickSpeed))
     );
 
+        if(f(ITraining.base.base3.tot).lt(f(0))){
+      ITraining.base.base3.tot = f(0)
+    }
+
   //Insight Training
 
   if (ITraining.base.base4.active) {
@@ -3879,6 +3890,10 @@ function valuesSetterDinamic(type) {
     .add((f(Insight1))
       .mul(f(IGameData.tickSpeed))
     );
+
+        if(f(ITraining.base.base4.tot).lt(f(0))){
+      ITraining.base.base4.tot = f(0)
+    }
   //DAMAGE FINAL
 
   //damage
@@ -7358,7 +7373,7 @@ async function fight(type, enemy, signal) {
             }
 
             const playerDamage = f(IFight.onFightStats.damage).mul(f(tickSpeed)).mul(f(delay).dividedBy(50));
-            const enemyDamage = f(challenger.damage).mul(f(tickSpeed)).mul(f(delay).dividedBy(50));
+            const enemyDamage = f(IUniversalChallenger.challengers.universalChallenger.damage).mul(f(tickSpeed)).mul(f(delay).dividedBy(50));
 
             IUniversalChallenger.challengers.universalChallenger.leftLife = f(IUniversalChallenger.challengers.universalChallenger.leftLife).minus(playerDamage);
             IFight.onFightStats.leftLife2 = f(IFight.onFightStats.leftLife2).minus(enemyDamage);
