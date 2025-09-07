@@ -1263,9 +1263,9 @@ function visualValute() {
 
   update("essenceValute", `<div><div>Essence</div><div class="boldBlackBorder">${format(IGameData.essence)}</div><div class="boldBlackBorder">${format(sec(IGameData.essenceProd))}/s</div></div>`)
 
-  update("universalShardsBase", `<div>Univ. Shards</div><div class="boldBlackBorder">${format(IUniversalChallenger.universalShards)}</div>`)
-  update("universalNodesBase", `<div>Univ. Nodes</div><div class="boldBlackBorder">${format(IUniversalChallenger.universalNodes)}</div>`)
-  update("universalCoresBase", `<div>Univ. Cores</div><div class="boldBlackBorder">${format(IUniversalChallenger.universalCores)}</div>`)
+  update("universalShardsBase", `<div>Univ. Shards</div><div class="boldBlackBorder">${format(IUniversalChallenger.universalShards)}</div><div class="boldBlackBorder">${format(IUniversalChallenger.universalShardsProd)}/s</div>`)
+  update("universalNodesBase", `<div>Univ. Nodes</div><div class="boldBlackBorder">${format(IUniversalChallenger.universalNodes)}</div><div class="boldBlackBorder">${format(IUniversalChallenger.universalNodesProd)}/s</div>`)
+  update("universalCoresBase", `<div>Univ. Cores</div><div class="boldBlackBorder">${format(IUniversalChallenger.universalCores)}</div><div class="boldBlackBorder">${format(IUniversalChallenger.universalCoresProd)}/s</div>`)
 
 }
 
