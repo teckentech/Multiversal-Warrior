@@ -1263,9 +1263,9 @@ function visualValute() {
 
   update("essenceValute", `<div><div>Essence</div><div class="boldBlackBorder">${format(IGameData.essence)}</div><div class="boldBlackBorder">${format(sec(IGameData.essenceProd))}/s</div></div>`)
 
-  update("universalShardsBase", `<div>Universal Shards</div><div class="boldBlackBorder">${format(IUniversalChallenger.universalShards)}</div>`)
-  update("universalNodesBase", `<div>Universal Nodes</div><div class="boldBlackBorder">${format(IUniversalChallenger.universalNodes)}</div>`)
-  update("universalCoresBase", `<div>Universal Cores</div><div class="boldBlackBorder">${format(IUniversalChallenger.universalCores)}</div>`)
+  update("universalShardsBase", `<div>Univ. Shards</div><div class="boldBlackBorder">${format(IUniversalChallenger.universalShards)}</div>`)
+  update("universalNodesBase", `<div>Univ. Nodes</div><div class="boldBlackBorder">${format(IUniversalChallenger.universalNodes)}</div>`)
+  update("universalCoresBase", `<div>Univ. Cores</div><div class="boldBlackBorder">${format(IUniversalChallenger.universalCores)}</div>`)
 
 }
 
@@ -3831,9 +3831,9 @@ function valuesSetterDinamic(type) {
       .mul(f(IGameData.tickSpeed))
     );
 
-    if(f(ITraining.base.base1.tot).lt(f(0))){
-      ITraining.base.base1.tot = f(0)
-    }
+  if (f(ITraining.base.base1.tot).lt(f(0))) {
+    ITraining.base.base1.tot = f(0)
+  }
   //Life Training
 
   if (ITraining.base.base2.active) {
@@ -3849,9 +3849,9 @@ function valuesSetterDinamic(type) {
       .mul(f(IGameData.tickSpeed))
     );
 
-        if(f(ITraining.base.base2.tot).lt(f(0))){
-      ITraining.base.base2.tot = f(0)
-    }
+  if (f(ITraining.base.base2.tot).lt(f(0))) {
+    ITraining.base.base2.tot = f(0)
+  }
 
   //Will Training
 
@@ -3870,9 +3870,9 @@ function valuesSetterDinamic(type) {
       .mul(f(IGameData.tickSpeed))
     );
 
-        if(f(ITraining.base.base3.tot).lt(f(0))){
-      ITraining.base.base3.tot = f(0)
-    }
+  if (f(ITraining.base.base3.tot).lt(f(0))) {
+    ITraining.base.base3.tot = f(0)
+  }
 
   //Insight Training
 
@@ -3891,9 +3891,9 @@ function valuesSetterDinamic(type) {
       .mul(f(IGameData.tickSpeed))
     );
 
-        if(f(ITraining.base.base4.tot).lt(f(0))){
-      ITraining.base.base4.tot = f(0)
-    }
+  if (f(ITraining.base.base4.tot).lt(f(0))) {
+    ITraining.base.base4.tot = f(0)
+  }
   //DAMAGE FINAL
 
   //damage
@@ -7138,13 +7138,15 @@ async function fight(type, enemy, signal) {
       while (IFight.youStats.onFight2) {
         // Resetta le vite per un nuovo round
 
-        valuesSetterDinamic();
+        valuesSetter();
         IFight.onFightStats.life = IFight.youStats.life;
         IFight.onFightStats.leftLife2 = IFight.youStats.leftLife2;
         IFight.onFightStats.damage = IFight.youStats.damage;
 
         IUniversalChallenger.challengers.universalChallenger.leftLife = IUniversalChallenger.challengers.universalChallenger.life;
 
+        console.log(IUniversalChallenger.challengers.universalChallenger.life)
+        visualChallenger();
         await sleep(1000);
         if (f(IUniversalChallenger.challengers.universalChallenger.leftLife).greaterThan(0) && f(IFight.onFightStats.leftLife2).greaterThan(0)) {
           while (f(IUniversalChallenger.challengers.universalChallenger.leftLife).greaterThan(0) && f(IFight.onFightStats.leftLife2).greaterThan(0)) {
@@ -7164,7 +7166,7 @@ async function fight(type, enemy, signal) {
             IFight.onFightStats.leftLife2 = f(IFight.onFightStats.leftLife2).minus(enemyDamage);
 
             if (f(IFight.onFightStats.leftLife2).lt(f(0)) && f(IUniversalChallenger.challengers.universalChallenger.leftLife).lt(f(0))) {
-              if (f(IFight.onFightStats.leftLife2).gte(f(IFight.challengers.baseChallenger.leftLife))) {
+              if (f(IFight.onFightStats.leftLife2).gte(f(IUniversalChallenger.challengers.universalChallenger.leftLife))) {
                 rewardSet("universalBase");
                 valuesSetter();
                 visualChallenger();
@@ -7210,7 +7212,7 @@ async function fight(type, enemy, signal) {
         }
       }
     } finally {
-      
+
       signal?.removeEventListener("abort", abortHandler2);
       IFight.youStats.onFight2 = false;
     }
@@ -7247,8 +7249,13 @@ async function fight(type, enemy, signal) {
         IFight.onFightStats.life = IFight.youStats.life;
         IFight.onFightStats.leftLife2 = IFight.onFightStats.life;
         IFight.onFightStats.damage = IFight.youStats.damage;
+        valuesSetter();
+
 
         IFight.youStats.leftLife2 = IFight.onFightStats.leftLife2
+
+        IUniversalChallenger.challengers.universalChallenger.leftLife = IUniversalChallenger.challengers.universalChallenger.life;
+
         visualChallenger()
 
         IUniversalChallenger.challengers.universalChallenger.leftLife = IUniversalChallenger.challengers.universalChallenger.life;
@@ -7267,7 +7274,7 @@ async function fight(type, enemy, signal) {
             IFight.onFightStats.leftLife2 = f(IFight.onFightStats.leftLife2).minus(enemyDamage);
 
             if (f(IFight.onFightStats.leftLife2).lt(f(0)) && f(IUniversalChallenger.challengers.universalChallenger.leftLife).lt(f(0))) {
-              if (f(IFight.onFightStats.leftLife2).gte(f(IFight.challengers.baseChallenger.leftLife))) {
+              if (f(IFight.onFightStats.leftLife2).gte(f(IUniversalChallenger.challengers.universalChallenger.leftLife))) {
                 rewardSet("universalChallenge1Win");
                 valuesSetter();
                 visualChallenger();
@@ -7351,17 +7358,17 @@ async function fight(type, enemy, signal) {
     try {
       while (IFight.youStats.onFight2) {
         // Resetta le vite per un nuovo round
-
         valuesSetterDinamic("universalChallengerChallenge2")
-        valuesSetter("universalChallengerChallenge2")
+
         IFight.onFightStats.life = IFight.youStats.life;
         IFight.onFightStats.leftLife2 = IFight.onFightStats.life;
         IFight.onFightStats.damage = IFight.youStats.damage;
         IFight.youStats.leftLife2 = IFight.onFightStats.leftLife2
 
-        visualChallenger()
+        valuesSetter("universalChallengerChallenge2")
 
         IUniversalChallenger.challengers.universalChallenger.leftLife = IUniversalChallenger.challengers.universalChallenger.life;
+        visualChallenger()
 
         await sleep(1000);
         if (f(IUniversalChallenger.challengers.universalChallenger.leftLife).greaterThan(0) && f(IFight.onFightStats.leftLife2).greaterThan(0)) {
@@ -7379,7 +7386,7 @@ async function fight(type, enemy, signal) {
             IFight.onFightStats.leftLife2 = f(IFight.onFightStats.leftLife2).minus(enemyDamage);
 
             if (f(IFight.onFightStats.leftLife2).lt(f(0)) && f(IUniversalChallenger.challengers.universalChallenger.leftLife).lt(f(0))) {
-              if (f(IFight.onFightStats.leftLife2).gte(f(IFight.challengers.baseChallenger.leftLife))) {
+              if (f(IFight.onFightStats.leftLife2).gte(f(IUniversalChallenger.challengers.universalChallenger.leftLife))) {
                 rewardSet("universalChallenge2Win");
                 valuesSetter();
                 visualChallenger();
