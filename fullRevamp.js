@@ -983,12 +983,18 @@ class UniversalChallenger {
 
     this.universalShards = options.universalShards || 0;
     this.universalShardsProd = options.universalShardsProd || 0;
+    this.universalShardsProdBase = options.universalShardsProdBase || 0;
+
 
     this.universalNodes = options.universalNodes || 0;
     this.universalNodesProd = options.universalNodesProd || 0;
+    this.universalNodesProdBase = options.universalNodesProdBase || 0;
+
 
     this.universalCores = options.universalCores || 0;
     this.universalCoresProd = options.universalCoresProd || 0;
+    this.universalCoresProdBase = options.universalCoresProdBase || 0;
+
 
     this.challengers = options.challengers || {
       universalChallenger: {
@@ -1875,7 +1881,7 @@ function valuesSetter(type) {
     cDamage2 = f(1)
   }
 
-  if (IUniversal.energyUpgrades.upgrade19.active && !(type == "universalChallengerChallenge2")) {
+  if (IUniversal.energyUpgrades.upgrade19.active && !(IUniversalChallenger.universalChallengerChallenges.c2.active)) {
     var cDamage3 = IUniversal.energyUpgrades.upgrade19.effect;
   }
   else {
@@ -1898,7 +1904,8 @@ function valuesSetter(type) {
   } else {
     cLife2 = f(1)
   }
-  if (IUniversal.energyUpgrades.upgrade19.active && !(type == "universalChallengerChallenge2")) {
+
+  if (IUniversal.energyUpgrades.upgrade19.active && !(IUniversalChallenger.universalChallengerChallenges.c2.active)) {
     var cLife3 = IUniversal.energyUpgrades.upgrade19.effect;
   }
   else {
@@ -1919,7 +1926,7 @@ function valuesSetter(type) {
 
   //Universal challenger Rewards
 
-  IUniversalChallenger.universalChallengerRewards.reward1.name = `<div>Maximum Universal Challenger <span class="boldBlackBorder">${IUniversalChallenger.challengers.universalChallenger.maxLevel}</span></div><div><span class="boldBlackBorder">${format(sec(IUniversalChallenger.universalShardsProd), 1)}/s</span> Universal Shards</div>`
+  IUniversalChallenger.universalChallengerRewards.reward1.name = `<div>Maximum Universal Challenger <span class="boldBlackBorder">${IUniversalChallenger.challengers.universalChallenger.maxLevel}</span></div><div><span class="boldBlackBorder">${format(sec(IUniversalChallenger.universalShardsProdBase), 1)}/s</span> Universal Shards</div>`
 
   IUniversalChallenger.universalChallengerRewards.reward1.level = f(IUniversalChallenger.challengers.universalChallenger.maxLevel)
 
@@ -1957,7 +1964,7 @@ function valuesSetter(type) {
 
   var sel = IUniversalChallenger.universalChallengerChallengesRewards.c1
 
-  sel.name = `<div>Maximum Universal Challenger <span class="boldBlackBorder">${sel.level}</span></div><div><span class="boldBlackBorder">${format(f(sel.effect))}/s</span> Universal Nodes</div>`
+  sel.name = `<div>Maximum Universal Challenger <span class="boldBlackBorder">${sel.level}</span></div><div><span class="boldBlackBorder">${format(f(IUniversalChallenger.universalNodesProdBase))}/s</span> Universal Nodes</div>`
 
   if (f(IUniversalChallenger.universalChallengerChallengesRewards.c1.level).gte(f(1))) {
     sel.effect = ((f(5).pow((f(IUniversalChallenger.universalChallengerChallengesRewards.c1.level)))))
@@ -1967,7 +1974,7 @@ function valuesSetter(type) {
 
   var sel = IUniversalChallenger.universalChallengerChallengesRewards.c2
 
-  sel.name = `<div>Maximum Universal Challenger <span class="boldBlackBorder">${sel.level}</span></div><div><span class="boldBlackBorder">${format(f(sel.effect))}/s</span> Universal Cores</div>`
+  sel.name = `<div>Maximum Universal Challenger <span class="boldBlackBorder">${sel.level}</span></div><div><span class="boldBlackBorder">${format(f(IUniversalChallenger.universalCoresProdBase))}/s</span> Universal Cores</div>`
 
   if (f(IUniversalChallenger.universalChallengerChallengesRewards.c2.level).gte(f(1))) {
     sel.effect = ((f(10).pow((f(IUniversalChallenger.universalChallengerChallengesRewards.c2.level)))))
@@ -4111,6 +4118,9 @@ function valuesSetterDinamic(type) {
 
   IUniversalChallenger.universalShardsProd = f(universalShards1).mul(f(IGameData.tickSpeed)).mul(universalShards3)
 
+    IUniversalChallenger.universalShardsProdBase = f(universalShards1).mul(f(IGameData.tickSpeed))
+
+
   IUniversalChallenger.universalShards = f(IUniversalChallenger.universalShards).add(IUniversalChallenger.universalShardsProd)
   //Universal Nodes
   if (f(IUniversalChallenger.universalChallengerChallengesRewards.c1.level).gte(f(1))) {
@@ -4126,6 +4136,7 @@ function valuesSetterDinamic(type) {
   }
 
   IUniversalChallenger.universalNodesProd = f(universalNodes1).mul(f(universalNodes2)).mul(f(IGameData.tickSpeed))
+      IUniversalChallenger.universalNodesProdBase = f(universalNodes1).mul(f(IGameData.tickSpeed))
 
 
   IUniversalChallenger.universalNodes = f(IUniversalChallenger.universalNodes).add(IUniversalChallenger.universalNodesProd)
@@ -4152,6 +4163,8 @@ function valuesSetterDinamic(type) {
   }
 
   IUniversalChallenger.universalCoresProd = f(universalCores1).mul(f(universalCores3)).mul(f(IGameData.tickSpeed))
+
+      IUniversalChallenger.universalCoresProdBase = f(universalCores1).mul(f(IGameData.tickSpeed))
 
   var transit = f(IUniversalChallenger.universalCoresProd).mul(f(universalCores2))
 
@@ -6021,7 +6034,7 @@ async function flashFight(type) {
   }
 }
 
-function visualChallenger() {
+function visualChallenger(type) {
   //you
   if (IFight.youStats.onFight1) {
     var YouLife = IFight.onFightStats.life
@@ -6148,11 +6161,14 @@ function visualChallenger() {
     document.getElementById("c2_10_VS").style.backgroundColor = "#972a2aff"
   }
 
-  update("c2_10_B_name", `${challengerName}`)
-  update("c2_10_B_damage", `<span class="boldBlackBorder">${format(f(challengerDamage))}</span> Damage`)
-  update("c2_10_B_life", `<span class="boldBlackBorder">${format(f(challengerLife))}</span> Total Life`)
+  if ((!IFight.youStats.onFight2 && type == null) || IFight.youStats.onFight2 && type == "universalChallengerChallenge") {
+    update("c2_10_B_name", `${challengerName}`)
+    update("c2_10_B_damage", `<span class="boldBlackBorder">${format(f(challengerDamage))}</span> Damage`)
+    update("c2_10_B_life", `<span class="boldBlackBorder">${format(f(challengerLife))}</span> Total Life`)
+  }
   update("c2_10_B_part3", `${format(f(challengerLeftLife))}`)
   unlockShow("c2_10_B_part1", true)
+
 
   //REWARDS
 
@@ -7145,8 +7161,7 @@ async function fight(type, enemy, signal) {
 
         IUniversalChallenger.challengers.universalChallenger.leftLife = IUniversalChallenger.challengers.universalChallenger.life;
 
-        console.log(IUniversalChallenger.challengers.universalChallenger.life)
-        visualChallenger();
+        visualChallenger("universalChallengerChallenge")
         await sleep(1000);
         if (f(IUniversalChallenger.challengers.universalChallenger.leftLife).greaterThan(0) && f(IFight.onFightStats.leftLife2).greaterThan(0)) {
           while (f(IUniversalChallenger.challengers.universalChallenger.leftLife).greaterThan(0) && f(IFight.onFightStats.leftLife2).greaterThan(0)) {
@@ -7256,8 +7271,7 @@ async function fight(type, enemy, signal) {
 
         IUniversalChallenger.challengers.universalChallenger.leftLife = IUniversalChallenger.challengers.universalChallenger.life;
 
-        visualChallenger()
-
+        visualChallenger("universalChallengerChallenge")
         IUniversalChallenger.challengers.universalChallenger.leftLife = IUniversalChallenger.challengers.universalChallenger.life;
         await sleep(1000);
         if (f(IUniversalChallenger.challengers.universalChallenger.leftLife).greaterThan(0) && f(IFight.onFightStats.leftLife2).greaterThan(0)) {
@@ -7368,7 +7382,8 @@ async function fight(type, enemy, signal) {
         valuesSetter("universalChallengerChallenge2")
 
         IUniversalChallenger.challengers.universalChallenger.leftLife = IUniversalChallenger.challengers.universalChallenger.life;
-        visualChallenger()
+
+        visualChallenger("universalChallengerChallenge")
 
         await sleep(1000);
         if (f(IUniversalChallenger.challengers.universalChallenger.leftLife).greaterThan(0) && f(IFight.onFightStats.leftLife2).greaterThan(0)) {
@@ -7379,11 +7394,19 @@ async function fight(type, enemy, signal) {
               return;
             }
 
+
             const playerDamage = f(IFight.onFightStats.damage).mul(f(tickSpeed)).mul(f(delay).dividedBy(50));
             const enemyDamage = f(IUniversalChallenger.challengers.universalChallenger.damage).mul(f(tickSpeed)).mul(f(delay).dividedBy(50));
 
+            let damage1 = f(IFight.onFightStats.damage)
+            let damage2 = f(IUniversalChallenger.challengers.universalChallenger.damage)
+
+            console.log(damage1)
+            console.log(damage2)
+
             IUniversalChallenger.challengers.universalChallenger.leftLife = f(IUniversalChallenger.challengers.universalChallenger.leftLife).minus(playerDamage);
             IFight.onFightStats.leftLife2 = f(IFight.onFightStats.leftLife2).minus(enemyDamage);
+
 
             if (f(IFight.onFightStats.leftLife2).lt(f(0)) && f(IUniversalChallenger.challengers.universalChallenger.leftLife).lt(f(0))) {
               if (f(IFight.onFightStats.leftLife2).gte(f(IUniversalChallenger.challengers.universalChallenger.leftLife))) {
