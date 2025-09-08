@@ -1230,10 +1230,12 @@ document.addEventListener('visibilitychange', function () {
     // Salva i dati solo quando l'utente lascia la pagina
 
     offExportSave();
+    offImportSave();
   } else {
     // Importa i dati quando l'utente ritorna alla pagina
     if (localStorage.getItem("GameSaveOff") !== null) {
       offImportSave();
+      offExportSave();
     }
   }
 });
@@ -1242,10 +1244,8 @@ document.addEventListener('visibilitychange', function () {
 
 function update(id, content) {
   const element = document.getElementById(id);
-  if (element) {
+  if (element && element.innerHTML !== content) {
     element.innerHTML = content;
-  } else {
-    console.error(`Element with ID '${id}' not found`);
   }
 }
 
@@ -4118,7 +4118,7 @@ function valuesSetterDinamic(type) {
 
   IUniversalChallenger.universalShardsProd = f(universalShards1).mul(f(IGameData.tickSpeed)).mul(universalShards3)
 
-    IUniversalChallenger.universalShardsProdBase = f(universalShards1).mul(f(IGameData.tickSpeed))
+  IUniversalChallenger.universalShardsProdBase = f(universalShards1).mul(f(IGameData.tickSpeed))
 
 
   IUniversalChallenger.universalShards = f(IUniversalChallenger.universalShards).add(IUniversalChallenger.universalShardsProd)
@@ -4136,7 +4136,7 @@ function valuesSetterDinamic(type) {
   }
 
   IUniversalChallenger.universalNodesProd = f(universalNodes1).mul(f(universalNodes2)).mul(f(IGameData.tickSpeed))
-      IUniversalChallenger.universalNodesProdBase = f(universalNodes1).mul(f(IGameData.tickSpeed))
+  IUniversalChallenger.universalNodesProdBase = f(universalNodes1).mul(f(IGameData.tickSpeed))
 
 
   IUniversalChallenger.universalNodes = f(IUniversalChallenger.universalNodes).add(IUniversalChallenger.universalNodesProd)
@@ -4164,7 +4164,7 @@ function valuesSetterDinamic(type) {
 
   IUniversalChallenger.universalCoresProd = f(universalCores1).mul(f(universalCores3)).mul(f(IGameData.tickSpeed))
 
-      IUniversalChallenger.universalCoresProdBase = f(universalCores1).mul(f(IGameData.tickSpeed))
+  IUniversalChallenger.universalCoresProdBase = f(universalCores1).mul(f(IGameData.tickSpeed))
 
   var transit = f(IUniversalChallenger.universalCoresProd).mul(f(universalCores2))
 
