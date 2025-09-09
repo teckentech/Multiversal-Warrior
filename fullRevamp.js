@@ -8228,17 +8228,17 @@ function visualLoopFunction() {
 
   if (checkShow("content2_4") || checkShow("content2_10")) {
     visualChallenger()
-  }
-
-  if (checkShow("content2_4")) {
     menuDirectionArrow("content2_4")
   }
 
   if (checkShow("content2_6")) {
+    visualHunting()
     menuDirectionArrow("content2_6")
   }
 
   if (checkShow("content2_11")) {
+    visualAttributes()
+
     menuDirectionArrow("content2_11_cont")
   }
 
@@ -8253,35 +8253,31 @@ function visualLoopFunction() {
   }
 
   if (checkShow("content2_8")) {
+    visualUniversal()
     ascensionRings('content2_8', IUniversal.universe, IShowableClass.svg.ascensionCirclesScale, 1, 0.5);
   }
 
   if (checkShow("content2_7")) {
+    visualEnergy()
     menuDirectionArrow("content2_7")
   }
-  visualHunting()
-  visualChallenger()
-  visualAttributes()
-  visualEnergy()
-  visualUniversal()
-  visualMenu()
-  visualOptions()
 
-  //devTool1()
+  if (checkShow("options")) {
+    visualOptions()
+  }
+
+  visualMenu()
 
   if (checkShow("content2_10")) {
     menuDirectionArrow("content2_10")
   }
 
   if (checkShow("fp3_content1_8")) {
+    visualAutomation()
     menuDirectionArrow("fp3_content1_8")
   }
 
-  //formatA(f(5e333))
-
   visualLore()
-
-  visualAutomation()
 
   //visualProgress()
   //visualInventory()
