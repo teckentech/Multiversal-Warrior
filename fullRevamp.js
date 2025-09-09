@@ -1228,14 +1228,11 @@ function passiveImport() {
 document.addEventListener('visibilitychange', function () {
   if (document.hidden) {
     // Salva i dati solo quando l'utente lascia la pagina
-
     offExportSave();
-    offImportSave();
   } else {
     // Importa i dati quando l'utente ritorna alla pagina
     if (localStorage.getItem("GameSaveOff") !== null) {
       offImportSave();
-      offExportSave();
     }
   }
 });
