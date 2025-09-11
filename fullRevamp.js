@@ -5282,6 +5282,10 @@ document.getElementById("optionsMisc_notation_b1").onclick = function () {
   }
 }
 
+document.getElementById("options_discord").onclick = function () {
+    window.open("https://discord.gg/yVRAGpKQ", "_blank"); // Apre in una nuova finestra/scheda
+}
+
 //FUNCTION: PAUSE FUNCTION
 
 function pauseFunctionPassive(fun, time, bool) {
