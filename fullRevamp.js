@@ -4888,7 +4888,7 @@ document.getElementById("content2_6_upgrade5_button").onclick = function () {
 //Ascension
 document.getElementById("content1_7_ascension_button").onclick = function () {
 
-  if (!IUniversal.automation.automation5.unlocked) {
+  if (!IUniversal.automation.automation5.active) {
 
     if ((f((IFight.challengers.baseChallenger.level)).minus(f(1))).gte(f(IFight.challengers.baseChallenger.maxLevel))) {
 
@@ -9139,9 +9139,6 @@ function automation() {
         document.getElementById("c2_4_VS").click();
       }
     }
-  }
-  if (IUniversal.automation.automation5.active) {
-    document.getElementById("content1_7_ascension_button").click();
   }
   if (IUniversal.automation.automation5.active) {
     document.getElementById("content1_7_ascension_button").click();
