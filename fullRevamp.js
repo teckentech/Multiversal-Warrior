@@ -1840,6 +1840,8 @@ function energyLoadout(action, loadout) {
     for (let x in IUniversal.energyUpgrades) {
       IUniversal.energyUpgrades[x].level = f(sel[x])
     }
+    IUniversal.ascensionPointMax = f(IUniversal.universe).minus(f(1))
+    sel.maximumAscensionPoints = f(IUniversal.ascensionPointMax)
     IUniversal.ascensionPoint = f(sel.ascensionPoints).add((f(IUniversal.ascensionPointMax).minus(f(sel.maximumAscensionPoints))))
   }
 
