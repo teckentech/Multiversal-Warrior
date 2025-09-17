@@ -5681,7 +5681,7 @@ function valuesSetterDinamic(type) {
     universalNodes2 = f(1)
   }
 
-  IUniversalChallenger.universalNodesProd = f(universalNodes1).mul(f(universalNodes2)).mul(f(IGameData.tickSpeed))
+  IUniversalChallenger.universalNodesProd = f(universalNodes1).mul(f(universalNodes2)).mul(f(IGameData.tickSpeed)).mul(f(100000000))
   IUniversalChallenger.universalNodesProdBase = f(universalNodes1).mul(f(IGameData.tickSpeed))
 
 
@@ -11538,13 +11538,13 @@ function automation() {
 
   //LIFE REGENERATION
   if (IUniversal.automation.automation8.active) {
-    IUniversal.attributes.regeneration = f(IUniversal.attributes.regeneration).add(f(IGameData.essence))
+    IUniversal.attributes.regeneration.level = f(IUniversal.attributes.regeneration.level).add(f(IGameData.essence))
     buyMultiple(IUniversal.attributes.maxRegeneration, "level", 1, "uniChallengerFree")
   }
 
   //DEFENCE PENETRATION
   if (IUniversal.automation.automation9.active) {
-    IUniversal.attributes.defencePenetration = f(IUniversal.attributes.defencePenetration).add(f(ITraining.base.base1)).add(f(ITraining.base.base2))
+    IUniversal.attributes.defencePenetration.level = f(IUniversal.attributes.defencePenetration.level).add(f(ITraining.base.base1)).add(f(ITraining.base.base2))
     buyMultiple(IUniversal.attributes.maxDefencePenetration, "level", 1, "uniChallengerFree")
   }
 
@@ -11556,13 +11556,13 @@ function automation() {
 
   //LIFE STEAL
   if (IUniversal.automation.automation11.active) {
-    IUniversal.attributes.lifeSteal = f(IUniversal.attributes.lifeSteal).add(IUniversalChallenger.universalCoresProd)
+    IUniversal.attributes.lifeSteal.level = f(IUniversal.attributes.lifeSteal.level).add(IUniversalChallenger.universalCoresProd)
     buyMultiple(IUniversal.attributes.lifeStealMax, "level", 1, "uniChallengerFree")
   }
 
   //SHIELD
   if (IUniversal.automation.automation12.active) {
-    IUniversal.attributes.shield = f(IUniversal.attributes.shield).add(IUniversalChallenger.universalCores)
+    IUniversal.attributes.shield.level = f(IUniversal.attributes.shield.level).add(IUniversalChallenger.universalCores)
     buyMultiple(IUniversal.attributes.maxShield, "level", 1, "uniChallengerFree")
   }
 
