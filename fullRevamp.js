@@ -1,3 +1,7 @@
+//const { createApp, reactive } = Vue
+
+
+
 var IShowableClass;
 var IGameData;
 var IPermanent;
@@ -80,6 +84,11 @@ class Universal {
         mCheck: function () { return f(IUniversal.universe).gte(5); },
         mReqDesc: "",
         mDesc: "",
+      },
+      m3: {
+        mCheck: function () { return f(IUniversal.universe).gte(40); },
+        mReqDesc: "",
+        mDesc: "",
       }
     };
 
@@ -87,21 +96,21 @@ class Universal {
 
     this.energyLoadout = options.energyLoadout || {
       loadout1: {
-        ascensionPoints: 0, name: "",
+        ascensionPoints: 0, maximumAscensionPoints: 0, name: "",
         upgrade1: 0, upgrade2: 0, upgrade3: 0, upgrade4: 0, upgrade5: 0, upgrade6: 0, upgrade7: 0, upgrade8: 0, upgrade9: 0, upgrade10: 0,
         upgrade11: 0, upgrade12: 0, upgrade13: 0, upgrade14: 0, upgrade15: 0, upgrade16: 0, upgrade17: 0, upgrade18: 0, upgrade19: 0, upgrade20: 0,
         upgrade21: 0, upgrade22: 0, upgrade23: 0,
       },
 
       loadout2: {
-        ascensionPoints: 0, name: "",
+        ascensionPoints: 0, maximumAscensionPoints: 0, name: "",
         upgrade1: 0, upgrade2: 0, upgrade3: 0, upgrade4: 0, upgrade5: 0, upgrade6: 0, upgrade7: 0, upgrade8: 0, upgrade9: 0, upgrade10: 0,
         upgrade11: 0, upgrade12: 0, upgrade13: 0, upgrade14: 0, upgrade15: 0, upgrade16: 0, upgrade17: 0, upgrade18: 0, upgrade19: 0, upgrade20: 0,
         upgrade21: 0, upgrade22: 0, upgrade23: 0,
       },
 
       loadout3: {
-        ascensionPoints: 0, name: "",
+        ascensionPoints: 0, maximumAscensionPoints: 0, name: "",
         upgrade1: 0, upgrade2: 0, upgrade3: 0, upgrade4: 0, upgrade5: 0, upgrade6: 0, upgrade7: 0, upgrade8: 0, upgrade9: 0, upgrade10: 0,
         upgrade11: 0, upgrade12: 0, upgrade13: 0, upgrade14: 0, upgrade15: 0, upgrade16: 0, upgrade17: 0, upgrade18: 0, upgrade19: 0, upgrade20: 0,
         upgrade21: 0, upgrade22: 0, upgrade23: 0,
@@ -511,7 +520,7 @@ class Universal {
 
     this.huntEvolutionLabels = options.huntEvolutionLabels || {
       effect1: {
-        level1: "WEAK", level2: "FRAIL", level3: "INSECURE", level4: "ADEGUATE", level5: "COMPETENT", level6: "STRONG", level7: "POWERFUL", level8: "FORMIDABLE", level9: "UNSTOPPABLE", level10: "INVINCIBLE",
+        level1: "WEAK", level2: "FRAIL", level3: "INSECURE", level4: "ADEQUATE", level5: "COMPETENT", level6: "STRONG", level7: "POWERFUL", level8: "FORMIDABLE", level9: "UNSTOPPABLE", level10: "INVINCIBLE",
       },
 
       effect2: {
@@ -526,6 +535,278 @@ class Universal {
         level1: "USELESS", level2: "MEANINGLESS", level3: "IRRELEVANT", level4: "MARGINAL", level5: "HELPFUL", level6: "IMPORTANT", level7: "ESSENTIAL", level8: "CRUCIAL", level9: "INDISPENSABLE", level10: "FUNDAMENTAL",
       },
 
+    }
+
+    this.fireTreeSel = options.fireTreeSel || "";
+    this.fireTreeId = options.fireTreeId || "";
+
+    this.buyFireTree = options.buyFireTree || 0
+    this.maxBuyFireTree = options.maxBuyFireTree || 2
+
+    this.maxBuyFireTreeF = true
+
+    this.size = options.size || 0;
+    this.sizeProd = options.sizeProd || 0;
+
+    this.heat = options.heat || 0;
+    this.heatProd = options.heatProd || 0;
+
+    this.fire = options.fire || 0;
+    this.fireProd = options.fireProd || 0;
+    this.fireProdBase = options.fireProdProd || 0;
+
+    this.wood = options.wood || 0;
+    this.woodProd = options.woodProd || 0;
+    this.woodProdBase = options.woodProdBase || 0;
+
+
+    this.coal = options.coal || 0;
+    this.coalProd = options.coalProd || 0;
+    this.coalProdBase = options.coalProdBase || 0;
+
+    this.magma = options.magma || 0;
+    this.magmaProd = options.magmaProd || 0;
+    this.magmaProdBase = options.magmaProdBase || 0;
+
+
+    this.fireTree = options.fireTree || {
+      node1: {
+        content: "", button: "",
+        effect: 0,
+        active: false, unlocked: false,
+        req: function () { return true }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "universalCores", priceIdentityF: true,
+        level: 0, maxLevel: 0,
+        click: false, clickF: true,
+      },
+      node2: {
+        content: "", button: "",
+        effect: 0,
+        effect2: 0,
+        active: false, unlocked: false,
+        req: function () { return true }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "fire", priceIdentityF: true,
+        level: 0, maxLevel: 0,
+        click: false, clickF: true,
+      },
+      node3: {
+        content: "", button: "",
+        effect: 0,
+        effect2: 0,
+        active: false, unlocked: false,
+        req: function () { return true }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "fire", priceIdentityF: true,
+        level: 0, maxLevel: 0,
+        click: false, clickF: true,
+      },
+      node4: {
+        content: "", button: "",
+        effect: 0,
+        effect2: 0,
+        active: false, unlocked: false,
+        req: function () { return true }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "fire", priceIdentityF: true,
+        level: 0, maxLevel: 0,
+        click: false, clickF: true,
+      },
+      node5: {
+        content: "", button: "",
+        effect: 0,
+        active: false, unlocked: false,
+        req: function () { return true }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "wood", priceIdentityF: true,
+        level: 0, maxLevel: 0,
+        click: false, clickF: true,
+      },
+      node6: {
+        content: "", button: "",
+        effect: 0,
+        active: false, unlocked: false,
+        req: function () { return true }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "coal", priceIdentityF: true,
+        level: 0, maxLevel: 0,
+        click: false, clickF: true,
+      },
+      node7: {
+        content: "", button: "",
+        effect: 0,
+        active: false, unlocked: false,
+        req: function () { return true }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "magma", priceIdentityF: true,
+        level: 0, maxLevel: 0,
+        click: false, clickF: true,
+      },
+      node8: {
+        content: "", button: "",
+        effect: 0,
+        active: false, unlocked: false,
+        req: function () { return true }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "heat", priceIdentityF: true,
+        level: 0, maxLevel: 0,
+        click: false, clickF: true,
+      },
+      node9: {
+        content: "", button: "",
+        effect: 0,
+        active: false, unlocked: false,
+        req: function () { return true }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "heat", priceIdentityF: true,
+        level: 0, maxLevel: 0,
+        click: false, clickF: true,
+      },
+      node10: {
+        content: "", button: "",
+        effect: 0,
+        active: false, unlocked: false,
+        req: function () { return true }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "heat", priceIdentityF: true,
+        level: 0, maxLevel: 0,
+        click: false, clickF: true,
+      },
+      node11: {
+        content: "", button: "",
+        effect: 0,
+        active: false, unlocked: false,
+        req: function () { return true }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "fire", priceIdentityF: true,
+        level: 0, maxLevel: 0,
+        click: false, clickF: true,
+      },
+      node12: {
+        content: "", button: "",
+        effect: 0,
+        active: false, unlocked: false,
+        req: function () { return true }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "size", priceIdentityF: true,
+        level: 0, maxLevel: 0,
+        click: false, clickF: true,
+      },
+      node13: {
+        content: "", button: "",
+        effect: 0,
+        active: false, unlocked: false,
+        req: function () { return true }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "size", priceIdentityF: true,
+        level: 0, maxLevel: 0,
+        click: false, clickF: true,
+      },
+      node14: {
+        content: "", button: "",
+        effect: 0,
+        active: false, unlocked: false,
+        req: function () { return true }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "size", priceIdentityF: true,
+        level: 0, maxLevel: 0,
+        click: false, clickF: true,
+      },
+      node15: {
+        content: "", button: "",
+        effect: 0,
+        active: false, unlocked: false,
+        req: function () { return true }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "size", priceIdentityF: true,
+        level: 0, maxLevel: 0,
+        click: false, clickF: true,
+      },
+      node16: {
+        content: "", button: "",
+        effect: 0,
+        active: false, unlocked: false,
+        req: function () { return true }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "size", priceIdentityF: true,
+        level: 0, maxLevel: 0,
+        click: false, clickF: true,
+      },
+      node17: {
+        content: "", button: "",
+        effect: 0,
+        active: false, unlocked: false,
+        req: function () { return true }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "size", priceIdentityF: true,
+        level: 0, maxLevel: 0,
+        click: false, clickF: true,
+      },
+      node18: {
+        content: "", button: "",
+        effect: 0,
+        active: false, unlocked: false,
+        req: function () { return true }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "size", priceIdentityF: true,
+        level: 0, maxLevel: 0,
+        click: false, clickF: true,
+      },
+      node19: {
+        content: "", button: "",
+        effect: 0,
+        active: false, unlocked: false,
+        req: function () { return true }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "size", priceIdentityF: true,
+        level: 0, maxLevel: 0,
+        click: false, clickF: true,
+      },
+      node20: {
+        content: "", button: "",
+        effect: 0,
+        active: false, unlocked: false,
+        req: function () { return true }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "size", priceIdentityF: true,
+        level: 0, maxLevel: 0,
+        click: false, clickF: true,
+      },
+      node21: {
+        content: "", button: "",
+        effect: 0,
+        active: false, unlocked: false,
+        req: function () { return true }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "size", priceIdentityF: true,
+        level: 0, maxLevel: 0,
+        click: false, clickF: true,
+      },
+      node22: {
+        content: "", button: "",
+        effect: 0,
+        active: false, unlocked: false,
+        req: function () { return true }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "size", priceIdentityF: true,
+        level: 0, maxLevel: 0,
+        click: false, clickF: true,
+      },
+      node23: {
+        content: "", button: "",
+        effect: 0,
+        active: false, unlocked: false,
+        req: function () { return true }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "size", priceIdentityF: true,
+        level: 0, maxLevel: 0,
+        click: false, clickF: true,
+      },
+      node24: {
+        content: "", button: "",
+        effect: 0,
+        active: false, unlocked: false,
+        req: function () { return true }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "size", priceIdentityF: true,
+        level: 0, maxLevel: 0,
+        click: false, clickF: true,
+      },
+      node25: {
+        content: "", button: "",
+        effect: 0,
+        active: false, unlocked: false,
+        req: function () { return true }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "size", priceIdentityF: true,
+        level: 0, maxLevel: 0,
+        click: false, clickF: true,
+      },
+      node26: {
+        content: "", button: "",
+        effect: 0,
+        active: false, unlocked: false,
+        req: function () { return true }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "size", priceIdentityF: true,
+        level: 0, maxLevel: 0,
+        click: false, clickF: true,
+      },
     }
 
     this.maxInventoryStorage
@@ -579,6 +860,35 @@ class Universal {
         active: false, price: 0, priceIdentity: "universalShards", priceIdentityF: true,
         level: 0, maxLevel: 0, option0: "", option1: "", option2: "", option3: "", selOption: 0,
       },
+      automation7: {
+        unlocked: false,
+        active: false, price: 0, priceIdentity: "universalShards", priceIdentityF: true,
+        level: 0, maxLevel: 0
+      },
+      automation8: {
+        unlocked: false,
+        active: false, price: 0, priceIdentity: "universalShards", priceIdentityF: true,
+      },
+      automation9: {
+        unlocked: false,
+        active: false, price: 0, priceIdentity: "universalShards", priceIdentityF: true,
+      },
+      automation10: {
+        unlocked: false,
+        active: false, price: 0, priceIdentity: "universalShards", priceIdentityF: true,
+      },
+      automation11: {
+        unlocked: false,
+        active: false, price: 0, priceIdentity: "universalShards", priceIdentityF: true,
+      },
+      automation12: {
+        unlocked: false,
+        active: false, price: 0, priceIdentity: "universalShards", priceIdentityF: true,
+      },
+      automation13: {
+        unlocked: false,
+        active: false, price: 0, priceIdentity: "universalShards", priceIdentityF: true,
+      },
     }
 
     this.lore = options.lore || {
@@ -597,11 +907,12 @@ class Universal {
       lore5: {
         text: "", active: true,
       },
+      lore6: {
+        text: "", active: true,
+      },
     }
   }
 }
-
-
 
 class Training {
   constructor(options) {
@@ -785,7 +1096,13 @@ class ShowableClass {
       universalNodesBase: false,
       universalCoresBase: false,
 
+      fireValute: false,
+
+      fp2_content2_pageSel: false, fp2_content3_pageSel: false,
+
       //Pages
+
+      fp2_content2: true, fp2_content3: false,
 
       mainMenu: true, mainMenuExit: false,
 
@@ -795,11 +1112,11 @@ class ShowableClass {
 
 
 
-      fp2_content2_1_container: false, fp2_content2_6_container: false, fp2_content2_7_container: false, fp2_content2_11_container: false, fp2_content2_4_container: false, fp2_content2_10_container: false, fp2_content2_8_container: false, fp2_content1_8: false, fp2_content2_12_container: false, fp2_content2_13_container: false, fp2_content2_14_container: false, fp2_content2_15_container: false, fp2_content2_16_container: false,
+      fp2_content2_1_container: false, fp2_content2_6_container: false, fp2_content2_7_container: false, fp2_content2_11_container: false, fp2_content2_4_container: false, fp2_content2_10_container: false, fp2_content2_8_container: false, fp2_content1_8: false, fp2_content2_12_container: false, fp2_content2_13_container: false, fp2_content2_14_container: false, fp2_content2_15_container: false, fp2_content2_16_container: false, fp2_content2_17_container: false, fp2_content2_18_container: false,
 
-      options: false, achievements: false, content2_1: false, content2_4: false, content2_6: false, content2_7: false, content2_8: false, content2_10: false, content2_11: false, content2_12: false, content2_13: false, content2_14: false, content2_15: false, content2_16: false,
+      fp2_content2_1: true, fp2_content2_4: true, fp2_content2_5: true, fp2_content2_6: true, fp2_achievements: false, fp2_content2_7: true, fp2_content2_8: true, fp2_content2_10: true, fp2_content2_11: true, fp2_content2_12: true, fp2_content2_13: true, fp2_content2_14: true, fp2_content2_15: true, fp2_content2_16: true, fp2_content2_17: true, fp2_content2_18: true,
 
-      fp2_content2_1: true, fp2_content2_4: true, fp2_content2_5: true, fp2_content2_6: true, fp2_achievements: false, fp2_content2_7: true, fp2_content2_8: true, fp2_content2_10: true, fp2_content2_11: true, fp2_content2_12: true, fp2_content2_13: true, fp2_content2_14: true, fp2_content2_15: true, fp2_content2_16: true,
+      options: false, achievements: false, content2_1: false, content2_4: false, content2_6: false, content2_7: false, content2_8: false, content2_10: false, content2_11: false, content2_12: false, content2_13: false, content2_14: false, content2_15: false, content2_16: false, content2_17: false, content2_18: false,
 
       fp3_content1_1: false, fp3_content1_2: false, fp3_content1_4: false, fp3_content1_8: false,
 
@@ -841,7 +1158,23 @@ class ShowableClass {
 
       //Milestones
 
-      content1_7_m1: false, content1_7_m2: false,
+      content1_7_m1: false, content1_7_m2: false, content1_7_m3: false,
+
+      //Automation
+
+      fp3_content1_8_auto1: false,
+      fp3_content1_8_auto2: false,
+      fp3_content1_8_auto3: false,
+      fp3_content1_8_auto4: false,
+      fp3_content1_8_auto5: false,
+      fp3_content1_8_auto6: false,
+      fp3_content1_8_auto7: false,
+      fp3_content1_8_auto8: false,
+      fp3_content1_8_auto9: false,
+      fp3_content1_8_auto10: false,
+      fp3_content1_8_auto11: false,
+      fp3_content1_8_auto12: false,
+      fp3_content1_8_auto13: false,
 
       //energyButtons
 
@@ -902,6 +1235,37 @@ class ShowableClass {
 
 
       content2_11_grid_exit: false,
+
+      //fireTree
+
+      content2_17_node1: false,
+      content2_17_node2: false,
+      content2_17_node3: false,
+      content2_17_node4: false,
+      content2_17_node5: false,
+      content2_17_node6: false,
+      content2_17_node7: false,
+      content2_17_node8: false,
+      content2_17_node9: false,
+      content2_17_node10: false,
+
+      content2_17_node11: false,
+      content2_17_node12: false,
+      content2_17_node13: false,
+      content2_17_node14: false,
+      content2_17_node15: false,
+      content2_17_node16: false,
+      content2_17_node17: false,
+      content2_17_node18: false,
+      content2_17_node19: false,
+      content2_17_node20: false,
+      content2_17_node21: false,
+      content2_17_node22: false,
+      content2_17_node23: false,
+      content2_17_node24: false,
+      content2_17_node25: false,
+      content2_17_node26: false,
+
     }
 
   }
@@ -1031,6 +1395,8 @@ class UniversalChallenger {
     };
   }
 }
+
+
 
 //SAVING
 
@@ -1229,6 +1595,7 @@ document.addEventListener('visibilitychange', function () {
   if (document.hidden) {
     // Salva i dati solo quando l'utente lascia la pagina
     offExportSave();
+
   } else {
     // Importa i dati quando l'utente ritorna alla pagina
     if (localStorage.getItem("GameSaveOff") !== null) {
@@ -1259,6 +1626,38 @@ function updateClass(cla, content) {
 //VISUAL ALL LAYERS
 
 function visualValute() {
+  unlockShow("powerValute", false)
+  unlockShow("universeValute", false)
+  unlockShow("essenceValute", false)
+  unlockShow("universalShardsBase", false)
+  unlockShow("universalNodesBase", false)
+  unlockShow("universalCoresBase", false)
+  unlockShow("fireValute", false)
+
+  if (checkShow("fp2_content2")) {
+    unlockShow("powerValute", true)
+    unlockShow("universeValute", true)
+    if (IProgress.progress.p2Check() || f(IUniversal.universe).gte(2)) {
+      unlockShow("essenceValute", true)
+    }
+    if (f(IUniversalChallenger.universalShards).gt(f(0))) {
+      unlockShow("universalShardsBase", true)
+    }
+    if (f(IUniversalChallenger.universalNodes).gt(f(0))) {
+      unlockShow("universalNodesBase", true)
+    }
+    if (f(IUniversalChallenger.universalCores).gt(f(0))) {
+      unlockShow("universalCoresBase", true)
+    }
+  }
+
+  if (checkShow("fp2_content3")) {
+    unlockShow("universeValute", true)
+    if (f(IUniversalChallenger.universalCores).gt(f(0))) {
+      unlockShow("universalCoresBase", true)
+    }
+    unlockShow("fireValute", true)
+  }
 
   update("powerValute", `<div><div>Power</div><div class="boldBlackBorder">${format(IGameData.power, 1)}</span></div>`)
   update("universeValute", `<div><div>Universe</div><div class="boldBlackBorder">${format(IUniversal.universe, 0)}</div></div>`)
@@ -1269,6 +1668,8 @@ function visualValute() {
   update("universalShardsBase", `<div>Univ. Shards</div><div class="boldBlackBorder">${format(IUniversalChallenger.universalShards)}</div><div class="boldBlackBorder">${format(IUniversalChallenger.universalShardsProd)}/s</div>`)
   update("universalNodesBase", `<div>Univ. Nodes</div><div class="boldBlackBorder">${format(IUniversalChallenger.universalNodes)}</div><div class="boldBlackBorder">${format(IUniversalChallenger.universalNodesProd)}/s</div>`)
   update("universalCoresBase", `<div>Univ. Cores</div><div class="boldBlackBorder">${format(IUniversalChallenger.universalCores)}</div><div class="boldBlackBorder">${format(IUniversalChallenger.universalCoresProd)}/s</div>`)
+
+  update("fireValute", `<div><div>Fire</div><div class="boldBlackBorder">${format(IUniversal.fire)}</div><div class="boldBlackBorder">${format(sec(IUniversal.fireProd))}/s</div></div>`)
 
 }
 
@@ -1425,7 +1826,6 @@ function emptyLoadout(loadout) {
   let sel = IUniversal.energyLoadout[loadout]
 
   for (let x in IUniversal.energyUpgrades) {
-    console.log(sel[x])
     if (!(f(sel[x]).equals(f(0)))) {
       return false
     }
@@ -1440,8 +1840,7 @@ function energyLoadout(action, loadout) {
     for (let x in IUniversal.energyUpgrades) {
       IUniversal.energyUpgrades[x].level = f(sel[x])
     }
-
-    IUniversal.ascensionPoint = f(sel.ascensionPoints)
+    IUniversal.ascensionPoint = f(sel.ascensionPoints).add((f(IUniversal.ascensionPointMax).minus(f(sel.maximumAscensionPoints))))
   }
 
   if (action == "save") {
@@ -1450,6 +1849,7 @@ function energyLoadout(action, loadout) {
       sel[x] = f(IUniversal.energyUpgrades[x].level)
     }
 
+    sel.maximumAscensionPoints = f(IUniversal.ascensionPointMax)
     sel.ascensionPoints = f(IUniversal.ascensionPointMax).minus(f(IUniversal.ascensionPointMax).minus(f(IUniversal.ascensionPoint)))
   }
 }
@@ -1582,6 +1982,7 @@ function visualAutomation() {
 
   if (f(IUniversal.automation.automation6.level).equals(f(IUniversal.automation.automation6.maxLevel))) {
     update("fp3_content1_8_auto6_b1", `<div class="noClick">MAX</div>`)
+    document.getElementById(`fp3_content1_8_auto6_b1`).style.backgroundColor = "#004526"
   } else {
     update("fp3_content1_8_auto6_b1", `<div class="noClick">UPGRADE<div>
                                      <div class="noClick">Universal Shards: ${format(f(IUniversal.automation.automation6.price))}</div>`)
@@ -1623,6 +2024,171 @@ function visualAutomation() {
       document.getElementById(`fp3_content1_8_auto5_b1`).style.backgroundColor = "#004526"
     } else {
       document.getElementById(`fp3_content1_8_auto5_b1`).style.backgroundColor = "#660000"
+    }
+  }
+
+  //ATTRIBUTES
+
+  update("fp3_content1_8_auto7_title", `<span class="boldBlackBorder">ATTRIBUTES</span>`)
+
+  //CRITICAL
+  update("fp3_content1_8_auto7_1", `Autobuy critical (Doesnt consume Universal Shards)`)
+
+  if (IUniversal.automation.automation7.unlocked) {
+    if (IUniversal.automation.automation7.active) {
+      document.getElementById(`fp3_content1_8_auto7_b1`).style.backgroundColor = "#004526"
+      update("fp3_content1_8_auto7_b1", `<div class="noClick">ON</div>`)
+    } else {
+      document.getElementById(`fp3_content1_8_auto7_b1`).style.backgroundColor = "#660000"
+      update("fp3_content1_8_auto7_b1", `<div class="noClick">OFF</div>`)
+    }
+  } else {
+    update("fp3_content1_8_auto7_b1", `<div class="noClick">UPGRADE<div>
+                                     <div class="noClick">Universal Shards: ${format(f(IUniversal.automation.automation7.price))}</div>`)
+
+    if (checkBuy(IUniversal.automation.automation7.priceIdentity, IUniversal.automation.automation7.price, "uniChallenger")) {
+      document.getElementById(`fp3_content1_8_auto7_b1`).style.backgroundColor = "#004526"
+    } else {
+      document.getElementById(`fp3_content1_8_auto7_b1`).style.backgroundColor = "#660000"
+    }
+  }
+
+
+  //LIFE REGENERATION
+
+  update("fp3_content1_8_auto8_1", `Autobuy life regeneration (Doesnt consume Universal Shards)`)
+
+  if (IUniversal.automation.automation8.unlocked) {
+    if (IUniversal.automation.automation8.active) {
+      document.getElementById(`fp3_content1_8_auto8_b1`).style.backgroundColor = "#004526"
+      update("fp3_content1_8_auto8_b1", `<div class="noClick">ON</div>`)
+    } else {
+      document.getElementById(`fp3_content1_8_auto8_b1`).style.backgroundColor = "#660000"
+      update("fp3_content1_8_auto8_b1", `<div class="noClick">OFF</div>`)
+    }
+  } else {
+    update("fp3_content1_8_auto8_b1", `<div class="noClick">UPGRADE<div>
+                                     <div class="noClick">Universal Shards: ${format(f(IUniversal.automation.automation8.price))}</div>`)
+
+    if (checkBuy(IUniversal.automation.automation8.priceIdentity, IUniversal.automation.automation8.price, "uniChallenger")) {
+      document.getElementById(`fp3_content1_8_auto8_b1`).style.backgroundColor = "#004526"
+    } else {
+      document.getElementById(`fp3_content1_8_auto8_b1`).style.backgroundColor = "#660000"
+    }
+  }
+
+  //DEFENCE PENETRATION
+
+  update("fp3_content1_8_auto9_1", `Autobuy defence penetration (Doesnt consume Universal Nodes)`)
+
+  if (IUniversal.automation.automation9.unlocked) {
+    if (IUniversal.automation.automation9.active) {
+      document.getElementById(`fp3_content1_8_auto9_b1`).style.backgroundColor = "#004526"
+      update("fp3_content1_8_auto9_b1", `<div class="noClick">ON</div>`)
+    } else {
+      document.getElementById(`fp3_content1_8_auto9_b1`).style.backgroundColor = "#660000"
+      update("fp3_content1_8_auto9_b1", `<div class="noClick">OFF</div>`)
+    }
+  } else {
+    update("fp3_content1_8_auto9_b1", `<div class="noClick">UPGRADE<div>
+                                     <div class="noClick">Universal Shards: ${format(f(IUniversal.automation.automation9.price))}</div>`)
+
+    if (checkBuy(IUniversal.automation.automation9.priceIdentity, IUniversal.automation.automation9.price, "uniChallenger")) {
+      document.getElementById(`fp3_content1_8_auto9_b1`).style.backgroundColor = "#004526"
+    } else {
+      document.getElementById(`fp3_content1_8_auto9_b1`).style.backgroundColor = "#660000"
+    }
+  }
+
+  //DEFENCE
+
+  update("fp3_content1_8_auto10_1", `Autobuy defence (Doesnt consume Universal Nodes)`)
+
+  if (IUniversal.automation.automation10.unlocked) {
+    if (IUniversal.automation.automation10.active) {
+      document.getElementById(`fp3_content1_8_auto10_b1`).style.backgroundColor = "#004526"
+      update("fp3_content1_8_auto10_b1", `<div class="noClick">ON</div>`)
+    } else {
+      document.getElementById(`fp3_content1_8_auto10_b1`).style.backgroundColor = "#660000"
+      update("fp3_content1_8_auto10_b1", `<div class="noClick">OFF</div>`)
+    }
+  } else {
+    update("fp3_content1_8_auto10_b1", `<div class="noClick">UPGRADE<div>
+                                     <div class="noClick">Universal Shards: ${format(f(IUniversal.automation.automation10.price))}</div>`)
+
+    if (checkBuy(IUniversal.automation.automation10.priceIdentity, IUniversal.automation.automation10.price, "uniChallenger")) {
+      document.getElementById(`fp3_content1_8_auto10_b1`).style.backgroundColor = "#004526"
+    } else {
+      document.getElementById(`fp3_content1_8_auto10_b1`).style.backgroundColor = "#660000"
+    }
+  }
+
+  //LIFE STEAL
+
+  update("fp3_content1_8_auto11_1", `Autobuy life steal (Doesnt consume Universal Cores)`)
+
+  if (IUniversal.automation.automation11.unlocked) {
+    if (IUniversal.automation.automation11.active) {
+      document.getElementById(`fp3_content1_8_auto11_b1`).style.backgroundColor = "#004526"
+      update("fp3_content1_8_auto11_b1", `<div class="noClick">ON</div>`)
+    } else {
+      document.getElementById(`fp3_content1_8_auto11_b1`).style.backgroundColor = "#660000"
+      update("fp3_content1_8_auto11_b1", `<div class="noClick">OFF</div>`)
+    }
+  } else {
+    update("fp3_content1_8_auto11_b1", `<div class="noClick">UPGRADE<div>
+                                     <div class="noClick">Universal Shards: ${format(f(IUniversal.automation.automation11.price))}</div>`)
+
+    if (checkBuy(IUniversal.automation.automation11.priceIdentity, IUniversal.automation.automation11.price, "uniChallenger")) {
+      document.getElementById(`fp3_content1_8_auto11_b1`).style.backgroundColor = "#004526"
+    } else {
+      document.getElementById(`fp3_content1_8_auto11_b1`).style.backgroundColor = "#660000"
+    }
+  }
+
+  //SHIELD
+
+  update("fp3_content1_8_auto12_1", `Autobuy shield (Doesnt consume Universal Cores)`)
+
+  if (IUniversal.automation.automation12.unlocked) {
+    if (IUniversal.automation.automation12.active) {
+      document.getElementById(`fp3_content1_8_auto12_b1`).style.backgroundColor = "#004526"
+      update("fp3_content1_8_auto12_b1", `<div class="noClick">ON</div>`)
+    } else {
+      document.getElementById(`fp3_content1_8_auto12_b1`).style.backgroundColor = "#660000"
+      update("fp3_content1_8_auto12_b1", `<div class="noClick">OFF</div>`)
+    }
+  } else {
+    update("fp3_content1_8_auto12_b1", `<div class="noClick">UPGRADE<div>
+                                     <div class="noClick">Universal Shards: ${format(f(IUniversal.automation.automation12.price))}</div>`)
+
+    if (checkBuy(IUniversal.automation.automation12.priceIdentity, IUniversal.automation.automation12.price, "uniChallenger")) {
+      document.getElementById(`fp3_content1_8_auto12_b1`).style.backgroundColor = "#004526"
+    } else {
+      document.getElementById(`fp3_content1_8_auto12_b1`).style.backgroundColor = "#660000"
+    }
+  }
+
+  //HUNTING EVOLUTION
+  update("fp3_content1_8_auto13_title", `<span class="boldBlackBorder">HUNTING EVOLUTION</span>`)
+  update("fp3_content1_8_auto13_1", `Autobuy hunting evolutions (Doesnt consume Universal Shards, Nodes, Cores)`)
+
+  if (IUniversal.automation.automation13.unlocked) {
+    if (IUniversal.automation.automation13.active) {
+      document.getElementById(`fp3_content1_8_auto13_b1`).style.backgroundColor = "#004526"
+      update("fp3_content1_8_auto13_b1", `<div class="noClick">ON</div>`)
+    } else {
+      document.getElementById(`fp3_content1_8_auto13_b1`).style.backgroundColor = "#660000"
+      update("fp3_content1_8_auto13_b1", `<div class="noClick">OFF</div>`)
+    }
+  } else {
+    update("fp3_content1_8_auto13_b1", `<div class="noClick">UPGRADE<div>
+                                     <div class="noClick">Universal Shards: ${format(f(IUniversal.automation.automation13.price))}</div>`)
+
+    if (checkBuy(IUniversal.automation.automation13.priceIdentity, IUniversal.automation.automation13.price, "uniChallenger")) {
+      document.getElementById(`fp3_content1_8_auto13_b1`).style.backgroundColor = "#004526"
+    } else {
+      document.getElementById(`fp3_content1_8_auto13_b1`).style.backgroundColor = "#660000"
     }
   }
 }
@@ -1821,7 +2387,8 @@ function valuesSetter(type) {
     IFight.challengers.baseChallenger.leftLife = f(IFight.challengers.baseChallenger.life)
   }
 
-  //Normal Challenger Max Level 
+  //Normal Challenger Max Level
+  IFight.challengers.baseChallenger.level = f(IFight.challengers.baseChallenger.level)
 
   IFight.challengers.baseChallenger.maxLevel = f(9).add(f(IUniversal.universe))
 
@@ -2467,6 +3034,9 @@ function valuesSetter(type) {
   IUniversal.milestones.m2.mReqDesc = `Universe 5`
   IUniversal.milestones.m2.mDesc = `Universal Challenger, Attributes, Automation`
 
+  IUniversal.milestones.m3.mReqDesc = `Universe 40`
+  IUniversal.milestones.m3.mDesc = `Sky Tab`
+
 
   //REQUISITES
   //Base
@@ -2960,7 +3530,8 @@ function valuesSetter(type) {
 
   sel.name = `<div>(Requires adiacent upgrades)</div>
   <div>Energy upgrades price <span class="boldBlackBorder">/2 ×LVL</span></div>
-              <div>Except fusion upgrades </div>`
+              <div>Except fusion upgrades </div>
+`
   sel.effectDesc = `/${format(f(sel.effect))}`
   sel.level = f(sel.level)
   sel.effect = f(0.5).pow(f(sel.level))
@@ -3771,6 +4342,34 @@ function valuesSetter(type) {
 
   IUniversal.automation.automation6.option3 = "Fight 5 Universal Challengers from the maximum"
 
+  //Automation 7
+
+  IUniversal.automation.automation7.price = (f(10).pow(f(40)))
+
+  //Automation 8
+
+  IUniversal.automation.automation8.price = (f(10).pow(f(45)))
+
+  //Automation 9
+
+  IUniversal.automation.automation9.price = (f(10).pow(f(60)))
+
+  //Automation 10
+
+  IUniversal.automation.automation10.price = (f(10).pow(f(65)))
+
+  //Automation 11
+
+  IUniversal.automation.automation11.price = (f(10).pow(f(80)))
+
+  //Automation 12
+
+  IUniversal.automation.automation12.price = (f(10).pow(f(85)))
+
+  //Automation 13
+
+  IUniversal.automation.automation13.price = (f(10).pow(f(70)))
+
   //LORE
 
   //note1
@@ -3816,6 +4415,943 @@ function valuesSetter(type) {
     "Attributes, when properly honed, reveal their true essence, a formula for growth\n" +
     "Yet to awaken them, you must gather fragments of other Universal Climbers like yourself\n" +
     "Such power demands sacrifice. Are you ready to face how much further you still have to climb?";
+
+  IUniversal.lore.lore6 = "Universal Cores, forged from the hearts of your challengers, fuse and resonate, shattering unseen barriers\n" +
+    "A red rift tears open before you, emanating a heat you have never known\n" +
+    "Pure, elemental fire\n" +
+    "These flames cannot be touched, cannot be tamed. You can only feed them… and let them burn you anew\n" +
+    "Elemental Universes, chaotic crucibles of creation and destruction, purer than any ordinary universe\n" +
+    "You once reached for higher universes in the small pond you called ascension, but now a new paradigm unfolds before you\n" +
+    "There is a raw, mysterious secret you have only glimpsed";
+  //FIRE TREE
+  //
+
+  //NODE 1
+  var sel = IUniversal.fireTree.node1
+
+  sel.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Fire Universe Rift</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">1</div>
+                  <div class="centerDiv padding2"><span class="boldBlackBorder">${format(f(sel.effect), 0)}</span>&nbsp;Fire/s</div>
+                 </div>`
+
+
+
+  sel.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.price), 0)}</div>
+                <div class="centerDiv noClick">Universal Cores</div>`
+
+
+  sel.level = f(sel.level)
+  sel.maxLevel = f(100)
+
+  if (f(sel.level).gte(f(sel.maxLevel))) {
+    sel.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel.effect = f(2).pow(f(sel.level).minus(f(1)))
+  } else {
+    sel.effect = f(0)
+  }
+
+
+  sel.price = (f(10).pow(f(15))).mul(f(10).pow(f(5).mul(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel.checkBuy = function () { if (checkBuy(IUniversal.fireTree.node1.priceIdentity, IUniversal.fireTree.node1.price, "uniChallenger")) { return true } }
+  sel.req = function () { return true }
+
+  //NODE 2
+  var sel = IUniversal.fireTree.node2
+
+  sel.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Woodcutter</div>
+                  <div class="topRight absolute padding2 grey">2</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel.maxLevel), 0)}</div>
+                  <div class="centerDiv column"><div><span class="boldBlackBorder">${format(f(IUniversal.woodProdBase), 0)}</span>&nbsp;Wood/s</div>
+                  <div><span class="boldBlackBorder">${format(f(IUniversal.wood), 0)}</span>&nbsp;Wood ⇒ ×<span class="boldBlackBorder">${format(f(sel.effect2), 1)}</span> Fire/s</div></div>
+                 </div>`
+
+  sel.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.price), 0)}</div>
+                <div class="centerDiv noClick">Fire</div>`
+
+
+  var extraLevel1 = f(IUniversal.fireTree.node13.effect)
+
+  sel.level = f(sel.level)
+  sel.maxLevel = f(10).add(f(extraLevel1))
+
+  if (f(sel.level).gte(f(sel.maxLevel))) {
+    sel.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel.effect = f(2).pow(f(sel.level).minus(f(1)))
+  } else {
+    sel.effect = f(0)
+  }
+
+  var effect1 = f(IUniversal.fireTree.node19.effect)
+
+
+  if (f(sel.effect).gt(f(0))) {
+    sel.effect2 = f(2).pow(f(Decimal.log10(f(IUniversal.wood).add(f(10))))).mul(f(effect1))
+  } else {
+    sel.effect2 = f(1)
+  }
+
+  var price1 = f(IUniversal.fireTree.node16.effect)
+
+
+  sel.price = f(10).mul(f(2).pow(f(sel.level))).dividedBy(f(price1))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel.checkBuy = function () { if (checkBuy(IUniversal.fireTree.node2.priceIdentity, IUniversal.fireTree.node2.price, "uni")) { return true } }
+  sel.req = function () { return IUniversal.fireTree.node1.active }
+
+  //NODE 3
+  var sel = IUniversal.fireTree.node3
+
+  sel.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Miner</div>
+                  <div class="topRight absolute padding2 grey">3</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel.maxLevel), 0)}</div>
+                  <div class="centerDiv column"><div><span class="boldBlackBorder">${format(f(IUniversal.coalProdBase), 0)}</span>&nbsp;Coal/s</div>
+                                                 <div><span class="boldBlackBorder">${format(f(IUniversal.coal), 0)}</span>&nbsp;Coal ⇒ ×<span class="boldBlackBorder">${format(f(sel.effect2), 1)}</span> Fire/s</div></div>
+                  
+                 </div>`
+
+  sel.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.price), 0)}</div>
+                <div class="centerDiv noClick">Fire</div>`
+
+
+
+  var extraLevel1 = f(IUniversal.fireTree.node14.effect)
+  sel.level = f(sel.level)
+  sel.maxLevel = f(10).add(f(extraLevel1))
+
+  if (f(sel.level).gte(f(sel.maxLevel))) {
+    sel.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel.effect = f(2).pow(f(sel.level).minus(f(1)))
+  } else {
+    sel.effect = f(0)
+  }
+
+  var effect1 = f(IUniversal.fireTree.node19.effect)
+
+
+  if (f(sel.effect).gt(f(0))) {
+    sel.effect2 = ((f(2).pow(f(Decimal.log10(f(IUniversal.coal).add(f(10)))))).pow(f(1.1))).mul(f(effect1))
+  } else {
+    sel.effect2 = f(1)
+  }
+
+  var price1 = f(IUniversal.fireTree.node17.effect)
+
+  sel.price = f(f(10).pow(f(4))).mul(f(5).pow(f(sel.level))).dividedBy(f(price1))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel.checkBuy = function () { if (checkBuy(IUniversal.fireTree.node3.priceIdentity, IUniversal.fireTree.node3.price, "uni")) { return true } }
+  sel.req = function () { return IUniversal.fireTree.node2.active }
+
+  //NODE 4
+  var sel = IUniversal.fireTree.node4
+
+  sel.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Fire Warrior</div>
+                  <div class="topRight absolute padding2 grey">4</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel.maxLevel), 0)}</div>
+                  <div class="centerDiv column"><div><span class="boldBlackBorder">${format(f(IUniversal.magmaProdBase), 0)}</span>&nbsp;Magma/s</div>
+                                                 <div><span class="boldBlackBorder">${format(f(IUniversal.magma), 0)}</span>&nbsp;Magma ⇒ ×<span class="boldBlackBorder">${format(f(sel.effect2), 1)}</span> Fire/s</div></div>
+                  
+                 </div>`
+
+  sel.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.price), 0)}</div>
+                <div class="centerDiv noClick">Fire</div>`
+
+
+
+  var extraLevel1 = f(IUniversal.fireTree.node15.effect)
+
+  sel.level = f(sel.level)
+  sel.maxLevel = f(10).add(f(extraLevel1))
+
+  if (f(sel.level).gte(f(sel.maxLevel))) {
+    sel.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel.effect = f(2).pow(f(sel.level).minus(f(1)))
+  } else {
+    sel.effect = f(0)
+  }
+
+  var effect1 = f(IUniversal.fireTree.node19.effect)
+
+
+  if (f(sel.effect).gt(f(0))) {
+    sel.effect2 = ((f(2).pow(f(Decimal.log10(f(IUniversal.magma).add(f(10)))))).pow(f(1.1))).mul(f(effect1))
+  } else {
+    sel.effect2 = f(1)
+  }
+
+  var price1 = f(IUniversal.fireTree.node18.effect)
+
+
+  sel.price = f(f(10).pow(f(10))).mul(f(10).pow(f(sel.level))).dividedBy(f(price1))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel.checkBuy = function () { if (checkBuy(IUniversal.fireTree.node4.priceIdentity, IUniversal.fireTree.node4.price, "uni")) { return true } }
+  sel.req = function () { return IUniversal.fireTree.node3.active }
+
+  //NODE 5
+  var sel = IUniversal.fireTree.node5
+
+  sel.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Tree Cutter</div>
+                  <div class="topRight absolute padding2 grey">5</div>
+                  <div class="centerDiv padding1 column"><div><span class="boldBlackBorder">${format(f(sel.level), 0)}</span>&nbsp;Wood sacrificed</div>
+                                                 <div>Wood/s<span class="boldBlackBorder"> ×${format(f(sel.effect), 1)}</span>&nbsp;</div>
+                  
+                 </div>`
+
+  sel.button = `<div class="centerDiv noClick boldBlackBorder">Sacrifice</div>
+                <div class="centerDiv noClick">Wood</div>`
+
+  sel.level = f(sel.level)
+  sel.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel.effect = f(1.5).pow(f(Decimal.log10(f(sel.level).add(f(10)))))
+  } else {
+    sel.effect = f(1)
+  }
+
+  sel.price = (f(10).pow(f(15))).add(f(5).mul(sel.level).mul(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel.checkBuy = function () { return true }
+  sel.req = function () { return IUniversal.fireTree.node2.active }
+
+  //NODE 6
+  var sel = IUniversal.fireTree.node6
+
+  sel.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Bedrock Miner</div>
+                  <div class="topRight absolute padding2 grey">6</div>
+                  <div class="centerDiv padding1 column"><div><span class="boldBlackBorder">${format(f(sel.level), 0)}</span>&nbsp;Coal sacrificed</div>
+                                                 <div>Coal/s<span class="boldBlackBorder"> ×${format(f(sel.effect), 1)}</span>&nbsp;</div>
+                  
+                 </div>`
+
+  sel.button = `<div class="centerDiv noClick boldBlackBorder">Sacrifice</div>
+                <div class="centerDiv noClick">Coal</div>`
+
+  sel.level = f(sel.level)
+  sel.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel.effect = f(1.5).pow(f(Decimal.log10(f(sel.level).add(f(10)))))
+  } else {
+    sel.effect = f(1)
+  }
+
+  sel.price = (f(10).pow(f(15))).add(f(5).mul(sel.level).mul(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel.checkBuy = function () { return true }
+  sel.req = function () { return IUniversal.fireTree.node3.active }
+
+  //NODE 7
+  var sel = IUniversal.fireTree.node7
+
+  sel.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Magma Champion</div>
+                  <div class="topRight absolute padding2 grey">7</div>
+                  <div class="centerDiv padding1 column"><div><span class="boldBlackBorder">${format(f(sel.level), 0)}</span>&nbsp;Magma sacrificed</div>
+                                                 <div>Magma/s<span class="boldBlackBorder"> ×${format(f(sel.effect), 1)}</span>&nbsp;</div>
+                  
+                 </div>`
+
+  sel.button = `<div class="centerDiv noClick boldBlackBorder">Sacrifice</div>
+                <div class="centerDiv noClick">Magma</div>`
+
+  sel.level = f(sel.level)
+  sel.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel.effect = f(1.5).pow(f(Decimal.log10(f(sel.level).add(f(10)))))
+  } else {
+    sel.effect = f(1)
+  }
+
+  sel.price = (f(10).pow(f(15))).add(f(5).mul(sel.level).mul(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel.checkBuy = function () { return true }
+  sel.req = function () { return IUniversal.fireTree.node4.active }
+
+  //NODE 8
+  var sel = IUniversal.fireTree.node8
+
+  sel.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Forest Destroyer</div>
+                 <div class="topRight absolute padding2 grey">8</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel.maxLevel), 0)}</div>
+                 <div><span class="boldBlackBorder padding2">×${format(f(sel.effect), 0)}</span>&nbsp;Wood/s</div>
+                 </div>`
+
+  sel.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.price), 0)}</div>
+                <div class="centerDiv noClick">Heat</div>`
+
+
+  sel.level = f(sel.level)
+  sel.maxLevel = f(10)
+
+  if (f(sel.level).gte(f(sel.maxLevel))) {
+    sel.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  sel.effect = f(5).pow(f(sel.level))
+  sel.price = (f(10).pow(f(15))).add(f(5).mul(sel.level).mul(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel.checkBuy = function () { if (checkBuy(IUniversal.fireTree.node8.priceIdentity, IUniversal.fireTree.node8.price, "uni")) { return true } }
+  sel.req = function () { return IUniversal.fireTree.node5.active && false }
+
+  //NODE 9
+  var sel = IUniversal.fireTree.node9
+
+  sel.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Mine Eater</div>
+                 <div class="topRight absolute padding2 grey">9</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel.maxLevel), 0)}</div>
+                 <div><span class="boldBlackBorder padding2">×${format(f(sel.effect), 0)}</span>&nbsp;Coal/s</div>
+                 </div>`
+
+  sel.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.price), 0)}</div>
+                <div class="centerDiv noClick">Heat</div>`
+
+  sel.level = f(sel.level)
+  sel.maxLevel = f(10)
+
+  if (f(sel.level).gte(f(sel.maxLevel))) {
+    sel.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  sel.effect = f(5).pow(f(sel.level))
+  sel.price = (f(10).pow(f(15))).add(f(5).mul(sel.level).mul(f(sel.level)))
+
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel.checkBuy = function () { if (checkBuy(IUniversal.fireTree.node9.priceIdentity, IUniversal.fireTree.node9.price, "uni")) { return true } }
+  sel.req = function () { return IUniversal.fireTree.node6.active && false }
+
+  //NODE 10
+  var sel = IUniversal.fireTree.node10
+
+  sel.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Fire Lord</div>
+                 <div class="topRight absolute padding2 grey">10</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel.maxLevel), 0)}</div>
+                 <div><span class="boldBlackBorder padding2">×${format(f(sel.effect), 0)}</span>&nbsp;Magma/s</div>
+                 </div>`
+
+  sel.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.price), 0)}</div>
+                <div class="centerDiv noClick">Heat</div>`
+
+
+  sel.level = f(sel.level)
+  sel.maxLevel = f(10)
+
+  if (f(sel.level).gte(f(sel.maxLevel))) {
+    sel.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  sel.effect = f(5).pow(f(sel.level))
+  sel.price = (f(10).pow(f(15))).add(f(5).mul(sel.level).mul(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel.checkBuy = function () { if (checkBuy(IUniversal.fireTree.node10.priceIdentity, IUniversal.fireTree.node10.price, "uni")) { return true } }
+  sel.req = function () { return IUniversal.fireTree.node7.active && false }
+
+  //NODE 11
+  var sel = IUniversal.fireTree.node11
+
+  if (f(IUniversal.fire).gt(f(0))) {
+    var tempEffect = IUniversal.fire
+  } else {
+    tempEffect = f(0)
+  }
+
+  sel.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Size</div>
+                 <div class="topRight absolute padding2 grey">11</div>
+                 <div><span class="boldBlackBorder">${format(f(tempEffect), 0)}</span>&nbsp;Fire ⇒ <span class="boldBlackBorder">${format(f(IUniversal.size), 0)} (+${format(f(sel.effect))})</span>&nbsp;Size</div>
+                 </div>`
+
+  sel.button = `<div class="centerDiv noClick boldBlackBorder">Sacrifice Fire and all upgrades 2-7</div>`
+
+  sel.level = f(0)
+  sel.maxLevel = Infinity
+
+  if (f(tempEffect).gt(f(0))) {
+    sel.effect = f(2).pow(f(Decimal.ln(f(tempEffect).add(f(2)))).minus(f(1))).minus(f(1))
+    if (f(sel.effect).lt(f(0))) {
+      sel.effect = f(0)
+    }
+  } else {
+    sel.effect = f(0)
+  }
+
+  sel.price = (f(10).pow(f(15))).add(f(5).mul(sel.level).mul(f(sel.level)))
+
+  if (f(IUniversal.size).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel.checkBuy = function () { return true }
+  sel.req = function () { return IUniversal.fireTree.node2.active }
+
+  //NODE 12
+  var sel = IUniversal.fireTree.node12
+
+  sel.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Dry Air</div>
+                 <div class="topRight absolute padding2 grey">12</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column"><div>Fire/s ×1.2 (<span class="boldBlackBorder">×${format(f(sel.effect), 1)}</span>)</div>
+                                                 
+                 </div>`
+
+  sel.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+
+  var extraLevel1 = f(IUniversal.fireTree.node22.effect)
+  sel.level = f(sel.level)
+  sel.maxLevel = f(100).add(f(extraLevel1))
+
+  if (f(sel.level).gte(f(sel.maxLevel))) {
+    sel.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  sel.effect = f(1.2).pow(f(sel.level))
+  sel.price = f(0.5).mul(f(10).pow(f(1))).mul(f(3).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel.checkBuy = function () { if (checkBuy(IUniversal.fireTree.node12.priceIdentity, IUniversal.fireTree.node12.price, "uni")) { return true } }
+  sel.req = function () { return IUniversal.fireTree.node11.active }
+
+  //NODE 13
+  var sel = IUniversal.fireTree.node13
+
+  sel.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Big Forest</div>
+                 <div class="topRight absolute padding2 grey">13</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column"><div>Woodcutter max level <span class="boldBlackBorder">+${format(f(sel.effect), 0)}</span></div>
+                                                 
+                 </div>`
+
+  sel.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+
+
+  var extraLevel1 = f(IUniversal.fireTree.node22.effect)
+  sel.level = f(sel.level)
+  sel.maxLevel = f(90).add(f(extraLevel1))
+
+  if (f(sel.level).gte(f(sel.maxLevel))) {
+    sel.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel.effect = f(sel.level)
+  } else {
+    sel.effect = f(0)
+  }
+  sel.price = (f(5).mul(f(10).pow(f(1))).mul(f(4).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel.checkBuy = function () { if (checkBuy(IUniversal.fireTree.node13.priceIdentity, IUniversal.fireTree.node13.price, "uni")) { return true } }
+  sel.req = function () { return IUniversal.fireTree.node12.active }
+
+  //NODE 14
+  var sel = IUniversal.fireTree.node14
+
+  if (f(IUniversal.coal).gt(f(0))) {
+    var tempEffect = f(Decimal.log10(f(IUniversal.coal).add(f(10))))
+  } else {
+    tempEffect = f(1)
+  }
+
+  sel.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Fuel Factory</div>
+                 <div class="topRight absolute padding2 grey">14</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column"><div>Miner max level <span class="boldBlackBorder">+${format(f(sel.effect), 0)}</span></div>
+                                                 
+                 </div>`
+
+  sel.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+
+  var extraLevel1 = f(IUniversal.fireTree.node22.effect)
+
+  sel.level = f(sel.level)
+  sel.maxLevel = f(90).add(f(extraLevel1))
+
+  if (f(sel.level).gte(f(sel.maxLevel))) {
+    sel.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel.effect = f(sel.level)
+  } else {
+    sel.effect = f(0)
+  }
+  sel.price = (f(50).mul(f(10).pow(f(1))).mul(f(6).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel.checkBuy = function () { if (checkBuy(IUniversal.fireTree.node14.priceIdentity, IUniversal.fireTree.node14.price, "uni")) { return true } }
+  sel.req = function () { return IUniversal.fireTree.node13.active }
+
+  //NODE 15
+  var sel = IUniversal.fireTree.node15
+
+  sel.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Magma Pools</div>
+                 <div class="topRight absolute padding2 grey">15</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column"><div>Fire Warrior max level <span class="boldBlackBorder">+${format(f(sel.effect), 0)}</span></div>
+                                                 
+                 </div>`
+
+  sel.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+
+  var extraLevel1 = f(IUniversal.fireTree.node22.effect)
+
+  sel.level = f(sel.level)
+  sel.maxLevel = f(90).add(f(extraLevel1))
+
+  if (f(sel.level).gte(f(sel.maxLevel))) {
+    sel.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel.effect = f(sel.level)
+  } else {
+    sel.effect = f(0)
+  }
+  sel.price = (f(5000).mul(f(10).pow(f(1))).mul(f(30).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel.checkBuy = function () { if (checkBuy(IUniversal.fireTree.node15.priceIdentity, IUniversal.fireTree.node15.price, "uni")) { return true } }
+  sel.req = function () { return IUniversal.fireTree.node14.active }
+
+  //NODE 16
+  var sel = IUniversal.fireTree.node16
+
+  sel.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Tree Farms</div>
+                 <div class="topRight absolute padding2 grey">16</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column"><div>Woodcutter price /2 (<span class="boldBlackBorder">/${format(f(sel.effect), 0)}</span>)</div>
+                 </div>`
+
+  sel.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+  var extraLevel1 = f(IUniversal.fireTree.node22.effect)
+
+  sel.level = f(sel.level)
+  sel.maxLevel = f(5).add(f(extraLevel1))
+
+  if (f(sel.level).gte(f(sel.maxLevel))) {
+    sel.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel.effect = f(2).pow(f(sel.level))
+  } else {
+    sel.effect = f(1)
+  }
+  sel.price = (f(5).mul(f(10).pow(f(1))).mul(f(10).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel.checkBuy = function () { if (checkBuy(IUniversal.fireTree.node16.priceIdentity, IUniversal.fireTree.node16.price, "uni")) { return true } }
+  sel.req = function () { return (IUniversal.fireTree.node12.active) }
+
+  //NODE 17
+  var sel = IUniversal.fireTree.node17
+
+  if (f(IUniversal.size).gt(f(0))) {
+    var tempEffect = f(Decimal.log10(f(IUniversal.size).add(f(10))))
+  } else {
+    tempEffect = f(1)
+  }
+
+  sel.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Querries</div>
+                 <div class="topRight absolute padding2 grey">17</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column"><div>Miner price /2 (<span class="boldBlackBorder">/${format(f(sel.effect), 0)}</span>)</div>
+                 </div>`
+
+  sel.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+  var extraLevel1 = f(IUniversal.fireTree.node22.effect)
+
+  sel.level = f(sel.level)
+  sel.maxLevel = f(5).add(f(extraLevel1))
+
+  if (f(sel.level).gte(f(sel.maxLevel))) {
+    sel.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel.effect = f(2).pow(f(sel.level))
+  } else {
+    sel.effect = f(1)
+  }
+  sel.price = (f(50).mul(f(10).pow(f(1))).mul(f(12).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel.checkBuy = function () { if (checkBuy(IUniversal.fireTree.node17.priceIdentity, IUniversal.fireTree.node17.price, "uni")) { return true } }
+  sel.req = function () { return (IUniversal.fireTree.node16.active) }
+
+
+  //NODE 18
+  var sel = IUniversal.fireTree.node18
+
+  sel.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Fire Union</div>
+                 <div class="topRight absolute padding2 grey">18</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column"><div>Fire Warrior price /2 (<span class="boldBlackBorder">/${format(f(sel.effect), 0)}</span>)</div>
+                 </div>`
+
+  sel.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+  var extraLevel1 = f(IUniversal.fireTree.node22.effect)
+
+  sel.level = f(sel.level)
+  sel.maxLevel = f(5).add(f(extraLevel1))
+
+  if (f(sel.level).gte(f(sel.maxLevel))) {
+    sel.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel.effect = f(2).pow(f(sel.level))
+  } else {
+    sel.effect = f(1)
+  }
+  sel.price = (f(5000).mul(f(10).pow(f(1))).mul(f(30).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel.checkBuy = function () { if (checkBuy(IUniversal.fireTree.node18.priceIdentity, IUniversal.fireTree.node18.price, "uni")) { return true } }
+  sel.req = function () { return IUniversal.fireTree.node17.active }
+
+
+  //NODE 19
+  var sel = IUniversal.fireTree.node19
+
+  sel.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Living Trees</div>
+                 <div class="topRight absolute padding2 grey">19</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column"><div>Woodcutter effect ×2 (<span class="boldBlackBorder">×${format(f(sel.effect), 0)}</span>)</div>
+
+                 </div>`
+
+  sel.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+  var extraLevel1 = f(IUniversal.fireTree.node22.effect)
+
+  sel.level = f(sel.level)
+  sel.maxLevel = f(5).add(f(extraLevel1))
+
+  if (f(sel.level).gte(f(sel.maxLevel))) {
+    sel.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel.effect = f(2).pow(f(sel.level))
+  } else {
+    sel.effect = f(1)
+  }
+  sel.price = (f(50).mul(f(10).pow(f(1))).mul(f(10).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel.checkBuy = function () { if (checkBuy(IUniversal.fireTree.node19.priceIdentity, IUniversal.fireTree.node19.price, "uni")) { return true } }
+  sel.req = function () { return (IUniversal.fireTree.node16.active) }
+
+  //NODE 20
+  var sel = IUniversal.fireTree.node20
+
+  sel.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Coal Planets</div>
+                 <div class="topRight absolute padding2 grey">20</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column"><div>Miner effect ×2 (<span class="boldBlackBorder">×${format(f(sel.effect), 0)}</span>)</div>
+                 </div>`
+
+  sel.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+
+  var extraLevel1 = f(IUniversal.fireTree.node22.effect)
+
+  sel.level = f(sel.level)
+  sel.maxLevel = f(5).add(f(extraLevel1))
+
+  if (f(sel.level).gte(f(sel.maxLevel))) {
+    sel.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel.effect = f(2).pow(f(sel.level))
+  } else {
+    sel.effect = f(1)
+  }
+  sel.price = (f(5000).mul(f(10).pow(f(1))).mul(f(12).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel.checkBuy = function () { if (checkBuy(IUniversal.fireTree.node20.priceIdentity, IUniversal.fireTree.node20.price, "uni")) { return true } }
+  sel.req = function () { return (IUniversal.fireTree.node17.active) }
+
+
+  //NODE 21
+  var sel = IUniversal.fireTree.node21
+
+  sel.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Liquid Fire</div>
+                 <div class="topRight absolute padding2 grey">21</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column"><div>Fire Warrior effect ×2 (<span class="boldBlackBorder">×${format(f(sel.effect), 0)}</span>)</div>
+
+                 </div>`
+
+  sel.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+
+  var extraLevel1 = f(IUniversal.fireTree.node22.effect)
+
+
+  sel.level = f(sel.level)
+  sel.maxLevel = f(5).add(f(extraLevel1))
+
+  if (f(sel.level).gte(f(sel.maxLevel))) {
+    sel.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel.effect = f(2).pow(f(sel.level))
+  } else {
+    sel.effect = f(1)
+  }
+  sel.price = (f(500000).mul(f(10).pow(f(1))).mul(f(30).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel.checkBuy = function () { if (checkBuy(IUniversal.fireTree.node21.priceIdentity, IUniversal.fireTree.node21.price, "uni")) { return true } }
+  sel.req = function () { return (IUniversal.fireTree.node18.active) }
+
+  //NODE 22
+  var sel = IUniversal.fireTree.node22
+
+  sel.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Fire Planet</div>
+                 <div class="topRight absolute padding2 grey">22</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column"><div>upgrades 12-21 max level <span class="boldBlackBorder">+${format(f(sel.effect), 0)}</span></div>
+                 </div>`
+
+  sel.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+
+  sel.level = f(sel.level)
+  sel.maxLevel = f(100)
+
+  if (f(sel.level).gte(f(sel.maxLevel))) {
+    sel.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel.effect = f(sel.level)
+  } else {
+    sel.effect = f(0)
+  }
+  sel.price = (f(500000).mul(f(10).pow(f(1))).mul(f(100).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel.checkBuy = function () { if (checkBuy(IUniversal.fireTree.node22.priceIdentity, IUniversal.fireTree.node22.price, "uni")) { return true } }
+  sel.req = function () { return (IUniversal.fireTree.node15.active && IUniversal.fireTree.node18.active) }
+
+  //NODE 23
+  var sel = IUniversal.fireTree.node23
+
+  sel.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Charcoal Empire</div>
+                 <div class="topRight absolute padding2 grey">23</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column"><div>Coal/s ×Wood (<span class="boldBlackBorder">×${format(f(sel.effect), 0)}</span>) cumulative</div>
+                 </div>`
+
+  sel.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+
+  sel.level = f(sel.level)
+  sel.maxLevel = f(5)
+
+  if (f(sel.level).gte(f(sel.maxLevel))) {
+    sel.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel.effect = f(1.2).pow(Decimal.log10(f(IUniversal.wood))).mul(f(sel.level))
+  } else {
+    sel.effect = f(1)
+  }
+  sel.price = (f(50000000).mul(f(10).pow(f(1))).mul(f(100000).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel.checkBuy = function () { if (checkBuy(IUniversal.fireTree.node23.priceIdentity, IUniversal.fireTree.node23.price, "uni")) { return true } }
+  sel.req = function () { return (IUniversal.fireTree.node22.active) }
+
+  //NODE 24
+  var sel = IUniversal.fireTree.node24
+
+  sel.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Core Feeder</div>
+                 <div class="topRight absolute padding2 grey">24</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column"><div>Magma/s ×Coal (<span class="boldBlackBorder">×${format(f(sel.effect), 0)}</span>) cumulative</div>
+                 </div>`
+
+  sel.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+  sel.level = f(sel.level)
+  sel.maxLevel = f(5)
+
+  if (f(sel.level).gte(f(sel.maxLevel))) {
+    sel.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel.effect = f(1.2).pow(Decimal.log10(f(IUniversal.coal))).mul(f(sel.level))
+  } else {
+    sel.effect = f(1)
+  }
+  sel.price = (f(50000000000).mul(f(10).pow(f(1))).mul(f(1000000).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel.checkBuy = function () { if (checkBuy(IUniversal.fireTree.node24.priceIdentity, IUniversal.fireTree.node24.price, "uni")) { return true } }
+  sel.req = function () { return (IUniversal.fireTree.node23.active) }
+
+  //NODE 25
+  var sel = IUniversal.fireTree.node25
+
+  sel.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Fire Blood</div>
+                 <div class="topRight absolute padding2 grey">25</div>
+                                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+
+                 <div class="centerDiv padding1 column"><div>Damage x1.2(<span class="boldBlackBorder">×${format(f(sel.effect), 1)}</span>)</div>
+                 </div>`
+
+  sel.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+
+  sel.level = f(sel.level)
+  sel.maxLevel = Infinity
+
+  if (f(sel.level).gte(f(sel.maxLevel))) {
+    sel.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel.effect = f(1.2).pow(f(sel.level))
+  } else {
+    sel.effect = f(1)
+  }
+  sel.price = f(1).mul(f(10).pow(f(1))).mul(f(10).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel.checkBuy = function () { if (checkBuy(IUniversal.fireTree.node25.priceIdentity, IUniversal.fireTree.node25.price, "uni")) { return true } }
+  sel.req = function () { return (IUniversal.fireTree.node11.active) }
+
+  //NODE 26
+  var sel = IUniversal.fireTree.node26
+
+  sel.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Magma Skin</div>
+                 <div class="topRight absolute padding2 grey">26</div>
+                                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+                 <div class="centerDiv padding1 column"><div>Life x1.2 (<span class="boldBlackBorder">×${format(f(sel.effect), 1)}</span>)</div>
+                 </div>`
+
+  sel.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+  sel.level = f(sel.level)
+  sel.maxLevel = Infinity
+
+  if (f(sel.level).gte(f(sel.maxLevel))) {
+    sel.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel.effect = f(1.2).pow(f(sel.level))
+  } else {
+    sel.effect = f(1)
+  }
+  sel.price = f(1).mul(f(10).pow(f(1))).mul(f(10).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel.checkBuy = function () { if (checkBuy(IUniversal.fireTree.node26.priceIdentity, IUniversal.fireTree.node26.price, "uni")) { return true } }
+  sel.req = function () { return (IUniversal.fireTree.node11.active) }
+
 }
 
 function valuesSetterDinamic(type) {
@@ -3942,7 +5478,13 @@ function valuesSetterDinamic(type) {
     damage7 = f(1)
   }
 
-  IFight.youStats.damage = (f(damage1).mul(f(damage2)).mul(f(damage3)).mul(f(damage4).mul(f(damage6)).mul(f(damage7)))).pow(f(damage5))
+  if (IUniversal.fireTree.node25.active && f(IUniversal.fireTree.node25.effect) != "NaN") {
+    var damage8 = f(IUniversal.fireTree.node25.effect)
+  } else {
+    damage8 = f(1)
+  }
+
+  IFight.youStats.damage = (f(damage1).mul(f(damage2)).mul(f(damage3)).mul(f(damage4).mul(f(damage6)).mul(f(damage7)).mul(f(damage8)))).pow(f(damage5))
 
   if (type == "universalChallengerChallenge2") {
     if (damage1 != null) {
@@ -3993,8 +5535,13 @@ function valuesSetterDinamic(type) {
     life8 = f(1)
   }
 
-  IFight.youStats.life = (f(life1)).mul(f(life4)).mul(f(life5).mul(f(life7)).mul(f(life8))).pow(f(life6)).add(f(life2))
+  if (IUniversal.fireTree.node26.active && f(IUniversal.fireTree.node26.effect) != "NaN") {
+    var life9 = f(IUniversal.fireTree.node26.effect)
+  } else {
+    life9 = f(1)
+  }
 
+  IFight.youStats.life = (f(life1)).mul(f(life4)).mul(f(life5).mul(f(life7)).mul(f(life8)).mul(f(life9))).pow(f(life6)).add(f(life2))
   if (type == "universalChallengerChallenge2") {
     IFight.youStats.life = f(life1)
   }
@@ -4167,6 +5714,66 @@ function valuesSetterDinamic(type) {
 
   IUniversalChallenger.universalCores = f(IUniversalChallenger.universalCores).add(transit)
 
+
+  //FIRE TREE
+
+  //fire
+  var fire1 = f(IUniversal.fireTree.node1.effect)
+  var fire2 = f(IUniversal.fireTree.node2.effect2)
+  var fire3 = f(IUniversal.fireTree.node3.effect2)
+  var fire4 = f(IUniversal.fireTree.node4.effect2)
+  var fire5 = f(IUniversal.fireTree.node12.effect)
+
+  IUniversal.fireProdBase = f(fire1).mul(f(fire2)).mul(f(fire3)).mul(f(fire4)).mul(f(fire5))
+  IUniversal.fireProd = f(IUniversal.fireProdBase).mul(f(IGameData.tickSpeed))
+
+  if (!f(IUniversal.fire).lt(f(0))) {
+    IUniversal.fire = f(IUniversal.fire).add(f(IUniversal.fireProd))
+  } else {
+    IUniversal.fire = f(0)
+  }
+
+  //wood
+  var wood1 = f(IUniversal.fireTree.node2.effect)
+  var wood2 = f(IUniversal.fireTree.node5.effect)
+
+  IUniversal.woodProdBase = f(wood1).mul(f(wood2))
+  IUniversal.woodProd = f(IUniversal.woodProdBase).mul(f(IGameData.tickSpeed))
+
+  if (!f(IUniversal.wood).lt(f(0))) {
+    IUniversal.wood = f(IUniversal.wood).add(f(IUniversal.woodProd))
+  } else {
+    IUniversal.wood = f(0)
+  }
+
+  //coal
+  var coal1 = f(IUniversal.fireTree.node3.effect)
+  var coal2 = f(IUniversal.fireTree.node6.effect)
+  var coal3 = f(IUniversal.fireTree.node23.effect)
+
+  IUniversal.coalProdBase = f(coal1).mul(f(coal2)).mul(f(coal3))
+  IUniversal.coalProd = f(IUniversal.coalProdBase).mul(f(IGameData.tickSpeed))
+
+  if (!f(IUniversal.coal).lt(f(0))) {
+    IUniversal.coal = f(IUniversal.coal).add(f(IUniversal.coalProd))
+  } else {
+    IUniversal.coal = f(0)
+  }
+
+  //magma
+  var magma1 = f(IUniversal.fireTree.node4.effect)
+  var magma2 = f(IUniversal.fireTree.node7.effect)
+  var magma3 = f(IUniversal.fireTree.node24.effect)
+
+
+  IUniversal.magmaProdBase = f(magma1).mul(f(magma2)).mul(f(magma3))
+  IUniversal.magmaProd = f(IUniversal.magmaProdBase).mul(f(IGameData.tickSpeed))
+
+  if (!f(IUniversal.magma).lt(f(0))) {
+    IUniversal.magma = f(IUniversal.magma).add(f(IUniversal.magmaProd))
+  } else {
+    IUniversal.magma = f(0)
+  }
 }
 
 //VALUES SETTER FIXED
@@ -4259,6 +5866,22 @@ document.getElementById("fp2_content2_16").onclick = function () {
   changePage("mainMenu", "content2_16")
 }
 
+//note 6
+document.getElementById("fp2_content2_18").onclick = function () {
+  changePage("mainMenu", "content2_18")
+}
+
+
+//Fire
+document.getElementById("fp2_content2_17").onclick = function () {
+  changePage("mainMenu", "content2_17")
+
+  var element = document.getElementById("content2_17")
+
+  element.scrollTop = element.scrollHeight / 3
+  element.scrollLeft = element.scrollWidth / 6
+}
+
 
 ///////
 
@@ -4288,6 +5911,14 @@ document.getElementById("importSave").onclick = function () {
 
 document.getElementById("opaqueScreen2").onclick = function () {
   changePage("options", "out")
+}
+
+document.getElementById("fp2_content2_pageSel").onclick = function () {
+  changePage("page", "fp2_content2")
+}
+
+document.getElementById("fp2_content3_pageSel").onclick = function () {
+  changePage("page", "fp2_content3")
 }
 
 //Bases
@@ -4890,8 +6521,8 @@ document.getElementById("content1_7_ascension_button").onclick = function () {
 
   if (!IUniversal.automation.automation5.active) {
 
-    if ((f((IFight.challengers.baseChallenger.level)).minus(f(1))).gte(f(IFight.challengers.baseChallenger.maxLevel))) {
-
+    if (f(IFight.challengers.baseChallenger.level)
+      .gte(f(IFight.challengers.baseChallenger.maxLevel))) {
       //keep training active-temporary
       var training1Status1 = ITraining.base.base1.active
       var training1Status2 = ITraining.base.base2.active
@@ -4916,22 +6547,23 @@ document.getElementById("content1_7_ascension_button").onclick = function () {
 
       changePage("mainMenu", "fp2_content1_7")
       changePage("mainMenu", "content2_8")
-
     }
+    return
   } else {
-    if ((f((IFight.challengers.baseChallenger.level)).minus(f(1))).gte(f(IFight.challengers.baseChallenger.maxLevel))) {
+    if (f(IFight.challengers.baseChallenger.level)
+      .gte(f(IFight.challengers.baseChallenger.maxLevel))) {
       partialResetSave(2)
-
       IUniversal.universe = f(IUniversal.universe).add(f(1))
+
 
       //Ascension Points
 
       IUniversal.ascensionPointMax = f(IUniversal.ascensionPointMax).add(f(1))
       IUniversal.ascensionPoint = f(IUniversal.ascensionPoint).add(f(1))
     }
+    return
   }
 }
-
 
 document.getElementById("content2_11_grid_b1").onclick = function () {
   changePage("attributes", "content2_11_grid_b1_cont")
@@ -5272,6 +6904,90 @@ document.getElementById("fp3_content1_8_auto6_b3").onclick = function () {
   }
 }
 
+document.getElementById("fp3_content1_8_auto7_b1").onclick = function () {
+  if (!IUniversal.automation.automation7.unlocked) {
+    buy(IUniversal.automation.automation7, "unlocked", true, "uniChallenger")
+  } else {
+    if (IUniversal.automation.automation7.active) {
+      IUniversal.automation.automation7.active = false
+    } else {
+      IUniversal.automation.automation7.active = true
+    }
+  }
+}
+
+document.getElementById("fp3_content1_8_auto8_b1").onclick = function () {
+  if (!IUniversal.automation.automation8.unlocked) {
+    buy(IUniversal.automation.automation8, "unlocked", true, "uniChallenger")
+  } else {
+    if (IUniversal.automation.automation8.active) {
+      IUniversal.automation.automation8.active = false
+    } else {
+      IUniversal.automation.automation8.active = true
+    }
+  }
+}
+
+document.getElementById("fp3_content1_8_auto9_b1").onclick = function () {
+  if (!IUniversal.automation.automation9.unlocked) {
+    buy(IUniversal.automation.automation9, "unlocked", true, "uniChallenger")
+  } else {
+    if (IUniversal.automation.automation9.active) {
+      IUniversal.automation.automation9.active = false
+    } else {
+      IUniversal.automation.automation9.active = true
+    }
+  }
+}
+
+document.getElementById("fp3_content1_8_auto10_b1").onclick = function () {
+  if (!IUniversal.automation.automation10.unlocked) {
+    buy(IUniversal.automation.automation10, "unlocked", true, "uniChallenger")
+  } else {
+    if (IUniversal.automation.automation10.active) {
+      IUniversal.automation.automation10.active = false
+    } else {
+      IUniversal.automation.automation10.active = true
+    }
+  }
+}
+
+document.getElementById("fp3_content1_8_auto11_b1").onclick = function () {
+  if (!IUniversal.automation.automation11.unlocked) {
+    buy(IUniversal.automation.automation11, "unlocked", true, "uniChallenger")
+  } else {
+    if (IUniversal.automation.automation11.active) {
+      IUniversal.automation.automation11.active = false
+    } else {
+      IUniversal.automation.automation11.active = true
+    }
+  }
+}
+
+document.getElementById("fp3_content1_8_auto12_b1").onclick = function () {
+  if (!IUniversal.automation.automation12.unlocked) {
+    buy(IUniversal.automation.automation12, "unlocked", true, "uniChallenger")
+  } else {
+    if (IUniversal.automation.automation12.active) {
+      IUniversal.automation.automation12.active = false
+    } else {
+      IUniversal.automation.automation12.active = true
+    }
+  }
+}
+
+document.getElementById("fp3_content1_8_auto13_b1").onclick = function () {
+  if (!IUniversal.automation.automation13.unlocked) {
+    buy(IUniversal.automation.automation13, "unlocked", true, "uniChallenger")
+  } else {
+    if (IUniversal.automation.automation13.active) {
+      IUniversal.automation.automation13.active = false
+    } else {
+      IUniversal.automation.automation13.active = true
+    }
+  }
+}
+
 //notation
 
 document.getElementById("optionsMisc_notation_b1").onclick = function () {
@@ -5282,9 +6998,193 @@ document.getElementById("optionsMisc_notation_b1").onclick = function () {
   }
 }
 
+//discord
+
 document.getElementById("options_discord").onclick = function () {
-    window.open("https://discord.gg/yVRAGpKQ", "_blank"); // Apre in una nuova finestra/scheda
+  window.open("https://discord.gg/yVRAGpKQ", "_blank");
 }
+
+
+//fire Tree
+
+document.getElementById("content2_17_buy").onclick = function () {
+  if (f(IUniversal.buyFireTree).lt(f(IUniversal.maxBuyFireTree))) {
+    IUniversal.buyFireTree = f(IUniversal.buyFireTree).add(f(1))
+  } else {
+    IUniversal.buyFireTree = f(0)
+  }
+}
+
+document.getElementById("content2_17_node1_button").onclick = function () {
+  if (f(IUniversal.fireTree.node1.level).lt(f(IUniversal.fireTree.node1.maxLevel))) {
+    buyMultiple(IUniversal.fireTree.node1, "level", 1, "uniChallenger", IUniversal.buyFireTree)
+  }
+}
+
+document.getElementById("content2_17_node2_button").onclick = function () {
+  if (f(IUniversal.fireTree.node2.level).lt(f(IUniversal.fireTree.node2.maxLevel))) {
+    buyMultiple(IUniversal.fireTree.node2, "level", 1, "uni", IUniversal.buyFireTree)
+  }
+}
+
+document.getElementById("content2_17_node3_button").onclick = function () {
+  if (f(IUniversal.fireTree.node3.level).lt(f(IUniversal.fireTree.node3.maxLevel))) {
+    buyMultiple(IUniversal.fireTree.node3, "level", 1, "uni", IUniversal.buyFireTree)
+  }
+}
+
+document.getElementById("content2_17_node4_button").onclick = function () {
+  if (f(IUniversal.fireTree.node4.level).lt(f(IUniversal.fireTree.node4.maxLevel))) {
+    buyMultiple(IUniversal.fireTree.node4, "level", 1, "uni", IUniversal.buyFireTree)
+  }
+}
+
+document.getElementById("content2_17_node5_button").onclick = function () {
+  IUniversal.fireTree.node5.level = f(IUniversal.fireTree.node5.level).add(f(IUniversal.wood))
+  IUniversal.wood = f(0)
+}
+
+document.getElementById("content2_17_node6_button").onclick = function () {
+  IUniversal.fireTree.node6.level = f(IUniversal.fireTree.node6.level).add(f(IUniversal.coal))
+  IUniversal.coal = f(0)
+}
+
+document.getElementById("content2_17_node7_button").onclick = function () {
+  IUniversal.fireTree.node7.level = f(IUniversal.fireTree.node7.level).add(f(IUniversal.magma))
+  IUniversal.magma = f(0)
+}
+
+document.getElementById("content2_17_node8_button").onclick = function () {
+  if (f(IUniversal.fireTree.node8.level).lt(f(IUniversal.fireTree.node8.maxLevel))) {
+    buyMultiple(IUniversal.fireTree.node8, "level", 1, "uni", IUniversal.buyFireTree)
+  }
+}
+
+document.getElementById("content2_17_node9_button").onclick = function () {
+  if (f(IUniversal.fireTree.node9.level).lt(f(IUniversal.fireTree.node9.maxLevel))) {
+    buyMultiple(IUniversal.fireTree.node9, "level", 1, "uni", IUniversal.buyFireTree)
+  }
+}
+
+document.getElementById("content2_17_node10_button").onclick = function () {
+  if (f(IUniversal.fireTree.node10.level).lt(f(IUniversal.fireTree.node10.maxLevel))) {
+    buyMultiple(IUniversal.fireTree.node10, "level", 1, "uni", IUniversal.buyFireTree)
+  }
+}
+
+document.getElementById("content2_17_node11_button").onclick = function () {
+
+  IUniversal.fireTree.node2.level = f(0)
+  IUniversal.fireTree.node3.level = f(0)
+  IUniversal.fireTree.node4.level = f(0)
+  IUniversal.fireTree.node5.level = f(0)
+  IUniversal.fireTree.node6.level = f(0)
+  IUniversal.fireTree.node7.level = f(0)
+
+  IUniversal.wood = f(0)
+  IUniversal.coal = f(0)
+  IUniversal.magma = f(0)
+
+  IUniversal.size = f(IUniversal.size).add(f(IUniversal.fireTree.node11.effect))
+  IUniversal.fire = f(0)
+
+}
+
+document.getElementById("content2_17_node12_button").onclick = function () {
+  if (f(IUniversal.fireTree.node12.level).lt(f(IUniversal.fireTree.node12.maxLevel))) {
+    buyMultiple(IUniversal.fireTree.node12, "level", 1, "uni", IUniversal.buyFireTree)
+  }
+}
+
+document.getElementById("content2_17_node13_button").onclick = function () {
+  if (f(IUniversal.fireTree.node13.level).lt(f(IUniversal.fireTree.node13.maxLevel))) {
+    buyMultiple(IUniversal.fireTree.node13, "level", 1, "uni", IUniversal.buyFireTree)
+  }
+}
+
+document.getElementById("content2_17_node14_button").onclick = function () {
+  if (f(IUniversal.fireTree.node14.level).lt(f(IUniversal.fireTree.node14.maxLevel))) {
+    buyMultiple(IUniversal.fireTree.node14, "level", 1, "uni", IUniversal.buyFireTree)
+  }
+}
+
+document.getElementById("content2_17_node15_button").onclick = function () {
+  if (f(IUniversal.fireTree.node15.level).lt(f(IUniversal.fireTree.node15.maxLevel))) {
+    buyMultiple(IUniversal.fireTree.node15, "level", 1, "uni", IUniversal.buyFireTree)
+  }
+}
+
+document.getElementById("content2_17_node16_button").onclick = function () {
+  if (f(IUniversal.fireTree.node16.level).lt(f(IUniversal.fireTree.node16.maxLevel))) {
+    buyMultiple(IUniversal.fireTree.node16, "level", 1, "uni", IUniversal.buyFireTree)
+  }
+}
+
+document.getElementById("content2_17_node17_button").onclick = function () {
+  if (f(IUniversal.fireTree.node17.level).lt(f(IUniversal.fireTree.node17.maxLevel))) {
+    buyMultiple(IUniversal.fireTree.node17, "level", 1, "uni", IUniversal.buyFireTree)
+  }
+}
+
+document.getElementById("content2_17_node18_button").onclick = function () {
+  if (f(IUniversal.fireTree.node18.level).lt(f(IUniversal.fireTree.node18.maxLevel))) {
+    buyMultiple(IUniversal.fireTree.node18, "level", 1, "uni", IUniversal.buyFireTree)
+  }
+}
+
+document.getElementById("content2_17_node19_button").onclick = function () {
+  if (f(IUniversal.fireTree.node19.level).lt(f(IUniversal.fireTree.node19.maxLevel))) {
+    buyMultiple(IUniversal.fireTree.node19, "level", 1, "uni", IUniversal.buyFireTree)
+  }
+}
+
+document.getElementById("content2_17_node20_button").onclick = function () {
+  if (f(IUniversal.fireTree.node20.level).lt(f(IUniversal.fireTree.node20.maxLevel))) {
+    buyMultiple(IUniversal.fireTree.node20, "level", 1, "uni", IUniversal.buyFireTree)
+  }
+}
+
+document.getElementById("content2_17_node21_button").onclick = function () {
+  if (f(IUniversal.fireTree.node21.level).lt(f(IUniversal.fireTree.node21.maxLevel))) {
+    buyMultiple(IUniversal.fireTree.node21, "level", 1, "uni", IUniversal.buyFireTree)
+  }
+}
+
+document.getElementById("content2_17_node22_button").onclick = function () {
+  if (f(IUniversal.fireTree.node22.level).lt(f(IUniversal.fireTree.node22.maxLevel))) {
+    buyMultiple(IUniversal.fireTree.node22, "level", 1, "uni", IUniversal.buyFireTree)
+  }
+}
+
+document.getElementById("content2_17_node23_button").onclick = function () {
+  if (f(IUniversal.fireTree.node23.level).lt(f(IUniversal.fireTree.node23.maxLevel))) {
+    buyMultiple(IUniversal.fireTree.node23, "level", 1, "uni", IUniversal.buyFireTree)
+  }
+}
+
+document.getElementById("content2_17_node24_button").onclick = function () {
+
+  if (f(IUniversal.fireTree.node24.level).lt(f(IUniversal.fireTree.node24.maxLevel))) {
+    buyMultiple(IUniversal.fireTree.node24, "level", 1, "uni", IUniversal.buyFireTree)
+  }
+}
+
+document.getElementById("content2_17_node25_button").onclick = function () {
+  if (f(IUniversal.fireTree.node25.level).lt(f(IUniversal.fireTree.node25.maxLevel))) {
+    buyMultiple(IUniversal.fireTree.node25, "level", 1, "uni", IUniversal.buyFireTree)
+  }
+}
+
+document.getElementById("content2_17_node26_button").onclick = function () {
+
+  if (f(IUniversal.fireTree.node26.level).lt(f(IUniversal.fireTree.node26.maxLevel))) {
+    buyMultiple(IUniversal.fireTree.node26, "level", 1, "uni", IUniversal.buyFireTree)
+  }
+}
+
+
+
+
 
 //FUNCTION: PAUSE FUNCTION
 
@@ -5473,7 +7373,63 @@ function spheres(targetId, numSpheres, radiusXPercent, radiusYPercent, colorSele
   frontSvg.innerHTML = front.join('\n');
 }
 
+function svgFire(value) {
+  // Usa Decimal.js per calcolare la dimensione
+  if (f(Decimal.log10(f(value))).gt(f(90))) {
+    var size1 = f(100)
+  } else {
+    if((value).gt(f(0))){
+    size1 = Decimal.log10(f(value))
+    size1 = f(size1).add(f(10))
+    }else{
+    size1 = f(10)
+    }
+  }
+
+  // SVG a forma di stella a 4 punte (verticali più lunghe)
+  const flame1 = `
+<svg width="${size1}%" height="${size1}%" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet"
+     style="position:absolute; bottom:0%; left:50%; transform: translate(-50%) rotate(-45deg); z-index:1;">
+  <defs>
+    <filter id="innerBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="atop"/>
+    </filter>
+
+    <radialGradient id="fireCore" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="yellow">
+        <animate attributeName="stop-color" values="yellow;orange;red;yellow" dur="3s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="darkred">
+        <animate attributeName="stop-color" values="darkred;orangered;darkred" dur="3s" repeatCount="indefinite"/>
+      </stop>
+    </radialGradient>
+  </defs>
+
+  <g transform="rotate(-45, 50, 50)">
+    <polygon
+      points="55,25 
+              60,41
+              100,50 
+              60,59
+              55,75 
+              40,59 
+              0,50 
+              40,41"
+      fill="orange"
+      stroke="orangered"
+      stroke-width="3"
+      filter="url(#innerBlur)"
+    >
+    </polygon>
+  </g>
+</svg>
+`;
+  return flame1;
+}
+
 function visualSvg(value) {
+
   const maxRadius = 100;
   const minRadius = 20;
   const minRadius2 = 40;
@@ -5571,7 +7527,7 @@ function visualSvg(value) {
     let upper = lower.mul(f(100));
     let scale = (f(value).sub(lower)).div((upper.sub(lower)));
 
-    if (!(colorIndex >= colorScale.length)) {
+    if (!(colorIndex >= colorScale.length - 1)) {
       radius = minRadius + (maxRadius - minRadius) * scale.toNumber() * scaleFactor;
     } else {
       radius = maxRadius * scaleFactor
@@ -5586,7 +7542,7 @@ function visualSvg(value) {
     let upper = lower.mul(f(1000));
     let scale = f(value).sub(lower).div(upper.sub(lower));
 
-    if (!(colorIndex2 >= colorScale.length)) {
+    if (!(colorIndex2 >= colorScale.length - 1)) {
       radius2 = minRadius2 + (maxRadius - minRadius2) * scale.toNumber() * scaleFactor;
     } else {
       radius2 = maxRadius * scaleFactor
@@ -5788,122 +7744,116 @@ document.getElementById('scale-down').addEventListener('click', () => scaleAscen
 
 function visualMenu() {
 
-  document.getElementById("menu1").style.backgroundImage = `url("images/ground.png")`
-  document.getElementById("menu1").style.zIndex = 3
+  if (checkShow("fp2_content2")) {
+    document.getElementById("menu1").style.backgroundImage = `url("images/ground.png")`
+    document.getElementById("menu1").style.zIndex = 3
 
-  document.getElementById("menu2").style.backgroundImage = `url("images/mountain.png")`
-  document.getElementById("menu2").style.zIndex = 2
+    document.getElementById("menu2").style.backgroundImage = `url("images/mountain.png")`
+    document.getElementById("menu2").style.zIndex = 2
 
-  document.getElementById("menu3").style.backgroundImage = `url("images/sky gradient.png")`
-  document.getElementById("menu3").style.zIndex = 1
-
-
-
-  document.getElementById("fp2_content2_1_image").style.backgroundImage = `url("images/training.png")`
-
-  let hunt1 = f(IFight.normalHunting.hunt1.level).gt(f(0)) ? `url("images/slime stand.png")` : "";
-  let hunt2 = f(IFight.normalHunting.hunt2.level).gt(f(0)) ? `url("images/zombie stand.png")` : "";
-  let hunt3 = f(IFight.normalHunting.hunt3.level).gt(f(0)) ? `url("images/knight stand.png")` : "";
-  let hunt4 = f(IFight.normalHunting.hunt4.level).gt(f(0)) ? `url("images/demon stand.png")` : "";
-  let hunt5 = f(IFight.normalHunting.hunt5.level).gt(f(0)) ? `url("images/wyvern stand.png")` : "";
-
-  // Array con tutti i background
-  let backgrounds = [
-    // sempre presente
-    hunt1,
-    hunt2,
-    hunt3,
-    hunt4,
-    hunt5,
-    `url("images/hunting board.png")`
-  ].filter(b => b !== ""); // rimuove quelli vuoti
-
-  // Assegna a backgroundImage
-  document.getElementById("fp2_content2_6_image").style.backgroundImage = backgrounds.join(", ");
-
-  document.getElementById("fp2_content2_7_image").style.backgroundImage = `url("images/energy.png")`
+    document.getElementById("menu3").style.backgroundImage = `url("images/sky gradient.png")`
+    document.getElementById("menu3").style.zIndex = 1
 
 
-  var image = `url("images/attributes 1.png")`
 
-  if (IUniversal.attributes.attributesUnlock1.active || true) {
-    image = `url("images/attributes 2.png")`
-    if (IUniversal.attributes.attributesUnlock2.active) {
-      image = `url("images/attributes 3.png")`
+    document.getElementById("fp2_content2_1_image").style.backgroundImage = `url("images/training.png")`
+
+    let hunt1 = f(IFight.normalHunting.hunt1.level).gt(f(0)) ? `url("images/slime stand.png")` : "";
+    let hunt2 = f(IFight.normalHunting.hunt2.level).gt(f(0)) ? `url("images/zombie stand.png")` : "";
+    let hunt3 = f(IFight.normalHunting.hunt3.level).gt(f(0)) ? `url("images/knight stand.png")` : "";
+    let hunt4 = f(IFight.normalHunting.hunt4.level).gt(f(0)) ? `url("images/demon stand.png")` : "";
+    let hunt5 = f(IFight.normalHunting.hunt5.level).gt(f(0)) ? `url("images/wyvern stand.png")` : "";
+
+    // Array con tutti i background
+    let backgrounds = [
+      // sempre presente
+      hunt1,
+      hunt2,
+      hunt3,
+      hunt4,
+      hunt5,
+      `url("images/hunting board.png")`
+    ].filter(b => b !== ""); // rimuove quelli vuoti
+
+    // Assegna a backgroundImage
+    document.getElementById("fp2_content2_6_image").style.backgroundImage = backgrounds.join(", ");
+
+    document.getElementById("fp2_content2_7_image").style.backgroundImage = `url("images/energy.png")`
+
+
+    var image = `url("images/attributes 1.png")`
+
+    if (IUniversal.attributes.attributesUnlock1.active) {
+      image = `url("images/attributes 2.png")`
+      if (IUniversal.attributes.attributesUnlock2.active) {
+        image = `url("images/attributes 3.png")`
+      }
     }
+
+    document.getElementById("fp2_content2_11_image").style.backgroundImage = image
+
+    document.getElementById("fp2_content2_4_image").style.backgroundImage = `url("images/challenger.png")`
+
+    document.getElementById("fp2_content2_10_image").style.backgroundImage = `url("images/universal challenger.png")`
+
+    document.getElementById("fp2_content2_8_image").style.backgroundImage = `url("images/ascension.png")`
+
+    //notes
+
+    document.getElementById("fp2_content2_12_image").style.backgroundImage = `url("images/note 1 version 1.png")`
+
+    document.getElementById("fp2_content2_13_image").style.backgroundImage = `url("images/note 2 version 1.png")`
+
+    document.getElementById("fp2_content2_14_image").style.backgroundImage = `url("images/note 3 version 1.png")`
+
+    document.getElementById("fp2_content2_15_image").style.backgroundImage = `url("images/note 4 version 1.png")`
+
+    document.getElementById("fp2_content2_16_image").style.backgroundImage = `url("images/note 5 version 1.png")`
+
+    //ENERGY
+
+    var sel = IUniversal.energyUpgrades
+    var tot1 = f(sel.upgrade1.level).add(sel.upgrade2.level).add(sel.upgrade3.level).add(sel.upgrade4.level).add(sel.upgrade5.level)
+
+    var sel = IUniversal.energyUpgrades
+    var tot2 = f(sel.upgrade6.level).add(sel.upgrade7.level).add(sel.upgrade8.level).add(sel.upgrade9.level).add(sel.upgrade10.level)
+
+    var sel = IUniversal.energyUpgrades
+    var tot3 = f(sel.upgrade11.level).add(sel.upgrade12.level).add(sel.upgrade13.level).add(sel.upgrade14.level).add(sel.upgrade15.level)
+
+    var sel = IUniversal.energyUpgrades
+    var tot4 = f(sel.upgrade16.level).add(sel.upgrade17.level).add(sel.upgrade18.level).add(sel.upgrade19.level).add(sel.upgrade20.level)
+
+    //energy
+    spheres('content2_7_grid_svg1', tot1, 100, 40, "#ff0040", 0, -20, 1 / 2, true, true, null);
+
+    spheres('content2_7_grid_svg2', tot2, 110, 44, "#00ff80", 0, -5, 1 / 2, true, true, null);
+
+    spheres('content2_7_grid_svg3', tot3, 120, 48, "#0066ff", 0, 10, 1 / 2, true, true, null);
+
+    spheres('content2_7_grid_svg4', tot4, 130, 52, "#ffd700", 0, 25, 1 / 2, true, true, null);
+
+    //menu
+
+    spheres('fp2_content2_7_svg1', tot1, 80, 48, "#ff0040", -2, -20, 2.25 / 3, false, true, -45 * Math.PI / 180);
+
+    spheres('fp2_content2_7_svg2', tot2, 90, 54, "#00ff80", -2, 0, 2.25 / 3, false, true, -45 * Math.PI / 180);
+
+    spheres('fp2_content2_7_svg3', tot3, 100, 60, "#0066ff", -2, 20, 2.25 / 3, false, true, -45 * Math.PI / 180);
+
+    spheres('fp2_content2_7_svg4', tot4, 110, 66, "#ffd700", -2, 40, 2.25 / 3, false, true, -45 * Math.PI / 180);
   }
 
-  document.getElementById("fp2_content2_11_image").style.backgroundImage = image
+  if (checkShow("fp2_content3")) {
+    document.getElementById("menu4").style.backgroundImage = `url("images/second page1.png")`
+    document.getElementById("menu4").style.zIndex = 1
 
-  document.getElementById("fp2_content2_4_image").style.backgroundImage = `url("images/challenger.png")`
+    document.getElementById("fp2_content2_17_image").style.backgroundImage = `url("images/Fire Version1.png")`
+    //notes
 
-  document.getElementById("fp2_content2_10_image").style.backgroundImage = `url("images/universal challenger.png")`
+    document.getElementById("fp2_content2_18_image").style.backgroundImage = `url("images/note 6 version 1.png")`
 
-  document.getElementById("fp2_content2_8_image").style.backgroundImage = `url("images/ascension.png")`
-
-  //notes
-
-  document.getElementById("fp2_content2_12_image").style.backgroundImage = `url("images/note 1 version 1.png")`
-
-  document.getElementById("fp2_content2_13_image").style.backgroundImage = `url("images/note 2 version 1.png")`
-
-  document.getElementById("fp2_content2_14_image").style.backgroundImage = `url("images/note 3 version 1.png")`
-
-  document.getElementById("fp2_content2_15_image").style.backgroundImage = `url("images/note 4 version 1.png")`
-
-  document.getElementById("fp2_content2_16_image").style.backgroundImage = `url("images/note 5 version 1.png")`
-
-
-
-  //svg
-
-  document.getElementById("content2_1_svg").innerHTML = visualSvg(f(IFight.youStats.life).mul(f(IFight.youStats.damage)));
-  document.getElementById("fp2_content2_1_svg").innerHTML = visualSvg(f(IFight.youStats.life).mul(f(IFight.youStats.damage)));
-
-  document.getElementById("c2_4_A_image").innerHTML = visualSvg(f(IFight.youStats.life).mul(f(IFight.youStats.damage)));
-
-  if (f(IFight.challengers.baseChallenger.level).lte(f(f(IFight.challengers.baseChallenger.maxLevel)))) {
-    document.getElementById("c2_4_B_image").innerHTML = visualSvg(f(IFight.challengers.baseChallenger.damage).mul(f(IFight.challengers.baseChallenger.life)));
-  } else {
-    document.getElementById("c2_4_B_image").innerHTML = ""
   }
-
-  document.getElementById("c2_10_A_image").innerHTML = visualSvg(f(IFight.youStats.life).mul(f(IFight.youStats.damage)));
-  document.getElementById("c2_10_B_image").innerHTML = visualSvg(f(IUniversalChallenger.challengers.universalChallenger.damage).mul(f(IUniversalChallenger.challengers.universalChallenger.life)));
-
-  //spheres
-
-  var sel = IUniversal.energyUpgrades
-  var tot1 = f(sel.upgrade1.level).add(sel.upgrade2.level).add(sel.upgrade3.level).add(sel.upgrade4.level).add(sel.upgrade5.level)
-
-  var sel = IUniversal.energyUpgrades
-  var tot2 = f(sel.upgrade6.level).add(sel.upgrade7.level).add(sel.upgrade8.level).add(sel.upgrade9.level).add(sel.upgrade10.level)
-
-  var sel = IUniversal.energyUpgrades
-  var tot3 = f(sel.upgrade11.level).add(sel.upgrade12.level).add(sel.upgrade13.level).add(sel.upgrade14.level).add(sel.upgrade15.level)
-
-  var sel = IUniversal.energyUpgrades
-  var tot4 = f(sel.upgrade16.level).add(sel.upgrade17.level).add(sel.upgrade18.level).add(sel.upgrade19.level).add(sel.upgrade20.level)
-
-  //energy
-  spheres('content2_7_grid_svg1', tot1, 100, 40, "#ff0040", 0, -20, 1 / 2, true, true, null);
-
-  spheres('content2_7_grid_svg2', tot2, 110, 44, "#00ff80", 0, -5, 1 / 2, true, true, null);
-
-  spheres('content2_7_grid_svg3', tot3, 120, 48, "#0066ff", 0, 10, 1 / 2, true, true, null);
-
-  spheres('content2_7_grid_svg4', tot4, 130, 52, "#ffd700", 0, 25, 1 / 2, true, true, null);
-
-  //menu
-
-  spheres('fp2_content2_7_svg1', tot1, 80, 48, "#ff0040", -2, -20, 2.25 / 3, false, true, -45 * Math.PI / 180);
-
-  spheres('fp2_content2_7_svg2', tot2, 90, 54, "#00ff80", -2, 0, 2.25 / 3, false, true, -45 * Math.PI / 180);
-
-  spheres('fp2_content2_7_svg3', tot3, 100, 60, "#0066ff", -2, 20, 2.25 / 3, false, true, -45 * Math.PI / 180);
-
-  spheres('fp2_content2_7_svg4', tot4, 110, 66, "#ffd700", -2, 40, 2.25 / 3, false, true, -45 * Math.PI / 180);
-
 }
 
 //VISUAL OPTIONS
@@ -5919,6 +7869,7 @@ function visualLore() {
   update("content2_14_text", IUniversal.lore.lore3)
   update("content2_15_text", IUniversal.lore.lore4)
   update("content2_16_text", IUniversal.lore.lore5)
+  update("content2_18_text", IUniversal.lore.lore6)
 }
 
 //VISUAL TRAINING
@@ -6358,10 +8309,13 @@ function visualHunting() {
 
 function visualUniversal() {
 
-  if (f(IFight.challengers.baseChallenger.level).minus(f(1)).eq(f(IFight.challengers.baseChallenger.maxLevel))) {
-    update("content1_7_ascension_button_text", `Ascend To Universe ${f(IUniversal.universe).add(f(1))}`)
+  if (f(IFight.challengers.baseChallenger.level).eq(f(IFight.challengers.baseChallenger.maxLevel))) {
+    update("content1_7_ascension_button_text",
+      `Ascend To Universe ${f(IUniversal.universe).add(f(1))}`)
   } else {
-    update("content1_7_ascension_button_text", `Ascension Requires Challenger ${f(IFight.challengers.baseChallenger.level).minus(1)} / ${f(IFight.challengers.baseChallenger.maxLevel)}`)
+    update("content1_7_ascension_button_text",
+
+      `Ascension Requires Challenger ${f(IFight.challengers.baseChallenger.level).minus(f(1))} / ${f(IFight.challengers.baseChallenger.maxLevel)}`)
   }
 
   //Milestones
@@ -6455,6 +8409,47 @@ function visualEnergy() {
     }
   }
 }
+
+function buyTrium(number) {
+  if (f(number).equals(f(0))) {
+    return "Buy 1"
+  }
+  if (f(number).equals(f(1))) {
+    return "Buy 10"
+  }
+  if (f(number).equals(f(2))) {
+    return "Buy Max"
+  }
+}
+
+function visualTree() {
+
+  var buyMax = buyTrium(IUniversal.buyFireTree)
+
+  update("content2_17_buy", `<div class="noClick">${buyMax}</div>`)
+
+  for (let x in IUniversal.fireTree) {
+    let sel = IUniversal.fireTree[x]
+
+    update(`content2_17_${x}_content`, sel.content);
+
+    update(`content2_17_${x}_button`, sel.button);
+
+    if (sel.checkBuy()) {
+      document.getElementById(`content2_17_${x}_button`).style.backgroundColor = "#004526"
+
+    } else {
+      document.getElementById(`content2_17_${x}_button`).style.backgroundColor = "#660000"
+    }
+    if (sel.maxLevel != Infinity) {
+      if (f(sel.level).gte(f(sel.maxLevel))) {
+        document.getElementById(`content2_17_${x}_button`).style.backgroundColor = "#36454f"
+      }
+    }
+
+  }
+}
+
 
 function visualInventory() {
 
@@ -6723,7 +8718,6 @@ function visualAttributes() {
   update("content2_11_grid_b2_cont_1_b1_text", `FILL`)
 
   update("content2_11_grid_b2_cont_1_d2", `${IUniversal.attributes.regeneration.name}`)
-
 
 
   update("content2_11_grid_b2_cont_2_1", `<div class="centerDiv">${format(f(IUniversal.attributes.maxRegeneration.level), 0)} ${IUniversal.attributes.maxRegeneration.name}</div>`)
@@ -7402,9 +9396,6 @@ async function fight(type, enemy, signal) {
             let damage1 = f(IFight.onFightStats.damage)
             let damage2 = f(IUniversalChallenger.challengers.universalChallenger.damage)
 
-            console.log(damage1)
-            console.log(damage2)
-
             IUniversalChallenger.challengers.universalChallenger.leftLife = f(IUniversalChallenger.challengers.universalChallenger.leftLife).minus(playerDamage);
             IFight.onFightStats.leftLife2 = f(IFight.onFightStats.leftLife2).minus(enemyDamage);
 
@@ -7753,7 +9744,13 @@ function loopShow() {
     unlockShow("universalShardsBase", false);
     unlockShow("universalNodesBase", false);
     unlockShow("universalCoresBase", false);
+
+    enableDragScroll("content2_17")
+
+    unlockShow("fireValute", false);
+
     IShowableClass.init = false;
+
   }
   //Valutes
   if (IProgress.progress.p2Check() || f(IUniversal.universe).gte(2)) {
@@ -7771,10 +9768,12 @@ function loopShow() {
     unlockShow("universalCoresBase", true)
   }
 
-  //Tabs
+  //TABS MOUNTAIN
 
   unlockShow("fp2_content2_1_container", true)
   unlockShow("fp2_content2_12_container", true)
+
+  unlockShow("fp2_content2_pageSel", true)
 
   if (IProgress.progress.p1Check() == true || f(IUniversal.universe).gte(f(2))) {
     unlockShow("fp2_content2_4_container", true)
@@ -7864,6 +9863,17 @@ function loopShow() {
 
   if (IUniversal.milestones.m1.mCheck()) {
     if (IUniversal.milestones.m2.mCheck()) {
+      if (IUniversal.milestones.m3.mCheck()) {
+        unlockShow("fp2_content3_pageSel", true)
+        document.getElementById("fp2_content3_pageSel").style.opacity = "1";  // attivo 1, disattivo 0.5
+        update("fp2_content2_11", "Sky")
+        document.getElementById("fp2_content3_pageSel").style.pointerEvents = "auto";
+      } else {
+        unlockShow("fp2_content3_pageSel", true)
+        document.getElementById("fp2_content3_pageSel").style.opacity = "0.5";  // attivo 1, disattivo 0.5
+        update("fp2_content3_pageSel", "Reach Universe 40")
+        document.getElementById("fp2_content3_pageSel").style.pointerEvents = "none";
+      }
       unlockShow("fp2_content2_10_container", true)
       document.getElementById("fp2_content2_10_image").style.opacity = "1";  // attivo 1, disattivo 0.5
       update("fp2_content2_10", "Universal Challenger")
@@ -7899,9 +9909,14 @@ function loopShow() {
     unlockShow("fp2_content2_11_container", false)
     unlockShow("fp2_content1_8", false)
     unlockShow("fp2_content2_16_container", false)
+    unlockShow("fp2_content3_pageSel", false)
+
 
   }
 
+  //TABS SKY
+  unlockShow("fp2_content2_17_container", true)
+  unlockShow("fp2_content2_18_container", true)
 
   //PROGRESS BARS
   //CHALLENGER
@@ -8173,6 +10188,325 @@ function loopShow() {
 
     unlockShow("content2_11_grid_b9", false)
   }
+
+  //automation
+
+  unlockShow("fp3_content1_8_auto1", true)
+  unlockShow("fp3_content1_8_auto2", true)
+
+  unlockShow("fp3_content1_8_auto3", true)
+
+  unlockShow("fp3_content1_8_auto4", true)
+  unlockShow("fp3_content1_8_auto5", true)
+  unlockShow("fp3_content1_8_auto6", true)
+
+  unlockShow("fp3_content1_8_auto7", true)
+  unlockShow("fp3_content1_8_auto8", true)
+
+  if (IUniversal.attributes.attributesUnlock1.active) {
+    unlockShow("fp3_content1_8_auto9", true)
+    unlockShow("fp3_content1_8_auto10", true)
+  }
+
+  if (IUniversal.attributes.attributesUnlock2.active) {
+    unlockShow("fp3_content1_8_auto11", true)
+    unlockShow("fp3_content1_8_auto12", true)
+  }
+
+  if (checkShow("content2_6_huntEvolution")) {
+    unlockShow("fp3_content1_8_auto13", true)
+  }
+
+  //Fire tree
+
+
+  if (IUniversal.fireTree.node1.req() || IUniversal.fireTree.node1.unlocked) {
+    unlockShow("content2_17_node1", true)
+  } else {
+    unlockShow("content2_17_node1", false)
+  }
+
+  if (IUniversal.fireTree.node2.req() || IUniversal.fireTree.node2.unlocked) {
+    unlockShow("content2_17_node2", true)
+  } else {
+    unlockShow("content2_17_node2", false)
+  }
+
+  if (IUniversal.fireTree.node3.req() || IUniversal.fireTree.node3.unlocked) {
+    unlockShow("content2_17_node3", true)
+  } else {
+    unlockShow("content2_17_node3", false)
+  }
+
+  if (IUniversal.fireTree.node4.req() || IUniversal.fireTree.node4.unlocked) {
+    unlockShow("content2_17_node4", true)
+  } else {
+    unlockShow("content2_17_node4", false)
+  }
+
+  if (IUniversal.fireTree.node5.req() || IUniversal.fireTree.node5.unlocked) {
+    unlockShow("content2_17_node5", true)
+  } else {
+    unlockShow("content2_17_node5", false)
+  }
+
+  if (IUniversal.fireTree.node6.req() || IUniversal.fireTree.node6.unlocked) {
+    unlockShow("content2_17_node6", true)
+  } else {
+    unlockShow("content2_17_node6", false)
+  }
+
+  if (IUniversal.fireTree.node7.req() || IUniversal.fireTree.node7.unlocked) {
+    unlockShow("content2_17_node7", true)
+  } else {
+    unlockShow("content2_17_node7", false)
+  }
+
+  if (IUniversal.fireTree.node8.req() || IUniversal.fireTree.node8.unlocked) {
+    unlockShow("content2_17_node8", true)
+  } else {
+    unlockShow("content2_17_node8", false)
+  }
+
+  if (IUniversal.fireTree.node9.req() || IUniversal.fireTree.node9.unlocked) {
+    unlockShow("content2_17_node9", true)
+  } else {
+    unlockShow("content2_17_node9", false)
+  }
+
+  if (IUniversal.fireTree.node10.req() || IUniversal.fireTree.node10.unlocked) {
+    unlockShow("content2_17_node10", true)
+  } else {
+    unlockShow("content2_17_node10", false)
+  }
+
+  if (IUniversal.fireTree.node11.req() || IUniversal.fireTree.node11.unlocked) {
+    unlockShow("content2_17_node11", true)
+  } else {
+    unlockShow("content2_17_node11", false)
+  }
+
+  if (IUniversal.fireTree.node12.req() || IUniversal.fireTree.node12.unlocked) {
+    unlockShow("content2_17_node12", true)
+  } else {
+    unlockShow("content2_17_node12", false)
+  }
+
+  if (IUniversal.fireTree.node13.req() || IUniversal.fireTree.node13.unlocked) {
+    unlockShow("content2_17_node13", true)
+  } else {
+    unlockShow("content2_17_node13", false)
+  }
+
+  if (IUniversal.fireTree.node14.req() || IUniversal.fireTree.node14.unlocked) {
+    unlockShow("content2_17_node14", true)
+  } else {
+    unlockShow("content2_17_node14", false)
+  }
+
+  if (IUniversal.fireTree.node15.req() || IUniversal.fireTree.node15.unlocked) {
+    unlockShow("content2_17_node15", true)
+  } else {
+    unlockShow("content2_17_node15", false)
+  }
+
+  if (IUniversal.fireTree.node16.req() || IUniversal.fireTree.node16.unlocked) {
+    unlockShow("content2_17_node16", true)
+  } else {
+    unlockShow("content2_17_node16", false)
+  }
+
+  if (IUniversal.fireTree.node17.req() || IUniversal.fireTree.node17.unlocked) {
+    unlockShow("content2_17_node17", true)
+  } else {
+    unlockShow("content2_17_node17", false)
+  }
+
+  if (IUniversal.fireTree.node18.req() || IUniversal.fireTree.node18.unlocked) {
+    unlockShow("content2_17_node18", true)
+  } else {
+    unlockShow("content2_17_node18", false)
+  }
+
+  if (IUniversal.fireTree.node19.req() || IUniversal.fireTree.node19.unlocked) {
+    unlockShow("content2_17_node19", true)
+  } else {
+    unlockShow("content2_17_node19", false)
+  }
+
+  if (IUniversal.fireTree.node20.req() || IUniversal.fireTree.node20.unlocked) {
+    unlockShow("content2_17_node20", true)
+  } else {
+    unlockShow("content2_17_node20", false)
+  }
+
+  if (IUniversal.fireTree.node21.req() || IUniversal.fireTree.node21.unlocked) {
+    unlockShow("content2_17_node21", true)
+  } else {
+    unlockShow("content2_17_node21", false)
+  }
+
+  if (IUniversal.fireTree.node22.req() || IUniversal.fireTree.node22.unlocked) {
+    unlockShow("content2_17_node22", true)
+  } else {
+    unlockShow("content2_17_node22", false)
+  }
+
+
+  if (IUniversal.fireTree.node23.req() || IUniversal.fireTree.node23.unlocked) {
+    unlockShow("content2_17_node23", true)
+  } else {
+    unlockShow("content2_17_node23", false)
+  }
+
+  if (IUniversal.fireTree.node24.req() || IUniversal.fireTree.node24.unlocked) {
+    unlockShow("content2_17_node24", true)
+  } else {
+    unlockShow("content2_17_node24", false)
+  }
+
+  if (IUniversal.fireTree.node25.req() || IUniversal.fireTree.node25.unlocked) {
+    unlockShow("content2_17_node25", true)
+  } else {
+    unlockShow("content2_17_node25", false)
+  }
+
+  if (IUniversal.fireTree.node26.req() || IUniversal.fireTree.node26.unlocked) {
+    unlockShow("content2_17_node26", true)
+  } else {
+    unlockShow("content2_17_node26", false)
+  }
+
+
+
+
+  /*
+    unlockShow("content2_17_node1", true)
+    unlockShow("content2_17_node2", true)
+    unlockShow("content2_17_node3", true)
+    unlockShow("content2_17_node4", true)
+    unlockShow("content2_17_node5", true)
+    unlockShow("content2_17_node6", true)
+    unlockShow("content2_17_node7", true)
+    unlockShow("content2_17_node8", true)
+    unlockShow("content2_17_node9", true)
+    unlockShow("content2_17_node10", true)
+  
+    unlockShow("content2_17_node11", true)
+    unlockShow("content2_17_node12", true)
+    unlockShow("content2_17_node13", true)
+    unlockShow("content2_17_node14", true)
+    unlockShow("content2_17_node15", true)
+    unlockShow("content2_17_node16", true)
+    unlockShow("content2_17_node17", true)
+    unlockShow("content2_17_node18", true)
+    unlockShow("content2_17_node19", true)
+    unlockShow("content2_17_node20", true)
+    unlockShow("content2_17_node21", true)
+    unlockShow("content2_17_node22", true)
+    unlockShow("content2_17_node23", true)
+    unlockShow("content2_17_node24", true)
+    */
+
+}
+
+function lines() {
+
+
+  clearLines("content2_17_lineLayer")
+
+  //fire left branch
+  if (checkShow("content2_17_node1") && checkShow("content2_17_node2")) {
+    makeLine("content2_17_node1", "content2_17_node2", "content2_17_lineLayer")
+  }
+  if (checkShow("content2_17_node2") && checkShow("content2_17_node3")) {
+    makeLine("content2_17_node2", "content2_17_node3", "content2_17_lineLayer")
+  }
+  if (checkShow("content2_17_node3") && checkShow("content2_17_node4")) {
+    makeLine("content2_17_node3", "content2_17_node4", "content2_17_lineLayer")
+  }
+
+  if (checkShow("content2_17_node2") && checkShow("content2_17_node5")) {
+    makeLine("content2_17_node2", "content2_17_node5", "content2_17_lineLayer")
+  }
+  if (checkShow("content2_17_node5") && checkShow("content2_17_node8")) {
+    makeLine("content2_17_node5", "content2_17_node8", "content2_17_lineLayer")
+  }
+
+  if (checkShow("content2_17_node3") && checkShow("content2_17_node6")) {
+    makeLine("content2_17_node3", "content2_17_node6", "content2_17_lineLayer")
+  }
+  if (checkShow("content2_17_node6") && checkShow("content2_17_node9")) {
+    makeLine("content2_17_node6", "content2_17_node9", "content2_17_lineLayer")
+  }
+
+  if (checkShow("content2_17_node4") && checkShow("content2_17_node7")) {
+    makeLine("content2_17_node4", "content2_17_node7", "content2_17_lineLayer")
+  }
+  if (checkShow("content2_17_node7") && checkShow("content2_17_node10")) {
+    makeLine("content2_17_node7", "content2_17_node10", "content2_17_lineLayer")
+  }
+
+  //fire right branch
+  if (checkShow("content2_17_node2") && checkShow("content2_17_node11")) {
+    makeLine("content2_17_node2", "content2_17_node11", "content2_17_lineLayer")
+  }
+  if (checkShow("content2_17_node11") && checkShow("content2_17_node12")) {
+    makeLine("content2_17_node11", "content2_17_node12", "content2_17_lineLayer")
+  }
+
+  if (checkShow("content2_17_node11") && checkShow("content2_17_node25")) {
+    makeLine("content2_17_node11", "content2_17_node25", "content2_17_lineLayer", "#1313ffff")
+  }
+  if (checkShow("content2_17_node11") && checkShow("content2_17_node26")) {
+    makeLine("content2_17_node11", "content2_17_node26", "content2_17_lineLayer", "#1313ffff")
+  }
+
+  if (checkShow("content2_17_node12") && checkShow("content2_17_node13")) {
+    makeLine("content2_17_node12", "content2_17_node13", "content2_17_lineLayer")
+  }
+  if (checkShow("content2_17_node12") && checkShow("content2_17_node16")) {
+    makeLine("content2_17_node12", "content2_17_node16", "content2_17_lineLayer")
+  }
+
+  if (checkShow("content2_17_node13") && checkShow("content2_17_node14")) {
+    makeLine("content2_17_node13", "content2_17_node14", "content2_17_lineLayer")
+  }
+  if (checkShow("content2_17_node14") && checkShow("content2_17_node15")) {
+    makeLine("content2_17_node14", "content2_17_node15", "content2_17_lineLayer")
+  }
+
+  if (checkShow("content2_17_node16") && checkShow("content2_17_node17")) {
+    makeLine("content2_17_node16", "content2_17_node17", "content2_17_lineLayer")
+  }
+  if (checkShow("content2_17_node17") && checkShow("content2_17_node18")) {
+    makeLine("content2_17_node17", "content2_17_node18", "content2_17_lineLayer")
+  }
+
+  if (checkShow("content2_17_node16") && checkShow("content2_17_node19")) {
+    makeLine("content2_17_node16", "content2_17_node19", "content2_17_lineLayer")
+  }
+  if (checkShow("content2_17_node17") && checkShow("content2_17_node20")) {
+    makeLine("content2_17_node17", "content2_17_node20", "content2_17_lineLayer")
+  }
+
+  if (checkShow("content2_17_node18") && checkShow("content2_17_node21")) {
+    makeLine("content2_17_node18", "content2_17_node21", "content2_17_lineLayer")
+  }
+
+  if (checkShow("content2_17_node15") && checkShow("content2_17_node22")) {
+    makeLine("content2_17_node15", "content2_17_node22", "content2_17_lineLayer")
+  }
+  if (checkShow("content2_17_node18") && checkShow("content2_17_node22")) {
+    makeLine("content2_17_node18", "content2_17_node22", "content2_17_lineLayer")
+  }
+
+  if (checkShow("content2_17_node22") && checkShow("content2_17_node23")) {
+    makeLine("content2_17_node22", "content2_17_node23", "content2_17_lineLayer")
+  }
+  if (checkShow("content2_17_node23") && checkShow("content2_17_node24")) {
+    makeLine("content2_17_node23", "content2_17_node24", "content2_17_lineLayer")
+  }
 }
 
 function changePage(type, page) {
@@ -8183,7 +10517,7 @@ function changePage(type, page) {
   if (type === "mainMenu") {
     // Nasconde tutto
     hideElements([
-      "content2_1", "content2_2", "fcontent2_3", "content2_4", "content2_5", "content2_6", "content2_7", "content2_8", "content2_10", "content2_11", "content2_12", "content2_13", "content2_14", "content2_15", "content2_16",
+      "content2_1", "content2_2", "fcontent2_3", "content2_4", "content2_5", "content2_6", "content2_7", "content2_8", "content2_10", "content2_11", "content2_12", "content2_13", "content2_14", "content2_15", "content2_16", "content2_17", "content2_18",
       "options", "achievements", "fp3_content1_7", "fp3_content1_8", "fp3_content1_12", "fp3_content1_13", "fp3_content1_14", "fp3_content1_15", "fp3_content1_16"
     ]);
 
@@ -8221,9 +10555,19 @@ function changePage(type, page) {
       unlockShow(page, true);
     }
   }
+
+  if (type === "page") {
+    // Nasconde tutto
+    hideElements([
+      "fp2_content2", "fp2_content3",
+    ]);
+
+    unlockShow(page, true)
+  }
+
 }
 
-function visualLoopFunction() {
+async function visualLoopFunction() {
 
   unlockShow("mainMenuDirectionArrow1", false)
   unlockShow("mainMenuDirectionArrow2", false)
@@ -8281,13 +10625,42 @@ function visualLoopFunction() {
     menuDirectionArrow("fp3_content1_8")
   }
 
+  if (checkShow("content2_17")) {
+    visualTree()
+    menuDirectionArrow("content2_17")
+  }
+
+  update("content2_17_svg1", svgFire(f(IUniversal.fire)))
   visualLore()
 
   //visualProgress()
   //visualInventory()
 
+  lines()
+
+  svgLoad();      // aggiorna il menu
+  await sleep(100);  // aspetto 500ms prima del prossimo update
 }
 
+function svgLoad() {
+  //svg
+  document.getElementById("content2_1_svg").innerHTML = visualSvg(f(IFight.youStats.life).mul(f(IFight.youStats.damage)));
+
+  document.getElementById("fp2_content2_1_svg").innerHTML = visualSvg(f(IFight.youStats.life).mul(f(IFight.youStats.damage)));
+
+  document.getElementById("c2_4_A_image").innerHTML = visualSvg(f(IFight.youStats.life).mul(f(IFight.youStats.damage)));
+
+  if (f(IFight.challengers.baseChallenger.level).lte(f(f(IFight.challengers.baseChallenger.maxLevel)))) {
+    document.getElementById("c2_4_B_image").innerHTML = visualSvg(f(IFight.challengers.baseChallenger.damage).mul(f(IFight.challengers.baseChallenger.life)));
+  } else {
+    document.getElementById("c2_4_B_image").innerHTML = ""
+  }
+
+  document.getElementById("c2_10_A_image").innerHTML = visualSvg(f(IFight.youStats.life).mul(f(IFight.youStats.damage)));
+  document.getElementById("c2_10_B_image").innerHTML = visualSvg(f(IUniversalChallenger.challengers.universalChallenger.damage).mul(f(IUniversalChallenger.challengers.universalChallenger.life)));
+
+  //spheres
+}
 
 var SaveGameLoop = window.setInterval(function () {
   saveGameData();
@@ -8310,7 +10683,12 @@ var mainGameLoop = window.setInterval(function () {
 
 
 function idleTimeChecker() {
-  let diff = Date.now() - IGameData.lastTick
+
+  if (IGameData.lastTick != null) {
+    var diff = Date.now() - IGameData.lastTick
+  } else {
+    diff = Date.now() - Date.now()
+  }
 
   let diffSec = diff / 1000;
 
@@ -8332,17 +10710,23 @@ function idleTimeChecker() {
 
 function manualVisualLoop() {
   loopShow();
+
 }
 
-function buyMultiple(item, propertyToUpdate, effect, type) {
+function buyMultiple(item, propertyToUpdate, effect, type, multiple) {
+  // definisco il limite massimo in base a multiple
+  let limit;
+  if (multiple == 0) limit = 1;
+  else if (multiple == 1) limit = 10;
+  else limit = Infinity; // multiple === "2"
 
-  while (buy(item, propertyToUpdate, effect, type)) {
+  let count = 1;
 
-    if (item.maxLevel != undefined) {
-      if (f(item.level).gt(f(item.maxLevel))) {
-        return
-      }
+  while (buy(item, propertyToUpdate, effect, type) && count < limit) {
+    if (item.maxLevel !== undefined && !(f(item.level).lt(f(item.maxLevel)))) {
+      return;
     }
+    count++;
   }
 }
 
@@ -9143,6 +11527,61 @@ function automation() {
   if (IUniversal.automation.automation5.active) {
     document.getElementById("content1_7_ascension_button").click();
   }
+
+  //CRIT
+  if (IUniversal.automation.automation7.active) {
+    buyMultiple(IUniversal.attributes.critRate, "level", 1, "uniChallengerFree")
+    buyMultiple(IUniversal.attributes.critDamage, "level", 1, "uniChallengerFree")
+  }
+
+  //LIFE REGENERATION
+  if (IUniversal.automation.automation8.active) {
+    IUniversal.attributes.regeneration = f(IUniversal.attributes.regeneration).add(f(IGameData.essence))
+    buyMultiple(IUniversal.attributes.maxRegeneration, "level", 1, "uniChallengerFree")
+  }
+
+  //DEFENCE PENETRATION
+  if (IUniversal.automation.automation9.active) {
+    IUniversal.attributes.defencePenetration = f(IUniversal.attributes.defencePenetration).add(f(ITraining.base.base1)).add(f(ITraining.base.base2))
+    buyMultiple(IUniversal.attributes.maxDefencePenetration, "level", 1, "uniChallengerFree")
+  }
+
+  //DEFENCE
+  if (IUniversal.automation.automation10.active) {
+    buyMultiple(IUniversal.attributes.defence, "level", 1, "uniChallengerFree")
+    buyMultiple(IUniversal.attributes.maxDefence, "level", 1, "uniChallengerFree")
+  }
+
+  //LIFE STEAL
+  if (IUniversal.automation.automation11.active) {
+    IUniversal.attributes.lifeSteal = f(IUniversal.attributes.lifeSteal).add(IUniversalChallenger.universalCoresProd)
+    buyMultiple(IUniversal.attributes.lifeStealMax, "level", 1, "uniChallengerFree")
+  }
+
+  //SHIELD
+  if (IUniversal.automation.automation12.active) {
+    IUniversal.attributes.shield = f(IUniversal.attributes.shield).add(IUniversalChallenger.universalCores)
+    buyMultiple(IUniversal.attributes.maxShield, "level", 1, "uniChallengerFree")
+  }
+
+  //HUNT EVOLUTION
+  if (IUniversal.automation.automation13.active) {
+    if (f(IUniversal.huntEvolution.b1.level).lt(f(IUniversal.huntEvolution.b1.maxLevel))) {
+      buy(IUniversal.huntEvolution.b1, "level", 1, "uniChallengerFree")
+    }
+    if (f(IUniversal.huntEvolution.b2.level).lt(f(IUniversal.huntEvolution.b2.maxLevel))) {
+      buy(IUniversal.huntEvolution.b2, "level", 1, "uniChallengerFree")
+    }
+    if (f(IUniversal.huntEvolution.b3.level).lt(f(IUniversal.huntEvolution.b3.maxLevel))) {
+      buy(IUniversal.huntEvolution.b3, "level", 1, "uniChallengerFree")
+    }
+    if (f(IUniversal.huntEvolution.b4.level).lt(f(IUniversal.huntEvolution.b4.maxLevel))) {
+      buy(IUniversal.huntEvolution.b4, "level", 1, "uniChallengerFree")
+    }
+    if (f(IUniversal.huntEvolution.b5.level).lt(f(IUniversal.huntEvolution.b5.maxLevel))) {
+      buy(IUniversal.huntEvolution.b5, "level", 1, "uniChallengerFree")
+    }
+  }
 }
 
 function menuDirectionArrow(page) {
@@ -9193,4 +11632,95 @@ function menuDirectionArrow(page) {
 function devTool1() {
   ITraining.base.base1.tot = f(ITraining.base.base1.tot).add(1e20)
   ITraining.base.base2.tot = f(ITraining.base.base1.tot).add(1e20)
+}
+
+function makeLine(divAId, divBId, lineLayerId, color = "#ff1313ff", width = 6) {
+  const elA = document.getElementById(divAId);
+  const elB = document.getElementById(divBId);
+  const svg = document.getElementById(lineLayerId);
+
+  if (!elA || !elB || !svg) {
+    console.error("ID non valido:", divAId, divBId, lineLayerId);
+    return;
+  }
+
+  const parent = svg.parentElement;
+  const parentRect = parent.getBoundingClientRect();
+  const scrollLeft = parent.scrollLeft || 0;
+  const scrollTop = parent.scrollTop || 0;
+
+  const rectA = elA.getBoundingClientRect();
+  const rectB = elB.getBoundingClientRect();
+
+  const x1 = (rectA.left - parentRect.left + scrollLeft) + rectA.width / 2;
+  const y1 = (rectA.top - parentRect.top + scrollTop) + rectA.height / 2;
+  const x2 = (rectB.left - parentRect.left + scrollLeft) + rectB.width / 2;
+  const y2 = (rectB.top - parentRect.top + scrollTop) + rectB.height / 2;
+
+  svg.style.position = 'absolute';
+  svg.style.top = '0';
+  svg.style.left = '0';
+  svg.setAttribute("width", parent.scrollWidth);
+  svg.setAttribute("height", parent.scrollHeight);
+
+  const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+  line.setAttribute("x1", x1);
+  line.setAttribute("y1", y1);
+  line.setAttribute("x2", x2);
+  line.setAttribute("y2", y2);
+  line.setAttribute("stroke", color);
+  line.setAttribute("stroke-width", width);
+  line.setAttribute("pointer-events", "none");
+
+  svg.appendChild(line);
+}
+
+function clearLines(lineLayerId) {
+  const svg = document.getElementById(lineLayerId);
+  if (svg) svg.innerHTML = "";
+}
+
+function enableDragScroll(containerId) {
+  const container = document.getElementById(containerId);
+  if (!container) {
+    console.error("Container non trovato:", containerId);
+    return;
+  }
+
+  let isDown = false;
+  let startX, startY;
+  let scrollLeft, scrollTop;
+
+  container.style.cursor = 'grab';
+
+  container.addEventListener('mousedown', (e) => {
+    isDown = true;
+    container.style.cursor = 'grabbing';
+    startX = e.pageX - container.offsetLeft;
+    startY = e.pageY - container.offsetTop;
+    scrollLeft = container.scrollLeft;
+    scrollTop = container.scrollTop;
+    e.preventDefault(); // evita selezione testo
+  });
+
+  container.addEventListener('mouseleave', () => {
+    isDown = false;
+    container.style.cursor = 'grab';
+  });
+
+  container.addEventListener('mouseup', () => {
+    isDown = false;
+    container.style.cursor = 'grab';
+  });
+
+  container.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - container.offsetLeft;
+    const y = e.pageY - container.offsetTop;
+    const walkX = x - startX;
+    const walkY = y - startY;
+    container.scrollLeft = scrollLeft - walkX;
+    container.scrollTop = scrollTop - walkY;
+  });
 }
