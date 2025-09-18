@@ -5881,7 +5881,7 @@ document.getElementById("fp2_content2_17").onclick = function () {
   var element = document.getElementById("content2_17")
 
   element.scrollTop = element.scrollHeight / 3
-  element.scrollLeft = element.scrollWidth / 6
+  element.scrollLeft = element.scrollWidth - element.scrollWidth
 }
 
 

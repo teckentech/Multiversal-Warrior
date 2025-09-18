@@ -4023,8 +4023,7 @@ button,
   width: 65%;
   aspect-ratio: 1/1;
   top: 20%;
-  transform: translate(-50%);
-  left: 100%;
+  left: 21%;
 }
 
 svg#content2_17_lineLayer {
@@ -4040,8 +4039,7 @@ svg#content2_17_lineLayer {
   height: 20%;
   position: absolute;
   top: 150%;
-  transform: translate(-50%);
-  left: 100%;
+  left: 44%;
 
   border-radius: 0.5em;
 }
@@ -4050,9 +4048,8 @@ svg#content2_17_lineLayer {
   width: 20%;
   height: 20%;
   position: absolute;
-  top: 175%;
-  left: 100%;
-  transform: translate(-50%);
+  top: 200%;
+  left: 44%;
   border-radius: 0.5em;
 }
 
@@ -4060,9 +4057,8 @@ svg#content2_17_lineLayer {
   width: 20%;
   height: 20%;
   position: absolute;
-  top: 200%;
-  transform: translate(-50%);
-  left: 100%;
+  top: 225%;
+  left: 44%;
 
   border-radius: 0.5em;
 }
@@ -4071,9 +4067,8 @@ svg#content2_17_lineLayer {
   width: 20%;
   height: 20%;
   position: absolute;
-  top: 225%;
-  left: 100%;
-  transform: translate(-50%);
+  top: 250%;
+  left: 44%;
   border-radius: 0.5em;
 }
 
@@ -4081,8 +4076,8 @@ svg#content2_17_lineLayer {
   width: 20%;
   height: 20%;
   position: absolute;
-  top: 175%;
-  left: 67%;
+  top: 200%;
+  left: 21%;
 
   border-radius: 0.5em;
 }
@@ -4091,8 +4086,8 @@ svg#content2_17_lineLayer {
   width: 20%;
   height: 20%;
   position: absolute;
-  top: 200%;
-  left: 67%;
+  top: 225%;
+  left: 21%;
   border-radius: 0.5em;
 }
 
@@ -4100,8 +4095,8 @@ svg#content2_17_lineLayer {
   width: 20%;
   height: 20%;
   position: absolute;
-  top: 225%;
-  left: 67%;
+  top: 250%;
+  left: 21%;
 
   border-radius: 0.5em;
 }
@@ -4110,7 +4105,7 @@ svg#content2_17_lineLayer {
   width: 20%;
   height: 20%;
   position: absolute;
-  top: 175%;
+  top: 2%;
   left: 44%;
   border-radius: 0.5em;
 }
@@ -4140,8 +4135,8 @@ svg#content2_17_lineLayer {
   width: 20%;
   height: 20%;
   position: absolute;
-  top: 175%;
-  left: 113%;
+  top: 200%;
+  left: 90%;
 
   border-radius: 0.5em;
 
@@ -4152,7 +4147,7 @@ svg#content2_17_lineLayer {
   width: 20%;
   height: 20%;
   position: absolute;
-  top: 175%;
+  top: 200%;
   left: 136%;
   border-radius: 0.5em;
 }
@@ -4246,7 +4241,7 @@ svg#content2_17_lineLayer {
   width: 20%;
   height: 20%;
   position: absolute;
-  top: 187.5%;
+  top: 200%;
   left: 228%;
   border-radius: 0.5em;
 }
@@ -4255,7 +4250,7 @@ svg#content2_17_lineLayer {
   width: 20%;
   height: 20%;
   position: absolute;
-  top: 212.5%;
+  top: 225%;
   left: 228%;
   border-radius: 0.5em;
 }
@@ -4264,7 +4259,7 @@ svg#content2_17_lineLayer {
   width: 20%;
   height: 20%;
   position: absolute;
-  top: 237.5%;
+  top: 250%;
   left: 228%;
   border-radius: 0.5em;
 }
@@ -4273,8 +4268,8 @@ svg#content2_17_lineLayer {
   width: 20%;
   height: 20%;
   position: absolute;
-  top: 200%;
-  left: 113%;
+  top: 175%;
+  left: 67%;
   border-radius: 0.5em;
 }
 
@@ -4282,8 +4277,8 @@ svg#content2_17_lineLayer {
   width: 20%;
   height: 20%;
   position: absolute;
-  top: 200%;
-  left: 136%;
+  top: 175%;
+  left: 113%;
   border-radius: 0.5em;
 }
 
