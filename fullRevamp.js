@@ -4549,7 +4549,7 @@ function valuesSetter(type) {
 
 
   if (f(sel.effect).gt(f(0))) {
-    sel.effect2 = ((f(2).pow(f(Decimal.log10(f(IUniversal.coal).add(f(10)))))).pow(f(1.1))).mul(f(effect1))
+    sel.effect2 = ((f(2).pow(f(Decimal.log10(f(IUniversal.coal).add(f(10)))))).pow(f(1.2))).mul(f(effect1))
   } else {
     sel.effect2 = f(1)
   }
@@ -4597,9 +4597,8 @@ function valuesSetter(type) {
 
   var effect1 = f(IUniversal.fireTree.node19.effect)
 
-
   if (f(sel.effect).gt(f(0))) {
-    sel.effect2 = ((f(2).pow(f(Decimal.log10(f(IUniversal.magma).add(f(10)))))).pow(f(1.1))).mul(f(effect1))
+    sel.effect2 = ((f(2).pow(f(Decimal.log10(f(IUniversal.magma).add(f(10)))))).pow(f(1.8))).mul(f(effect1))
   } else {
     sel.effect2 = f(1)
   }
@@ -4607,7 +4606,7 @@ function valuesSetter(type) {
   var price1 = f(IUniversal.fireTree.node18.effect)
 
 
-  sel.price = f(f(10).pow(f(10))).mul(f(10).pow(f(sel.level))).dividedBy(f(price1))
+  sel.price = f(f(10).pow(f(10))).mul(f(15).pow(f(sel.level))).dividedBy(f(price1))
 
   if (f(sel.level).gt(f(0))) { sel.active = true }
   if (sel.active) { sel.unlocked = true }
@@ -4887,7 +4886,7 @@ function valuesSetter(type) {
   } else {
     sel.effect = f(0)
   }
-  sel.price = (f(5).mul(f(10).pow(f(1))).mul(f(4).pow(f(sel.level))))
+  sel.price = (f(5).mul(f(10).pow(f(1))).mul(f(5).pow(f(sel.level))))
 
   if (f(sel.level).gt(f(0))) { sel.active = true }
   if (sel.active) { sel.unlocked = true }
@@ -4929,7 +4928,7 @@ function valuesSetter(type) {
   } else {
     sel.effect = f(0)
   }
-  sel.price = (f(50).mul(f(10).pow(f(1))).mul(f(6).pow(f(sel.level))))
+  sel.price = (f(50).mul(f(10).pow(f(1))).mul(f(8).pow(f(sel.level))))
 
   if (f(sel.level).gt(f(0))) { sel.active = true }
   if (sel.active) { sel.unlocked = true }
@@ -5110,7 +5109,7 @@ function valuesSetter(type) {
   } else {
     sel.effect = f(1)
   }
-  sel.price = (f(50).mul(f(10).pow(f(1))).mul(f(10).pow(f(sel.level))))
+  sel.price = (f(5).mul(f(10).pow(f(1))).mul(f(10).pow(f(sel.level))))
 
   if (f(sel.level).gt(f(0))) { sel.active = true }
   if (sel.active) { sel.unlocked = true }
@@ -5249,7 +5248,7 @@ function valuesSetter(type) {
   } else {
     sel.effect = f(1)
   }
-  sel.price = (f(50000000).mul(f(10).pow(f(1))).mul(f(100000).pow(f(sel.level))))
+  sel.price = (f(5000000000).mul(f(10).pow(f(1))).mul(f(1000000).pow(f(sel.level))))
 
   if (f(sel.level).gt(f(0))) { sel.active = true }
   if (sel.active) { sel.unlocked = true }
@@ -5281,7 +5280,7 @@ function valuesSetter(type) {
   } else {
     sel.effect = f(1)
   }
-  sel.price = (f(50000000000).mul(f(10).pow(f(1))).mul(f(1000000).pow(f(sel.level))))
+  sel.price = (f(50000000000000).mul(f(10).pow(f(1))).mul(f(10000000).pow(f(sel.level))))
 
   if (f(sel.level).gt(f(0))) { sel.active = true }
   if (sel.active) { sel.unlocked = true }
