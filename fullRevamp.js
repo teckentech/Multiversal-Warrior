@@ -7745,7 +7745,7 @@ document.getElementById('scale-down').addEventListener('click', () => scaleAscen
 
 function visualMenu() {
 
-  if (checkShow("fp2_content2")) {
+  if (checkShow("fp2_content2") || true) {
     document.getElementById("menu1").style.backgroundImage = `url("images/ground.png")`
     document.getElementById("menu1").style.zIndex = 3
 
@@ -7845,7 +7845,7 @@ function visualMenu() {
     spheres('fp2_content2_7_svg4', tot4, 110, 66, "#ffd700", -2, 40, 2.25 / 3, false, true, -45 * Math.PI / 180);
   }
 
-  if (checkShow("fp2_content3")) {
+  if (checkShow("fp2_content3") || true) {
     document.getElementById("menu4").style.backgroundImage = `url("images/second page1.png")`
     document.getElementById("menu4").style.zIndex = 1
 
