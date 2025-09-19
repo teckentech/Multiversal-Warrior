@@ -7002,7 +7002,7 @@ document.getElementById("optionsMisc_notation_b1").onclick = function () {
 //discord
 
 document.getElementById("options_discord").onclick = function () {
-  window.open("https://discord.gg/yVRAGpKQ", "_blank");
+  window.open("https://discord.gg/sVerm9fbhv", "_blank");
 }
 
 
