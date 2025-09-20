@@ -6530,7 +6530,13 @@ document.getElementById("content1_7_ascension_button").onclick = function () {
       var training1Status3 = ITraining.base.base3.active
       var training1Status4 = ITraining.base.base4.active
 
+      var groupNum = ISelUpgrade.group.group1.num
+      var groupNumLastsel = ISelUpgrade.group.group1.lastSel
+
       partialResetSave(1)
+
+      ISelUpgrade.group.group1.num = groupNum
+      ISelUpgrade.group.group1.lastSel = groupNumLastsel
 
       ITraining.base.base1.active = training1Status1
       ITraining.base.base2.active = training1Status2
@@ -7379,11 +7385,11 @@ function svgFire(value) {
   if (f(Decimal.log10(f(value))).gt(f(90))) {
     var size1 = f(100)
   } else {
-    if((value).gt(f(0))){
-    size1 = Decimal.log10(f(value))
-    size1 = f(size1).add(f(10))
-    }else{
-    size1 = f(10)
+    if ((value).gt(f(0))) {
+      size1 = Decimal.log10(f(value))
+      size1 = f(size1).add(f(10))
+    } else {
+      size1 = f(10)
     }
   }
 
