@@ -463,6 +463,7 @@ class Universal {
     this.lightProdBase = options.lightProdBase || 0;
 
     this.rotation = options.rotation || 0;
+    this.rotationProd = options.rotationProd || 0;
 
     this.node29Size = options.node29Size || {
       size1: {},
@@ -3508,7 +3509,7 @@ function fullSetter(type) {
   if (!waiting || type == "off") {
     valuesSetter()
     valuesSetter()
-    valuesSetterDinamic()
+    valuesSetterDinamic(type)
   }
 }
 
@@ -8960,6 +8961,18 @@ function valuesSetterDinamic(type) {
   IUniversal.fireShardsProd = f(fireShard1).mul(f(fireShard2)).mul(f(fireShard3)).mul(f(fireShard4)).mul(f(IGameData.tickSpeed))
   IUniversal.fireShards = f(IUniversal.fireShards).add(f(IUniversal.fireShardsProd))
 
+  //rotations
+
+  var rotation1 = f(IUniversalIn.fireTree.node54.effect)
+
+  if (type == "off") {
+    IUniversal.rotationProd = (f(rotation1).mul(f(IGameData.tickSpeed))).dividedBy(f(IUniversal.heatTimer))
+  } else {
+    IUniversal.rotationProd = f(0)
+  }
+
+  IUniversal.rotation = f(IUniversal.rotation).add(f(IUniversal.rotationProd))
+
   //fireTimers
 
   if (!IUniversal.heatActiveTimer && (IUniversal.fireTree.node27.active)) {
@@ -11748,12 +11761,12 @@ function visualEnergy() {
     }
 
     var sel2 = document.getElementById(`content2_7_l_${x}_b1`)
-      if (x != IUniversal.energyLoadoutSel) {
-        sel2.style.backgroundColor = ""
-      } else if(x == IUniversal.energyLoadoutSel){
-        sel2.style.backgroundColor = "#004526"
-        sel2.style.filter = "saturate(2)";
-      }
+    if (x != IUniversal.energyLoadoutSel) {
+      sel2.style.backgroundColor = ""
+    } else if (x == IUniversal.energyLoadoutSel) {
+      sel2.style.backgroundColor = "#004526"
+      sel2.style.filter = "saturate(2)";
+    }
   }
 
   //IMAGE
@@ -13706,14 +13719,14 @@ function loopShow() {
     unlockShow("content2_17_zone1", false)
   }
 
-    if (IUniversal.fireTree.node11.unlocked) {
+  if (IUniversal.fireTree.node11.unlocked) {
     unlockShow("content2_17_zone2", true)
   } else {
     unlockShow("content2_17_zone2", false)
   }
 
 
-    if (IUniversal.fireTree.node27.unlocked) {
+  if (IUniversal.fireTree.node27.unlocked) {
     unlockShow("content2_17_zone3", true)
   } else {
     unlockShow("content2_17_zone3", false)
@@ -14498,7 +14511,7 @@ function createSquareSvg(color = "#6cf", strokeWidth = 4, viewSize = 100) {
   rectInner.setAttribute("y", strokeWidth * 2);
   rectInner.setAttribute("width", size - strokeWidth * 2);
   rectInner.setAttribute("height", size - strokeWidth * 2);
-  rectInner.setAttribute("rx", strokeWidth); 
+  rectInner.setAttribute("rx", strokeWidth);
   rectInner.setAttribute("ry", strokeWidth);
   rectInner.setAttribute("fill", "none");
   rectInner.setAttribute("stroke", color);
