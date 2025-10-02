@@ -7860,7 +7860,7 @@ function valuesSetter(type) {
                  </div>`
 
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Size</div>`
+                <div class="centerDiv noClick">Fire Shards</div>`
 
   sel.level = f(sel.level)
   sel2.maxLevel = f(10)
