@@ -8966,7 +8966,7 @@ function valuesSetterDinamic(type) {
   var rotation1 = f(IUniversalIn.fireTree.node54.effect)
 
   if (type == "off") {
-    IUniversal.rotationProd = (f(rotation1).mul(f(IGameData.tickSpeed))).dividedBy(f(IUniversal.heatTimer))
+    IUniversal.rotationProd = (f(rotation1).mul(f(IGameData.tickSpeed))).dividedBy(f(IUniversal.fireTree.node50.timer))
   } else {
     IUniversal.rotationProd = f(0)
   }
