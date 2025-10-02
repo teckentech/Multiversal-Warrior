@@ -9401,9 +9401,9 @@ document.getElementById("content2_7_upgrade17_b1").onclick = function () {
 document.getElementById("content2_7_upgrade18_b1").onclick = function () {
   if (IUniversal.energyUpgrades.upgrade18.showReq) {
     if (IUniversal.energyMulti) {
-      buyMultiple(IUniversalIn.energyUpgrades.upgrade18, IUniversalIn.energyUpgrades.upgrade18.price, IUniversal.energyUpgrades.upgrade18, "level", 1, "uni", 2, IUniversal.energyUpgrades.upgrade18, IUniversalIn.energyUpgrades.upgrade18)
+      buyMultiple(IUniversalIn.energyUpgrades.upgrade18, IUniversalIn.energyUpgrades.upgrade18, IUniversal.energyUpgrades.upgrade18, "level", 1, "uni", 2, IUniversal.energyUpgrades.upgrade18, IUniversalIn.energyUpgrades.upgrade18)
     } else {
-      buyMultiple(IUniversalIn.energyUpgrades.upgrade18, IUniversalIn.energyUpgrades.upgrade18.price, IUniversal.energyUpgrades.upgrade18, "level", 1, "uni", 0, IUniversal.energyUpgrades.upgrade18, IUniversalIn.energyUpgrades.upgrade18)
+      buyMultiple(IUniversalIn.energyUpgrades.upgrade18, IUniversalIn.energyUpgrades.upgrade18, IUniversal.energyUpgrades.upgrade18, "level", 1, "uni", 0, IUniversal.energyUpgrades.upgrade18, IUniversalIn.energyUpgrades.upgrade18)
     }
   }
 }
@@ -9689,8 +9689,9 @@ document.getElementById("content2_7_b2").onclick = function () {
 
 //Hunt
 document.getElementById("content2_6_hunt1_button").onclick = function () {
-  if (IFight.normalHunting.hunt1.showReq) {
+  if (IFightIn.normalHunting.hunt1.req()) {
     if (IFight.huntingMulti) {
+
       buyMultiple(IFightIn.normalHunting.hunt1, IFightIn.normalHunting.hunt1, IFight.normalHunting.hunt1, "level", 1, null, 2, IFight.normalHunting.hunt1, IFightIn.normalHunting.hunt1)
     } else {
       buyMultiple(IFightIn.normalHunting.hunt1, IFightIn.normalHunting.hunt1, IFight.normalHunting.hunt1, "level", 1, null, 0, IFight.normalHunting.hunt1, IFightIn.normalHunting.hunt1)
@@ -9699,7 +9700,7 @@ document.getElementById("content2_6_hunt1_button").onclick = function () {
 }
 
 document.getElementById("content2_6_hunt2_button").onclick = function () {
-  if (IFight.normalHunting.hunt2.showReq) {
+  if (IFightIn.normalHunting.hunt2.req()) {
     if (IFight.huntingMulti) {
       buyMultiple(IFightIn.normalHunting.hunt2, IFightIn.normalHunting.hunt2, IFight.normalHunting.hunt2, "level", 1, null, 2, IFight.normalHunting.hunt2, IFightIn.normalHunting.hunt2)
     } else {
@@ -9709,17 +9710,17 @@ document.getElementById("content2_6_hunt2_button").onclick = function () {
 }
 
 document.getElementById("content2_6_hunt3_button").onclick = function () {
-  if (IFight.normalHunting.hunt3.showReq) {
+  if (IFightIn.normalHunting.hunt3.req()) {
     if (IFight.huntingMulti) {
-      buyMultiple(IFight.normalHunting.hunt3, IFight.normalHunting.hunt3, IFight.normalHunting.hunt3, "level", 1, null, 2, IFight.normalHunting.hunt3, IFightIn.normalHunting.hunt3)
+      buyMultiple(IFightIn.normalHunting.hunt3, IFightIn.normalHunting.hunt3, IFight.normalHunting.hunt3, "level", 1, null, 2, IFight.normalHunting.hunt3, IFightIn.normalHunting.hunt3)
     } else {
-      buyMultiple(IFight.normalHunting.hunt3, IFight.normalHunting.hunt3, IFight.normalHunting.hunt3, "level", 1, null, 0, IFight.normalHunting.hunt3, IFightIn.normalHunting.hunt3)
+      buyMultiple(IFightIn.normalHunting.hunt3, IFightIn.normalHunting.hunt3, IFight.normalHunting.hunt3, "level", 1, null, 0, IFight.normalHunting.hunt3, IFightIn.normalHunting.hunt3)
     }
   }
 }
 
 document.getElementById("content2_6_hunt4_button").onclick = function () {
-  if (IFight.normalHunting.hunt4.showReq) {
+  if (IFightIn.normalHunting.hunt4.req()) {
     if (IFight.huntingMulti) {
       buyMultiple(IFightIn.normalHunting.hunt4, IFightIn.normalHunting.hunt4, IFight.normalHunting.hunt4, "level", 1, null, 2, IFight.normalHunting.hunt4, IFightIn.normalHunting.hunt4)
     } else {
@@ -9729,7 +9730,7 @@ document.getElementById("content2_6_hunt4_button").onclick = function () {
 }
 
 document.getElementById("content2_6_hunt5_button").onclick = function () {
-  if (IFight.normalHunting.hunt5.showReq) {
+  if (IFightIn.normalHunting.hunt5.req()) {
     if (IFight.huntingMulti) {
       buyMultiple(IFightIn.normalHunting.hunt5, IFightIn.normalHunting.hunt5, IFight.normalHunting.hunt5, "level", 1, null, 2, IFight.normalHunting.hunt5, IFightIn.normalHunting.hunt5)
     } else {
@@ -9740,7 +9741,7 @@ document.getElementById("content2_6_hunt5_button").onclick = function () {
 
 // HUNT REWARDS
 document.getElementById("content2_6_upgrade1_button").onclick = function () {
-  if (IFight.normalHuntingRewards.upgrade1.showReq) {
+  if (IFightIn.normalHuntingRewards.upgrade1.req()) {
     if (IFight.huntingMulti) {
       buyMultiple(IFightIn.normalHuntingRewards.upgrade1, IFightIn.normalHuntingRewards.upgrade1, IFight.normalHuntingRewards.upgrade1, "level", 1, null, 2, IFight.normalHuntingRewards.upgrade1, IFightIn.normalHuntingRewards.upgrade1)
     } else {
@@ -9750,7 +9751,7 @@ document.getElementById("content2_6_upgrade1_button").onclick = function () {
 }
 
 document.getElementById("content2_6_upgrade2_button").onclick = function () {
-  if (IFight.normalHuntingRewards.upgrade2.showReq) {
+  if (IFightIn.normalHuntingRewards.upgrade2.req()) {
     if (IFight.huntingMulti) {
       buyMultiple(IFightIn.normalHuntingRewards.upgrade2, IFightIn.normalHuntingRewards.upgrade2, IFight.normalHuntingRewards.upgrade2, "level", 1, null, 2, IFight.normalHuntingRewards.upgrade2, IFightIn.normalHuntingRewards.upgrade2)
     } else {
@@ -9760,7 +9761,7 @@ document.getElementById("content2_6_upgrade2_button").onclick = function () {
 }
 
 document.getElementById("content2_6_upgrade3_button").onclick = function () {
-  if (IFight.normalHuntingRewards.upgrade3.showReq) {
+  if (IFightIn.normalHuntingRewards.upgrade3.req()) {
     if (IFight.huntingMulti) {
       buyMultiple(IFightIn.normalHuntingRewards.upgrade3, IFightIn.normalHuntingRewards.upgrade3, IFight.normalHuntingRewards.upgrade3, "level", 1, null, 2, IFight.normalHuntingRewards.upgrade3, IFightIn.normalHuntingRewards.upgrade3)
     } else {
@@ -9770,7 +9771,7 @@ document.getElementById("content2_6_upgrade3_button").onclick = function () {
 }
 
 document.getElementById("content2_6_upgrade4_button").onclick = function () {
-  if (IFight.normalHuntingRewards.upgrade4.showReq) {
+  if (IFightIn.normalHuntingRewards.upgrade4.req()) {
     if (IFight.huntingMulti) {
       buyMultiple(IFightIn.normalHuntingRewards.upgrade4, IFightIn.normalHuntingRewards.upgrade4, IFight.normalHuntingRewards.upgrade4, "level", 1, null, 2, IFight.normalHuntingRewards.upgrade4, IFightIn.normalHuntingRewards.upgrade4)
     } else {
@@ -9780,7 +9781,7 @@ document.getElementById("content2_6_upgrade4_button").onclick = function () {
 }
 
 document.getElementById("content2_6_upgrade5_button").onclick = function () {
-  if (IFight.normalHuntingRewards.upgrade5.showReq) {
+  if (IFightIn.normalHuntingRewards.upgrade5.showReq.req()) {
     if (IFight.huntingMulti) {
       buyMultiple(IFightIn.normalHuntingRewards.upgrade5, IFightIn.normalHuntingRewards.upgrade5, IFight.normalHuntingRewards.upgrade5, "level", 1, null, 2, IFight.normalHuntingRewards.upgrade5, IFightIn.normalHuntingRewards.upgrade5)
     } else {
@@ -11753,7 +11754,6 @@ function visualEnergy() {
     }
 
     var sel2 = document.getElementById(`content2_7_l_${x}_b1`)
-    console.log(IUniversal.energyLoadoutSel)
       if (x != IUniversal.energyLoadoutSel) {
         sel2.style.backgroundColor = ""
       } else if(x == IUniversal.energyLoadoutSel){
