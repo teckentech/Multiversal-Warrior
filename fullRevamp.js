@@ -619,9 +619,6 @@ class Universal {
         level: 0,
         click: false, clickF: true,
       },
-
-      //heat
-
       node27: {
         active: false, unlocked: false,
         level: 0,
@@ -1585,9 +1582,6 @@ class UniversalIn {
         price: 0, priceIdentity: "size", priceIdentityF: true,
         maxLevel: 0,
       },
-
-      //heat
-
       node27: {
         content: "", button: "",
         effect: 0, effect2: 0,
