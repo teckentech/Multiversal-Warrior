@@ -346,6 +346,13 @@ body {
   text-align: center;
 }
 
+.centerDivTopColumns {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
 .centerDivColumns {
   display: flex;
   justify-content: center;
@@ -844,6 +851,7 @@ button,
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 #c2_4_B_container {
@@ -2046,11 +2054,11 @@ button,
   width: 80%;
 }
 
-#content2_7_l1_b1 {
+#content2_7_l_loadout1_b1 {
   width: 50%;
 }
 
-#content2_7_l1_b2 {
+#content2_7_l_loadout1_b2 {
   width: 50%;
 }
 
@@ -2075,11 +2083,11 @@ button,
   width: 80%;
 }
 
-#content2_7_l2_b1 {
+#content2_7_l_loadout2_b1 {
   width: 50%;
 }
 
-#content2_7_l2_b2 {
+#content2_7_l_loadout2_b2 {
   width: 50%;
 }
 
@@ -2102,11 +2110,11 @@ button,
   width: 80%;
 }
 
-#content2_7_l3_b1 {
+#content2_7_l_loadout3_b1 {
   width: 50%;
 }
 
-#content2_7_l3_b2 {
+#content2_7_l_loadout3_b2 {
   width: 50%;
 }
 
@@ -3346,6 +3354,23 @@ button,
   /* grigio chiaro */
 }
 
+.bluOpaque{
+  background-color: rgba(62, 42, 151, 0.5); /* rosso opaco con 50% trasparenza */
+}
+
+.orangeOpaque{
+  background-color: rgba(151, 144, 42, 0.5); /* rosso opaco con 50% trasparenza */
+}
+
+.orange {
+  background-color: rgb(151, 86, 42);
+  /* grigio chiaro */
+}
+
+.yellow {
+  background-color: rgb(187, 180, 89);  /* grigio chiaro */
+}
+
 .blu {
   background-color: rgb(42, 111, 151)
     /* grigio chiaro */
@@ -3652,7 +3677,7 @@ button,
   z-index: 10000;
 }
 
-#fp2_content2_18{
+#fp2_content2_18 {
   position: absolute;
   top: 44.5%;
   left: 5.7%;
@@ -3729,85 +3754,22 @@ button,
 
 #mainMenuDirectionArrow1 {
   position: absolute;
-  width: 4%;
-  height: auto;
+  width: 100%;
+  height: 5%;
 
-  bottom: 10%;
-  right: 0.5%;
-
+  bottom: 2.5%;
   aspect-ratio: 1/1;
   border: none;
 
   z-index: 10;
   background-color: transparent;
-  background-image: url("images/direct arrow.png");
+  background-image: url("images/arrow.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+
+  pointer-events: none;
 }
-
-#mainMenuDirectionArrow2 {
-  position: absolute;
-  width: 4%;
-  height: auto;
-
-  bottom: 10%;
-  left: 0.5%;
-
-  aspect-ratio: 1/1;
-  border: none;
-
-  z-index: 10;
-  background-color: transparent;
-  background-image: url("images/direct arrow.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
-
-#mainMenuDirectionArrow3 {
-  position: absolute;
-  width: 4%;
-  height: auto;
-
-  top: 10%;
-  right: 0.5%;
-
-  aspect-ratio: 1/1;
-  border: none;
-
-  transform: scaleY(-1);
-  z-index: 10;
-  background-color: transparent;
-  background-image: url("images/direct arrow.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
-
-#mainMenuDirectionArrow4 {
-  position: absolute;
-  width: 4%;
-  height: auto;
-
-  top: 10%;
-  left: 0.5%;
-
-  aspect-ratio: 1/1;
-  border: none;
-
-  transform: scaleY(-1);
-  z-index: 10;
-  background-color: transparent;
-  background-image: url("images/direct arrow.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
-
-
-
-
 
 .width10 {
   width: 10%;
@@ -3857,8 +3819,16 @@ button,
   height: 20%;
 }
 
+.height25 {
+  height: 25%;
+}
+
 .height30 {
   height: 30%;
+}
+
+.height35 {
+  height: 35%;
 }
 
 .height40 {
@@ -3866,7 +3836,7 @@ button,
 }
 
 .height45 {
-  height: 40%;
+  height: 45%;
 }
 
 .height50 {
@@ -3874,7 +3844,7 @@ button,
 }
 
 .height55 {
-  height: 50%;
+  height: 55%;
 }
 
 .height60 {
@@ -3903,6 +3873,18 @@ button,
 
 .relative {
   position: relative;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.static {
+  position: static;
+}
+
+.sticky {
+  position: sticky;
 }
 
 .transparent {
@@ -3973,6 +3955,10 @@ button,
   left: 0%;
 }
 
+.left50 {
+  left: 50%;
+  transform: translateX(-50%);
+}
 .top {
   top: 0%;
 }
@@ -3985,6 +3971,64 @@ button,
   bottom: 0%;
 }
 
+.top10 {
+  top: 10%;
+}
+
+.top18 {
+  top: 18%;
+}
+
+.top20 {
+  top: 20%;
+}
+
+.top30 {
+  top: 30%;
+}
+
+.top40 {
+  top: 40%;
+}
+
+.top50 {
+  top: 50%;
+}
+
+.top60 {
+  top: 60%;
+}
+
+.top70 {
+  top: 70%;
+}
+
+.top80 {
+  top: 80%;
+}
+
+.top90 {
+  top: 90%;
+}
+
+.top100 {
+  top: 100%;
+}
+
+.gridCenter {
+  display: grid;
+  place-items: center; /* centra sia verticalmente che orizzontalmente */
+}
+
+.center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.sameCell {
+  grid-area: 1 / 1;
+}
 
 
 #content2_17 {
@@ -4008,13 +4052,13 @@ button,
 
 #content2_17_limit3 {
   position: absolute;
-  top: 300%;
+  top: 450%;
   left: 0%;
 }
 
 #content2_17_limit4 {
   position: absolute;
-  top: 300%;
+  top: 450%;
   left: 299%;
 }
 
@@ -4023,7 +4067,7 @@ button,
   width: 65%;
   aspect-ratio: 1/1;
   top: 20%;
-  left: 21%;
+  left: 44%;
 }
 
 svg#content2_17_lineLayer {
@@ -4034,12 +4078,48 @@ svg#content2_17_lineLayer {
   z-index: 0;
 }
 
+#content2_17_zone1 {
+  width: 80%;
+  height: 125%;
+  position: absolute;
+  top: 170%;
+  left: 9.5%;
+
+  border-radius: 0.5em;
+
+  border: 5px  dashed #972a2aff;
+}
+
+#content2_17_zone2 {
+  width: 142%;
+  height: 105%;
+  position: absolute;
+  top: 170%;
+  left: 156%;
+
+  border-radius: 0.5em;
+
+  border: 5px dashed rgb(151, 86, 42);
+}
+
+#content2_17_zone3 {
+  width: 235%;
+  height: 150%;
+  position: absolute;
+  top: 295%;
+  left: 41%;
+
+  border-radius: 0.5em;
+
+  border: 5px  dashed rgb(187, 180, 89);
+}
+
 #content2_17_node1 {
   width: 20%;
   height: 20%;
   position: absolute;
   top: 150%;
-  left: 44%;
+  left: 67%;
 
   border-radius: 0.5em;
 }
@@ -4049,7 +4129,7 @@ svg#content2_17_lineLayer {
   height: 20%;
   position: absolute;
   top: 200%;
-  left: 44%;
+  left: 67%;
   border-radius: 0.5em;
 }
 
@@ -4058,7 +4138,7 @@ svg#content2_17_lineLayer {
   height: 20%;
   position: absolute;
   top: 225%;
-  left: 44%;
+  left: 67%;
 
   border-radius: 0.5em;
 }
@@ -4068,7 +4148,7 @@ svg#content2_17_lineLayer {
   height: 20%;
   position: absolute;
   top: 250%;
-  left: 44%;
+  left: 67%;
   border-radius: 0.5em;
 }
 
@@ -4077,7 +4157,7 @@ svg#content2_17_lineLayer {
   height: 20%;
   position: absolute;
   top: 200%;
-  left: 21%;
+  left: 44%;
 
   border-radius: 0.5em;
 }
@@ -4087,7 +4167,7 @@ svg#content2_17_lineLayer {
   height: 20%;
   position: absolute;
   top: 225%;
-  left: 21%;
+  left: 44%;
   border-radius: 0.5em;
 }
 
@@ -4096,7 +4176,7 @@ svg#content2_17_lineLayer {
   height: 20%;
   position: absolute;
   top: 250%;
-  left: 21%;
+  left: 44%;
 
   border-radius: 0.5em;
 }
@@ -4105,8 +4185,8 @@ svg#content2_17_lineLayer {
   width: 20%;
   height: 20%;
   position: absolute;
-  top: 2%;
-  left: 44%;
+  top: 200%;
+  left: 21%;
   border-radius: 0.5em;
 }
 
@@ -4114,8 +4194,8 @@ svg#content2_17_lineLayer {
   width: 20%;
   height: 20%;
   position: absolute;
-  top: 200%;
-  left: 44%;
+  top: 225%;
+  left: 21%;
   border-radius: 0.5em;
 }
 
@@ -4123,20 +4203,17 @@ svg#content2_17_lineLayer {
   width: 20%;
   height: 20%;
   position: absolute;
-  top: 225%;
-  left: 44%;
+  top: 250%;
+  left: 21%;
   border-radius: 0.5em;
 }
-
-
-
 
 #content2_17_node11 {
   width: 20%;
   height: 20%;
   position: absolute;
   top: 200%;
-  left: 90%;
+  left: 113%;
 
   border-radius: 0.5em;
 
@@ -4148,7 +4225,7 @@ svg#content2_17_lineLayer {
   height: 20%;
   position: absolute;
   top: 200%;
-  left: 136%;
+  left: 159%;
   border-radius: 0.5em;
 }
 
@@ -4157,7 +4234,7 @@ svg#content2_17_lineLayer {
   height: 20%;
   position: absolute;
   top: 175%;
-  left: 159%;
+  left: 182%;
 
   border-radius: 0.5em;
 }
@@ -4167,7 +4244,7 @@ svg#content2_17_lineLayer {
   height: 20%;
   position: absolute;
   top: 175%;
-  left: 182%;
+  left: 205%;
   border-radius: 0.5em;
 }
 
@@ -4176,7 +4253,7 @@ svg#content2_17_lineLayer {
   height: 20%;
   position: absolute;
   top: 175%;
-  left: 205%;
+  left: 228%;
 
   border-radius: 0.5em;
 }
@@ -4186,7 +4263,7 @@ svg#content2_17_lineLayer {
   height: 20%;
   position: absolute;
   top: 200%;
-  left: 159%;
+  left: 182%;
   border-radius: 0.5em;
 }
 
@@ -4195,7 +4272,7 @@ svg#content2_17_lineLayer {
   height: 20%;
   position: absolute;
   top: 200%;
-  left: 182%;
+  left: 205%;
 
   border-radius: 0.5em;
 }
@@ -4205,7 +4282,7 @@ svg#content2_17_lineLayer {
   height: 20%;
   position: absolute;
   top: 200%;
-  left: 205%;
+  left: 228%;
   border-radius: 0.5em;
 }
 
@@ -4214,7 +4291,7 @@ svg#content2_17_lineLayer {
   height: 20%;
   position: absolute;
   top: 225%;
-  left: 159%;
+  left: 182%;
   border-radius: 0.5em;
 }
 
@@ -4223,7 +4300,7 @@ svg#content2_17_lineLayer {
   height: 20%;
   position: absolute;
   top: 225%;
-  left: 182%;
+  left: 205%;
   border-radius: 0.5em;
 }
 
@@ -4232,7 +4309,7 @@ svg#content2_17_lineLayer {
   height: 20%;
   position: absolute;
   top: 225%;
-  left: 205%;
+  left: 228%;
 
   border-radius: 0.5em;
 }
@@ -4242,7 +4319,7 @@ svg#content2_17_lineLayer {
   height: 20%;
   position: absolute;
   top: 200%;
-  left: 228%;
+  left: 251%;
   border-radius: 0.5em;
 }
 
@@ -4251,7 +4328,7 @@ svg#content2_17_lineLayer {
   height: 20%;
   position: absolute;
   top: 225%;
-  left: 228%;
+  left: 251%;
   border-radius: 0.5em;
 }
 
@@ -4260,7 +4337,7 @@ svg#content2_17_lineLayer {
   height: 20%;
   position: absolute;
   top: 250%;
-  left: 228%;
+  left: 251%;
   border-radius: 0.5em;
 }
 
@@ -4269,7 +4346,7 @@ svg#content2_17_lineLayer {
   height: 20%;
   position: absolute;
   top: 175%;
-  left: 67%;
+  left: 90%;
   border-radius: 0.5em;
 }
 
@@ -4278,7 +4355,379 @@ svg#content2_17_lineLayer {
   height: 20%;
   position: absolute;
   top: 175%;
+  left: 136%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node27 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 300%;
   left: 113%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node28 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 300%;
+  left: 136%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node29 {
+  width: 43%;
+  height: 100%;
+  position: absolute;
+  top: 325%;
+  left: 101.5%;
+  border-radius: 0.5em;
+}
+
+#content1_17_node29_milestones {
+  width: 100%;
+  /* prima 30%, ora metà del cerchio */
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  margin-top: 1em;
+  border-radius: 0.5em;
+}
+
+#content1_17_node29_milestones>div {
+  font-size: 1cqw;
+  width: 100%;
+  padding: 0.5em;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  background: #36454f;
+  box-shadow: inset 0 0 0 0.15vw #ffffff;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+
+  margin-bottom: 0.5em;
+  border-radius: 0.5em;
+}
+
+#content2_17_node30 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 325%;
+  left: 159%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node31 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 325%;
+  left: 182%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node32 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 325%;
+  left: 205%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node33 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 325%;
+  left: 228%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node34 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 350%;
+  left: 159%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node35 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 350%;
+  left: 182%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node36 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 350%;
+  left: 205%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node37 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 350%;
+  left: 228%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node38 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 300%;
+  left: 90%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node39 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 275%;
+  left: 67%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node40 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 275%;
+  left: 44%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node41 {
+  width: 20%;
+  height: 30%;
+  position: absolute;
+  top: 280%;
+  left: 251%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node42 {
+  width: 20%;
+  height: 30%;
+  position: absolute;
+  top: 315%;
+  left: 251%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node43 {
+  width: 20%;
+  height: 30%;
+  position: absolute;
+  top: 350%;
+  left: 251%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node44 {
+  width: 20%;
+  height: 30%;
+  position: absolute;
+  top: 385%;
+  left: 251%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node45 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 175%;
+  left: 274%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node46 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 200%;
+  left: 274%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node47 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 225%;
+  left: 274%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node48 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 300%;
+  left: 159%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node49 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 300%;
+  left: 182%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node50 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 325%;
+  left: 67%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node51 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 325%;
+  left: 44%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node52 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 350%;
+  left: 67%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node53 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 350%;
+  left: 44%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node54 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 375%;
+  left: 67%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node55 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 375%;
+  left: 44%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node56 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 400%;
+  left: 67%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node57 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 400%;
+  left: 44%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node58 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 200%;
+  left: 21%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node59 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 225%;
+  left: 21%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node60 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 250%;
+  left: 21%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node61 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 225%;
+  left: 90%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node62 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 225%;
+  left: 136%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node63 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 425%;
+  left: 67%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node64 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 375%;
+  left: 182%;
   border-radius: 0.5em;
 }
 
@@ -4287,12 +4736,63 @@ svg#content2_17_lineLayer {
   top: 0%;
   left: 0%;
   width: 100%;
+  height: 15%;
   z-index: 9999;
 
   display: flex;
   justify-content: left;
+
+  pointer-events: none; /* 👈 NON blocca click in generale */
 }
 
-#content2_17_menu>* {
+#content2_17_menu > * {
   margin: 1%;
+  pointer-events: auto; /* 👈 Solo i figli possono ricevere click */
+}
+
+#content2_17_valutes_content {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+}
+
+#content2_17_valutes_content>* {
+  width: 15%;
+  background-color: rgba(90, 99, 99, 0.8);
+}
+
+#svgAnimationContainer {
+  z-index: 1;
+}
+#svgAnimationContainer2 {
+  z-index: 1;
+}
+#svgAnimationContainer3 {
+  z-index: 1;
+}
+
+.fontSize09{
+    font-size: 0.9cqw;
+}
+
+.fontSize08{
+    font-size: 0.8cqw;
+}
+
+.fontSize07{
+    font-size: 0.7cqw;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes spinFast {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

@@ -21,10 +21,6 @@
             <div id="mainMenuExit"></div>
 
             <div id="mainMenuDirectionArrow1"></div>
-            <div id="mainMenuDirectionArrow2"></div>
-
-            <div id="mainMenuDirectionArrow3"></div>
-            <div id="mainMenuDirectionArrow4"></div>
 
             <div id="fp1">
                 <div id="powerValute" class="divColumns centerDivTop  bdefaultButtonSkin"></div>
@@ -367,8 +363,8 @@
                                     <input class="DefaultStyle centerDiv" type="text" id="content2_7_l_loadout1"
                                         name="loadout1" value="Loadout 1" disabled=""></input>
                                     <div id="content2_7_l1_cont" class="row">
-                                        <button id="content2_7_l1_b1" class="defaultButton">LOAD</button>
-                                        <button id="content2_7_l1_b2" class="defaultButton">SAVE</button>
+                                        <button id="content2_7_l_loadout1_b1" class="defaultButton">LOAD</button>
+                                        <button id="content2_7_l_loadout1_b2" class="defaultButton">SAVE</button>
                                     </div>
                                 </div>
 
@@ -376,8 +372,8 @@
                                     <input class="DefaultStyle centerDiv" type="text" id="content2_7_l_loadout2"
                                         name="loadout1" value="Loadout 2" disabled=""></input>
                                     <div id="content2_7_l2_cont" class="row">
-                                        <button id="content2_7_l2_b1" class="defaultButton">LOAD</button>
-                                        <button id="content2_7_l2_b2" class="defaultButton">SAVE</button>
+                                        <button id="content2_7_l_loadout2_b1" class="defaultButton">LOAD</button>
+                                        <button id="content2_7_l_loadout2_b2" class="defaultButton">SAVE</button>
                                     </div>
                                 </div>
 
@@ -385,8 +381,8 @@
                                     <input class="DefaultStyle centerDiv" type="text" id="content2_7_l_loadout3"
                                         name="loadout1" value="Loadout 3" disabled=""></input>
                                     <div id="content2_7_l3_cont" class="row">
-                                        <button id="content2_7_l3_b1" class="defaultButton">LOAD</button>
-                                        <button id="content2_7_l3_b2" class="defaultButton">SAVE</button>
+                                        <button id="content2_7_l_loadout3_b1" class="defaultButton">LOAD</button>
+                                        <button id="content2_7_l_loadout3_b2" class="defaultButton">SAVE</button>
                                     </div>
                                 </div>
                             </div>
@@ -696,7 +692,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button id="c2_4_VS" class="defaultButton">CHALLENGE</button>
+                        <button id="c2_4_VS" class="defaultButton centerDivColumns">CHALLENGE</button>
                         <div id="c2_4_B_container">
                             <div id="c2_4_B_image"></div>
                             <div id="c2_4_B">
@@ -740,7 +736,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button id="c2_10_VS" class="defaultButton">CHALLENGE</button>
+                        <button id="c2_10_VS" class="defaultButton centerDivColumns">CHALLENGE</button>
                         <div id="c2_10_B_container">
                             <div id="c2_10_B_image"></div>
                             <div id="c2_10_B">
@@ -814,7 +810,7 @@
                     </div>
 
                     <div id="opaqueScreen2"></div>
-                    <div class="boldBlackBorder">Multiversal Warrior v1.1.0 - Elemental Update: Fire Rift</div>
+                    <div class="boldBlackBorder">Multiversal Warrior v1.2.0 - Elemental Update: Universal Arson</div>
                     <button id="options_discord" class="bDefaultButton"></button>
                 </div>
 
@@ -977,8 +973,19 @@
 
                 <div id="content2_17" class="bDefaultStyle fp2Content">
 
-                    <div id="content2_17_menu">
+                    <div id="content2_17_menu" class="">
                         <button id="content2_17_buy" class="defaultButton15"></button>
+                        <button id="content2_17_valutes_button" class="defaultButton5">></button>
+                        <div id="content2_17_valutes_content" class="noClick">
+                            <div id="content2_17_valutes_valute1" class="bdefaultButtonSkin width10 padding1 noClick">
+                            </div>
+                            <div id="content2_17_valutes_valute2" class="bdefaultButtonSkin width10 padding1 noClick">
+                            </div>
+                            <div id="content2_17_valutes_valute3" class="bdefaultButtonSkin width10 padding1 noClick">
+                            </div>
+                            <div id="content2_17_valutes_valute4" class="bdefaultButtonSkin width10 padding1 noClick">
+                            </div>
+                        </div>
                     </div>
 
                     <div id="content2_17_limit1">.</div>
@@ -986,9 +993,21 @@
                     <div id="content2_17_limit3">.</div>
                     <div id="content2_17_limit4">.</div>
 
-                    <div id="content2_17_svg1">
+                    <div id="content2_17_svg1" class="noClick"></div>
 
+                    <div id="content2_17_zone1" class="bDefaultStyle absolute">
+                        <div class="boldBlackBorder">Fire upgrades</div>
                     </div>
+
+                    <div id="content2_17_zone2" class="bDefaultStyle absolute">
+                        <div class="boldBlackBorder">Size upgrades</div>
+                    </div>
+
+                    <div id="content2_17_zone3" class="bDefaultStyle absolute ">
+                        <div class="boldBlackBorder">Heat upgrades</div>
+                    </div>
+
+                    <div id="content2_17_heatInfo"></div>
 
                     <svg id="content2_17_lineLayer"></svg>
 
@@ -1124,6 +1143,248 @@
                         <button id="content2_17_node26_button"
                             class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
                     </div>
+
+                    <div id="content2_17_node27" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node27_content" class="height50"></div>
+                        <button id="content2_17_node27_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+
+                    <div id="content2_17_node28" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node28_content" class="height50"></div>
+                        <button id="content2_17_node28_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+
+                    <div id="content2_17_node29" class="bDefaultStyle absolute red relative">
+                        <div id="content2_17_node29_content" class="absolute width100 height20"></div>
+                        <div class="top20 height40 width100 absolute ">
+                            <div id="svgUn" class="height70 width100 absolute center"></div>
+                            <div id="containUn" class="height90 width100 absolute center"></div>
+                            <div id="gearUn" class="height100 width100 absolute center"></div>
+                            <div id="svgAnimationContainer" class="height90 width100 absolute center"></div>
+                            <div id="svgAnimationContainer2" class="height90 width100 absolute center"></div>
+                        </div>
+
+                        <div id="content1_17_node29_milestones" class="absolute width100 height35 top60">
+                            <div id="content1_17_node29_m1"></div>
+                            <div id="content1_17_node29_m2"></div>
+                            <div id="content1_17_node29_m3"></div>
+                            <div id="content1_17_node29_m4"></div>
+                            <div id="content1_17_node29_m5"></div>
+                            <div id="content1_17_node29_m6"></div>
+                            <div id="content1_17_node29_m7"></div>
+
+                        </div>
+                    </div>
+
+
+                    <div id="content2_17_node30" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node30_content" class="height100"></div>
+                        <button id="content2_17_node30_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+
+                    <div id="content2_17_node31" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node31_content" class="height50"></div>
+                        <button id="content2_17_node31_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+
+                    <div id="content2_17_node32" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node32_content" class="height50"></div>
+                        <button id="content2_17_node32_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+
+                    <div id="content2_17_node33" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node33_content" class="height50"></div>
+                        <button id="content2_17_node33_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+
+
+
+                    <div id="content2_17_node34" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node34_content" class="height100"></div>
+                        <button id="content2_17_node34_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+
+                    <div id="content2_17_node35" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node35_content" class="height50"></div>
+                        <button id="content2_17_node35_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+
+                    <div id="content2_17_node36" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node36_content" class="height50"></div>
+                        <button id="content2_17_node36_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+
+                    <div id="content2_17_node37" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node37_content" class="height50"></div>
+                        <button id="content2_17_node37_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+
+                    <div id="content2_17_node38" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node38_content" class="height50"></div>
+                        <button id="content2_17_node38_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+
+                    <div id="content2_17_node39" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node39_content" class="height50"></div>
+                        <button id="content2_17_node39_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+
+                    <div id="content2_17_node40" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node40_content" class="height50"></div>
+                        <button id="content2_17_node40_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+
+                    <div id="content2_17_node41" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node41_content" class="height30"></div>
+                        <button id="content2_17_node41_button"
+                            class="centerDivColumns defaultButton100 column top40 absolute height30 padding3"></button>
+                        <button id="content2_17_node41_button2"
+                            class="centerDivColumns defaultButton100 column bottom absolute height30 padding3"></button>
+                    </div>
+
+                    <div id="content2_17_node42" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node42_content" class="height30"></div>
+                        <button id="content2_17_node42_button"
+                            class="centerDivColumns defaultButton100 column top40 absolute height30 padding3"></button>
+                        <button id="content2_17_node42_button2"
+                            class="centerDivColumns defaultButton100 column bottom absolute height30 padding3"></button>
+                    </div>
+
+                    <div id="content2_17_node43" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node43_content" class="height30"></div>
+                        <button id="content2_17_node43_button"
+                            class="centerDivColumns defaultButton100 column top40 absolute height30 padding3"></button>
+                        <button id="content2_17_node43_button2"
+                            class="centerDivColumns defaultButton100 column bottom absolute height30 padding3"></button>
+                    </div>
+
+                    <div id="content2_17_node44" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node44_content" class="height30"></div>
+                        <button id="content2_17_node44_button"
+                            class="centerDivColumns defaultButton100 column top40 absolute height30 padding3"></button>
+                        <button id="content2_17_node44_button2"
+                            class="centerDivColumns defaultButton100 column bottom absolute height30 padding3"></button>
+                    </div>
+
+                    <div id="content2_17_node45" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node45_content" class="height50"></div>
+                        <button id="content2_17_node45_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+
+                    <div id="content2_17_node46" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node46_content" class="height50"></div>
+                        <button id="content2_17_node46_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+
+                    <div id="content2_17_node47" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node47_content" class="height50"></div>
+                        <button id="content2_17_node47_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+
+                    <div id="content2_17_node48" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node48_content" class="height50"></div>
+                        <button id="content2_17_node48_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+
+                    <div id="content2_17_node49" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node49_content" class="height50"></div>
+                        <button id="content2_17_node49_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+
+
+                    <div id="content2_17_node50" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node50_content" class="height50"></div>
+                        <button id="content2_17_node50_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+                    <div id="content2_17_node51" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node51_content" class="height50"></div>
+                        <button id="content2_17_node51_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+                    <div id="content2_17_node52" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node52_content" class="height50"></div>
+                        <button id="content2_17_node52_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+                    <div id="content2_17_node53" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node53_content" class="height50"></div>
+                        <button id="content2_17_node53_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+                    <div id="content2_17_node54" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node54_content" class="height50"></div>
+                        <button id="content2_17_node54_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+                    <div id="content2_17_node55" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node55_content" class="height50"></div>
+                        <button id="content2_17_node55_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+                    <div id="content2_17_node56" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node56_content" class="height50"></div>
+                        <button id="content2_17_node56_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+                    <div id="content2_17_node57" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node57_content" class="height50"></div>
+                        <button id="content2_17_node57_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+                    <div id="content2_17_node58" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node58_content" class="height50"></div>
+                        <button id="content2_17_node58_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+                    <div id="content2_17_node59" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node59_content" class="height50"></div>
+                        <button id="content2_17_node59_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+                    <div id="content2_17_node60" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node60_content" class="height50"></div>
+                        <button id="content2_17_node60_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+                    <div id="content2_17_node61" class="bDefaultStyle absolute blu">
+                        <div id="content2_17_node61_content" class="height50"></div>
+                        <button id="content2_17_node61_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+                    <div id="content2_17_node62" class="bDefaultStyle absolute blu">
+                        <div id="content2_17_node62_content" class="height50"></div>
+                        <button id="content2_17_node62_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+                    <div id="content2_17_node63" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node63_content" class="height50"></div>
+                        <button id="content2_17_node63_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
+                    <div id="content2_17_node64" class="bDefaultStyle absolute red">
+                        <div id="content2_17_node64_content" class="height50"></div>
+                        <button id="content2_17_node64_button"
+                            class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
+                    </div>
                 </div>
 
             </div>
@@ -1141,13 +1402,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <!-- 2. Carica il tuo script personalizzato (che utilizza BreakInfinity.js) -->
-    <script type="module" src="fullRevamp.js?v=1.50" charset="utf-8"></script>
+    <script type="module" src="fullRevamp.js?v=1.49" charset="utf-8"></script>
 
     <!-- 3. Carica altre librerie necessarie, come crypto-js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 
     <!-- 4. Carica il file CSS per la formattazione -->
-    <link rel="stylesheet" href="cssRevamp.css?v=1.50">
+    <link rel="stylesheet" href="cssRevamp.css?v=1.49">
 
     <script type="module">
         import Decimal from "./libs/break_infinity.esm.js";
