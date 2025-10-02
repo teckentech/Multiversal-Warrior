@@ -10515,7 +10515,7 @@ document.getElementById("content2_17_node63_button").onclick = function () {
     buyMultiple(IUniversalIn.fireTree.node63, IUniversalIn.fireTree.node63, IUniversal.fireTree.node63, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node63, IUniversalIn.fireTree.node63);
 }
 
-document.getElementById("content2_17_node62_button").onclick = function () {
+document.getElementById("content2_17_node64_button").onclick = function () {
   if (f(IUniversal.fireTree.node64.level).lt(f(IUniversalIn.fireTree.node64.maxLevel)))
     buyMultiple(IUniversalIn.fireTree.node64, IUniversalIn.fireTree.node64, IUniversal.fireTree.node64, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node64, IUniversalIn.fireTree.node64);
 }
