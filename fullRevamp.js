@@ -7556,7 +7556,7 @@ function valuesSetter(type) {
   if (f(sel.level).gt(f(0))) { sel.active = true }
   if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { return true }
-  sel2.req = function () { return (IUniversalIn.fireTree.node39.active) && IUniversalIn.fireMilestones.m2.mCheck() }
+  sel2.req = function () { return (IUniversal.fireTree.node39.active) && IUniversalIn.fireMilestones.m2.mCheck() }
 
   //NODE 41
   var sel = IUniversal.fireTree.node41
@@ -7603,6 +7603,7 @@ function valuesSetter(type) {
   sel2.price = f(10).pow(f(12)).mul((f(f(10).pow(f(2)))).pow(f(sel.level)))
 
   if (sel.active) { sel.unlocked = true }
+
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node41.priceIdentity, IUniversalIn.fireTree.node41.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node33.active) && IUniversalIn.fireMilestones.m1.mCheck() }
 
