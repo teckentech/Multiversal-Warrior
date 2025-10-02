@@ -9781,7 +9781,7 @@ document.getElementById("content2_6_upgrade4_button").onclick = function () {
 }
 
 document.getElementById("content2_6_upgrade5_button").onclick = function () {
-  if (IFightIn.normalHuntingRewards.upgrade5.showReq.req()) {
+  if (IFightIn.normalHuntingRewards.upgrade5.req()) {
     if (IFight.huntingMulti) {
       buyMultiple(IFightIn.normalHuntingRewards.upgrade5, IFightIn.normalHuntingRewards.upgrade5, IFight.normalHuntingRewards.upgrade5, "level", 1, null, 2, IFight.normalHuntingRewards.upgrade5, IFightIn.normalHuntingRewards.upgrade5)
     } else {
