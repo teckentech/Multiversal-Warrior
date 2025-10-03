@@ -9534,11 +9534,11 @@ function componentsLoadoutName(id, enter, type) {
   let sel = document.getElementById(id)
   if (enter == true) {
     sel.disabled = false;
-    IUniversalIn.energyLoadout[type].name = sel.value
+    IUniversal.energyLoadout[type].name = sel.value
   }
   if (enter == false) {
     sel.disabled = true;
-    IUniversalIn.energyLoadout[type].name = sel.value
+    IUniversal.energyLoadout[type].name = sel.value
   }
 }
 
