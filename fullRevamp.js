@@ -7964,7 +7964,7 @@ function valuesSetter(type) {
   }
 
   if (sel.active) {
-    sel2.effect = f(1.15).add(f(IUniversalIn.fireTree.node52.effect))
+    sel2.effect = f(1.15).add(f(IUniversalIn.fireTree.node52.effect)).add(f(IUniversalIn.fireTree.node63.effect))
   } else {
     sel2.effect = f(1)
   }
