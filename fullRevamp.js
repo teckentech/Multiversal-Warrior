@@ -2824,6 +2824,18 @@ function exportSave() {
   var exportSaveData = localStorage.getItem("GameSave");
   var encryptedData = CryptoJS.AES.encrypt(exportSaveData, secretKey).toString();
   document.getElementById("Save").value = encryptedData;
+
+  //copy
+  var inputElement = document.getElementById("Save");
+  inputElement.value = encryptedData;
+
+  inputElement.select();
+  inputElement.setSelectionRange(0, 999999999999999); // For mobile devices
+
+  navigator.clipboard.writeText(inputElement.value);
+
+  // Alert the copied text
+  alert("Copied the Save, paste it in a safe location to import it safely next time");
 }
 
 function offExportSave() {
