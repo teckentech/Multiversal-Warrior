@@ -3156,7 +3156,6 @@ function energyLoadout(action, loadout) {
 
   if (action == "save") {
     for (let x in IUniversal.energyUpgrades) {
-
       sel[x] = f(IUniversal.energyUpgrades[x].level)
     }
 
@@ -9486,7 +9485,7 @@ document.getElementById("content2_7_l_loadout3_b1").onclick = function () {
   energyLoadout("load", "loadout3")
 }
 
-document.getElementById("content2_7_l_loadout1_b2").onclick = function () {
+document.getElementById("content2_7_l_loadout3_b2").onclick = function () {
   energyLoadout("save", "loadout3")
 }
 
