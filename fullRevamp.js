@@ -4904,7 +4904,7 @@ function valuesSetter(type) {
 
   sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
       <div class="topRight absolute padding2 grey">21</div>
-  <div>(Requires adiacent upgrades)</div>
+  <div>(Requires adjacent upgrades)</div>
   <div>Damage & Life <span class="boldBlackBorder">×log(Power ×LVL)</span></div>`
   sel2.effectDesc = `×${format(f(sel2.effect), 0)}`
   sel.level = f(sel.level)
@@ -4934,7 +4934,7 @@ function valuesSetter(type) {
 
   sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
       <div class="topRight absolute padding2 grey">22</div>
-  <div>(Requires adiacent upgrades)</div>
+  <div>(Requires adjacent upgrades)</div>
   <div>U. Nodes & Cores</div>
               <div><span class="boldBlackBorder">×log(U. Shards ×LVL)</span></div>
               `
@@ -4961,11 +4961,11 @@ function valuesSetter(type) {
 
   sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
       <div class="topRight absolute padding2 grey">23</div>
-  <div>(Requires adiacent upgrades)</div>
+  <div>(Requires adjacent upgrades)</div>
   <div>Energy upgrades price <span class="boldBlackBorder">/2 ×LVL</span></div>
               <div>Except fusion upgrades </div>
 `
-  sel2.effectDesc = `/${format(f(sel2.effect), 0)}`
+  sel2.effectDesc = `/${format(f(sel2.effect), 2)}`
   sel.level = f(sel.level)
   sel2.effect = f(0.5).pow(f(sel.level))
   sel2.price = f(5).pow(f(sel.level).add(f(1)))
@@ -11413,7 +11413,7 @@ function visualChallenger(type) {
   else {
     update("c2_4_VS", `<span class="boldBlackBorder noClick">STOP</span>
                        <span class="noClick fontSize08 margin1">Increase fight speed every 5s</span>
-                       <span class="noClick fontSize08 margin1">×${IFight.onFightStats.fightMulti1} fight speed</span>`)
+                       <span class="noClick fontSize08 margin1">×${format(f(IFight.onFightStats.fightMulti1))} fight speed</span>`)
     document.getElementById("c2_4_VS").style.backgroundColor = "#972a2aff"
   }
 
@@ -11502,7 +11502,7 @@ function visualChallenger(type) {
   else {
     update("c2_10_VS", `<span class="boldBlackBorder noClick">STOP</span>
                        <span class="noClick fontSize08 margin1">Increase fight speed every 5s</span>
-                       <span class="noClick fontSize08 margin1">×${IFight.onFightStats.fightMulti2} fight speed</span>`)
+                       <span class="noClick fontSize08 margin1">×${format(f(IFight.onFightStats.fightMulti2))} fight speed</span>`)
     document.getElementById("c2_10_VS").style.backgroundColor = "#972a2aff"
   }
 
