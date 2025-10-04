@@ -423,6 +423,7 @@ class Universal {
 
     this.fireTreeSel = options.fireTreeSel || "";
     this.fireTreeId = options.fireTreeId || "";
+        this.fireTreeSize = options.fireTreeSize || 1;
 
     this.buyFireTree = options.buyFireTree || 0
     this.maxBuyFireTree = options.maxBuyFireTree || 2
@@ -10573,6 +10574,18 @@ document.getElementById("content2_17_valutes_button").onclick = function () {
   }
 }
 
+document.getElementById("content2_17_resizeBig").onclick = function () {
+  if(f(IUniversal.fireTreeSize).lte(f(1.5))){
+  IUniversal.fireTreeSize = f(IUniversal.fireTreeSize).add(f(0.1))
+  }
+}
+
+document.getElementById("content2_17_resizeSmall").onclick = function () {
+  if(f(IUniversal.fireTreeSize).gte(f(0.4))){
+  IUniversal.fireTreeSize = f(IUniversal.fireTreeSize).minus(f(0.1))
+  }
+}
+
 
 
 
@@ -11856,6 +11869,14 @@ function visualTree() {
     unlockShow("content2_17_valutes_valute4", true)
     update("content2_17_valutes_valute4", `<div class="noClick"><div class="noClick">Fire Shards</div><div class="boldBlackBorder noClick">${format(f(IUniversal.fireShards))}</div><div class="boldBlackBorder noClick">${format(sec(IUniversal.fireShardsProd))}/s</div></div>`)
   }
+
+  //size
+
+  var sel = document.getElementById("content2_17_size")
+
+  sel.style.transform = `scale(${IUniversal.fireTreeSize})`
+
+  //buttons
 
   var buyMax = buyTrium(IUniversal.buyFireTree)
 
@@ -13251,7 +13272,7 @@ function loopShow() {
     unlockShow("universalNodesBase", false);
     unlockShow("universalCoresBase", false);
 
-    enableDragScroll("content2_17")
+    enableDragScroll("content2_17_scroll")
 
     unlockShow("fireValute", false);
 
@@ -14148,7 +14169,7 @@ function initLine(id, divAId, divBId, svg, color = "#ff1313ff", width = 6) {
   lineCache.set(id, { line, divAId, divBId });
 }
 
-function updateLine(id, rects, parentRect, scrollLeft, scrollTop) {
+function updateLine(id, rects) {
   const entry = lineCache.get(id);
   if (!entry) return;
 
@@ -14156,10 +14177,10 @@ function updateLine(id, rects, parentRect, scrollLeft, scrollTop) {
   const rectB = rects[entry.divBId];
   if (!rectA || !rectB) return;
 
-  const x1 = (rectA.left - parentRect.left + scrollLeft) + rectA.width / 2;
-  const y1 = (rectA.top - parentRect.top + scrollTop) + rectA.height / 2;
-  const x2 = (rectB.left - parentRect.left + scrollLeft) + rectB.width / 2;
-  const y2 = (rectB.top - parentRect.top + scrollTop) + rectB.height / 2;
+  const x1 = rectA.left + rectA.width / 2;
+  const y1 = rectA.top + rectA.height / 2;
+  const x2 = rectB.left + rectB.width / 2;
+  const y2 = rectB.top + rectB.height / 2;
 
   entry.line.setAttribute("x1", x1);
   entry.line.setAttribute("y1", y1);
@@ -14176,21 +14197,42 @@ function fireLines() {
   const scrollLeft = parent.scrollLeft || 0;
   const scrollTop = parent.scrollTop || 0;
 
-  svg.style.position = 'absolute';
-  svg.style.top = '0';
-  svg.style.left = '0';
-  svg.setAttribute("width", parent.scrollWidth);
-  svg.setAttribute("height", parent.scrollHeight);
+  const computedStyle = window.getComputedStyle(parent);
+  const transform = computedStyle.transform;
+
+  let scaleX = 1, scaleY = 1;
+  if (transform && transform !== 'none') {
+    const match = transform.match(/matrix\(([^)]+)\)/);
+    if (match) {
+      const values = match[1].split(',').map(Number);
+      scaleX = values[0]; // m11
+      scaleY = values[3]; // m22
+    }
+  }
 
   const rects = {};
   const allNodes = document.querySelectorAll("[id^='content2_17_node']");
   allNodes.forEach(el => {
     if (checkShow(el.id)) {
-      rects[el.id] = el.getBoundingClientRect();
+      const rect = el.getBoundingClientRect();
+      rects[el.id] = {
+        top: (rect.top - parentRect.top + scrollTop) / scaleY,
+        left: (rect.left - parentRect.left + scrollLeft) / scaleX,
+        width: rect.width / scaleX,
+        height: rect.height / scaleY
+      };
     } else {
-      rects[el.id] = null
+      rects[el.id] = null;
     }
   });
+
+  svg.style.position = 'absolute';
+  svg.style.top = '0';
+  svg.style.left = '0';
+
+  svg.setAttribute("width", parent.scrollWidth);
+  svg.setAttribute("height", parent.scrollHeight);
+
 
   const connections = [
     // left branch
