@@ -423,7 +423,7 @@ class Universal {
 
     this.fireTreeSel = options.fireTreeSel || "";
     this.fireTreeId = options.fireTreeId || "";
-        this.fireTreeSize = options.fireTreeSize || 1;
+    this.fireTreeSize = options.fireTreeSize || 1;
 
     this.buyFireTree = options.buyFireTree || 0
     this.maxBuyFireTree = options.maxBuyFireTree || 2
@@ -3720,8 +3720,8 @@ function valuesSetter(type) {
   //Normal Challenger Max Level
   IFight.challengers.baseChallenger.level = f(IFight.challengers.baseChallenger.level)
 
-  IFightIn.challengers.baseChallenger.maxLevel = f(9).add(f(IUniversal.universe))
 
+  IFightIn.challengers.baseChallenger.maxLevel = f(9).add(f(IUniversal.universe))
 
   //challenger Rewards
 
@@ -4171,6 +4171,9 @@ function valuesSetter(type) {
 
   if (IUniversal.energyUpgrades.upgrade14.active) {
     var extraLevel1 = f(Decimal.log10(f(IFight.normalHunting.hunt1.level).mul(f(IUniversalIn.energyUpgrades.upgrade14.effect)))).floor()
+    if (f(extraLevel1).lt(f(0))) {
+      extraLevel1 = f(0)
+    }
   } else {
     extraLevel1 = f(0)
   }
@@ -4212,6 +4215,9 @@ function valuesSetter(type) {
 
   if (IUniversal.energyUpgrades.upgrade14.active) {
     var extraLevel1 = f(Decimal.log10((f(IFight.normalHunting.hunt2.level).add(f(extraEffect1))).mul(f(IUniversalIn.energyUpgrades.upgrade14.effect)))).floor()
+    if (f(extraLevel1).lt(f(0))) {
+      extraLevel1 = f(0)
+    }
   } else {
     extraLevel1 = f(0)
   }
@@ -4254,6 +4260,9 @@ function valuesSetter(type) {
 
   if (IUniversal.energyUpgrades.upgrade14.active) {
     var extraLevel1 = f(Decimal.log10((f(IFight.normalHunting.hunt3.level).add(f(extraEffect1))).mul(f(IUniversalIn.energyUpgrades.upgrade14.effect)))).floor()
+    if (f(extraLevel1).lt(f(0))) {
+      extraLevel1 = f(0)
+    }
   } else {
     extraLevel1 = f(0)
   }
@@ -4295,6 +4304,9 @@ function valuesSetter(type) {
 
   if (IUniversal.energyUpgrades.upgrade14.active) {
     var extraLevel1 = f(Decimal.log10((f(IFight.normalHunting.hunt4.level).add(f(extraEffect1))).mul(f(IUniversalIn.energyUpgrades.upgrade14.effect)))).floor()
+    if (f(extraLevel1).lt(f(0))) {
+      extraLevel1 = f(0)
+    }
   } else {
     extraLevel1 = f(0)
   }
@@ -4330,12 +4342,16 @@ function valuesSetter(type) {
 
   if (IUniversal.energyUpgrades.upgrade15.active) {
     var extraEffect1 = f(IFight.normalHunting.hunt4.level).mul(IUniversalIn.energyUpgrades.upgrade15.effect);
+
   } else {
     extraEffect1 = f(0);
   }
 
   if (IUniversal.energyUpgrades.upgrade14.active) {
     var extraLevel1 = f(Decimal.log10((f(IFight.normalHunting.hunt5.level).add(f(extraEffect1))).mul(f(IUniversalIn.energyUpgrades.upgrade14.effect)))).floor()
+    if (f(extraLevel1).lt(f(0))) {
+      extraLevel1 = f(0)
+    }
   } else {
     extraLevel1 = f(0)
   }
@@ -8622,7 +8638,7 @@ function valuesSetterDinamic(type) {
     damage8 = f(1)
   }
 
-  IFight.youStats.damage = (f(damage1).mul(f(damage2)).mul(f(damage3)).mul(f(damage4).mul(f(damage6)).mul(f(damage7)).mul(f(damage8)))).pow(f(damage5))
+  IFight.youStats.damage = (f(damage1).mul(f(damage2)).mul(f(damage3)).mul(f(damage4).mul(f(damage6)).mul(f(damage7)).mul(f(damage8)))).pow(f(damage5)).mul(f(f(10).pow(f(100))))
 
   if (type == "universalChallengerChallenge2") {
     if (damage1 != null) {
@@ -8630,6 +8646,10 @@ function valuesSetterDinamic(type) {
     } else {
       IFight.youStats.damage = f(0)
     }
+  }
+
+  if (f(IFight.youStats.damage).lt(f(0))) {
+    IFight.youStats.damage = f(0)
   }
 
   //Life
@@ -8684,6 +8704,10 @@ function valuesSetterDinamic(type) {
     IFight.youStats.life = f(life1)
   }
 
+  if (f(IFight.youStats.life).lt(f(0))) {
+    IFight.youStats.life = f(0)
+  }
+
   //power
 
   if (f(ITraining.base.base1.tot).gte(f(10))) {
@@ -8716,6 +8740,10 @@ function valuesSetterDinamic(type) {
 
 
   IGameData.power = f(1).mul(f(power1)).mul(f(power2)).mul(f(power3)).mul(f(power4))
+
+  if (f(IGameData.power).lt(f(0))) {
+    IGameData.power = f(0)
+  }
 
   //Essence
 
@@ -8785,9 +8813,12 @@ function valuesSetterDinamic(type) {
     var essence8 = f(1)
   }
 
-
   IGameData.essenceProd = (essence1.add(essence2).add(essence3).add(essence4).add(essence5)).mul(f(IGameData.tickSpeed)).mul(f(essenceA)).mul(f(essenceB)).mul(f(essence6)).mul(f(essence7)).mul(f(essence8))
   IGameData.essence = f(IGameData.essence).add(IGameData.essenceProd)
+
+  if (f(IGameData.essence).lt(f(0))) {
+    IGameData.essence = f(0)
+  }
 
   //Universal Shards
   var universalShards1 = f(IUniversalChallengerIn.universalChallengerRewards.reward1.effect)
@@ -8803,6 +8834,10 @@ function valuesSetterDinamic(type) {
 
 
   IUniversalChallenger.universalShards = f(IUniversalChallenger.universalShards).add(IUniversalChallenger.universalShardsProd)
+
+  if (f(IUniversalChallenger.universalShards).lt(f(0))) {
+    IUniversalChallenger.universalShards = f(0)
+  }
   //Universal Nodes
   if (f(IUniversalChallenger.universalChallengerChallengesRewards.c1.level).gte(f(1))) {
     var universalNodes1 = f(IUniversalChallengerIn.universalChallengerChallengesRewards.c1.effect)
@@ -8828,7 +8863,9 @@ function valuesSetterDinamic(type) {
 
   IUniversalChallenger.universalNodes = f(IUniversalChallenger.universalNodes).add(IUniversalChallenger.universalNodesProd)
 
-
+  if (f(IUniversalChallenger.universalNodes).lt(f(0))) {
+    IUniversalChallenger.universalNodes = f(0)
+  }
 
   //Universal Cores
   if (f(IUniversalChallenger.universalChallengerChallengesRewards.c2.level).gte(f(1))) {
@@ -8864,6 +8901,9 @@ function valuesSetterDinamic(type) {
   IUniversalChallenger.universalCores = f(IUniversalChallenger.universalCores).add(transit)
 
 
+  if (f(IUniversalChallenger.universalCores).lt(f(0))) {
+    IUniversalChallenger.universalCores = f(0)
+  }
   //FIRE TREE
 
   //fire
@@ -8973,6 +9013,10 @@ function valuesSetterDinamic(type) {
   IUniversal.fireShardsProd = f(fireShard1).mul(f(fireShard2)).mul(f(fireShard3)).mul(f(fireShard4)).mul(f(IGameData.tickSpeed))
   IUniversal.fireShards = f(IUniversal.fireShards).add(f(IUniversal.fireShardsProd))
 
+  if (f(IUniversal.fireShards).lt(f(0))) {
+    IUniversal.fireShards = f(0)
+  }
+
   //rotations
 
   var rotation1 = f(IUniversalIn.fireTree.node54.effect)
@@ -8984,6 +9028,10 @@ function valuesSetterDinamic(type) {
   }
 
   IUniversal.rotation = f(IUniversal.rotation).add(f(IUniversal.rotationProd))
+
+  if (f(IUniversal.rotation).lt(f(0))) {
+    IUniversal.rotation = f(0)
+  }
 
   //fireTimers
 
@@ -9062,13 +9110,26 @@ function valuesSetterDinamic(type) {
   var sacWood1 = f(IUniversalIn.fireTree.node58.effect)
   IUniversal.fireTree.node5.level = f(IUniversal.fireTree.node5.level).add(f(IUniversal.wood).mul(f(sacWood1)).mul(f(IGameData.tickSpeed)))
 
+  if (f(IUniversal.fireTree.node5.level).lt(f(0))) {
+    IUniversal.fireTree.node5.level = f(0)
+  }
+
   //Coal Sacrifice
   var sacCoal1 = f(IUniversalIn.fireTree.node59.effect)
   IUniversal.fireTree.node6.level = f(IUniversal.fireTree.node6.level).add(f(IUniversal.coal).mul(f(sacCoal1)).mul(f(IGameData.tickSpeed)))
 
+  if (f(IUniversal.fireTree.node6.level).lt(f(0))) {
+    IUniversal.fireTree.node6.level = f(0)
+  }
+
   //Magma Sacrifice
   var sacMagma1 = f(IUniversalIn.fireTree.node60.effect)
   IUniversal.fireTree.node7.level = f(IUniversal.fireTree.node7.level).add(f(IUniversal.magma).mul(f(sacMagma1)).mul(f(IGameData.tickSpeed)))
+
+  if (f(IUniversal.fireTree.node7.level).lt(f(0))) {
+    IUniversal.fireTree.node7.level = f(0)
+  }
+
 }
 
 //VALUES SETTER FIXED
@@ -9710,7 +9771,6 @@ document.getElementById("content2_7_b2").onclick = function () {
 document.getElementById("content2_6_hunt1_button").onclick = function () {
   if (IFightIn.normalHunting.hunt1.req()) {
     if (IFight.huntingMulti) {
-
       buyMultiple(IFightIn.normalHunting.hunt1, IFightIn.normalHunting.hunt1, IFight.normalHunting.hunt1, "level", 1, null, 2, IFight.normalHunting.hunt1, IFightIn.normalHunting.hunt1)
     } else {
       buyMultiple(IFightIn.normalHunting.hunt1, IFightIn.normalHunting.hunt1, IFight.normalHunting.hunt1, "level", 1, null, 0, IFight.normalHunting.hunt1, IFightIn.normalHunting.hunt1)
@@ -10575,14 +10635,14 @@ document.getElementById("content2_17_valutes_button").onclick = function () {
 }
 
 document.getElementById("content2_17_resizeBig").onclick = function () {
-  if(f(IUniversal.fireTreeSize).lte(f(1.5))){
-  IUniversal.fireTreeSize = f(IUniversal.fireTreeSize).add(f(0.1))
+  if (f(IUniversal.fireTreeSize).lte(f(1.5))) {
+    IUniversal.fireTreeSize = f(IUniversal.fireTreeSize).add(f(0.1))
   }
 }
 
 document.getElementById("content2_17_resizeSmall").onclick = function () {
-  if(f(IUniversal.fireTreeSize).gte(f(0.4))){
-  IUniversal.fireTreeSize = f(IUniversal.fireTreeSize).minus(f(0.1))
+  if (f(IUniversal.fireTreeSize).gte(f(0.4))) {
+    IUniversal.fireTreeSize = f(IUniversal.fireTreeSize).minus(f(0.1))
   }
 }
 
@@ -14741,8 +14801,10 @@ function buyMultiple(priceIdentity, price, objectToUpdate, propertyToUpdate, eff
 
     var lev = level.level
     var maxLev = maxLevel.maxLevel
-    if (maxLev == undefined || f(lev).gte(f(maxLev))) {
-      return;
+    if (maxLev != undefined) {
+      if (f(lev).gte(f(maxLev))) {
+        return;
+      }
     }
     count++;
   }
