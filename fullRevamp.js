@@ -8638,7 +8638,7 @@ function valuesSetterDinamic(type) {
     damage8 = f(1)
   }
 
-  IFight.youStats.damage = (f(damage1).mul(f(damage2)).mul(f(damage3)).mul(f(damage4).mul(f(damage6)).mul(f(damage7)).mul(f(damage8)))).pow(f(damage5)).mul(f(f(10).pow(f(100))))
+  IFight.youStats.damage = (f(damage1).mul(f(damage2)).mul(f(damage3)).mul(f(damage4).mul(f(damage6)).mul(f(damage7)).mul(f(damage8)))).pow(f(damage5))
 
   if (type == "universalChallengerChallenge2") {
     if (damage1 != null) {
