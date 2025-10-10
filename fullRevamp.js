@@ -3171,7 +3171,6 @@ function energyLoadout(action, loadout) {
     }
     IUniversal.energyLoadoutSel = loadout
     IUniversal.ascensionPointMax = f(IUniversal.universe).minus(f(1))
-    sel.maximumAscensionPoints = f(IUniversal.ascensionPointMax)
     IUniversal.ascensionPoint = f(sel.ascensionPoints).add((f(IUniversal.ascensionPointMax).minus(f(sel.maximumAscensionPoints))))
   }
 
