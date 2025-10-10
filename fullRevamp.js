@@ -27,7 +27,10 @@ var secretKey = "DontLookAtMePls";
 var saveData;
 var waiting = false;
 
+var freeTick = false
+
 document.addEventListener('DOMContentLoaded', (event) => {
+
   createClassInstance()
 
   passiveImport()
@@ -35,6 +38,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   idleTimeChecker()
 
   IShowableClass.init = true;
+  freeTick = false
 });
 
 //an attribute x, with a next attribute = x+ "F", then x will be frozen, and impossible to modify.
@@ -2907,12 +2911,16 @@ document.addEventListener('visibilitychange', function () {
   if (document.hidden) {
     // Salva i dati solo quando l'utente lascia la pagina
     offExportSave();
+    freeTick = false
+
 
   } else {
     // Importa i dati quando l'utente ritorna alla pagina
     if (localStorage.getItem("GameSaveOff") !== null) {
       offImportSave();
     }
+    freeTick = false
+
   }
 });
 
@@ -2997,7 +3005,7 @@ function visualValute() {
 function buy(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, type) {
 
   var priceId = priceIdentity.priceIdentity
-  var pri = f(price.price)
+  var pri = price.price
 
   if (type == "uni") {
     if (f(IUniversal[priceId]).gte(f(pri))) {
@@ -14752,8 +14760,13 @@ var mainGameLoop = window.setInterval(function () {
   idleTimeChecker()
   fullSetter()
   visualLoopFunction()
-  automation()
   saveGameData();
+
+  if (freeTick) {
+    automation()
+  }
+  freeTick = true
+
 
   IGameData.universeTime = f(IGameData.universeTime).add(0.050)
 
@@ -15539,15 +15552,6 @@ function menuDirectionArrow(page) {
   var element = document.getElementById(page)
 
   if (element.scrollHeight > element.clientHeight) {
-
-    /*
-    console.log("overflow")
-    console.log("scrollHeight: " + element.scrollHeight)
-    console.log("client height: " + element.clientHeight)
-    console.log("scrollTop: " + element.scrollTop)
-    console.log("margin: " + f(element.clientHeight).minus(f(element.scrollTop)))
-    console.log("totalPage: " + f(element.scrollHeight).minus(f(element.clientHeight)))
-*/
 
     var margin = f(element.clientHeight).minus(f(element.scrollTop))
     var totalPage = f(element.scrollHeight).minus(f(element.clientHeight))
