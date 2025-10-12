@@ -36,6 +36,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
   passiveImport()
   saveGameData();
   idleTimeChecker()
+  valuesSetter()
+  valuesSetter()
 
   IShowableClass.init = true;
   freeTick = false
@@ -10655,8 +10657,6 @@ document.getElementById("content2_17_resizeSmall").onclick = function () {
 
 
 
-
-
 //FUNCTION: PAUSE FUNCTION
 
 function pauseFunctionPassive(fun, time, bool) {
@@ -14763,8 +14763,14 @@ var mainGameLoop = window.setInterval(function () {
 
   if (freeTick) {
     automation()
+    document.getElementById("gameCurtain").style.display = "none"
   }
+  if (!freeTick) {
+    document.getElementById("gameCurtain").style.display = ""
+  }
+
   freeTick = true
+
 
 
   IGameData.universeTime = f(IGameData.universeTime).add(0.050)

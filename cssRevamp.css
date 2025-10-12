@@ -4897,3 +4897,14 @@ svg#content2_17_lineLayer {
 #content2_17_size {
   transform: scale(1);
 }
+
+#gameCurtain{
+  position: absolute;
+  background-color: #1a1c2c;
+  width: 100%;
+  height: 100%;
+
+  z-index: 1000000000;
+
+  color: white; /* Cambia il colore del testo in blu */
+}
