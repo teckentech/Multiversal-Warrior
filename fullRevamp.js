@@ -2974,10 +2974,11 @@ function visualValute() {
     if (f(IUniversalChallenger.universalShards).gt(f(0))) {
       unlockShow("universalShardsBase", true)
     }
-    if (f(IUniversalChallenger.universalNodes).gt(f(0))) {
+    if (f(IUniversalChallenger.universalNodes).gt(f(0)) || f(IUniversalChallenger.universalChallengerChallenges.c1.level).gt(f(0))) {
       unlockShow("universalNodesBase", true)
     }
-    if (f(IUniversalChallenger.universalCores).gt(f(0))) {
+    
+    if (f(IUniversalChallenger.universalCores).gt(f(0)) || f(IUniversalChallenger.universalChallengerChallenges.c2.level).gt(f(0))) {
       unlockShow("universalCoresBase", true)
     }
   }
@@ -9241,9 +9242,9 @@ document.getElementById("fp2_content2_18").onclick = function () {
 document.getElementById("fp2_content2_17").onclick = function () {
   changePage("mainMenu", "content2_17")
 
-  var element = document.getElementById("content2_17")
+  var element = document.getElementById("content2_17_scroll")
 
-  element.scrollTop = element.scrollHeight / 5
+  element.scrollTop = element.scrollHeight / 4
   element.scrollLeft = element.scrollWidth / 11
 }
 
@@ -13351,14 +13352,14 @@ function loopShow() {
     unlockShow("essenceValute", true)
   }
 
-  if (f(IUniversalChallenger.universalShards).gt(f(0))) {
+  if (f(IUniversalChallenger.universalShards).gt(f(0)) || f(IUniversalChallenger.challengers.universalChallenger.level).gt(f(0))) {
     unlockShow("universalShardsBase", true)
   }
-  if (f(IUniversalChallenger.universalNodes).gt(f(0))) {
+  if (f(IUniversalChallenger.universalNodes).gt(f(0)) || f(IUniversalChallenger.universalChallengerChallengesRewards.c1.level).gt(f(0))) {
     unlockShow("universalNodesBase", true)
   }
 
-  if (f(IUniversalChallenger.universalCores).gt(f(0))) {
+  if (f(IUniversalChallenger.universalCores).gt(f(0)) || f(IUniversalChallenger.universalChallengerChallengesRewards.c2.level).gt(f(0))) {
     unlockShow("universalCoresBase", true)
   }
 
@@ -13465,7 +13466,7 @@ function loopShow() {
       } else {
         unlockShow("fp2_content3_pageSel", true)
         document.getElementById("fp2_content3_pageSel").style.opacity = "0.5";  // attivo 1, disattivo 0.5
-        update("fp2_content3_pageSel", "Reach Universe 40")
+        update("fp2_content2_11", "Reach Universe 40")
         document.getElementById("fp2_content3_pageSel").style.pointerEvents = "none";
       }
       unlockShow("fp2_content2_10_container", true)
