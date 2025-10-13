@@ -13461,12 +13461,12 @@ function loopShow() {
       if (IUniversalIn.milestones.m3.mCheck()) {
         unlockShow("fp2_content3_pageSel", true)
         document.getElementById("fp2_content3_pageSel").style.opacity = "1";  // attivo 1, disattivo 0.5
-        update("fp2_content2_11", "Sky")
+        update("fp2_content3_pageSel", "Sky")
         document.getElementById("fp2_content3_pageSel").style.pointerEvents = "auto";
       } else {
         unlockShow("fp2_content3_pageSel", true)
         document.getElementById("fp2_content3_pageSel").style.opacity = "0.5";  // attivo 1, disattivo 0.5
-        update("fp2_content2_11", "Reach Universe 40")
+        update("fp2_fp2_content3_pageSelcontent2_11", "Reach Universe 40")
         document.getElementById("fp2_content3_pageSel").style.pointerEvents = "none";
       }
       unlockShow("fp2_content2_10_container", true)
