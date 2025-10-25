@@ -13390,28 +13390,28 @@ document.getElementById("fp2_content3_pageSel").onclick = function () {
 window.addEventListener('DOMContentLoaded', () => {
   const btn = document.getElementById("base1Button")
   if (btn) {
-    btn.onclick = () => assignGroup(ITrainingIn.base, "base1")
+    btn.onclick = () => assignGroup(ITrainingIn.base, ITraining.base, "base1")
   }
 })
 
 window.addEventListener('DOMContentLoaded', () => {
   const btn = document.getElementById("base2Button")
   if (btn) {
-    btn.onclick = () => assignGroup(ITrainingIn.base, "base2")
+    btn.onclick = () => assignGroup(ITrainingIn.base, ITraining.base, "base2")
   }
 })
 
 window.addEventListener('DOMContentLoaded', () => {
   const btn = document.getElementById("base3Button")
   if (btn) {
-    btn.onclick = () => assignGroup(ITrainingIn.base, "base3")
+    btn.onclick = () => assignGroup(ITrainingIn.base, ITraining.base, "base3")
   }
 })
 
 window.addEventListener('DOMContentLoaded', () => {
   const btn = document.getElementById("base4Button")
   if (btn) {
-    btn.onclick = () => assignGroup(ITrainingIn.base, "base4")
+    btn.onclick = () => assignGroup(ITrainingIn.base, ITraining.base, "base4")
   }
 })
 
@@ -14728,25 +14728,25 @@ document.getElementById("content2_17_node64_button").onclick = function () {
 
 document.getElementById("content2_17_node41_button2").onclick = function () {
   if (f(IUniversal.fireTree.node41.level).gt(f(0))) {
-    assignGroup(IUniversalIn.fireTree, "node41")
+    assignGroup(IUniversalIn.fireTree, IUniversal.fireTree, "node41")
   }
 }
 
 document.getElementById("content2_17_node42_button2").onclick = function () {
   if (f(IUniversal.fireTree.node42.level).gt(f(0))) {
-    assignGroup(IUniversalIn.fireTree, "node42")
+    assignGroup(IUniversalIn.fireTree, IUniversal.fireTree, "node42")
   }
 }
 
 document.getElementById("content2_17_node43_button2").onclick = function () {
   if (f(IUniversal.fireTree.node43.level).gt(f(0))) {
-    assignGroup(IUniversalIn.fireTree, "node43")
+    assignGroup(IUniversalIn.fireTree, IUniversal.fireTree, "node43")
   }
 }
 
 document.getElementById("content2_17_node44_button2").onclick = function () {
   if (f(IUniversal.fireTree.node44.level).gt(f(0))) {
-    assignGroup(IUniversalIn.fireTree, "node44")
+    assignGroup(IUniversalIn.fireTree, IUniversal.fireTree, "node44")
   }
 }
 
@@ -20279,9 +20279,11 @@ function buyMultiple(priceIdentity, price, objectToUpdate, propertyToUpdate, eff
 
 //AUTOMATION
 
-function assignGroup(obj, element) {
+function assignGroup(objIn, obj, element) {
   var sel = obj[element]
-  var selGroup = ISelUpgrade.group[sel.group]
+    var selIn = objIn[element]
+
+  var selGroup = ISelUpgrade.group[selIn.group]
 
   if (sel.active) {
     sel.active = false
