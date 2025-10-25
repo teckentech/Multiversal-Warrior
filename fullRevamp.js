@@ -4133,9 +4133,9 @@ function visualValute() {
     }
     unlockShow("fireValute", true)
 
-    if (checkShow("fp2_content2_19_container")) {
-      unlockShow("waterValute", true)
-    }
+      if (checkShow("fp2_content2_19_container")) {
+    unlockShow("waterValute", true)
+  }
   }
 
   update("powerValute", `<div><div>Power</div><div class="boldBlackBorder">${format(IGameData.power, 1)}</span></div>`)
@@ -13333,7 +13333,7 @@ document.getElementById("fp2_content2_17").onclick = function () {
 
   var element = document.getElementById("content2_17_scroll")
 
-  element.scrollTop = element.scrollHeight / 4
+  element.scrollTop = element.scrollHeight / 5
   element.scrollLeft = element.scrollWidth / 11
 }
 
@@ -13387,23 +13387,33 @@ document.getElementById("fp2_content3_pageSel").onclick = function () {
 }
 
 //Bases
+window.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById("base1Button")
+  if (btn) {
+    btn.onclick = () => assignGroup(ITrainingIn.base, "base1")
+  }
+})
 
-document.getElementById("base1Button").onclick = function () {
-  assignGroup(ITrainingIn.base, ITraining.base, "base1")
-}
+window.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById("base2Button")
+  if (btn) {
+    btn.onclick = () => assignGroup(ITrainingIn.base, "base2")
+  }
+})
 
-document.getElementById("base2Button").onclick = function () {
-  assignGroup(ITrainingIn.base, ITraining.base, "base2")
-}
+window.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById("base3Button")
+  if (btn) {
+    btn.onclick = () => assignGroup(ITrainingIn.base, "base3")
+  }
+})
 
-document.getElementById("base3Button").onclick = function () {
-  assignGroup(ITrainingIn.base, ITraining.base, "base3")
-}
-
-document.getElementById("base4Button").onclick = function () {
-  assignGroup(ITrainingIn.base, ITraining.base, "base4")
-}
-
+window.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById("base4Button")
+  if (btn) {
+    btn.onclick = () => assignGroup(ITrainingIn.base, "base4")
+  }
+})
 
 //Ascension Points
 
@@ -14718,25 +14728,25 @@ document.getElementById("content2_17_node64_button").onclick = function () {
 
 document.getElementById("content2_17_node41_button2").onclick = function () {
   if (f(IUniversal.fireTree.node41.level).gt(f(0))) {
-    assignGroup(IUniversalIn.fireTree, IUniversal.fireTree, "node41")
+    assignGroup(IUniversalIn.fireTree, "node41")
   }
 }
 
 document.getElementById("content2_17_node42_button2").onclick = function () {
   if (f(IUniversal.fireTree.node42.level).gt(f(0))) {
-    assignGroup(IUniversalIn.fireTree, IUniversal.fireTree, "node42")
+    assignGroup(IUniversalIn.fireTree, "node42")
   }
 }
 
 document.getElementById("content2_17_node43_button2").onclick = function () {
   if (f(IUniversal.fireTree.node43.level).gt(f(0))) {
-    assignGroup(IUniversalIn.fireTree, IUniversal.fireTree, "node43")
+    assignGroup(IUniversalIn.fireTree, "node43")
   }
 }
 
 document.getElementById("content2_17_node44_button2").onclick = function () {
   if (f(IUniversal.fireTree.node44.level).gt(f(0))) {
-    assignGroup(IUniversalIn.fireTree, IUniversal.fireTree, "node44")
+    assignGroup(IUniversalIn.fireTree, "node44")
   }
 }
 
@@ -16716,7 +16726,7 @@ function visualInventoryWater() {
   if (IUniversal.selPotion != null && IUniversal.selPotion != undefined && IUniversal.selPotion != "" && IUniversalIn.inventoryStorage[IUniversal.selPotion]) {
     update("content2_19_potion_info", IUniversalIn.inventoryStorage[IUniversal.selPotion].content2)
   } else {
-    update("content2_19_potion_info", "")
+update("content2_19_potion_info", "")
   }
 
 }
@@ -18263,14 +18273,14 @@ function loopShow() {
     unlockShow("essenceValute", true)
   }
 
-  if (f(IUniversalChallenger.universalShards).gt(f(0)) || f(IUniversalChallenger.challengers.universalChallenger.level).gt(f(0))) {
+  if (f(IUniversalChallenger.universalShards).gt(f(0))) {
     unlockShow("universalShardsBase", true)
   }
-  if (f(IUniversalChallenger.universalNodes).gt(f(0)) || f(IUniversalChallenger.universalChallengerChallengesRewards.c1.level).gt(f(0))) {
+  if (f(IUniversalChallenger.universalNodes).gt(f(0))) {
     unlockShow("universalNodesBase", true)
   }
 
-  if (f(IUniversalChallenger.universalCores).gt(f(0)) || f(IUniversalChallenger.universalChallengerChallengesRewards.c2.level).gt(f(0))) {
+  if (f(IUniversalChallenger.universalCores).gt(f(0))) {
     unlockShow("universalCoresBase", true)
   }
 
@@ -18377,7 +18387,7 @@ function loopShow() {
       } else {
         unlockShow("fp2_content3_pageSel", true)
         document.getElementById("fp2_content3_pageSel").style.opacity = "0.5";  // attivo 1, disattivo 0.5
-        update("fp2_fp2_content3_pageSelcontent2_11", "Reach Universe 40")
+        update("fp2_content3_pageSel", "Reach Universe 40")
         document.getElementById("fp2_content3_pageSel").style.pointerEvents = "none";
       }
       unlockShow("fp2_content2_10_container", true)
@@ -20269,11 +20279,9 @@ function buyMultiple(priceIdentity, price, objectToUpdate, propertyToUpdate, eff
 
 //AUTOMATION
 
-function assignGroup(objIn, obj, element) {
+function assignGroup(obj, element) {
   var sel = obj[element]
-    var selIn = objIn[element]
-
-  var selGroup = ISelUpgrade.group[selIn.group]
+  var selGroup = ISelUpgrade.group[sel.group]
 
   if (sel.active) {
     sel.active = false
