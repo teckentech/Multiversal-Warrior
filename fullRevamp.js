@@ -10810,7 +10810,7 @@ function valuesSetter(type) {
                   <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
                   <div class="topRight absolute padding2 grey">22</div>
                   <div class="centerDiv padding2 fontSize09">Water can be higher than Max, with lower Water/s</div>
-                  <div class="centerDiv padding2 fontSize09">Water/s &nbsp;<span class="boldBlackBorder">/${format(f(1).dividedBy(f(sel2.effect)))}</span></div>
+                  <div class="centerDiv padding2 fontSize09">Water/s &nbsp;<span class="boldBlackBorder">/${format(f(1).dividedBy(f(f(sel2.effect))))}</span></div>
                  </div>`
 
 
@@ -10837,9 +10837,13 @@ function valuesSetter(type) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
 
+  var difference = f(IUniversal.water).dividedBy(f(IUniversal.waterMax))
+  var calc = f(f(2).pow(f(Decimal.log10(f(difference)))))
+
   if (f(sel.level).gt(f(0))) {
     if (f(IUniversal.water).gte(f(IUniversal.waterMax))) {
-      sel2.effect = (f(IUniversal.waterMax).dividedBy(f(IUniversal.water))).dividedBy(f((f(IUniversal.water).dividedBy(f(IUniversal.waterMax)))).pow((f(IUniversal.water).dividedBy(f(IUniversal.waterMax)))))
+      console.log("test")
+      sel2.effect = f(1).dividedBy(calc)
     } else {
       sel2.effect = f(1)
     }
@@ -11011,9 +11015,12 @@ function valuesSetter(type) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
 
+    var difference = f(IUniversal.elisir).dividedBy(f(IUniversal.elisirMax))
+  var calc = f(f(2).pow(f(Decimal.log10(f(difference)))))
+
   if (f(sel.level).gt(f(0))) {
     if (f(IUniversal.elisir).gte(f(IUniversal.elisirMax))) {
-      sel2.effect = (f(IUniversal.elisirMax).dividedBy(f(IUniversal.elisir))).dividedBy(f((f(IUniversal.elisir).dividedBy(f(IUniversal.elisirMax)))).pow((f(IUniversal.elisir).dividedBy(f(IUniversal.elisirMax)))))
+      sel2.effect = f(1).dividedBy(calc)
     } else {
       sel2.effect = f(1)
     }
@@ -11486,7 +11493,7 @@ function valuesSetter(type) {
                   <div class="centerDiv boldBlackBorder">Everflowing Divinity</div>
                   <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
                   <div class="topRight absolute padding2 grey">38</div>
-                  <div class="centerDiv padding2 fontSize09">Elixir can be higher than Max, with lower Elixir/s</div>
+                  <div class="centerDiv padding2 fontSize09">Ambrosia can be higher than Max, with lower Ambrosia/s</div>
                  </div>`
 
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
@@ -11500,9 +11507,12 @@ function valuesSetter(type) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
 
+      var difference = f(IUniversal.ambrosia).dividedBy(f(IUniversal.ambrosiaMax))
+  var calc = f(f(2).pow(f(Decimal.log10(f(difference)))))
+
   if (f(sel.level).gt(f(0))) {
     if (f(IUniversal.ambrosia).gte(f(IUniversal.ambrosiaMax))) {
-      sel2.effect = (f(IUniversal.ambrosiaMax).dividedBy(f(IUniversal.ambrosia))).dividedBy(f((f(IUniversal.ambrosia).dividedBy(f(IUniversal.ambrosiaMax)))).pow((f(IUniversal.ambrosia).dividedBy(f(IUniversal.ambrosiaMax)))))
+      sel2.effect = f(1).dividedBy(calc)
     } else {
       sel2.effect = f(1)
     }
