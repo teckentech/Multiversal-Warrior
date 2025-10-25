@@ -4133,9 +4133,9 @@ function visualValute() {
     }
     unlockShow("fireValute", true)
 
-      if (checkShow("fp2_content2_19_container")) {
-    unlockShow("waterValute", true)
-  }
+    if (checkShow("fp2_content2_19_container")) {
+      unlockShow("waterValute", true)
+    }
   }
 
   update("powerValute", `<div><div>Power</div><div class="boldBlackBorder">${format(IGameData.power, 1)}</span></div>`)
@@ -16726,7 +16726,7 @@ function visualInventoryWater() {
   if (IUniversal.selPotion != null && IUniversal.selPotion != undefined && IUniversal.selPotion != "" && IUniversalIn.inventoryStorage[IUniversal.selPotion]) {
     update("content2_19_potion_info", IUniversalIn.inventoryStorage[IUniversal.selPotion].content2)
   } else {
-update("content2_19_potion_info", "")
+    update("content2_19_potion_info", "")
   }
 
 }
@@ -20281,7 +20281,7 @@ function buyMultiple(priceIdentity, price, objectToUpdate, propertyToUpdate, eff
 
 function assignGroup(objIn, obj, element) {
   var sel = obj[element]
-    var selIn = objIn[element]
+  var selIn = objIn[element]
 
   var selGroup = ISelUpgrade.group[selIn.group]
 
@@ -21087,7 +21087,12 @@ function draggableSet(item, key, keyIn, type) {
 
     if (!IUniversal.lockSelPotion) {
       IUniversal.selPotion = selectedKey || null;
-      unlockShow("content2_19_potion_info", true);
+      if (IUniversal.selPotion != null) {
+        unlockShow("content2_19_potion_info", true);
+      } else {
+        unlockShow("content2_19_potion_info", false);
+
+      }
     }
   });
 
