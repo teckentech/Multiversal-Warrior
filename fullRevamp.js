@@ -11898,11 +11898,11 @@ function valuesSetter(type) {
 
   var effectLevel = getPotionEffectTier("huntPrice_hunting", "equipment")
 
-  IUniversalIn.potionEffects.effect11.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(1.5).add(f(0.5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
+  IUniversalIn.potionEffects.effect11.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(3).add(f(3).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
   if (potionLevel == null && effectLevel == null) {
     IUniversalIn.potionEffects.effect11.activeValue = f(1)
   } else {
-    IUniversalIn.potionEffects.effect11.activeValue = (f(1.5).add(f(0.5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
+    IUniversalIn.potionEffects.effect11.activeValue = (f(3).add(f(3).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
   }
   IUniversalIn.potionEffects.effect11.value = IUniversalIn.potionEffects.effect11.valueFormula()
 
@@ -11914,11 +11914,11 @@ function valuesSetter(type) {
 
   var effectLevel = getPotionEffectTier("huntEssence_hunting", "equipment")
 
-  IUniversalIn.potionEffects.effect12.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(1.5).add(f(0.5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
+  IUniversalIn.potionEffects.effect12.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(3).add(f(3).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
   if (potionLevel == null && effectLevel == null) {
     IUniversalIn.potionEffects.effect12.activeValue = f(1)
   } else {
-    IUniversalIn.potionEffects.effect12.activeValue = (f(1.5).add(f(0.5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
+    IUniversalIn.potionEffects.effect12.activeValue = (f(3).add(f(3).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
   }
   IUniversalIn.potionEffects.effect12.value = IUniversalIn.potionEffects.effect12.valueFormula()
 
@@ -11930,11 +11930,11 @@ function valuesSetter(type) {
 
   var effectLevel = getPotionEffectTier("huntUpgradePrice_hunting", "equipment")
 
-  IUniversalIn.potionEffects.effect13.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(1.5).add(f(0.5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
+  IUniversalIn.potionEffects.effect13.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(5).add(f(5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
   if (potionLevel == null && effectLevel == null) {
     IUniversalIn.potionEffects.effect13.activeValue = f(1)
   } else {
-    IUniversalIn.potionEffects.effect13.activeValue = (f(1.5).add(f(0.5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
+    IUniversalIn.potionEffects.effect13.activeValue = (f(5).add(f(5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
   }
   IUniversalIn.potionEffects.effect13.value = IUniversalIn.potionEffects.effect13.valueFormula()
 
@@ -11946,11 +11946,11 @@ function valuesSetter(type) {
 
   var effectLevel = getPotionEffectTier("criticalRegeneration_attributes", "equipment")
 
-  IUniversalIn.potionEffects.effect14.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(1.2).add(f(0.2).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
+  IUniversalIn.potionEffects.effect14.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(4).add(f(4).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
   if (potionLevel == null && effectLevel == null) {
     IUniversalIn.potionEffects.effect14.activeValue = f(1)
   } else {
-    IUniversalIn.potionEffects.effect14.activeValue = (f(1.2).add(f(0.2).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
+    IUniversalIn.potionEffects.effect14.activeValue = (f(4).add(f(4).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
   }
   IUniversalIn.potionEffects.effect14.value = IUniversalIn.potionEffects.effect14.valueFormula()
 
@@ -11963,11 +11963,11 @@ function valuesSetter(type) {
 
   var effectLevel = getPotionEffectTier("defencePenDefence_attributes", "equipment")
 
-  IUniversalIn.potionEffects.effect15.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(1.2).add(f(0.2).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
+  IUniversalIn.potionEffects.effect15.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(4).add(f(4).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
   if (potionLevel == null && effectLevel == null) {
     IUniversalIn.potionEffects.effect15.activeValue = f(1)
   } else {
-    IUniversalIn.potionEffects.effect15.activeValue = (f(1.2).add(f(0.2).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
+    IUniversalIn.potionEffects.effect15.activeValue = (f(4).add(f(4).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
   }
   IUniversalIn.potionEffects.effect15.value = IUniversalIn.potionEffects.effect15.valueFormula()
 
@@ -11980,11 +11980,11 @@ function valuesSetter(type) {
 
   var effectLevel = getPotionEffectTier("lifestealShield_attributes", "equipment")
 
-  IUniversalIn.potionEffects.effect16.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(1.2).add(f(0.2).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
+  IUniversalIn.potionEffects.effect16.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(4).add(f(4).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
   if (potionLevel == null && effectLevel == null) {
     IUniversalIn.potionEffects.effect16.activeValue = f(1)
   } else {
-    IUniversalIn.potionEffects.effect16.activeValue = (f(1.2).add(f(0.2).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
+    IUniversalIn.potionEffects.effect16.activeValue = (f(4).add(f(4).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
   }
   IUniversalIn.potionEffects.effect16.value = IUniversalIn.potionEffects.effect16.valueFormula()
 
@@ -11996,11 +11996,11 @@ function valuesSetter(type) {
 
   var effectLevel = getPotionEffectTier("challengerDamage_challenger", "equipment")
 
-  IUniversalIn.potionEffects.effect17.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(2).add(f(effectLevel).minus(f(1)))).pow(f(potionLevel).add(f(1))) }
+  IUniversalIn.potionEffects.effect17.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(5).add(f(5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
   if (potionLevel == null && effectLevel == null) {
     IUniversalIn.potionEffects.effect17.activeValue = f(1)
   } else {
-    IUniversalIn.potionEffects.effect17.activeValue = (f(2).add(f(effectLevel).minus(f(1)))).pow(f(potionLevel).add(f(1)))
+    IUniversalIn.potionEffects.effect17.activeValue = (f(5).add(f(5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
   }
 
   IUniversalIn.potionEffects.effect17.value = IUniversalIn.potionEffects.effect17.valueFormula()
@@ -12012,11 +12012,11 @@ function valuesSetter(type) {
 
   var effectLevel = getPotionEffectTier("challengerLife_challenger", "equipment")
 
-  IUniversalIn.potionEffects.effect18.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(2).add(f(effectLevel).minus(f(1)))).pow(f(potionLevel).add(f(1))) }
+  IUniversalIn.potionEffects.effect18.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(5).add(f(5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
   if (potionLevel == null && effectLevel == null) {
     IUniversalIn.potionEffects.effect18.activeValue = f(1)
   } else {
-    IUniversalIn.potionEffects.effect18.activeValue = (f(2).add(f(effectLevel).minus(f(1)))).pow(f(potionLevel).add(f(1)))
+    IUniversalIn.potionEffects.effect18.activeValue = (f(5).add(f(5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
   }
   IUniversalIn.potionEffects.effect18.value = IUniversalIn.potionEffects.effect18.valueFormula()
 
@@ -12028,11 +12028,11 @@ function valuesSetter(type) {
 
   var effectLevel = getPotionEffectTier("universalChallenger_challenger", "equipment")
 
-  IUniversalIn.potionEffects.effect19.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(2).add(f(effectLevel).minus(f(1)))).pow(f(potionLevel).add(f(1))) }
+  IUniversalIn.potionEffects.effect19.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(5).add(f(5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
   if (potionLevel == null && effectLevel == null) {
     IUniversalIn.potionEffects.effect19.activeValue = f(1)
   } else {
-    IUniversalIn.potionEffects.effect19.activeValue = (f(2).add(f(effectLevel).minus(f(1)))).pow(f(potionLevel).add(f(1)))
+    IUniversalIn.potionEffects.effect19.activeValue = (f(5).add(f(5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
   }
   IUniversalIn.potionEffects.effect19.value = IUniversalIn.potionEffects.effect19.valueFormula()
 
