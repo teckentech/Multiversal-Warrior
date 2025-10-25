@@ -11777,7 +11777,8 @@ function valuesSetter(type) {
   IUniversalIn.potionEffects.effect3.value = IUniversalIn.potionEffects.effect3.valueFormula()
 
 
-  IUniversalIn.potionEffects.effect3.contentFormula = function () { return `<span class="boldBlackBorder">${format(f(this.value))}</span> Accumulation/s` }
+  IUniversalIn.potionEffects.effect3.contentFormula = function () { return `<div>Place this potion in Source</div>
+                                                                <span class="boldBlackBorder">${format(f(this.value))}</span> Accumulation/s` }
   IUniversalIn.potionEffects.effect3.content = `<span class="boldBlackBorder">${format(f(IUniversalIn.potionEffects.effect3.value))} Accumulation/s</span>`
 
   //EFFECT 4
