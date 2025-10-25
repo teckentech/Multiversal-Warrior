@@ -11,13 +11,20 @@
 
     <title>Multiversal Warrior</title>
 
+    <script type="module">
+        import Decimal from "./libs/break_infinity.esm.js";
+        window.Decimal = Decimal;
+
+        import * as Vue from "./libs/vue.esm-browser.js";
+        window.Vue = Vue;
+    </script>
+
 </head>
 
 <body id="bodyMain">
 
     <div id="gameCurtain" class="centerDiv">Please Wait</div>
     <div id="gamePage">
-
         <div id="mainMenu" class="bDefaultStyle">
             <div id="mainMenuExit"></div>
 
@@ -34,6 +41,7 @@
                 <div id="universalCoresBase" class="divColumns centerDivTop  bdefaultButtonSkin"></div>
 
                 <div id="fireValute" class="divColumns centerDivTop  bdefaultButtonSkin"></div>
+                <div id="waterValute" class="divColumns centerDivTop  bdefaultButtonSkin"></div>
             </div>
 
             <div id="fp2">
@@ -60,7 +68,9 @@
                     <div id="menu2"></div>
                     <div id="menu3"></div>
 
-                    <div id="fp2_content2_1_svg"></div>
+                    <div id="fp2_content2_1_svg" v-if="animation.powerSphere" v-html="animation.powerSphere.sphere1">
+
+                    </div>
 
                     <div id="fp2_content2_1_container">
                         <div id="fp2_content2_1_image" class="noClick"></div>
@@ -143,6 +153,16 @@
                         <div id="fp2_content2_18_image" class="noClick"></div>
                         <button id="fp2_content2_18" class="grassFont centerText"></button>
                     </div>
+
+                    <div id="fp2_content2_19_container">
+                        <div id="fp2_content2_19_image" class="noClick"></div>
+                        <button id="fp2_content2_19" class="grassFont centerText">Water</button>
+                    </div>
+
+                    <div id="fp2_content2_20_container">
+                        <div id="fp2_content2_20_image" class="noClick"></div>
+                        <button id="fp2_content2_20" class="grassFont centerText"></button>
+                    </div>
                 </div>
             </div>
 
@@ -152,7 +172,7 @@
 
                     </div>
 
-                    <div id="content2_1_svg">
+                    <div id="content2_1_svg" v-if="animation.powerSphere" v-html="animation.powerSphere.sphere1">
 
                     </div>
                     <div id="bases" class="row centerDiv">
@@ -679,7 +699,8 @@
                 <div id="content2_4" class="bDefaultStyle fp2Content">
                     <div id="c2_4_fight">
                         <div id="c2_4_A_container">
-                            <div id="c2_4_A_image"></div>
+                            <div id="c2_4_A_image" v-if="animation.powerSphere" v-html="animation.powerSphere.sphere1">
+                            </div>
                             <div id="c2_4_A">
                                 <div id="c2_4_A_name"></div>
                                 <div>
@@ -695,7 +716,8 @@
                         </div>
                         <button id="c2_4_VS" class="defaultButton centerDivColumns">CHALLENGE</button>
                         <div id="c2_4_B_container">
-                            <div id="c2_4_B_image"></div>
+                            <div id="c2_4_B_image" v-if="animation.powerSphere" v-html="animation.powerSphere.sphere2">
+                            </div>
                             <div id="c2_4_B">
                                 <div id="c2_4_B_name"></div>
                                 <div>
@@ -723,7 +745,8 @@
                 <div id="content2_10" class="bDefaultStyle fp2Content">
                     <div id="c2_10_fight">
                         <div id="c2_10_A_container">
-                            <div id="c2_10_A_image"></div>
+                            <div id="c2_10_A_image" v-if="animation.powerSphere" v-html="animation.powerSphere.sphere1">
+                            </div>
                             <div id="c2_10_A">
                                 <div id="c2_10_A_name"></div>
                                 <div>
@@ -739,7 +762,8 @@
                         </div>
                         <button id="c2_10_VS" class="defaultButton centerDivColumns">CHALLENGE</button>
                         <div id="c2_10_B_container">
-                            <div id="c2_10_B_image"></div>
+                            <div id="c2_10_B_image" v-if="animation.powerSphere" v-html="animation.powerSphere.sphere3">
+                            </div>
                             <div id="c2_10_B">
                                 <div id="c2_10_B_name"></div>
                                 <div>
@@ -811,7 +835,7 @@
                     </div>
 
                     <div id="opaqueScreen2"></div>
-                    <div class="boldBlackBorder">Multiversal Warrior v1.2.0 - Elemental Update: Universal Arson</div>
+                    <div class="boldBlackBorder">Multiversal Warrior v1.3.0 - Elemental Update: Water Alchemist</div>
                     <button id="options_discord" class="bDefaultButton"></button>
                 </div>
 
@@ -947,6 +971,14 @@
                                 <button id="fp3_content1_8_auto13_b1" class="defaultButton15"></button>
                             </div>
                         </div>
+
+                        <div id="fp3_content1_8_auto14">
+                            <div id="fp3_content1_8_auto14_title"></div>
+                            <div>
+                                <div id="fp3_content1_8_auto14_1"></div>
+                                <button id="fp3_content1_8_auto14_b1" class="defaultButton15"></button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -968,6 +1000,9 @@
                 <div id="content2_18" class="bDefaultStyle fp2Content">
                     <div id="content2_18_text" class="orderedText"></div>
                 </div>
+                <div id="content2_20" class="bDefaultStyle fp2Content">
+                    <div id="content2_20_text" class="orderedText"></div>
+                </div>
 
 
                 <!--UPDATE 2-->
@@ -987,8 +1022,8 @@
                             <div id="content2_17_valutes_valute4" class="bdefaultButtonSkin width10 padding1 noClick">
                             </div>
                         </div>
-                        <button id="content2_17_resizeBig" class="defaultButton5  right5 absolute">+</button>
-                        <button id="content2_17_resizeSmall" class="defaultButton5 right absolute">-</button>
+                        <button id="content2_17_resizeBig" class="defaultButton5  top right absolute">+</button>
+                        <button id="content2_17_resizeSmall" class="defaultButton5 top50 right absolute">-</button>
                     </div>
 
                     <div id="content2_17_scroll" class="scrollPage width100 height100 top left absolute">
@@ -1395,8 +1430,661 @@
                     </div>
                 </div>
 
+                <div id="content2_19" class="bDefaultStyle fp2Content">
+
+                    <div id="content2_19_menu" class="">
+                        <button id="content2_19_buy" class="defaultButton15"></button>
+                        <button id="content2_19_valutes_button" class="defaultButton5">></button>
+                        <div id="content2_19_valutes_content" class="noClick">
+                            <div id="content2_19_valutes_valute1" class="bdefaultButtonSkin width10 padding1 noClick">
+                            </div>
+                            <div id="content2_19_valutes_valute2" class="bdefaultButtonSkin width10 padding1 noClick">
+                            </div>
+                            <div id="content2_19_valutes_valute3" class="bdefaultButtonSkin width10 padding1 noClick">
+                            </div>
+                            <div id="content2_19_valutes_valute4" class="bdefaultButtonSkin width10 padding1 noClick">
+                            </div>
+                            <div id="content2_19_valutes_valute5" class="bdefaultButtonSkin width10 padding1 noClick">
+                            </div>
+                            <div id="content2_19_valutes_valute6" class="bdefaultButtonSkin width10 padding1 noClick">
+                            </div>
+                            <div id="content2_19_valutes_valute7" class="bdefaultButtonSkin width10 padding1 noClick">
+                            </div>
+                        </div>
+                        <button id="content2_19_resizeBig" class="defaultButton5 top right right absolute">+</button>
+                        <button id="content2_19_resizeSmall" class="defaultButton5 top40 right absolute">-</button>
+                    </div>
+
+                    <div id="content2_19_potion_info" class="bdefaultButtonSkin fp2Content"></div>
+
+                    <div id="content2_19_scroll" class="scrollPage width100 height100 top left absolute">
+                        <div id="content2_19_size" class="width100 height100 top left absolute">
+
+                            <div id="content2_19_limit1">.</div>
+                            <div id="content2_19_limit2">.</div>
+                            <div id="content2_19_limit3">.</div>
+                            <div id="content2_19_limit4">.</div>
+
+                            <svg id="content2_19_lineLayer"></svg>
+
+                            <div id="content2_19_zone1" class="bDefaultStyle absolute">
+                                <div class="boldBlackBorder">Water Upgrades</div>
+                            </div>
+
+                            <div id="content2_19_zone2" class="bDefaultStyle absolute">
+                                <div class="boldBlackBorder">Ingredients</div>
+                            </div>
+
+                            <div id="content2_19_zone3" class="bDefaultStyle absolute ">
+                                <div class="boldBlackBorder">Potions</div>
+                            </div>
+
+                            <div id="content2_19_grid1" class="bdefaultButtonSkin padding1 backgroundBlue3"></div>
+
+                            <div id="content2_19_potionSel" class="bdefaultButtonSkin padding1 backgroundBlue3">
+                                <div id="content2_19_potions_potion1" class="row">
+                                    <div id="content2_19_potions_potion1_content" v-if="universalIn.potionInfo"
+                                        v-html="universalIn.potionInfo.potion1.content2"></div>
+                                    <button class="defaultButton" id="content2_19_potions_potion1_button">
+                                        <div class="noClick" v-if="universalIn.potionInfo"
+                                            v-html="universalIn.potionInfo.potion1.button2"></div>
+                                    </button>
+                                </div>
+                                <div id="content2_19_potions_potion2" class="row">
+                                    <div id="content2_19_potions_potion2_content" v-if="universalIn.potionInfo"
+                                        v-html="universalIn.potionInfo.potion2.content2"></div>
+                                    <button class="defaultButton" id="content2_19_potions_potion2_button">
+                                        <div class="noClick" v-if="universalIn.potionInfo"
+                                            v-html="universalIn.potionInfo.potion1.button2"></div>
+                                    </button>
+                                </div>
+                                <div id="content2_19_potions_potion4" class="row">
+                                    <div id="content2_19_potions_potion4_content" v-if="universalIn.potionInfo"
+                                        v-html="universalIn.potionInfo.potion4.content2"></div>
+                                    <button class="defaultButton" id="content2_19_potions_potion4_button">
+                                        <div class="noClick" v-if="universalIn.potionInfo"
+                                            v-html="universalIn.potionInfo.potion4.button2"></div>
+                                    </button>
+                                </div>
+                                <div id="content2_19_potions_potion5" class="row">
+                                    <div id="content2_19_potions_potion5_content" v-if="universalIn.potionInfo"
+                                        v-html="universalIn.potionInfo.potion5.content2"></div>
+                                    <button class="defaultButton" id="content2_19_potions_potion5_button">
+                                        <div class="noClick" v-if="universalIn.potionInfo"
+                                            v-html="universalIn.potionInfo.potion5.button2"></div>
+                                    </button>
+                                </div>
+
+                                <div id="content2_19_potions_potion6" class="row">
+                                    <div id="content2_19_potions_potion6_content" v-if="universalIn.potionInfo"
+                                        v-html="universalIn.potionInfo.potion6.content2"></div>
+                                    <button class="defaultButton" id="content2_19_potions_potion6_button">
+                                        <div class="noClick" v-if="universalIn.potionInfo"
+                                            v-html="universalIn.potionInfo.potion6.button2"></div>
+                                    </button>
+                                </div>
+                                <div id="content2_19_potions_potion7" class="row">
+                                    <div id="content2_19_potions_potion7_content" v-if="universalIn.potionInfo"
+                                        v-html="universalIn.potionInfo.potion7.content2"></div>
+                                    <button class="defaultButton" id="content2_19_potions_potion7_button">
+                                        <div class="noClick" v-if="universalIn.potionInfo"
+                                            v-html="universalIn.potionInfo.potion7.button2"></div>
+                                    </button>
+                                </div>
+                                <div id="content2_19_potions_potion8" class="row">
+                                    <div id="content2_19_potions_potion8_content" v-if="universalIn.potionInfo"
+                                        v-html="universalIn.potionInfo.potion8.content2"></div>
+                                    <button class="defaultButton" id="content2_19_potions_potion8_button">
+                                        <div class="noClick" v-if="universalIn.potionInfo"
+                                            v-html="universalIn.potionInfo.potion8.button2"></div>
+                                    </button>
+                                </div>
+
+                                <div id="content2_19_potions_potion3" class="row">
+                                    <div id="content2_19_potions_potion3_content" v-if="universalIn.potionInfo"
+                                        v-html="universalIn.potionInfo.potion3.content2"></div>
+                                    <button class="defaultButton" id="content2_19_potions_potion3_button">
+                                        <div class="noClick" v-if="universalIn.potionInfo"
+                                            v-html="universalIn.potionInfo.potion3.button2"></div>
+                                    </button>
+                                </div>
+
+
+
+                                <div id="content2_19_potions_potion9" class="row">
+                                    <div id="content2_19_potions_potion9_content" v-if="universalIn.potionInfo"
+                                        v-html="universalIn.potionInfo.potion9.content2"></div>
+                                    <button class="defaultButton" id="content2_19_potions_potion9_button">
+                                        <div class="noClick" v-if="universalIn.potionInfo"
+                                            v-html="universalIn.potionInfo.potion9.button2"></div>
+                                    </button>
+                                </div>
+                                <div id="content2_19_potions_potion10" class="row">
+                                    <div id="content2_19_potions_potion10_content" v-if="universalIn.potionInfo"
+                                        v-html="universalIn.potionInfo.potion10.content2"></div>
+                                    <button class="defaultButton" id="content2_19_potions_potion10_button">
+                                        <div class="noClick" v-if="universalIn.potionInfo"
+                                            v-html="universalIn.potionInfo.potion10.button2"></div>
+                                    </button>
+                                </div>
+                                <div id="content2_19_potions_potion11" class="row">
+                                    <div id="content2_19_potions_potion11_content" v-if="universalIn.potionInfo"
+                                        v-html="universalIn.potionInfo.potion11.content2"></div>
+                                    <button class="defaultButton" id="content2_19_potions_potion11_button">
+                                        <div class="noClick" v-if="universalIn.potionInfo"
+                                            v-html="universalIn.potionInfo.potion11.button2"></div>
+                                    </button>
+                                </div>
+
+
+
+                                <div id="content2_19_potions_potion12" class="row">
+                                    <div id="content2_19_potions_potion12_content" v-if="universalIn.potionInfo"
+                                        v-html="universalIn.potionInfo.potion12.content2"></div>
+                                    <button class="defaultButton" id="content2_19_potions_potion12_button">
+                                        <div class="noClick" v-if="universalIn.potionInfo"
+                                            v-html="universalIn.potionInfo.potion12.button2"></div>
+                                    </button>
+                                </div>
+                                <div id="content2_19_potions_potion13" class="row">
+                                    <div id="content2_19_potions_potion13_content" v-if="universalIn.potionInfo"
+                                        v-html="universalIn.potionInfo.potion13.content2"></div>
+                                    <button class="defaultButton" id="content2_19_potions_potion13_button">
+                                        <div class="noClick" v-if="universalIn.potionInfo"
+                                            v-html="universalIn.potionInfo.potion13.button2"></div>
+                                    </button>
+                                </div>
+                                <div id="content2_19_potions_potion14" class="row">
+                                    <div id="content2_19_potions_potion14_content" v-if="universalIn.potionInfo"
+                                        v-html="universalIn.potionInfo.potion14.content2"></div>
+                                    <button class="defaultButton" id="content2_19_potions_potion14_button">
+                                        <div class="noClick" v-if="universalIn.potionInfo"
+                                            v-html="universalIn.potionInfo.potion14.button2"></div>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div id="content2_19_tutorial" class="bdefaultButtonSkin column backgroundBlue3 relative">
+                                <div class="backgroundBlue1 margin1 roundedEdges">
+                                    <div>1. Craft Potion</div>
+                                    <div>2. Drag Potion and Drop it a slot</div>
+                                    <div>3. Upgrade Potion</div>
+                                </div>
+                                <div class="backgroundBlue1 margin1 roundedEdges">
+                                    <div>How to Unequip:</div>
+                                    <div>1. Drag Equipped Potion and Drop it in the grid</div>
+                                </div>
+                            </div>
+
+                            <div id="content2_19_potionEquip"
+                                class="bdefaultButtonSkin padding1 column backgroundBlue3 relative">
+                                <div id="content2_19_potionEquip_1"
+                                    class="width100 centerDivTopColumns backgroundBlue1 roundedEdges">
+                                    <div>TRAINING</div>
+                                    <div id="content2_19_potion_item1" class="bDefaultStyle blu"></div>
+                                    <div class="padding2 backgroundBlue2 roundedEdges class="
+                                        v-if="universalIn.equipment" v-html="universalIn.equipment.item1.content">
+                                    </div>
+                                </div>
+
+                                <div id="content2_19_potionEquip_2"
+                                    class="width100 centerDivTopColumns backgroundBlue1 roundedEdges">
+                                    <div>HUNTING</div>
+                                    <div id="content2_19_potion_item2" class="bDefaultStyle blu"></div>
+                                    <div class="padding2 backgroundBlue2 roundedEdges class="
+                                        v-if="universalIn.equipment" v-html="universalIn.equipment.item2.content">
+                                    </div>
+                                </div>
+
+                                <div id="content2_19_potionEquip_3"
+                                    class="width100 centerDivTopColumns backgroundBlue1 roundedEdges">
+                                    <div>ATTRIBUTES</div>
+                                    <div id="content2_19_potion_item3" class="bDefaultStyle blu"></div>
+                                    <div class="padding2 backgroundBlue2 roundedEdges class="
+                                        v-if="universalIn.equipment" v-html="universalIn.equipment.item3.content">
+                                    </div>
+                                </div>
+
+                                <div id="content2_19_potionEquip_4"
+                                    class="width100 centerDivTopColumns backgroundBlue1 roundedEdges">
+                                    <div>CHALLENGER</div>
+                                    <div id="content2_19_potion_item4" class="bDefaultStyle blu"></div>
+                                    <div class="padding2 backgroundBlue2 roundedEdges class="
+                                        v-if="universalIn.equipment" v-html="universalIn.equipment.item4.content">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div id="content2_19_potionDelete" class="bdefaultButtonSkin padding1 column red">
+                            </div>
+
+                            <div id="content2_19_potionUpgrade" class="bdefaultButtonSkin padding1 backgroundBlue3 ">
+                                <div id="content2_19_potionUpgrade_selector" class="height20">
+                                    <button id="content2_19_potionUpgrade_selector_button1"
+                                        class="defaultButton15">UPGRADE</button>
+                                    <button id="content2_19_potionUpgrade_selector_button2"
+                                        class="defaultButton15">SOURCE</button>
+                                    <button id="content2_19_potionUpgrade_selector_button3"
+                                        class="defaultButton15">FUSION</button>
+
+                                </div>
+                                <div id="content2_19_potionUpgrade_selector_content1" class="height80">
+                                    <div class="relative centerDiv height30 roundedEdges">
+                                        <div id="content2_19_potionUpgrade_item1"
+                                            class="height100 square absolute red roundedEdges">
+                                        </div>
+                                    </div>
+                                    <div class="relative centerDiv height20">
+                                        <button id="content2_19_potionUpgrade_upgradeButton"
+                                            class="defaultButton">UPGRADE</button>
+                                    </div>
+                                    <div class="relative height50 row centerDiv">
+                                        <div id="content2_19_potionUpgrade_visual1" class="width30 height100 absolute"
+                                            v-if="universalIn.potionUpgradeVisual1"
+                                            v-html="universalIn.potionUpgradeVisual1"></div>
+                                    </div>
+                                </div>
+
+                                <div id="content2_19_potionUpgrade_selector_content2" class="height80 row relative">
+
+                                    <div id="content2_19_content2_source1" class="height100 width20 column">
+                                        <div class="centerDiv width100 height30">
+                                            <div id="content2_19_potionUpgrade_content2_item1"
+                                                class="red square height100 defaultStyle roundedEdges"></div>
+                                        </div>
+                                        <div v-if="universalIn.potionSource"
+                                            v-html="universalIn.potionSource.item1.content"
+                                            class="centerDiv width100 height60 column">
+
+                                        </div>
+                                    </div>
+
+                                    <div id="content2_19_content2_source2" class="height100 width20 column">
+                                        <div class="centerDiv width100 height30">
+                                            <div id="content2_19_potionUpgrade_content2_item2"
+                                                class="red square height100 defaultStyle roundedEdges"></div>
+                                        </div>
+                                        <div v-if="universalIn.potionSource"
+                                            v-html="universalIn.potionSource.item2.content"
+                                            class="centerDiv width100 height60 column">
+
+                                        </div>
+                                    </div>
+
+                                    <div id="content2_19_content2_source3" class="height100 width20 column">
+                                        <div class="centerDiv width100 height30">
+                                            <div id="content2_19_potionUpgrade_content2_item3"
+                                                class="red square height100 defaultStyle roundedEdges"></div>
+                                        </div>
+                                        <div v-if="universalIn.potionSource"
+                                            v-html="universalIn.potionSource.item3.content"
+                                            class="centerDiv width100 height60 column">
+
+                                        </div>
+                                    </div>
+
+                                    <div id="content2_19_content2_source4" class="height100 width20 column">
+                                        <div class="centerDiv width100 height30">
+                                            <div id="content2_19_potionUpgrade_content2_item4"
+                                                class="red square height100 defaultStyle roundedEdges"></div>
+                                        </div>
+                                        <div v-if="universalIn.potionSource"
+                                            v-html="universalIn.potionSource.item4.content"
+                                            class="centerDiv width100 height60 column">
+
+                                        </div>
+                                    </div>
+
+                                    <div id="content2_19_content2_source5" class="height100 width20 column">
+                                        <div class="centerDiv width100 height30">
+                                            <div id="content2_19_potionUpgrade_content2_item5"
+                                                class="red square height100 defaultStyle roundedEdges"></div>
+                                        </div>
+                                        <div v-if="universalIn.potionSource"
+                                            v-html="universalIn.potionSource.item5.content"
+                                            class="centerDiv width100 height60 column">
+
+                                        </div>
+                                    </div>
+
+                                    <div id="content2_19_content2_source6" class="height100 width20 column">
+                                        <div class="centerDiv width100 height30">
+                                            <div id="content2_19_potionUpgrade_content2_item6"
+                                                class="red square height100 defaultStyle roundedEdges"></div>
+                                        </div>
+                                        <div v-if="universalIn.potionSource"
+                                            v-html="universalIn.potionSource.item6.content"
+                                            class="centerDiv width100 height60 column">
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="content2_19_potionUpgrade_selector_content3" class="height80 column relative">
+                                    <div>
+                                        <div>Place potions of the same type</div>
+                                        <div>Reset the level. Upgrade the effects. Raise the price</div>
+                                    </div>
+                                    <div class="width100 height30 row flexBetween centerDiv">
+                                        <div class="width40 height100 centerDiv">
+                                            <div id="content2_19_potionUpgrade_content3_item1"
+                                                class="red square height100 defaultStyle roundedEdges"></div>
+                                        </div>
+                                        <button id="content2_19_potionUpgrade_content3_button1"
+                                            class="defaultButton15 ">FUSION</button>
+                                        <div class="width40 height100 centerDiv">
+                                            <div id="content2_19_potionUpgrade_content3_item2"
+                                                class="red square height100 defaultStyle roundedEdges"></div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="height50 width100 row flexBetween relative centerDiv">
+                                        <div class="width30 height100">
+                                            <div class="width100 height100" v-if="universalIn.potionFusionVisual1"
+                                                v-html="universalIn.potionFusionVisual1">
+                                            </div>
+                                        </div>
+                                        <div class="width30 height100">
+                                            <div class="width100 height100" v-if="universalIn.potionFusionVisual2"
+                                                v-html="universalIn.potionFusionVisual2">
+                                            </div>
+                                        </div>
+                                        <div class="width30 height100">
+                                            <div class="width100 height100" v-if="universalIn.potionFusionVisual3"
+                                                v-html="universalIn.potionFusionVisual3">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="content2_19_node1" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node1_content" class="height50"></div>
+                                <button id="content2_19_node1_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node2" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node2_content" class="height50"></div>
+                                <button id="content2_19_node2_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_circle1">
+                                <div id="content2_19_circle1_fill"></div>
+                            </div>
+
+                            <div id="content2_19_node3" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node3_content" class="height50"></div>
+                                <button id="content2_19_node3_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node4" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node4_content" class="height50"></div>
+                                <button id="content2_19_node4_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node5" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node5_content" class="height50"></div>
+                                <button id="content2_19_node5_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node6" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node6_content" class="height50"></div>
+                                <button id="content2_19_node6_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node7" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node7_content" class="height50"></div>
+                                <button id="content2_19_node7_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node8" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node8_content" class="height50"></div>
+                                <button id="content2_19_node8_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node9" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node9_content" class="height50"></div>
+                                <button id="content2_19_node9_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node10" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node10_content" class="height50"></div>
+                                <button id="content2_19_node10_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node11" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node11_content" class="height50"></div>
+                                <button id="content2_19_node11_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node12" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node12_content" class="height50"></div>
+                                <button id="content2_19_node12_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node13" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node13_content" class="height50"></div>
+                                <button id="content2_19_node13_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node14" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node14_content" class="height50"></div>
+                                <button id="content2_19_node14_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node15" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node15_content" class="height50"></div>
+                                <button id="content2_19_node15_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node16" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node16_content" class="height50"></div>
+                                <button id="content2_19_node16_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node17" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node17_content" class="height50"></div>
+                                <button id="content2_19_node17_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node18" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node18_content" class="height50"></div>
+                                <button id="content2_19_node18_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node19" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node19_content" class="height50"></div>
+                                <button id="content2_19_node19_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node20" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node20_content" class="height50"></div>
+                                <button id="content2_19_node20_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node21" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node21_content" class="height50"></div>
+                                <button id="content2_19_node21_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_circle2">
+                                <div id="content2_19_circle2_fill"></div>
+                            </div>
+
+                            <div id="content2_19_node22" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node22_content" class="height50"></div>
+                                <button id="content2_19_node22_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node23" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node23_content" class="height50"></div>
+                                <button id="content2_19_node23_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node24" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node24_content" class="height50"></div>
+                                <button id="content2_19_node24_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node25" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node25_content" class="height50"></div>
+                                <button id="content2_19_node25_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_circle3">
+                                <div id="content2_19_circle3_fill"></div>
+                            </div>
+
+                            <div id="content2_19_node26" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node26_content" class="height50"></div>
+                                <button id="content2_19_node26_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node27" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node27_content" class="height50"></div>
+                                <button id="content2_19_node27_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node28" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node28_content" class="height50"></div>
+                                <button id="content2_19_node28_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node29" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node29_content" class="height50"></div>
+                                <button id="content2_19_node29_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node30" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node30_content" class="height50"></div>
+                                <button id="content2_19_node30_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node31" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node31_content" class="height50"></div>
+                                <button id="content2_19_node31_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node32" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node32_content" class="height50"></div>
+                                <button id="content2_19_node32_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node33" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node33_content" class="height50"></div>
+                                <button id="content2_19_node33_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node34" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node34_content" class="height50"></div>
+                                <button id="content2_19_node34_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node35" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node35_content" class="height50"></div>
+                                <button id="content2_19_node35_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node36" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node36_content" class="height50"></div>
+                                <button id="content2_19_node36_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node37" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node37_content" class="height50"></div>
+                                <button id="content2_19_node37_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_19_node38" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node38_content" class="height50"></div>
+                                <button id="content2_19_node38_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
         </div>
+    </div>
     </div>
 
     <div id="fp4">
@@ -1408,11 +2096,9 @@
     <!-- 1. Carica la libreria break_infinity.js -->
 
 
-    <script type="module">
-        import Decimal from "./libs/break_infinity.esm.js";
-        window.Decimal = Decimal;
-    </script>
-    
+    <script src="./libs/lz-string.js"></script>
+
+
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
