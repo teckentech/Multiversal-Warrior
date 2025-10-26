@@ -18462,8 +18462,10 @@ function loopShow() {
   unlockShow("fp2_content2_17_container", true)
   unlockShow("fp2_content2_18_container", true)
 
-  unlockShow("fp2_content2_19_container", true)
-  unlockShow("fp2_content2_20_container", true)
+  if (IUniversal.fireMilestones.m6.mCheck()) {
+    unlockShow("fp2_content2_19_container", true)
+    unlockShow("fp2_content2_20_container", true)
+  }
 
   //PROGRESS BARS
   //CHALLENGER
