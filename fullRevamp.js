@@ -4753,7 +4753,7 @@ function valuesSetter(type) {
   if (ITraining.base.base3.active) { num += 1 }
   if (ITraining.base.base4.active) { num += 1 }
 
-  if(f(num).gt(f(ISelUpgrade.group.group1.maxNum))){num = ISelUpgrade.group.group1.maxNum}
+  if (f(num).gt(f(ISelUpgrade.group.group1.maxNum))) { num = ISelUpgrade.group.group1.maxNum }
 
   ISelUpgrade.group.group1.num = num
 
@@ -4765,7 +4765,7 @@ function valuesSetter(type) {
   if (IUniversal.fireTree.node43.active) { num += 1 }
   if (IUniversal.fireTree.node44.active) { num += 1 }
 
-  if(f(num).gt(f(ISelUpgrade.group.group2.maxNum))){num = ISelUpgrade.group.group2.maxNum}
+  if (f(num).gt(f(ISelUpgrade.group.group2.maxNum))) { num = ISelUpgrade.group.group2.maxNum }
 
   ISelUpgrade.group.group2.num = num
 
@@ -18463,6 +18463,20 @@ function loopShow() {
   unlockShow("fp2_content2_18_container", true)
 
   if (IUniversal.fireMilestones.m6.mCheck()) {
+    document.getElementById("fp2_content2_19_image").style.opacity = "1";  // attivo 1, disattivo 0.5
+    document.getElementById("fp2_content2_19").style.pointerEvents = "auto";
+
+    document.getElementById("fp2_content2_20_image").style.opacity = "1";  // attivo 1, disattivo 0.5
+    document.getElementById("fp2_content2_20").style.pointerEvents = "auto";
+    unlockShow("fp2_content2_19_container", true)
+    unlockShow("fp2_content2_20_container", true)
+  } else {
+
+    document.getElementById("fp2_content2_19_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
+    document.getElementById("fp2_content2_19").style.pointerEvents = "none";
+
+    document.getElementById("fp2_content2_20_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
+    document.getElementById("fp2_content2_20").style.pointerEvents = "none";
     unlockShow("fp2_content2_19_container", true)
     unlockShow("fp2_content2_20_container", true)
   }
