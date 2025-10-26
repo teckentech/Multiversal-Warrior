@@ -18462,7 +18462,7 @@ function loopShow() {
   unlockShow("fp2_content2_17_container", true)
   unlockShow("fp2_content2_18_container", true)
 
-  if (IUniversal.fireMilestones.m6.mCheck()) {
+  if (IUniversalIn.fireMilestones.m6.mCheck()) {
     document.getElementById("fp2_content2_19_image").style.opacity = "1";  // attivo 1, disattivo 0.5
     document.getElementById("fp2_content2_19").style.pointerEvents = "auto";
 
