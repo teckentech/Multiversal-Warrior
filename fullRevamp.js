@@ -10865,7 +10865,7 @@ function valuesSetter(type) {
   }
 
   var difference = f(IUniversal.water).dividedBy(f(IUniversal.waterMax))
-  var calc = f(f(2).pow(f(Decimal.log10(f(difference)))))
+  var calc = f(f(5).pow(f(Decimal.log10(f(difference)))))
 
   if (f(sel.level).gt(f(0))) {
     if (f(IUniversal.water).gte(f(IUniversal.waterMax))) {
@@ -11042,7 +11042,7 @@ function valuesSetter(type) {
   }
 
   var difference = f(IUniversal.elisir).dividedBy(f(IUniversal.elisirMax))
-  var calc = f(f(2).pow(f(Decimal.log10(f(difference)))))
+  var calc = f(f(5).pow(f(Decimal.log10(f(difference)))))
 
   if (f(sel.level).gt(f(0))) {
     if (f(IUniversal.elisir).gte(f(IUniversal.elisirMax))) {
@@ -11534,7 +11534,7 @@ function valuesSetter(type) {
   }
 
   var difference = f(IUniversal.ambrosia).dividedBy(f(IUniversal.ambrosiaMax))
-  var calc = f(f(2).pow(f(Decimal.log10(f(difference)))))
+  var calc = f(f(5).pow(f(Decimal.log10(f(difference)))))
 
   if (f(sel.level).gt(f(0))) {
     if (f(IUniversal.ambrosia).gte(f(IUniversal.ambrosiaMax))) {
