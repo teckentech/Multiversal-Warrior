@@ -4742,6 +4742,33 @@ function fullSetter(type) {
 
 
 function valuesSetter(type) {
+
+  //Assign Group
+
+  //group1
+  var num = 0;
+
+  if (ITraining.base.base1.active) { num += 1 }
+  if (ITraining.base.base2.active) { num += 1 }
+  if (ITraining.base.base3.active) { num += 1 }
+  if (ITraining.base.base4.active) { num += 1 }
+
+  if(f(num).gt(f(ISelUpgrade.group.group1.maxNum))){num = ISelUpgrade.group.group1.maxNum}
+
+  ISelUpgrade.group.group1.num = num
+
+  //group2
+  var num = 0;
+
+  if (IUniversal.fireTree.node41.active) { num += 1 }
+  if (IUniversal.fireTree.node42.active) { num += 1 }
+  if (IUniversal.fireTree.node43.active) { num += 1 }
+  if (IUniversal.fireTree.node44.active) { num += 1 }
+
+  if(f(num).gt(f(ISelUpgrade.group.group2.maxNum))){num = ISelUpgrade.group.group2.maxNum}
+
+  ISelUpgrade.group.group2.num = num
+
   //global 
 
   var global1 = f(IGameData.tickSpeedMult);
@@ -10842,7 +10869,6 @@ function valuesSetter(type) {
 
   if (f(sel.level).gt(f(0))) {
     if (f(IUniversal.water).gte(f(IUniversal.waterMax))) {
-      console.log("test")
       sel2.effect = f(1).dividedBy(calc)
     } else {
       sel2.effect = f(1)
@@ -11015,7 +11041,7 @@ function valuesSetter(type) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
 
-    var difference = f(IUniversal.elisir).dividedBy(f(IUniversal.elisirMax))
+  var difference = f(IUniversal.elisir).dividedBy(f(IUniversal.elisirMax))
   var calc = f(f(2).pow(f(Decimal.log10(f(difference)))))
 
   if (f(sel.level).gt(f(0))) {
@@ -11507,7 +11533,7 @@ function valuesSetter(type) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
 
-      var difference = f(IUniversal.ambrosia).dividedBy(f(IUniversal.ambrosiaMax))
+  var difference = f(IUniversal.ambrosia).dividedBy(f(IUniversal.ambrosiaMax))
   var calc = f(f(2).pow(f(Decimal.log10(f(difference)))))
 
   if (f(sel.level).gt(f(0))) {
@@ -11787,8 +11813,10 @@ function valuesSetter(type) {
   IUniversalIn.potionEffects.effect3.value = IUniversalIn.potionEffects.effect3.valueFormula()
 
 
-  IUniversalIn.potionEffects.effect3.contentFormula = function () { return `<div>Place this potion in Source</div>
-                                                                <span class="boldBlackBorder">${format(f(this.value))}</span> Accumulation/s` }
+  IUniversalIn.potionEffects.effect3.contentFormula = function () {
+    return `<div>Place this potion in Source</div>
+                                                                <span class="boldBlackBorder">${format(f(this.value))}</span> Accumulation/s`
+  }
   IUniversalIn.potionEffects.effect3.content = `<span class="boldBlackBorder">${format(f(IUniversalIn.potionEffects.effect3.value))} Accumulation/s</span>`
 
   //EFFECT 4
@@ -13398,33 +13426,22 @@ document.getElementById("fp2_content3_pageSel").onclick = function () {
 }
 
 //Bases
-window.addEventListener('DOMContentLoaded', () => {
-  const btn = document.getElementById("base1Button")
-  if (btn) {
-    btn.onclick = () => assignGroup(ITrainingIn.base, ITraining.base, "base1")
-  }
-})
 
-window.addEventListener('DOMContentLoaded', () => {
-  const btn = document.getElementById("base2Button")
-  if (btn) {
-    btn.onclick = () => assignGroup(ITrainingIn.base, ITraining.base, "base2")
-  }
-})
+document.getElementById("base1Button").onclick = function () {
+  assignGroup(ITrainingIn.base, ITraining.base, "base1")
+}
 
-window.addEventListener('DOMContentLoaded', () => {
-  const btn = document.getElementById("base3Button")
-  if (btn) {
-    btn.onclick = () => assignGroup(ITrainingIn.base, ITraining.base, "base3")
-  }
-})
+document.getElementById("base2Button").onclick = function () {
+  assignGroup(ITrainingIn.base, ITraining.base, "base2")
+}
 
-window.addEventListener('DOMContentLoaded', () => {
-  const btn = document.getElementById("base4Button")
-  if (btn) {
-    btn.onclick = () => assignGroup(ITrainingIn.base, ITraining.base, "base4")
-  }
-})
+document.getElementById("base3Button").onclick = function () {
+  assignGroup(ITrainingIn.base, ITraining.base, "base3")
+}
+
+document.getElementById("base4Button").onclick = function () {
+  assignGroup(ITrainingIn.base, ITraining.base, "base4")
+}
 
 //Ascension Points
 
@@ -20298,12 +20315,10 @@ function assignGroup(objIn, obj, element) {
 
   if (sel.active) {
     sel.active = false
-    selGroup.num = f(selGroup.num).minus(f(1));
   }
   else {
     if (f(selGroup.num).lt(f(selGroup.maxNum))) {
       sel.active = true
-      selGroup.num = f(selGroup.num).add(f(1));
       selGroup.lastSel = element
 
     } else {
@@ -20311,7 +20326,6 @@ function assignGroup(objIn, obj, element) {
 
       obj[selGroup.lastSel].active = false
       selGroup.lastSel = element
-
     }
   }
 }
