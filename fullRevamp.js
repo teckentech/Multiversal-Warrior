@@ -2378,8 +2378,8 @@ class UniversalIn {
         prices: {
           price1: { tier: 2, price: 0, priceFormula: function () { return 0 }, priceIdentity: "erbs", type: "uni" },
           price2: { tier: 1, price: 0, priceFormula: function () { return 0 }, priceIdentity: "fluidFire", type: "uni" },
-          price3: { tier: 1, price: 0, priceFormula: function () { return 0 }, priceIdentity: "waterGem", type: "uni" },
-          price4: { tier: 1, price: 0, priceFormula: function () { return 0 }, priceIdentity: "pyroFrost", type: "uni" },
+          price3: { tier: 0, price: 0, priceFormula: function () { return 0 }, priceIdentity: "waterGem", type: "uni" },
+          price4: { tier: -1, price: 0, priceFormula: function () { return 0 }, priceIdentity: "pyroFrost", type: "uni" },
         },
       },
 
@@ -10609,7 +10609,7 @@ function valuesSetter(type) {
   }
 
 
-  sel2.price = (f(2).mul(f(10).pow(f(2)))).mul(f(5).pow(f(sel.level)))
+  sel2.price = (f(2).mul(f(10).pow(f(2)))).mul(f(3).pow(f(sel.level)))
 
   if (f(sel.level).gt(f(0))) { sel.active = true }
   if (sel.active) { sel.unlocked = true }
@@ -10648,7 +10648,7 @@ function valuesSetter(type) {
   }
 
 
-  sel2.price = (f(4).mul(f(10).pow(f(2)))).mul(f(10).pow(f(sel.level)))
+  sel2.price = (f(4).mul(f(10).pow(f(2)))).mul(f(5).pow(f(sel.level)))
 
   if (f(sel.level).gt(f(0))) { sel.active = true }
   if (sel.active) { sel.unlocked = true }
