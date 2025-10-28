@@ -934,7 +934,6 @@ class Universal {
     this.pyroFrostProd = options.pyroFrostProd || 0;
     this.pyroFrostProdBase = options.pyroFrostProdBase || 0;
 
-    this.maxInventoryStorage = options.maxInventoryStorage || 100
     this.selPotion = ""
     this.lockSelPotion = false
 
@@ -2196,6 +2195,8 @@ class UniversalIn {
     this.inventoryStorage = options.inventoryStorage = {
 
     }
+
+    this.maxInventoryStorage = 102
 
     this.potionUpgradeVisual1 = ""
 
@@ -20563,7 +20564,7 @@ function craft(type, object) {
       i++;
     } while (IUniversal.inventoryStorage.hasOwnProperty(keyName));
 
-    if (i >= IUniversal.maxInventoryStorage) {
+    if (i >= IUniversalIn.maxInventoryStorage) {
       return
     }
 
