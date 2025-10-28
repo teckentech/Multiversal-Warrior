@@ -1472,14 +1472,12 @@ class UniversalIn {
 
       attributesUnlock2: {
         name: "",
-        req1: function () { return true },
-        req2: function () { return true },
+        req: function () { return true }
       },
 
       attributesUnlock3: {
         name: "",
-        req1: function () { return true },
-        req2: function () { return true },
+        req: function () { return true }
       },
 
       attributeBonus1: {
@@ -7366,9 +7364,6 @@ function valuesSetter(type) {
   } else {
     sel2.effect = f(0)
   }
-
-  console.log()
-
 
   sel2.price = (f(10).pow(f(15))).mul(f(10).pow(f(5).mul(f(sel.level))))
 
@@ -19641,7 +19636,7 @@ function fireLines() {
   if (style.transform && style.transform !== 'none') {
     const match = style.transform.match(/matrix\(([^)]+)\)/);
     if (match) {
-      const [m11,, , m22] = match[1].split(',').map(Number);
+      const [m11, , , m22] = match[1].split(',').map(Number);
       scaleX = m11;
       scaleY = m22;
     }
@@ -19662,7 +19657,7 @@ function fireLines() {
 
       const prev = firePreviousRects[el.id];
       if (!prev || prev.top !== rect.top || prev.left !== rect.left ||
-          prev.width !== rect.width || prev.height !== rect.height) {
+        prev.width !== rect.width || prev.height !== rect.height) {
         firePreviousRects[el.id] = rect;
       }
 
@@ -19780,7 +19775,7 @@ function waterLines() {
   if (style.transform && style.transform !== 'none') {
     const match = style.transform.match(/matrix\(([^)]+)\)/);
     if (match) {
-      const [m11,, , m22] = match[1].split(',').map(Number);
+      const [m11, , , m22] = match[1].split(',').map(Number);
       scaleX = m11;
       scaleY = m22;
     }
@@ -19803,7 +19798,7 @@ function waterLines() {
       // Aggiorna solo se è cambiato
       const prev = previousRects[el.id];
       if (!prev || prev.top !== rect.top || prev.left !== rect.left ||
-          prev.width !== rect.width || prev.height !== rect.height) {
+        prev.width !== rect.width || prev.height !== rect.height) {
         previousRects[el.id] = rect;
       }
 
@@ -19816,53 +19811,53 @@ function waterLines() {
   svg.setAttribute("height", parent.scrollHeight);
 
   const connections = [
-    ["waterLine1","content2_19_node1","content2_19_node2"],
-    ["waterLine2","content2_19_node2","content2_19_node3"],
-    ["waterLine3","content2_19_node2","content2_19_node5"],
-    ["waterLine4","content2_19_node3","content2_19_node4"],
-    ["waterLine5","content2_19_node5","content2_19_node4"],
-    ["waterLine6","content2_19_node3","content2_19_node6"],
-    ["waterLine7","content2_19_node6","content2_19_node7"],
-    ["waterLine8","content2_19_node7","content2_19_node8"],
-    ["waterLine9","content2_19_node8","content2_19_node9"],
-    ["waterLine10","content2_19_node4","content2_19_node22"],
-    ["waterLine11","content2_19_node22","content2_19_node23"],
-    ["waterLine12","content2_19_node22","content2_19_node25"],
-    ["waterLine13","content2_19_node23","content2_19_node24"],
-    ["waterLine14","content2_19_node24","content2_19_node25"],
-    ["waterLine15","content2_19_node24","content2_19_node26"],
-    ["waterLine16","content2_19_node26","content2_19_node27"],
-    ["waterLine17","content2_19_node27","content2_19_node28"],
-    ["waterLine18","content2_19_node26","content2_19_node29"],
-    ["waterLine19","content2_19_node28","content2_19_node29"],
-    ["waterLine20","content2_19_node6","content2_19_node10"],
-    ["waterLine21","content2_19_node10","content2_19_node11"],
-    ["waterLine22","content2_19_node11","content2_19_node12"],
-    ["waterLine23","content2_19_node12","content2_19_node13"],
-    ["waterLine24","content2_19_node10","content2_19_node14"],
-    ["waterLine25","content2_19_node14","content2_19_node15"],
-    ["waterLine26","content2_19_node15","content2_19_node16"],
-    ["waterLine27","content2_19_node16","content2_19_node17"],
-    ["waterLine28","content2_19_node14","content2_19_node18"],
-    ["waterLine29","content2_19_node18","content2_19_node19"],
-    ["waterLine30","content2_19_node19","content2_19_node20"],
-    ["waterLine31","content2_19_node20","content2_19_node21"],
-    ["waterLine32","content2_19_node2","content2_19_node30"],
-    ["waterLine33","content2_19_node3","content2_19_node30"],
-    ["waterLine34","content2_19_node2","content2_19_node31"],
-    ["waterLine35","content2_19_node5","content2_19_node31"],
-    ["waterLine36","content2_19_node3","content2_19_node32"],
-    ["waterLine37","content2_19_node4","content2_19_node32"],
-    ["waterLine38","content2_19_node4","content2_19_node33"],
-    ["waterLine39","content2_19_node5","content2_19_node33"],
-    ["waterLine40","content2_19_node22","content2_19_node34"],
-    ["waterLine41","content2_19_node24","content2_19_node35"],
-    ["waterLine42","content2_19_node24","content2_19_node36"],
-    ["waterLine43","content2_19_node28","content2_19_node37"],
-    ["waterLine44","content2_19_node28","content2_19_node38"]
+    ["waterLine1", "content2_19_node1", "content2_19_node2"],
+    ["waterLine2", "content2_19_node2", "content2_19_node3"],
+    ["waterLine3", "content2_19_node2", "content2_19_node5"],
+    ["waterLine4", "content2_19_node3", "content2_19_node4"],
+    ["waterLine5", "content2_19_node5", "content2_19_node4"],
+    ["waterLine6", "content2_19_node3", "content2_19_node6"],
+    ["waterLine7", "content2_19_node6", "content2_19_node7"],
+    ["waterLine8", "content2_19_node7", "content2_19_node8"],
+    ["waterLine9", "content2_19_node8", "content2_19_node9"],
+    ["waterLine10", "content2_19_node4", "content2_19_node22"],
+    ["waterLine11", "content2_19_node22", "content2_19_node23"],
+    ["waterLine12", "content2_19_node22", "content2_19_node25"],
+    ["waterLine13", "content2_19_node23", "content2_19_node24"],
+    ["waterLine14", "content2_19_node24", "content2_19_node25"],
+    ["waterLine15", "content2_19_node24", "content2_19_node26"],
+    ["waterLine16", "content2_19_node26", "content2_19_node27"],
+    ["waterLine17", "content2_19_node27", "content2_19_node28"],
+    ["waterLine18", "content2_19_node26", "content2_19_node29"],
+    ["waterLine19", "content2_19_node28", "content2_19_node29"],
+    ["waterLine20", "content2_19_node6", "content2_19_node10"],
+    ["waterLine21", "content2_19_node10", "content2_19_node11"],
+    ["waterLine22", "content2_19_node11", "content2_19_node12"],
+    ["waterLine23", "content2_19_node12", "content2_19_node13"],
+    ["waterLine24", "content2_19_node10", "content2_19_node14"],
+    ["waterLine25", "content2_19_node14", "content2_19_node15"],
+    ["waterLine26", "content2_19_node15", "content2_19_node16"],
+    ["waterLine27", "content2_19_node16", "content2_19_node17"],
+    ["waterLine28", "content2_19_node14", "content2_19_node18"],
+    ["waterLine29", "content2_19_node18", "content2_19_node19"],
+    ["waterLine30", "content2_19_node19", "content2_19_node20"],
+    ["waterLine31", "content2_19_node20", "content2_19_node21"],
+    ["waterLine32", "content2_19_node2", "content2_19_node30"],
+    ["waterLine33", "content2_19_node3", "content2_19_node30"],
+    ["waterLine34", "content2_19_node2", "content2_19_node31"],
+    ["waterLine35", "content2_19_node5", "content2_19_node31"],
+    ["waterLine36", "content2_19_node3", "content2_19_node32"],
+    ["waterLine37", "content2_19_node4", "content2_19_node32"],
+    ["waterLine38", "content2_19_node4", "content2_19_node33"],
+    ["waterLine39", "content2_19_node5", "content2_19_node33"],
+    ["waterLine40", "content2_19_node22", "content2_19_node34"],
+    ["waterLine41", "content2_19_node24", "content2_19_node35"],
+    ["waterLine42", "content2_19_node24", "content2_19_node36"],
+    ["waterLine43", "content2_19_node28", "content2_19_node37"],
+    ["waterLine44", "content2_19_node28", "content2_19_node38"]
   ];
 
-  connections.forEach(([id, a, b, color="#1313ffff"]) => {
+  connections.forEach(([id, a, b, color = "#1313ffff"]) => {
     if (rects[a] && rects[b]) {
       initLine(id, a, b, svg, color);
       updateLine(id, rects, parentRect, scrollLeft, scrollTop);
