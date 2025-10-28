@@ -7367,6 +7367,8 @@ async function valuesSetter(type) {
     sel2.effect = f(0)
   }
 
+  console.log()
+
 
   sel2.price = (f(10).pow(f(15))).mul(f(10).pow(f(5).mul(f(sel.level))))
 
@@ -12743,7 +12745,8 @@ function valuesSetterDinamic(type) {
   //FIRE TREE
 
   //fire
-  var fire1 = f(IUniversalIn.fireTree.node1.effect2)
+  var fire1 = f(IUniversalIn.fireTree.node1.effect)
+  console.log(fire1)
   var fire2 = f(IUniversalIn.fireTree.node2.effect2)
   var fire3 = f(IUniversalIn.fireTree.node3.effect2)
   var fire4 = f(IUniversalIn.fireTree.node4.effect2)
