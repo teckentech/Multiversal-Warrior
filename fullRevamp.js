@@ -4155,7 +4155,7 @@ function visualValute() {
 
 }
 
-async function buy(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, type) {
+function buy(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, type) {
 
   var priceId = priceIdentity.priceIdentity
   var pri = f(price.price)
@@ -4743,7 +4743,7 @@ function fullSetter(type) {
 }
 
 
-async function valuesSetter(type) {
+function valuesSetter(type) {
 
   //Assign Group
 
@@ -20296,57 +20296,26 @@ function manualVisualLoop() {
   loopShow();
 }
 
-async function buyMultiple(
-  priceIdentity,
-  price,
-  objectToUpdate,
-  propertyToUpdate,
-  effect,
-  type,
-  multiple,
-  level,
-  maxLevel
-) {
-  // Limite in base a multiple
+function buyMultiple(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, type, multiple, level, maxLevel) {
+  // definisco il limite massimo in base a multiple
   let limit;
-  if (multiple === 0) limit = 1;
-  else if (multiple === 1) limit = 10;
-  else limit = Infinity;
+  if (multiple == 0) limit = 1;
+  else if (multiple == 1) limit = 10;
+  else limit = Infinity; // multiple === "2"
 
-  const lev = level.level;
-  const maxLev = maxLevel.maxLevel;
-  const fMaxLev = maxLev !== undefined ? f(maxLev) : null;
+  let count = 1;
 
-  // batch di acquisti da eseguire per volta
-  const batchSize = 5;
-  let count = 0;
+  while (buy(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, type) && count < limit) {
+    valuesSetter()
 
-  while (count < limit) {
-    const batch = [];
-
-    // prepara un piccolo gruppo di acquisti
-    for (let i = 0; i < batchSize && count < limit; i++) {
-      batch.push(buy(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, type));
-      count++;
+    var lev = level.level
+    var maxLev = maxLevel.maxLevel
+    if (maxLev != undefined) {
+      if (f(lev).gte(f(maxLev))) {
+        return;
+      }
     }
-
-    // esegui il batch in parallelo
-    const results = await Promise.all(batch);
-
-    // se tutti gli acquisti falliscono, interrompi
-    if (results.every(res => !res)) break;
-
-    // aggiorna i valori dopo ogni batch
-    await valuesSetter();
-
-    // controlla il livello massimo
-    const currentLev = level.level; // aggiorna se il livello cambia dinamicamente
-    if (fMaxLev && f(currentLev).gte(fMaxLev)) {
-      break;
-    }
-
-    // piccolo delay per evitare lag e lasciare respiro al main thread
-    await sleep(50);
+    count++;
   }
 }
 
