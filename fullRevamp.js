@@ -12746,7 +12746,6 @@ function valuesSetterDinamic(type) {
 
   //fire
   var fire1 = f(IUniversalIn.fireTree.node1.effect)
-  console.log(fire1)
   var fire2 = f(IUniversalIn.fireTree.node2.effect2)
   var fire3 = f(IUniversalIn.fireTree.node3.effect2)
   var fire4 = f(IUniversalIn.fireTree.node4.effect2)
