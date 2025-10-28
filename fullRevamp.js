@@ -4069,19 +4069,20 @@ document.addEventListener('visibilitychange', function () {
 
 //COSE DA FARE/AGGIUNTE
 
-const elementCache = new Map();
+const elementCache = Object.create(null);
 
-function update(id, content) {
-  let element = elementCache.get(id);
+function update(id, html) {
+  let el = elementCache[id] || (elementCache[id] = document.getElementById(id));
+  if (!el) return;
 
-  if (!element) {
-    element = document.getElementById(id);
-    if (!element) return;
-    elementCache.set(id, element);
-  }
+  // Se html è null o undefined, considera stringa vuota
+  if (html == null) html = "";
 
-  if (element.innerHTML !== content) {
-    element.innerHTML = content;
+  if (el.innerHTML !== html) {
+    // Usa DocumentFragment per evitare reflow pesanti
+    const template = document.createElement('template');
+    template.innerHTML = html;
+    el.replaceChildren(...template.content.childNodes);
   }
 }
 
@@ -4153,7 +4154,7 @@ function visualValute() {
 
 }
 
-function buy(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, type) {
+async function buy(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, type) {
 
   var priceId = priceIdentity.priceIdentity
   var pri = f(price.price)
@@ -4741,7 +4742,7 @@ function fullSetter(type) {
 }
 
 
-function valuesSetter(type) {
+async function valuesSetter(type) {
 
   //Assign Group
 
@@ -5062,7 +5063,7 @@ function valuesSetter(type) {
     cDamage3 = f(1)
   }
 
-  if (IUniversalIn.potionEffects.effect19.activeValue) {
+  if (IUniversalIn.potionEffects.effect19.activeValue && !(IUniversalChallenger.universalChallengerChallenges.c2.active)) {
     var cDamage4 = f(IUniversalIn.potionEffects.effect19.activeValue);
   }
   else {
@@ -5093,7 +5094,7 @@ function valuesSetter(type) {
     cLife3 = f(1)
   }
 
-  if (IUniversalIn.potionEffects.effect19.activeValue) {
+  if (IUniversalIn.potionEffects.effect19.activeValue && !(IUniversalChallenger.universalChallengerChallenges.c2.active)) {
     var cLife4 = f(IUniversalIn.potionEffects.effect19.activeValue);
   }
   else {
@@ -8872,7 +8873,7 @@ function valuesSetter(type) {
                  <div class="centerDiv boldBlackBorder">Space Warp</div>
                  <div class="topRight absolute padding2 grey">37</div>
                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Gravity Press duration ×1.2 (<span class="boldBlackBorder">×${format(f(sel.level), 0)}</span>)</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Gravity Press duration ×1.2 (<span class="boldBlackBorder">×${format(f(sel.level), 1)}</span>)</div>
                  </div>`
 
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
@@ -9954,7 +9955,7 @@ function valuesSetter(type) {
                   <div class="centerDiv boldBlackBorder">Water Rift</div>
                   <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
                   <div class="topRight absolute padding2 grey">1</div>
-                  <div class="centerDiv padding2 fontSize09">×2 Water/s (<span class="boldBlackBorder">×${format(f(sel2.effect), 1)}</span>)&nbsp;</div>
+                  <div class="centerDiv padding2 fontSize09">Water/s ×2(<span class="boldBlackBorder">×${format(f(sel2.effect), 1)}</span>)&nbsp;</div>
                  </div>`
 
 
@@ -9971,7 +9972,7 @@ function valuesSetter(type) {
   }
 
   if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).mul(f(2).pow(f(sel.level)))
+    sel2.effect = f(2).pow(f(sel.level))
   } else {
     sel2.effect = f(1)
   }
@@ -10510,7 +10511,7 @@ function valuesSetter(type) {
                   <div class="centerDiv padding1 column fontSize09"><div><span class="boldBlackBorder">${format(sec(f(IUniversal.waterGemProd), 1))}</span> Water Gem/s</div>
                  </div>
                 <div class="line"></div>
-                <div class="centerDiv padding1 column fontSize09">Challenger potions unlocked</div>`
+                <div class="centerDiv padding1 column fontSize09">Attributes potions unlocked</div>`
   } else {
     unlockShow("content2_19_node14_button", true)
 
@@ -18195,14 +18196,7 @@ function format(number, type, formatType = IPermanentIn.notation["notation" + IP
   return number;
 }
 
-function f(number) {
-  if (isNaN(number)) {
-    return
-  } else {
-
-    return new Decimal(number);  // Converte in un oggetto Decimal
-  }
-}
+const f = n => (n === n ? new Decimal(n) : undefined);
 
 function sec(number) {
   if (isNaN(number)) {
@@ -18215,20 +18209,12 @@ function sec(number) {
 
 
 function unlockShow(show, visibility) {
-  let showableItem = IShowableClass.showable
-  for (let a in showableItem) {
-    if (a == show) {
+  const showableItem = IShowableClass.showable;
+  const el = document.getElementById(show);
+  if (!el || !(show in showableItem)) return;
 
-      if (visibility == false) {
-        showableItem[show] = false;
-        document.getElementById(a).style.display = "none";
-      }
-      if (visibility == true) {
-        showableItem[show] = true;
-        document.getElementById(a).style.display = "";
-      }
-    }
-  }
+  showableItem[show] = !!visibility;
+  el.style.display = visibility ? "" : "none";
 }
 
 function unlockShowAll(visibility) {
@@ -19623,6 +19609,21 @@ function updateLine(id, rects) {
   entry.line.setAttribute("y2", y2);
 }
 
+// Cache della visibilità dei nodi
+const fireNodeVisibilityCache = {};
+const firePreviousRects = {}; // memorizza l'ultima posizione dei nodi
+
+function isFireNodeVisible(id) {
+  if (fireNodeVisibilityCache[id] !== undefined) return fireNodeVisibilityCache[id];
+  const visible = checkShow(id);
+  fireNodeVisibilityCache[id] = visible;
+  return visible;
+}
+
+function resetFireNodeVisibility(id) {
+  fireNodeVisibilityCache[id] = undefined;
+}
+
 function fireLines() {
   const svg = document.getElementById("content2_17_lineLayer");
   if (!svg) return;
@@ -19632,45 +19633,47 @@ function fireLines() {
   const scrollLeft = parent.scrollLeft || 0;
   const scrollTop = parent.scrollTop || 0;
 
-  const computedStyle = window.getComputedStyle(parent);
-  const transform = computedStyle.transform;
-
+  const style = window.getComputedStyle(parent);
   let scaleX = 1, scaleY = 1;
-  if (transform && transform !== 'none') {
-    const match = transform.match(/matrix\(([^)]+)\)/);
+  if (style.transform && style.transform !== 'none') {
+    const match = style.transform.match(/matrix\(([^)]+)\)/);
     if (match) {
-      const values = match[1].split(',').map(Number);
-      scaleX = values[0]; // m11
-      scaleY = values[3]; // m22
+      const [m11,, , m22] = match[1].split(',').map(Number);
+      scaleX = m11;
+      scaleY = m22;
     }
   }
 
-  const rects = {};
   const allNodes = document.querySelectorAll("[id^='content2_17_node']");
+  const rects = {};
+
   allNodes.forEach(el => {
-    if (checkShow(el.id)) {
-      const rect = el.getBoundingClientRect();
-      rects[el.id] = {
-        top: (rect.top - parentRect.top + scrollTop) / scaleY,
-        left: (rect.left - parentRect.left + scrollLeft) / scaleX,
-        width: rect.width / scaleX,
-        height: rect.height / scaleY
+    if (isFireNodeVisible(el.id)) {
+      const r = el.getBoundingClientRect();
+      const rect = {
+        top: (r.top - parentRect.top + scrollTop) / scaleY,
+        left: (r.left - parentRect.left + scrollLeft) / scaleX,
+        width: r.width / scaleX,
+        height: r.height / scaleY
       };
+
+      const prev = firePreviousRects[el.id];
+      if (!prev || prev.top !== rect.top || prev.left !== rect.left ||
+          prev.width !== rect.width || prev.height !== rect.height) {
+        firePreviousRects[el.id] = rect;
+      }
+
+      rects[el.id] = rect;
     } else {
       rects[el.id] = null;
     }
   });
 
-  svg.style.position = 'absolute';
-  svg.style.top = '0';
-  svg.style.left = '0';
-
+  Object.assign(svg.style, { position: 'absolute', top: '0', left: '0' });
   svg.setAttribute("width", parent.scrollWidth);
   svg.setAttribute("height", parent.scrollHeight);
 
-
   const connections = [
-    // left branch
     ["fireLine1", "content2_17_node1", "content2_17_node2"],
     ["fireLine2", "content2_17_node2", "content2_17_node3"],
     ["fireLine3", "content2_17_node3", "content2_17_node4"],
@@ -19680,8 +19683,6 @@ function fireLines() {
     ["fireLine7", "content2_17_node6", "content2_17_node9"],
     ["fireLine8", "content2_17_node4", "content2_17_node7"],
     ["fireLine9", "content2_17_node7", "content2_17_node10"],
-
-    // right branch
     ["fireLine10", "content2_17_node2", "content2_17_node11"],
     ["fireLine11", "content2_17_node11", "content2_17_node12"],
     ["fireLine12", "content2_17_node11", "content2_17_node25", "#1313ffff"],
@@ -19699,8 +19700,6 @@ function fireLines() {
     ["fireLine24", "content2_17_node18", "content2_17_node22"],
     ["fireLine25", "content2_17_node22", "content2_17_node23"],
     ["fireLine26", "content2_17_node23", "content2_17_node24"],
-
-    // HEAT
     ["fireLine27", "content2_17_node11", "content2_17_node27"],
     ["fireLine28", "content2_17_node27", "content2_17_node28"],
     ["fireLine29", "content2_17_node28", "content2_17_node48"],
@@ -19710,27 +19709,19 @@ function fireLines() {
     ["fireLine33", "content2_17_node31", "content2_17_node32"],
     ["fireLine34", "content2_17_node31", "content2_17_node49"],
     ["fireLine35", "content2_17_node32", "content2_17_node33"],
-
-    // mult
     ["fireLine36", "content2_17_node30", "content2_17_node34"],
     ["fireLine37", "content2_17_node34", "content2_17_node35"],
     ["fireLine38", "content2_17_node35", "content2_17_node36"],
     ["fireLine39", "content2_17_node36", "content2_17_node37"],
-
-    // m2
     ["fireLine40", "content2_17_node4", "content2_17_node39"],
     ["fireLine41", "content2_17_node39", "content2_17_node40"],
     ["fireLine42", "content2_17_node33", "content2_17_node41"],
     ["fireLine43", "content2_17_node33", "content2_17_node42"],
     ["fireLine44", "content2_17_node37", "content2_17_node43"],
     ["fireLine45", "content2_17_node37", "content2_17_node44"],
-
-    // m4
     ["fireLine46", "content2_17_node22", "content2_17_node45"],
     ["fireLine47", "content2_17_node22", "content2_17_node46"],
     ["fireLine48", "content2_17_node46", "content2_17_node47"],
-
-    // m5
     ["fireLine49", "content2_17_node38", "content2_17_node50"],
     ["fireLine50", "content2_17_node50", "content2_17_node51"],
     ["fireLine51", "content2_17_node50", "content2_17_node52"],
@@ -19739,17 +19730,13 @@ function fireLines() {
     ["fireLine54", "content2_17_node54", "content2_17_node55"],
     ["fireLine55", "content2_17_node54", "content2_17_node56"],
     ["fireLine56", "content2_17_node56", "content2_17_node57"],
-
-    // m6
     ["fireLine57", "content2_17_node5", "content2_17_node58"],
     ["fireLine58", "content2_17_node6", "content2_17_node59"],
     ["fireLine59", "content2_17_node7", "content2_17_node60"],
     ["fireLine60", "content2_17_node11", "content2_17_node61", "#1313ffff"],
     ["fireLine61", "content2_17_node11", "content2_17_node62", "#1313ffff"],
-
-    // m7
     ["fireLine62", "content2_17_node56", "content2_17_node63"],
-    ["fireLine63", "content2_17_node35", "content2_17_node64"],
+    ["fireLine63", "content2_17_node35", "content2_17_node64"]
   ];
 
   connections.forEach(([id, a, b, color]) => {
@@ -19758,6 +19745,22 @@ function fireLines() {
       updateLine(id, rects, parentRect, scrollLeft, scrollTop);
     }
   });
+}
+
+// Cache della visibilità dei nodi
+const nodeVisibilityCache = {};
+const previousRects = {}; // memorizza l'ultima posizione dei nodi
+
+function isNodeVisible(id) {
+  if (nodeVisibilityCache[id] !== undefined) return nodeVisibilityCache[id];
+  const visible = checkShow(id);
+  nodeVisibilityCache[id] = visible;
+  return visible;
+}
+
+// Resetta la cache quando cambi visibilità di un nodo
+function resetNodeVisibility(id) {
+  nodeVisibilityCache[id] = undefined;
 }
 
 function waterLines() {
@@ -19769,104 +19772,96 @@ function waterLines() {
   const scrollLeft = parent.scrollLeft || 0;
   const scrollTop = parent.scrollTop || 0;
 
-  const computedStyle = window.getComputedStyle(parent);
-  const transform = computedStyle.transform;
-
+  const style = window.getComputedStyle(parent);
   let scaleX = 1, scaleY = 1;
-  if (transform && transform !== 'none') {
-    const match = transform.match(/matrix\(([^)]+)\)/);
+  if (style.transform && style.transform !== 'none') {
+    const match = style.transform.match(/matrix\(([^)]+)\)/);
     if (match) {
-      const values = match[1].split(',').map(Number);
-      scaleX = values[0]; // m11
-      scaleY = values[3]; // m22
+      const [m11,, , m22] = match[1].split(',').map(Number);
+      scaleX = m11;
+      scaleY = m22;
     }
   }
 
-  const rects = {};
+  // Otteniamo tutti i nodi
   const allNodes = document.querySelectorAll("[id^='content2_19_node']");
+  const rects = {};
+
   allNodes.forEach(el => {
-    if (checkShow(el.id)) {
-      const rect = el.getBoundingClientRect();
-      rects[el.id] = {
-        top: (rect.top - parentRect.top + scrollTop) / scaleY,
-        left: (rect.left - parentRect.left + scrollLeft) / scaleX,
-        width: rect.width / scaleX,
-        height: rect.height / scaleY
+    if (isNodeVisible(el.id)) {
+      const r = el.getBoundingClientRect();
+      const rect = {
+        top: (r.top - parentRect.top + scrollTop) / scaleY,
+        left: (r.left - parentRect.left + scrollLeft) / scaleX,
+        width: r.width / scaleX,
+        height: r.height / scaleY
       };
-    } else {
-      rects[el.id] = null;
+
+      // Aggiorna solo se è cambiato
+      const prev = previousRects[el.id];
+      if (!prev || prev.top !== rect.top || prev.left !== rect.left ||
+          prev.width !== rect.width || prev.height !== rect.height) {
+        previousRects[el.id] = rect;
+      }
+
+      rects[el.id] = rect;
     }
   });
 
-  svg.style.position = 'absolute';
-  svg.style.top = '0';
-  svg.style.left = '0';
-
+  Object.assign(svg.style, { position: 'absolute', top: '0', left: '0' });
   svg.setAttribute("width", parent.scrollWidth);
   svg.setAttribute("height", parent.scrollHeight);
 
-
   const connections = [
-    // water pool and erbs
-    ["waterLine1", "content2_19_node1", "content2_19_node2"],
-    ["waterLine2", "content2_19_node2", "content2_19_node3"],
-    ["waterLine3", "content2_19_node2", "content2_19_node5"],
-    ["waterLine4", "content2_19_node3", "content2_19_node4"],
-    ["waterLine5", "content2_19_node5", "content2_19_node4"],
-    ["waterLine6", "content2_19_node3", "content2_19_node6"],
-    ["waterLine7", "content2_19_node6", "content2_19_node7"],
-    ["waterLine8", "content2_19_node7", "content2_19_node8"],
-    ["waterLine9", "content2_19_node8", "content2_19_node9"],
-
-    ["waterLine10", "content2_19_node4", "content2_19_node22"],
-    ["waterLine11", "content2_19_node22", "content2_19_node23"],
-    ["waterLine12", "content2_19_node22", "content2_19_node25"],
-    ["waterLine13", "content2_19_node23", "content2_19_node24"],
-    ["waterLine14", "content2_19_node24", "content2_19_node25"],
-
-    ["waterLine15", "content2_19_node24", "content2_19_node26"],
-    ["waterLine16", "content2_19_node26", "content2_19_node27"],
-    ["waterLine17", "content2_19_node27", "content2_19_node28"],
-    ["waterLine18", "content2_19_node26", "content2_19_node29"],
-    ["waterLine19", "content2_19_node28", "content2_19_node29"],
-
-    ["waterLine20", "content2_19_node6", "content2_19_node10"],
-    ["waterLine21", "content2_19_node10", "content2_19_node11"],
-    ["waterLine22", "content2_19_node11", "content2_19_node12"],
-    ["waterLine23", "content2_19_node12", "content2_19_node13"],
-
-
-    ["waterLine24", "content2_19_node10", "content2_19_node14"],
-    ["waterLine25", "content2_19_node14", "content2_19_node15"],
-    ["waterLine26", "content2_19_node15", "content2_19_node16"],
-    ["waterLine27", "content2_19_node16", "content2_19_node17"],
-
-    ["waterLine28", "content2_19_node14", "content2_19_node18"],
-    ["waterLine29", "content2_19_node18", "content2_19_node19"],
-    ["waterLine30", "content2_19_node19", "content2_19_node20"],
-    ["waterLine31", "content2_19_node20", "content2_19_node21"],
-
-    ["waterLine32", "content2_19_node2", "content2_19_node30"],
-    ["waterLine33", "content2_19_node3", "content2_19_node30"],
-    ["waterLine34", "content2_19_node2", "content2_19_node31"],
-    ["waterLine35", "content2_19_node5", "content2_19_node31"],
-    ["waterLine36", "content2_19_node3", "content2_19_node32"],
-    ["waterLine37", "content2_19_node4", "content2_19_node32"],
-    ["waterLine38", "content2_19_node4", "content2_19_node33"],
-    ["waterLine39", "content2_19_node5", "content2_19_node33"],
-
-    ["waterLine40", "content2_19_node22", "content2_19_node34"],
-    ["waterLine41", "content2_19_node24", "content2_19_node35"],
-    ["waterLine42", "content2_19_node24", "content2_19_node36"],
-    ["waterLine43", "content2_19_node28", "content2_19_node37"],
-    ["waterLine44", "content2_19_node28", "content2_19_node38"],
-
+    ["waterLine1","content2_19_node1","content2_19_node2"],
+    ["waterLine2","content2_19_node2","content2_19_node3"],
+    ["waterLine3","content2_19_node2","content2_19_node5"],
+    ["waterLine4","content2_19_node3","content2_19_node4"],
+    ["waterLine5","content2_19_node5","content2_19_node4"],
+    ["waterLine6","content2_19_node3","content2_19_node6"],
+    ["waterLine7","content2_19_node6","content2_19_node7"],
+    ["waterLine8","content2_19_node7","content2_19_node8"],
+    ["waterLine9","content2_19_node8","content2_19_node9"],
+    ["waterLine10","content2_19_node4","content2_19_node22"],
+    ["waterLine11","content2_19_node22","content2_19_node23"],
+    ["waterLine12","content2_19_node22","content2_19_node25"],
+    ["waterLine13","content2_19_node23","content2_19_node24"],
+    ["waterLine14","content2_19_node24","content2_19_node25"],
+    ["waterLine15","content2_19_node24","content2_19_node26"],
+    ["waterLine16","content2_19_node26","content2_19_node27"],
+    ["waterLine17","content2_19_node27","content2_19_node28"],
+    ["waterLine18","content2_19_node26","content2_19_node29"],
+    ["waterLine19","content2_19_node28","content2_19_node29"],
+    ["waterLine20","content2_19_node6","content2_19_node10"],
+    ["waterLine21","content2_19_node10","content2_19_node11"],
+    ["waterLine22","content2_19_node11","content2_19_node12"],
+    ["waterLine23","content2_19_node12","content2_19_node13"],
+    ["waterLine24","content2_19_node10","content2_19_node14"],
+    ["waterLine25","content2_19_node14","content2_19_node15"],
+    ["waterLine26","content2_19_node15","content2_19_node16"],
+    ["waterLine27","content2_19_node16","content2_19_node17"],
+    ["waterLine28","content2_19_node14","content2_19_node18"],
+    ["waterLine29","content2_19_node18","content2_19_node19"],
+    ["waterLine30","content2_19_node19","content2_19_node20"],
+    ["waterLine31","content2_19_node20","content2_19_node21"],
+    ["waterLine32","content2_19_node2","content2_19_node30"],
+    ["waterLine33","content2_19_node3","content2_19_node30"],
+    ["waterLine34","content2_19_node2","content2_19_node31"],
+    ["waterLine35","content2_19_node5","content2_19_node31"],
+    ["waterLine36","content2_19_node3","content2_19_node32"],
+    ["waterLine37","content2_19_node4","content2_19_node32"],
+    ["waterLine38","content2_19_node4","content2_19_node33"],
+    ["waterLine39","content2_19_node5","content2_19_node33"],
+    ["waterLine40","content2_19_node22","content2_19_node34"],
+    ["waterLine41","content2_19_node24","content2_19_node35"],
+    ["waterLine42","content2_19_node24","content2_19_node36"],
+    ["waterLine43","content2_19_node28","content2_19_node37"],
+    ["waterLine44","content2_19_node28","content2_19_node38"]
   ];
 
-
-  connections.forEach(([id, a, b, color]) => {
+  connections.forEach(([id, a, b, color="#1313ffff"]) => {
     if (rects[a] && rects[b]) {
-      initLine(id, a, b, svg, color || "#1313ffff");
+      initLine(id, a, b, svg, color);
       updateLine(id, rects, parentRect, scrollLeft, scrollTop);
     }
   });
@@ -20298,26 +20293,57 @@ function manualVisualLoop() {
   loopShow();
 }
 
-function buyMultiple(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, type, multiple, level, maxLevel) {
-  // definisco il limite massimo in base a multiple
+async function buyMultiple(
+  priceIdentity,
+  price,
+  objectToUpdate,
+  propertyToUpdate,
+  effect,
+  type,
+  multiple,
+  level,
+  maxLevel
+) {
+  // Limite in base a multiple
   let limit;
-  if (multiple == 0) limit = 1;
-  else if (multiple == 1) limit = 10;
-  else limit = Infinity; // multiple === "2"
+  if (multiple === 0) limit = 1;
+  else if (multiple === 1) limit = 10;
+  else limit = Infinity;
 
-  let count = 1;
+  const lev = level.level;
+  const maxLev = maxLevel.maxLevel;
+  const fMaxLev = maxLev !== undefined ? f(maxLev) : null;
 
-  while (buy(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, type) && count < limit) {
-    valuesSetter()
+  // batch di acquisti da eseguire per volta
+  const batchSize = 5;
+  let count = 0;
 
-    var lev = level.level
-    var maxLev = maxLevel.maxLevel
-    if (maxLev != undefined) {
-      if (f(lev).gte(f(maxLev))) {
-        return;
-      }
+  while (count < limit) {
+    const batch = [];
+
+    // prepara un piccolo gruppo di acquisti
+    for (let i = 0; i < batchSize && count < limit; i++) {
+      batch.push(buy(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, type));
+      count++;
     }
-    count++;
+
+    // esegui il batch in parallelo
+    const results = await Promise.all(batch);
+
+    // se tutti gli acquisti falliscono, interrompi
+    if (results.every(res => !res)) break;
+
+    // aggiorna i valori dopo ogni batch
+    await valuesSetter();
+
+    // controlla il livello massimo
+    const currentLev = level.level; // aggiorna se il livello cambia dinamicamente
+    if (fMaxLev && f(currentLev).gte(fMaxLev)) {
+      break;
+    }
+
+    // piccolo delay per evitare lag e lasciare respiro al main thread
+    await sleep(50);
   }
 }
 
@@ -20633,18 +20659,6 @@ function potionInfoStatic() {
                        <div>${found.contentFormula()}</div>`;
       }
     }
-
-    sel.content = `<div class="relative height100 width100  defaultStyle">
-                        <div class="row height50">
-                          <div class="height100 width40 backgroundImage" style="background-image: url('${sel.image}');">
-                            <div class="topLeft">${sel.level}</div>
-                          </div>
-                          <div class="height100 width60 fontSize08 columns ">${effectText}</div>
-                        </div>
-                        <div class=" line"></div>
-                        <div class=" height50 width100 column">${priceText}</div>
-
-                      </div>`;
 
     sel.content2 = `
   <div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
