@@ -20965,6 +20965,12 @@ function potionFusion() {
         for (let Obj in newPotionIn.prices) {
 
           var selPrice = newPotionIn.prices[Obj]
+          if(newPotion.prices){
+            var selTier = newPotion.tier
+          }else{
+            selTier = newPotionIn.tier
+          }
+
           selPrice.price = selPrice.priceFormula(newPotion.tier, newPotion.level, newPotion.merges);
 
         }
@@ -21017,7 +21023,8 @@ function potionVisual(element, elementIn) {
       var selPrice = sel.prices[Obj]
     } else {
       selPrice2 = selPrice
-    } var selPrice2 = selIn.prices[Obj];
+    } 
+    var selPrice2 = selIn.prices[Obj];
 
 
     var priceValue = selPrice2.priceFormula(selPrice.tier, sel.level, sel.merges)
