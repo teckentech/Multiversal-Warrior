@@ -20949,7 +20949,6 @@ function potionFusion() {
           } else {
             sel1 = newPotionIn.prices[x]
           }
-          var sel1 = newPotion.prices[x]
           var sel2 = assistPotion.prices[x]
 
           if (f(sel1.tier).gt(sel2.tier)) {
