@@ -2320,8 +2320,6 @@ class UniversalIn {
           },
         },
 
-        //(f(10).mul(f(level))).mul(f(5).pow(f(merges))) 
-
         prices: {
           price1: { tier: 1, price: 0, priceFormula: function () { return 0 }, priceIdentity: "erbs", type: "uni" },
           price2: { tier: 1, price: 0, priceFormula: function () { return 0 }, priceIdentity: "fluidFire", type: "uni" },
@@ -20540,6 +20538,7 @@ function craft(type, object) {
       merges: sel.merges,
       level: sel.level,
 
+      prices: sel.prices,
       effects: sel.effects,
     };
 
@@ -20725,8 +20724,13 @@ function potionSetter() {
         for (let Obj in sel2.prices) {
 
           var selPrice = sel2.prices[Obj]
+          if (sel.prices) {
+            var selPrice2 = sel.prices[Obj]
+          } else {
+            selPrice2 = selPrice
+          }
 
-          selPrice.price = selPrice.priceFormula(selPrice.tier, sel.level, sel.merges);
+          selPrice.price = selPrice.priceFormula(selPrice2.tier, sel.level, sel.merges);
         }
       }
     }
@@ -20740,19 +20744,23 @@ function potionSetter() {
       if (sel2.prices) {
         for (let Obj in sel2.prices) {
           var selPrice = sel2.prices[Obj];
+          if (sel.prices) {
+            var selPrice2 = sel.prices[Obj]
+          } else {
+            selPrice2 = selPrice
+          }
 
-          var priceValue = selPrice.priceFormula(selPrice.tier, sel.level, sel.merges);
+
+          var priceValue = selPrice.priceFormula(selPrice2.tier, sel.level, sel.merges);
           var priceIdentity = selPrice.priceIdentity;
 
-          var c = checkBuy(selPrice.priceIdentity, selPrice.priceFormula(selPrice.tier, sel.level, sel.merges), selPrice.type) ? "green" : "red";
+          var c = checkBuy(selPrice.priceIdentity, selPrice.priceFormula(selPrice2.tier, sel.level, sel.merges), selPrice.type) ? "green" : "red";
 
           var priId = ""
           if (priceIdentity == "erbs") { priId = "Erbs" }
           if (priceIdentity == "fluidFire") { priId = "Fluid Fire" }
           if (priceIdentity == "waterGem") { priId = "Water Gem" }
           if (priceIdentity == "pyroFrost") { priId = "Pyrofrost" }
-
-
 
           // Aggiungi ogni prezzo come un "item" nella griglia
           if (f(priceValue).gt(f(0))) {
@@ -20854,20 +20862,13 @@ function potionUpgrade() {
     for (let Obj in newPotionIn.prices) {
 
       var selPrice = newPotionIn.prices[Obj]
-      selPrice.price = selPrice.priceFormula(selPrice.tier, newPotion.level, newPotion.merges);
-
-    }
-
-    //price
-
-    for (let x in potion1.prices) {
-      var sel1 = potion1.prices[x]
-
-      if (f(sel1.tier).gt(sel2.tier)) {
-        sel2.tier = sel1.tier
+      if (newPotion.prices) {
+        var selPrice2 = newPotion.prices[Obj]
       } else {
-        sel1.tier = sel2.tier
+        selPrice2 = selPrice
       }
+
+      selPrice.price = selPrice.priceFormula(selPrice2.tier, newPotion.level, newPotion.merges);
     }
 
     return {
@@ -20943,8 +20944,8 @@ function potionFusion() {
     if (potion1In) {
       if (potion1In.prices) {
         for (let x in potion1In.prices) {
-          var sel1 = newPotionIn.prices[x]
-          var sel2 = assistPotionIn.prices[x]
+          var sel1 = newPotion.prices[x]
+          var sel2 = assistPotion.prices[x]
 
           if (f(sel1.tier).gt(sel2.tier)) {
             sel2.tier = sel1.tier
@@ -20960,7 +20961,7 @@ function potionFusion() {
         for (let Obj in newPotionIn.prices) {
 
           var selPrice = newPotionIn.prices[Obj]
-          selPrice.price = selPrice.priceFormula(selPrice.tier, newPotion.level, newPotion.merges);
+          selPrice.price = selPrice.priceFormula(newPotion.tier, newPotion.level, newPotion.merges);
 
         }
       }
@@ -20992,9 +20993,13 @@ function potionVisual(element, elementIn) {
   for (let Obj in selIn.prices) {
 
     var selPrice = selIn.prices[Obj]
+    if (sel.prices) {
+      var selPrice2 = sel.prices[Obj]
+    } else {
+      selPrice2 = selPrice
+    }
 
-    selPrice.price = selPrice.priceFormula(selPrice.tier, sel.level, sel.merges);
-
+    selPrice.price = selPrice.priceFormula(selPrice2.tier, sel.level, sel.merges);
   }
 
 
@@ -21004,20 +21009,23 @@ function potionVisual(element, elementIn) {
   var priceText = "<div class='price-grid'>"; // Avvia la griglia
 
   for (let Obj in selIn.prices) {
-    var selPrice = selIn.prices[Obj];
+    if (sel.prices) {
+      var selPrice = sel.prices[Obj]
+    } else {
+      selPrice2 = selPrice
+    } var selPrice2 = selIn.prices[Obj];
 
-    var priceValue = selPrice.price;
+
+    var priceValue = selPrice2.priceFormula(selPrice.tier, sel.level, sel.merges)
     var priceIdentity = selPrice.priceIdentity;
 
-    var c = checkBuy(selPrice.priceIdentity, selPrice.price, selPrice.type) ? "green" : "red";
+    var c = checkBuy(selPrice2.priceIdentity, selPrice2.price, selPrice2.type) ? "green" : "red";
 
     var priId = ""
     if (priceIdentity == "erbs") { priId = "Erbs" }
     if (priceIdentity == "fluidFire") { priId = "Fluid Fire" }
     if (priceIdentity == "waterGem") { priId = "Water Gem" }
     if (priceIdentity == "pyroFrost") { priId = "Pyrofrost" }
-
-
 
     // Aggiungi ogni prezzo come un "item" nella griglia
     if (f(priceValue).gt(f(0))) {
