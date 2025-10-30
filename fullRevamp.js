@@ -21028,7 +21028,7 @@ function potionVisual(element, elementIn) {
 
 
     var priceValue = selPrice2.priceFormula(selPrice.tier, sel.level, sel.merges)
-    var priceIdentity = selPrice.priceIdentity;
+    var priceIdentity = selPrice2.priceIdentity;
 
     var c = checkBuy(selPrice2.priceIdentity, selPrice2.price, selPrice2.type) ? "green" : "red";
 
