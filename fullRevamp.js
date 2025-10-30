@@ -20944,6 +20944,11 @@ function potionFusion() {
     if (potion1In) {
       if (potion1In.prices) {
         for (let x in potion1In.prices) {
+                    if (newPotion.prices) {
+            var sel1 = newPotion.prices[x]
+          } else {
+            sel1 = newPotionIn.prices[x]
+          }
           var sel1 = newPotion.prices[x]
           var sel2 = assistPotion.prices[x]
 
