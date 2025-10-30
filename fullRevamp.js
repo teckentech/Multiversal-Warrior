@@ -14021,7 +14021,7 @@ document.getElementById("content1_7_ascension_button").onclick = function () {
   if (!IUniversal.automation.automation5.active) {
 
     if (f(IFight.challengers.baseChallenger.level)
-      .gte(f(IFightIn.challengers.baseChallenger.maxLevel))) {
+      .gt(f(IFightIn.challengers.baseChallenger.maxLevel))) {
       //keep training active-temporary
       var training1Status1 = ITraining.base.base1.active
       var training1Status2 = ITraining.base.base2.active
@@ -14056,7 +14056,7 @@ document.getElementById("content1_7_ascension_button").onclick = function () {
     return
   } else {
     if (f(IFight.challengers.baseChallenger.level)
-      .gte(f(IFightIn.challengers.baseChallenger.maxLevel))) {
+      .gt(f(IFightIn.challengers.baseChallenger.maxLevel))) {
       partialResetSave(2)
       IUniversal.universe = f(IUniversal.universe).add(f(1))
 
@@ -16340,13 +16340,13 @@ function visualHunting() {
 
 function visualUniversal() {
 
-  if (f(IFight.challengers.baseChallenger.level).eq(f(IFightIn.challengers.baseChallenger.maxLevel))) {
+  if (f(f(IFight.challengers.baseChallenger.level).minus(f(1))).eq(f(IFightIn.challengers.baseChallenger.maxLevel))) {
     update("content1_7_ascension_button_text",
       `Ascend To Universe ${f(IUniversal.universe).add(f(1))}`)
   } else {
     update("content1_7_ascension_button_text",
 
-      `Ascension Requires Challenger ${f(IFight.challengers.baseChallenger.level).minus(f(1))} / ${f(IFightIn.challengers.baseChallenger.maxLevel).minus(f(1))}`)
+      `Ascension Requires Challenger ${f(IFight.challengers.baseChallenger.level).minus(f(1))} / ${f(IFightIn.challengers.baseChallenger.maxLevel)}`)
   }
 
   //Milestones
