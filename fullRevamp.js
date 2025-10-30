@@ -19987,12 +19987,10 @@ async function visualLoopFunction() {
 
   if (checkShow("content2_17")) {
     visualTree()
-    menuDirectionArrow("content2_17")
     fireLines()
   }
 
   if (checkShow("content2_19")) {
-
     visualWaterTree()
     waterLines()
   }
@@ -21027,7 +21025,7 @@ function potionVisual(element, elementIn) {
     var selPrice2 = selIn.prices[Obj];
 
 
-    var priceValue = selPrice2.priceFormula(selPrice.tier, sel.level, sel.merges)
+    var priceValue = selPrice2.priceFormula(selPrice2.tier, sel.level, sel.merges)
     var priceIdentity = selPrice2.priceIdentity;
 
     var c = checkBuy(selPrice2.priceIdentity, selPrice2.price, selPrice2.type) ? "green" : "red";
