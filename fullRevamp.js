@@ -20900,7 +20900,7 @@ function potionFusion() {
 
     newPotion.level = f(0)
 
-    newPotion.maxLevel = f(10).add(f(f(newPotion.merges).add(f(1))).mul(f(5)))
+    newPotion.maxLevel = f(10).add(f(f(newPotion.merges).add(f(assistPotion.merges)).add(f(1))).mul(f(5)))
 
     //collect all the potion2 effects
     var potionEffects = []
@@ -20942,12 +20942,17 @@ function potionFusion() {
     if (potion1In) {
       if (potion1In.prices) {
         for (let x in potion1In.prices) {
-                    if (newPotion.prices) {
+          if (newPotion.prices) {
             var sel1 = newPotion.prices[x]
           } else {
             sel1 = newPotionIn.prices[x]
           }
-          var sel2 = assistPotion.prices[x]
+
+          if (assistPotion.prices) {
+            var sel2 = assistPotion.prices[x]
+          } else {
+            sel2 = assistPotionIn.prices[x]
+          }
 
           if (f(sel1.tier).gt(sel2.tier)) {
             sel2.tier = sel1.tier
@@ -20963,9 +20968,9 @@ function potionFusion() {
         for (let Obj in newPotionIn.prices) {
 
           var selPrice = newPotionIn.prices[Obj]
-          if(newPotion.prices){
+          if (newPotion.prices) {
             var selTier = newPotion.tier
-          }else{
+          } else {
             selTier = newPotionIn.tier
           }
 
@@ -21021,7 +21026,7 @@ function potionVisual(element, elementIn) {
       var selPrice = sel.prices[Obj]
     } else {
       selPrice2 = selPrice
-    } 
+    }
     var selPrice2 = selIn.prices[Obj];
 
 
