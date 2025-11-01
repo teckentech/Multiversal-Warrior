@@ -21029,8 +21029,6 @@ function potionVisual(element, elementIn) {
     }
     var selPrice2 = selIn.prices[Obj];
 
-
-    var priceValue = selPrice2.priceFormula(selPrice2.tier, sel.level, sel.merges)
     var priceIdentity = selPrice2.priceIdentity;
 
     var c = checkBuy(selPrice2.priceIdentity, selPrice2.price, selPrice2.type) ? "green" : "red";
@@ -21042,8 +21040,8 @@ function potionVisual(element, elementIn) {
     if (priceIdentity == "pyroFrost") { priId = "Pyrofrost" }
 
     // Aggiungi ogni prezzo come un "item" nella griglia
-    if (f(priceValue).gt(f(0))) {
-      priceText += `<div class="${c} price-item roundedEdges"><span class="boldBlackBorder">${format(f(priceValue), 0)}</span> ${priId}</div>`;
+    if (f(selPrice2.price).gt(f(0))) {
+      priceText += `<div class="${c} price-item roundedEdges"><span class="boldBlackBorder">${format(f(selPrice2.price), 0)}</span> ${priId}</div>`;
     }
   }
 
