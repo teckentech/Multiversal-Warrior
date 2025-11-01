@@ -21022,15 +21022,15 @@ function potionVisual(element, elementIn) {
   var priceText = "<div class='price-grid'>"; // Avvia la griglia
 
   for (let Obj in selIn.prices) {
-    if (sel.prices) {
-      var selPrice = sel.prices[Obj]
+    if (selIn.prices) {
+      var selPrice2 = selIn.prices[Obj]
     } else {
       selPrice2 = selPrice
     }
-    var selPrice2 = selIn.prices[Obj];
+    var selPrice = sel.prices[Obj];
 
 
-    var priceValue = selPrice2.priceFormula(selPrice2.tier, sel.level, sel.merges)
+    var priceValue = selPrice2.priceFormula(selPrice.tier, sel.level, sel.merges)
     var priceIdentity = selPrice2.priceIdentity;
 
     var c = checkBuy(selPrice2.priceIdentity, selPrice2.price, selPrice2.type) ? "green" : "red";
