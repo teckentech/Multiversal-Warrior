@@ -13008,7 +13008,7 @@ function valuesSetterDinamic(type) {
   }
 
   if ((IUniversal.fireTree.node50.active)) {
-    IUniversal.fireTree.node50.currentTimer = f(IUniversal.fireTree.node50.currentTimer).add(f(1).mul(f(IGameData.baseTickSpeed)))
+    IUniversal.fireTree.node50.currentTimer = f(IUniversal.heatCurrentTimer).add(f(1).mul(f(IGameData.baseTickSpeed)))
   } else {
     IUniversal.fireTree.node50.currentTimer = f(0)
   }
