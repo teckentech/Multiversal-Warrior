@@ -3970,44 +3970,152 @@ function decryptData(data, key) {
   return bytes.toString(CryptoJS.enc.Utf8);
 }
 
-function exportSave() {
-  saveGameData();
-  var exportSaveData = localStorage.getItem("GameSave");
-  var encryptedData = CryptoJS.AES.encrypt(exportSaveData, secretKey).toString();
-  document.getElementById("Save").value = encryptedData;
+function exportSaveToFile() {
+  saveGameData(); // make sure saveData is up-to-date
 
-  //copy
+  // get the JSON save
+  const exportSaveData = localStorage.getItem("GameSave");
+
+  // compress with LZString UTF16 for smaller size
+  const compressedData = LZString.compressToUTF16(exportSaveData);
+
+  // encrypt
+  const encryptedData = CryptoJS.AES.encrypt(compressedData, secretKey).toString();
+
+  // create a Blob and trigger file download
+  const blob = new Blob([encryptedData], { type: "text/plain;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "MyGameSave.sav";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function exportSave() {
+  saveGameData(); // make sure saveData is updated
+
+  // get the JSON save
+  var exportSaveData = localStorage.getItem("GameSave");
+
+  // compress the JSON to Base64 (smallest human-safe string)
+  var compressedData = LZString.compressToBase64(exportSaveData);
+
+  // encrypt the compressed string
+  var encryptedData = CryptoJS.AES.encrypt(compressedData, secretKey).toString();
+
+  // put it in the textarea
   var inputElement = document.getElementById("Save");
   inputElement.value = encryptedData;
 
+  // copy to clipboard
   inputElement.select();
-  inputElement.setSelectionRange(0, 999999999999999); // For mobile devices
-
+  inputElement.setSelectionRange(0, inputElement.value.length); // mobile devices
   navigator.clipboard.writeText(inputElement.value);
 
-  // Alert the copied text
-  alert("Copied the Save, paste it in a safe location to import it safely next time");
+  alert("Copied the save! Paste it somewhere safe to import it later.");
+}
+
+function importSaveFromFile(file) {
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function (event) {
+    const inputData = event.target.result;
+    if (!inputData) return;
+
+    resetSave();
+    IShowableClass.init = true;
+
+    let decryptedData = inputData;
+
+    // Try decrypting
+    try {
+      const bytes = CryptoJS.AES.decrypt(inputData, secretKey);
+      decryptedData = bytes.toString(CryptoJS.enc.Utf8) || inputData;
+    } catch (e) {
+      decryptedData = inputData; // fallback to raw JSON
+    }
+
+    let parsedData;
+
+    // Check if decryptedData is valid JSON
+    try {
+      parsedData = JSON.parse(decryptedData);
+    } catch (e) {
+      // Not valid JSON → try decompressing
+      const decompressed = LZString.decompressFromUTF16(decryptedData);
+      if (!decompressed) {
+        console.error("Save format not recognized!");
+        return;
+      }
+      try {
+        parsedData = JSON.parse(decompressed);
+      } catch (e2) {
+        console.error("Failed to parse decompressed JSON:", e2);
+        return;
+      }
+    }
+
+    // Merge into saveData
+    for (let key in parsedData) {
+      if (saveData[key]) deepMerge(saveData[key], parsedData[key]);
+    }
+
+    IShowableClass.init = true;
+    saveGameData();
+    alert("Save imported successfully!");
+  };
+
+  reader.readAsText(file);
 }
 
 function importSave() {
-  var encryptedData = document.getElementById("Save").value;
+  let inputData = document.getElementById("Save").value;
+  if (!inputData) return;
 
-  if (encryptedData != "") {
-    resetSave()
-    IShowableClass.init = true;
-    const decryptedData = decryptData(encryptedData, secretKey);
-    try {
-      var savedGameData = JSON.parse(decryptedData);
-      for (let x in savedGameData) {
-        if (saveData[x]) {
-          deepMerge(saveData[x], savedGameData[x]);
-        }
-      }
-    } catch (e) {
+  resetSave();
+  IShowableClass.init = true;
 
-    }
-    IShowableClass.init = true;
+  let decryptedData = inputData;
+
+  // Try decrypting (for new encrypted saves)
+  try {
+    const bytes = CryptoJS.AES.decrypt(inputData, secretKey);
+    decryptedData = bytes.toString(CryptoJS.enc.Utf8) || inputData;
+  } catch (e) {
+    decryptedData = inputData; // fallback to old JSON
   }
+
+  let parsedData;
+
+  // Check if decryptedData is already valid JSON
+  try {
+    parsedData = JSON.parse(decryptedData);
+  } catch (e) {
+    // Not valid JSON → try decompressing as LZString
+    const decompressed = LZString.decompressFromBase64(decryptedData);
+    if (!decompressed) {
+      console.error("Save format not recognized!");
+      return;
+    }
+
+    try {
+      parsedData = JSON.parse(decompressed);
+    } catch (e2) {
+      console.error("Failed to parse decompressed JSON:", e2);
+      return;
+    }
+  }
+
+  // Merge into saveData
+  for (let key in parsedData) {
+    if (saveData[key]) deepMerge(saveData[key], parsedData[key]);
+  }
+
+  IShowableClass.init = true;
 }
 
 function offImportSave() {
@@ -6449,12 +6557,12 @@ function valuesSetter(type) {
 
   if (IUniversal.attributes.attributesUnlock1.active) {
     IUniversalIn.attributes.attributesUnlock1.name = `<div class="boldBlackBorder">UNIVERSAL</div>
-                                                  <div class="boldBlackBorder">CHALLENGER</div>
+                                                  <div class="boldBlackBorder">CHALLENGER: </div>
                                                   <div class="boldBlackBorder">CHALLENGES</div>
                                                   <div>UNLOCKED</div>`
   } else {
     IUniversalIn.attributes.attributesUnlock1.name = `<div class="boldBlackBorder">UNIVERSAL</div>
-                                                  <div class="boldBlackBorder">CHALLENGER</div>
+                                                  <div class="boldBlackBorder">CHALLENGER: </div>
                                                   <div class="boldBlackBorder">CHALLENGES</div>
                                                   <div class="line"></div>
                                                   <div>50 Critical Points</div>
@@ -11869,7 +11977,7 @@ function valuesSetter(type) {
 
   var effectLevel = getMatchingEffectTier(IUniversal.potionSource.item5.key, "source", "source")
 
-  IUniversalIn.potionEffects.effect7.valueFormula = function (potionLevel = 0, effectLevel = 1) { return f(f(5).add(f(f(5).mul(f(effectLevel).minus(f(1)))))).pow(f(potionLevel).add(f(1))) }
+  IUniversalIn.potionEffects.effect7.valueFormula = function (potionLevel = 0, effectLevel = 1) { f(f(5).add(f(f(5).mul(f(effectLevel).minus(f(1)))))).pow(f(potionLevel).add(f(1))) }
   if (potionLevel == null && effectLevel == null) {
     IUniversalIn.potionEffects.effect7.activeValue = f(0)
   } else {
@@ -13407,6 +13515,18 @@ document.getElementById("exportSave").onclick = function () {
 document.getElementById("importSave").onclick = function () {
   importSave()
 }
+
+document.getElementById("exportSaveFile").onclick = function () {
+  exportSaveToFile()
+}
+
+document.getElementById("importSaveFile").onclick = function () {
+  const input = document.getElementById("importSaveFileInput");
+  const file = input.files[0];
+  if (file) importSaveFromFile(file);
+
+  input.value = "";
+};
 
 //options
 
@@ -15170,6 +15290,7 @@ document.getElementById("content2_19_potionUpgrade_content3_button1").onclick = 
   potionSetter()
 
   if (newPotion && newPotionIn) {
+
     if (checkBuyMultiValutes(newPotionIn.prices)) {
       if (buyMultiValutes(newPotionIn.prices, "UniNoUpdate")) {
         IUniversalIn.potionFusionVisual2 = potionVisual(newPotion, newPotionIn);
@@ -16800,6 +16921,7 @@ function addObjectToSpace(row, col, key, space) {
     const existing = document.getElementById(`content2_19_grid1_${col}${row}`);
 
     if (existing) {
+
       if (IUniversal.inventory[key].key != null || IUniversal.inventory[key].key != undefined && IUniversalIn.inventoryStorage[IUniversal.inventory[key].key]) {
         var element = IUniversalIn.inventoryStorage[IUniversal.inventory[key].key].content
       } else {
@@ -19988,11 +20110,13 @@ async function visualLoopFunction() {
   if (checkShow("content2_17")) {
     visualTree()
     fireLines()
+    menuDirectionArrow("content2_17_scroll")
   }
 
   if (checkShow("content2_19")) {
     visualWaterTree()
     waterLines()
+    menuDirectionArrow("content2_19_scroll")
   }
 
   update("content2_17_svg1", svgFire(f(IUniversal.fire)))
@@ -20288,25 +20412,35 @@ function manualVisualLoop() {
 }
 
 function buyMultiple(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, type, multiple, level, maxLevel) {
-  // definisco il limite massimo in base a multiple
-  let limit;
-  if (multiple == 0) limit = 1;
-  else if (multiple == 1) limit = 10;
-  else limit = Infinity; // multiple === "2"
+  // Determine purchase limit per call
+  const limit = multiple === 0 ? 1 : multiple === 1 ? 10 : Infinity;
 
-  let count = 1;
+  // Precompute current level and max level
+  let currentLevel = f(level.level);
+  const maxLev = maxLevel?.maxLevel ? f(maxLevel.maxLevel) : Infinity;
 
-  while (buy(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, type) && count < limit) {
-    valuesSetter()
+  // If already at max, exit early
+  if (currentLevel.gte(maxLev)) return;
 
-    var lev = level.level
-    var maxLev = maxLevel.maxLevel
-    if (maxLev != undefined) {
-      if (f(lev).gte(f(maxLev))) {
-        return;
-      }
-    }
-    count++;
+  // Determine how many can be purchased based on limit and max level
+  let remainingPurchases = limit;
+  if (!remainingPurchases) return;
+
+  // Determine how many purchases are possible with current resources
+  let affordableCount = 0;
+  while (remainingPurchases > 0) {
+    if (!buy(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, type)) break;
+    affordableCount++;
+    remainingPurchases--;
+
+    // Stop if next purchase would exceed max level
+    currentLevel = f(level.level);
+    if (currentLevel.gte(maxLev)) break;
+  }
+
+  // Apply effect once for all purchases
+  if (affordableCount > 0) {
+    valuesSetter(); // update UI / computed values once
   }
 }
 
@@ -20857,16 +20991,18 @@ function potionUpgrade() {
 
     //price
 
-    for (let Obj in newPotionIn.prices) {
+    if (newPotionIn) {
+      for (let Obj in newPotionIn.prices) {
 
-      var selPrice = newPotionIn.prices[Obj]
-      if (newPotion.prices) {
-        var selPrice2 = newPotion.prices[Obj]
-      } else {
-        selPrice2 = selPrice
+        var selPrice = newPotionIn.prices[Obj]
+        if (newPotion.prices) {
+          var selPrice2 = newPotion.prices[Obj]
+        } else {
+          selPrice2 = selPrice
+        }
+
+        selPrice.price = selPrice.priceFormula(selPrice2.tier, newPotion.level, newPotion.merges);
       }
-
-      selPrice.price = selPrice.priceFormula(selPrice2.tier, newPotion.level, newPotion.merges);
     }
 
     return {
@@ -20968,13 +21104,13 @@ function potionFusion() {
         for (let Obj in newPotionIn.prices) {
 
           var selPrice = newPotionIn.prices[Obj]
-          if (newPotion.prices) {
-            var selTier = newPotion.tier
+          if (newPotionIn.prices) {
+            var selTier = selPrice.tier
           } else {
-            selTier = newPotionIn.tier
+            selTier = selPrice.tier
           }
 
-          selPrice.price = selPrice.priceFormula(newPotion.tier, newPotion.level, newPotion.merges);
+          selPrice.price = selPrice.priceFormula(selPrice.tier, newPotion.level, newPotion.merges);
 
         }
       }

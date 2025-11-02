@@ -814,10 +814,17 @@
                             <button id="optionsMisc_notation_b1" class="defaultButton30"></button>
                         </div>
                     </div>
-                    <div div="optionsButtons" class="row">
+                    <div div="optionsButtons" class="row height10">
                         <button id="resetSave" class="defaultButton100 red">RESET SAVE</button>
                         <button id="exportSave" class="defaultButton100">Export Save</button>
                         <button id="importSave" class="defaultButton100">Import Save</button>
+                        <button id="exportSaveFile" class="defaultButton100">Export To File</button>
+                        <div class="columns" class="center">
+                            <input type="file" id="importSaveFileInput" class="widthAuto height50" />
+                            <button id="importSaveFile" class="defaultButton100 height50">
+                                Import From File
+                            </button>
+                        </div>
                     </div>
                     <textarea class="input-like" id="Save" name="Save" rows="4" cols="50"></textarea><br>
 
@@ -2100,18 +2107,16 @@
 
     <script src="./libs/lz-string.js"></script>
 
-
-
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <!-- 2. Carica il tuo script personalizzato (che utilizza BreakInfinity.js) -->
-    <script type="module" src="fullRevamp.js?v=1.101" charset="utf-8"></script>
+    <script type="module" src="fullRevamp.js?v=1.102" charset="utf-8"></script>
 
     <!-- 3. Carica altre librerie necessarie, come crypto-js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 
     <!-- 4. Carica il file CSS per la formattazione -->
-    <link rel="stylesheet" href="cssRevamp.css?v=1.101">
+    <link rel="stylesheet" href="cssRevamp.css?v=1.102">
 
     <!--<script src="./libs/dist/vue.global.js"></script>-->
 </body>
