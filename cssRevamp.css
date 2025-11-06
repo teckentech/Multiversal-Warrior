@@ -3834,8 +3834,6 @@ button,
 
 }
 
-
-
 #content2_12 {
   background-color: #2c2f3a;
 }
@@ -5065,23 +5063,11 @@ svg#content2_19_lineLayer {
   justify-content: left;
 
   pointer-events: none;
-  /* 👈 NON blocca click in generale */
-}
-
-#content2_19_resizeBig,
-#content2_17_resizeBig {
-  width: 3%;
-}
-
-#content2_19_resizeSmall,
-#content2_17_resizeSmall {
-  width: 3%;
 }
 
 #content2_19_menu>* {
   margin: 1%;
   pointer-events: auto;
-  /* 👈 Solo i figli possono ricevere click */
 }
 
 #content2_19_valutes_content {
@@ -5224,6 +5210,16 @@ svg#content2_19_lineLayer {
 
 .fontSize07 {
   font-size: 0.7cqw;
+}
+
+#content2_17_resizeBig,
+#content2_19_resizeBig {
+  width: 3%;
+}
+
+#content2_17_resizeSmall,
+#content2_19_resizeSmall {
+  width: 3%;
 }
 
 @keyframes spin {
@@ -5831,7 +5827,6 @@ svg#content2_19_lineLayer {
 
   border-radius: 0.5em;
 }
-
 
 
 .backgroundImage {

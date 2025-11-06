@@ -57,8 +57,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
   valuesSetter()
 
   IShowableClass.init = true;
-  freeTick = false
-
 
   requestAnimationFrame(mainGameLoop);
 
@@ -1163,7 +1161,7 @@ class Universal {
         level: 0,
         click: false,
       },
-    }
+    };
 
     this.automation = {
       automation1: {
@@ -2938,6 +2936,7 @@ class UniversalIn {
       },
     }
 
+
     this.automation = {
       automation1: {
         price: 0, priceIdentity: "universalShards",
@@ -3643,7 +3642,6 @@ class ShowableClass {
       content2_19_node36: false,
       content2_19_node37: false,
       content2_19_node38: false, content2_19_node38_button: true,
-
     }
 
   }
@@ -4160,6 +4158,7 @@ function passiveImport() {
 
 document.addEventListener('visibilitychange', function () {
   if (document.hidden) {
+    console.log(document.hidden)
     // Salva i dati solo quando l'utente lascia la pagina
     offSaveGameData()
     freeTick = false
@@ -16823,12 +16822,6 @@ function visualWaterTree() {
   }
 }
 
-function upgradePotion(element, level, merges) {
-  element.level = level
-  element.merges = merges
-}
-
-
 function visualInventoryWater() {
 
   const gridContainer = document.getElementById("content2_19_grid1");
@@ -18394,7 +18387,6 @@ function loopShow() {
     enableDragScroll("content2_17_scroll")
     enableDragScroll("content2_19_scroll")
 
-
     unlockShow("fireValute", false);
 
     IShowableClass.init = false;
@@ -18574,6 +18566,7 @@ function loopShow() {
     document.getElementById("fp2_content2_20").style.pointerEvents = "auto";
     unlockShow("fp2_content2_19_container", true)
     unlockShow("fp2_content2_20_container", true)
+    update("fp2_content2_19", "Water")
   } else {
 
     document.getElementById("fp2_content2_19_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
@@ -18583,6 +18576,8 @@ function loopShow() {
     document.getElementById("fp2_content2_20").style.pointerEvents = "none";
     unlockShow("fp2_content2_19_container", true)
     unlockShow("fp2_content2_20_container", true)
+    update("fp2_content2_19", "Reach Burnt Universe 50")
+
   }
 
   //PROGRESS BARS
@@ -20358,6 +20353,15 @@ var SaveGameLoop = window.setInterval(function () {
 function mainGameLoop() {
   visualLoopFunction()
 
+  if (freeTick) {
+    document.getElementById("gameCurtain").style.display = "none"
+  }
+
+  if (!freeTick) {
+    document.getElementById("gameCurtain").style.display = ""
+  }
+
+
   requestAnimationFrame(mainGameLoop)
 }
 
@@ -20371,10 +20375,6 @@ var noSincLoop = window.setInterval(function () {
 
   if (freeTick) {
     automation()
-    document.getElementById("gameCurtain").style.display = "none"
-  }
-  if (!freeTick) {
-    document.getElementById("gameCurtain").style.display = ""
   }
 
   freeTick = true
