@@ -20412,35 +20412,36 @@ function manualVisualLoop() {
 }
 
 function buyMultiple(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, type, multiple, level, maxLevel) {
-  // Determine purchase limit per call
-  const limit = multiple === 0 ? 1 : multiple === 1 ? 10 : Infinity;
+  let limit;
 
-  // Precompute current level and max level
+  if (multiple == 0) {
+    limit = 1;
+  } else if (multiple == 1) {
+    limit = 10;
+  } else {
+    limit = Infinity;
+  }
+
   let currentLevel = f(level.level);
   const maxLev = maxLevel?.maxLevel ? f(maxLevel.maxLevel) : Infinity;
 
-  // If already at max, exit early
   if (currentLevel.gte(maxLev)) return;
 
-  // Determine how many can be purchased based on limit and max level
   let remainingPurchases = limit;
   if (!remainingPurchases) return;
 
-  // Determine how many purchases are possible with current resources
   let affordableCount = 0;
   while (remainingPurchases > 0) {
     if (!buy(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, type)) break;
     affordableCount++;
     remainingPurchases--;
 
-    // Stop if next purchase would exceed max level
     currentLevel = f(level.level);
     if (currentLevel.gte(maxLev)) break;
   }
 
-  // Apply effect once for all purchases
   if (affordableCount > 0) {
-    valuesSetter(); // update UI / computed values once
+    valuesSetter();
   }
 }
 
