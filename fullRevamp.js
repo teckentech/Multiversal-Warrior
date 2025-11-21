@@ -6555,10 +6555,9 @@ function valuesSetter(type) {
 
 
   if (IUniversal.attributes.attributesUnlock1.active) {
-    IUniversalIn.attributes.attributesUnlock1.name = `<div class="boldBlackBorder">UNIVERSAL</div>
-                                                  <div class="boldBlackBorder">CHALLENGER: </div>
-                                                  <div class="boldBlackBorder">CHALLENGES</div>
-                                                  <div>UNLOCKED</div>`
+    IUniversalIn.attributes.attributesUnlock1.name = `<div class="boldBlackBorder">CHALLENGES UNLOCKED</div>
+                                                  <div class="boldBlackBorder">Go in Universal Challenger</div>
+                                                  <div class="boldBlackBorder"></div>`
   } else {
     IUniversalIn.attributes.attributesUnlock1.name = `<div class="boldBlackBorder">UNIVERSAL</div>
                                                   <div class="boldBlackBorder">CHALLENGER: </div>
