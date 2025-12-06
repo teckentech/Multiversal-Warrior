@@ -15962,7 +15962,7 @@ function valuesSetter(type) {
       </div>
       <div class="centerDiv height100 width100 fontSize08 column margin1 overflowY">
       <div>Permanent Upgrade, Cant Equip</div>
-      <div>Barracks Upgrades max level +5 (+${format(f(sel2.effect), 0)})</div>
+      <div>Training Grounds Upgrades max level +5 (+${format(f(sel2.effect), 0)})</div>
       </div>
     </div>
     
@@ -16009,7 +16009,7 @@ function valuesSetter(type) {
       </div>
       <div class="centerDiv height100 width100 fontSize08 column margin1 overflowY">
       <div>Permanent Upgrade, Cant Equip</div>
-      <div>Barracks Upgrades max level +5 (+${format(f(sel2.effect), 0)})</div>
+      <div>Mound Upgrades max level +5 (+${format(f(sel2.effect), 0)})</div>
       </div>
 
     </div>
