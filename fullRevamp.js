@@ -5316,19 +5316,19 @@ class ProgressIn {
     options = options || {}
 
     this.progress = options.progress || {
-      p1: "Reach 10 Life to unlock Challenger", p1Check: function () { return progressBar(ITraining.base.base2.tot, 10, "progressBarFp4") },
+      p1: "Reach 10 Life to unlock Challenger", p1Check: function () { return f(ITraining.base.base2.tot).gte(f(10)) },
       p1Progress: function () { return progressBarInfo(ITraining.base.base2.tot, 10, "progressBarFp4") },
       p1F: true, p1CheckF: true,
 
-      p2: "Defeat Challenger 3 to unlock Hunting", p2Check: function () { return progressBar(IFight.challengers.baseChallenger.level, 4, "progressBarFp4") },
+      p2: "Defeat Challenger 3 to unlock Hunting", p2Check: function () { return f(IFight.challengers.baseChallenger.level).gte(f(4)) },
       p2Progress: function () { return progressBarInfo(IFight.challengers.baseChallenger.level, 4, "progressBarFp4") },
       p2F: true, p2CheckF: true,
 
-      p3: "Defeat Challenger 10 to unlock Ascension", p3Check: function () { return progressBar(IFight.challengers.baseChallenger.level, 11, "progressBarFp4") },
+      p3: "Defeat Challenger 10 to unlock Ascension", p3Check: function () { return f(IFight.challengers.baseChallenger.level).gte(f(11)) },
       p3Progress: function () { return progressBarInfo(IFight.challengers.baseChallenger.level, 11, "progressBarFp4") },
       p3F: true, p3CheckF: true,
 
-      p4: "Reach Universe 5 To Unlock Universal Challenger And Attributes", p4Check: function () { return progressBar(IUniversal.universe, 5, "progressBarFp4") },
+      p4: "Reach Universe 5 To Unlock Universal Challenger And Attributes", p4Check: function () { return f(IUniversal.universe).gte(f(5)) },
       p4Progress: function () { return progressBarInfo(IUniversal.universe, 5, "progressBarFp4") },
       p4F: true, p4CheckF: true,
     }
@@ -26239,7 +26239,7 @@ function loopShow() {
 
   unlockShow("fp2_content2_pageSel", true)
 
-  if (IProgressIn.progress.p1Check() == true || f(IUniversal.universe).gte(f(2))) {
+  if (IProgressIn.progress.p1Check() || f(IUniversal.universe).gte(f(2))) {
     unlockShow("fp2_content2_4_container", true)
     document.getElementById("fp2_content2_4_image").style.opacity = "1";  // attivo 1, disattivo 0.5
     update("fp2_content2_4", "Challenger")
