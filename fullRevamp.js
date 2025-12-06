@@ -29806,7 +29806,6 @@ function draggableSet(item, key, keyIn, type, archetype) {
 
       var selectedKey = eval(key).key;
 
-      if (!IUniversal.lockSelTreasure) {
         IUniversal.selTreasure = selectedKey || null;
         if (IUniversal.selTreasure != null) {
           unlockShow("content2_21_treasure_info", true);
@@ -29821,19 +29820,18 @@ function draggableSet(item, key, keyIn, type, archetype) {
 
 
         }
-      }
+      
     });
 
     item.addEventListener("mouseleave", function (e) {
       var selectedKey = eval(key).key;
 
-      if (!IUniversal.lockSelTreasure) {
         IUniversal.selTreasure = null;
         unlockShow("content2_21_treasure_info", false);
         unlockShow("content2_23_treasure_info", false);
         unlockShow("content2_25_treasure_info", false);
 
-      }
+      
     });
 
     item.addEventListener("click", function (e) {
