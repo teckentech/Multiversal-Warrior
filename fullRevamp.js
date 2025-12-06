@@ -57,9 +57,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
   valuesSetter()
 
   IShowableClass.init = true;
+  freeTick = false
+
 
   requestAnimationFrame(mainGameLoop);
-
 });
 
 //an attribute x, with a next attribute = x+ "F", then x will be frozen, and impossible to modify.
@@ -936,7 +937,7 @@ class Universal {
     this.lockSelPotion = false
 
     this.inventory = options.inventory || {};
-    this.inventoryR = options.inventoryR || 0
+    this.inventoryR = options.inventoryR || 0;
 
     this.inventoryStorage = options.inventoryStorage || {};
     this.inventoryStorageR = options.inventoryStorageR || 0
@@ -1161,6 +1162,579 @@ class Universal {
         level: 0,
         click: false,
       },
+      node39: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+    };
+
+
+
+    this.earthTreeSize = options.earthTreeSize || 1;
+
+    this.buyEarthTree = options.buyEarthTree || 0
+    this.maxBuyEarthTree = options.maxBuyEarthTree || 2
+
+    this.earth = options.earth || 0;
+    this.earthProd = options.earthProd || 0;
+    this.earthProdBase = options.earthProdBase || 0;
+
+    this.golem = options.golem || 0;
+    this.golemMax = options.golemMax || 0;
+    this.golemProd = options.golemProd || 0;
+    this.golemProdBase = options.golemProdBase || 0;
+
+
+
+    this.treasureInventory = options.treasureInventory || {};
+    this.treasureInventoryR = options.treasureInventoryR || 0;
+
+    this.selTreasure = ""
+    this.lockSelTreasure = false
+
+    this.armyInfo = options.armyInfo || {
+      default: {
+        name: "",
+
+        golemTypes: {
+          type1: {
+            active: false,
+          },
+          type2: {
+            active: false,
+          },
+          type3: {
+            active: false,
+          },
+          type4: {
+            active: false,
+          },
+          type5: {
+            active: false,
+          },
+        },
+
+        formations: {
+          selected: "",
+        },
+      },
+
+      soul: {
+        name: "", level: 0, leftLife: 0,
+
+        affinities: {
+          affinity1: {
+            active: false,
+          },
+          affinity2: {
+            active: false,
+          },
+          affinity3: {
+            active: false,
+          },
+          affinity4: {
+            active: false,
+          },
+        }
+      },
+
+      enemy: {
+        selected: "", leftLife: 0,
+
+        formation: "default",
+
+        golemTypes: {
+          type1: {
+            active: false,
+          },
+          type2: {
+            active: false,
+          },
+          type3: {
+            active: false,
+          },
+          type4: {
+            active: false,
+          },
+          type5: {
+            active: false,
+          },
+        },
+
+        effects: {
+
+        },
+
+      },
+
+      elemental: {
+        selected: "",
+        name: "", level: 0, leftLife: 0,
+
+        affinities: {
+          affinity1: {
+            active: false,
+          },
+          affinity2: {
+            active: false,
+          },
+          affinity3: {
+            active: false,
+          },
+          affinity4: {
+            active: false,
+          },
+        }
+      }
+    };
+
+    this.armyLoadoutSel = options.armyLoadoutSel || "";
+
+    this.armyLoadout = options.armyLoadout || {
+      loadout1: {
+        name: "",
+        formation: null,
+
+        armyTreasures: {
+          item1: null,
+          item2: null,
+          item3: null,
+          item4: null,
+          item5: null,
+        },
+      },
+
+      loadout2: {
+        name: "",
+        formation: null,
+
+        armyTreasures: {
+          item1: null,
+          item2: null,
+          item3: null,
+          item4: null,
+          item5: null,
+        },
+      },
+
+      loadout3: {
+        name: "",
+        formation: null,
+
+        armyTreasures: {
+          item1: null,
+          item2: null,
+          item3: null,
+          item4: null,
+          item5: null,
+        },
+      },
+
+      loadout4: {
+        name: "",
+        formation: null,
+
+        armyTreasures: {
+          item1: null,
+          item2: null,
+          item3: null,
+          item4: null,
+          item5: null,
+        },
+      },
+
+      loadout5: {
+        name: "",
+        formation: null,
+
+        armyTreasures: {
+          item1: null,
+          item2: null,
+          item3: null,
+          item4: null,
+          item5: null,
+        },
+      },
+    }
+
+    this.golemTypes = options.golemTypes || {
+      type1: {
+        level: 0, active: false,
+      },
+      type2: {
+        level: 0, active: false,
+      },
+      type3: {
+        level: 0, active: false,
+      },
+      type4: {
+        level: 0, active: false,
+      },
+      type5: {
+        level: 0, active: false,
+      },
+    };
+
+    this.earthTree = options.earthTree || {
+      node1: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node2: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node3: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node4: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node5: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node6: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node7: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node8: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node9: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node10: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node11: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node12: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+    };
+
+    this.windTreeSize = options.windTreeSize || 1;
+
+    this.buyWindTree = options.buyWindTree || 0
+    this.maxBuyWindTree = options.maxBuyWindTree || 2
+
+    this.wind = options.wind || 0;
+    this.windProd = options.windProd || 0;
+    this.windProdBase = options.windProdBase || 0;
+
+    this.windTree = options.windTree || {
+      node1: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node2: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node3: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node4: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node5: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node6: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node7: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node8: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node9: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node10: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+    };
+
+    this.showTreasure = options.hiddenTreasure || false;
+
+    this.treasures = options.treasures || {
+      treasure1: {
+        num: 0, fused: 0, level: 0, active: false, equip: false,
+      },
+      treasure2: {
+        num: 0, fused: 0, level: 0, active: false, equip: false,
+      },
+      treasure3: {
+        num: 0, fused: 0, level: 0, active: false, equip: false,
+      },
+      treasure4: {
+        num: 0, fused: 0, level: 0, active: false, equip: false,
+      },
+      treasure5: {
+        num: 0, fused: 0, level: 0, active: false, equip: false,
+      },
+      treasure6: {
+        num: 0, fused: 0, level: 0, active: false, equip: false,
+      },
+      treasure7: {
+        num: 0, fused: 0, level: 0, active: false, equip: false,
+      },
+      treasure8: {
+        num: 0, fused: 0, level: 0, active: false, equip: false,
+      },
+      treasure9: {
+        num: 0, fused: 0, level: 0, active: false, equip: false,
+      },
+      treasure10: {
+        num: 0, fused: 0, level: 0, active: false, equip: false,
+      },
+      treasure11: {
+        num: 0, fused: 0, level: 0, active: false, equip: false,
+      },
+      treasure12: {
+        num: 0, fused: 0, level: 0, active: false, equip: false,
+      },
+      treasure13: {
+        num: 0, fused: 0, level: 0, active: false, equip: false,
+      },
+      treasure14: {
+        num: 0, fused: 0, level: 0, active: false, equip: false,
+      },
+      treasure15: {
+        num: 0, fused: 0, level: 0, active: false, equip: false,
+      },
+      treasure16: {
+        num: 0, fused: 0, level: 0, active: false, equip: false,
+      },
+      treasure17: {
+        num: 0, fused: 0, level: 0, active: false, equip: false,
+      },
+      treasure18: {
+        num: 0, fused: 0, level: 0, active: false, equip: false,
+      },
+      treasure19: {
+        num: 0, fused: 0, level: 0, active: false, equip: false,
+      },
+      treasure20: {
+        num: 0, fused: 0, level: 0, active: false, equip: false,
+      },
+    };
+
+    this.spires = options.spires || {
+      spire1: {
+        active: false,
+      },
+      spire1: {
+        active: false,
+      },
+    },
+
+      this.expeditions = options.expeditions || {
+        exp1: {
+          level: 0, leftLife: 0, active: false,
+
+          rewards: {
+            timer: 0,
+
+            expectedRewards: {},
+            expectedRewardsR: 0,
+          }
+        },
+
+        exp2: {
+          level: 0, leftLife: 0, active: false,
+
+          rewards: {
+            timer: 0,
+
+            expectedRewards: {},
+            expectedRewardsR: 0,
+          }
+        },
+
+        exp3: {
+          level: 0, leftLife: 0, active: false,
+
+          rewards: {
+            timer: 0,
+
+            expectedRewards: {},
+            expectedRewardsR: 0,
+          }
+        },
+
+        exp4: {
+          level: 0, leftLife: 0, active: false,
+
+          rewards: {
+            timer: 0,
+
+            expectedRewards: {},
+            expectedRewardsR: 0,
+          }
+        },
+
+        exp5: {
+          level: 0, leftLife: 0, active: false,
+
+          rewards: {
+            timer: 0,
+
+            expectedRewards: {},
+            expectedRewardsR: 0,
+          }
+        },
+
+        exp6: {
+          level: 0, leftLife: 0, active: false,
+
+          rewards: {
+            timer: 0,
+
+            expectedRewards: {},
+            expectedRewardsR: 0,
+          }
+        },
+
+        exp7: {
+          level: 0, leftLife: 0, active: false,
+
+          rewards: {
+            timer: 0,
+
+            expectedRewards: {},
+            expectedRewardsR: 0,
+          }
+        },
+
+        exp8: {
+          level: 0, leftLife: 0, active: false,
+
+          rewards: {
+            timer: 0,
+
+            expectedRewards: {},
+            expectedRewardsR: 0,
+          }
+        },
+
+        exp9: {
+          level: 0, leftLife: 0, active: false,
+
+          rewards: {
+            timer: 0,
+
+            expectedRewards: {},
+            expectedRewardsR: 0,
+          }
+        },
+
+        exp10: {
+          level: 0, leftLife: 0, active: false,
+
+          rewards: {
+            timer: 0,
+
+            expectedRewards: {},
+            expectedRewardsR: 0,
+          }
+        },
+
+        exp11: {
+          level: 0, leftLife: 0, active: false,
+
+          rewards: {
+            timer: 0,
+
+            expectedRewards: {},
+            expectedRewardsR: 0,
+          }
+        },
+      };
+
+    this.treasureFormation = options.treasureFormation || {
+      item1: { key: null, drag: "equipment" },
+    };
+
+    this.treasureArmy = options.treasureArmy || {
+      item1: { key: null, drag: "equipment" },
+      item2: { key: null, drag: "equipment" },
+      item3: { key: null, drag: "equipment" },
+      item4: { key: null, drag: "equipment" },
+      item5: { key: null, drag: "equipment" },
+    };
+
+    //METAL
+
+    this.metalTreeSize = options.metalTreeSize || 1;
+
+    this.buyMetalTree = options.buyMetalTree || 0
+    this.maxBuyMetalTree = options.maxBuyMetalTree || 2
+
+
+    this.metal = options.metal || 0;
+    this.metalProd = options.metalProd || 0;
+    this.metalProdBase = options.metalProdBase || 0;
+
+    this.treasureEquipment = options.treasureEquipment || {
+      item1: { key: null, drag: "equipment" },
+      item2: { key: null, drag: "equipment" },
+      item3: { key: null, drag: "equipment" },
+      item4: { key: null, drag: "equipment" },
+    };
+
+    this.treasureAugments = options.treasureAugments || {
+      item1: { key: null, drag: "equipment" },
+    };
+
+    this.treasureUpgrade = options.treasureUpgrade || {
+      item1: { key: null, drag: "equipment" },
     };
 
     this.automation = {
@@ -1245,6 +1819,12 @@ class Universal {
         active: true,
       },
       lore7: {
+        active: true,
+      },
+      lore8: {
+        active: true,
+      },
+      lore9: {
         active: true,
       },
     }
@@ -2934,8 +3514,958 @@ class UniversalIn {
         price: 0, priceIdentity: "ambrosia",
         maxLevel: 0,
       },
+      node39: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "ambrosia",
+        maxLevel: 0,
+      },
     }
 
+
+
+    this.earthTree = options.earthTree || {
+      node1: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "earth",
+        maxLevel: 0,
+      },
+      node2: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "earth",
+        maxLevel: 0,
+      },
+      node3: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "earth",
+        maxLevel: 0,
+      },
+      node4: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "earth",
+        maxLevel: 0,
+      },
+      node5: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "earth",
+        maxLevel: 0,
+      },
+      node6: {
+        content: "", button: "",
+        effect: 0, maxEffect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "earth",
+        maxLevel: 0,
+      },
+      node7: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "earth",
+        maxLevel: 0,
+      },
+      node8: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "earth",
+        maxLevel: 0,
+      },
+      node9: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "earth",
+        maxLevel: 0,
+      },
+      node10: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "earth",
+        maxLevel: 0,
+      },
+      node11: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "earth",
+        maxLevel: 0,
+      },
+      node12: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "earth",
+        maxLevel: 0,
+      },
+    };
+
+    this.windTree = options.windTree || {
+      node1: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "null",
+        maxLevel: 0,
+      },
+      node2: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "null",
+        maxLevel: 0,
+      },
+      node3: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "null",
+        maxLevel: 0,
+      },
+      node4: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "null",
+        maxLevel: 0,
+      },
+      node5: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "null",
+        maxLevel: 0,
+      },
+      node6: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "null",
+        maxLevel: 0,
+      },
+      node7: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "null",
+        maxLevel: 0,
+      },
+      node8: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "null",
+        maxLevel: 0,
+      },
+      node9: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "null",
+        maxLevel: 0,
+      },
+      node10: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "null",
+        maxLevel: 0,
+      },
+    };
+
+    this.treasures = options.treasures || {
+      treasure1: {
+        type: "warrior",
+        effect: 0,
+        content: "",
+        content2: "",
+        content3: "",
+        image: "images/warrior_1_v1.png",
+        maxLevel: 0,
+        price: 0,
+        priceIdentity: "num",
+      },
+      treasure2: {
+        type: "warrior",
+        effect: 0,
+        content: "",
+        content2: "",
+        content3: "",
+        image: "images/warrior_2_v1.png",
+        maxLevel: 0,
+        price: 0,
+        priceIdentity: "num",
+      },
+      treasure3: {
+        type: "tank",
+        effect: 0,
+        content: "",
+        content2: "",
+        content3: "",
+        image: "images/tankTreasure_1_v1.png",
+        maxLevel: 0,
+        price: 0,
+        priceIdentity: "num",
+      },
+      treasure4: {
+        type: "permanent",
+        effect: 0,
+        content: "",
+        content2: "",
+        content3: "",
+        image: "images/permanent_1_v1.png",
+        maxLevel: 0,
+        price: 0,
+        priceIdentity: "num",
+      },
+      treasure5: {
+        type: "permanent",
+        effect: 0,
+        content: "",
+        content2: "",
+        content3: "",
+        image: "images/permanent_2_v1.png",
+        maxLevel: 0,
+        price: 0,
+        priceIdentity: "num",
+      },
+      treasure6: {
+        type: "permanent",
+        effect: 0,
+        content: "",
+        content2: "",
+        content3: "",
+        image: "images/permanent_3_v1.png",
+        maxLevel: 0,
+        price: 0,
+        priceIdentity: "num",
+      },
+      treasure7: {
+        type: "formation",
+        effect: 0,
+        content: "",
+        content2: "",
+        content3: "",
+        image: "images/formation_1_v1.png",
+        maxLevel: 0,
+        price: 0,
+        priceIdentity: "num",
+      },
+      treasure8: {
+        type: "formation",
+        effect: 0,
+        content: "",
+        content2: "",
+        content3: "",
+        image: "images/formation_2_v1.png",
+        maxLevel: 0,
+        price: 0,
+        priceIdentity: "num",
+      },
+      treasure9: {
+        type: "formation",
+        effect: 0,
+        content: "",
+        content2: "",
+        content3: "",
+        image: "images/potion_type2_v1.png",
+        maxLevel: 0,
+        price: 0,
+        priceIdentity: "num",
+      },
+      treasure10: {
+        type: "formation",
+        effect: 0,
+        content: "",
+        content2: "",
+        content3: "",
+        image: "images/formation_2_v1.png",
+        maxLevel: 0,
+        price: 0,
+        priceIdentity: "num",
+      },
+      treasure11: {
+        type: "weapon",
+        effect: 0,
+        content: "",
+        content2: "",
+        content3: "",
+        image: "images/sword_1_v1.png",
+        maxLevel: 0,
+        price: 0,
+        priceIdentity: "metal",
+      },
+      treasure12: {
+        type: "armor",
+        effect: 0,
+        content: "",
+        content2: "",
+        content3: "",
+        image: "images/armor_1_v1.png",
+        maxLevel: 0,
+        price: 0,
+        priceIdentity: "metal",
+      },
+      treasure13: {
+        type: "accessory",
+        effect: 0,
+        content: "",
+        content2: "",
+        content3: "",
+        image: "images/ring_1_v1.png",
+        maxLevel: 0,
+        price: 0,
+        priceIdentity: "metal",
+      },
+      treasure14: {
+        type: "weapon",
+        effect: 0,
+        effect2: 0,
+        content: "",
+        content2: "",
+        content3: "",
+        image: "images/sword_2_v1.png",
+        maxLevel: 0,
+        price: 0,
+        priceIdentity: "metal",
+      },
+      treasure15: {
+        type: "armor",
+        effect: 0,
+        effect2: 0,
+        content: "",
+        content2: "",
+        content3: "",
+        image: "images/armor_2_v1.png",
+        maxLevel: 0,
+        price: 0,
+        priceIdentity: "metal",
+      },
+      treasure16: {
+        type: "accessory",
+        effect: 0,
+        content: "",
+        content2: "",
+        content3: "",
+        image: "images/ring_2_v1.png",
+        maxLevel: 0,
+        price: 0,
+        priceIdentity: "metal",
+      },
+      treasure17: {
+        type: "soul",
+        effect: 0,
+        effect2: 0,
+        content: "",
+        content2: "",
+        content3: "",
+        image: "images/soul_1_v1.png",
+        maxLevel: 0,
+        price: 0,
+        priceIdentity: "metal",
+      },
+      treasure18: {
+        type: "augment",
+        effect: 0,
+        content: "",
+        content2: "",
+        content3: "",
+        image: "images/augment_1_v1.png",
+        maxLevel: 0,
+        price: 0,
+        priceIdentity: "metal",
+      },
+      treasure19: {
+        type: "augment",
+        effect: 0,
+        content: "",
+        content2: "",
+        content3: "",
+        image: "images/augment_2_v1.png",
+        maxLevel: 0,
+        price: 0,
+        priceIdentity: "metal",
+      },
+      treasure20: {
+        type: "tank",
+        effect: 0,
+        content: "",
+        content2: "",
+        content3: "",
+        image: "images/tankTreasure_2_v1.png",
+        maxLevel: 0,
+        price: 0,
+        priceIdentity: "num",
+      },
+    };
+
+    this.armyEffectContent = options.armyEffectContent || "";
+
+    this.armyInfo = options.armyInfo || {
+      default: {
+        damage: 0, life: 0, content: "", content2: "", leftLife: 0,
+        baseDamage: 0, baseLife: 0, baseLeftLife: 0, baseLevel: 0,
+        level: 0,
+
+        golemTypes: {
+          type1: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+            baseLevel: 0, baseDamage: 0, baseLife: 0,
+          },
+          type2: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+            baseLevel: 0, baseDamage: 0, baseLife: 0,
+          },
+          type3: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+            baseLevel: 0, baseDamage: 0, baseLife: 0,
+          },
+          type4: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+            baseLevel: 0, baseDamage: 0, baseLife: 0,
+          },
+          type5: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+            baseLevel: 0, baseDamage: 0, baseLife: 0,
+          },
+        },
+
+        formations: {
+          data: [],
+        },
+      },
+
+      soul: {
+        damage: 0, life: 0,
+        content: "", content2: "", content3: "",
+        affinity: 0,
+        baseDamage: 0, baseLife: 0, baseAffinity: 0, baseLeftLife: 0,
+
+        affinities: {
+          affinity1: {
+            value: 0, content: "",
+            baseValue: 0,
+          },
+          affinity2: {
+            value: 0, content: "",
+            baseValue: 0,
+
+          },
+          affinity3: {
+            value: 0, content: "",
+            baseValue: 0,
+
+          },
+          affinity4: {
+            value: 0, content: "",
+            baseValue: 0,
+
+          },
+        }
+      },
+
+      enemy: {
+        content: "",
+
+        formation: "default",
+        name: "Golem Army 1", type: "golem", maxLevel: 0,
+        damage: 0, life: 0, number: 0,
+
+        golemTypes: {
+          type1: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type2: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type3: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type4: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type5: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+        },
+
+        effects: {
+
+        },
+      },
+
+      elemental: {
+        name: "", damage: 0, life: 0, content: "", maxLevel: 0,
+        affinity: 0,
+
+        affinities: {
+          affinity1: {
+            value: 0, content: "", active: false,
+          },
+          affinity2: {
+            value: 0, content: "", active: false,
+          },
+          affinity3: {
+            value: 0, content: "", active: false,
+          },
+          affinity4: {
+            value: 0, content: "", active: false,
+          },
+        }
+      },
+    };
+
+    this.spires = options.spires || {
+      spire1: {
+        effect: 0, content: "",
+      },
+      spire2: {
+        effect: 0, content: "",
+      },
+    };
+
+    this.treasureImages = options.treasureImages || {
+      formation: { image: "images/formation_baseOpaque_v1.png" },
+      warrior: { image: "images/warrior_baseOpaque_v1.png" },
+      tank: { image: "images/tankTreasure_baseOpaque_v1.png" },
+      archer: { image: "images/potion_type3_v2.png" },
+      support: { image: "images/potion_type5_v2.png" },
+      commander: { image: "images/potion_type5_v2.png" },
+      soul: { image: "images/soul_baseOpaque_v1.png" },
+      weapon: { image: "images/sword_baseOpaque_v1.png" },
+      armor: { image: "images/armor_baseOpaque_v1.png" },
+      accessory: { image: "images/ring_baseOpaque_v1.png" },
+      augment: { image: "images/augment_baseOpaque_v1.png" },
+    };
+
+    this.expeditions = options.expeditions || {
+      exp1: {
+        name: "Golem Army 1", type: "golem", maxLevel: 0,
+        damage: 0, life: 0, number: 0,
+
+        golemTypes: {
+          type1: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type2: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type3: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type4: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type5: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+        },
+
+        rewards: {
+          timerPrice: 0,
+          effect: function () { return },
+          effectContent: function () { return },
+          content: "",
+        },
+
+        effects: {
+          effect1: {
+            type: "", content: "", effect: 0,
+          }
+        },
+      },
+
+      exp2: {
+        name: "Golem Army 2", type: "golem", maxLevel: 0,
+        damage: 0, life: 0, number: 0,
+
+        golemTypes: {
+          type1: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type2: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type3: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type4: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type5: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+        },
+
+        rewards: {
+          timerPrice: 0,
+          effect: function () { return },
+          effectContent: function () { return },
+          content: "",
+        },
+
+        effects: {
+          effect1: {
+            type: "", content: "", effect: 0,
+          }
+        },
+      },
+
+      exp3: {
+        damage: 0, life: 0, type: "elemental", content: "",
+        affinity: 0, maxLevel: 0,
+
+        affinities: {
+          affinity1: {
+            value: 0, content: "", active: false,
+          },
+          affinity2: {
+            value: 0, content: "", active: false,
+          },
+          affinity3: {
+            value: 0, content: "", active: false,
+          },
+          affinity4: {
+            value: 0, content: "", active: false,
+          },
+        },
+
+        rewards: {
+          timerPrice: 0,
+          effect: function () { return },
+          effectContent: function () { return },
+          content: "",
+        },
+
+        effects: {
+          effect1: {
+            type: "", content: "", effect: 0,
+          }
+        },
+      },
+
+      exp4: {
+        damage: 0, life: 0, type: "elemental", content: "",
+        affinity: 0, maxLevel: 0,
+
+        affinities: {
+          affinity1: {
+            value: 0, content: "", active: false,
+          },
+          affinity2: {
+            value: 0, content: "", active: false,
+          },
+          affinity3: {
+            value: 0, content: "", active: false,
+          },
+          affinity4: {
+            value: 0, content: "", active: false,
+          },
+        },
+
+        rewards: {
+          timerPrice: 0,
+          effect: function () { return },
+          effectContent: function () { return },
+          content: "",
+        },
+
+        effects: {
+          effect1: {
+            type: "", content: "", effect: 0,
+          },
+          effect2: {
+            type: "", content: "", effect: 0,
+          },
+        },
+      },
+
+      exp5: {
+        damage: 0, life: 0, type: "elemental", content: "",
+        affinity: 0, maxLevel: 0,
+
+        affinities: {
+          affinity1: {
+            value: 0, content: "", active: false,
+          },
+          affinity2: {
+            value: 0, content: "", active: false,
+          },
+          affinity3: {
+            value: 0, content: "", active: false,
+          },
+          affinity4: {
+            value: 0, content: "", active: false,
+          },
+        },
+
+        rewards: {
+          timerPrice: 0,
+          effect: function () { return },
+          effectContent: function () { return },
+          content: "",
+        },
+
+        effects: {
+          effect1: {
+            type: "", content: "", effect: 0,
+          },
+          effect2: {
+            type: "", content: "", effect: 0,
+          },
+        },
+      },
+
+      exp6: {
+        name: "Golem Army 2", type: "golem", maxLevel: 0,
+        damage: 0, life: 0, number: 0,
+
+        golemTypes: {
+          type1: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type2: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type3: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type4: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type5: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+        },
+
+        rewards: {
+          timerPrice: 0,
+          effect: function () { return },
+          effectContent: function () { return },
+          content: "",
+        },
+
+        effects: {
+        },
+      },
+
+      exp7: {
+        name: "Golem Army 2", type: "elemental", maxLevel: 0,
+        damage: 0, life: 0, number: 0,
+
+        golemTypes: {
+          type1: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type2: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type3: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type4: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type5: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+        },
+
+        rewards: {
+          timerPrice: 0,
+          effect: function () { return },
+          effectContent: function () { return },
+          content: "",
+        },
+
+        effects: {
+          effect1: {
+            type: "", content: "", effect: 0,
+          },
+          effect2: {
+            type: "", content: "", effect: 0,
+          },
+        },
+      },
+
+      exp8: {
+        name: "Golem Army 2", type: "golem", maxLevel: 0,
+        damage: 0, life: 0, number: 0,
+
+        golemTypes: {
+          type1: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type2: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type3: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type4: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type5: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+        },
+
+        rewards: {
+          timerPrice: 0,
+          effect: function () { return },
+          effectContent: function () { return },
+          content: "",
+        },
+
+        effects: {
+          effect1: {
+            type: "", content: "", effect: 0,
+          }
+        },
+      },
+
+      exp9: {
+        name: "Golem Army 2", type: "golem", maxLevel: 0,
+        damage: 0, life: 0, number: 0,
+
+        golemTypes: {
+          type1: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type2: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type3: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type4: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type5: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+        },
+
+        rewards: {
+          timerPrice: 0,
+          effect: function () { return },
+          effectContent: function () { return },
+          content: "",
+        },
+
+        effects: {
+          effect1: {
+            type: "", content: "", effect: 0,
+          }
+        },
+      },
+
+      exp10: {
+        damage: 0, life: 0, type: "elemental", content: "",
+        affinity: 0, maxLevel: 0,
+
+        affinities: {
+          affinity1: {
+            value: 0, content: "", active: false,
+          },
+          affinity2: {
+            value: 0, content: "", active: false,
+          },
+          affinity3: {
+            value: 0, content: "", active: false,
+          },
+          affinity4: {
+            value: 0, content: "", active: false,
+          },
+        },
+
+        rewards: {
+          timerPrice: 0,
+          effect: function () { return },
+          effectContent: function () { return },
+          content: "",
+        },
+
+        effects: {
+          effect1: {
+            type: "", content: "", effect: 0,
+          }
+        },
+      },
+
+      exp11: {
+        damage: 0, life: 0, type: "elemental", content: "",
+        affinity: 0, maxLevel: 0,
+
+        affinities: {
+          affinity1: {
+            value: 0, content: "", active: false,
+          },
+          affinity2: {
+            value: 0, content: "", active: false,
+          },
+          affinity3: {
+            value: 0, content: "", active: false,
+          },
+          affinity4: {
+            value: 0, content: "", active: false,
+          },
+        },
+
+        rewards: {
+          timerPrice: 0,
+          effect: function () { return },
+          effectContent: function () { return },
+          content: "",
+        },
+
+        effects: {
+          effect1: {
+            type: "", content: "", effect: 0,
+          }
+        },
+      },
+    };
+
+
+    this.treasureFormation = options.treasureFormation || {
+      item1: { type: "formation", subtype: "treasure", content: "" },
+    };
+
+    this.treasureArmy = options.treasureArmy || {
+      item1: { type: "warrior", subtype: "treasure", content: "" },
+      item2: { type: "tank", subtype: "treasure", content: "" },
+      item3: { type: "archer", subtype: "treasure", content: "" },
+      item4: { type: "support", subtype: "treasure", content: "" },
+      item5: { type: "commander", subtype: "treasure", content: "" },
+    };
+
+    this.treasureEquipment = options.treasureEquipment || {
+      item1: { type: "soul", subtype: "treasure", content: "" },
+      item2: { type: "weapon", subtype: "treasure", content: "" },
+      item3: { type: "armor", subtype: "treasure", content: "" },
+      item4: { type: "accessory", subtype: "treasure", content: "" },
+    };
+
+    this.treasureAugments = options.treasureAugments || {
+      item1: { type: "augment", subtype: "treasure", content: "" },
+    };
+
+    this.treasureUpgrade = options.treasureUpgrade || {
+      item1: {},
+    };
 
     this.automation = {
       automation1: {
@@ -3005,6 +4535,12 @@ class UniversalIn {
         text: "",
       },
       lore7: {
+        text: "",
+      },
+      lore8: {
+        text: "",
+      },
+      lore9: {
         text: "",
       },
     }
@@ -3085,8 +4621,11 @@ class Fight {
     this.youStats = options.youStats || {
       onFight1: false,
       onFight2: false,
+      onFight3: false,
+
       fightController1: "",
       fightController2: "",
+      fightController3: "",
       leftLife: 0,
       leftLife2: 0,
       damage: 0,
@@ -3100,6 +4639,7 @@ class Fight {
       damage: 0,
       fightMulti1: 0,
       fightMulti2: 0,
+      fightMulti3: 0,
     };
 
     this.challengers = options.challengers || {
@@ -3286,6 +4826,9 @@ class ShowableClass {
 
       fireValute: false,
       waterValute: false,
+      earthValute: false,
+      windValute: false,
+      metalValute: false,
 
       fp2_content2_pageSel: false, fp2_content3_pageSel: false,
 
@@ -3293,7 +4836,7 @@ class ShowableClass {
 
       fp2_content2: true, fp2_content3: false,
 
-      mainMenu: true, mainMenuExit: false,
+      mainMenu: true, mainMenuExit: false, treasureMenuExit: false,
 
       offSave: false,
 
@@ -3301,11 +4844,11 @@ class ShowableClass {
 
 
 
-      fp2_content2_1_container: false, fp2_content2_6_container: false, fp2_content2_7_container: false, fp2_content2_11_container: false, fp2_content2_4_container: false, fp2_content2_10_container: false, fp2_content2_8_container: false, fp2_content1_8: false, fp2_content2_12_container: false, fp2_content2_13_container: false, fp2_content2_14_container: false, fp2_content2_15_container: false, fp2_content2_16_container: false, fp2_content2_17_container: false, fp2_content2_18_container: false, fp2_content2_19_container: false, fp2_content2_20_container: false,
+      fp2_content2_1_container: false, fp2_content2_6_container: false, fp2_content2_7_container: false, fp2_content2_11_container: false, fp2_content2_4_container: false, fp2_content2_10_container: false, fp2_content2_8_container: false, fp2_content1_8: false, fp2_content2_12_container: false, fp2_content2_13_container: false, fp2_content2_14_container: false, fp2_content2_15_container: false, fp2_content2_16_container: false, fp2_content2_17_container: false, fp2_content2_18_container: false, fp2_content2_19_container: false, fp2_content2_20_container: false, fp2_content2_21_container: false, fp2_content2_22_container: false, fp2_content2_23_container: false, fp2_content2_24_container: false, fp2_content2_25_container: false,
 
-      fp2_content2_1: true, fp2_content2_4: true, fp2_content2_5: true, fp2_content2_6: true, fp2_achievements: false, fp2_content2_7: true, fp2_content2_8: true, fp2_content2_10: true, fp2_content2_11: true, fp2_content2_12: true, fp2_content2_13: true, fp2_content2_14: true, fp2_content2_15: true, fp2_content2_16: true, fp2_content2_17: true, fp2_content2_18: true, fp2_content2_19: true, fp2_content2_20: true,
+      fp2_content2_1: true, fp2_content2_4: true, fp2_content2_5: true, fp2_content2_6: true, fp2_achievements: false, fp2_content2_7: true, fp2_content2_8: true, fp2_content2_10: true, fp2_content2_11: true, fp2_content2_12: true, fp2_content2_13: true, fp2_content2_14: true, fp2_content2_15: true, fp2_content2_16: true, fp2_content2_17: true, fp2_content2_18: true, fp2_content2_19: true, fp2_content2_20: true, fp2_content2_21: true, fp2_content2_22: true, fp2_content2_23: true, fp2_content2_24: true, fp2_content2_25: true,
 
-      options: false, achievements: false, content2_1: false, content2_4: false, content2_6: false, content2_7: false, content2_8: false, content2_10: false, content2_11: false, content2_12: false, content2_13: false, content2_14: false, content2_15: false, content2_16: false, content2_17: false, content2_18: false, content2_19: false, content2_20: false,
+      options: false, achievements: false, content2_1: false, content2_4: false, content2_6: false, content2_7: false, content2_8: false, content2_10: false, content2_11: false, content2_12: false, content2_13: false, content2_14: false, content2_15: false, content2_16: false, content2_17: false, content2_18: false, content2_19: false, content2_20: false, content2_21: false, content2_22: false, content2_23: false, content2_24: false, content2_25: false,
 
       fp3_content1_1: false, fp3_content1_2: false, fp3_content1_4: false, fp3_content1_8: false,
 
@@ -3642,6 +5185,91 @@ class ShowableClass {
       content2_19_node36: false,
       content2_19_node37: false,
       content2_19_node38: false, content2_19_node38_button: true,
+      content2_19_node39: false,
+
+      //treasures
+
+      content2_21_treasureSel: false,
+      content2_21_treasureGrid: true,
+      content2_21_treasure_info: false,
+
+      content2_23_treasureClaim: false,
+
+      //EARTH
+      content2_21_potion_info: false,
+
+      content2_21_valutes_content: true,
+      content2_21_valutes_valute1: false,
+
+      content2_21_node1: false,
+      content2_21_node2: false,
+      content2_21_node3: false,
+      content2_21_node4: false,
+      content2_21_node5: false,
+      content2_21_node6: false,
+      content2_21_node7: false,
+      content2_21_node8: false,
+      content2_21_node9: false,
+      content2_21_node10: false,
+      content2_21_node11: false,
+      content2_21_node12: false,
+
+      //army
+
+      content2_21_army2_army1: false,
+      content2_21_army2_army2: false,
+      content2_21_army2_army3: false,
+      content2_21_army2_army4: false,
+      content2_21_army2_army5: false,
+
+      content2_21_armyTreasures_1: false,
+      content2_21_armyTreasures_2: false,
+      content2_21_armyTreasures_3: false,
+      content2_21_armyTreasures_4: false,
+      content2_21_armyTreasures_5: false,
+
+
+      //WIND
+
+      content2_23_expeditionPage: false,
+      content2_23_crusadePage: false,
+
+      content2_23_curtain: false,
+
+      content2_23_valutes_content: true,
+      content2_23_valutes_valute1: false,
+
+      content2_23_treasureSel: false,
+      content2_23_treasure_info: false,
+
+      content2_23_spire1: false,
+      content2_23_spire1Image: false,
+
+      content2_23_spire2: false,
+      content2_23_spire2Image: false,
+
+      content2_23_node1: false,
+      content2_23_node2: false,
+      content2_23_node3: false,
+      content2_23_node4: false,
+      content2_23_node5: false,
+      content2_23_node6: false,
+      content2_23_node7: false,
+      content2_23_node8: false,
+      content2_23_node9: false,
+      content2_23_node10: false,
+
+      //METAL
+      content2_25_valutes_content: true,
+      content2_25_valutes_valute1: false,
+
+      content2_25_treasureSel: false,
+      content2_25_treasureGrid: true,
+      content2_25_treasure_info: false,
+
+      content2_25_treasureUpgrade: false,
+      content2_25_treasureEquipment: false,
+      content2_25_treasureAugment: false,
     }
 
   }
@@ -4158,7 +5786,6 @@ function passiveImport() {
 
 document.addEventListener('visibilitychange', function () {
   if (document.hidden) {
-    console.log(document.hidden)
     // Salva i dati solo quando l'utente lascia la pagina
     offSaveGameData()
     freeTick = false
@@ -4190,13 +5817,19 @@ function update(id, html) {
   }
 }
 
-function updateClass(cla, content) {
-  var update = document.getElementsByClassName(cla);
-  var x = 0;
+function updateClass(cla, html) {
+  if (html == null) html = "";
 
-  while (update[x] != null) {
-    update[x].innerHTML = content;
-    x++;
+  const list = document.getElementsByClassName(cla);
+
+  for (const el of list) {
+
+    // Evita di ricostruire se HTML identico (come update)
+    if (el.innerHTML !== html) {
+      const template = document.createElement('template');
+      template.innerHTML = html;
+      el.replaceChildren(...template.content.cloneNode(true).childNodes);
+    }
   }
 }
 
@@ -4211,6 +5844,9 @@ function visualValute() {
   unlockShow("universalCoresBase", false)
   unlockShow("fireValute", false)
   unlockShow("waterValute", false)
+  unlockShow("earthValute", false)
+  unlockShow("windValute", false)
+  unlockShow("metalValute", false)
 
 
   if (checkShow("fp2_content2")) {
@@ -4241,6 +5877,18 @@ function visualValute() {
     if (checkShow("fp2_content2_19_container")) {
       unlockShow("waterValute", true)
     }
+
+    if (checkShow("fp2_content2_21_container")) {
+      unlockShow("earthValute", true)
+    }
+
+    if (f(IUniversal.wind).gt(f(0)) || checkShow("windValute")) {
+      unlockShow("windValute", true)
+    }
+
+    if (f(IUniversal.metal).gt(f(0)) || checkShow("metalValute")) {
+      unlockShow("metalValute", true)
+    }
   }
 
   update("powerValute", `<div><div>Power</div><div class="boldBlackBorder">${format(IGameData.power, 1)}</span></div>`)
@@ -4255,6 +5903,9 @@ function visualValute() {
 
   update("fireValute", `<div><div>Fire</div><div class="boldBlackBorder">${format(IUniversal.fire)}</div><div class="boldBlackBorder">${format(sec(IUniversal.fireProd))}/s</div></div>`)
   update("waterValute", `<div><div>Water</div><div class="boldBlackBorder fontSize09">${format(IUniversal.water)}/${format(IUniversal.waterMax)}</div><div class="boldBlackBorder">${format(sec(IUniversal.waterProd))}/s</div></div>`)
+  update("earthValute", `<div><div>Earth</div><div class="boldBlackBorder fontSize09">${format(IUniversal.earth)}</div><div class="boldBlackBorder">${format(sec(IUniversal.earthProd))}/s</div></div>`)
+  update("windValute", `<div><div>Wind</div><div class="boldBlackBorder fontSize09">${format(IUniversal.wind)}</div><div class="boldBlackBorder">${format(sec(IUniversal.windProd))}/s</div></div>`)
+  update("metalValute", `<div><div>Metal</div><div class="boldBlackBorder fontSize09">${format(IUniversal.metal)}</div><div class="boldBlackBorder">${format(sec(IUniversal.metalProd))}/s</div></div>`)
 
 }
 
@@ -4372,6 +6023,20 @@ function buy(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, typ
     }
   }
 
+  if (type == "internalResource") {
+    if (f(objectToUpdate[priceId]).gte(f(pri))) {
+      objectToUpdate[priceId] = f(objectToUpdate[priceId]).minus(f(pri));
+      valuesSetter();
+
+      if (f(effect) instanceof Decimal) {
+        objectToUpdate[propertyToUpdate] = f(objectToUpdate[propertyToUpdate]).add(f(effect));  // Aggiorna la proprietà specificata (ad esempio: 'level', 'count', ecc.)
+      }
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   if (f(IGameData[priceId]).gte(f(pri))) {
     // Modifica il valore della proprietà specificata in base al tipo di effetto
     if (f(effect) instanceof Decimal) {
@@ -4470,6 +6135,37 @@ function energyLoadout(action, loadout) {
 
     sel.maximumAscensionPoints = f(IUniversal.ascensionPointMax)
     sel.ascensionPoints = f(IUniversal.ascensionPointMax).minus(f(IUniversal.ascensionPointMax).minus(f(IUniversal.ascensionPoint)))
+  }
+}
+
+function emptyArmyLoadout(loadout) {
+  let sel = IUniversal.armyLoadout[loadout]
+
+  for (let x in IUniversal.energyUpgrades) {
+    if (!(f(sel[x]).equals(f(0)))) {
+      return false
+    }
+  }
+  return true
+}
+
+function armyLoadout(action, loadout) {
+  let sel = IUniversal.armyLoadout[loadout]
+
+  if (action == "load") {
+    IUniversal.treasureFormation.item1.key = sel.formation
+
+    for (let x in sel.armyTreasures) {
+      IUniversal.treasureArmy[x].key = sel.armyTreasures[x]
+    }
+  }
+
+  if (action == "save") {
+    sel.formation = IUniversal.treasureFormation.item1.key
+
+    for (let x in sel.armyTreasures) {
+      sel.armyTreasures[x] = IUniversal.treasureArmy[x].key
+    }
   }
 }
 
@@ -7417,6 +9113,24 @@ function valuesSetter(type) {
     "Shouldn't Chaos consume them all?\n" +
     "The answer is Water, Water Universes, a new type of universe you just discovered, seems to be the coolant of this chaotic energies, making them able to coexist with each other\n" +
     "Is it possible with Water to make my own universe possible to hold other energies?\n"
+
+  IUniversalIn.lore.lore8 =
+    "There is an old legend claiming that all beings were once shaped from earth itself.\n" +
+    "As unbelievable as it may sound, there are creatures said to be born exactly this way.\n" +
+    "The craft required to mold life from dirt,it is of such immense complexity that it borders on madness.\n" +
+    "Yet a thought lingers in your mind: what if you attempted it regardless?\n" +
+    "What if you tried to forge something that reflects you, shaped by your own hands?\n" +
+    "A being of clay and intention... a Golem.\n";
+
+  IUniversalIn.lore.lore9 =
+    "After this discovery, the Golems proved themselves capable of crossing the wind universe portal.\n" +
+    "They ventured far and returned bearing treasures, won through battles\n" +
+    "against other golems.\n" +
+    "These treasures appear to originate from foreign universes, or perhaps they are formed\n" +
+    "from raw, untamed energies themselves.\n" +
+    "When sculpted into rings or forged into blades, these energies gain a new strength,\n" +
+    "and some say they may even become vessels into the elemental universes.\n" +
+    "Souls.\n";
   //FIRE TREE
   //
 
@@ -11657,6 +13371,46 @@ function valuesSetter(type) {
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node38.priceIdentity, IUniversalIn.waterTree.node38.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node28.active) }
 
+  //NODE 39
+
+  var sel = IUniversal.waterTree.node39
+  var sel2 = IUniversalIn.waterTree.node39
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Life Inscriber</div>
+                  <div class="topRight absolute padding2 grey">39</div>
+                  <div class="centerDiv padding2 fontSize09">Unlock Earth Tab in Sky</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Ambrosia</div>`
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(10).pow(f(6))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node39.priceIdentity, IUniversalIn.waterTree.node39.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.waterTree.node38.active) }
+
+
   //Potion Info
 
   //potion1
@@ -12306,6 +14060,4054 @@ function valuesSetter(type) {
                                                        <div class="square height30 width100 centerDiv" >
                                                           <div>Ambrosia Max <span class="boldBlackBorder">×${format(IUniversalIn.potionSource.item6.value2, 2)}</span></div>
                                                        </div>`
+
+
+  //EARTH TREE
+
+
+  //NODE 1
+  var sel = IUniversal.earthTree.node1
+  var sel2 = IUniversalIn.earthTree.node1
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Elemental Mine</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">1</div>
+                  <div class="centerDiv padding2 fontSize09">Earth/s +1 (<span class="boldBlackBorder">+${format(sel2.effect, 0)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Earth</div>`
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5).add(f(IUniversalIn.treasures.treasure5.effect))
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1).mul(f(sel.level))
+  } else {
+    sel2.effect = f(0)
+  }
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.price = f(1).mul(f(10).pow(f(1))).mul(f(2).pow(f(sel.level)))
+  } else {
+    sel2.price = f(0)
+  }
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node1.priceIdentity, IUniversalIn.earthTree.node1.price, "uni")) { return true } }
+  sel2.req = function () { return true }
+
+  //NODE 2
+  var sel = IUniversal.earthTree.node2
+  var sel2 = IUniversalIn.earthTree.node2
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Denser Planet</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">2</div>
+                  <div class="centerDiv padding2 fontSize09">Earth/s ×1.5 (<span class="boldBlackBorder">×${format(sel2.effect, 1)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Earth</div>`
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5).add(f(IUniversalIn.treasures.treasure5.effect))
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.5).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(2))).mul(f(4).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node2.priceIdentity, IUniversalIn.earthTree.node2.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node1.active) }
+
+  //NODE 3
+  var sel = IUniversal.earthTree.node3
+  var sel2 = IUniversalIn.earthTree.node3
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Excavator Golems</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">3</div>
+                  <div class="centerDiv padding2 fontSize09">Golems boost Earth/s (<span class="boldBlackBorder">×${format(sel2.effect, 1)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Earth</div>`
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.5).pow(f(1).add(Decimal.log10(f(IUniversal.golem))));
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(1).mul(f(10).pow(f(5))).mul(f(6).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node3.priceIdentity, IUniversalIn.earthTree.node3.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node2.active) }
+
+  //NODE 4
+  var sel = IUniversal.earthTree.node4
+  var sel2 = IUniversalIn.earthTree.node4
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Earth Universe Mine</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">4</div>
+                  <div class="centerDiv padding2 fontSize09">Earth/s ×4 (<span class="boldBlackBorder">×${format(sel2.effect, 2)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Earth</div>`
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5).add(f(IUniversalIn.treasures.treasure5.effect))
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(4).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(1).mul(f(10).pow(f(7))).mul(f(50).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node4.priceIdentity, IUniversalIn.earthTree.node4.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node3.active) }
+
+  //NODE 5
+  var sel = IUniversal.earthTree.node5
+  var sel2 = IUniversalIn.earthTree.node5
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Soil Cradle</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">5</div>
+                  <div class="centerDiv padding2 fontSize09">Golems +1 (<span class="boldBlackBorder">+${format(sel2.effect, 0)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Earth</div>`
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5).add(f(IUniversalIn.treasures.treasure6.effect))
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(sel.level)
+  } else {
+    sel2.effect = f(0)
+  }
+
+
+  sel2.price = f(1).mul(f(10).pow(f(1))).mul(f(4).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node5.priceIdentity, IUniversalIn.earthTree.node5.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node1.active) }
+
+  //NODE 6
+  var sel = IUniversal.earthTree.node6
+  var sel2 = IUniversalIn.earthTree.node6
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Mother Mountain</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">6</div>
+                  <div class="centerDiv padding2 fontSize09">Golems ×2 (<span class="boldBlackBorder">×${format(sel2.effect, 0)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Earth</div>`
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5).add(f(IUniversalIn.treasures.treasure6.effect))
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(1).mul(f(10).pow(f(4))).mul(f(15).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node6.priceIdentity, IUniversalIn.earthTree.node6.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node5.active) }
+
+  //NODE 7
+  var sel = IUniversal.earthTree.node7
+  var sel2 = IUniversalIn.earthTree.node7
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Rock Ammass</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">7</div>
+                  <div class="centerDiv padding2 fontSize09">Golems Life × Golems (<span class="boldBlackBorder">×${format(sel2.effect, 1)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Earth</div>`
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1).add(Decimal.log10(f(IUniversal.golem).add(f(10))));
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(1).mul(f(10).pow(f(6))).mul(f(7).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node7.priceIdentity, IUniversalIn.earthTree.node7.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node5.active) }
+
+  //NODE 8
+  var sel = IUniversal.earthTree.node8
+  var sel2 = IUniversalIn.earthTree.node8
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">One Front</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">8</div>
+                  <div class="centerDiv padding2 fontSize09">Golems Damage × Golems (<span class="boldBlackBorder">×${format(sel2.effect, 1)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Earth</div>`
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1).add(Decimal.log10(f(IUniversal.golem).add(f(10))));
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(1).mul(f(10).pow(f(6))).mul(f(7).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node8.priceIdentity, IUniversalIn.earthTree.node8.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node6.active) }
+
+  //NODE 9
+  var sel = IUniversal.earthTree.node9
+  var sel2 = IUniversalIn.earthTree.node9
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Durable Dirt</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">9</div>
+                  <div class="centerDiv padding2 fontSize09">Golems Life +1 (<span class="boldBlackBorder">+${format(sel2.effect, 0)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Earth</div>`
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5).add(f(IUniversalIn.treasures.treasure4.effect))
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(sel.level)
+  } else {
+    sel2.effect = f(0)
+  }
+
+
+  sel2.price = f(0.5).mul(f(10).pow(f(3))).mul(f(4).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node9.priceIdentity, IUniversalIn.earthTree.node9.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node10.active) }
+
+  //NODE 10
+  var sel = IUniversal.earthTree.node10
+  var sel2 = IUniversalIn.earthTree.node10
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Heavy Dirt</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">10</div>
+                  <div class="centerDiv padding2 fontSize09">Golems Damage +1 (<span class="boldBlackBorder">+${format(sel2.effect, 0)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Earth</div>`
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5).add(f(IUniversalIn.treasures.treasure4.effect))
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(sel.level)
+  } else {
+    sel2.effect = f(0)
+  }
+
+
+  sel2.price = f(0.5).mul(f(10).pow(f(3))).mul(f(4).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node10.priceIdentity, IUniversalIn.earthTree.node10.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node2.active) }
+
+  //NODE 11
+  var sel = IUniversal.earthTree.node11
+  var sel2 = IUniversalIn.earthTree.node11
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Rock Substrate</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">11</div>
+                  <div class="centerDiv padding2 fontSize09">Golems Life ×2 (<span class="boldBlackBorder">×${format(sel2.effect, 1)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Earth</div>`
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5).add(f(IUniversalIn.treasures.treasure4.effect))
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(1).mul(f(10).pow(f(8))).mul(f(50).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node11.priceIdentity, IUniversalIn.earthTree.node11.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node9.active) }
+
+  //NODE 12
+  var sel = IUniversal.earthTree.node12
+  var sel2 = IUniversalIn.earthTree.node12
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Rock Gauntlet</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">12</div>
+                  <div class="centerDiv padding2 fontSize09">Golems Damage ×2 (<span class="boldBlackBorder">×${format(sel2.effect, 1)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Earth</div>`
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5).add(f(IUniversalIn.treasures.treasure4.effect))
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(1).mul(f(10).pow(f(8))).mul(f(50).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node12.priceIdentity, IUniversalIn.earthTree.node12.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node10.active) }
+
+  //WIND
+
+  //NODE 1
+  var sel = IUniversal.windTree.node1
+  var sel2 = IUniversalIn.windTree.node1
+  var exp = IUniversal.expeditions.exp1
+  var exp2 = IUniversalIn.expeditions.exp1
+
+  if (!f(sel.level).gte(f(sel2.maxLevel))) {
+    var autom = `Reach max level to unlock automation`
+  } else {
+    autom = `${toClock(f(exp2.rewards.timerPrice).minus(f(exp.rewards.timer)))}`
+  }
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Golem Patrol</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">1</div>
+                  <div class="column width100 height50 top20 absolute">
+                    <div class="width100 height30">${autom}</div>
+                    <div class="width100 height70 centerDiv">Claim ${getExpectedTreasures("single", IUniversal.expeditions.exp1.rewards.expectedRewards)} Treasures</div>
+                  </div>
+                  </div>
+                 </div>`
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">EXPEDITION</div>`
+  sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
+
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node1.priceIdentity, IUniversalIn.windTree.node1.price, "uni")) { return true } }
+  sel2.req = function () { return true }
+
+
+  //NODE 2
+
+  var sel = IUniversal.windTree.node2
+  var sel2 = IUniversalIn.windTree.node2
+  var exp = IUniversal.expeditions.exp2
+  var exp2 = IUniversalIn.expeditions.exp2
+
+  if (!f(sel.level).gte(f(sel2.maxLevel))) {
+    var autom = `Reach max level to unlock automation`
+  } else {
+    autom = `${toClock(f(exp2.rewards.timerPrice).minus(f(exp.rewards.timer)))}`
+  }
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">The Wall</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">2</div>
+                  <div class="column width100 height50 top20 absolute">
+                    <div class="width100 height30">${autom}</div>
+                    <div class="width100 height70 centerDiv">Claim ${getExpectedTreasures("single", IUniversal.expeditions.exp2.rewards.expectedRewards)} Treasures</div>
+                  </div>
+                  </div>
+                 </div>`
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">EXPEDITION</div>`
+  sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
+
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node2.priceIdentity, IUniversalIn.windTree.node2.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node1.active) }
+
+  //NODE 3
+
+  var sel = IUniversal.windTree.node3
+  var sel2 = IUniversalIn.windTree.node3
+  var exp = IUniversal.expeditions.exp3
+  var exp2 = IUniversalIn.expeditions.exp3
+
+  if (!f(sel.level).gte(f(sel2.maxLevel))) {
+    var autom = `Reach max level to unlock automation`
+  } else {
+    autom = `${toClock(f(exp2.rewards.timerPrice).minus(f(exp.rewards.timer)))}`
+  }
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Lesser Fire Elemental</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">3</div>
+                  <div class="column width100 height50 top20 absolute">
+                    <div class="width100 height30">Elementals cant be automated</div>
+                    <div class="width100 height70 centerDiv">Claim ${getExpectedTreasures("single", IUniversal.expeditions.exp3.rewards.expectedRewards)} Treasures</div>                  </div>
+                  </div>
+                 </div>`
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">CRUSADE</div>`
+  sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
+
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node3.priceIdentity, IUniversalIn.windTree.node3.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node7.active) }
+
+  //NODE 4
+  var sel = IUniversal.windTree.node4
+  var sel2 = IUniversalIn.windTree.node4
+  var exp = IUniversal.expeditions.exp4
+  var exp2 = IUniversalIn.expeditions.exp4
+
+  if (!f(sel.level).gte(f(sel2.maxLevel))) {
+    var autom = `Reach max level to unlock automation`
+  } else {
+    autom = `${toClock(f(exp2.rewards.timerPrice).minus(f(exp.rewards.timer)))}`
+  }
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Lesser Wind Elemental</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">4</div>
+                  <div class="column width100 height50 top20 absolute">
+                    <div class="width100 height30">Elementals cant be automated</div>
+                    <div class="width100 height70 centerDiv">Claim ${getExpectedTreasures("single", IUniversal.expeditions.exp4.rewards.expectedRewards)} Treasures</div>                     </div>
+                  </div>
+                 </div>`
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">CRUSADE</div>`
+  sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
+
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node4.priceIdentity, IUniversalIn.windTree.node4.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node3.active) }
+
+  //NODE 5
+  var sel = IUniversal.windTree.node5
+  var sel2 = IUniversalIn.windTree.node5
+  var exp = IUniversal.expeditions.exp5
+  var exp2 = IUniversalIn.expeditions.exp5
+
+  if (!f(sel.level).gte(f(sel2.maxLevel))) {
+    var autom = `Reach max level to unlock automation`
+  } else {
+    autom = `${toClock(f(exp2.rewards.timerPrice).minus(f(exp.rewards.timer)))}`
+  }
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Storm Elemental</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">5</div>
+                  <div class="column width100 height50 top20 absolute">
+                    <div class="width100 height30">Elementals cant be automated</div>
+                    <div class="width100 height70 centerDiv">Claim ${getExpectedTreasures("single", IUniversal.expeditions.exp5.rewards.expectedRewards)} Treasures</div>                     </div>
+                  </div>
+                 </div>`
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">CRUSADE</div>`
+  sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
+
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node5.priceIdentity, IUniversalIn.windTree.node5.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node4.active) }
+
+  //NODE 6
+  var sel = IUniversal.windTree.node6
+  var sel2 = IUniversalIn.windTree.node6
+  var exp = IUniversal.expeditions.exp6
+  var exp2 = IUniversalIn.expeditions.exp6
+
+  if (!f(sel.level).gte(f(sel2.maxLevel))) {
+    var autom = `Reach max level to unlock automation`
+  } else {
+    autom = `${toClock(f(exp2.rewards.timerPrice).minus(f(exp.rewards.timer)))}`
+  }
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Rock Fort</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">6</div>
+                  <div class="column width100 height50 top20 absolute">
+                    <div class="width100 height30 boldBlackBorder">Unlock Golem Tanks</div>
+                    <div class="width100 height30">${autom}</div>
+                    <div class="width100 height70 centerDiv">Claim ${getExpectedTreasures("single", IUniversal.expeditions.exp6.rewards.expectedRewards)} Treasures</div>
+                  </div>
+                  </div>
+                 </div>`
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">EXPEDITION</div>`
+  sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
+
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node6.priceIdentity, IUniversalIn.windTree.node6.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node1.active) }
+
+  //NODE 7
+  var sel = IUniversal.windTree.node7
+  var sel2 = IUniversalIn.windTree.node7
+  var exp = IUniversal.expeditions.exp7
+  var exp2 = IUniversalIn.expeditions.exp7
+
+  if (!f(sel.level).gte(f(sel2.maxLevel))) {
+    var autom = `Reach max level to unlock automation`
+  } else {
+    autom = `${toClock(f(exp2.rewards.timerPrice).minus(f(exp.rewards.timer)))}`
+  }
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Deep Slate Fortress</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">7</div>
+                  <div class="column width100 height50 top20 absolute">
+                    <div class="width100 height30 boldBlackBorder">Unlocks SOUL in METAL</div>
+                    <div class="width100 height30">This expedition cant be automated</div>
+                    <div class="width100 height70 centerDiv">Claim ${getExpectedTreasures("single", IUniversal.expeditions.exp7.rewards.expectedRewards)} Treasures</div>                     </div>
+                  </div>
+                 </div>`
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">CRUSADE</div>`
+  sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
+
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node7.priceIdentity, IUniversalIn.windTree.node7.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node2.active && IUniversal.windTree.node6.active) }
+
+  //NODE 8
+  var sel = IUniversal.windTree.node8
+  var sel2 = IUniversalIn.windTree.node8
+  var exp = IUniversal.expeditions.exp8
+  var exp2 = IUniversalIn.expeditions.exp8
+
+  if (!f(sel.level).gte(f(sel2.maxLevel))) {
+    var autom = `Reach max level to unlock automation`
+  } else {
+    autom = `${toClock(f(exp2.rewards.timerPrice).minus(f(exp.rewards.timer)))}`
+  }
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Steel Clan</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">8</div>
+                  <div class="column width100 height50 top20 absolute">
+                    <div class="width100 height30">${autom}</div>
+                    <div class="width100 height70 centerDiv">Claim ${getExpectedTreasures("single", IUniversal.expeditions.exp8.rewards.expectedRewards)} Treasures</div>
+                  </div>
+                  </div>
+                 </div>`
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">EXPEDITION</div>`
+  sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
+
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node8.priceIdentity, IUniversalIn.windTree.node8.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node6.active) }
+
+  //NODE 9
+  var sel = IUniversal.windTree.node9
+  var sel2 = IUniversalIn.windTree.node9
+  var exp = IUniversal.expeditions.exp9
+  var exp2 = IUniversalIn.expeditions.exp9
+
+  if (!f(sel.level).gte(f(sel2.maxLevel))) {
+    var autom = `Reach max level to unlock automation`
+  } else {
+    autom = `${toClock(f(exp2.rewards.timerPrice).minus(f(exp.rewards.timer)))}`
+  }
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Rolling Stone Legion</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">9</div>
+                  <div class="column width100 height50 top20 absolute">
+                    <div class="width100 height30">${autom}</div>
+                    <div class="width100 height70 centerDiv">Claim ${getExpectedTreasures("single", IUniversal.expeditions.exp9.rewards.expectedRewards)} Treasures</div>
+                  </div>
+                  </div>
+                 </div>`
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">EXPEDITION</div>`
+  sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
+
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node9.priceIdentity, IUniversalIn.windTree.node9.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node8.active) }
+
+  //NODE 10
+  var sel = IUniversal.windTree.node10
+  var sel2 = IUniversalIn.windTree.node10
+  var exp = IUniversal.expeditions.exp10
+  var exp2 = IUniversalIn.expeditions.exp10
+
+  if (!f(sel.level).gte(f(sel2.maxLevel))) {
+    var autom = `Reach max level to unlock automation`
+  } else {
+    autom = `${toClock(f(exp2.rewards.timerPrice).minus(f(exp.rewards.timer)))}`
+  }
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Lesser Wind Hegemon</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">10</div>
+                  <div class="column width100 height50 top20 absolute">
+                    <div class="width100 height30">Elementals cant be automated</div>
+                    <div class="width100 height70 centerDiv">Claim ${getExpectedTreasures("single", IUniversal.expeditions.exp10.rewards.expectedRewards)} Treasures</div>                     </div>
+                  </div>
+                 </div>`
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">CRUSADE</div>`
+  sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
+
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node10.priceIdentity, IUniversalIn.windTree.node10.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node5.active) }
+
+
+  //golems
+
+  var golem1 = f(IUniversalIn.earthTree.node5.effect)
+  var golem2 = f(IUniversalIn.earthTree.node6.effect)
+
+
+  IUniversal.golem = f(golem1).mul(golem2)
+
+  //GOLEM ARMY
+
+  //army stats
+  IUniversalIn.armyEffectContent = `<div class="centerDiv boldBlackBorder">GLOBAL BONUS</div>
+                                    <div>Life × Golem Life (<span class="boldBlackBorder">×${format(f(IUniversalIn.armyInfo.default.baseLife))}</span>)</div>
+                                    <div>Damage × Golem Damage (<span class="boldBlackBorder">×${format(f(IUniversalIn.armyInfo.default.baseDamage))}</span>)</div>`
+
+  //armyInfo: default
+
+  if (!IFight.youStats.onFight3) {
+    IUniversalIn.armyInfo.default.level = f(IUniversal.golem)
+  }
+
+  IUniversalIn.armyInfo.default.baseLevel = f(IUniversal.golem)
+
+  var life1 = f(IUniversalIn.armyInfo.default.golemTypes.type1.life)
+  var life2 = f(IUniversalIn.armyInfo.default.golemTypes.type2.life)
+  var life3 = f(IUniversalIn.armyInfo.default.golemTypes.type3.life)
+  var life4 = f(IUniversalIn.armyInfo.default.golemTypes.type4.life)
+  var life5 = f(IUniversalIn.armyInfo.default.golemTypes.type5.life)
+  var life7 = f(IUniversalIn.earthTree.node9.effect)
+  var life8 = f(IUniversalIn.earthTree.node12.effect)
+  var life10 = f(IUniversalIn.earthTree.node7.effect)
+  var life11 = f(IUniversalIn.treasures.treasure19.effect)
+
+  var baseLife1 = f(IUniversalIn.armyInfo.default.golemTypes.type1.baseLife)
+  var baseLife2 = f(IUniversalIn.armyInfo.default.golemTypes.type2.baseLife)
+  var baseLife3 = f(IUniversalIn.armyInfo.default.golemTypes.type3.baseLife)
+  var baseLife4 = f(IUniversalIn.armyInfo.default.golemTypes.type4.baseLife)
+  var baseLife5 = f(IUniversalIn.armyInfo.default.golemTypes.type5.baseLife)
+  var baseLife7 = f(IUniversalIn.earthTree.node9.effect)
+  var baseLife8 = f(IUniversalIn.earthTree.node12.effect)
+  var baseLife10 = f(IUniversalIn.earthTree.node7.effect)
+  var baseLife11 = f(IUniversalIn.treasures.treasure19.effect)
+
+
+  if (getArmyEffectType("lifeBreaker1")) {
+    var life9 = getArmyEffectValue("lifeBreaker1")
+  } else {
+    life9 = 1;
+  }
+
+  if (f(IUniversal.golem).gt(f(0))) {
+    IUniversalIn.armyInfo.default.life = f(f(f(1).add(life7)).mul((life1).add(life2).add(life3).add(life4).add(life5)).mul(life8).mul(life10).mul(life11)).dividedBy(f(life9))
+    IUniversalIn.armyInfo.default.baseLife = f(f(f(1).add(baseLife7)).mul((baseLife1).add(baseLife2).add(baseLife3).add(baseLife4).add(baseLife5)).mul(baseLife8).mul(baseLife10).mul(baseLife11))
+  } else {
+    IUniversalIn.armyInfo.default.life = f(0)
+    IUniversalIn.armyInfo.default.baseLife = f(0)
+  }
+
+  var damage1 = f(IUniversalIn.armyInfo.default.golemTypes.type1.damage)
+  var damage2 = f(IUniversalIn.armyInfo.default.golemTypes.type2.damage)
+  var damage3 = f(IUniversalIn.armyInfo.default.golemTypes.type3.damage)
+  var damage4 = f(IUniversalIn.armyInfo.default.golemTypes.type4.damage)
+  var damage5 = f(IUniversalIn.armyInfo.default.golemTypes.type5.damage)
+  var damage7 = f(IUniversalIn.earthTree.node10.effect)
+  var damage8 = f(IUniversalIn.earthTree.node11.effect)
+  var damage9 = f(IUniversalIn.earthTree.node8.effect)
+  var damage10 = f(IUniversalIn.treasures.treasure19.effect)
+
+
+  var baseDamage1 = f(IUniversalIn.armyInfo.default.golemTypes.type1.baseDamage)
+  var baseDamage2 = f(IUniversalIn.armyInfo.default.golemTypes.type2.baseDamage)
+  var baseDamage3 = f(IUniversalIn.armyInfo.default.golemTypes.type3.baseDamage)
+  var baseDamage4 = f(IUniversalIn.armyInfo.default.golemTypes.type4.baseDamage)
+  var baseDamage5 = f(IUniversalIn.armyInfo.default.golemTypes.type5.baseDamage)
+  var baseDamage7 = f(IUniversalIn.earthTree.node10.effect)
+  var baseDamage8 = f(IUniversalIn.earthTree.node11.effect)
+  var baseDamage9 = f(IUniversalIn.earthTree.node8.effect)
+  var baseDamage10 = f(IUniversalIn.treasures.treasure19.effect)
+
+
+  if (f(IUniversal.golem).gt(f(0))) {
+    IUniversalIn.armyInfo.default.damage = f(f(1).add(damage7)).mul((damage1).add(damage2).add(damage3).add(damage4).add(damage5)).mul(damage8).mul(damage9).mul(damage10)
+    IUniversalIn.armyInfo.default.baseDamage = f(f(1).add(baseDamage7)).mul((baseDamage1).add(baseDamage2).add(baseDamage3).add(baseDamage4).add(baseDamage5)).mul(baseDamage8).mul(baseDamage9).mul(baseDamage10)
+  } else {
+    IUniversalIn.armyInfo.default.damage = f(0)
+    IUniversalIn.armyInfo.default.baseDamage = f(0)
+  }
+
+  if (!IFight.youStats.onFight3) {
+    IUniversal.armyInfo.default.leftLife = f(IUniversalIn.armyInfo.default.life)
+  }
+
+  IUniversalIn.armyInfo.default.baseLeftLife = f(IUniversalIn.armyInfo.default.baseLife)
+
+  //images
+
+
+  var d1 = parseInt(f(IUniversalIn.armyInfo.default.golemTypes.type1.level)
+    .dividedBy(f(IUniversalIn.armyInfo.default.level)).mul(10).toFixed());
+
+  var d2 = parseInt(f(IUniversalIn.armyInfo.default.golemTypes.type2.level)
+    .dividedBy(f(IUniversalIn.armyInfo.default.level)).mul(10).toFixed());
+
+  var d3 = parseInt(f(IUniversalIn.armyInfo.default.golemTypes.type3.level)
+    .dividedBy(f(IUniversalIn.armyInfo.default.level)).mul(10).toFixed());
+
+  var d4 = parseInt(f(IUniversalIn.armyInfo.default.golemTypes.type4.level)
+    .dividedBy(f(IUniversalIn.armyInfo.default.level)).mul(10).toFixed());
+
+  var finalImage1 = buildImages("golemBase1.png", d1);
+  var finalImage2 = buildImages("golemBase2.png", d2);
+  var finalImage3 = buildImages("golemBase1.png", d3);
+  var finalImage4 = buildImages("golemBase1.png", d4);
+
+  IUniversalIn.armyInfo.default.content = `
+  <div class="column height100 width100 relative">
+    <div class="height50 width100 centerLeft absolute">
+        <div><span class="boldBlackBorder fontSize1_5">Golem Army</span></div>
+
+    <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.default.level))}</span> Golems</div>
+      <div class="row spaceEvenly">
+        <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.default.damage))}</span> Damage</div>
+        <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.default.life))}</span> Life</div>
+      </div>
+
+      <div id="c2_23_A_part1" class="height10 width100 defaultBarPart1 boldBlackBorderObject">
+        <div id="c2_23_A_part2" class="height100 width100 defaultBarPart2 boldBlackBorderObjectLateral">
+        </div>
+        <div id="c2_23_A_part3" class="height100 width100 defaultBarPart3">${format(f(IUniversal.armyInfo.default.leftLife))}</div>
+      </div>
+    </div>
+
+    <div class="height50 width100 top50 absolute">
+      <div class="height25 width100 row centerDiv">${finalImage1}</div>
+      <div class="height25 width100 row centerDiv">${finalImage2}</div>
+      <div class="height25 width100 row centerDiv">${finalImage3}</div>
+      <div class="height25 width100 row centerDiv">${finalImage4}</div>
+    </div>
+  </div>`;
+
+  if (checkShow("content2_23")) {
+    if (!IFight.youStats.onFight3) {
+      progressBar(IUniversal.armyInfo.default.leftLife, IUniversalIn.armyInfo.default.life, "c2_23_A_part2")
+      progressBar(IUniversal.armyInfo.enemy.leftLife, IUniversalIn.armyInfo.enemy.life, "c2_23_B_part2")
+      progressBar(IUniversal.armyInfo.soul.leftLife, IUniversalIn.armyInfo.soul.life, "c2_23_C_part2")
+      progressBar(IUniversal.armyInfo.elemental.leftLife, IUniversalIn.armyInfo.elemental.life, "c2_23_D_part2")
+    }
+    else {
+      progressBar(IUniversal.armyInfo.default.leftLife, IUniversalIn.armyInfo.default.life, "c2_23_A_part2")
+      progressBar(IUniversal.armyInfo.enemy.leftLife, IUniversalIn.armyInfo.enemy.life, "c2_23_B_part2")
+      progressBar(IUniversal.armyInfo.soul.leftLife, IUniversalIn.armyInfo.soul.life, "c2_23_C_part2")
+      progressBar(IUniversal.armyInfo.elemental.leftLife, IUniversalIn.armyInfo.elemental.life, "c2_23_D_part2")
+    }
+  }
+
+  var d1 = parseInt(f(IUniversalIn.armyInfo.default.golemTypes.type1.baseLevel)
+    .dividedBy(f(IUniversalIn.armyInfo.default.level)).mul(10).toFixed());
+
+  var d2 = parseInt(f(IUniversalIn.armyInfo.default.golemTypes.type2.baseLevel)
+    .dividedBy(f(IUniversalIn.armyInfo.default.level)).mul(10).toFixed());
+
+  var d3 = parseInt(f(IUniversalIn.armyInfo.default.golemTypes.type3.baseLevel)
+    .dividedBy(f(IUniversalIn.armyInfo.default.level)).mul(10).toFixed());
+
+  var d4 = parseInt(f(IUniversalIn.armyInfo.default.golemTypes.type4.baseLevel)
+    .dividedBy(f(IUniversalIn.armyInfo.default.level)).mul(10).toFixed());
+
+  var finalImage1 = buildImages("golemBase1.png", d1);
+  var finalImage2 = buildImages("golemBase2.png", d2);
+  var finalImage3 = buildImages("golemBase1.png", d3);
+  var finalImage4 = buildImages("golemBase1.png", d4);
+
+  IUniversalIn.armyInfo.default.content2 = `
+  <div class="column height100 width100 relative">
+    <div class="height50 width100 centerLeft absolute">
+            <div><span class="boldBlackBorder fontSize1_5">Golem Army</span></div>
+
+    <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.default.baseLevel))}</span> Golems</div>
+      <div class="row spaceEvenly">
+        <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.default.baseDamage))}</span> Damage</div>
+        <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.default.baseLife))}</span> Life</div>
+      </div>
+
+    </div>
+
+    <div class="height50 width100 top50 absolute">
+      <div class="height25 width100 row centerDiv">${finalImage1}</div>
+      <div class="height25 width100 row centerDiv">${finalImage2}</div>
+      <div class="height25 width100 row centerDiv">${finalImage3}</div>
+      <div class="height25 width100 row centerDiv">${finalImage4}</div>
+    </div>
+  </div>`;
+
+  if (IUniversalIn.treasures[IUniversal.treasureFormation.item1.key]) {
+    var eff1 = f(IUniversalIn.treasures[IUniversal.treasureFormation.item1.key].effect[0]).dividedBy(f(100))
+    var eff2 = f(IUniversalIn.treasures[IUniversal.treasureFormation.item1.key].effect[1]).dividedBy(f(100))
+    var eff3 = f(IUniversalIn.treasures[IUniversal.treasureFormation.item1.key].effect[2]).dividedBy(f(100))
+    var eff4 = f(IUniversalIn.treasures[IUniversal.treasureFormation.item1.key].effect[3]).dividedBy(f(100))
+  } else {
+    eff1 = f(IUniversalIn.treasures.treasure9.effect).dividedBy(f(100))
+    eff2 = f(IUniversalIn.treasures.treasure9.effect).dividedBy(f(100))
+    eff3 = f(IUniversalIn.treasures.treasure9.effect).dividedBy(f(100))
+    eff4 = f(IUniversalIn.treasures.treasure9.effect).dividedBy(f(100))
+  }
+
+  //GOLEM TYPES
+
+  if (IUniversal.armyInfo.default.golemTypes.type1.active) {
+    IUniversalIn.armyInfo.default.golemTypes.type1.level = f(eff1).mul(f(f(IUniversalIn.armyInfo.default.level)))
+    IUniversalIn.armyInfo.default.golemTypes.type1.baseLevel = f(eff1).mul(f(f(IUniversalIn.armyInfo.default.level)))
+  }
+
+  if (IUniversal.armyInfo.default.golemTypes.type2.active) {
+    IUniversalIn.armyInfo.default.golemTypes.type2.level = f(eff2).mul(f(f(IUniversalIn.armyInfo.default.level)))
+    IUniversalIn.armyInfo.default.golemTypes.type2.baseLevel = f(eff2).mul(f(f(IUniversalIn.armyInfo.default.level)))
+
+  }
+
+  if (IUniversal.armyInfo.default.golemTypes.type3.active) {
+    IUniversalIn.armyInfo.default.golemTypes.type3.level = f(eff3).mul(f(f(IUniversalIn.armyInfo.default.level)))
+    IUniversalIn.armyInfo.default.golemTypes.type3.baseLevel = f(eff3).mul(f(f(IUniversalIn.armyInfo.default.level)))
+
+  }
+
+  if (IUniversal.armyInfo.default.golemTypes.type4.active) {
+    IUniversalIn.armyInfo.default.golemTypes.type4.level = f(eff4).mul(f(f(IUniversalIn.armyInfo.default.level)))
+    IUniversalIn.armyInfo.default.golemTypes.type4.baseLevel = f(eff4).mul(f(f(IUniversalIn.armyInfo.default.level)))
+
+  }
+
+  if (IUniversal.armyInfo.default.golemTypes.type5.active) {
+    IUniversalIn.armyInfo.default.golemTypes.type5.level = f(0)
+    IUniversalIn.armyInfo.default.golemTypes.type5.baseLevel = f(0)
+  }
+
+  IUniversalIn.armyInfo.default.golemTypes.type1.maxLevel = f(0)
+  IUniversalIn.armyInfo.default.golemTypes.type2.maxLevel = f(0)
+  IUniversalIn.armyInfo.default.golemTypes.type3.maxLevel = f(0)
+  IUniversalIn.armyInfo.default.golemTypes.type4.maxLevel = f(0)
+  IUniversalIn.armyInfo.default.golemTypes.type5.maxLevel = f(0)
+
+  if (getArmyEffectType("defenceBreaker")) {
+    var life1 = getArmyEffectValue("defenceBreaker")
+  } else {
+    life1 = 1;
+  }
+
+  if (f(IUniversalIn.armyInfo.default.golemTypes.type1.level).gt(f(0))) {
+    IUniversalIn.armyInfo.default.golemTypes.type1.life = f(2).mul(f(IUniversalIn.armyInfo.default.golemTypes.type1.level)).mul(f(IUniversalIn.treasures.treasure1.effect)).dividedBy(f(life1))
+    IUniversalIn.armyInfo.default.golemTypes.type1.baseLife = f(2).mul(f(IUniversalIn.armyInfo.default.golemTypes.type1.level)).mul(f(IUniversalIn.treasures.treasure1.effect))
+
+  } else {
+    IUniversalIn.armyInfo.default.golemTypes.type1.life = f(0)
+    IUniversalIn.armyInfo.default.golemTypes.type1.baseLife = f(0)
+  }
+
+  if (f(IUniversalIn.armyInfo.default.golemTypes.type2.level).gt(f(0))) {
+    IUniversalIn.armyInfo.default.golemTypes.type2.life = f(6).mul(f(IUniversalIn.armyInfo.default.golemTypes.type2.level)).mul(f(IUniversalIn.treasures.treasure3.effect))
+    IUniversalIn.armyInfo.default.golemTypes.type2.baseLife = f(6).mul(f(IUniversalIn.armyInfo.default.golemTypes.type2.level)).mul(f(IUniversalIn.treasures.treasure3.effect))
+
+  } else {
+    IUniversalIn.armyInfo.default.golemTypes.type2.life = f(0)
+    IUniversalIn.armyInfo.default.golemTypes.type2.baseLife = f(0)
+  }
+
+  if (f(IUniversalIn.armyInfo.default.golemTypes.type3.level).gt(f(0))) {
+    IUniversalIn.armyInfo.default.golemTypes.type3.life = f(1.5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type3.level))
+    IUniversalIn.armyInfo.default.golemTypes.type3.baseLife = f(1.5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type3.level))
+
+  } else {
+    IUniversalIn.armyInfo.default.golemTypes.type3.life = f(0)
+    IUniversalIn.armyInfo.default.golemTypes.type3.baseLife = f(0)
+
+  }
+
+  if (f(IUniversalIn.armyInfo.default.golemTypes.type4.level).gt(f(0))) {
+    IUniversalIn.armyInfo.default.golemTypes.type4.life = f(1.5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type4.level))
+    IUniversalIn.armyInfo.default.golemTypes.type4.baseLife = f(1.5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type4.level))
+
+  } else {
+    IUniversalIn.armyInfo.default.golemTypes.type4.life = f(0)
+    IUniversalIn.armyInfo.default.golemTypes.type4.baseLife = f(0)
+
+  }
+
+  if (f(IUniversalIn.armyInfo.default.golemTypes.type5.level).gt(f(0))) {
+    IUniversalIn.armyInfo.default.golemTypes.type5.life = f(1.5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type5.level))
+    IUniversalIn.armyInfo.default.golemTypes.type5.baseLife = f(1.5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type5.level))
+
+  } else {
+    IUniversalIn.armyInfo.default.golemTypes.type5.life = f(0)
+    IUniversalIn.armyInfo.default.golemTypes.type5.baseLife = f(0)
+
+  }
+
+
+
+
+  if (f(IUniversalIn.armyInfo.default.golemTypes.type1.level).gt(f(0))) {
+    IUniversalIn.armyInfo.default.golemTypes.type1.damage = f(2).mul(f(IUniversalIn.armyInfo.default.golemTypes.type1.level)).mul(f(IUniversalIn.treasures.treasure1.effect))
+    IUniversalIn.armyInfo.default.golemTypes.type1.baseDamage = f(2).mul(f(IUniversalIn.armyInfo.default.golemTypes.type1.level)).mul(f(IUniversalIn.treasures.treasure1.effect))
+
+  } else {
+    IUniversalIn.armyInfo.default.golemTypes.type1.damage = f(0)
+    IUniversalIn.armyInfo.default.golemTypes.type1.baseDamage = f(0)
+
+  }
+
+  if (f(IUniversalIn.armyInfo.default.golemTypes.type2.level).gt(f(0))) {
+    IUniversalIn.armyInfo.default.golemTypes.type2.damage = f(1).mul(f(IUniversalIn.armyInfo.default.golemTypes.type2.level))
+    IUniversalIn.armyInfo.default.golemTypes.type2.baseDamage = f(1).mul(f(IUniversalIn.armyInfo.default.golemTypes.type2.level))
+
+  } else {
+    IUniversalIn.armyInfo.default.golemTypes.type2.damage = f(0)
+    IUniversalIn.armyInfo.default.golemTypes.type2.baseDamage = f(0)
+
+  }
+
+  if (f(IUniversalIn.armyInfo.default.golemTypes.type3.level).gt(f(0))) {
+    IUniversalIn.armyInfo.default.golemTypes.type3.damage = f(5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type3.level))
+    IUniversalIn.armyInfo.default.golemTypes.type3.baseDamage = f(5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type3.level))
+
+  } else {
+    IUniversalIn.armyInfo.default.golemTypes.type3.damage = f(0)
+    IUniversalIn.armyInfo.default.golemTypes.type3.baseDamage = f(0)
+
+  }
+
+  if (f(IUniversalIn.armyInfo.default.golemTypes.type4.level).gt(f(0))) {
+    IUniversalIn.armyInfo.default.golemTypes.type4.damage = f(1.5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type4.level))
+    IUniversalIn.armyInfo.default.golemTypes.type4.baseDamage = f(1.5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type4.level))
+
+  } else {
+    IUniversalIn.armyInfo.default.golemTypes.type4.damage = f(0)
+    IUniversalIn.armyInfo.default.golemTypes.type4.baseDamage = f(0)
+
+  }
+
+  if (f(IUniversalIn.armyInfo.default.golemTypes.type5.level).gt(f(0))) {
+    IUniversalIn.armyInfo.default.golemTypes.type5.damage = f(1.5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type5.level))
+    IUniversalIn.armyInfo.default.golemTypes.type5.baseDamage = f(1.5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type5.level))
+
+  } else {
+    IUniversalIn.armyInfo.default.golemTypes.type5.damage = f(0)
+    IUniversalIn.armyInfo.default.golemTypes.type5.baseDamage = f(0)
+
+  }
+
+  IUniversalIn.armyInfo.default.golemTypes.type1.content = `<div>
+                                                <div><span class="boldBlackBorder">WARRIORS</span></div>
+                                                <div class="row spaceEvenly">
+                                                  <div>${format(f(f(IUniversalIn.armyInfo.default.golemTypes.type1.baseLevel)), 0)} Warriors</div>
+                                                  <div>Life +2 (${format(f(f(IUniversalIn.armyInfo.default.golemTypes.type1.baseLife)), 0)})</div>
+                                                  <div>Damage +2 (${format(f(f(IUniversalIn.armyInfo.default.golemTypes.type1.baseDamage)), 0)})</div>
+                                                </div>
+                                          </div>`
+
+  IUniversalIn.armyInfo.default.golemTypes.type2.content = `<div>
+                                                <div><span class="boldBlackBorder">TANKS</span></div>
+                                                <div class="row spaceEvenly">
+                                                  <div>${format(f(f(IUniversalIn.armyInfo.default.golemTypes.type2.baseLevel)), 0)} Tanks</div>
+                                                  <div>Life +6 (${format(f(f(IUniversalIn.armyInfo.default.golemTypes.type2.baseLife)), 0)})</div>
+                                                  <div>Damage +1 (${format(f(f(IUniversalIn.armyInfo.default.golemTypes.type2.baseDamage)), 0)})</div>
+                                                </div>
+                                                </div>`
+
+  IUniversalIn.armyInfo.default.golemTypes.type3.content = `<div>
+                                                <div><span class="boldBlackBorder">ARCHERS</span></div>
+                                                <div class="row spaceEvenly">
+                                                  <div>${format(f(f(IUniversalIn.armyInfo.default.golemTypes.type3.baseLevel)), 0)} Archers</div>
+                                                  <div>Life +1.5 (${format(f(f(IUniversalIn.armyInfo.default.golemTypes.type3.baseLife)), 0)})</div>
+                                                  <div>Damage +5 (${format(f(f(IUniversalIn.armyInfo.default.golemTypes.type3.baseDamage)), 0)})</div>
+                                                </div>
+                                                </div>`
+
+  IUniversalIn.armyInfo.default.golemTypes.type4.content = `<div>
+                                                <div><span class="boldBlackBorder">SUPPORTS</span></div>
+                                                <div class="row spaceEvenly">
+                                                  <div>${f(IUniversalIn.armyInfo.default.golemTypes.type4.baseLevel)} Supports</div>
+                                                  <div>${f(IUniversalIn.armyInfo.default.golemTypes.type4.baseLife)} Life</div>
+                                                  <div>${f(IUniversalIn.armyInfo.default.golemTypes.type4.baseDamage)} Damage</div>
+                                                </div>
+                                                </div>`
+
+  IUniversalIn.armyInfo.default.golemTypes.type5.content = `<div>
+                                                <div><span class="boldBlackBorder">COMMANDER</span></div>
+                                                <div class="row spaceEvenly">
+                                                  <div>${f(IUniversalIn.armyInfo.default.golemTypes.type5.baseLevel)} Commanders</div>
+                                                  <div>${f(IUniversalIn.armyInfo.default.golemTypes.type5.baseLife)} Life</div>
+                                                  <div>${f(IUniversalIn.armyInfo.default.golemTypes.type5.baseDamage)} Damage</div>
+                                                </div>
+                                                </div>`
+
+  //enemy
+
+  if (IUniversal.armyInfo.enemy.selected) {
+    if (f(IUniversal.expeditions[IUniversal.armyInfo.enemy.selected].level).lt(f(IUniversalIn.expeditions[IUniversal.armyInfo.enemy.selected].maxLevel))) {
+      IUniversalIn.armyInfo.enemy.content = visualArmy2(IUniversal.armyInfo.enemy, IUniversalIn.armyInfo.enemy)
+
+    } else {
+      IUniversalIn.armyInfo.enemy.content = `<div class="height100 width100 centerDiv">ENEMY CONQUERED</div>`
+    }
+  }
+
+  //GOLEM ARMY
+
+  //enemy
+
+  var selected = IUniversal.expeditions[IUniversal.armyInfo.enemy.selected]
+  var selectedIn = IUniversalIn.expeditions[IUniversal.armyInfo.enemy.selected]
+
+  if (selected != null && selected != undefined && selected != "") {
+
+    IUniversalIn.armyInfo.enemy.name = selectedIn.name
+    IUniversalIn.armyInfo.enemy.number = f(selectedIn.number)
+
+    var life1 = f(IUniversalIn.armyInfo.enemy.golemTypes.type1.life)
+    var life2 = f(IUniversalIn.armyInfo.enemy.golemTypes.type2.life)
+    var life3 = f(IUniversalIn.armyInfo.enemy.golemTypes.type3.life)
+    var life4 = f(IUniversalIn.armyInfo.enemy.golemTypes.type4.life)
+    var life5 = f(IUniversalIn.armyInfo.enemy.golemTypes.type5.life)
+    var life6 = f(IUniversalIn.treasures.treasure20.effect)
+
+    if (f(selectedIn.number).gt(f(0))) {
+      IUniversalIn.armyInfo.enemy.life = (f(f(1)).mul(life1).mul(life2).mul(life3).mul(life4).mul(life5)).dividedBy(life6)
+    } else {
+      IUniversalIn.armyInfo.enemy.life = f(0)
+    }
+
+    var damage1 = f(IUniversalIn.armyInfo.enemy.golemTypes.type1.damage)
+    var damage2 = f(IUniversalIn.armyInfo.enemy.golemTypes.type2.damage)
+    var damage3 = f(IUniversalIn.armyInfo.enemy.golemTypes.type3.damage)
+    var damage4 = f(IUniversalIn.armyInfo.enemy.golemTypes.type4.damage)
+    var damage5 = f(IUniversalIn.armyInfo.enemy.golemTypes.type5.damage)
+
+    if (getArmyEffectType("mountainSide")) {
+      var damage6 = getArmyEffectValue("mountainSide")
+    } else {
+      damage6 = 1;
+    }
+    if (f(selectedIn.number).gt(f(0))) {
+      IUniversalIn.armyInfo.enemy.damage = f(f(1)).mul(damage1).mul(damage2).mul(damage3).mul(damage4).mul(damage5).mul(damage6)
+    } else {
+      IUniversalIn.armyInfo.enemy.damage = f(0)
+    }
+
+    if (!IFight.youStats.onFight3) {
+      IUniversal.armyInfo.enemy.leftLife = f(selectedIn.life)
+    }
+
+    IUniversal.armyInfo.enemy.golemTypes.type1.level = f(selectedIn.golemTypes.type1.level)
+    IUniversal.armyInfo.enemy.golemTypes.type2.level = f(selectedIn.golemTypes.type2.level)
+    IUniversal.armyInfo.enemy.golemTypes.type3.level = f(selectedIn.golemTypes.type3.level)
+    IUniversal.armyInfo.enemy.golemTypes.type4.level = f(selectedIn.golemTypes.type4.level)
+    IUniversal.armyInfo.enemy.golemTypes.type5.level = f(selectedIn.golemTypes.type5.level)
+
+    if (f(IUniversal.armyInfo.enemy.golemTypes.type1.level).gt(f(0))) {
+      IUniversalIn.armyInfo.enemy.golemTypes.type1.life = f(2).mul(f(IUniversal.armyInfo.enemy.golemTypes.type1.level)).dividedBy(f(IUniversalIn.treasures.treasure2.effect))
+    } else {
+      IUniversalIn.armyInfo.enemy.golemTypes.type1.life = f(1)
+    }
+
+    if (f(IUniversal.armyInfo.enemy.golemTypes.type2.level).gt(f(0))) {
+      IUniversalIn.armyInfo.enemy.golemTypes.type2.life = f(6).mul(f(IUniversal.armyInfo.enemy.golemTypes.type2.level))
+    } else {
+      IUniversalIn.armyInfo.enemy.golemTypes.type2.life = f(1)
+    }
+
+    if (f(IUniversal.armyInfo.enemy.golemTypes.type3.level).gt(f(0))) {
+      IUniversalIn.armyInfo.enemy.golemTypes.type3.life = f(1.5).mul(f(IUniversal.armyInfo.enemy.golemTypes.type3.level))
+    } else {
+      IUniversalIn.armyInfo.enemy.golemTypes.type3.life = f(1)
+    }
+
+    if (f(IUniversal.armyInfo.enemy.golemTypes.type4.level).gt(f(0))) {
+      IUniversalIn.armyInfo.enemy.golemTypes.type4.life = f(1.5).mul(f(IUniversal.armyInfo.enemy.golemTypes.type4.level))
+    } else {
+      IUniversalIn.armyInfo.enemy.golemTypes.type4.life = f(1)
+    }
+
+    if (f(IUniversal.armyInfo.enemy.golemTypes.type5.level).gt(f(0))) {
+      IUniversalIn.armyInfo.enemy.golemTypes.type5.life = f(1.5).mul(f(IUniversal.armyInfo.enemy.golemTypes.type5.level))
+    } else {
+      IUniversalIn.armyInfo.enemy.golemTypes.type5.life = f(1)
+    }
+
+
+
+
+    if (f(IUniversal.armyInfo.enemy.golemTypes.type1.level).gt(f(0))) {
+      IUniversalIn.armyInfo.enemy.golemTypes.type1.damage = f(2).mul(f(IUniversal.armyInfo.enemy.golemTypes.type1.level)).dividedBy(f(IUniversalIn.treasures.treasure2.effect))
+    } else {
+      IUniversalIn.armyInfo.enemy.golemTypes.type1.damage = f(1)
+    }
+
+    if (f(IUniversal.armyInfo.enemy.golemTypes.type2.level).gt(f(0))) {
+      IUniversalIn.armyInfo.enemy.golemTypes.type2.damage = f(1).mul(f(IUniversal.armyInfo.enemy.golemTypes.type2.level))
+    } else {
+      IUniversalIn.armyInfo.enemy.golemTypes.type2.damage = f(1)
+    }
+
+    if (f(IUniversal.armyInfo.enemy.golemTypes.type3.level).gt(f(0))) {
+      IUniversalIn.armyInfo.enemy.golemTypes.type3.damage = f(5).mul(f(IUniversal.armyInfo.enemy.golemTypes.type3.level))
+    } else {
+      IUniversalIn.armyInfo.enemy.golemTypes.type3.damage = f(1)
+    }
+
+    if (f(IUniversal.armyInfo.enemy.golemTypes.type4.level).gt(f(0))) {
+      IUniversalIn.armyInfo.enemy.golemTypes.type4.damage = f(1.5).mul(f(IUniversal.armyInfo.enemy.golemTypes.type4.level))
+    } else {
+      IUniversalIn.armyInfo.enemy.golemTypes.type4.damage = f(1)
+    }
+
+    if (f(IUniversal.armyInfo.enemy.golemTypes.type5.level).gt(f(0))) {
+      IUniversalIn.armyInfo.enemy.golemTypes.type5.damage = f(1.5).mul(f(IUniversal.armyInfo.enemy.golemTypes.type5.level))
+    } else {
+      IUniversalIn.armyInfo.enemy.golemTypes.type5.damage = f(1)
+    }
+
+    //effects
+
+    IUniversalIn.armyInfo.enemy.effects = deepClone(selectedIn.effects)
+  }
+
+  //Soul
+
+  var life1 = f(IUniversalIn.armyInfo.soul.affinity)
+  var life2 = f(IUniversalIn.treasures.treasure12.effect)
+  var life3 = f(IUniversalIn.treasures.treasure17.effect)
+  var life4 = f(IUniversalIn.treasures.treasure15.effect2)
+
+  var baseLife1 = f(IUniversalIn.armyInfo.soul.baseAffinity)
+
+  if (f(IUniversalIn.armyInfo.soul.affinity).gt(f(0))) {
+    IUniversalIn.armyInfo.soul.life = f(f(1).add(life2).add(life3).add(life4)).mul(life1)
+    IUniversalIn.armyInfo.soul.baseLife = f(f(1).add(life2).add(life3).add(life4)).mul(baseLife1)
+  } else {
+    IUniversalIn.armyInfo.soul.life = f(0)
+    IUniversalIn.armyInfo.soul.baseLife = f(0)
+
+  }
+
+  var damage1 = f(IUniversalIn.armyInfo.soul.affinity)
+  var damage2 = f(IUniversalIn.treasures.treasure11.effect)
+  var damage3 = f(IUniversalIn.treasures.treasure17.effect)
+  var damage4 = f(IUniversalIn.treasures.treasure14.effect)
+
+  var baseDamage1 = f(IUniversalIn.armyInfo.soul.baseAffinity)
+
+  if (f(IUniversalIn.armyInfo.soul.affinity).gt(f(0))) {
+    IUniversalIn.armyInfo.soul.damage = f(f(1).add(damage2).add(damage3).add(damage4)).mul(damage1)
+    IUniversalIn.armyInfo.soul.baseDamage = f(f(1).add(damage2).add(damage3).add(damage4)).mul(baseDamage1)
+  } else {
+    IUniversalIn.armyInfo.soul.damage = f(0)
+    IUniversalIn.armyInfo.soul.baseDamage = f(0)
+  }
+
+  if (!IFight.youStats.onFight3) {
+    IUniversal.armyInfo.soul.leftLife = f(IUniversalIn.armyInfo.soul.life)
+  }
+  IUniversalIn.armyInfo.soul.baseLeftLife = f(IUniversalIn.armyInfo.soul.life)
+
+
+  //fire affinity
+
+  if (getArmyEffectType("waterAffinity")) {
+    var aff1 = getArmyEffectValue("waterAffinity")
+  } else {
+    aff1 = 1;
+  }
+
+  var aff2 = f(IUniversalIn.treasures.treasure18.effect)
+  var aff3 = f(IUniversalIn.treasures.treasure16.effect)
+
+
+  IUniversalIn.armyInfo.soul.affinities.affinity1.value = ((f(1).add(aff2)).mul(aff3)).dividedBy(f(aff1))
+
+  if (getArmyEffectType("hegemony") && f(IUniversalIn.armyInfo.soul.affinities.affinity1.value).lt(f(getArmyEffectValue("hegemony")))) {
+    IUniversalIn.armyInfo.soul.affinities.affinity1.value = f(1)
+  }
+
+  IUniversalIn.armyInfo.soul.affinities.affinity1.baseValue = (f(1).add(aff2)).mul(aff3)
+
+  //water affinity
+
+  var aff1 = f(IUniversalIn.treasures.treasure15.effect2)
+  var aff2 = f(IUniversalIn.treasures.treasure16.effect)
+
+
+  IUniversalIn.armyInfo.soul.affinities.affinity2.value = (f(1).add(aff1)).mul(aff2)
+
+  if (getArmyEffectType("hegemony") && f(IUniversalIn.armyInfo.soul.affinities.affinity2.value).lt(f(getArmyEffectValue("hegemony")))) {
+    IUniversalIn.armyInfo.soul.affinities.affinity2.value = f(1)
+  }
+
+  IUniversalIn.armyInfo.soul.affinities.affinity2.baseValue = (f(1).add(aff1)).mul(aff2)
+
+
+  //earth affinity
+
+  var aff1 = f(IUniversalIn.treasures.treasure13.effect)
+  var aff2 = f(IUniversalIn.treasures.treasure14.effect2)
+
+  if (getArmyEffectType("windAffinity")) {
+    var aff3 = getArmyEffectValue("windAffinity")
+  } else {
+    aff3 = 1;
+  }
+
+  var aff4 = f(IUniversalIn.treasures.treasure16.effect)
+
+  IUniversalIn.armyInfo.soul.affinities.affinity3.value = ((f(1).add(aff1).add(aff2)).mul(aff4)).dividedBy(f(aff3))
+
+  if (getArmyEffectType("hegemony") && f(IUniversalIn.armyInfo.soul.affinities.affinity3.value).lt(f(getArmyEffectValue("hegemony")))) {
+    IUniversalIn.armyInfo.soul.affinities.affinity3.value = f(1)
+  }
+
+  IUniversalIn.armyInfo.soul.affinities.affinity3.baseValue = (f(1).add(aff1).add(aff2)).mul(aff4)
+
+
+  //wind affinity
+
+  var aff2 = f(IUniversalIn.treasures.treasure16.effect)
+
+  IUniversalIn.armyInfo.soul.affinities.affinity4.value = (f(1)).mul(aff2)
+
+  if (getArmyEffectType("hegemony") && f(IUniversalIn.armyInfo.soul.affinities.affinity4.value).lt(f(getArmyEffectValue("hegemony")))) {
+    IUniversalIn.armyInfo.soul.affinities.affinity4.value = f(1)
+  }
+
+  IUniversalIn.armyInfo.soul.affinities.affinity4.baseValue = (f(1)).mul(aff2)
+
+
+  var aff1 = f(IUniversalIn.armyInfo.soul.affinities.affinity1.value)
+  var aff2 = f(IUniversalIn.armyInfo.soul.affinities.affinity2.value)
+  var aff3 = f(IUniversalIn.armyInfo.soul.affinities.affinity3.value)
+  var aff4 = f(IUniversalIn.armyInfo.soul.affinities.affinity4.value)
+
+
+
+  IUniversalIn.armyInfo.soul.affinity = f(aff1).mul(aff2).mul(aff3).mul(aff4)
+
+  var baseAff1 = f(IUniversalIn.armyInfo.soul.affinities.affinity1.baseValue)
+  var baseAff2 = f(IUniversalIn.armyInfo.soul.affinities.affinity2.baseValue)
+  var baseAff3 = f(IUniversalIn.armyInfo.soul.affinities.affinity3.baseValue)
+  var baseAff4 = f(IUniversalIn.armyInfo.soul.affinities.affinity4.baseValue)
+
+
+  IUniversalIn.armyInfo.soul.baseAffinity = f(baseAff1).mul(baseAff2).mul(baseAff3).mul(baseAff4)
+
+  IUniversalIn.armyInfo.soul.content = `
+  <div class="column height100 width100 relative">
+    <div class="height100 width100 centerLeft absolute">
+      <div><span class="boldBlackBorder fontSize1_5">SOUL</span></div>
+
+      <div class="row spaceEvenly">
+        <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.damage))}</span> Damage</div>
+        <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.life))}</span> Life</div>
+      </div>
+<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinity))}</span> Affinity</div>
+<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity1.value))}</span> Fire Affinity</div>
+<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity2.value))}</span> Water Affinity</div>
+<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity3.value))}</span> Earth Affinity</div>
+<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity4.value))}</span> Wind Affinity</div>
+      <div id="c2_23_C_part1" class="height5 width100 defaultBarPart1 boldBlackBorderObject">
+        <div id="c2_23_C_part2" class="height100 width100 defaultBarPart2 boldBlackBorderObjectLateral">
+        </div>
+        <div id="c2_23_C_part3" class="height100 width100 defaultBarPart3">${format(f(IUniversal.armyInfo.soul.leftLife))}</div>
+      </div>
+    </div>
+
+
+
+  </div>`;
+
+  IUniversalIn.armyInfo.soul.content2 = `
+  <div class="column height100 width100 relative">
+    <div class="height100 width100 centerLeft absolute">
+      <div><span class="boldBlackBorder fontSize1_5">SOUL</span></div>
+
+      <div class="row spaceEvenly">
+        <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.baseDamage))}</span> Damage</div>
+        <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.baseLife))}</span> Life</div>
+      </div>
+      <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinity))}</span> Affinity</div>
+<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity1.value))}</span> Fire Affinity</div>
+<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity2.value))}</span> Water Affinity</div>
+<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity3.value))}</span> Earth Affinity</div>
+<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity4.value))}</span> Wind Affinity</div>
+    </div>
+
+  </div>`;
+
+  IUniversalIn.armyInfo.soul.content3 = `
+  <div class="column height100 width100 relative roundedEdges">
+    <div class="height70 width100 centerLeft absolute roundedEdges">
+      <div><span class="boldBlackBorder fontSize1_5">SOUL</span></div>
+
+      <div class="row spaceEvenly">
+        <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.baseDamage))}</span> Damage</div>
+        <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.baseLife))}</span> Life</div>
+      </div>
+      <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.baseAffinity))}</span> Affinity</div>
+<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity1.baseValue))}</span> Fire Affinity</div>
+<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity2.baseValue))}</span> Water Affinity</div>
+<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity3.baseValue))}</span> Earth Affinity</div>
+<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity4.baseValue))}</span> Wind Affinity</div>
+    </div>
+
+    
+    <div class="height30 width100 top70 absolute backgroundBlue3 column roundedEdges">
+      <div class="centerDiv boldBlackBorder">GLOBAL BONUS</div>
+      <div>Life × Soul Life (<span class="boldBlackBorder">×${format(f(IUniversalIn.armyInfo.soul.baseLife))}</span>)</div>
+      <div>Damage × Soul Damage (<span class="boldBlackBorder">×${format(f(IUniversalIn.armyInfo.soul.baseDamage))}</span>)</div>
+    </div>
+
+  </div>`;
+
+  //ENEMY CRUSADE
+
+  var selected = IUniversal.expeditions[IUniversal.armyInfo.elemental.selected]
+  var selectedIn = IUniversalIn.expeditions[IUniversal.armyInfo.elemental.selected]
+
+  if (selected != null && selected != undefined && selected != "") {
+
+    IUniversalIn.armyInfo.elemental.name = selectedIn.name
+
+    IUniversalIn.armyInfo.elemental.maxLevel = selectedIn.maxLevel
+
+    if (IUniversal.armyInfo.elemental.selected) {
+      if (f(IUniversal.expeditions[IUniversal.armyInfo.elemental.selected].level).lt(f(IUniversalIn.expeditions[IUniversal.armyInfo.elemental.selected].maxLevel))) {
+        IUniversalIn.armyInfo.elemental.content = visualCrusade2(IUniversal.armyInfo.elemental, IUniversalIn.armyInfo.elemental)
+
+      } else {
+        IUniversalIn.armyInfo.elemental.content = `<div class="height100 width100 centerDiv">ELEMENTAL CONQUERED</div>`
+      }
+    }
+    var life1 = f(IUniversalIn.armyInfo.elemental.affinity)
+
+    if (f(IUniversalIn.armyInfo.elemental.affinity).gt(f(0))) {
+      IUniversalIn.armyInfo.elemental.life = f(f(1)).mul(life1)
+    } else {
+      IUniversalIn.armyInfo.elemental.life = f(0)
+    }
+
+    var damage1 = f(IUniversalIn.armyInfo.elemental.affinity)
+
+    if (f(IUniversalIn.armyInfo.elemental.affinity).gt(f(0))) {
+      IUniversalIn.armyInfo.elemental.damage = f(f(0.2)).mul(damage1)
+    } else {
+      IUniversalIn.armyInfo.elemental.damage = f(0)
+    }
+
+    if (!IFight.youStats.onFight3) {
+      IUniversal.armyInfo.elemental.leftLife = f(selectedIn.life)
+    }
+
+    //affinity1
+
+    IUniversalIn.armyInfo.elemental.affinities.affinity1.value = selectedIn.affinities.affinity1.value
+
+    //affinity2
+
+    IUniversalIn.armyInfo.elemental.affinities.affinity2.value = selectedIn.affinities.affinity2.value
+
+    //affinity3
+
+    IUniversalIn.armyInfo.elemental.affinities.affinity3.value = selectedIn.affinities.affinity3.value
+
+    //affinity4
+
+    IUniversalIn.armyInfo.elemental.affinities.affinity4.value = selectedIn.affinities.affinity4.value
+
+    var aff1 = f(IUniversalIn.armyInfo.elemental.affinities.affinity1.value)
+    var aff2 = f(IUniversalIn.armyInfo.elemental.affinities.affinity2.value)
+    var aff3 = f(IUniversalIn.armyInfo.elemental.affinities.affinity3.value)
+    var aff4 = f(IUniversalIn.armyInfo.elemental.affinities.affinity4.value)
+
+    IUniversalIn.armyInfo.elemental.affinity = f(aff1).mul(aff2).mul(aff3).mul(aff4)
+
+    IUniversalIn.armyInfo.elemental.effects = deepClone(selectedIn.effects)
+  }
+  //TREASURES
+
+  //Treasure 1
+
+  var sel1 = IUniversal.treasures.treasure1
+  var sel2 = IUniversalIn.treasures.treasure1
+
+  sel2.maxLevel = Infinity
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09">Courage Helmet</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv centerDiv height100 width100 fontSize08 columns margin1 overflowY">Warrior Damage and Life  ×1.2 (×${format(f(sel2.effect), 1)})</div>
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel1.num), 0)}/${format(f(sel2.price), 0)} Fragments</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv centerDiv height100 width100 fontSize08 columns margin1 overflowY">Warrior Damage and Life  ×1.2 (×${format(f(sel2.effect), 1)})</div>`
+
+  sel1.fused = f(sel1.fused)
+  sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
+
+  if (sel1.equip) {
+    sel2.effect = f(1.2).pow(f(f(sel1.level)))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  if (getTreasureActive("treasure1")) {
+    sel1.equip = true;
+  } else {
+    sel1.equip = false;
+  }
+
+  if (f(sel1.level).gt(f(0))) {
+    sel1.active = true;
+  } else {
+    sel1.active = false;
+  }
+
+  //Treasure 2
+
+  var sel1 = IUniversal.treasures.treasure2
+  var sel2 = IUniversalIn.treasures.treasure2
+
+  sel2.maxLevel = Infinity
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09">Fear Horns</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Enemy Warrior is 2 Times Weaker (/${format(f(sel2.effect), 0)})</div>
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel1.num), 0)}/${format(f(sel2.price), 0)} Fragments</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Enemy Warrior is 2 Times Weaker (/${format(f(sel2.effect), 0)})</div>`
+
+  sel1.fused = f(sel1.fused)
+  sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
+
+  if (sel1.equip) {
+    sel2.effect = f(2).pow(f(f(sel1.level)))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  if (getTreasureActive("treasure2")) {
+    sel1.equip = true;
+  } else {
+    sel1.equip = false;
+  }
+
+  if (f(sel1.level).gt(f(0))) {
+    sel1.active = true;
+  } else {
+    sel1.active = false;
+  }
+
+  //Treasure 3
+
+  var sel1 = IUniversal.treasures.treasure3
+  var sel2 = IUniversalIn.treasures.treasure3
+
+  sel2.maxLevel = Infinity
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09">Unified Shield</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Tank Life × Tank Quantity (×${format(f(sel2.effect), 1)})</div>
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel1.num), 0)}/${format(f(sel2.price), 0)} Fragments</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Tank Life × Tank Quantity (×${format(f(sel2.effect), 1)})</div>`
+
+  sel1.fused = f(sel1.fused)
+  sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
+
+  if (sel1.equip) {
+    sel2.effect = f(Math.log10(f(IUniversalIn.armyInfo.default.golemTypes.type2.level).add(f(10))))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  if (getTreasureActive("treasure3")) {
+    sel1.equip = true;
+  } else {
+    sel1.equip = false;
+  }
+
+  if (f(sel1.level).gt(f(0))) {
+    sel1.active = true;
+  } else {
+    sel1.active = false;
+  }
+
+  //Treasure 4
+
+  var sel1 = IUniversal.treasures.treasure4
+  var sel2 = IUniversalIn.treasures.treasure4
+
+  sel2.maxLevel = Infinity
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09">Obsidian Manequin</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv height100 width100 fontSize08 column margin1 overflowY">
+      <div>Permanent Upgrade, Cant Equip</div>
+      <div>Barracks Upgrades max level +5 (+${format(f(sel2.effect), 0)})</div>
+      </div>
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel1.num), 0)}/${format(f(sel2.price), 0)} Fragments</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Training Grounds Upgrades max level +5 (+${format(f(sel2.effect), 0)})</div>`
+
+  sel1.fused = f(sel1.fused)
+  sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
+
+
+  if (sel1.active) {
+    sel2.effect = f(5).mul(f(f(sel1.level)))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  if (f(sel1.level).gt(f(0))) {
+    sel1.active = true;
+  } else {
+    sel1.active = false;
+  }
+
+  //Treasure 5
+
+  var sel1 = IUniversal.treasures.treasure5
+  var sel2 = IUniversalIn.treasures.treasure5
+
+  sel2.maxLevel = Infinity
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09">Dirt Blessing</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv height100 width100 fontSize08 column margin1 overflowY">
+      <div>Permanent Upgrade, Cant Equip</div>
+      <div>Barracks Upgrades max level +5 (+${format(f(sel2.effect), 0)})</div>
+      </div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel1.num), 0)}/${format(f(sel2.price), 0)} Fragments</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Mound Upgrades max level +5 (+${format(f(sel2.effect), 0)})</div>`
+
+  sel1.fused = f(sel1.fused)
+  sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
+
+
+  if (sel1.active) {
+    sel2.effect = f(5).mul(f(f(sel1.level)))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  if (f(sel1.level).gt(f(0))) {
+    sel1.active = true;
+  } else {
+    sel1.active = false;
+  }
+
+  //Treasure 6
+
+  var sel1 = IUniversal.treasures.treasure6
+  var sel2 = IUniversalIn.treasures.treasure6
+
+  sel2.maxLevel = Infinity
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09">Amethyst Cove</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      
+      <div class="centerDiv height100 width100 fontSize08 column margin1 overflowY">
+      <div>Permanent Upgrade, Cant Equip</div>
+      <div>Barracks Upgrades max level +5 (+${format(f(sel2.effect), 0)})</div>
+      </div>
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel1.num), 0)}/${format(f(sel2.price), 0)} Fragments</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Barracks Upgrades max level +5 (+${format(f(sel2.effect), 0)})</div>`
+
+  sel1.fused = f(sel1.fused)
+  sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
+
+
+  if (sel1.active) {
+    sel2.effect = f(5).mul(f(f(sel1.level)))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  if (f(sel1.level).gt(f(0))) {
+    sel1.active = true;
+  } else {
+    sel1.active = false;
+  }
+
+  //Treasure 7
+
+  var sel1 = IUniversal.treasures.treasure7
+  var sel2 = IUniversalIn.treasures.treasure7
+
+  sel2.maxLevel = f(0)
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09">Formation: Turtle</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="height100 width100 fontSize08 columns margin1 overflowY">
+        <div>Warriors quantity is 25% of Golems<div>
+        <div>Tanks quantity is 75% of Golems<div>
+      </div>
+      
+    </div>
+  </div>`
+
+  sel2.content3 = `<div class="height100 width100 fontSize08 columns margin1 overflowY">
+        <div>Warriors quantity is 25% of Golems<div>
+        <div>Tanks quantity is 75% of Golems<div>
+      </div>`
+
+  sel1.fused = f(sel1.fused)
+  sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
+
+
+  if (sel1.equip) {
+    sel2.effect = [25, 75, 0, 0]
+  } else {
+    sel2.effect = [0, 0, 0, 0]
+  }
+
+  if (getTreasureActive("treasure7")) {
+    sel1.equip = true;
+  } else {
+    sel1.equip = false;
+  }
+
+  if (f(sel1.level).gt(f(0))) {
+    sel1.active = true;
+  } else {
+    sel1.active = false;
+  }
+
+  //Treasure 8
+
+  var sel1 = IUniversal.treasures.treasure8
+  var sel2 = IUniversalIn.treasures.treasure8
+
+  sel2.maxLevel = f(0)
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09">Formation: Bee</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="height100 width100 fontSize08 columns margin1 overflowY">
+        <div>Warriors quantity is 25% of Golems<div>
+        <div>Archers quantity is 75% of Golems<div>
+      </div>
+    </div>
+  </div>`
+
+  sel2.content3 = `<div class="height100 width100 fontSize08 columns margin1 overflowY">
+        <div>Warriors quantity is 25% of Golems<div>
+        <div>Archers quantity is 75% of Golems<div>
+      </div>`
+
+  sel1.fused = f(sel1.fused)
+  sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
+
+
+  if (sel1.equip) {
+    sel2.effect = [25, 0, 50, 0]
+  } else {
+    sel2.effect = [0, 0, 0, 0]
+  }
+
+  if (getTreasureActive("treasure8")) {
+    sel1.equip = true;
+  } else {
+    sel1.equip = false;
+  }
+
+  if (f(sel1.level).gt(f(0))) {
+    sel1.active = true;
+  } else {
+    sel1.active = false;
+  }
+  //Treasure 9
+
+  var sel1 = IUniversal.treasures.treasure9
+  var sel2 = IUniversalIn.treasures.treasure9
+
+  sel2.maxLevel = f(0)
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09">Formation: Default</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="height100 width100 fontSize08 columns margin1 overflowY">
+        <div>Formation: Default<div>
+        <div>Divide Golems between every Golem Type  (${format(f(sel2.effect), 0)}%)<div>
+      </div>
+    </div>
+    
+  </div>`
+
+  sel2.content3 = `<div class="height100 width100 fontSize08 columns margin1 overflowY">
+        <div>Formation: Default<div>
+        <div>Divide Golems between every Golem Type (${format(f(sel2.effect), 0)}%)<div>
+      </div>`
+
+  sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
+
+
+  var cont = 0;
+  if (IUniversal.armyInfo.default.golemTypes.type1.active) {
+    cont += 1;
+  }
+  if (IUniversal.armyInfo.default.golemTypes.type2.active) {
+    cont += 1;
+  }
+  if (IUniversal.armyInfo.default.golemTypes.type3.active) {
+    cont += 1;
+  }
+  if (IUniversal.armyInfo.default.golemTypes.type4.active) {
+    cont += 1;
+  }
+
+  sel2.effect = f(100).dividedBy(f(cont))
+
+
+
+  if (getTreasureActive("treasure9")) {
+    sel1.equip = true;
+  } else {
+    sel1.equip = false;
+  }
+
+  if (getTreasureActive("treasure9")) {
+    sel1.active = true;
+  } else {
+    sel1.active = false;
+  }
+  //Treasure 10
+
+  var sel1 = IUniversal.treasures.treasure10
+  var sel2 = IUniversalIn.treasures.treasure10
+
+  sel2.maxLevel = f(0)
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09">Formation: Tiger</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="height100 width100 fontSize08 columns margin1 overflowY">
+        <div>Warrior quantity is 75% of Golems<div>
+        <div>Tanks quantity is 25% of Golems<div>
+      </div>
+    </div>
+    
+  </div>`
+
+  sel2.content3 = `<div class="height100 width100 fontSize08 columns margin1 overflowY">
+        <div>Warrior quantity is 75% of Golems<div>
+        <div>Tanks quantity is 25% of Golems<div>
+      </div>`
+
+  if (sel1.equip) {
+    sel2.effect = [75, 25, 0, 0]
+  } else {
+    sel2.effect = [0, 0, 0, 0]
+  }
+
+  sel1.fused = f(sel1.fused)
+  sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
+
+
+  if (getTreasureActive("treasure10")) {
+    sel1.equip = true;
+  } else {
+    sel1.equip = false;
+  }
+
+  if (f(sel1.level).gt(f(0))) {
+    sel1.active = true;
+  } else {
+    sel1.active = false;
+  }
+
+  //Treasure 11
+
+  var sel1 = IUniversal.treasures.treasure11
+  var sel2 = IUniversalIn.treasures.treasure11
+
+  sel2.maxLevel = Infinity
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09">Iron Core Sword</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Damage +2 (+${format(f(sel2.effect), 0)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Damage +2 (+${format(f(sel2.effect), 0)})</div>`
+
+  sel2.price = f(f(10).pow(f(3))).mul(f(5).pow(f(sel1.level).minus(f(1))))
+
+
+  if (sel1.equip) {
+    sel2.effect = f(2).mul(f(sel1.level))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  if (getTreasureActive("treasure11")) {
+    sel1.equip = true;
+  } else {
+    sel1.equip = false;
+  }
+
+  if (f(sel1.level).gt(f(0))) {
+    sel1.active = true;
+  } else {
+    sel1.active = false;
+  }
+
+  //Treasure 12
+
+  var sel1 = IUniversal.treasures.treasure12
+  var sel2 = IUniversalIn.treasures.treasure12
+
+  sel2.maxLevel = Infinity
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09">Ancient Beast Leather</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Life +3 (+${format(f(sel2.effect), 0)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Life +3 (+${format(f(sel2.effect), 0)})</div>`
+
+  sel2.price = f(f(10).pow(f(5))).mul(f(5).pow(f(sel1.level).minus(f(1))))
+
+
+
+  if (sel1.equip) {
+    sel2.effect = f(3).mul(f(sel1.level))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  if (getTreasureActive("treasure12")) {
+    sel1.equip = true;
+  } else {
+    sel1.equip = false;
+  }
+
+  if (f(sel1.level).gt(f(0))) {
+    sel1.active = true;
+  } else {
+    sel1.active = false;
+  }
+
+  //Treasure 13
+
+  var sel1 = IUniversal.treasures.treasure13
+  var sel2 = IUniversalIn.treasures.treasure13
+
+  sel2.maxLevel = Infinity
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09">Magic Brass Ring</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Earth Affinity +1 (+${format(f(sel2.effect), 0)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Earth Affinity +1 (+${format(f(sel2.effect), 0)})</div>`
+
+  sel2.price = f(f(10).pow(f(7))).mul(f(5).pow(f(sel1.level).minus(f(1))))
+
+
+  if (sel1.equip) {
+    sel2.effect = f(1).mul(f(sel1.level))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  if (getTreasureActive("treasure13")) {
+    sel1.equip = true;
+  } else {
+    sel1.equip = false;
+  }
+
+  if (f(sel1.level).gt(f(0))) {
+    sel1.active = true;
+  } else {
+    sel1.active = false;
+  }
+
+  //Treasure 14
+
+  var sel1 = IUniversal.treasures.treasure14
+  var sel2 = IUniversalIn.treasures.treasure14
+
+  sel2.maxLevel = Infinity
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09">Rooted Greatsword</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Damage +5, Earth Affinity +2 (+${format(f(sel2.effect), 0)} ,+${format(f(sel2.effect2), 0)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Damage +5, Earth Affinity +2 (+${format(f(sel2.effect), 0)} ,+${format(f(sel2.effect2), 0)})</div>`
+
+  sel2.price = f(f(10).pow(f(9))).mul(f(10).pow(f(sel1.level).minus(f(1))))
+
+
+  if (sel1.equip) {
+    sel2.effect = f(5).mul(f(sel1.level))
+    sel2.effect2 = f(2).mul(f(sel1.level))
+  } else {
+    sel2.effect = f(0)
+    sel2.effect2 = f(0)
+  }
+
+  if (getTreasureActive("treasure14")) {
+    sel1.equip = true;
+  } else {
+    sel1.equip = false;
+  }
+
+  if (f(sel1.level).gt(f(0))) {
+    sel1.active = true;
+  } else {
+    sel1.active = false;
+  }
+
+
+  //Treasure 15
+
+  var sel1 = IUniversal.treasures.treasure15
+  var sel2 = IUniversalIn.treasures.treasure15
+
+  sel2.maxLevel = Infinity
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09">Flowing Armor</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Life +10, Water Affinity +1 (${format(f(sel2.effect), 0)}, ${format(f(sel2.effect2), 0)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Life +10, Water Affinity +1 (${format(f(sel2.effect), 0)}, ${format(f(sel2.effect2), 0)})}</div>`
+
+  sel2.price = f(f(10).pow(f(11))).mul(f(10).pow(f(sel1.level).minus(f(1))))
+
+
+  if (sel1.equip) {
+    sel2.effect = f(10).mul(f(sel1.level))
+    sel2.effect2 = f(1).mul(f(sel1.level))
+  } else {
+    sel2.effect = f(0)
+    sel2.effect2 = f(0)
+  }
+
+  if (getTreasureActive("treasure15")) {
+    sel1.equip = true;
+  } else {
+    sel1.equip = false;
+  }
+
+  if (f(sel1.level).gt(f(0))) {
+    sel1.active = true;
+  } else {
+    sel1.active = false;
+  }
+
+
+  //Treasure 16
+
+  var sel1 = IUniversal.treasures.treasure16
+  var sel2 = IUniversalIn.treasures.treasure16
+
+  sel2.maxLevel = Infinity
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09">Dremion's Blessed Ring</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">All affinities x1.1 (×${format(f(sel2.effect), 1)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">All affinities x1.1 (×${format(f(sel2.effect), 1)})</div>`
+
+  sel2.price = f(f(10).pow(f(14))).mul(f(10).pow(f(sel1.level).minus(f(1))))
+
+
+  if (sel1.equip) {
+    sel2.effect = f(1).add(f(0.1).mul(f(sel1.level)))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  if (getTreasureActive("treasure16")) {
+    sel1.equip = true;
+  } else {
+    sel1.equip = false;
+  }
+
+  if (f(sel1.level).gt(f(0))) {
+    sel1.active = true;
+  } else {
+    sel1.active = false;
+  }
+  //Treasure 17
+
+  var sel1 = IUniversal.treasures.treasure17
+  var sel2 = IUniversalIn.treasures.treasure17
+
+  sel2.maxLevel = Infinity
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09">Soul</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+            <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Damage and Life +1 (+${format(f(sel2.effect), 0)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Damage and Life +1 (+${format(f(sel2.effect), 0)})</div>`
+
+  sel2.price = f(f(10).pow(f(2))).mul(f(5).pow(f(sel1.level).minus(f(1))))
+
+
+  if (sel1.equip) {
+    sel2.effect = f(1).mul(f(sel1.level))
+    sel2.effect2 = f(1).mul(f(sel1.level))
+  } else {
+    sel2.effect = f(0)
+    sel2.effect2 = f(0)
+  }
+
+  if (getTreasureActive("treasure17")) {
+    sel1.equip = true;
+  } else {
+    sel1.equip = false;
+  }
+
+  if (f(sel1.level).gt(f(0))) {
+    sel1.active = true;
+  } else {
+    sel1.active = false;
+  }
+
+  //Treasure 18
+
+  var sel1 = IUniversal.treasures.treasure18
+  var sel2 = IUniversalIn.treasures.treasure18
+
+  sel2.maxLevel = Infinity
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09">Sun Fragment</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+            <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Fire Affinity +1 (+${format(f(sel2.effect), 0)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Fire Affinity +1 (+${format(f(sel2.effect), 0)})</div>`
+
+  sel2.price = f(f(10).pow(f(7))).mul(f(10).pow(f(sel1.level).minus(f(1))))
+
+
+  if (sel1.equip) {
+    sel2.effect = f(1).mul(f(sel1.level))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  if (getTreasureActive("treasure18")) {
+    sel1.equip = true;
+  } else {
+    sel1.equip = false;
+  }
+
+  if (f(sel1.level).gt(f(0))) {
+    sel1.active = true;
+  } else {
+    sel1.active = false;
+  }
+
+  //Treasure 19
+
+  var sel1 = IUniversal.treasures.treasure19
+  var sel2 = IUniversalIn.treasures.treasure19
+
+  sel2.maxLevel = Infinity
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09">Stone Core</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+            <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Golems Life and Damage ×1.5 (×${format(f(sel2.effect), 0)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Golems Life and Damage ×1.5 (×${format(f(sel2.effect), 0)})</div>`
+
+  sel2.price = f(f(10).pow(f(12))).mul(f(5).pow(f(sel1.level).minus(f(1))))
+
+
+  if (sel1.equip) {
+    sel2.effect = f(1.5).mul(f(sel1.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  if (getTreasureActive("treasure19")) {
+    sel1.equip = true;
+  } else {
+    sel1.equip = false;
+  }
+
+  if (f(sel1.level).gt(f(0))) {
+    sel1.active = true;
+  } else {
+    sel1.active = false;
+  }
+
+  //Treasure 20
+
+  var sel1 = IUniversal.treasures.treasure20
+  var sel2 = IUniversalIn.treasures.treasure20
+
+  sel2.maxLevel = Infinity
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09">Frantumator Shield</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+            <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Opponent Life /5 (/${format(f(sel2.effect), 0)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel1.num), 0)}/${format(f(sel2.price), 0)} Fragments</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Opponent Life /5 (/${format(f(sel2.effect), 0)})</div>`
+
+  sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
+
+  if (sel1.equip) {
+    sel2.effect = f(5).pow(f(sel1.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  if (getTreasureActive("treasure20")) {
+    sel1.equip = true;
+  } else {
+    sel1.equip = false;
+  }
+
+  if (f(sel1.level).gt(f(0))) {
+    sel1.active = true;
+  } else {
+    sel1.active = false;
+  }
+
+  //Expeditions
+
+  //expedition 1
+  var sel = IUniversal.expeditions.exp1
+  var selIn = IUniversalIn.expeditions.exp1
+
+  selIn.name = "Golem Patrol"
+  selIn.maxLevel = f(6)
+
+  selIn.damage = f(1).mul(f(getGolemArmyStats("damage", selIn.golemTypes)))
+  selIn.life = f(1).mul(f(getGolemArmyStats("life", selIn.golemTypes)))
+
+  if (!IFight.youStats.onFight3) {
+    sel.leftLife = f(selIn.life)
+  }
+
+  selIn.number = f(f(3).mul(f(10).pow(f(0)))).mul(f(5).pow(f(sel.level)))
+
+  selIn.golemTypes.type1.level = f(selIn.number)
+  selIn.golemTypes.type2.level = f(0)
+  selIn.golemTypes.type3.level = f(0)
+  selIn.golemTypes.type4.level = f(0)
+  selIn.golemTypes.type5.level = f(0)
+
+  selIn.golemTypes.type1.life = f(2).mul(f(selIn.golemTypes.type1.level))
+  selIn.golemTypes.type2.life = f(6).mul(f(selIn.golemTypes.type2.level))
+  selIn.golemTypes.type3.life = f(1.5).mul(f(selIn.golemTypes.type3.level))
+  selIn.golemTypes.type4.life = f(1.5).mul(f(selIn.golemTypes.type4.level))
+  selIn.golemTypes.type5.life = f(1.5).mul(f(selIn.golemTypes.type5.level))
+
+  selIn.golemTypes.type1.damage = f(2).mul(f(selIn.golemTypes.type1.level))
+  selIn.golemTypes.type2.damage = f(1).mul(f(selIn.golemTypes.type2.level))
+  selIn.golemTypes.type3.damage = f(5).mul(f(selIn.golemTypes.type3.level))
+  selIn.golemTypes.type4.damage = f(1.5).mul(f(selIn.golemTypes.type4.level))
+  selIn.golemTypes.type5.damage = f(1.5).mul(f(selIn.golemTypes.type5.level))
+
+  selIn.rewards.timerPrice = f(300)
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
+    var sel = ["treasure4", "treasure5", "treasure6"];
+
+    for (let item of sel) {
+      setExpectedReward(selT, item);
+    }
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure4.level = f(selT.expectedRewards.treasure4.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(1))) {
+      selT.expectedRewards.treasure5.level = f(selT.expectedRewards.treasure5.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(2))) {
+      selT.expectedRewards.treasure6.level = f(selT.expectedRewards.treasure6.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(3))) {
+      selT.expectedRewards.treasure4.level = f(selT.expectedRewards.treasure4.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(4))) {
+      selT.expectedRewards.treasure5.level = f(selT.expectedRewards.treasure5.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(5))) {
+      selT.expectedRewards.treasure6.level = f(selT.expectedRewards.treasure6.level).add(f(1));
+      return
+    }
+
+    if (f(number).lt(f(sel.length))) {
+      const pick = Math.floor(Math.random() * sel.length);
+      const key = sel[pick];
+
+      if (!selT.expectedRewards) {
+        selT.expectedRewards = {};
+      }
+
+      if (!selT.expectedRewards[key]) {
+        selT.expectedRewards[key] = { num: f(0) };
+      }
+
+      selT.expectedRewards[key].num =
+        f(selT.expectedRewards[key].num).add(f(1));
+      return;
+    }
+
+    for (let x in sel) {
+      var sel2 = sel[x];
+      var level = f(number).dividedBy(f(sel.length));
+
+      if (!selT.expectedRewards) {
+        selT.expectedRewards = {};
+      }
+
+      if (!selT.expectedRewards[sel2]) {
+        selT.expectedRewards[sel2] = { num: f(0) };
+      }
+
+      selT.expectedRewards[sel2].num =
+        f(selT.expectedRewards[sel2].num).add(f(num));
+    }
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level))} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num))} fragments</div>
+      </div>`;
+      }
+    }
+
+    return `<div class="height20 width100 row overflowX flex zHigh">${string}</div>`;
+  }
+
+  if ((f(sel.level).gte(f(selIn.maxLevel)))) {
+    sel.active = true
+  } else {
+    sel.active = false
+  }
+
+  if (f(sel.rewards.timer).gte(f(selIn.rewards.timerPrice)) && sel.active) {
+    var number = f(sel.rewards.timer).dividedBy(f(selIn.rewards.timerPrice)).floor();
+
+    selIn.rewards.effect(sel, selIn, sel.rewards, selIn.rewards, number)
+
+    sel.rewards.timer = f(0)
+  }
+
+  //expedition 2
+  var sel = IUniversal.expeditions.exp2
+  var selIn = IUniversalIn.expeditions.exp2
+
+  selIn.name = "The Wall"
+  selIn.maxLevel = f(5)
+
+  selIn.damage = f(1).mul(f(getGolemArmyStats("damage", selIn.golemTypes)))
+  selIn.life = f(1).mul(f(getGolemArmyStats("life", selIn.golemTypes)))
+
+  selIn.number = f(f(0.75).mul(f(10).pow(f(1)))).mul(f(5).pow(f(sel.level)))
+
+  selIn.golemTypes.type1.level = f(selIn.number)
+  selIn.golemTypes.type2.level = f(0)
+  selIn.golemTypes.type3.level = f(0)
+  selIn.golemTypes.type4.level = f(0)
+  selIn.golemTypes.type5.level = f(0)
+
+  selIn.golemTypes.type1.life = f(2).mul(f(selIn.golemTypes.type1.level))
+  selIn.golemTypes.type2.life = f(6).mul(f(selIn.golemTypes.type2.level))
+  selIn.golemTypes.type3.life = f(1).mul(f(selIn.golemTypes.type3.level))
+  selIn.golemTypes.type4.life = f(1.5).mul(f(selIn.golemTypes.type4.level))
+  selIn.golemTypes.type5.life = f(1.5).mul(f(selIn.golemTypes.type5.level))
+
+  selIn.golemTypes.type1.damage = f(2).mul(f(selIn.golemTypes.type1.level))
+  selIn.golemTypes.type2.damage = f(1).mul(f(selIn.golemTypes.type2.level))
+  selIn.golemTypes.type3.damage = f(5).mul(f(selIn.golemTypes.type3.level))
+  selIn.golemTypes.type4.damage = f(1.5).mul(f(selIn.golemTypes.type4.level))
+  selIn.golemTypes.type5.damage = f(1.5).mul(f(selIn.golemTypes.type5.level))
+
+  //effects
+  selIn.effects.effect1.type = "defenceBreaker"
+  selIn.effects.effect1.content = `<div class="boldBlackBorder">Defence Breaker</div>
+                                   <div>Opponent's Warrior Life /${format(f(selIn.effects.effect1.effect))}</div>`
+
+  selIn.effects.effect1.effect = f(10).mul(f(sel.level).add(f(1)))
+
+  selIn.rewards.timerPrice = f(600)
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
+    var sel = ["treasure1"];
+
+    for (let x in sel) {
+      setExpectedReward(selT, sel[x])
+    }
+
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure1.level = f(selT.expectedRewards.treasure1.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(1))) {
+      selT.expectedRewards.treasure1.level = f(selT.expectedRewards.treasure1.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(2))) {
+      selT.expectedRewards.treasure1.level = f(selT.expectedRewards.treasure1.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(3))) {
+      selT.expectedRewards.treasure1.level = f(selT.expectedRewards.treasure1.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(4))) {
+      selT.expectedRewards.treasure1.level = f(selT.expectedRewards.treasure1.level).add(f(1));
+      return
+    }
+
+    if (f(number).lt(f(sel.length))) {
+      const pick = Math.floor(Math.random() * sel.length);
+      const key = sel[pick];
+
+      if (!selT.expectedRewards) {
+        selT.expectedRewards = {};
+      }
+
+      if (!selT.expectedRewards[key]) {
+        selT.expectedRewards[key] = { num: f(0) };
+      }
+
+      selT.expectedRewards[key].num =
+        f(selT.expectedRewards[key].num).add(f(1));
+      return;
+    }
+
+    for (let x in sel) {
+      var sel2 = sel[x];
+      var level = f(number).dividedBy(f(sel.length));
+
+      if (!selT.expectedRewards) {
+        selT.expectedRewards = {};
+      }
+
+      if (!selT.expectedRewards[sel2]) {
+        selT.expectedRewards[sel2] = { num: f(0) };
+      }
+
+      selT.expectedRewards[sel2].num =
+        f(selT.expectedRewards[sel2].num).add(f(num));
+    }
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level))} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num))} fragments</div>
+      </div>`;
+      }
+    }
+
+    return `<div class="height20 width100 row overflowX flex zHigh">${string}</div>`;
+  }
+
+  if ((f(sel.level).gte(f(selIn.maxLevel)))) {
+    sel.active = true
+  } else {
+    sel.active = false
+  }
+
+  if (f(sel.rewards.timer).gte(f(selIn.rewards.timerPrice)) && sel.active) {
+    var number = f(sel.rewards.timer).dividedBy(f(selIn.rewards.timerPrice)).floor();
+
+    selIn.rewards.effect(sel, selIn, sel.rewards, selIn.rewards, number)
+
+    sel.rewards.timer = f(0)
+  }
+
+  //expedition 3
+  var sel = IUniversal.expeditions.exp3
+  var selIn = IUniversalIn.expeditions.exp3
+
+  selIn.name = "Lesser Fire Elemental"
+  selIn.maxLevel = f(9)
+
+  selIn.damage = f(selIn.affinity)
+  selIn.life = f(selIn.affinity)
+
+  if (!IFight.youStats.onFight3) {
+    sel.leftLife = f(selIn.life)
+  }
+
+  selIn.affinities.affinity1.value = f(f(0.5).mul(f(10).pow(f(1))).mul(f(f(3).pow(f(sel.level)))))
+  selIn.affinities.affinity2.value = f(1)
+  selIn.affinities.affinity3.value = f(1)
+  selIn.affinities.affinity4.value = f(1)
+
+  var aff1 = f(selIn.affinities.affinity1.value)
+  var aff2 = f(selIn.affinities.affinity2.value)
+  var aff3 = f(selIn.affinities.affinity3.value)
+  var aff4 = f(selIn.affinities.affinity4.value)
+
+  selIn.affinity = f(aff1).mul(aff2).mul(aff3).mul(aff4)
+
+  selIn.rewards.timerPrice = f(1200)
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
+    var sel = ["treasure11", "treasure12", "treasure13"];
+
+    for (let x in sel) {
+      setExpectedReward(selT, sel[x])
+    }
+
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure11.level = f(selT.expectedRewards.treasure11.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(1))) {
+      selT.expectedRewards.treasure12.level = f(selT.expectedRewards.treasure12.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(2))) {
+      selT.expectedRewards.treasure13.level = f(selT.expectedRewards.treasure13.level).add(f(1));
+      return
+    }
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level))} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num))} fragments</div>
+      </div>`;
+      }
+    }
+
+    return `<div class="height20 width100 row overflowX flex zHigh">${string}</div>`;
+  }
+
+  if ((f(sel.level).gte(f(selIn.maxLevel)))) {
+    sel.active = true
+  } else {
+    sel.active = false
+  }
+
+  if (f(sel.rewards.timer).gte(f(selIn.rewards.timerPrice)) && false) {
+    var number = f(sel.rewards.timer).dividedBy(f(selIn.rewards.timerPrice)).floor();
+
+    selIn.rewards.effect(sel, selIn, sel.rewards, selIn.rewards, number)
+
+    sel.rewards.timer = f(0)
+  }
+
+  //expedition 4
+  var sel = IUniversal.expeditions.exp4
+  var selIn = IUniversalIn.expeditions.exp4
+
+  selIn.name = "Lesser Wind Elemental"
+  selIn.maxLevel = f(6)
+
+  selIn.damage = f(selIn.affinity)
+  selIn.life = f(selIn.affinity)
+
+  if (!IFight.youStats.onFight3) {
+    sel.leftLife = f(selIn.life)
+  }
+
+  selIn.affinities.affinity1.value = f(1)
+  selIn.affinities.affinity2.value = f(1)
+  selIn.affinities.affinity3.value = f(1)
+  selIn.affinities.affinity4.value = f(f(10).pow(f(1)).mul(f(f(4).pow(f(sel.level)))))
+
+  var aff1 = f(selIn.affinities.affinity1.value)
+  var aff2 = f(selIn.affinities.affinity2.value)
+  var aff3 = f(selIn.affinities.affinity3.value)
+  var aff4 = f(selIn.affinities.affinity4.value)
+
+  selIn.affinity = f(aff1).mul(aff2).mul(aff3).mul(aff4)
+
+
+  selIn.effects.effect1.type = "windAffinity"
+  selIn.effects.effect1.content = `<div class="boldBlackBorder">Lesser Wind Affinity</div>
+                                   <div>Opponent's Earth Affinity /${format(f(selIn.effects.effect1.effect))}</div>`
+
+  selIn.effects.effect1.effect = f(10).mul(f(sel.level).add(f(1)))
+
+  selIn.rewards.timerPrice = f(1500)
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number, precise = "") {
+    var sel = ["treasure18", "treasure14"];
+
+
+    for (let x in sel) {
+      setExpectedReward(selT, sel[x])
+    }
+
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure18.level = f(selT.expectedRewards.treasure18.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(1))) {
+      selT.expectedRewards.treasure14.level = f(selT.expectedRewards.treasure14.level).add(f(1));
+      return
+    }
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level))} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level))} fragments</div>
+      </div>`;
+      }
+    }
+
+    return `<div class="height20 width100 row overflowX flex zHigh">${string}</div>`;
+  }
+
+  if ((f(sel.level).gte(f(selIn.maxLevel)))) {
+    sel.active = true
+  } else {
+    sel.active = false
+  }
+
+  if (f(sel.rewards.timer).gte(f(selIn.rewards.timerPrice)) && false) {
+    var number = f(sel.rewards.timer).dividedBy(f(selIn.rewards.timerPrice)).floor();
+
+    selIn.rewards.effect(sel, selIn, sel.rewards, selIn.rewards, number)
+
+    sel.rewards.timer = f(0)
+  }
+
+  //expedition 5
+  var sel = IUniversal.expeditions.exp5
+  var selIn = IUniversalIn.expeditions.exp5
+
+  selIn.name = "Storm Elemental"
+  selIn.maxLevel = f(6)
+
+  selIn.damage = f(selIn.affinity)
+  selIn.life = f(selIn.affinity)
+
+  if (!IFight.youStats.onFight3) {
+    sel.leftLife = f(selIn.life)
+  }
+
+  selIn.affinities.affinity1.value = f(1)
+  selIn.affinities.affinity2.value = f(f(10).pow(f(1)).mul(f(f(2).pow(f(sel.level)))))
+  selIn.affinities.affinity3.value = f(1)
+  selIn.affinities.affinity4.value = f(f(10).pow(f(1)).mul(f(f(2).pow(f(sel.level)))))
+
+  var aff1 = f(selIn.affinities.affinity1.value)
+  var aff2 = f(selIn.affinities.affinity2.value)
+  var aff3 = f(selIn.affinities.affinity3.value)
+  var aff4 = f(selIn.affinities.affinity4.value)
+
+  selIn.affinity = f(aff1).mul(aff2).mul(aff3).mul(aff4)
+
+  selIn.effects.effect1.type = "waterAffinity"
+  selIn.effects.effect1.content = `<div class="boldBlackBorder">Lesser Water Affinity</div>
+                                   <div>Opponent's Fire Affinity /${format(f(selIn.effects.effect1.effect))}</div>`
+
+  selIn.effects.effect1.effect = f(10).mul(f(sel.level).add(f(1)))
+
+  selIn.effects.effect2.type = "windAffinity"
+  selIn.effects.effect2.content = `<div class="boldBlackBorder">Lesser Wind Affinity</div>
+                                   <div>Opponent's Earth Affinity /${format(f(selIn.effects.effect1.effect))}</div>`
+
+  selIn.effects.effect2.effect = f(10).mul(f(sel.level).add(f(1)))
+
+  selIn.rewards.timerPrice = f(1800)
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
+    var sel = ["treasure15", "treasure19"];
+
+    for (let x in sel) {
+      setExpectedReward(selT, sel[x])
+    }
+
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure15.level = f(selT.expectedRewards.treasure15.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(1))) {
+      selT.expectedRewards.treasure19.level = f(selT.expectedRewards.treasure19.level).add(f(1));
+      return
+    }
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level))} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num))} fragments</div>
+      </div>`;
+      }
+    }
+
+    return `<div class="height20 width100 row overflowX flex zHigh">${string}</div>`;
+  }
+
+  if ((f(sel.level).gte(f(selIn.maxLevel)))) {
+    sel.active = true
+  } else {
+    sel.active = false
+  }
+
+  if (f(sel.rewards.timer).gte(f(selIn.rewards.timerPrice)) && false) {
+    var number = f(sel.rewards.timer).dividedBy(f(selIn.rewards.timerPrice)).floor();
+
+    selIn.rewards.effect(sel, selIn, sel.rewards, selIn.rewards, number)
+
+    sel.rewards.timer = f(0)
+  }
+
+  //expedition 6
+  var sel = IUniversal.expeditions.exp6
+  var selIn = IUniversalIn.expeditions.exp6
+
+  selIn.name = "Rock Fort"
+  selIn.maxLevel = f(5)
+
+  selIn.damage = f(1).mul(f(getGolemArmyStats("damage", selIn.golemTypes)))
+  selIn.life = f(1).mul(f(getGolemArmyStats("life", selIn.golemTypes)))
+
+  selIn.number = f(f(0.7).mul(f(10).pow(f(2)))).mul(f(5).pow(f(sel.level)))
+
+  selIn.golemTypes.type1.level = f(selIn.number).dividedBy(f(4))
+  selIn.golemTypes.type2.level = f(selIn.number).dividedBy(f(1.5))
+  selIn.golemTypes.type3.level = f(0)
+  selIn.golemTypes.type4.level = f(0)
+  selIn.golemTypes.type5.level = f(0)
+
+  selIn.golemTypes.type1.life = f(2).mul(f(selIn.golemTypes.type1.level))
+  selIn.golemTypes.type2.life = f(6).mul(f(selIn.golemTypes.type2.level))
+  selIn.golemTypes.type3.life = f(1).mul(f(selIn.golemTypes.type3.level))
+  selIn.golemTypes.type4.life = f(1.5).mul(f(selIn.golemTypes.type4.level))
+  selIn.golemTypes.type5.life = f(1.5).mul(f(selIn.golemTypes.type5.level))
+
+  selIn.golemTypes.type1.damage = f(2).mul(f(selIn.golemTypes.type1.level))
+  selIn.golemTypes.type2.damage = f(1).mul(f(selIn.golemTypes.type2.level))
+  selIn.golemTypes.type3.damage = f(5).mul(f(selIn.golemTypes.type3.level))
+  selIn.golemTypes.type4.damage = f(1.5).mul(f(selIn.golemTypes.type4.level))
+  selIn.golemTypes.type5.damage = f(1.5).mul(f(selIn.golemTypes.type5.level))
+
+  //effects
+
+  selIn.rewards.timerPrice = f(600)
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
+    var sel = ["treasure2"];
+    var sel2 = ["treasure2", "treasure7"];
+
+
+    for (let x in sel2) {
+      setExpectedReward(selT, sel2[x])
+    }
+
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure7.level = f(selT.expectedRewards.treasure7.level).add(f(1));
+      selT.expectedRewards.treasure2.level = f(selT.expectedRewards.treasure2.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(1))) {
+      selT.expectedRewards.treasure2.level = f(selT.expectedRewards.treasure2.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(2))) {
+      selT.expectedRewards.treasure2.level = f(selT.expectedRewards.treasure2.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(3))) {
+      selT.expectedRewards.treasure2.level = f(selT.expectedRewards.treasure2.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(4))) {
+      selT.expectedRewards.treasure2.level = f(selT.expectedRewards.treasure2.level).add(f(1));
+      return
+    }
+
+    if (f(number).lt(f(sel.length))) {
+      const pick = Math.floor(Math.random() * sel.length);
+      const key = sel[pick];
+
+      if (!selT.expectedRewards) {
+        selT.expectedRewards = {};
+      }
+
+      if (!selT.expectedRewards[key]) {
+        selT.expectedRewards[key] = { num: f(0) };
+      }
+
+      selT.expectedRewards[key].num =
+        f(selT.expectedRewards[key].num).add(f(1));
+      return;
+    }
+
+    for (let x in sel) {
+      var sel2 = sel[x];
+      var level = f(number).dividedBy(f(sel.length));
+
+      if (!selT.expectedRewards) {
+        selT.expectedRewards = {};
+      }
+
+      if (!selT.expectedRewards[sel2]) {
+        selT.expectedRewards[sel2] = { num: f(0) };
+      }
+
+      selT.expectedRewards[sel2].num =
+        f(selT.expectedRewards[sel2].num).add(f(num));
+    }
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level))} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num))} fragments</div>
+      </div>`;
+      }
+    }
+
+    return `<div class="height20 width100 row overflowX flex zHigh">${string}</div>`;
+  }
+
+  if ((f(sel.level).gte(f(selIn.maxLevel)))) {
+    sel.active = true
+  } else {
+    sel.active = false
+  }
+
+  if (f(sel.rewards.timer).gte(f(selIn.rewards.timerPrice)) && sel.active) {
+    var number = f(sel.rewards.timer).dividedBy(f(selIn.rewards.timerPrice)).floor();
+
+    selIn.rewards.effect(sel, selIn, sel.rewards, selIn.rewards, number)
+
+    sel.rewards.timer = f(0)
+  }
+
+  //expedition 7
+  var sel = IUniversal.expeditions.exp7
+  var selIn = IUniversalIn.expeditions.exp7
+
+  selIn.name = "Deep Slate Fortress"
+  selIn.maxLevel = f(10)
+
+  selIn.damage = f(1).mul(f(getGolemArmyStats("damage", selIn.golemTypes)))
+  selIn.life = f(1).mul(f(getGolemArmyStats("life", selIn.golemTypes)))
+
+  selIn.number = f(f(1).mul(f(10).pow(f(3)))).mul(f(5).pow(f(sel.level)))
+
+  selIn.golemTypes.type1.level = f(selIn.number).dividedBy(f(2))
+  selIn.golemTypes.type2.level = f(selIn.number).dividedBy(f(2))
+  selIn.golemTypes.type3.level = f(0)
+  selIn.golemTypes.type4.level = f(0)
+  selIn.golemTypes.type5.level = f(0)
+
+  selIn.golemTypes.type1.life = f(2).mul(f(selIn.golemTypes.type1.level))
+  selIn.golemTypes.type2.life = f(6).mul(f(selIn.golemTypes.type2.level))
+  selIn.golemTypes.type3.life = f(1.5).mul(f(selIn.golemTypes.type3.level))
+  selIn.golemTypes.type4.life = f(1.5).mul(f(selIn.golemTypes.type4.level))
+  selIn.golemTypes.type5.life = f(1.5).mul(f(selIn.golemTypes.type5.level))
+
+  selIn.golemTypes.type1.damage = f(2).mul(f(selIn.golemTypes.type1.level))
+  selIn.golemTypes.type2.damage = f(1.5).mul(f(selIn.golemTypes.type2.level))
+  selIn.golemTypes.type3.damage = f(5).mul(f(selIn.golemTypes.type3.level))
+  selIn.golemTypes.type4.damage = f(1.5).mul(f(selIn.golemTypes.type4.level))
+  selIn.golemTypes.type5.damage = f(1.5).mul(f(selIn.golemTypes.type5.level))
+
+  //effects
+
+  selIn.effects.effect1.type = "burn1"
+  selIn.effects.effect1.content = `<div class="boldBlackBorder">Exploding Golems</div>
+                                   <div>Attacks decreases the opponent Golems by your Golems</div>`
+
+  selIn.effects.effect1.effect = f(selIn.number)
+
+  selIn.rewards.timerPrice = f(900)
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
+    var sel = ["treasure17"];
+
+    for (let x in sel) {
+      setExpectedReward(selT, sel[x])
+    }
+
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure17.level = f(selT.expectedRewards.treasure17.level).add(f(1));
+      return
+    }
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level))} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num))} fragments</div>
+      </div>`;
+      }
+    }
+
+    return `<div class="height20 width100 row overflowX flex zHigh">${string}</div>`;
+  }
+
+  if ((f(sel.level).gte(f(selIn.maxLevel)))) {
+    sel.active = true
+  } else {
+    sel.active = false
+  }
+
+  if (f(sel.rewards.timer).gte(f(selIn.rewards.timerPrice)) && false) {
+    var number = f(sel.rewards.timer).dividedBy(f(selIn.rewards.timerPrice)).floor();
+
+    selIn.rewards.effect(sel, selIn, sel.rewards, selIn.rewards, number)
+
+    sel.rewards.timer = f(0)
+  }
+
+  //expedition 8
+  var sel = IUniversal.expeditions.exp8
+  var selIn = IUniversalIn.expeditions.exp8
+
+  selIn.name = "Steel Clan"
+  selIn.maxLevel = f(5)
+
+  selIn.damage = f(1).mul(f(getGolemArmyStats("damage", selIn.golemTypes)))
+  selIn.life = f(1).mul(f(getGolemArmyStats("life", selIn.golemTypes)))
+
+  selIn.number = f(f(1).mul(f(10).pow(f(3)))).mul(f(5).pow(f(sel.level)))
+
+  selIn.golemTypes.type1.level = f(selIn.number).dividedBy(f(2))
+  selIn.golemTypes.type2.level = f(selIn.number).dividedBy(f(2))
+  selIn.golemTypes.type3.level = f(0)
+  selIn.golemTypes.type4.level = f(0)
+  selIn.golemTypes.type5.level = f(0)
+
+  selIn.golemTypes.type1.life = f(2).mul(f(selIn.golemTypes.type1.level))
+  selIn.golemTypes.type2.life = f(6).mul(f(selIn.golemTypes.type2.level))
+  selIn.golemTypes.type3.life = f(1).mul(f(selIn.golemTypes.type3.level))
+  selIn.golemTypes.type4.life = f(1.5).mul(f(selIn.golemTypes.type4.level))
+  selIn.golemTypes.type5.life = f(1.5).mul(f(selIn.golemTypes.type5.level))
+
+  selIn.golemTypes.type1.damage = f(2).mul(f(selIn.golemTypes.type1.level))
+  selIn.golemTypes.type2.damage = f(1).mul(f(selIn.golemTypes.type2.level))
+  selIn.golemTypes.type3.damage = f(5).mul(f(selIn.golemTypes.type3.level))
+  selIn.golemTypes.type4.damage = f(1.5).mul(f(selIn.golemTypes.type4.level))
+  selIn.golemTypes.type5.damage = f(1.5).mul(f(selIn.golemTypes.type5.level))
+
+  //effects
+  selIn.effects.effect1.type = "lifeBreaker1"
+  selIn.effects.effect1.content = `<div class="boldBlackBorder">Rock Breaker</div>
+                                   <div>Opponents Golems Life /${format(f(selIn.effects.effect1.effect))}</div>`
+
+  selIn.effects.effect1.effect = f(100).mul(f(10).pow(f(sel.level)))
+
+  selIn.rewards.timerPrice = f(900)
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
+    var sel = ["treasure3"];
+    var sel2 = ["treasure3", "treasure10"];
+
+    for (let x in sel2) {
+      setExpectedReward(selT, sel2[x])
+    }
+
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure10.level = f(selT.expectedRewards.treasure10.level).add(f(1));
+      selT.expectedRewards.treasure3.level = f(selT.expectedRewards.treasure3.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(1))) {
+      selT.expectedRewards.treasure3.level = f(selT.expectedRewards.treasure3.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(2))) {
+      selT.expectedRewards.treasure3.level = f(selT.expectedRewards.treasure3.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(3))) {
+      selT.expectedRewards.treasure3.level = f(selT.expectedRewards.treasure3.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(4))) {
+      selT.expectedRewards.treasure3.level = f(selT.expectedRewards.treasure3.level).add(f(1));
+      return
+    }
+
+    if (f(number).lt(f(sel.length))) {
+      const pick = Math.floor(Math.random() * sel.length);
+      const key = sel[pick];
+
+      if (!selT.expectedRewards) {
+        selT.expectedRewards = {};
+      }
+
+      if (!selT.expectedRewards[key]) {
+        selT.expectedRewards[key] = { num: f(0) };
+      }
+
+      selT.expectedRewards[key].num =
+        f(selT.expectedRewards[key].num).add(f(1));
+      return;
+    }
+
+    for (let x in sel) {
+      var sel2 = sel[x];
+      var level = f(number).dividedBy(f(sel.length));
+
+      if (!selT.expectedRewards) {
+        selT.expectedRewards = {};
+      }
+
+      if (!selT.expectedRewards[sel2]) {
+        selT.expectedRewards[sel2] = { num: f(0) };
+      }
+
+      selT.expectedRewards[sel2].num =
+        f(selT.expectedRewards[sel2].num).add(f(num));
+    }
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level))} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num))} fragments</div>
+      </div>`;
+      }
+    }
+
+    return `<div class="height20 width100 row overflowX flex zHigh">${string}</div>`;
+  }
+
+  if ((f(sel.level).gte(f(selIn.maxLevel)))) {
+    sel.active = true
+  } else {
+    sel.active = false
+  }
+
+  if (f(sel.rewards.timer).gte(f(selIn.rewards.timerPrice)) && sel.active) {
+    var number = f(sel.rewards.timer).dividedBy(f(selIn.rewards.timerPrice)).floor();
+
+    selIn.rewards.effect(sel, selIn, sel.rewards, selIn.rewards, number)
+
+    sel.rewards.timer = f(0)
+  }
+
+  //expedition 9
+  var sel = IUniversal.expeditions.exp9
+  var selIn = IUniversalIn.expeditions.exp9
+
+  selIn.name = "Rolling Stone Legion"
+  selIn.maxLevel = f(5)
+
+  selIn.damage = f(1).mul(f(getGolemArmyStats("damage", selIn.golemTypes)))
+  selIn.life = f(1).mul(f(getGolemArmyStats("life", selIn.golemTypes)))
+
+  selIn.number = f(f(1).mul(f(10).pow(f(4)))).mul(f(5).pow(f(sel.level)))
+
+  selIn.golemTypes.type1.level = f(selIn.number).dividedBy(f(1.5))
+  selIn.golemTypes.type2.level = f(selIn.number).dividedBy(f(4))
+  selIn.golemTypes.type3.level = f(0)
+  selIn.golemTypes.type4.level = f(0)
+  selIn.golemTypes.type5.level = f(0)
+
+  selIn.golemTypes.type1.life = f(2).mul(f(selIn.golemTypes.type1.level))
+  selIn.golemTypes.type2.life = f(6).mul(f(selIn.golemTypes.type2.level))
+  selIn.golemTypes.type3.life = f(1).mul(f(selIn.golemTypes.type3.level))
+  selIn.golemTypes.type4.life = f(1.5).mul(f(selIn.golemTypes.type4.level))
+  selIn.golemTypes.type5.life = f(1.5).mul(f(selIn.golemTypes.type5.level))
+
+  selIn.golemTypes.type1.damage = f(2).mul(f(selIn.golemTypes.type1.level))
+  selIn.golemTypes.type2.damage = f(1).mul(f(selIn.golemTypes.type2.level))
+  selIn.golemTypes.type3.damage = f(5).mul(f(selIn.golemTypes.type3.level))
+  selIn.golemTypes.type4.damage = f(1.5).mul(f(selIn.golemTypes.type4.level))
+  selIn.golemTypes.type5.damage = f(1.5).mul(f(selIn.golemTypes.type5.level))
+
+  //effects
+  selIn.effects.effect1.type = "mountainSide"
+  selIn.effects.effect1.content = `<div class="boldBlackBorder">Mountain Side</div>
+                                   <div>Damage is bigger for every opponent's Golem (×${format(f(selIn.effects.effect1.effect))})</div>`
+
+  selIn.effects.effect1.effect = Math.log10(f(IUniversalIn.armyInfo.default.level).add(f(10)))
+
+  selIn.rewards.timerPrice = f(1200)
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
+    var sel = ["treasure20"];
+
+    for (let x in sel) {
+      setExpectedReward(selT, sel[x])
+    }
+
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure20.level = f(selT.expectedRewards.treasure20.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(1))) {
+      selT.expectedRewards.treasure20.level = f(selT.expectedRewards.treasure20.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(2))) {
+      selT.expectedRewards.treasure20.level = f(selT.expectedRewards.treasure20.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(3))) {
+      selT.expectedRewards.treasure20.level = f(selT.expectedRewards.treasure20.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(4))) {
+      selT.expectedRewards.treasure20.level = f(selT.expectedRewards.treasure20.level).add(f(1));
+      return
+    }
+
+    if (f(number).lt(f(sel.length))) {
+      const pick = Math.floor(Math.random() * sel.length);
+      const key = sel[pick];
+
+      if (!selT.expectedRewards) {
+        selT.expectedRewards = {};
+      }
+
+      if (!selT.expectedRewards[key]) {
+        selT.expectedRewards[key] = { num: f(0) };
+      }
+
+      selT.expectedRewards[key].num =
+        f(selT.expectedRewards[key].num).add(f(1));
+      return;
+    }
+
+    for (let x in sel) {
+      var sel2 = sel[x];
+      var level = f(number).dividedBy(f(sel.length));
+
+      if (!selT.expectedRewards) {
+        selT.expectedRewards = {};
+      }
+
+      if (!selT.expectedRewards[sel2]) {
+        selT.expectedRewards[sel2] = { num: f(0) };
+      }
+
+      selT.expectedRewards[sel2].num =
+        f(selT.expectedRewards[sel2].num).add(f(num));
+    }
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level))} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num))} fragments</div>
+      </div>`;
+      }
+    }
+
+    return `<div class="height20 width100 row overflowX flex zHigh">${string}</div>`;
+  }
+
+  if ((f(sel.level).gte(f(selIn.maxLevel)))) {
+    sel.active = true
+  } else {
+    sel.active = false
+  }
+
+  if (f(sel.rewards.timer).gte(f(selIn.rewards.timerPrice)) && sel.active) {
+    var number = f(sel.rewards.timer).dividedBy(f(selIn.rewards.timerPrice)).floor();
+
+    selIn.rewards.effect(sel, selIn, sel.rewards, selIn.rewards, number)
+
+    sel.rewards.timer = f(0)
+  }
+
+  //expedition 10
+  var sel = IUniversal.expeditions.exp10
+  var selIn = IUniversalIn.expeditions.exp10
+
+  selIn.name = "Lesser Wind Hegemon"
+  selIn.maxLevel = f(6)
+
+  selIn.damage = f(selIn.affinity)
+  selIn.life = f(selIn.affinity)
+
+  if (!IFight.youStats.onFight3) {
+    sel.leftLife = f(selIn.life)
+  }
+
+  selIn.affinities.affinity1.value = f(1)
+  selIn.affinities.affinity2.value = f(1)
+  selIn.affinities.affinity3.value = f(1)
+  selIn.affinities.affinity4.value = f(f(10).pow(f(4)).mul(f(f(5).pow(f(sel.level)))))
+
+  var aff1 = f(selIn.affinities.affinity1.value)
+  var aff2 = f(selIn.affinities.affinity2.value)
+  var aff3 = f(selIn.affinities.affinity3.value)
+  var aff4 = f(selIn.affinities.affinity4.value)
+
+  selIn.affinity = f(aff1).mul(aff2).mul(aff3).mul(aff4)
+
+  selIn.effects.effect1.type = "hegemony"
+  selIn.effects.effect1.content = `<div class="boldBlackBorder">Hegemony</div>
+                                   <div>Opponent's affinities are set to 1 if they are less than ${format(f(selIn.effects.effect1.effect))}</div>`
+
+  selIn.effects.effect1.effect = f(10).mul(f(sel.level).add(f(1)))
+
+  selIn.rewards.timerPrice = f(2100)
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
+    var sel = ["treasure16"];
+
+    for (let x in sel) {
+      setExpectedReward(selT, sel[x])
+    }
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure16.level = f(selT.expectedRewards.treasure16.level).add(f(1));
+      return
+    }
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level))} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num))} fragments</div>
+      </div>`;
+      }
+    }
+
+    return `<div class="height20 width100 row overflowX flex zHigh">${string}</div>`;
+  }
+
+  if ((f(sel.level).gte(f(selIn.maxLevel)))) {
+    sel.active = true
+  } else {
+    sel.active = false
+  }
+
+  if (f(sel.rewards.timer).gte(f(selIn.rewards.timerPrice)) && false) {
+    var number = f(sel.rewards.timer).dividedBy(f(selIn.rewards.timerPrice)).floor();
+
+    selIn.rewards.effect(sel, selIn, sel.rewards, selIn.rewards, number)
+
+    sel.rewards.timer = f(0)
+  }
+
+  //spires
+
+  //spire 1
+
+  var sel = IUniversal.spires.spire1
+  var selIn = IUniversalIn.spires.spire1
+
+  selIn.content = `<div>Earth Spire</div>
+                 <div>Earth/s × completed Expeditions (×${format(f(selIn.effect))})</div>`
+
+
+  var value = 0;
+  for (let x in IUniversal.expeditions) {
+    var exp = IUniversal.expeditions[x]
+    var expIn = IUniversalIn.expeditions[x]
+
+    if (expIn.type == "golem") {
+      value = f(value).add(f(exp.level))
+    }
+  }
+
+  selIn.effect = f(1.5).pow(f(value))
+
+
+  //spire2
+
+  var sel = IUniversal.spires.spire2
+  var selIn = IUniversalIn.spires.spire2
+
+  selIn.content = `<div>Steel Spire</div>
+                 <div>Metal/s + completed Crusades (+${format(f(selIn.effect))})</div>`
+
+
+  var value = 0;
+  for (let x in IUniversal.expeditions) {
+    var exp = IUniversal.expeditions[x]
+    var expIn = IUniversalIn.expeditions[x]
+
+    if (expIn.type == "elemental") {
+      value = f(value).add(f(exp.level))
+    }
+  }
+
+  if (value == 0) {
+    selIn.effect = f(0)
+  } else {
+    selIn.effect = f(5).pow(f(value))
+  }
+
+  //visuals content
+
+  //formation
+
+  if (IUniversal.treasureFormation.item1.key) {
+    IUniversalIn.treasureFormation.content = IUniversalIn.treasures[IUniversal.treasureFormation.item1.key].content3
+  } else {
+    IUniversalIn.treasureFormation.content = IUniversalIn.treasures.treasure9.content3
+  }
+
+  //army treasure
+
+  for (let x in IUniversal.treasureArmy) {
+    var sel = IUniversal.treasureArmy[x]
+    var selIn = IUniversalIn.treasureArmy[x]
+
+    if (sel.key) {
+      selIn.content = IUniversalIn.treasures[sel.key].content3
+    } else {
+      selIn.content = ""
+    }
+  }
+
+
+  //treasure equipment
+
+  for (let x in IUniversal.treasureEquipment) {
+    var sel = IUniversal.treasureEquipment[x]
+    var selIn = IUniversalIn.treasureEquipment[x]
+
+    if (sel.key) {
+      selIn.content = IUniversalIn.treasures[sel.key].content3
+    } else {
+      selIn.content = ""
+    }
+  }
+
+  for (let x in IUniversal.treasureAugments) {
+    var sel = IUniversal.treasureAugments[x]
+    var selIn = IUniversalIn.treasureAugments[x]
+
+    if (sel.key) {
+      selIn.content = IUniversalIn.treasures[IUniversal.treasureAugments.item1.key].content3
+    } else {
+      selIn.content = ""
+    }
+  }
+}
+
+function getGolemArmyStats(stat, army) {
+  var value = 1
+
+  if (stat == "damage") {
+    for (let x in army) {
+      var sel = army[x]
+      if (f(sel.damage).gt(f(0))) {
+        value = f(value).mul(f(sel.damage))
+      }
+    }
+
+    return value
+  }
+
+  if (stat == "life") {
+    for (let x in army) {
+      var sel = army[x]
+      if (f(sel.life).gt(f(0))) {
+        value = f(value).mul(f(sel.life))
+      }
+    }
+
+    return value
+  }
+
 }
 
 function getMatchingPotionLevel(keyId, effType, type) {
@@ -12575,7 +18377,19 @@ function valuesSetterDinamic(type) {
     damage8 = f(1)
   }
 
-  IFight.youStats.damage = (f(damage1).mul(f(damage2)).mul(f(damage3)).mul(f(damage4).mul(f(damage6)).mul(f(damage7)).mul(f(damage8)))).pow(f(damage5))
+  if (f(IUniversalIn.armyInfo.default.damage).gte(f(1))) {
+    var damage9 = f(IUniversalIn.armyInfo.default.damage)
+  } else {
+    damage9 = f(1)
+  }
+
+  if (f(IUniversalIn.armyInfo.soul.damage).gte(f(1))) {
+    var damage10 = f(IUniversalIn.armyInfo.soul.damage)
+  } else {
+    damage10 = f(1)
+  }
+
+  IFight.youStats.damage = (f(damage1).mul(f(damage2)).mul(f(damage3)).mul(f(damage4).mul(f(damage6)).mul(f(damage7)).mul(f(damage8)).mul(f(damage9)).mul(f(damage10)))).pow(f(damage5))
 
   if (type == "universalChallengerChallenge2") {
     if (damage1 != null) {
@@ -12636,7 +18450,19 @@ function valuesSetterDinamic(type) {
     life9 = f(1)
   }
 
-  IFight.youStats.life = (f(life1)).mul(f(life4)).mul(f(life5).mul(f(life7)).mul(f(life8)).mul(f(life9))).pow(f(life6)).add(f(life2))
+  if (f(IUniversalIn.armyInfo.default.life).gte(f(1))) {
+    var life10 = f(IUniversalIn.armyInfo.default.life)
+  } else {
+    life10 = f(1)
+  }
+
+  if (f(IUniversalIn.armyInfo.soul.life).gte(f(1))) {
+    var life11 = f(IUniversalIn.armyInfo.soul.life)
+  } else {
+    life11 = f(1)
+  }
+
+  IFight.youStats.life = (f(life1)).mul(f(life4)).mul(f(life5).mul(f(life7)).mul(f(life8)).mul(f(life9)).mul(f(life10)).mul(f(life11))).pow(f(life6)).add(f(life2))
   if (type == "universalChallengerChallenge2") {
     IFight.youStats.life = f(life1)
   }
@@ -13367,6 +19193,133 @@ function valuesSetterDinamic(type) {
 
   IUniversal.potionSource.item6.value1 = f(IUniversal.potionSource.item6.value1).add(prod)
 
+
+  //EARTH
+
+  //earth prod
+  var earth1 = f(IUniversalIn.earthTree.node1.effect)
+  var earth2 = f(IUniversalIn.earthTree.node2.effect)
+  var earth3 = f(IUniversalIn.earthTree.node3.effect)
+  var earth4 = f(IUniversalIn.earthTree.node4.effect)
+  var earth5 = f(IUniversalIn.spires.spire1.effect)
+
+  IUniversal.earthProdBase = (f(earth1).mul(earth2).mul(earth3).mul(earth4).mul(earth5)).mul(f(IGameData.baseTickSpeed))
+  IUniversal.earthProd = (f(earth1).mul(earth2).mul(earth3).mul(earth4).mul(earth5)).mul(f(IGameData.tickSpeed))
+
+  if (!f(IUniversal.earth).lt(f(0))) {
+    IUniversal.earth = f(IUniversal.earth).add(f(IUniversal.earthProd))
+  } else {
+    IUniversal.earth = f(0)
+  }
+  //WIND
+
+  //exp1
+
+  if (IUniversal.expeditions.exp1.active) {
+    IUniversal.expeditions.exp1.rewards.timer = f(IUniversal.expeditions.exp1.rewards.timer).add(f(1).mul(f(IGameData.tickSpeed)))
+    if (f(IUniversal.expeditions.exp1.timer).lt(f(0))) {
+      IUniversal.expeditions.exp1.timer = f(0)
+    }
+  }
+
+  //exp2
+
+  if (IUniversal.expeditions.exp2.active) {
+    IUniversal.expeditions.exp2.rewards.timer = f(IUniversal.expeditions.exp2.rewards.timer).add(f(1).mul(f(IGameData.tickSpeed)))
+    if (f(IUniversal.expeditions.exp2.timer).lt(f(0))) {
+      IUniversal.expeditions.exp2.timer = f(0)
+    }
+  }
+
+  //exp3
+
+  if (IUniversal.expeditions.exp3.active) {
+    IUniversal.expeditions.exp3.rewards.timer = f(IUniversal.expeditions.exp3.rewards.timer).add(f(1).mul(f(IGameData.tickSpeed)))
+    if (f(IUniversal.expeditions.exp3.timer).lt(f(0))) {
+      IUniversal.expeditions.exp3.timer = f(0)
+    }
+  }
+
+  //exp4
+
+  if (IUniversal.expeditions.exp4.active) {
+    IUniversal.expeditions.exp4.rewards.timer = f(IUniversal.expeditions.exp4.rewards.timer).add(f(1).mul(f(IGameData.tickSpeed)))
+    if (f(IUniversal.expeditions.exp4.timer).lt(f(0))) {
+      IUniversal.expeditions.exp4.timer = f(0)
+    }
+  }
+
+  //exp5
+
+  if (IUniversal.expeditions.exp5.active) {
+    IUniversal.expeditions.exp5.rewards.timer = f(IUniversal.expeditions.exp5.rewards.timer).add(f(1).mul(f(IGameData.tickSpeed)))
+    if (f(IUniversal.expeditions.exp5.timer).lt(f(0))) {
+      IUniversal.expeditions.exp5.timer = f(0)
+    }
+  }
+
+  //exp6
+
+  if (IUniversal.expeditions.exp6.active) {
+    IUniversal.expeditions.exp6.rewards.timer = f(IUniversal.expeditions.exp6.rewards.timer).add(f(1).mul(f(IGameData.tickSpeed)))
+    if (f(IUniversal.expeditions.exp6.timer).lt(f(0))) {
+      IUniversal.expeditions.exp6.timer = f(0)
+    }
+  }
+
+  //exp7
+
+  if (IUniversal.expeditions.exp7.active) {
+    IUniversal.expeditions.exp7.rewards.timer = f(IUniversal.expeditions.exp7.rewards.timer).add(f(1).mul(f(IGameData.tickSpeed)))
+    if (f(IUniversal.expeditions.exp7.timer).lt(f(0))) {
+      IUniversal.expeditions.exp7.timer = f(0)
+    }
+  }
+
+  //exp8
+
+  if (IUniversal.expeditions.exp8.active) {
+    IUniversal.expeditions.exp8.rewards.timer = f(IUniversal.expeditions.exp8.rewards.timer).add(f(1).mul(f(IGameData.tickSpeed)))
+    if (f(IUniversal.expeditions.exp8.timer).lt(f(0))) {
+      IUniversal.expeditions.exp8.timer = f(0)
+    }
+  }
+
+  //exp9
+
+  if (IUniversal.expeditions.exp9.active) {
+    IUniversal.expeditions.exp9.rewards.timer = f(IUniversal.expeditions.exp9.rewards.timer).add(f(1).mul(f(IGameData.tickSpeed)))
+    if (f(IUniversal.expeditions.exp9.timer).lt(f(0))) {
+      IUniversal.expeditions.exp9.timer = f(0)
+    }
+  }
+
+  //exp10
+
+  if (IUniversal.expeditions.exp10.active) {
+    IUniversal.expeditions.exp10.rewards.timer = f(IUniversal.expeditions.exp10.rewards.timer).add(f(1).mul(f(IGameData.tickSpeed)))
+    if (f(IUniversal.expeditions.exp10.timer).lt(f(0))) {
+      IUniversal.expeditions.exp10.timer = f(0)
+    }
+  }
+
+  //METAL
+
+  //metal prod
+
+  var metal1 = f(IUniversalIn.spires.spire2.effect)
+
+
+  IUniversal.metalProdBase = f(metal1).mul(f(IGameData.baseTickSpeed))
+  IUniversal.metalProd = f(metal1).mul(f(IGameData.tickSpeed))
+
+  if (!f(IUniversal.metal).lt(f(0))) {
+    IUniversal.metal = f(IUniversal.metal).add(f(IUniversal.metalProd))
+  } else {
+    IUniversal.metal = f(0)
+  }
+
+
 }
 
 //VALUES SETTER FIXED
@@ -13469,6 +19422,16 @@ document.getElementById("fp2_content2_20").onclick = function () {
   changePage("mainMenu", "content2_20")
 }
 
+//note 8
+document.getElementById("fp2_content2_22").onclick = function () {
+  changePage("mainMenu", "content2_22")
+}
+
+//note 9
+document.getElementById("fp2_content2_24").onclick = function () {
+  changePage("mainMenu", "content2_24")
+}
+
 //Fire
 document.getElementById("fp2_content2_17").onclick = function () {
   changePage("mainMenu", "content2_17")
@@ -13487,6 +19450,36 @@ document.getElementById("fp2_content2_19").onclick = function () {
 
   element.scrollTop = element.scrollHeight / 20
   element.scrollLeft = element.scrollWidth / 3.2
+}
+
+//Earth
+document.getElementById("fp2_content2_21").onclick = function () {
+  changePage("mainMenu", "content2_21")
+
+  var element = document.getElementById("content2_21_scroll")
+
+  element.scrollTop = element.scrollHeight / 2
+  element.scrollLeft = element.scrollWidth / 4.8
+}
+
+//Wind
+document.getElementById("fp2_content2_23").onclick = function () {
+  changePage("mainMenu", "content2_23")
+
+  var element = document.getElementById("content2_23_scroll")
+
+  element.scrollTop = element.scrollHeight / 5
+  element.scrollLeft = element.scrollWidth / 3.2
+}
+
+//Metal
+document.getElementById("fp2_content2_25").onclick = function () {
+  changePage("mainMenu", "content2_25")
+
+  var element = document.getElementById("content2_25_scroll")
+
+  element.scrollTop = element.scrollHeight / 5
+  element.scrollLeft = element.scrollWidth / 5
 }
 
 
@@ -13886,7 +19879,7 @@ document.getElementById("c2_4_VS").onclick = async function () {
       const signal = IFight.youStats.fightController1.signal;
       // Aspetta che il combattimento finisca
       if (f(IFight.youStats.life).gt(f(0)) && f(IFight.youStats.damage).gt(f(0))) {
-        await fight("baseChallenger", IFight.challengers.baseChallenger, signal);
+        await fight("baseChallenger", IFight.challengers.baseChallenger, IFightIn.challengers.baseChallenger, signal);
       }
 
       // Resetta il controller solo se il combattimento è completato senza interruzione
@@ -13896,7 +19889,7 @@ document.getElementById("c2_4_VS").onclick = async function () {
 
     } catch (error) {
       console.error("Errore durante il combattimento:", error);
-      // Gestione errori in caso di problemi con la funzione `fight`
+      // Gestione errori in caso di problemi con la funzione
       IFight.youStats.fightController1 = null; // Assicurati che il controller venga resettato
     }
   }
@@ -13918,7 +19911,7 @@ document.getElementById("c2_10_VS").onclick = async function () {
     // Aspetta che il combattimento finisca
 
     if (f(IFight.youStats.life).gt(f(0)) && f(IFight.youStats.damage).gt(f(0))) {
-      await fight("universalChallenger", IUniversalChallenger.challengers.universalChallenger, signal);
+      await fight("universalChallenger", IUniversalChallenger.challengers.universalChallenger, IUniversalChallengerIn.challengers.universalChallenger, signal);
     }
 
     // Resetta il controller solo se il combattimento è completato senza interruzione
@@ -13955,7 +19948,7 @@ document.getElementById("c2_10_challenges_c1_p2").onclick = async function () {
     // Aspetta che il combattimento finisca
 
     if (f(IFight.youStats.life).gt(f(0)) && f(IFight.youStats.damage).gt(f(0))) {
-      await fight("universalChallengerChallenge1", IUniversalChallenger.challengers.universalChallenger, signal);
+      await fight("universalChallengerChallenge1", IUniversalChallenger.challengers.universalChallenger, IUniversalChallengerIn.challengers.universalChallenger, signal);
     }
 
     // Resetta il controller solo se il combattimento è completato senza interruzione
@@ -13971,7 +19964,6 @@ document.getElementById("c2_10_challenges_c1_p2").onclick = async function () {
 }
 
 document.getElementById("c2_10_challenges_c2_p2").onclick = async function () {
-
   try {
     // Se c'è già un combattimento, fermalo
     if (IFight.youStats.fightController2 && typeof IFight.youStats.fightController2.abort === "function") {
@@ -13993,7 +19985,7 @@ document.getElementById("c2_10_challenges_c2_p2").onclick = async function () {
     // Aspetta che il combattimento finisca
 
     if (f(IFight.youStats.life).gt(f(0)) && f(IFight.youStats.damage).gt(f(0))) {
-      await fight("universalChallengerChallenge2", IUniversalChallenger.challengers.universalChallenger, signal);
+      await fight("universalChallengerChallenge2", IUniversalChallenger.challengers.universalChallenger, IUniversalChallengerIn.challengers.universalChallenger, signal);
     }
 
     // Resetta il controller solo se il combattimento è completato senza interruzione
@@ -14005,6 +19997,82 @@ document.getElementById("c2_10_challenges_c2_p2").onclick = async function () {
     console.error("Errore durante il combattimento:", error);
     // Gestione errori in caso di problemi con la funzione `fight`
     IFight.youStats.fightController2 = null; // Assicurati che il controller venga resettato
+  }
+}
+
+document.getElementById("content2_23_expeditionPage_b1").onclick = async function () {
+  expeditionExecute()
+}
+
+document.getElementById("content2_23_crusadePage_b1").onclick = async function () {
+  crusadeExecute()
+}
+
+async function expeditionExecute() {
+  if (!(f(IUniversal.expeditions[IUniversal.armyInfo.enemy.selected].level).gte(IUniversalIn.expeditions[IUniversal.armyInfo.enemy.selected].maxLevel))) {
+
+    try {
+      // Se c'è già un combattimento, fermalo
+      if (IFight.youStats.fightController3 && typeof IFight.youStats.fightController3.abort === "function") {
+        IFight.youStats.fightController3.abort();
+        IFight.youStats.fightController3 = null;
+        return; // Esce se il combattimento è stato interrotto
+      }
+
+      // Inizia un nuovo combattimento
+      IFight.youStats.fightController3 = new AbortController();
+      const signal = IFight.youStats.fightController3.signal;
+
+      // Aspetta che il combattimento finisca
+
+      if (f(IFight.youStats.life).gt(f(0)) && f(IFight.youStats.damage).gt(f(0))) {
+        await fight("expedition", IUniversal.armyInfo.enemy, IUniversalIn.armyInfo.enemy, signal);
+      }
+
+      // Resetta il controller solo se il combattimento è completato senza interruzione
+      if (!signal.aborted) {
+        IFight.youStats.fightController3 = null;
+      }
+
+    } catch (error) {
+      console.error("Errore durante il combattimento:", error);
+      // Gestione errori in caso di problemi con la funzione `fight`
+      IFight.youStats.fightController3 = null; // Assicurati che il controller venga resettato
+    }
+  }
+}
+
+async function crusadeExecute() {
+  if (!(f(IUniversal.expeditions[IUniversal.armyInfo.elemental.selected].level).gte(IUniversalIn.expeditions[IUniversal.armyInfo.elemental.selected].maxLevel))) {
+    try {
+      // Se c'è già un combattimento, fermalo
+      if (IFight.youStats.fightController3 && typeof IFight.youStats.fightController3.abort === "function") {
+        IFight.youStats.fightController3.abort();
+        IFight.youStats.fightController3 = null;
+        return; // Esce se il combattimento è stato interrotto
+      }
+
+      // Inizia un nuovo combattimento
+      IFight.youStats.fightController3 = new AbortController();
+      const signal = IFight.youStats.fightController3.signal;
+
+      // Aspetta che il combattimento finisca
+
+
+      if (f(IFight.youStats.life).gt(f(0)) && f(IFight.youStats.damage).gt(f(0))) {
+        await fight("crusade", IUniversal.armyInfo.elemental, IUniversalIn.armyInfo.elemental, signal);
+      }
+
+      // Resetta il controller solo se il combattimento è completato senza interruzione
+      if (!signal.aborted) {
+        IFight.youStats.fightController3 = null;
+      }
+
+    } catch (error) {
+      console.error("Errore durante il combattimento:", error);
+      // Gestione errori in caso di problemi con la funzione `fight`
+      IFight.youStats.fightController3 = null; // Assicurati che il controller venga resettato
+    }
   }
 }
 
@@ -15125,6 +21193,11 @@ document.getElementById("content2_19_node38_button").onclick = function () {
     buyMultiple(IUniversalIn.waterTree.node38, IUniversalIn.waterTree.node38, IUniversal.waterTree.node38, "level", 1, "uni", IUniversal.buyWaterTree, IUniversal.waterTree.node38, IUniversalIn.waterTree.node38);
 }
 
+document.getElementById("content2_19_node39_button").onclick = function () {
+  if (f(IUniversal.waterTree.node39.level).lt(f(IUniversalIn.waterTree.node39.maxLevel)))
+    buyMultiple(IUniversalIn.waterTree.node39, IUniversalIn.waterTree.node39, IUniversal.waterTree.node39, "level", 1, "uni", IUniversal.buyWaterTree, IUniversal.waterTree.node39, IUniversalIn.waterTree.node39);
+}
+
 //POTIONS
 
 document.getElementById("content2_19_potions_potion1_button").onclick = function () {
@@ -15314,6 +21387,498 @@ document.getElementById("content2_19_resizeSmall").onclick = function () {
   }
 }
 
+//EARTH
+
+document.getElementById("content2_21_buy").onclick = function () {
+  if (f(IUniversal.buyEarthTree).lt(f(IUniversal.maxBuyEarthTree))) {
+    IUniversal.buyEarthTree = f(IUniversal.buyEarthTree).add(f(1))
+  } else {
+    IUniversal.buyEarthTree = f(0)
+  }
+}
+
+document.getElementById("content2_21_valutes_button").onclick = function () {
+  if (checkShow("content2_21_valutes_content")) {
+    unlockShow("content2_21_valutes_content", false)
+    update("content2_21_valutes_button", "<")
+  } else {
+    unlockShow("content2_21_valutes_content", true)
+    update("content2_21_valutes_button", ">")
+  }
+}
+
+//Earth Size
+
+document.getElementById("content2_21_resizeBig").onclick = function () {
+  if (f(IUniversal.earthTreeSize).lte(f(1.5))) {
+    IUniversal.earthTreeSize = f(IUniversal.earthTreeSize).add(f(0.1))
+  }
+}
+
+document.getElementById("content2_21_resizeSmall").onclick = function () {
+  if (f(IUniversal.earthTreeSize).gte(f(0.4))) {
+    IUniversal.earthTreeSize = f(IUniversal.earthTreeSize).minus(f(0.1))
+  }
+}
+
+//armyLoadout
+document.getElementById("content2_21_l_loadout1_b1").onclick = function () {
+  armyLoadout("load", "loadout1")
+}
+
+document.getElementById("content2_21_l_loadout1_b2").onclick = function () {
+  armyLoadout("save", "loadout1")
+}
+
+document.getElementById("content2_21_l_loadout2_b1").onclick = function () {
+  armyLoadout("load", "loadout2")
+}
+
+document.getElementById("content2_21_l_loadout2_b2").onclick = function () {
+  armyLoadout("save", "loadout2")
+}
+
+document.getElementById("content2_21_l_loadout3_b1").onclick = function () {
+  armyLoadout("load", "loadout3")
+}
+
+document.getElementById("content2_21_l_loadout3_b2").onclick = function () {
+  armyLoadout("save", "loadout3")
+}
+
+document.getElementById("content2_21_l_loadout4_b1").onclick = function () {
+  armyLoadout("load", "loadout4")
+}
+
+document.getElementById("content2_21_l_loadout4_b2").onclick = function () {
+  armyLoadout("save", "loadout4")
+}
+
+document.getElementById("content2_21_l_loadout5_b1").onclick = function () {
+  armyLoadout("load", "loadout5")
+}
+
+document.getElementById("content2_21_l_loadout5_b2").onclick = function () {
+  armyLoadout("save", "loadout5")
+}
+
+//buttons
+
+
+document.getElementById("content2_21_node1_button").onclick = function () {
+  if (f(IUniversal.earthTree.node1.level).lt(f(IUniversalIn.earthTree.node1.maxLevel)))
+    buyMultiple(IUniversalIn.earthTree.node1, IUniversalIn.earthTree.node1, IUniversal.earthTree.node1, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.earthTree.node1, IUniversalIn.earthTree.node1);
+}
+
+document.getElementById("content2_21_node2_button").onclick = function () {
+  if (f(IUniversal.earthTree.node2.level).lt(f(IUniversalIn.earthTree.node2.maxLevel)))
+    buyMultiple(IUniversalIn.earthTree.node2, IUniversalIn.earthTree.node2, IUniversal.earthTree.node2, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.earthTree.node2, IUniversalIn.earthTree.node2);
+}
+
+document.getElementById("content2_21_node3_button").onclick = function () {
+  if (f(IUniversal.earthTree.node3.level).lt(f(IUniversalIn.earthTree.node3.maxLevel)))
+    buyMultiple(IUniversalIn.earthTree.node3, IUniversalIn.earthTree.node3, IUniversal.earthTree.node3, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.earthTree.node3, IUniversalIn.earthTree.node3);
+}
+
+document.getElementById("content2_21_node4_button").onclick = function () {
+  if (f(IUniversal.earthTree.node4.level).lt(f(IUniversalIn.earthTree.node4.maxLevel)))
+    buyMultiple(IUniversalIn.earthTree.node4, IUniversalIn.earthTree.node4, IUniversal.earthTree.node4, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.earthTree.node4, IUniversalIn.earthTree.node4);
+}
+
+document.getElementById("content2_21_node5_button").onclick = function () {
+  if (f(IUniversal.earthTree.node5.level).lt(f(IUniversalIn.earthTree.node5.maxLevel)))
+    buyMultiple(IUniversalIn.earthTree.node5, IUniversalIn.earthTree.node5, IUniversal.earthTree.node5, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.earthTree.node5, IUniversalIn.earthTree.node5);
+}
+
+document.getElementById("content2_21_node6_button").onclick = function () {
+  if (f(IUniversal.earthTree.node6.level).lt(f(IUniversalIn.earthTree.node6.maxLevel)))
+    buyMultiple(IUniversalIn.earthTree.node6, IUniversalIn.earthTree.node6, IUniversal.earthTree.node6, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.earthTree.node6, IUniversalIn.earthTree.node6);
+}
+
+document.getElementById("content2_21_node7_button").onclick = function () {
+  if (f(IUniversal.earthTree.node7.level).lt(f(IUniversalIn.earthTree.node7.maxLevel)))
+    buyMultiple(IUniversalIn.earthTree.node7, IUniversalIn.earthTree.node7, IUniversal.earthTree.node7, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.earthTree.node7, IUniversalIn.earthTree.node7);
+}
+
+document.getElementById("content2_21_node8_button").onclick = function () {
+  if (f(IUniversal.earthTree.node8.level).lt(f(IUniversalIn.earthTree.node8.maxLevel)))
+    buyMultiple(IUniversalIn.earthTree.node8, IUniversalIn.earthTree.node8, IUniversal.earthTree.node8, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.earthTree.node8, IUniversalIn.earthTree.node8);
+}
+
+document.getElementById("content2_21_node9_button").onclick = function () {
+  if (f(IUniversal.earthTree.node9.level).lt(f(IUniversalIn.earthTree.node9.maxLevel)))
+    buyMultiple(IUniversalIn.earthTree.node9, IUniversalIn.earthTree.node9, IUniversal.earthTree.node9, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.earthTree.node9, IUniversalIn.earthTree.node9);
+}
+
+document.getElementById("content2_21_node10_button").onclick = function () {
+  if (f(IUniversal.earthTree.node10.level).lt(f(IUniversalIn.earthTree.node10.maxLevel)))
+    buyMultiple(IUniversalIn.earthTree.node10, IUniversalIn.earthTree.node10, IUniversal.earthTree.node10, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.earthTree.node10, IUniversalIn.earthTree.node10);
+}
+
+document.getElementById("content2_21_node11_button").onclick = function () {
+  if (f(IUniversal.earthTree.node11.level).lt(f(IUniversalIn.earthTree.node11.maxLevel)))
+    buyMultiple(IUniversalIn.earthTree.node11, IUniversalIn.earthTree.node11, IUniversal.earthTree.node11, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.earthTree.node11, IUniversalIn.earthTree.node11);
+}
+
+document.getElementById("content2_21_node12_button").onclick = function () {
+  if (f(IUniversal.earthTree.node12.level).lt(f(IUniversalIn.earthTree.node12.maxLevel)))
+    buyMultiple(IUniversalIn.earthTree.node12, IUniversalIn.earthTree.node12, IUniversal.earthTree.node12, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.earthTree.node12, IUniversalIn.earthTree.node12);
+}
+
+
+//name loadout
+
+document.getElementById("content2_21_l_loadout1").onmouseenter = function () {
+  armyLoadoutName("content2_21_l_loadout1", true, "loadout1");
+}
+
+document.getElementById("content2_21_l_loadout2").onmouseenter = function () {
+  armyLoadoutName("content2_21_l_loadout2", true, "loadout2");
+}
+
+document.getElementById("content2_21_l_loadout3").onmouseenter = function () {
+  armyLoadoutName("content2_21_l_loadout3", true, "loadout3");
+}
+
+document.getElementById("content2_21_l_loadout4").onmouseenter = function () {
+  armyLoadoutName("content2_21_l_loadout4", true, "loadout4");
+}
+
+document.getElementById("content2_21_l_loadout5").onmouseenter = function () {
+  armyLoadoutName("content2_21_l_loadout5", true, "loadout5");
+}
+
+
+
+document.getElementById("content2_21_l_loadout1").onmouseleave = function () {
+  armyLoadoutName("content2_21_l_loadout1", false, "loadout1");
+}
+
+document.getElementById("content2_21_l_loadout2").onmouseleave = function () {
+  armyLoadoutName("content2_21_l_loadout2", false, "loadout2");
+}
+
+document.getElementById("content2_21_l_loadout3").onmouseleave = function () {
+  armyLoadoutName("content2_21_l_loadout3", false, "loadout3");
+}
+
+document.getElementById("content2_21_l_loadout4").onmouseleave = function () {
+  armyLoadoutName("content2_21_l_loadout4", false, "loadout4");
+}
+
+document.getElementById("content2_21_l_loadout5").onmouseleave = function () {
+  armyLoadoutName("content2_21_l_loadout5", false, "loadout5");
+}
+
+function armyLoadoutName(id, enter, type) {
+  let sel = document.getElementById(id)
+  if (enter == true) {
+    sel.disabled = false;
+    IUniversal.armyLoadout[type].name = sel.value
+    enableDragScroll("content2_21_scroll", false)
+  }
+  if (enter == false) {
+    sel.disabled = true;
+    IUniversal.armyLoadout[type].name = sel.value
+    enableDragScroll("content2_21_scroll", true)
+
+  }
+}
+
+document.getElementById("content2_21_treasureShow").onclick = function () {
+  IUniversal.showTreasure = !IUniversal.showTreasure
+}
+
+document.getElementById("content2_23_treasureShow").onclick = function () {
+  IUniversal.showTreasure = !IUniversal.showTreasure
+}
+
+document.getElementById("content2_25_treasureShow").onclick = function () {
+  IUniversal.showTreasure = !IUniversal.showTreasure
+}
+
+//WIND
+
+document.getElementById("content2_23_buy").onclick = function () {
+  if (f(IUniversal.buyWindTree).lt(f(IUniversal.maxBuyWindTree))) {
+    IUniversal.buyWindTree = f(IUniversal.buyWindTree).add(f(1))
+  } else {
+    IUniversal.buyWindTree = f(0)
+  }
+}
+
+document.getElementById("content2_23_valutes_button").onclick = function () {
+  if (checkShow("content2_23_valutes_content")) {
+    unlockShow("content2_23_valutes_content", false)
+    update("content2_23_valutes_button", "<")
+  } else {
+    unlockShow("content2_23_valutes_content", true)
+    update("content2_23_valutes_button", ">")
+  }
+}
+
+//Wind Size
+
+document.getElementById("content2_23_resizeBig").onclick = function () {
+  if (f(IUniversal.windTreeSize).lte(f(1.5))) {
+    IUniversal.windTreeSize = f(IUniversal.windTreeSize).add(f(0.1))
+  }
+}
+
+document.getElementById("content2_23_resizeSmall").onclick = function () {
+  if (f(IUniversal.windTreeSize).gte(f(0.4))) {
+    IUniversal.windTreeSize = f(IUniversal.windTreeSize).minus(f(0.1))
+  }
+}
+
+//expeditionPage
+
+document.getElementById("content2_23_node1_button").onclick = function () {
+
+  IUniversal.armyInfo.enemy.selected = "exp1"
+  changePage("expedition", "content2_23_expeditionPage")
+}
+
+document.getElementById("content2_23_node2_button").onclick = function () {
+
+  IUniversal.armyInfo.enemy.selected = "exp2"
+  changePage("expedition", "content2_23_expeditionPage")
+}
+
+document.getElementById("content2_23_node3_button").onclick = function () {
+
+  IUniversal.armyInfo.elemental.selected = "exp3"
+  changePage("expedition", "content2_23_crusadePage")
+}
+
+document.getElementById("content2_23_node4_button").onclick = function () {
+
+  IUniversal.armyInfo.elemental.selected = "exp4"
+  changePage("expedition", "content2_23_crusadePage")
+}
+
+document.getElementById("content2_23_node5_button").onclick = function () {
+
+  IUniversal.armyInfo.elemental.selected = "exp5"
+  changePage("expedition", "content2_23_crusadePage")
+}
+
+document.getElementById("content2_23_node6_button").onclick = function () {
+
+  IUniversal.armyInfo.enemy.selected = "exp6"
+  changePage("expedition", "content2_23_expeditionPage")
+}
+
+document.getElementById("content2_23_node7_button").onclick = function () {
+
+  IUniversal.armyInfo.enemy.selected = "exp7"
+  changePage("expedition", "content2_23_expeditionPage")
+}
+
+document.getElementById("content2_23_node8_button").onclick = function () {
+
+  IUniversal.armyInfo.enemy.selected = "exp8"
+  changePage("expedition", "content2_23_expeditionPage")
+}
+
+document.getElementById("content2_23_node9_button").onclick = function () {
+
+  IUniversal.armyInfo.enemy.selected = "exp9"
+  changePage("expedition", "content2_23_expeditionPage")
+}
+
+document.getElementById("content2_23_node10_button").onclick = function () {
+
+  IUniversal.armyInfo.elemental.selected = "exp10"
+  changePage("expedition", "content2_23_crusadePage")
+}
+
+document.getElementById("content2_23_node1_button2").onclick = function () {
+  for (let x in IUniversal.expeditions.exp1.rewards.expectedRewards) {
+    var sel = IUniversal.expeditions.exp1.rewards.expectedRewards[x]
+
+    IUniversal.treasures[x].level = f(IUniversal.treasures[x].level).add(f(sel.level))
+    IUniversal.treasures[x].num = f(IUniversal.treasures[x].num).add(f(sel.num))
+    update("content2_23_treasureClaim_d1", IUniversalIn.expeditions.exp1.effectContent(IUniversal.expeditions.exp1.rewards, IUniversalIn.expeditions.exp1.rewards))
+    changePage("expedition", "content2_23_treasureClaim")
+  }
+  IUniversal.expeditions.exp1.rewards.expectedRewards = null
+
+}
+
+document.getElementById("content2_23_node2_button2").onclick = function () {
+  for (let x in IUniversal.expeditions.exp2.rewards.expectedRewards) {
+    var sel = IUniversal.expeditions.exp2.rewards.expectedRewards[x]
+
+    IUniversal.treasures[x].level = f(IUniversal.treasures[x].level).add(f(sel.level))
+    IUniversal.treasures[x].num = f(IUniversal.treasures[x].num).add(f(sel.num))
+    update("content2_23_treasureClaim_d1", IUniversalIn.expeditions.exp2.effectContent(IUniversal.expeditions.exp2.rewards, IUniversalIn.expeditions.exp2.rewards))
+    changePage("expedition", "content2_23_treasureClaim")
+  }
+  IUniversal.expeditions.exp2.rewards.expectedRewards = null
+
+}
+
+document.getElementById("content2_23_node3_button2").onclick = function () {
+  for (let x in IUniversal.expeditions.exp3.rewards.expectedRewards) {
+    var sel = IUniversal.expeditions.exp3.rewards.expectedRewards[x]
+
+    IUniversal.treasures[x].level = f(IUniversal.treasures[x].level).add(f(sel.level))
+    IUniversal.treasures[x].num = f(IUniversal.treasures[x].num).add(f(sel.num))
+    update("content2_23_treasureClaim_d1", IUniversalIn.expeditions.exp3.effectContent(IUniversal.expeditions.exp3.rewards, IUniversalIn.expeditions.exp3.rewards))
+    changePage("expedition", "content2_23_treasureClaim")
+  }
+  IUniversal.expeditions.exp3.rewards.expectedRewards = null
+
+}
+
+document.getElementById("content2_23_node4_button2").onclick = function () {
+  for (let x in IUniversal.expeditions.exp4.rewards.expectedRewards) {
+    var sel = IUniversal.expeditions.exp4.rewards.expectedRewards[x]
+
+    IUniversal.treasures[x].level = f(IUniversal.treasures[x].level).add(f(sel.level))
+    IUniversal.treasures[x].num = f(IUniversal.treasures[x].num).add(f(sel.num))
+    update("content2_23_treasureClaim_d1", IUniversalIn.expeditions.exp3.effectContent(IUniversal.expeditions.exp4.rewards, IUniversalIn.expeditions.exp4.rewards))
+    changePage("expedition", "content2_23_treasureClaim")
+  }
+  IUniversal.expeditions.exp4.rewards.expectedRewards = null
+
+}
+
+document.getElementById("content2_23_node5_button2").onclick = function () {
+  for (let x in IUniversal.expeditions.exp5.rewards.expectedRewards) {
+    var sel = IUniversal.expeditions.exp5.rewards.expectedRewards[x]
+
+    IUniversal.treasures[x].level = f(IUniversal.treasures[x].level).add(f(sel.level))
+    IUniversal.treasures[x].num = f(IUniversal.treasures[x].num).add(f(sel.num))
+    update("content2_23_treasureClaim_d1", IUniversalIn.expeditions.exp5.effectContent(IUniversal.expeditions.exp5.rewards, IUniversalIn.expeditions.exp5.rewards))
+    changePage("expedition", "content2_23_treasureClaim")
+  }
+  IUniversal.expeditions.exp5.rewards.expectedRewards = null
+
+}
+
+document.getElementById("content2_23_node6_button2").onclick = function () {
+  for (let x in IUniversal.expeditions.exp6.rewards.expectedRewards) {
+    var sel = IUniversal.expeditions.exp6.rewards.expectedRewards[x]
+
+    IUniversal.treasures[x].level = f(IUniversal.treasures[x].level).add(f(sel.level))
+    IUniversal.treasures[x].num = f(IUniversal.treasures[x].num).add(f(sel.num))
+    update("content2_23_treasureClaim_d1", IUniversalIn.expeditions.exp6.effectContent(IUniversal.expeditions.exp6.rewards, IUniversalIn.expeditions.exp6.rewards))
+    changePage("expedition", "content2_23_treasureClaim")
+  }
+  IUniversal.expeditions.exp6.rewards.expectedRewards = null
+
+}
+
+document.getElementById("content2_23_node7_button2").onclick = function () {
+  for (let x in IUniversal.expeditions.exp7.rewards.expectedRewards) {
+    var sel = IUniversal.expeditions.exp7.rewards.expectedRewards[x]
+
+    IUniversal.treasures[x].level = f(IUniversal.treasures[x].level).add(f(sel.level))
+    IUniversal.treasures[x].num = f(IUniversal.treasures[x].num).add(f(sel.num))
+    update("content2_23_treasureClaim_d1", IUniversalIn.expeditions.exp7.effectContent(IUniversal.expeditions.exp7.rewards, IUniversalIn.expeditions.exp7.rewards))
+    changePage("expedition", "content2_23_treasureClaim")
+  }
+  IUniversal.expeditions.exp7.rewards.expectedRewards = null
+
+}
+
+document.getElementById("content2_23_node8_button2").onclick = function () {
+  for (let x in IUniversal.expeditions.exp8.rewards.expectedRewards) {
+    var sel = IUniversal.expeditions.exp8.rewards.expectedRewards[x]
+
+    IUniversal.treasures[x].level = f(IUniversal.treasures[x].level).add(f(sel.level))
+    IUniversal.treasures[x].num = f(IUniversal.treasures[x].num).add(f(sel.num))
+    update("content2_23_treasureClaim_d1", IUniversalIn.expeditions.exp8.effectContent(IUniversal.expeditions.exp8.rewards, IUniversalIn.expeditions.exp8.rewards))
+    changePage("expedition", "content2_23_treasureClaim")
+  }
+  IUniversal.expeditions.exp8.rewards.expectedRewards = null
+
+}
+
+document.getElementById("content2_23_node9_button2").onclick = function () {
+  for (let x in IUniversal.expeditions.exp9.rewards.expectedRewards) {
+    var sel = IUniversal.expeditions.exp9.rewards.expectedRewards[x]
+
+    IUniversal.treasures[x].level = f(IUniversal.treasures[x].level).add(f(sel.level))
+    IUniversal.treasures[x].num = f(IUniversal.treasures[x].num).add(f(sel.num))
+    update("content2_23_treasureClaim_d1", IUniversalIn.expeditions.exp9.effectContent(IUniversal.expeditions.exp9.rewards, IUniversalIn.expeditions.exp9.rewards))
+    changePage("expedition", "content2_23_treasureClaim")
+  }
+  IUniversal.expeditions.exp9.rewards.expectedRewards = null
+
+}
+
+document.getElementById("content2_23_node10_button2").onclick = function () {
+  for (let x in IUniversal.expeditions.exp10.rewards.expectedRewards) {
+    var sel = IUniversal.expeditions.exp10.rewards.expectedRewards[x]
+
+    IUniversal.treasures[x].level = f(IUniversal.treasures[x].level).add(f(sel.level))
+    IUniversal.treasures[x].num = f(IUniversal.treasures[x].num).add(f(sel.num))
+    update("content2_23_treasureClaim_d1", IUniversalIn.expeditions.exp10.effectContent(IUniversal.expeditions.exp10.rewards, IUniversalIn.expeditions.exp10.rewards))
+    changePage("expedition", "content2_23_treasureClaim")
+  }
+  IUniversal.expeditions.exp10.rewards.expectedRewards = null
+
+}
+
+
+document.getElementById("content2_23_curtain").onclick = function () {
+  changePage("expedition", "out")
+}
+
+document.getElementById("content2_23_treasureClaim").onclick = function () {
+
+  changePage("expedition", "out")
+}
+
+//METAL
+
+document.getElementById("content2_25_buy").onclick = function () {
+  if (f(IUniversal.buyMetalTree).lt(f(IUniversal.maxBuyMetalTree))) {
+    IUniversal.buyMetalTree = f(IUniversal.buyMetalTree).add(f(1))
+  } else {
+    IUniversal.buyMetalTree = f(0)
+  }
+}
+
+document.getElementById("content2_25_valutes_button").onclick = function () {
+  if (checkShow("content2_25_valutes_content")) {
+    unlockShow("content2_25_valutes_content", false)
+    update("content2_25_valutes_button", "<")
+  } else {
+    unlockShow("content2_25_valutes_content", true)
+    update("content2_25_valutes_button", ">")
+  }
+}
+
+//Metal Size
+
+document.getElementById("content2_25_resizeBig").onclick = function () {
+  if (f(IUniversal.metalTreeSize).lte(f(1.5))) {
+    IUniversal.metalTreeSize = f(IUniversal.metalTreeSize).add(f(0.1))
+  }
+}
+
+document.getElementById("content2_25_resizeSmall").onclick = function () {
+  if (f(IUniversal.metalTreeSize).gte(f(0.4))) {
+    IUniversal.metalTreeSize = f(IUniversal.metalTreeSize).minus(f(0.1))
+  }
+}
+
+document.getElementById("content2_25_treasureUpgrade_upgradeButton").onclick = function () {
+  if (f(IUniversal.treasures[IUniversal.treasureUpgrade.item1.key].level).lt(f(IUniversalIn.treasures[IUniversal.treasureUpgrade.item1.key].maxLevel))) {
+    if (IUniversalIn.treasures[IUniversal.treasureUpgrade.item1.key].priceIdentity == "num") {
+      if (buyMultiple(IUniversalIn.treasures[IUniversal.treasureUpgrade.item1.key], IUniversalIn.treasures[IUniversal.treasureUpgrade.item1.key], IUniversal.treasures[IUniversal.treasureUpgrade.item1.key], "level", 1, "internalResource", 0, IUniversal.treasures[IUniversal.treasureUpgrade.item1.key], IUniversalIn.treasures[IUniversal.treasureUpgrade.item1.key])) {
+        IUniversal.treasures[IUniversal.treasureUpgrade.item1.key].fused = f(IUniversal.treasures[IUniversal.treasureUpgrade.item1.key].fused).add(f(1))
+      }
+    } else {
+      buyMultiple(IUniversalIn.treasures[IUniversal.treasureUpgrade.item1.key], IUniversalIn.treasures[IUniversal.treasureUpgrade.item1.key], IUniversal.treasures[IUniversal.treasureUpgrade.item1.key], "level", 1, "uni", 0, IUniversal.treasures[IUniversal.treasureUpgrade.item1.key], IUniversalIn.treasures[IUniversal.treasureUpgrade.item1.key]);
+
+    }
+  }
+}
 
 
 //FUNCTION: PAUSE FUNCTION
@@ -15983,6 +22548,16 @@ function visualMenu() {
     document.getElementById("fp2_content2_18_image").style.backgroundImage = `url("images/note 6 version 1.png")`
     document.getElementById("fp2_content2_20_image").style.backgroundImage = `url("images/note 2 sky.png")`
 
+    document.getElementById("fp2_content2_21_image").style.backgroundImage = `url("images/Earth Version1.png")`
+
+    document.getElementById("fp2_content2_22_image").style.backgroundImage = `url("images/note 4 sky.png")`
+
+    document.getElementById("fp2_content2_23_image").style.backgroundImage = `url("images/Wind Version1.png")`
+
+    document.getElementById("fp2_content2_24_image").style.backgroundImage = `url("images/note 3 sky.png")`
+
+    document.getElementById("fp2_content2_25_image").style.backgroundImage = `url("images/Metal Version1.png")`
+
 
   }
 }
@@ -16002,6 +22577,8 @@ function visualLore() {
   update("content2_16_text", IUniversalIn.lore.lore5)
   update("content2_18_text", IUniversalIn.lore.lore6)
   update("content2_20_text", IUniversalIn.lore.lore7)
+  update("content2_22_text", IUniversalIn.lore.lore8)
+  update("content2_24_text", IUniversalIn.lore.lore9)
 
 }
 
@@ -16115,6 +22692,70 @@ async function flashFight(type) {
     element.boxShadow = ""
 
     var element = document.getElementById("c2_10_B_container").style
+    element.borderRadius = "";
+    element.boxShadow = ""
+  }
+
+  //expedition
+
+  if (type == "expeditionW") {
+    var element = document.getElementById("content2_23_expeditionPage_d1").style
+    element.borderRadius = "1vw";
+    element.boxShadow = "0 0 3vw rgba(33, 227, 72, 0.4)"
+
+    var element = document.getElementById("content2_23_expeditionPage_d2").style
+    element.borderRadius = "1vw";
+    element.boxShadow = "0 0 3vw hsla(0, 82%, 46%, 0.4)"
+  }
+
+  if (type == "expeditionL") {
+    var element = document.getElementById("content2_23_expeditionPage_d1").style
+    element.borderRadius = "1vw";
+    element.boxShadow = "0 0 3vw hsla(0, 82%, 46%, 0.4)"
+
+    var element = document.getElementById("content2_23_expeditionPage_d2").style
+    element.borderRadius = "1vw";
+    element.boxShadow = "0 0 3vw rgba(33, 227, 72, 0.4)"
+  }
+
+  if (type == "expeditionR") {
+    var element = document.getElementById("content2_23_expeditionPage_d1").style
+    element.borderRadius = "";
+    element.boxShadow = ""
+
+    var element = document.getElementById("content2_23_expeditionPage_d2").style
+    element.borderRadius = "";
+    element.boxShadow = ""
+  }
+
+  //crusade
+
+  if (type == "crusadeW") {
+    var element = document.getElementById("content2_23_crusadePage_d1").style
+    element.borderRadius = "1vw";
+    element.boxShadow = "0 0 3vw rgba(33, 227, 72, 0.4)"
+
+    var element = document.getElementById("content2_23_crusadePage_d2").style
+    element.borderRadius = "1vw";
+    element.boxShadow = "0 0 3vw hsla(0, 82%, 46%, 0.4)"
+  }
+
+  if (type == "crusadeL") {
+    var element = document.getElementById("content2_23_crusadePage_d1").style
+    element.borderRadius = "1vw";
+    element.boxShadow = "0 0 3vw hsla(0, 82%, 46%, 0.4)"
+
+    var element = document.getElementById("content2_23_crusadePage_d2").style
+    element.borderRadius = "1vw";
+    element.boxShadow = "0 0 3vw rgba(33, 227, 72, 0.4)"
+  }
+
+  if (type == "crusadeR") {
+    var element = document.getElementById("content2_23_crusadePage_d1").style
+    element.borderRadius = "";
+    element.boxShadow = ""
+
+    var element = document.getElementById("content2_23_crusadePage_d2").style
     element.borderRadius = "";
     element.boxShadow = ""
   }
@@ -16805,37 +23446,23 @@ function visualWaterTree() {
   } else {
     IUniversalIn.potionFusionVisual3 = ""
   }
-
-  //potionUpgrade
-
-  var { newPotion, newPotionIn } = potionUpgrade();
-
-  if (newPotion && newPotionIn && f(newPotion.level).lte(f(newPotionIn.maxLevel))) {
-    IUniversalIn.potionUpgradeVisual1 = potionVisual(newPotion, newPotionIn);
-  } else {
-    if (IUniversalIn.inventoryStorage[IUniversal.potionUpgrade.item1.key]) {
-      IUniversalIn.potionUpgradeVisual1 = IUniversalIn.inventoryStorage[IUniversal.potionUpgrade.item1.key].content2
-    } else {
-      IUniversalIn.potionUpgradeVisual1 = ""
-    }
-  }
 }
 
 function visualInventoryWater() {
 
-  const gridContainer = document.getElementById("content2_19_grid1");
+  var gridContainer = document.getElementById("content2_19_grid1");
 
   addElement("void");
 
-  const styles = getComputedStyle(gridContainer);
+  var styles = getComputedStyle(gridContainer);
 
-  const numColumns = styles.gridTemplateColumns.trim().split(/\s+/).length;
-  const numRows = styles.gridTemplateRows.trim().split(/\s+/).length;
+  var numColumns = styles.gridTemplateColumns.trim().split(/\s+/).length;
+  var numRows = styles.gridTemplateRows.trim().split(/\s+/).length;
 
   for (let y = 1; y <= numRows; y++) {
     for (let x = 1; x <= numColumns; x++) {
 
-      const cellKey = `c${y}r${x}`
+      var cellKey = `c${y}r${x}`
       addObjectToSpace(y, x, cellKey, "potion_inventory")
 
     }
@@ -16861,10 +23488,103 @@ function visualInventoryWater() {
     addObjectToSpace(null, null, x, "potion_fusion")
   }
 
+  addElement("voidTreasure");
+
+  for (let x in IUniversal.treasures) {
+    var sel = IUniversal.treasures[x]
+
+    if (sel.active) {
+      addElement("treasure", x);
+    }
+  }
+
+  //21
+  var gridContainer = document.getElementById("content2_21_treasureGrid");
+
+  var styles = getComputedStyle(gridContainer);
+
+  var numColumns = styles.gridTemplateColumns.trim().split(/\s+/).length;
+  var numRows = styles.gridTemplateRows.trim().split(/\s+/).length;
+
+  for (let y = 1; y <= numRows; y++) {
+    for (let x = 1; x <= numColumns; x++) {
+
+      var cellKey = `c${y}r${x}`
+      addObjectToSpace(y, x, cellKey, "treasure_inventory")
+
+    }
+  }
+
+  //23
+  var gridContainer = document.getElementById("content2_23_treasureGrid");
+
+  var styles = getComputedStyle(gridContainer);
+
+  var numColumns = styles.gridTemplateColumns.trim().split(/\s+/).length;
+  var numRows = styles.gridTemplateRows.trim().split(/\s+/).length;
+
+  for (let y = 1; y <= numRows; y++) {
+    for (let x = 1; x <= numColumns; x++) {
+
+      var cellKey = `c${y}r${x}`
+      addObjectToSpace(y, x, cellKey, "treasure_inventory_wind")
+
+    }
+  }
+
+  //25
+  var gridContainer = document.getElementById("content2_25_treasureGrid");
+
+  var styles = getComputedStyle(gridContainer);
+
+  var numColumns = styles.gridTemplateColumns.trim().split(/\s+/).length;
+  var numRows = styles.gridTemplateRows.trim().split(/\s+/).length;
+
+  for (let y = 1; y <= numRows; y++) {
+    for (let x = 1; x <= numColumns; x++) {
+
+      var cellKey = `c${y}r${x}`
+      addObjectToSpace(y, x, cellKey, "treasure_inventory_metal")
+
+    }
+  }
+
+  for (let x in IUniversal.treasureFormation) {
+    addObjectToSpace(null, null, x, "treasure_formation")
+  }
+
+  for (let x in IUniversal.treasureArmy) {
+    addObjectToSpace(null, null, x, "treasure_army")
+  }
+
+  for (let x in IUniversal.treasureEquipment) {
+    addObjectToSpace(null, null, x, "treasure_equipment")
+  }
+
+  for (let x in IUniversal.treasureAugments) {
+    addObjectToSpace(null, null, x, "treasure_augment")
+  }
+
+  for (let x in IUniversal.treasureUpgrade) {
+    addObjectToSpace(null, null, x, "treasure_upgrade")
+  }
+
   if (IUniversal.selPotion != null && IUniversal.selPotion != undefined && IUniversal.selPotion != "" && IUniversalIn.inventoryStorage[IUniversal.selPotion]) {
     update("content2_19_potion_info", IUniversalIn.inventoryStorage[IUniversal.selPotion].content2)
   } else {
     update("content2_19_potion_info", "")
+  }
+
+  if (IUniversal.selTreasure != null && IUniversal.selTreasure != undefined && IUniversal.selTreasure != "" && IUniversalIn.treasures[IUniversal.selTreasure]) {
+    update("content2_21_treasure_info", IUniversalIn.treasures[IUniversal.selTreasure].content2)
+    update("content2_23_treasure_info", IUniversalIn.treasures[IUniversal.selTreasure].content2)
+    update("content2_25_treasure_info", IUniversalIn.treasures[IUniversal.selTreasure].content2)
+
+  } else {
+    update("content2_21_treasure_info", "")
+    update("content2_23_treasure_info", "")
+    update("content2_25_treasure_info", "")
+
   }
 
 }
@@ -16954,7 +23674,7 @@ function addObjectToSpace(row, col, key, space) {
 
     var stringKey = `'${key}'`
 
-    draggableSet(div, `IUniversal.inventory[${stringKey}]`, `IUniversal.inventory[${stringKey}]`, "inventory")
+    draggableSet(div, `IUniversal.inventory[${stringKey}]`, `IUniversal.inventory[${stringKey}]`, "inventory", "potion")
 
     gridContainer.appendChild(div);
   }
@@ -17004,7 +23724,7 @@ function addObjectToSpace(row, col, key, space) {
 
     var stringKey = `'${key}'`
 
-    draggableSet(div, `IUniversal.equipment[${stringKey}]`, `IUniversalIn.equipment[${stringKey}]`, "equipmentPotion")
+    draggableSet(div, `IUniversal.equipment[${stringKey}]`, `IUniversalIn.equipment[${stringKey}]`, "equipmentPotion", "potion")
 
     gridContainer.appendChild(div);
 
@@ -17051,7 +23771,7 @@ function addObjectToSpace(row, col, key, space) {
 
     var stringKey = `'${key}'`
 
-    draggableSet(div, `IUniversal.potionUpgrade[${stringKey}]`, `IUniversalIn.potionUpgrade[${stringKey}]`, "volatile")
+    draggableSet(div, `IUniversal.potionUpgrade[${stringKey}]`, `IUniversalIn.potionUpgrade[${stringKey}]`, "volatile", "potion")
 
     gridContainer.appendChild(div);
 
@@ -17096,7 +23816,7 @@ function addObjectToSpace(row, col, key, space) {
 
     var stringKey = `'${key}'`
 
-    draggableSet(div, `IUniversal.potionDelete[${stringKey}]`, `IUniversal.potionDelete[${stringKey}]`, "delete")
+    draggableSet(div, `IUniversal.potionDelete[${stringKey}]`, `IUniversal.potionDelete[${stringKey}]`, "delete", "potion")
 
     cont.appendChild(div);
   }
@@ -17150,7 +23870,7 @@ function addObjectToSpace(row, col, key, space) {
 
       var stringKey = `'${key}'`
 
-      draggableSet(div, `IUniversal.potionSource[${stringKey}]`, `IUniversalIn.potionSource[${stringKey}]`, "potionSource")
+      draggableSet(div, `IUniversal.potionSource[${stringKey}]`, `IUniversalIn.potionSource[${stringKey}]`, "potionSource", "potion")
 
       gridContainer.appendChild(div);
     }
@@ -17212,10 +23932,882 @@ function addObjectToSpace(row, col, key, space) {
 
     var stringKey = `'${key}'`
 
-    draggableSet(div, `IUniversal.potionFusion[${stringKey}]`, `IUniversalIn.potionFusion[${stringKey}]`, "potionFusion")
+    draggableSet(div, `IUniversal.potionFusion[${stringKey}]`, `IUniversalIn.potionFusion[${stringKey}]`, "potionFusion", "potion")
 
     gridContainer.appendChild(div);
 
+  }
+
+  if (space == "treasure_formation") {
+    const gridContainer = document.getElementById("content2_21_armyFormationSel");
+    const existing = document.getElementById(`content2_21_armyFormationSel_div`);
+
+    if (existing) {
+
+      if (IUniversal.treasureFormation[key].key != null || IUniversal.treasureFormation[key].key != undefined && IUniversalIn.treasures[IUniversal.treasureFormation[key].key]) {
+        var element = IUniversalIn.treasures[IUniversal.treasureFormation[key].key].content
+      } else {
+        element = null
+      }
+
+      existing.textContent = ""
+      update(`content2_21_armyFormationSel_div`, element)
+
+      if (IUniversal.treasureFormation[key].key == null) {
+        existing.setAttribute("draggable", "false");
+      } else {
+        existing.setAttribute("draggable", "true");
+      }
+      return;
+    }
+
+    const div = document.createElement('div');
+    div.id = `content2_21_armyFormationSel_div`;
+    div.className = "item";
+    div.classList.add("defaultStyle");
+    div.classList.add("roundedEdges");
+    div.classList.add("backgroundBlue2");
+    div.classList.add("width100");
+    div.classList.add("height100");
+    div.classList.add("backgroundImage");
+
+    div.style.backgroundImage = `url(${IUniversalIn.treasureImages[IUniversalIn.treasureFormation[key].type].image})`;
+
+
+    div.style.gridColumnStart = col;
+    div.style.gridRowStart = row;
+
+    // Wrap the text in a span and disable pointer events
+    const label = document.createElement('span');
+
+    label.textContent = ""
+    label.style.pointerEvents = 'none';  // 👈 Makes the text not interfere with drag/drop
+    div.appendChild(label);
+
+    var stringKey = `'${key}'`
+
+    draggableSet(div, `IUniversal.treasureFormation[${stringKey}]`, `IUniversalIn.treasureFormation[${stringKey}]`, "equipment", "treasure")
+
+    gridContainer.appendChild(div);
+  }
+
+  if (space == "treasure_army") {
+    const gridContainer = document.getElementById(`content2_21_armyTreasures_${key}`);
+    const existing = document.getElementById(`content2_21_armyTreasures_${key}_div`);
+
+    if (existing) {
+
+      if (IUniversal.treasureArmy[key].key != null || IUniversal.treasureArmy[key].key != undefined && IUniversalIn.treasures[IUniversal.treasureArmy[key].key]) {
+        var element = IUniversalIn.treasures[IUniversal.treasureArmy[key].key].content
+      } else {
+        element = null
+      }
+
+      existing.textContent = ""
+      update(`content2_21_armyTreasures_${key}_div`, element)
+
+      if (IUniversal.treasureArmy[key].key == null) {
+        existing.setAttribute("draggable", "false");
+      } else {
+        existing.setAttribute("draggable", "true");
+      }
+      return;
+    }
+
+    const div = document.createElement('div');
+    div.id = `content2_21_armyTreasures_${key}_div`;
+    div.className = "item";
+    div.classList.add("defaultStyle");
+    div.classList.add("roundedEdges");
+    div.classList.add("backgroundBlue2");
+    div.classList.add("width100");
+    div.classList.add("height100");
+    div.classList.add("backgroundImage");
+
+    div.style.backgroundImage = `url(${IUniversalIn.treasureImages[IUniversalIn.treasureArmy[key].type].image})`;
+
+    div.style.gridColumnStart = col;
+    div.style.gridRowStart = row;
+
+    // Wrap the text in a span and disable pointer events
+    const label = document.createElement('span');
+
+    label.textContent = ""
+    label.style.pointerEvents = 'none';  // 👈 Makes the text not interfere with drag/drop
+    div.appendChild(label);
+
+    var stringKey = `'${key}'`
+
+    draggableSet(div, `IUniversal.treasureArmy[${stringKey}]`, `IUniversalIn.treasureArmy[${stringKey}]`, "equipment", "treasure")
+
+    gridContainer.appendChild(div);
+  }
+
+  if (space == "treasure_equipment") {
+    const gridContainer = document.getElementById(`content2_25_treasureEquipment_${key}`);
+    const existing = document.getElementById(`content2_25_treasureEquipment_${key}_div`);
+
+    if (existing) {
+
+      if (IUniversal.treasureEquipment[key].key != null || IUniversal.treasureEquipment[key].key != undefined && IUniversalIn.treasures[IUniversal.treasureEquipment[key].key]) {
+        var element = IUniversalIn.treasures[IUniversal.treasureEquipment[key].key].content
+      } else {
+        element = null
+      }
+
+      existing.textContent = ""
+      update(`content2_25_treasureEquipment_${key}_div`, element)
+
+      if (IUniversal.treasureEquipment[key].key == null) {
+        existing.setAttribute("draggable", "false");
+      } else {
+        existing.setAttribute("draggable", "true");
+      }
+      return;
+    }
+
+    const div = document.createElement('div');
+    div.id = `content2_25_treasureEquipment_${key}_div`;
+    div.className = "item";
+    div.classList.add("defaultStyle");
+    div.classList.add("roundedEdges");
+    div.classList.add("backgroundBlue2");
+    div.classList.add("width100");
+    div.classList.add("height100");
+    div.classList.add("backgroundImage");
+
+    div.style.backgroundImage = `url(${IUniversalIn.treasureImages[IUniversalIn.treasureEquipment[key].type].image})`;
+
+    div.style.gridColumnStart = col;
+    div.style.gridRowStart = row;
+
+    // Wrap the text in a span and disable pointer events
+    const label = document.createElement('span');
+
+    label.textContent = ""
+    label.style.pointerEvents = 'none';  // 👈 Makes the text not interfere with drag/drop
+    div.appendChild(label);
+
+    var stringKey = `'${key}'`
+
+    draggableSet(div, `IUniversal.treasureEquipment[${stringKey}]`, `IUniversalIn.treasureEquipment[${stringKey}]`, "equipment", "treasure")
+
+    gridContainer.appendChild(div);
+  }
+
+  if (space == "treasure_augment") {
+    const gridContainer = document.getElementById(`content2_25_treasureAugment_${key}`);
+    const existing = document.getElementById(`content2_25_treasureAugment_${key}_div`);
+
+    if (existing) {
+
+      if (IUniversal.treasureAugments[key].key != null || IUniversal.treasureAugments[key].key != undefined && IUniversalIn.treasures[IUniversal.treasureAugments[key].key]) {
+        var element = IUniversalIn.treasures[IUniversal.treasureAugments[key].key].content
+
+      } else {
+        element = null
+      }
+
+      existing.textContent = ""
+      update(`content2_25_treasureAugment_${key}_div`, element)
+
+      if (IUniversal.treasureAugments[key].key == null) {
+        existing.setAttribute("draggable", "false");
+      } else {
+        existing.setAttribute("draggable", "true");
+      }
+      return;
+    }
+
+    const div = document.createElement('div');
+    div.id = `content2_25_treasureAugment_${key}_div`;
+    div.className = "item";
+    div.classList.add("defaultStyle");
+    div.classList.add("roundedEdges");
+    div.classList.add("backgroundBlue2");
+    div.classList.add("width100");
+    div.classList.add("height100");
+    div.classList.add("backgroundImage");
+
+    div.style.backgroundImage = `url(${IUniversalIn.treasureImages[IUniversalIn.treasureAugments[key].type].image})`;
+
+    div.style.gridColumnStart = col;
+    div.style.gridRowStart = row;
+
+    // Wrap the text in a span and disable pointer events
+    const label = document.createElement('span');
+
+    label.textContent = ""
+    label.style.pointerEvents = 'none';  // 👈 Makes the text not interfere with drag/drop
+    div.appendChild(label);
+
+    var stringKey = `'${key}'`
+
+    draggableSet(div, `IUniversal.treasureAugments[${stringKey}]`, `IUniversalIn.treasureAugments[${stringKey}]`, "equipment", "treasure")
+
+    gridContainer.appendChild(div);
+  }
+
+  if (space == "treasure_inventory") {
+    const gridContainer = document.getElementById("content2_21_treasureGrid");
+    const existing = document.getElementById(`content2_21_treasureGrid_${col}${row}`);
+
+    if (existing) {
+      if (IUniversal.treasureInventory[key].key != null || IUniversal.treasureInventory[key].key != undefined && IUniversalIn.treasures[IUniversal.treasureInventory[key].key]) {
+        if (IUniversalIn.treasures[IUniversal.treasureInventory[key].key].type && IUniversal.treasures[IUniversal.treasureInventory[key].key].active) {
+          var element = IUniversalIn.treasures[IUniversal.treasureInventory[key].key].content
+        } else {
+          element = null
+        }
+      } else {
+        element = null
+      }
+
+      existing.textContent = ""
+      update(`content2_21_treasureGrid_${col}${row}`, element)
+
+      if (IUniversal.treasureInventory[key].key == null) {
+        existing.setAttribute("draggable", "false");
+      } else {
+        existing.setAttribute("draggable", "true");
+      }
+      return;
+    }
+
+    const div = document.createElement('div');
+    div.id = `content2_21_treasureGrid_${col}${row}`;
+    div.className = "item";
+    div.classList.add("defaultStyle");
+    div.classList.add("roundedEdges");
+    div.classList.add("backgroundBlue2");
+    div.classList.add("width100");
+    div.classList.add("height100");
+
+
+    div.style.gridColumnStart = col;
+    div.style.gridRowStart = row;
+
+    // Wrap the text in a span and disable pointer events
+    const label = document.createElement('span');
+
+    label.textContent = ""
+    label.style.pointerEvents = 'none';  // 👈 Makes the text not interfere with drag/drop
+    div.appendChild(label);
+
+    var stringKey = `'${key}'`
+
+    draggableSet(div, `IUniversal.treasureInventory[${stringKey}]`, `IUniversal.treasureInventory[${stringKey}]`, "inventory", "treasure")
+
+    gridContainer.appendChild(div);
+  }
+
+  if (space == "treasure_inventory_wind") {
+    const gridContainer = document.getElementById("content2_23_treasureGrid");
+    const existing = document.getElementById(`content2_23_treasureGrid_${col}${row}`);
+
+    if (existing) {
+      if (IUniversal.treasureInventory[key].key != null || IUniversal.treasureInventory[key].key != undefined && IUniversalIn.treasures[IUniversal.treasureInventory[key].key]) {
+        if (IUniversalIn.treasures[IUniversal.treasureInventory[key].key].type && IUniversal.treasures[IUniversal.treasureInventory[key].key].active) {
+          var element = IUniversalIn.treasures[IUniversal.treasureInventory[key].key].content
+        } else {
+          element = null
+        }
+      } else {
+        element = null
+      }
+
+      existing.textContent = ""
+      update(`content2_23_treasureGrid_${col}${row}`, element)
+
+      if (IUniversal.treasureInventory[key].key == null) {
+        existing.setAttribute("draggable", "false");
+      } else {
+        existing.setAttribute("draggable", "true");
+      }
+      return;
+    }
+
+    const div = document.createElement('div');
+    div.id = `content2_23_treasureGrid_${col}${row}`;
+    div.className = "item";
+    div.classList.add("defaultStyle");
+    div.classList.add("roundedEdges");
+    div.classList.add("backgroundBlue2");
+    div.classList.add("width100");
+    div.classList.add("height100");
+
+
+    div.style.gridColumnStart = col;
+    div.style.gridRowStart = row;
+
+    // Wrap the text in a span and disable pointer events
+    const label = document.createElement('span');
+
+    label.textContent = ""
+    label.style.pointerEvents = 'none';  // 👈 Makes the text not interfere with drag/drop
+    div.appendChild(label);
+
+    var stringKey = `'${key}'`
+
+    draggableSet(div, `IUniversal.treasureInventory[${stringKey}]`, `IUniversal.treasureInventory[${stringKey}]`, "inventory", "treasure")
+
+    gridContainer.appendChild(div);
+  }
+
+  if (space == "treasure_inventory_metal") {
+    const gridContainer = document.getElementById("content2_25_treasureGrid");
+    const existing = document.getElementById(`content2_25_treasureGrid_${col}${row}`);
+
+    if (existing) {
+
+      if (IUniversal.treasureInventory[key].key != null || IUniversal.treasureInventory[key].key != undefined && IUniversalIn.treasures[IUniversal.treasureInventory[key].key]) {
+        if (IUniversalIn.treasures[IUniversal.treasureInventory[key].key].type && IUniversal.treasures[IUniversal.treasureInventory[key].key].active) {
+          var element = IUniversalIn.treasures[IUniversal.treasureInventory[key].key].content
+        } else {
+          element = null
+        }
+      } else {
+        element = null
+      }
+
+      existing.textContent = ""
+      update(`content2_25_treasureGrid_${col}${row}`, element)
+
+      if (IUniversal.treasureInventory[key].key == null) {
+        existing.setAttribute("draggable", "false");
+      } else {
+        existing.setAttribute("draggable", "true");
+      }
+      return;
+    }
+
+    const div = document.createElement('div');
+    div.id = `content2_25_treasureGrid_${col}${row}`;
+    div.className = "item";
+    div.classList.add("defaultStyle");
+    div.classList.add("roundedEdges");
+    div.classList.add("backgroundBlue2");
+    div.classList.add("width100");
+    div.classList.add("height100");
+
+
+    div.style.gridColumnStart = col;
+    div.style.gridRowStart = row;
+
+    // Wrap the text in a span and disable pointer events
+    const label = document.createElement('span');
+
+    label.textContent = ""
+    label.style.pointerEvents = 'none';  // 👈 Makes the text not interfere with drag/drop
+    div.appendChild(label);
+
+    var stringKey = `'${key}'`
+
+    draggableSet(div, `IUniversal.treasureInventory[${stringKey}]`, `IUniversal.treasureInventory[${stringKey}]`, "inventory", "treasure")
+
+    gridContainer.appendChild(div);
+  }
+
+  if (space == "treasure_upgrade") {
+    const gridContainer = document.getElementById(`content2_25_treasureUpgrade_${key}`);
+    const existing = document.getElementById(`content2_25_treasureUpgrade_${key}_div`);
+
+    if (existing) {
+      if (IUniversal.treasureUpgrade[key].key) {
+        var element = IUniversalIn.treasures[IUniversal.treasureUpgrade[key].key].content
+      } else {
+        element = ""
+      }
+
+      existing.textContent = ""
+      update(`content2_25_treasureUpgrade_${key}_div`, element)
+
+      if (IUniversal.treasureUpgrade[key].key == null) {
+        existing.setAttribute("draggable", "false");
+      } else {
+        existing.setAttribute("draggable", "true");
+      }
+      return;
+    }
+
+    const div = document.createElement('div');
+    div.id = `content2_25_treasureUpgrade_${key}_div`;
+    div.className = "item";
+    div.classList.add("defaultStyle");
+    div.classList.add("centerDiv");
+    div.classList.add("red");
+    div.classList.add("width100");
+    div.classList.add("height100");
+    div.classList.add("roundedEdges");
+
+
+    const label = document.createElement('span');
+
+    label.textContent = IUniversal.treasureUpgrade[key].key
+    label.style.pointerEvents = 'none';
+    div.appendChild(label);
+
+    var stringKey = `'${key}'`
+
+    draggableSet(div, `IUniversal.treasureUpgrade[${stringKey}]`, `IUniversalIn.treasureUpgrade[${stringKey}]`, "volatile", "treasure")
+
+    gridContainer.appendChild(div);
+
+
+  }
+}
+
+function visualEarthTree() {
+
+  //size
+  var sel = document.getElementById("content2_21_size")
+
+  sel.style.transform = `scale(${IUniversal.earthTreeSize})`
+
+
+  //valutes
+
+  if (f(IUniversal.earth).gt(f(0)) || checkShow("content2_21_valutes_valute1")) {
+    unlockShow("content2_21_valutes_valute1", true)
+    update("content2_21_valutes_valute1", `<div class="noClick"><div class="noClick">Earth</div><div class="boldBlackBorder noClick fontSize09">${format(IUniversal.earth, 0)}</div><div class="boldBlackBorder noClick">${format(sec(IUniversal.earthProd))}/s</div></div>`)
+  }
+
+  //armyloadout
+
+  for (let x in IUniversal.armyLoadout) {
+    var sel = document.getElementById("content2_21_l_" + x)
+    if (sel.disabled) {
+      sel.value = IUniversal.armyLoadout[x].name;
+    }
+
+    var sel2 = document.getElementById(`content2_21_l_${x}_b1`)
+    if (x != IUniversal.armyLoadoutSel) {
+      sel2.style.backgroundColor = ""
+    } else if (x == IUniversal.armyLoadoutSel) {
+      sel2.style.backgroundColor = "#004526"
+      sel2.style.filter = "saturate(2)";
+    }
+  }
+
+  //formation
+
+  //buttons
+
+  var buyMax = buyTrium(IUniversal.buyEarthTree)
+
+  update("content2_21_buy", `<div class="noClick">${buyMax}</div>`)
+
+  for (let x in IUniversal.earthTree) {
+    let sel = IUniversal.earthTree[x]
+    let sel2 = IUniversalIn.earthTree[x]
+
+    if (document.getElementById(`content2_21_${x}_content`) != null) {
+      update(`content2_21_${x}_content`, sel2.content);
+    }
+
+    if (document.getElementById(`content2_21_${x}_button`) != null) {
+      update(`content2_21_${x}_button`, sel2.button);
+      if (sel2.checkBuy()) {
+        document.getElementById(`content2_21_${x}_button`).style.backgroundColor = "#004526"
+
+      } else {
+        document.getElementById(`content2_21_${x}_button`).style.backgroundColor = "#660000"
+      }
+      if (sel2.maxLevel != Infinity || sel2.maxLevel != null) {
+
+        if (f(sel.level).gte(f(sel2.maxLevel))) {
+          document.getElementById(`content2_21_${x}_button`).style.backgroundColor = "#36454f"
+        }
+      }
+    }
+
+    if (document.getElementById(`content2_21_${x}_button2`) != null) {
+      update(`content2_21_${x}_button2`, sel2.button2);
+      if (sel.active) {
+        document.getElementById(`content2_21_${x}_button2`).style.backgroundColor = "#004526"
+
+      } else {
+        document.getElementById(`content2_21_${x}_button2`).style.backgroundColor = "#660000"
+      }
+    }
+  }
+}
+
+function visualMetalTree() {
+
+  //size
+  var sel = document.getElementById("content2_25_size")
+
+  sel.style.transform = `scale(${IUniversal.metalTreeSize})`
+
+
+  //valutes
+
+  if (f(IUniversal.metal).gt(f(0)) || checkShow("content2_25_valutes_valute1")) {
+    unlockShow("content2_25_valutes_valute1", true)
+    update("content2_25_valutes_valute1", `<div class="noClick"><div class="noClick">Metal</div><div class="boldBlackBorder noClick fontSize09">${format(IUniversal.metal, 0)}</div><div class="boldBlackBorder noClick">${format(sec(IUniversal.metalProd))}/s</div></div>`)
+  }
+
+  //treasure upgrade
+
+  if (IUniversalIn.treasures[IUniversal.treasureUpgrade.item1.key]) {
+    IUniversalIn.treasureUpgrade.content = IUniversalIn.treasures[IUniversal.treasureUpgrade.item1.key].content2
+  }
+
+  //buttons
+
+  var buyMax = buyTrium(IUniversal.buyMetalTree)
+
+  update("content2_25_buy", `<div class="noClick">${buyMax}</div>`)
+
+}
+
+function visualTreasures() {
+
+  updateClass("content2_treasure_upgrade", "TREASURES UPGRADES")
+
+  if (IUniversal.showTreasure) {
+    unlockShow("content2_21_treasureSel", true)
+    unlockShow("content2_23_treasureSel", true)
+    unlockShow("content2_25_treasureSel", true)
+
+    update("content2_21_treasureShow", "HIDE TREASURES")
+    update("content2_23_treasureShow", "HIDE TREASURES")
+    update("content2_25_treasureShow", "HIDE TREASURES")
+
+  } else {
+    unlockShow("content2_21_treasureSel", false)
+    unlockShow("content2_23_treasureSel", false)
+    unlockShow("content2_25_treasureSel", false)
+
+    update("content2_21_treasureShow", "SHOW TREASURES")
+    update("content2_23_treasureShow", "SHOW TREASURES")
+    update("content2_25_treasureShow", "SHOW TREASURES")
+
+  }
+}
+
+function visualWindTree() {
+
+  //size
+  var sel = document.getElementById("content2_23_size")
+
+  sel.style.transform = `scale(${IUniversal.windTreeSize})`
+
+
+  //valutes
+
+  if (f(IUniversal.wind).gt(f(0)) || checkShow("content2_23_valutes_valute1")) {
+    unlockShow("content2_23_valutes_valute1", true)
+    update("content2_23_valutes_valute1", `<div class="noClick"><div class="noClick">Wind</div><div class="boldBlackBorder noClick fontSize09">${format(IUniversal.wind, 0)}</div><div class="boldBlackBorder noClick">${format(sec(IUniversal.windProd))}/s</div></div>`)
+  }
+
+  //buttons
+
+  var buyMax = buyTrium(IUniversal.buyWindTree)
+
+  update("content2_23_buy", `<div class="noClick">${buyMax}</div>`)
+
+  for (let x in IUniversal.windTree) {
+    let sel = IUniversal.windTree[x]
+    let sel2 = IUniversalIn.windTree[x]
+
+    if (document.getElementById(`content2_23_${x}_content`) != null) {
+      update(`content2_23_${x}_content`, sel2.content);
+    }
+
+    if (document.getElementById(`content2_23_${x}_button`) != null) {
+      update(`content2_23_${x}_button`, sel2.button);
+      if (sel2.checkBuy()) {
+        document.getElementById(`content2_23_${x}_button`).style.backgroundColor = "#004526"
+
+      } else {
+        document.getElementById(`content2_23_${x}_button`).style.backgroundColor = "#660000"
+      }
+      if (sel2.maxLevel != Infinity || sel2.maxLevel != null) {
+
+        if (f(sel.level).gte(f(sel2.maxLevel))) {
+          document.getElementById(`content2_23_${x}_button`).style.backgroundColor = "#36454f"
+        }
+      }
+    }
+
+    if (document.getElementById(`content2_23_${x}_button2`) != null) {
+      update(`content2_23_${x}_button2`, sel2.button2);
+      if (sel.active) {
+        document.getElementById(`content2_23_${x}_button2`).style.backgroundColor = "#004526"
+
+      } else {
+        document.getElementById(`content2_23_${x}_button2`).style.backgroundColor = "#660000"
+      }
+    }
+  }
+
+  //expedition
+
+  if (IFight.youStats.onFight3) {
+    update("content2_23_expeditionPage_b1", `<span class="boldBlackBorder noClick">STOP</span>
+                       <span class="noClick fontSize08 margin1">Increase fight speed every 5s</span>
+                       <span class="noClick fontSize08 margin1">×${format(f(IFight.onFightStats.fightMulti3))} fight speed</span>`)
+    document.getElementById("content2_23_expeditionPage_b1").style.backgroundColor = "#972a2aff"
+  }
+  else {
+    if (IUniversal.armyInfo.enemy.selected == null || IUniversal.armyInfo.enemy.selected == undefined || IUniversal.armyInfo.enemy.selected == "") return
+
+    if (f(IUniversal.expeditions[IUniversal.armyInfo.enemy.selected].level).gte(f(IUniversalIn.expeditions[IUniversal.armyInfo.enemy.selected].maxLevel))) {
+      update("content2_23_expeditionPage_b1", `<span class="boldBlackBorder noClick">MAX</span>`)
+      document.getElementById("content2_23_expeditionPage_b1").style.backgroundColor = "#1e8449"
+    } else {
+      update("content2_23_expeditionPage_b1", `<span class="boldBlackBorder noClick">CHALLENGE</span>`)
+      document.getElementById("content2_23_expeditionPage_b1").style.backgroundColor = "#1e8449"
+    }
+  }
+
+  //crusade
+
+  if (IFight.youStats.onFight3) {
+    update("content2_23_crusadePage_b1", `<span class="boldBlackBorder noClick">STOP</span>
+                       <span class="noClick fontSize08 margin1">Increase fight speed every 5s</span>
+                       <span class="noClick fontSize08 margin1">×${format(f(IFight.onFightStats.fightMulti3))} fight speed</span>`)
+    document.getElementById("content2_23_crusadePage_b1").style.backgroundColor = "#972a2aff"
+  }
+  else {
+    if (IUniversal.armyInfo.elemental.selected == null || IUniversal.armyInfo.elemental.selected == undefined || IUniversal.armyInfo.elemental.selected == "") return
+
+    if (f(IUniversal.expeditions[IUniversal.armyInfo.elemental.selected].level).gte(f(IUniversalIn.expeditions[IUniversal.armyInfo.elemental.selected].maxLevel))) {
+      update("content2_23_crusadePage_b1", `<span class="boldBlackBorder noClick">MAX</span>`)
+      document.getElementById("content2_23_crusadePage_b1").style.backgroundColor = "#1e8449"
+    } else {
+      update("content2_23_crusadePage_b1", `<span class="boldBlackBorder noClick">CHALLENGE</span>`)
+      document.getElementById("content2_23_crusadePage_b1").style.backgroundColor = "#1e8449"
+    }
+  }
+
+
+}
+
+function visualArmy(army, armyIn) {
+
+  if (!army) return;
+
+  var element = `
+  <div class="column height100 width100 relative">
+    <div class="height50 width100 centerLeft absolute">
+    <div><span class="boldBlackBorder">${format(f(army.level))}</span> Golems</div>
+      <div class="row spaceEvenly">
+        <div><span class="boldBlackBorder">${format(f(armyIn.damage))}</span> Damage</div>
+        <div><span class="boldBlackBorder">${format(f(armyIn.life))}</span> Life</div>
+      </div>
+
+              <div><span class="boldBlackBorder">${format(f(army.leftLife))}</span> LeftLife</div>
+
+
+    </div>
+
+    <div class="height50 width100 top50 absolute backgroundBlue3"></div>
+  </div>`
+
+  return element;
+}
+
+function visualArmy2(army, armyIn) {
+
+  if (!army) return;
+
+  var effects = getArmyEffectsContent(army.effects, armyIn.effects)
+
+  var d1 = parseInt(f(army.golemTypes.type1.level)
+    .dividedBy(f(armyIn.number)).mul(10).toFixed());
+
+  var d2 = parseInt(f(army.golemTypes.type2.level)
+    .dividedBy(f(armyIn.number)).mul(10).toFixed());
+
+  var d3 = parseInt(f(army.golemTypes.type3.level)
+    .dividedBy(f(armyIn.number)).mul(10).toFixed());
+
+  var d4 = parseInt(f(army.golemTypes.type4.level)
+    .dividedBy(f(armyIn.number)).mul(10).toFixed());
+
+  var finalImage1 = buildImages("golemBase1.png", d1);
+  var finalImage2 = buildImages("golemBase2.png", d2);
+  var finalImage3 = buildImages("golemBase1.png", d3);
+  var finalImage4 = buildImages("golemBase1.png", d4);
+
+  var element = `
+  <div class="column height100 width100 relative">
+    <div class="height50 width100 centerLeft absolute">
+    <div><span class="boldBlackBorder fontSize1_5">${armyIn.name}</span></div>
+    <div><span class="boldBlackBorder">${format(f(armyIn.number))}</span> Golems</div>
+      <div class="row spaceEvenly">
+        <div><span class="boldBlackBorder">${format(f(armyIn.damage))}</span> Damage</div>
+        <div><span class="boldBlackBorder">${format(f(armyIn.life))}</span> Life</div>
+      </div>
+
+
+      <div id="c2_23_B_part1" class="height10 width100 defaultBarPart1 boldBlackBorderObject">
+        <div id="c2_23_B_part2" class="height100 width100 defaultBarPart2 boldBlackBorderObjectLateral">
+        </div>
+        <div id="c2_23_B_part3" class="height100 width100 defaultBarPart3">${format(f(IUniversal.armyInfo.enemy.leftLife))}</div>
+      </div>
+      <div><span>${effects}</span></div>
+    </div>
+
+    <div class="height50 width100 top50 absolute">
+      <div class="height25 width100 row centerDiv">${finalImage1}</div>
+      <div class="height25 width100 row centerDiv">${finalImage2}</div>
+      <div class="height25 width100 row centerDiv">${finalImage3}</div>
+      <div class="height25 width100 row centerDiv">${finalImage4}</div>
+    </div>  </div>`
+
+  return element;
+}
+
+function visualCrusade(crusade, crusadeIn) {
+
+  if (!crusade) return;
+
+  var element = `
+  <div class="column height100 width100 relative">
+    <div class="height50 width100 centerLeft absolute">
+    <div><span class="boldBlackBorder">${format(f(crusade.level))}</span> Golems</div>
+      <div class="row spaceEvenly">
+        <div><span class="boldBlackBorder">${format(f(crusadeIn.damage))}</span> Damage</div>
+        <div><span class="boldBlackBorder">${format(f(crusadeIn.life))}</span> Life</div>
+      </div>
+
+              <div><span class="boldBlackBorder">${format(f(crusade.leftLife))}</span> LeftLife</div>
+
+
+    </div>
+
+    <div class="height50 width100 top50 absolute backgroundBlue3"></div>
+  </div>`
+
+  return element;
+}
+
+function visualCrusade2(crusade, crusadeIn) {
+
+  if (!crusade) return;
+
+  var effects = getArmyEffectsContent(crusade.effects, crusadeIn.effects)
+
+  var element = `
+  <div class="column height100 width100 relative">
+    <div class="height100 width100 centerLeft absolute">
+    <div><span class="boldBlackBorder fontSize1_5">${crusadeIn.name}</span></div>
+
+    <div>
+      <div class="row spaceEvenly">
+        <div><span class="boldBlackBorder">${format(f(crusadeIn.damage))}</span> Damage</div>
+        <div><span class="boldBlackBorder">${format(f(crusadeIn.life))}</span> Life</div>
+      </div>
+
+      <div><span class="boldBlackBorder">${format(f(crusadeIn.affinity))}</span> Affinity</div>
+<div><span class="boldBlackBorder">${format(f(crusadeIn.affinities.affinity1.value))}</span> Fire Affinity</div>
+<div><span class="boldBlackBorder">${format(f(crusadeIn.affinities.affinity2.value))}</span> Water Affinity</div>
+<div><span class="boldBlackBorder">${format(f(crusadeIn.affinities.affinity3.value))}</span> Earth Affinity</div>
+<div><span class="boldBlackBorder">${format(f(crusadeIn.affinities.affinity4.value))}</span> Wind Affinity</div>
+    </div>
+      <div id="c2_23_D_part1" class="height5 width100 defaultBarPart1 boldBlackBorderObject">
+        <div id="c2_23_D_part2" class="height100 width100 defaultBarPart2 boldBlackBorderObjectLateral">
+        </div>
+        <div id="c2_23_D_part3" class="height100 width100 defaultBarPart3">${format(f(IUniversal.armyInfo.elemental.leftLife))}</div>
+      </div>
+    <div><span>${effects}</span></div>
+      </div>`
+
+  return element;
+}
+
+function getArmyEffectsContent(army, armyIn) {
+
+  var text = ""
+
+  for (let x in armyIn) {
+    var sel = armyIn[x]
+
+    text += sel.content
+  }
+
+  return text
+}
+
+function getArmyEffectType(type) {
+
+  var army = IUniversalIn.armyInfo.enemy.effects
+
+  for (let x in army) {
+    var sel = army[x]
+    if (sel.type == type) {
+      return true
+    }
+  }
+
+  var army = IUniversalIn.armyInfo.elemental.effects
+
+  for (let x in army) {
+    var sel = army[x]
+    if (sel.type == type) {
+      return true
+    }
+  }
+
+  return false
+}
+
+function getArmyEffectValue(type) {
+
+  var army = IUniversalIn.armyInfo.enemy.effects
+
+  for (let x in army) {
+    var sel = army[x]
+
+    if (sel.type == type) {
+      return sel.effect
+    }
+  }
+
+  var army = IUniversalIn.armyInfo.elemental.effects
+
+  for (let x in army) {
+    var sel = army[x]
+
+    if (sel.type == type) {
+      return sel.effect
+    }
+  }
+}
+
+function setArmyEffectValue(type, value) {
+
+  var army = IUniversalIn.armyInfo.enemy.effects
+
+  for (let x in army) {
+    var sel = army[x]
+
+    if (sel.type == type) {
+      sel.effect = f(sel.effect).add(f(value))
+    }
+  }
+}
+
+function getExpectedTreasures(type = "single", element) {
+  var num = 0;
+
+  if (type == "single") {
+
+    for (let x in element) {
+      var sel = element[x]
+
+      for (let y in sel) {
+        var sel2 = sel[y]
+
+        num = f(num).add(sel2)
+      }
+    }
+
+    return num
   }
 }
 
@@ -17597,7 +25189,7 @@ function setUniversalChallengerLevelAutomation(type) {
 
 }
 
-async function fight(type, enemy, signal) {
+async function fight(type, enemy, enemyIn = "", signal) {
   var tickSpeed = IGameData.tickSpeed;
 
   // Se il segnale è già stato abortito, interrompi subito
@@ -18109,9 +25701,214 @@ async function fight(type, enemy, signal) {
       IUniversalChallenger.universalChallengerChallenges.c2.active = false;
     }
   }
+
+  if (type == "expedition") {
+
+    IUniversalIn.armyInfo.default.life = IUniversalIn.armyInfo.default.life;
+    IUniversal.armyInfo.default.leftLife = IUniversal.armyInfo.default.leftLife;
+    IUniversalIn.armyInfo.default.damage = IUniversalIn.armyInfo.default.damage;
+
+    var fightMultiCont = 0
+    IFight.onFightStats.fightMulti3 = f(1)
+
+    var abortHandler1 = () => { }
+    // Ascoltatore per l'abort che ferma il combattimento immediatamente
+    if (type == "expedition") {
+      var abortHandler1 = () => {
+        IFight.youStats.onFight3 = false;
+      };
+    }
+
+    signal?.addEventListener("abort", abortHandler1);
+
+    if (signal?.aborted) {
+
+      IFight.youStats.onFight3 = false;
+      return;
+    }
+
+    IFight.youStats.onFight3 = true;
+    try {
+      while (IFight.youStats.onFight3) {
+        await sleep(delay);
+
+        // Controllo ad ogni iterazione se il segnale è stato abortito
+        if (signal?.aborted) {
+          break;
+        }
+
+        if (fightMultiCont >= (5000 / delay)) {
+          IFight.onFightStats.fightMulti3 = f(IFight.onFightStats.fightMulti3).mul(f(2))
+          fightMultiCont = 0
+        } else {
+          fightMultiCont = fightMultiCont + 1;
+        }
+
+        IUniversal.armyInfo.default.leftLife = IUniversal.armyInfo.default.leftLife;
+
+        var playerDamage = f(IUniversalIn.armyInfo.default.damage).mul(f(tickSpeed)).mul(f(delay).dividedBy(f(50))).mul(f(IFight.onFightStats.fightMulti3));
+        var enemyDamage = f(enemyIn.damage).mul(f(tickSpeed)).mul(f(delay).dividedBy(f(50))).mul(f(IFight.onFightStats.fightMulti3));
+
+        if (getArmyEffectType("burn1")) {
+          IUniversalIn.armyInfo.default.level = f(IUniversalIn.armyInfo.default.level).minus(f(getArmyEffectValue("burn1")));
+          if (f(IUniversalIn.armyInfo.default.level).lt(f(0))) {
+            IUniversalIn.armyInfo.default.level = f(0)
+          }
+        }
+
+        valuesSetter()
+
+        enemy.leftLife = f(enemy.leftLife).minus(f(playerDamage));
+
+        if (f(IUniversal.armyInfo.default.leftLife).gt(IUniversalIn.armyInfo.default.life)) {
+          IUniversal.armyInfo.default.leftLife = f(IUniversal.armyInfo.default.life)
+        }
+
+        IUniversal.armyInfo.default.leftLife = f(IUniversal.armyInfo.default.leftLife).minus(f(enemyDamage));
+
+        if (f(IUniversal.armyInfo.default.leftLife).lt(f(0)) && f(enemy.leftLife).lt(f(0))) {
+          if (f(IUniversal.armyInfo.default.leftLife).gte(f(enemy.leftLife))) {
+            rewardSet("expW", IUniversal.expeditions[enemy.selected], IUniversalIn.expeditions[enemy.selected])
+            flashFight("expeditionW")
+            await sleep(1000);
+            flashFight("expeditionR")
+            IFight.youStats.onFight3 = false;
+            return;
+
+          } else {
+            rewardSet("expL", IUniversal.expeditions[enemy.selected], IUniversalIn.expeditions[enemy.selected])
+            flashFight("expeditionL")
+            await sleep(1000);
+            flashFight("expeditionR")
+            IFight.youStats.onFight3 = false;
+            return;
+          }
+        }
+
+        if (f(enemy.leftLife).lessThan(f(0))) {
+          rewardSet("expW", IUniversal.expeditions[enemy.selected], IUniversalIn.expeditions[enemy.selected])
+          flashFight("expeditionW")
+          await sleep(1000);
+          flashFight("expeditionR")
+          IFight.youStats.onFight3 = false;
+
+          return;
+        }
+
+        if (f(IUniversal.armyInfo.default.leftLife).lessThan(f(0))) {
+          rewardSet("expL", IUniversal.expeditions[enemy.selected], IUniversalIn.expeditions[enemy.selected])
+          flashFight("expeditionL")
+          await sleep(1000);
+          flashFight("expeditionR")
+          IFight.youStats.onFight3 = false;
+          return;
+        }
+      }
+    } finally {
+      // Rimuovi il listener per evitare memory leak
+      signal?.removeEventListener("abort", abortHandler1);
+    }
+  }
+
+
+  if (type == "crusade") {
+
+    IUniversalIn.armyInfo.soul.life = IUniversalIn.armyInfo.soul.life;
+    IUniversal.armyInfo.soul.leftLife = IUniversal.armyInfo.soul.leftLife;
+    IUniversalIn.armyInfo.soul.damage = IUniversalIn.armyInfo.soul.damage;
+
+    var fightMultiCont = 0
+    IFight.onFightStats.fightMulti3 = f(1)
+
+    var abortHandler1 = () => { }
+    // Ascoltatore per l'abort che ferma il combattimento immediatamente
+    if (type == "crusade") {
+      var abortHandler1 = () => {
+        IFight.youStats.onFight3 = false;
+      };
+    }
+
+    signal?.addEventListener("abort", abortHandler1);
+
+    if (signal?.aborted) {
+
+      IFight.youStats.onFight3 = false;
+      return;
+    }
+
+    IFight.youStats.onFight3 = true;
+    try {
+      while (IFight.youStats.onFight3) {
+        await sleep(delay);
+
+        // Controllo ad ogni iterazione se il segnale è stato abortito
+        if (signal?.aborted) {
+          break;
+        }
+
+        if (fightMultiCont >= (5000 / delay)) {
+          IFight.onFightStats.fightMulti3 = f(IFight.onFightStats.fightMulti3).mul(f(2))
+          fightMultiCont = 0
+        } else {
+          fightMultiCont = fightMultiCont + 1;
+        }
+
+        IUniversal.armyInfo.elemental.leftLife = IUniversal.armyInfo.elemental.leftLife;
+
+        var playerDamage = f(IUniversalIn.armyInfo.soul.damage).mul(f(tickSpeed)).mul(f(delay).dividedBy(f(50))).mul(f(IFight.onFightStats.fightMulti3));
+        var enemyDamage = f(enemyIn.damage).mul(f(tickSpeed)).mul(f(delay).dividedBy(f(50))).mul(f(IFight.onFightStats.fightMulti3));
+
+
+        enemy.leftLife = f(enemy.leftLife).minus(f(playerDamage));
+
+        IUniversal.armyInfo.soul.leftLife = f(IUniversal.armyInfo.soul.leftLife).minus(f(enemyDamage));
+
+        if (f(IUniversal.armyInfo.soul.leftLife).lt(f(0)) && f(enemy.leftLife).lt(f(0))) {
+          if (f(IUniversal.armyInfo.soul.leftLife).gte(f(enemy.leftLife))) {
+            rewardSet("expW", IUniversal.expeditions[enemy.selected], IUniversalIn.expeditions[enemy.selected])
+            flashFight("crusadeW")
+            await sleep(1000);
+            flashFight("crusadeR")
+            IFight.youStats.onFight3 = false;
+            return;
+
+          } else {
+            rewardSet("expL", IUniversal.expeditions[enemy.selected], IUniversalIn.expeditions[enemy.selected])
+            flashFight("crusadeL")
+            await sleep(1000);
+            flashFight("crusadeR")
+            IFight.youStats.onFight3 = false;
+            return;
+          }
+        }
+
+        if (f(enemy.leftLife).lessThan(f(0))) {
+          rewardSet("expW", IUniversal.expeditions[enemy.selected], IUniversalIn.expeditions[enemy.selected])
+          flashFight("crusadeW")
+          await sleep(1000);
+          flashFight("crusadeR")
+          IFight.youStats.onFight3 = false;
+
+          return;
+        }
+
+        if (f(IUniversal.armyInfo.soul.leftLife).lessThan(f(0))) {
+          rewardSet("expL", IUniversal.expeditions[enemy.selected], IUniversalIn.expeditions[enemy.selected])
+          flashFight("crusadeL")
+          await sleep(1000);
+          flashFight("crusadeR")
+          IFight.youStats.onFight3 = false;
+          return;
+        }
+      }
+    } finally {
+      // Rimuovi il listener per evitare memory leak
+      signal?.removeEventListener("abort", abortHandler1);
+    }
+  }
 }
 
-function rewardSet(type) {
+function rewardSet(type, sel, selIn) {
   if (type == "base") {
     IFight.challengers.baseChallenger.level = f(IFight.challengers.baseChallenger.level).add(f(1));
     IFight.challengerRewards.reward1.level = f(IFight.challengerRewards.reward1.level).add(f(1));
@@ -18164,6 +25961,28 @@ function rewardSet(type) {
       IUniversalChallenger.universalChallengerChallenges.c2.maxLevel = f(IUniversalChallenger.universalChallengerChallenges.c2.level).minus(f(1))
       IUniversalChallenger.universalChallengerChallengesRewards.c2.level = f(IUniversalChallenger.universalChallengerChallenges.c2.maxLevel)
     }
+  }
+
+  if (type == "expW") {
+
+    selIn.rewards.effect(sel, selIn, sel.rewards, selIn.rewards, 1)
+    sel.level = f(sel.level).add(f(1));
+
+  }
+
+  if (type == "expL") {
+
+  }
+}
+
+function setExpectedReward(sel, reward) {
+  if (!sel.expectedRewards) {
+    sel.expectedRewards = {};
+  }
+
+
+  if (!sel.expectedRewards[reward]) {
+    sel.expectedRewards[reward] = { level: f(0), num: f(0) };
   }
 }
 
@@ -18343,13 +26162,13 @@ function unlockShowAll(visibility) {
 }
 
 function checkShow(show) {
-  let showableItem = IShowableClass.showable
+  let showableItem = IShowableClass.showable;
   for (let a in showableItem) {
-    if (a == show) {
-      var value = showableItem[a]
-      return value;
+    if (a === show) {
+      return showableItem[a];
     }
   }
+  return false;
 }
 
 function loopShow() {
@@ -18385,6 +26204,12 @@ function loopShow() {
 
     enableDragScroll("content2_17_scroll")
     enableDragScroll("content2_19_scroll")
+    enableDragScroll("content2_21_scroll")
+    enableDragScroll("content2_23_scroll")
+    enableDragScroll("content2_25_scroll")
+
+    //test
+
 
     unlockShow("fireValute", false);
 
@@ -18576,7 +26401,82 @@ function loopShow() {
     unlockShow("fp2_content2_19_container", true)
     unlockShow("fp2_content2_20_container", true)
     update("fp2_content2_19", "Reach Burnt Universe 50")
+  }
 
+
+  if (IUniversal.waterTree.node39.active) {
+    document.getElementById("fp2_content2_21_image").style.opacity = "1";  // attivo 1, disattivo 0.5
+    document.getElementById("fp2_content2_21").style.pointerEvents = "auto";
+
+    document.getElementById("fp2_content2_22_image").style.opacity = "1";  // attivo 1, disattivo 0.5
+    document.getElementById("fp2_content2_22").style.pointerEvents = "auto";
+    unlockShow("fp2_content2_21_container", true)
+    unlockShow("fp2_content2_22_container", true)
+    update("fp2_content2_21", "Earth")
+  } else {
+
+    if (IUniversalIn.fireMilestones.m6.mCheck()) {
+      document.getElementById("fp2_content2_21_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
+      document.getElementById("fp2_content2_21").style.pointerEvents = "none";
+
+      document.getElementById("fp2_content2_22_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
+      document.getElementById("fp2_content2_22").style.pointerEvents = "none";
+      unlockShow("fp2_content2_21_container", true)
+      unlockShow("fp2_content2_22_container", true)
+      update("fp2_content2_21", "Buy Life Inscriber in Water")
+    } else {
+      unlockShow("fp2_content2_21_container", false)
+      unlockShow("fp2_content2_22_container", false)
+    }
+  }
+
+
+
+  if (IUniversal.earthTree.node5.active) {
+    document.getElementById("fp2_content2_23_image").style.opacity = "1";  // attivo 1, disattivo 0.5
+    document.getElementById("fp2_content2_23").style.pointerEvents = "auto";
+
+    document.getElementById("fp2_content2_24_image").style.opacity = "1";  // attivo 1, disattivo 0.5
+    document.getElementById("fp2_content2_24").style.pointerEvents = "auto";
+    unlockShow("fp2_content2_23_container", true)
+    unlockShow("fp2_content2_24_container", true)
+    update("fp2_content2_23", "Wind")
+  } else {
+
+    document.getElementById("fp2_content2_23_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
+    document.getElementById("fp2_content2_23").style.pointerEvents = "none";
+
+    if (IUniversal.waterTree.node39.active) {
+      document.getElementById("fp2_content2_24_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
+      document.getElementById("fp2_content2_24").style.pointerEvents = "none";
+      unlockShow("fp2_content2_23_container", true)
+      unlockShow("fp2_content2_24_container", true)
+      update("fp2_content2_23", "Have at least 1 Golem")
+    } else {
+      unlockShow("fp2_content2_23_container", false)
+      unlockShow("fp2_content2_24_container", false)
+    }
+  }
+
+
+
+  if (f(IUniversal.expeditions.exp1.level).gte(f(IUniversalIn.expeditions.exp1.maxLevel))) {
+    document.getElementById("fp2_content2_25_image").style.opacity = "1";  // attivo 1, disattivo 0.5
+    document.getElementById("fp2_content2_25").style.pointerEvents = "auto";
+
+    unlockShow("fp2_content2_25_container", true)
+    update("fp2_content2_25", "Metal")
+  } else {
+
+    if (IUniversal.earthTree.node5.active) {
+      document.getElementById("fp2_content2_25_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
+      document.getElementById("fp2_content2_25").style.pointerEvents = "none";
+
+      unlockShow("fp2_content2_25_container", true)
+      update("fp2_content2_25", "Conquer Golem Patrol")
+    } else {
+      unlockShow("fp2_content2_25_container", false)
+    }
   }
 
   //PROGRESS BARS
@@ -19556,6 +27456,12 @@ function loopShow() {
     unlockShow("content2_19_node38", false)
   }
 
+  if (IUniversalIn.waterTree.node39.req() || IUniversal.waterTree.node39.unlocked) {
+    unlockShow("content2_19_node39", true)
+  } else {
+    unlockShow("content2_19_node39", false)
+  }
+
 
   //potionMenu
 
@@ -19686,34 +27592,233 @@ function loopShow() {
     unlockShow("content2_19_potionEquip_3", false)
 
   }
+
+  //army
+
+  if (IUniversal.earthTree.node5.active) {
+    unlockShow("content2_21_army2_army1", true)
+    unlockShow("content2_21_armyTreasures_1", true)
+    IUniversal.armyInfo.default.golemTypes.type1.active = true
+  } else {
+    IUniversal.armyInfo.default.golemTypes.type1.active = false
+  }
+
+  if (f(IUniversal.expeditions.exp6.level).gt(f(0))) {
+    unlockShow("content2_21_army2_army2", true)
+    unlockShow("content2_21_armyTreasures_2", true)
+    IUniversal.armyInfo.default.golemTypes.type2.active = true
+  } else {
+    IUniversal.armyInfo.default.golemTypes.type2.active = false
+  }
+
+  if (false) {
+    unlockShow("content2_21_army2_army3", true)
+    unlockShow("content2_21_armyTreasures_3", true)
+    IUniversal.armyInfo.default.golemTypes.type3.active = true
+  } else {
+    IUniversal.armyInfo.default.golemTypes.type3.active = false
+  }
+
+  if (false) {
+    unlockShow("content2_21_army2_army4", true)
+    unlockShow("content2_21_armyTreasures_4", true)
+    IUniversal.armyInfo.default.golemTypes.type4.active = true
+  } else {
+    IUniversal.armyInfo.default.golemTypes.type4.active = false
+  }
+
+  if (false) {
+    unlockShow("content2_21_army2_army5", true)
+    unlockShow("content2_21_armyTreasures_5", true)
+    IUniversal.armyInfo.default.golemTypes.type5.active = true
+  } else {
+    IUniversal.armyInfo.default.golemTypes.type5.active = false
+  }
+
+
+
+  if (IUniversalIn.earthTree.node1.req() || IUniversal.earthTree.node1.unlocked) {
+    unlockShow("content2_21_node1", true)
+  } else {
+    unlockShow("content2_21_node1", false)
+  }
+
+  if (IUniversalIn.earthTree.node2.req() || IUniversal.earthTree.node2.unlocked) {
+    unlockShow("content2_21_node2", true)
+  } else {
+    unlockShow("content2_21_node2", false)
+  }
+
+  if (IUniversalIn.earthTree.node3.req() || IUniversal.earthTree.node3.unlocked) {
+    unlockShow("content2_21_node3", true)
+  } else {
+    unlockShow("content2_21_node3", false)
+  }
+
+  if (IUniversalIn.earthTree.node4.req() || IUniversal.earthTree.node4.unlocked) {
+    unlockShow("content2_21_node4", true)
+  } else {
+    unlockShow("content2_21_node4", false)
+  }
+
+  if (IUniversalIn.earthTree.node5.req() || IUniversal.earthTree.node5.unlocked) {
+    unlockShow("content2_21_node5", true)
+  } else {
+    unlockShow("content2_21_node5", false)
+  }
+
+  if (IUniversalIn.earthTree.node6.req() || IUniversal.earthTree.node6.unlocked) {
+    unlockShow("content2_21_node6", true)
+  } else {
+    unlockShow("content2_21_node6", false)
+  }
+
+  if (IUniversalIn.earthTree.node7.req() || IUniversal.earthTree.node7.unlocked) {
+    unlockShow("content2_21_node7", true)
+  } else {
+    unlockShow("content2_21_node7", false)
+  }
+
+  if (IUniversalIn.earthTree.node8.req() || IUniversal.earthTree.node8.unlocked) {
+    unlockShow("content2_21_node8", true)
+  } else {
+    unlockShow("content2_21_node8", false)
+  }
+
+  if (IUniversalIn.earthTree.node9.req() || IUniversal.earthTree.node9.unlocked) {
+    unlockShow("content2_21_node9", true)
+  } else {
+    unlockShow("content2_21_node9", false)
+  }
+
+  if (IUniversalIn.earthTree.node10.req() || IUniversal.earthTree.node10.unlocked) {
+    unlockShow("content2_21_node10", true)
+  } else {
+    unlockShow("content2_21_node10", false)
+  }
+
+  if (IUniversalIn.earthTree.node11.req() || IUniversal.earthTree.node11.unlocked) {
+    unlockShow("content2_21_node11", true)
+  } else {
+    unlockShow("content2_21_node11", false)
+  }
+
+  if (IUniversalIn.earthTree.node12.req() || IUniversal.earthTree.node12.unlocked) {
+    unlockShow("content2_21_node12", true)
+  } else {
+    unlockShow("content2_21_node12", false)
+  }
+
+  //WIND
+
+  if (IUniversalIn.windTree.node1.req() || IUniversal.windTree.node1.unlocked) {
+    unlockShow("content2_23_node1", true)
+    unlockShow("content2_23_spire1", true)
+    unlockShow("content2_23_spire1Image", true)
+
+  } else {
+    unlockShow("content2_23_node1", false)
+    unlockShow("content2_23_spire1", false)
+    unlockShow("content2_23_spire1Image", false)
+
+  }
+
+  if (IUniversalIn.windTree.node2.req() || IUniversal.windTree.node2.unlocked) {
+    unlockShow("content2_23_node2", true)
+  } else {
+    unlockShow("content2_23_node2", false)
+  }
+
+  if (IUniversalIn.windTree.node3.req() || IUniversal.windTree.node3.unlocked) {
+    unlockShow("content2_23_node3", true)
+  } else {
+    unlockShow("content2_23_node3", false)
+  }
+
+  if (IUniversalIn.windTree.node4.req() || IUniversal.windTree.node4.unlocked) {
+    unlockShow("content2_23_node4", true)
+  } else {
+    unlockShow("content2_23_node4", false)
+  }
+
+  if (IUniversalIn.windTree.node5.req() || IUniversal.windTree.node5.unlocked) {
+    unlockShow("content2_23_node5", true)
+  } else {
+    unlockShow("content2_23_node5", false)
+  }
+
+  if (IUniversalIn.windTree.node6.req() || IUniversal.windTree.node6.unlocked) {
+    unlockShow("content2_23_node6", true)
+  } else {
+    unlockShow("content2_23_node6", false)
+  }
+
+  if (IUniversalIn.windTree.node7.req() || IUniversal.windTree.node7.unlocked) {
+    unlockShow("content2_23_node7", true)
+    unlockShow("content2_23_spire2", true)
+    unlockShow("content2_23_spire2Image", true)
+  } else {
+    unlockShow("content2_23_node7", false)
+    unlockShow("content2_23_spire2", false)
+    unlockShow("content2_23_spire2Image", false)
+  }
+
+  if (IUniversalIn.windTree.node8.req() || IUniversal.windTree.node8.unlocked) {
+    unlockShow("content2_23_node8", true)
+  } else {
+    unlockShow("content2_23_node8", false)
+  }
+
+  if (IUniversalIn.windTree.node9.req() || IUniversal.windTree.node9.unlocked) {
+    unlockShow("content2_23_node9", true)
+  } else {
+    unlockShow("content2_23_node9", false)
+  }
+
+  if (IUniversalIn.windTree.node10.req() || IUniversal.windTree.node10.unlocked) {
+    unlockShow("content2_23_node10", true)
+  } else {
+    unlockShow("content2_23_node10", false)
+  }
+
+  //METAL
+
+  unlockShow("content2_25_treasureUpgrade", true)
+
+  if (f(IUniversal.expeditions.exp7.level).gt(f(0))) {
+    unlockShow("content2_25_treasureEquipment", true)
+    unlockShow("content2_25_treasureAugment", true)
+  } else {
+    unlockShow("content2_25_treasureEquipment", false)
+    unlockShow("content2_25_treasureAugment", false)
+  }
 }
 
-const lineCache = new Map();
+var lineCache = new Map();
 
+// Crea la linea se non esiste
 function initLine(id, divAId, divBId, svg, color = "#ff1313ff", width = 6) {
-  if (lineCache.has(id)) return; // già creata
-
-  const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+  if (lineCache.has(id)) return;
+  var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
   line.setAttribute("stroke", color);
   line.setAttribute("stroke-width", width);
   line.setAttribute("pointer-events", "none");
   svg.appendChild(line);
-
   lineCache.set(id, { line, divAId, divBId });
 }
 
+// Aggiorna la posizione della linea
 function updateLine(id, rects) {
-  const entry = lineCache.get(id);
+  var entry = lineCache.get(id);
   if (!entry) return;
-
-  const rectA = rects[entry.divAId];
-  const rectB = rects[entry.divBId];
+  var rectA = rects[entry.divAId];
+  var rectB = rects[entry.divBId];
   if (!rectA || !rectB) return;
 
-  const x1 = rectA.left + rectA.width / 2;
-  const y1 = rectA.top + rectA.height / 2;
-  const x2 = rectB.left + rectB.width / 2;
-  const y2 = rectB.top + rectB.height / 2;
+  var x1 = rectA.left + rectA.width / 2;
+  var y1 = rectA.top + rectA.height / 2;
+  var x2 = rectB.left + rectB.width / 2;
+  var y2 = rectB.top + rectB.height / 2;
 
   entry.line.setAttribute("x1", x1);
   entry.line.setAttribute("y1", y1);
@@ -19721,23 +27826,33 @@ function updateLine(id, rects) {
   entry.line.setAttribute("y2", y2);
 }
 
-// Cache della visibilità dei nodi
-const fireNodeVisibilityCache = {};
-const firePreviousRects = {}; // memorizza l'ultima posizione dei nodi
+// Cache per visibilità e posizioni
+var nodeVisibilityCache = {};
+var previousRects = {};
 
-function isFireNodeVisible(id) {
-  if (fireNodeVisibilityCache[id] !== undefined) return fireNodeVisibilityCache[id];
-  const visible = checkShow(id);
-  fireNodeVisibilityCache[id] = visible;
+// Controlla visibilità
+function isNodeVisible(id) {
+  if (nodeVisibilityCache[id] !== undefined) {
+    var visible = checkShow(id);
+
+    if (nodeVisibilityCache[id] == visible) {
+      return nodeVisibilityCache[id];
+    }
+  }
+
+  var visible = checkShow(id);
+  nodeVisibilityCache[id] = visible;
   return visible;
 }
 
-function resetFireNodeVisibility(id) {
-  fireNodeVisibilityCache[id] = undefined;
+// Resetta la cache della visibilità
+function resetNodeVisibility(id) {
+  nodeVisibilityCache[id] = undefined;
 }
 
-function fireLines() {
-  const svg = document.getElementById("content2_17_lineLayer");
+// Funzione generica per disegnare linee
+function drawLines(svgId, nodePrefix, connections, defaultColor) {
+  const svg = document.getElementById(svgId);
   if (!svg) return;
 
   const parent = svg.parentElement;
@@ -19756,11 +27871,13 @@ function fireLines() {
     }
   }
 
-  const allNodes = document.querySelectorAll("[id^='content2_17_node']");
+  // Otteniamo tutti i nodi
+  const allNodes = document.querySelectorAll(`[id^="${nodePrefix}"]`);
+
   const rects = {};
 
   allNodes.forEach(el => {
-    if (isFireNodeVisible(el.id)) {
+    if (isNodeVisible(el.id)) {
       const r = el.getBoundingClientRect();
       const rect = {
         top: (r.top - parentRect.top + scrollTop) / scaleY,
@@ -19768,13 +27885,11 @@ function fireLines() {
         width: r.width / scaleX,
         height: r.height / scaleY
       };
-
-      const prev = firePreviousRects[el.id];
+      const prev = previousRects[el.id];
       if (!prev || prev.top !== rect.top || prev.left !== rect.left ||
         prev.width !== rect.width || prev.height !== rect.height) {
-        firePreviousRects[el.id] = rect;
+        previousRects[el.id] = rect;
       }
-
       rects[el.id] = rect;
     } else {
       rects[el.id] = null;
@@ -19785,7 +27900,17 @@ function fireLines() {
   svg.setAttribute("width", parent.scrollWidth);
   svg.setAttribute("height", parent.scrollHeight);
 
-  const connections = [
+  connections.forEach(([id, a, b, color]) => {
+    if (rects[a] && rects[b]) {
+      initLine(id, a, b, svg, color || defaultColor);
+      updateLine(id, rects);
+    }
+  });
+}
+
+// Funzioni specifiche per ogni elemento
+function fireLines() {
+  var connections = [
     ["fireLine1", "content2_17_node1", "content2_17_node2"],
     ["fireLine2", "content2_17_node2", "content2_17_node3"],
     ["fireLine3", "content2_17_node3", "content2_17_node4"],
@@ -19851,80 +27976,12 @@ function fireLines() {
     ["fireLine63", "content2_17_node35", "content2_17_node64"]
   ];
 
-  connections.forEach(([id, a, b, color]) => {
-    if (rects[a] && rects[b]) {
-      initLine(id, a, b, svg, color || "#ff1313ff");
-      updateLine(id, rects, parentRect, scrollLeft, scrollTop);
-    }
-  });
+  drawLines("content2_17_lineLayer", "content2_17_node", connections, "#ff1313ff");
 }
 
-// Cache della visibilità dei nodi
-const nodeVisibilityCache = {};
-const previousRects = {}; // memorizza l'ultima posizione dei nodi
-
-function isNodeVisible(id) {
-  if (nodeVisibilityCache[id] !== undefined) return nodeVisibilityCache[id];
-  const visible = checkShow(id);
-  nodeVisibilityCache[id] = visible;
-  return visible;
-}
-
-// Resetta la cache quando cambi visibilità di un nodo
-function resetNodeVisibility(id) {
-  nodeVisibilityCache[id] = undefined;
-}
-
+// Analogamente per acqua, terra, vento
 function waterLines() {
-  const svg = document.getElementById("content2_19_lineLayer");
-  if (!svg) return;
-
-  const parent = svg.parentElement;
-  const parentRect = parent.getBoundingClientRect();
-  const scrollLeft = parent.scrollLeft || 0;
-  const scrollTop = parent.scrollTop || 0;
-
-  const style = window.getComputedStyle(parent);
-  let scaleX = 1, scaleY = 1;
-  if (style.transform && style.transform !== 'none') {
-    const match = style.transform.match(/matrix\(([^)]+)\)/);
-    if (match) {
-      const [m11, , , m22] = match[1].split(',').map(Number);
-      scaleX = m11;
-      scaleY = m22;
-    }
-  }
-
-  // Otteniamo tutti i nodi
-  const allNodes = document.querySelectorAll("[id^='content2_19_node']");
-  const rects = {};
-
-  allNodes.forEach(el => {
-    if (isNodeVisible(el.id)) {
-      const r = el.getBoundingClientRect();
-      const rect = {
-        top: (r.top - parentRect.top + scrollTop) / scaleY,
-        left: (r.left - parentRect.left + scrollLeft) / scaleX,
-        width: r.width / scaleX,
-        height: r.height / scaleY
-      };
-
-      // Aggiorna solo se è cambiato
-      const prev = previousRects[el.id];
-      if (!prev || prev.top !== rect.top || prev.left !== rect.left ||
-        prev.width !== rect.width || prev.height !== rect.height) {
-        previousRects[el.id] = rect;
-      }
-
-      rects[el.id] = rect;
-    }
-  });
-
-  Object.assign(svg.style, { position: 'absolute', top: '0', left: '0' });
-  svg.setAttribute("width", parent.scrollWidth);
-  svg.setAttribute("height", parent.scrollHeight);
-
-  const connections = [
+  var connections = [
     ["waterLine1", "content2_19_node1", "content2_19_node2"],
     ["waterLine2", "content2_19_node2", "content2_19_node3"],
     ["waterLine3", "content2_19_node2", "content2_19_node5"],
@@ -19968,15 +28025,44 @@ function waterLines() {
     ["waterLine41", "content2_19_node24", "content2_19_node35"],
     ["waterLine42", "content2_19_node24", "content2_19_node36"],
     ["waterLine43", "content2_19_node28", "content2_19_node37"],
-    ["waterLine44", "content2_19_node28", "content2_19_node38"]
+    ["waterLine44", "content2_19_node28", "content2_19_node38"],
+    ["waterLine45", "content2_19_node38", "content2_19_node39"]
   ];
+  drawLines("content2_19_lineLayer", "content2_19_node", connections, "#1313ffff");
+}
 
-  connections.forEach(([id, a, b, color = "#1313ffff"]) => {
-    if (rects[a] && rects[b]) {
-      initLine(id, a, b, svg, color);
-      updateLine(id, rects, parentRect, scrollLeft, scrollTop);
-    }
-  });
+// Stessa logica per earthLines e windLines
+function earthLines() {
+  var connections = [
+    ["earthLine1", "content2_21_node1", "content2_21_node2"],
+    ["earthLine2", "content2_21_node1", "content2_21_node5"],
+    ["earthLine3", "content2_21_node2", "content2_21_node3"],
+    ["earthLine4", "content2_21_node2", "content2_21_node10"],
+    ["earthLine5", "content2_21_node3", "content2_21_node4"],
+    ["earthLine6", "content2_21_node5", "content2_21_node6"],
+    ["earthLine7", "content2_21_node5", "content2_21_node7"],
+    ["earthLine8", "content2_21_node6", "content2_21_node8"],
+    ["earthLine9", "content2_21_node9", "content2_21_node11"],
+    ["earthLine10", "content2_21_node10", "content2_21_node12"],
+    ["earthLine11", "content2_21_node10", "content2_21_node9"]
+  ];
+  drawLines("content2_21_lineLayer", "content2_21_node", connections, "#b94a00ff");
+}
+
+function windLines() {
+  var connections = [
+    ["windLine1", "content2_23_node1", "content2_23_node2"],
+    ["windLine2", "content2_23_node1", "content2_23_node6"],
+    ["windLine3", "content2_23_node2", "content2_23_node7"],
+    ["windLine4", "content2_23_node3", "content2_23_node4"],
+    ["windLine5", "content2_23_node4", "content2_23_node5"],
+    ["windLine6", "content2_23_node5", "content2_23_node10"],
+    ["windLine7", "content2_23_node6", "content2_23_node7"],
+    ["windLine8", "content2_23_node6", "content2_23_node8"],
+    ["windLine9", "content2_23_node7", "content2_23_node3"],
+    ["windLine10", "content2_23_node8", "content2_23_node9"]
+  ];
+  drawLines("content2_23_lineLayer", "content2_23_node", connections, "#07c4b4ff");
 }
 
 function changePage(type, page) {
@@ -19987,7 +28073,7 @@ function changePage(type, page) {
   if (type === "mainMenu") {
     // Nasconde tutto
     hideElements([
-      "content2_1", "content2_2", "fcontent2_3", "content2_4", "content2_5", "content2_6", "content2_7", "content2_8", "content2_10", "content2_11", "content2_12", "content2_13", "content2_14", "content2_15", "content2_16", "content2_17", "content2_18", "content2_19", "content2_20",
+      "content2_1", "content2_2", "fcontent2_3", "content2_4", "content2_5", "content2_6", "content2_7", "content2_8", "content2_10", "content2_11", "content2_12", "content2_13", "content2_14", "content2_15", "content2_16", "content2_17", "content2_18", "content2_19", "content2_20", "content2_21", "content2_22", "content2_23", "content2_24", "content2_25",
       "options", "achievements", "fp3_content1_7", "fp3_content1_8", "fp3_content1_12", "fp3_content1_13", "fp3_content1_14", "fp3_content1_15", "fp3_content1_16"
     ]);
 
@@ -20033,6 +28119,21 @@ function changePage(type, page) {
     ]);
 
     unlockShow(page, true)
+  }
+
+  if (type === "expedition") {
+    // Nasconde tutto
+    hideElements([
+      "content2_23_expeditionPage", "content2_23_treasureClaim", "content2_23_crusadePage"
+    ]);
+
+    if (page !== "out") {
+      unlockShow("content2_23_curtain", true);
+      unlockShow(page, true)
+
+    } else {
+      unlockShow("content2_23_curtain", false);
+    }
   }
 
   if (type === "page") {
@@ -20111,6 +28212,28 @@ async function visualLoopFunction() {
     visualWaterTree()
     waterLines()
     menuDirectionArrow("content2_19_scroll")
+  }
+
+  if (checkShow("content2_21")) {
+    visualEarthTree()
+    earthLines()
+    menuDirectionArrow("content2_21_scroll")
+  }
+
+  if (checkShow("content2_23")) {
+
+    visualWindTree()
+    windLines()
+    menuDirectionArrow("content2_23_scroll")
+  }
+
+  if (checkShow("content2_25")) {
+    visualMetalTree()
+    menuDirectionArrow("content2_25_scroll")
+  }
+
+  if (checkShow("content2_21") || checkShow("content2_23") || checkShow("content2_25")) {
+    visualTreasures()
   }
 
   update("content2_17_svg1", svgFire(f(IUniversal.fire)))
@@ -20431,7 +28554,7 @@ function buyMultiple(priceIdentity, price, objectToUpdate, propertyToUpdate, eff
 
   let affordableCount = 0;
   while (remainingPurchases > 0) {
-    if (!buy(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, type)) break;
+    if (!buy(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, type)) return false;
     affordableCount++;
     remainingPurchases--;
 
@@ -20442,6 +28565,8 @@ function buyMultiple(priceIdentity, price, objectToUpdate, propertyToUpdate, eff
   if (affordableCount > 0) {
     valuesSetter();
   }
+
+  return true
 }
 
 //AUTOMATION
@@ -20471,34 +28596,36 @@ function assignGroup(objIn, obj, element) {
 
 function progressBar(value, limit, id, type) {
 
-  if (type == "check") {
-    var confronter = f(value).div(f(limit))
-
-    if (confronter >= 1) {
-      return true
+  function waitForElement(callback) {
+    const el = document.getElementById(id);
+    if (el) {
+      callback(el);
     } else {
-      return false
-    }
-
-  } else {
-    if (f(value).lt(f(0))) {
-      var confronter = f(0)
-    } else {
-      confronter = f(value).div(f(limit))
-    }
-
-    var sel = document.getElementById(id);
-    if (confronter < 1) {
-      sel.style.width = confronter * 100 + "%"
-    }
-
-    if (confronter >= 1) {
-      sel.style.width = "100%"
-      return true
-    } else {
-      return false
+      setTimeout(() => waitForElement(callback), 50);
     }
   }
+
+  if (type === "check") {
+    const confronter = f(value).div(f(limit));
+    return confronter >= 1;
+  }
+
+  // --- QUI ASSERTA CHE L'ELEMENTO ESISTA ---
+  waitForElement(function (sel) {
+    let confronter;
+
+    if (f(value).lt(f(0))) {
+      confronter = f(0);
+    } else {
+      confronter = f(value).div(f(limit));
+    }
+
+    if (confronter < 1) {
+      sel.style.width = confronter * 100 + "%";
+    } else {
+      sel.style.width = "100%";
+    }
+  });
 
 }
 
@@ -20636,6 +28763,94 @@ function addElement(type, key) {
       }
     }
   }
+
+  if (type == "voidTreasure") {
+    const gridContainer = document.getElementById("content2_21_treasureGrid");
+    const styles = getComputedStyle(gridContainer);
+
+    const numColumns = styles.gridTemplateColumns.trim().split(/\s+/).length;
+    const numRows = styles.gridTemplateRows.trim().split(/\s+/).length;
+
+    const children = Array.from(gridContainer.children);
+
+    for (let y = 1; y <= numRows; y++) {
+      for (let x = 1; x <= numColumns; x++) {
+
+        // Controlla se la cella è occupata
+        var occupied = true;
+        const cellKey = `c${y}r${x}`
+
+        if (IUniversal.treasureInventory[cellKey] == null) {
+          occupied = false
+        }
+
+        if (!occupied) {
+          // Aggiunge all'inventario
+          const cellKey = `c${y}r${x}`;
+          IUniversal.treasureInventory[cellKey] = {
+            key: null,
+            pX: x,
+            pY: y,
+            amount: 1,
+            drag: "inventory",
+          };
+
+          return true;
+        }
+      }
+    }
+  }
+
+  if (type == "treasure") {
+
+    // Controlla se l'oggetto è già nell'inventario
+    for (let pos in IUniversal.treasureInventory) {
+      const item = IUniversal.treasureInventory[pos];
+
+      if (item.key === key) {
+        return false; // Oggetto già presente
+      }
+    }
+
+    const gridContainer = document.getElementById("content2_21_treasureGrid");
+    const styles = getComputedStyle(gridContainer);
+
+    const numColumns = styles.gridTemplateColumns.trim().split(/\s+/).length;
+    const numRows = styles.gridTemplateRows.trim().split(/\s+/).length;
+
+
+    const children = Array.from(gridContainer.children);
+
+    for (let y = 1; y <= numRows; y++) {
+      for (let x = 1; x <= numColumns; x++) {
+
+
+        // Controlla se la cella è occupata
+        var occupied = true;
+        const cellKey = `c${y}r${x}`
+
+        if (IUniversal.treasureInventory[cellKey].key != key && IUniversal.treasureInventory[cellKey].key == null) {
+          occupied = false
+        }
+
+
+        if (!occupied) {
+          // Aggiunge all'inventario
+          const cellKey = `c${y}r${x}`;
+          IUniversal.treasureInventory[cellKey] = {
+            key: key,
+            pX: x,
+            pY: y,
+            amount: 1,
+            drag: "inventory",
+          };
+
+          return true;
+        }
+      }
+    }
+  }
+
 
   return false;
 }
@@ -21246,328 +29461,529 @@ function clearInventory() {
   }
 }
 
-function draggableSet(item, key, keyIn, type) {
+function draggableSet(item, key, keyIn, type, archetype) {
 
-  item.classList.add("drag");
-  item.setAttribute("draggable", "true");
+  if (archetype == "potion") {
+    item.classList.add("drag");
+    item.setAttribute("draggable", "true");
 
-  item.addEventListener("dragstart", function (e) {
-    e.dataTransfer.setData("text/plain", key); // salva la chiave trascinata
-    e.dataTransfer.effectAllowed = "move";
-  });
+    item.addEventListener("dragstart", function (e) {
+      e.dataTransfer.setData("text/plain", key); // salva la chiave trascinata
+      e.dataTransfer.effectAllowed = "move";
+    });
 
-  item.addEventListener("dragover", function (e) {
-    e.preventDefault();
-  });
-
-  item.addEventListener("mouseenter", function (e) {
-    var selectedKey = eval(key).key;
-
-    if (!IUniversal.lockSelPotion) {
-      IUniversal.selPotion = selectedKey || null;
-      if (IUniversal.selPotion != null) {
-        unlockShow("content2_19_potion_info", true);
-      } else {
-        unlockShow("content2_19_potion_info", false);
-
-      }
-    }
-  });
-
-  item.addEventListener("mouseleave", function (e) {
-    var selectedKey = eval(key).key;
-
-    if (!IUniversal.lockSelPotion) {
-      IUniversal.selPotion = null;
-      unlockShow("content2_19_potion_info", false);
-    }
-  });
-
-  item.addEventListener("click", function (e) {
-    e.preventDefault();
-    var selectedKey = eval(key).key;
-
-    IUniversal.lockSelPotion = !IUniversal.lockSelPotion
-
-    IUniversal.selPotion = selectedKey || null;
-  });
-
-  if (type == "inventory") {
-    item.addEventListener("drop", function (e) {
+    item.addEventListener("dragover", function (e) {
       e.preventDefault();
+    });
 
-      var dragged = e.dataTransfer.getData("text/plain");
-      var target = key;
-      var targetIn = keyIn;
+    item.addEventListener("mouseenter", function (e) {
+      var selectedKey = eval(key).key;
 
-      var draggedKeyString = dragged + ".key"
-      var targetKeyString = target + ".key"
+      if (!IUniversal.lockSelPotion) {
+        IUniversal.selPotion = selectedKey || null;
+        if (IUniversal.selPotion != null) {
+          unlockShow("content2_19_potion_info", true);
 
-      var draggedDrag = eval(dragged + ".drag")
-      var targetDrag = eval(target + ".drag")
+        } else {
+          unlockShow("content2_19_potion_info", false);
 
-      var draggedKey = eval(dragged).key;
-      var targetKey = eval(target).key;
+        }
+      }
+    });
 
-      if (draggedDrag == "inventory") {
+    item.addEventListener("mouseleave", function (e) {
+      var selectedKey = eval(key).key;
+
+      if (!IUniversal.lockSelPotion) {
+        IUniversal.selPotion = null;
+        unlockShow("content2_19_potion_info", false);
+      }
+    });
+
+    item.addEventListener("click", function (e) {
+      e.preventDefault();
+      var selectedKey = eval(key).key;
+
+      IUniversal.lockSelPotion = !IUniversal.lockSelPotion
+
+      IUniversal.selPotion = selectedKey || null;
+    });
+
+    if (type == "inventory") {
+      item.addEventListener("drop", function (e) {
+        e.preventDefault();
+
+        var dragged = e.dataTransfer.getData("text/plain");
+        var target = key;
+        var targetIn = keyIn;
+
+        var draggedKeyString = dragged + ".key"
+        var targetKeyString = target + ".key"
+
+        var draggedDrag = eval(dragged + ".drag")
+        var targetDrag = eval(target + ".drag")
+
+        var draggedKey = eval(dragged).key;
+        var targetKey = eval(target).key;
+
+        if (draggedDrag == "inventory") {
 
 
-        if (!dragged || !target || dragged === target) return;
+          if (!dragged || !target || dragged === target) return;
 
-        if (draggedKey == null && targetKey == null) {
-          return;
+          if (draggedKey == null && targetKey == null) {
+            return;
+          }
+
+          if (draggedKey == null || draggedKey == undefined) {
+            eval(`${draggedKeyString} = '${targetKey}'`);
+            eval(`${targetKeyString} = null`);
+          } else if (targetKey == null || targetKey == undefined) {
+            eval(`${targetKeyString} = '${draggedKey}'`);
+            eval(`${draggedKeyString} = null`);
+          } else {
+            eval(`${draggedKeyString} = '${targetKey}'`);
+            eval(`${targetKeyString} = '${draggedKey}'`);
+          }
+
+          return
+        }
+
+        if (draggedDrag == "equipment") {
+
+          eval(`${draggedKeyString} = null`);
+
+          return
+        }
+
+      });
+    }
+
+    if (type == "equipmentPotion") {
+      item.addEventListener("drop", function (e) {
+        e.preventDefault();
+
+        var dragged = e.dataTransfer.getData("text/plain");
+        var target = key;
+        var targetIn = keyIn;
+
+        var draggedKeyString = dragged + ".key"
+        var targetKeyString = target + ".key"
+
+        var draggedDrag = eval(dragged + ".drag")
+        var targetDrag = eval(targetIn + ".drag")
+
+        var draggedKey = eval(dragged).key;
+        var targetKey = eval(target).key;
+
+        if (!(IUniversalIn.inventoryStorage[draggedKey].type == eval(targetIn).type)) {
+          return
+        }
+
+        if (draggedDrag == "equipment") {
+          return
+        }
+
+        waterTutorial(2)
+
+        if (draggedKey == null || draggedKey == undefined) {
+          eval(`${draggedKeyString} = '${draggedKey}'`);
+          eval(`${targetKeyString} = '${draggedKey}'`);
+        } else if (targetKey == null || targetKey == undefined) {
+          eval(`${targetKeyString} = '${draggedKey}'`);
+          eval(`${draggedKeyString} = '${draggedKey}'`);
+        } else {
+          eval(`${targetKeyString} = '${draggedKey}'`);
+          eval(`${draggedKeyString} = '${draggedKey}'`);
+
+        }
+
+      });
+
+      item.addEventListener("click", function (e) {
+        e.preventDefault();
+        var selectedKey = eval(key).key;
+
+        IUniversal.selPotion = selectedKey || null;
+      });
+    }
+
+    if (type == "potionSource") {
+      item.addEventListener("drop", function (e) {
+        e.preventDefault();
+
+        var dragged = e.dataTransfer.getData("text/plain");
+        var target = key;
+        var targetIn = keyIn;
+
+        var draggedKeyString = dragged + ".key"
+        var targetKeyString = target + ".key"
+
+        var draggedDrag = eval(dragged + ".drag")
+        var targetDrag = eval(targetIn + ".drag")
+
+        var draggedKey = eval(dragged).key;
+        var targetKey = eval(target).key;
+
+        if (!(IUniversalIn.inventoryStorage[draggedKey].type == eval(targetIn).type)) {
+          return
+        }
+
+        if (draggedDrag == "equipment") {
+          return
+        }
+
+        for (let x in IUniversal.potionSource) {
+          var sel = IUniversal.potionSource[x]
+          if (draggedKey == sel.key) {
+            return
+          }
         }
 
         if (draggedKey == null || draggedKey == undefined) {
-          eval(`${draggedKeyString} = '${targetKey}'`);
-          eval(`${targetKeyString} = null`);
+          eval(`${draggedKeyString} = '${draggedKey}'`);
+          eval(`${targetKeyString} = '${draggedKey}'`);
         } else if (targetKey == null || targetKey == undefined) {
           eval(`${targetKeyString} = '${draggedKey}'`);
-          eval(`${draggedKeyString} = null`);
+          eval(`${draggedKeyString} = '${draggedKey}'`);
         } else {
-          eval(`${draggedKeyString} = '${targetKey}'`);
           eval(`${targetKeyString} = '${draggedKey}'`);
+          eval(`${draggedKeyString} = '${draggedKey}'`);
+
         }
 
-        return
-      }
+      });
 
-      if (draggedDrag == "equipment") {
+      item.addEventListener("click", function (e) {
+        e.preventDefault();
+        var selectedKey = eval(key).key;
 
-        eval(`${draggedKeyString} = null`);
+        IUniversal.selPotion = selectedKey || null;
+      });
+    }
 
-        return
-      }
+    if (type == "volatile") {
+      item.addEventListener("drop", function (e) {
+        e.preventDefault();
 
-    });
-  }
+        var dragged = e.dataTransfer.getData("text/plain");
+        var target = key;
+        var targetIn = keyIn;
 
-  if (type == "equipmentPotion") {
-    item.addEventListener("drop", function (e) {
-      e.preventDefault();
+        var draggedKeyString = dragged + ".key"
+        var targetKeyString = target + ".key"
 
-      var dragged = e.dataTransfer.getData("text/plain");
-      var target = key;
-      var targetIn = keyIn;
+        var draggedDrag = eval(dragged + ".drag")
+        var targetDrag = eval(targetIn + ".drag")
 
-      var draggedKeyString = dragged + ".key"
-      var targetKeyString = target + ".key"
+        var draggedKey = eval(dragged).key;
+        var targetKey = eval(target).key;
 
-      var draggedDrag = eval(dragged + ".drag")
-      var targetDrag = eval(targetIn + ".drag")
-
-      var draggedKey = eval(dragged).key;
-      var targetKey = eval(target).key;
-
-      if (!(IUniversalIn.inventoryStorage[draggedKey].type == eval(targetIn).type)) {
-        return
-      }
-
-      if (draggedDrag == "equipment") {
-        return
-      }
-
-      waterTutorial(2)
-
-      if (draggedKey == null || draggedKey == undefined) {
-        eval(`${draggedKeyString} = '${draggedKey}'`);
-        eval(`${targetKeyString} = '${draggedKey}'`);
-      } else if (targetKey == null || targetKey == undefined) {
-        eval(`${targetKeyString} = '${draggedKey}'`);
-        eval(`${draggedKeyString} = '${draggedKey}'`);
-      } else {
-        eval(`${targetKeyString} = '${draggedKey}'`);
-        eval(`${draggedKeyString} = '${draggedKey}'`);
-
-      }
-
-    });
-
-    item.addEventListener("click", function (e) {
-      e.preventDefault();
-      var selectedKey = eval(key).key;
-
-      IUniversal.selPotion = selectedKey || null;
-    });
-  }
-
-  if (type == "potionSource") {
-    item.addEventListener("drop", function (e) {
-      e.preventDefault();
-
-      var dragged = e.dataTransfer.getData("text/plain");
-      var target = key;
-      var targetIn = keyIn;
-
-      var draggedKeyString = dragged + ".key"
-      var targetKeyString = target + ".key"
-
-      var draggedDrag = eval(dragged + ".drag")
-      var targetDrag = eval(targetIn + ".drag")
-
-      var draggedKey = eval(dragged).key;
-      var targetKey = eval(target).key;
-
-      if (!(IUniversalIn.inventoryStorage[draggedKey].type == eval(targetIn).type)) {
-        return
-      }
-
-      if (draggedDrag == "equipment") {
-        return
-      }
-
-      for (let x in IUniversal.potionSource) {
-        var sel = IUniversal.potionSource[x]
-        if (draggedKey == sel.key) {
-          return
-        }
-      }
-
-      if (draggedKey == null || draggedKey == undefined) {
-        eval(`${draggedKeyString} = '${draggedKey}'`);
-        eval(`${targetKeyString} = '${draggedKey}'`);
-      } else if (targetKey == null || targetKey == undefined) {
-        eval(`${targetKeyString} = '${draggedKey}'`);
-        eval(`${draggedKeyString} = '${draggedKey}'`);
-      } else {
-        eval(`${targetKeyString} = '${draggedKey}'`);
-        eval(`${draggedKeyString} = '${draggedKey}'`);
-
-      }
-
-    });
-
-    item.addEventListener("click", function (e) {
-      e.preventDefault();
-      var selectedKey = eval(key).key;
-
-      IUniversal.selPotion = selectedKey || null;
-    });
-  }
-
-  if (type == "volatile") {
-    item.addEventListener("drop", function (e) {
-      e.preventDefault();
-
-      var dragged = e.dataTransfer.getData("text/plain");
-      var target = key;
-      var targetIn = keyIn;
-
-      var draggedKeyString = dragged + ".key"
-      var targetKeyString = target + ".key"
-
-      var draggedDrag = eval(dragged + ".drag")
-      var targetDrag = eval(targetIn + ".drag")
-
-      var draggedKey = eval(dragged).key;
-      var targetKey = eval(target).key;
-
-      if (draggedDrag == "equipment") {
-        return
-      }
-
-      if (draggedKey == null || draggedKey == undefined) {
-        eval(`${draggedKeyString} = '${draggedKey}'`);
-        eval(`${targetKeyString} = '${draggedKey}'`);
-      } else if (targetKey == null || targetKey == undefined) {
-        eval(`${targetKeyString} = '${draggedKey}'`);
-        eval(`${draggedKeyString} = '${draggedKey}'`);
-      } else {
-        eval(`${targetKeyString} = '${draggedKey}'`);
-        eval(`${draggedKeyString} = '${draggedKey}'`);
-
-      }
-
-    });
-
-    item.addEventListener("click", function (e) {
-      e.preventDefault();
-      var selectedKey = eval(key).key;
-
-      IUniversal.selPotion = selectedKey || null;
-    });
-  }
-
-  if (type == "potionFusion") {
-    item.addEventListener("drop", function (e) {
-      e.preventDefault();
-
-      var dragged = e.dataTransfer.getData("text/plain");
-      var target = key;
-      var targetIn = keyIn;
-
-      var draggedKeyString = dragged + ".key"
-      var targetKeyString = target + ".key"
-
-      var draggedDrag = eval(dragged + ".drag")
-      var targetDrag = eval(targetIn + ".drag")
-
-      var draggedKey = eval(dragged).key;
-      var targetKey = eval(target).key;
-
-      if (draggedDrag == "equipment") {
-        return
-      }
-
-      if (target == "IUniversal.potionFusion['item1']") {
-        //if they are the same potion, return
-        if (IUniversal.potionFusion['item2'].key == draggedKey) {
+        if (draggedDrag == "equipment") {
           return
         }
 
-        //if they arent the same potion type, return
-        if (IUniversal.inventoryStorage[IUniversal.potionFusion['item2'].key]) {
-          if (IUniversalIn.inventoryStorage[draggedKey].type != IUniversalIn.inventoryStorage[IUniversal.potionFusion['item2'].key].type) {
+        if (draggedKey == null || draggedKey == undefined) {
+          eval(`${draggedKeyString} = '${draggedKey}'`);
+          eval(`${targetKeyString} = '${draggedKey}'`);
+        } else if (targetKey == null || targetKey == undefined) {
+          eval(`${targetKeyString} = '${draggedKey}'`);
+          eval(`${draggedKeyString} = '${draggedKey}'`);
+        } else {
+          eval(`${targetKeyString} = '${draggedKey}'`);
+          eval(`${draggedKeyString} = '${draggedKey}'`);
+
+        }
+
+      });
+
+      item.addEventListener("click", function (e) {
+        e.preventDefault();
+        var selectedKey = eval(key).key;
+
+        IUniversal.selPotion = selectedKey || null;
+      });
+    }
+
+    if (type == "potionFusion") {
+      item.addEventListener("drop", function (e) {
+        e.preventDefault();
+
+        var dragged = e.dataTransfer.getData("text/plain");
+        var target = key;
+        var targetIn = keyIn;
+
+        var draggedKeyString = dragged + ".key"
+        var targetKeyString = target + ".key"
+
+        var draggedDrag = eval(dragged + ".drag")
+        var targetDrag = eval(targetIn + ".drag")
+
+        var draggedKey = eval(dragged).key;
+        var targetKey = eval(target).key;
+
+        if (draggedDrag == "equipment") {
+          return
+        }
+
+        if (target == "IUniversal.potionFusion['item1']") {
+          //if they are the same potion, return
+          if (IUniversal.potionFusion['item2'].key == draggedKey) {
             return
           }
-        }
-      }
 
-      if (target == "IUniversal.potionFusion['item2']") {
-        if (IUniversal.potionFusion['item1'].key == draggedKey) {
-          return
-        }
-
-        if (IUniversal.inventoryStorage[IUniversal.potionFusion['item1'].key]) {
-
-          if (IUniversalIn.inventoryStorage[draggedKey].type != IUniversalIn.inventoryStorage[IUniversal.potionFusion['item1'].key].type) {
-            return
+          //if they arent the same potion type, return
+          if (IUniversal.inventoryStorage[IUniversal.potionFusion['item2'].key]) {
+            if (IUniversalIn.inventoryStorage[draggedKey].type != IUniversalIn.inventoryStorage[IUniversal.potionFusion['item2'].key].type) {
+              return
+            }
           }
         }
+
+        if (target == "IUniversal.potionFusion['item2']") {
+          if (IUniversal.potionFusion['item1'].key == draggedKey) {
+            return
+          }
+
+          if (IUniversal.inventoryStorage[IUniversal.potionFusion['item1'].key]) {
+
+            if (IUniversalIn.inventoryStorage[draggedKey].type != IUniversalIn.inventoryStorage[IUniversal.potionFusion['item1'].key].type) {
+              return
+            }
+          }
+        }
+
+        if (draggedKey == null || draggedKey == undefined) {
+          eval(`${draggedKeyString} = '${draggedKey}'`);
+          eval(`${targetKeyString} = '${draggedKey}'`);
+        } else if (targetKey == null || targetKey == undefined) {
+          eval(`${targetKeyString} = '${draggedKey}'`);
+          eval(`${draggedKeyString} = '${draggedKey}'`);
+        } else {
+          eval(`${targetKeyString} = '${draggedKey}'`);
+          eval(`${draggedKeyString} = '${draggedKey}'`);
+
+        }
+
+      });
+
+      item.addEventListener("click", function (e) {
+        e.preventDefault();
+        var selectedKey = eval(key).key;
+
+        IUniversal.selPotion = selectedKey || null;
+      });
+    }
+
+    if (type == "delete") {
+      item.addEventListener("drop", function (e) {
+        e.preventDefault();
+
+        var dragged = e.dataTransfer.getData("text/plain");
+
+        var draggedKey = eval(dragged).key;
+
+        deletePotion(draggedKey)
+      });
+    }
+  }
+
+  if (archetype == "treasure") {
+    item.classList.add("drag");
+    item.setAttribute("draggable", "true");
+
+    item.addEventListener("dragstart", function (e) {
+      e.dataTransfer.setData("text/plain", key); // salva la chiave trascinata
+      e.dataTransfer.effectAllowed = "move";
+
+    });
+
+    item.addEventListener("dragover", function (e) {
+      e.preventDefault();
+    });
+
+    item.addEventListener("mouseenter", function (e) {
+
+      var selectedKey = eval(key).key;
+
+      if (!IUniversal.lockSelTreasure) {
+        IUniversal.selTreasure = selectedKey || null;
+        if (IUniversal.selTreasure != null) {
+          unlockShow("content2_21_treasure_info", true);
+          unlockShow("content2_23_treasure_info", true);
+          unlockShow("content2_25_treasure_info", true);
+
+
+        } else {
+          unlockShow("content2_21_treasure_info", false);
+          unlockShow("content2_23_treasure_info", false);
+          unlockShow("content2_25_treasure_info", false);
+
+
+        }
       }
+    });
 
-      if (draggedKey == null || draggedKey == undefined) {
-        eval(`${draggedKeyString} = '${draggedKey}'`);
-        eval(`${targetKeyString} = '${draggedKey}'`);
-      } else if (targetKey == null || targetKey == undefined) {
-        eval(`${targetKeyString} = '${draggedKey}'`);
-        eval(`${draggedKeyString} = '${draggedKey}'`);
-      } else {
-        eval(`${targetKeyString} = '${draggedKey}'`);
-        eval(`${draggedKeyString} = '${draggedKey}'`);
+    item.addEventListener("mouseleave", function (e) {
+      var selectedKey = eval(key).key;
+
+      if (!IUniversal.lockSelTreasure) {
+        IUniversal.selTreasure = null;
+        unlockShow("content2_21_treasure_info", false);
+        unlockShow("content2_23_treasure_info", false);
+        unlockShow("content2_25_treasure_info", false);
 
       }
-
     });
 
     item.addEventListener("click", function (e) {
       e.preventDefault();
       var selectedKey = eval(key).key;
 
-      IUniversal.selPotion = selectedKey || null;
+      IUniversal.lockSelTreasure = !IUniversal.lockSelTreasure
+
+      IUniversal.selTreasure = selectedKey || null;
     });
-  }
 
-  if (type == "delete") {
-    item.addEventListener("drop", function (e) {
-      e.preventDefault();
+    if (type == "inventory") {
+      item.addEventListener("drop", function (e) {
+        e.preventDefault();
 
-      var dragged = e.dataTransfer.getData("text/plain");
+        var dragged = e.dataTransfer.getData("text/plain");
+        var target = key;
+        var targetIn = keyIn;
 
-      var draggedKey = eval(dragged).key;
+        var draggedKeyString = dragged + ".key"
+        var targetKeyString = target + ".key"
 
-      deletePotion(draggedKey)
-    });
+        var draggedDrag = eval(dragged + ".drag")
+        var targetDrag = eval(target + ".drag")
+
+        var draggedKey = eval(dragged).key;
+        var targetKey = eval(target).key;
+
+        if (draggedDrag == "inventory") {
+
+
+          if (!dragged || !target || dragged === target) return;
+
+          if (draggedKey == null && targetKey == null) {
+            return;
+          }
+
+          if (draggedKey == null || draggedKey == undefined) {
+            eval(`${draggedKeyString} = '${targetKey}'`);
+            eval(`${targetKeyString} = null`);
+          } else if (targetKey == null || targetKey == undefined) {
+            eval(`${targetKeyString} = '${draggedKey}'`);
+            eval(`${draggedKeyString} = null`);
+          } else {
+            eval(`${draggedKeyString} = '${targetKey}'`);
+            eval(`${targetKeyString} = '${draggedKey}'`);
+          }
+
+          return
+        }
+
+        if (draggedDrag == "equipment") {
+
+          eval(`${draggedKeyString} = null`);
+
+          return
+        }
+
+      });
+    }
+
+    if (type == "equipment") {
+      item.addEventListener("drop", function (e) {
+        e.preventDefault();
+
+        var dragged = e.dataTransfer.getData("text/plain");
+        var target = key;
+        var targetIn = keyIn;
+
+        var draggedKeyString = dragged + ".key"
+        var targetKeyString = target + ".key"
+
+        var draggedDrag = eval(dragged + ".drag")
+        var targetDrag = eval(targetIn + ".drag")
+
+        var draggedKey = eval(dragged).key;
+        var targetKey = eval(target).key;
+
+        if (!(IUniversalIn.treasures[draggedKey].type == eval(targetIn).type)) {
+          return
+        }
+
+        if (draggedDrag == "equipment") {
+          return
+        }
+
+        if (draggedKey == null || draggedKey == undefined) {
+          eval(`${draggedKeyString} = '${draggedKey}'`);
+          eval(`${targetKeyString} = '${draggedKey}'`);
+        } else if (targetKey == null || targetKey == undefined) {
+          eval(`${targetKeyString} = '${draggedKey}'`);
+          eval(`${draggedKeyString} = '${draggedKey}'`);
+        } else {
+          eval(`${targetKeyString} = '${draggedKey}'`);
+          eval(`${draggedKeyString} = '${draggedKey}'`);
+
+        }
+
+      });
+
+      item.addEventListener("click", function (e) {
+        e.preventDefault();
+        var selectedKey = eval(key).key;
+
+        IUniversal.selTreasure = selectedKey || null;
+      });
+    }
+
+    if (type == "volatile") {
+      item.addEventListener("drop", function (e) {
+        e.preventDefault();
+
+        var dragged = e.dataTransfer.getData("text/plain");
+        var target = key;
+        var targetIn = keyIn;
+
+        var draggedKeyString = dragged + ".key"
+        var targetKeyString = target + ".key"
+
+        var draggedDrag = eval(dragged + ".drag")
+        var targetDrag = eval(targetIn + ".drag")
+
+        var draggedKey = eval(dragged).key;
+        var targetKey = eval(target).key;
+
+        if (draggedDrag == "equipment") {
+          return
+        }
+
+        if (draggedKey == null || draggedKey == undefined) {
+          eval(`${draggedKeyString} = '${draggedKey}'`);
+          eval(`${targetKeyString} = '${draggedKey}'`);
+        } else if (targetKey == null || targetKey == undefined) {
+          eval(`${targetKeyString} = '${draggedKey}'`);
+          eval(`${draggedKeyString} = '${draggedKey}'`);
+        } else {
+          eval(`${targetKeyString} = '${draggedKey}'`);
+          eval(`${draggedKeyString} = '${draggedKey}'`);
+
+        }
+
+      });
+
+      item.addEventListener("click", function (e) {
+        e.preventDefault();
+        var selectedKey = eval(key).key;
+
+        IUniversal.selTreasure = selectedKey || null;
+      });
+    }
   }
 
   if (type == "default") {
@@ -21831,12 +30247,28 @@ function clearLines(lineLayerId) {
   if (svg) svg.innerHTML = "";
 }
 
-function enableDragScroll(containerId) {
+function enableDragScroll(containerId, enabled = true) {
   const container = document.getElementById(containerId);
   if (!container) {
     console.error("Container non trovato:", containerId);
     return;
   }
+
+  // --- Se disabilitato ---
+  if (!enabled) {
+    container.style.cursor = 'default';
+    if (container._dragEnabled) {
+      container.removeEventListener('mousedown', container._dragMouseDown);
+      container.removeEventListener('mouseleave', container._dragMouseLeave);
+      container.removeEventListener('mouseup', container._dragMouseUp);
+      container.removeEventListener('mousemove', container._dragMouseMove);
+      container._dragEnabled = false;
+    }
+    return;
+  }
+
+  // --- Se già abilitato, non fare nulla ---
+  if (container._dragEnabled) return;
 
   let isDown = false;
   let startX, startY;
@@ -21844,11 +30276,10 @@ function enableDragScroll(containerId) {
 
   container.style.cursor = 'grab';
 
-  container.addEventListener('mousedown', (e) => {
+  // definisci e salva i listener (per poterli rimuovere dopo)
+  container._dragMouseDown = (e) => {
     const isDraggable = e.target.hasAttribute('draggable') && e.target.getAttribute('draggable') === 'true';
-    if (isDraggable) {
-      return;
-    }
+    if (isDraggable) return;
 
     isDown = true;
     container.style.cursor = 'grabbing';
@@ -21857,19 +30288,19 @@ function enableDragScroll(containerId) {
     scrollLeft = container.scrollLeft;
     scrollTop = container.scrollTop;
     e.preventDefault();
-  });
+  };
 
-  container.addEventListener('mouseleave', () => {
+  container._dragMouseLeave = () => {
     isDown = false;
     container.style.cursor = 'grab';
-  });
+  };
 
-  container.addEventListener('mouseup', () => {
+  container._dragMouseUp = () => {
     isDown = false;
     container.style.cursor = 'grab';
-  });
+  };
 
-  container.addEventListener('mousemove', (e) => {
+  container._dragMouseMove = (e) => {
     if (!isDown) return;
     e.preventDefault();
     const x = e.pageX - container.offsetLeft;
@@ -21878,5 +30309,93 @@ function enableDragScroll(containerId) {
     const walkY = y - startY;
     container.scrollLeft = scrollLeft - walkX;
     container.scrollTop = scrollTop - walkY;
-  });
+  };
+
+  // aggiungi listener
+  container.addEventListener('mousedown', container._dragMouseDown);
+  container.addEventListener('mouseleave', container._dragMouseLeave);
+  container.addEventListener('mouseup', container._dragMouseUp);
+  container.addEventListener('mousemove', container._dragMouseMove);
+
+  container._dragEnabled = true;
+}
+
+function getTreasureActive(key) {
+
+  var treasure = IUniversal.treasures[key]
+  var treasureIn = IUniversalIn.treasures[key]
+
+  for (let x in IUniversal.treasureFormation) {
+    var sel = IUniversal.treasureFormation[x]
+    var selIn = IUniversalIn.treasureFormation[x]
+
+    if (treasureIn.type == selIn.type) {
+      if (sel.key == key) {
+        return true
+      } else {
+        return false
+      }
+    }
+  }
+
+  for (let x in IUniversal.treasureArmy) {
+    var sel = IUniversal.treasureArmy[x]
+    var selIn = IUniversalIn.treasureArmy[x]
+
+    if (treasureIn.type == selIn.type) {
+      if (sel.key == key) {
+        return true
+      } else {
+        return false
+      }
+    }
+  }
+
+  for (let x in IUniversal.treasureEquipment) {
+    var sel = IUniversal.treasureEquipment[x]
+    var selIn = IUniversalIn.treasureEquipment[x]
+
+    if (treasureIn.type == selIn.type) {
+      if (sel.key == key) {
+        return true
+      } else {
+        return false
+      }
+    }
+  }
+
+  for (let x in IUniversal.treasureAugments) {
+    var sel = IUniversal.treasureAugments[x]
+    var selIn = IUniversalIn.treasureAugments[x]
+
+    if (treasureIn.type == selIn.type) {
+      if (sel.key == key) {
+        return true
+      } else {
+        return false
+      }
+    }
+  }
+}
+
+function toClock(seconds) {
+  if (seconds < 0) seconds = 0
+
+  const h = Math.floor(seconds / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
+  const s = Math.floor(seconds % 60);
+
+  return (
+    String(h).padStart(2, "0") + ":" +
+    String(m).padStart(2, "0") + ":" +
+    String(s).padStart(2, "0")
+  );
+}
+
+function buildImages(img, divisor) {
+  let html = "";
+  for (let i = 0; i < divisor; i++) {
+    html += `<div style="background-image:url('images/${img}')" class="backgroundImage width10 square"></div>`;
+  }
+  return html;
 }

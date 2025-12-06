@@ -29,6 +29,7 @@
     <div id="gamePage">
         <div id="mainMenu" class="bDefaultStyle">
             <div id="mainMenuExit"></div>
+            <div id="treasureMenuExit"></div>
 
             <div id="mainMenuDirectionArrow1"></div>
 
@@ -44,6 +45,9 @@
 
                 <div id="fireValute" class="divColumns centerDivTop  bdefaultButtonSkin"></div>
                 <div id="waterValute" class="divColumns centerDivTop  bdefaultButtonSkin"></div>
+                <div id="earthValute" class="divColumns centerDivTop  bdefaultButtonSkin"></div>
+                <div id="windValute" class="divColumns centerDivTop  bdefaultButtonSkin"></div>
+                <div id="metalValute" class="divColumns centerDivTop  bdefaultButtonSkin"></div>
             </div>
 
             <div id="fp2">
@@ -164,6 +168,31 @@
                     <div id="fp2_content2_20_container">
                         <div id="fp2_content2_20_image" class="noClick"></div>
                         <button id="fp2_content2_20" class="grassFont centerText"></button>
+                    </div>
+
+                    <div id="fp2_content2_21_container">
+                        <div id="fp2_content2_21_image" class="noClick"></div>
+                        <button id="fp2_content2_21" class="grassFont centerText">Earth</button>
+                    </div>
+
+                    <div id="fp2_content2_22_container">
+                        <div id="fp2_content2_22_image" class="noClick"></div>
+                        <button id="fp2_content2_22" class="grassFont centerText"></button>
+                    </div>
+
+                    <div id="fp2_content2_23_container">
+                        <div id="fp2_content2_23_image" class="noClick"></div>
+                        <button id="fp2_content2_23" class="grassFont centerText">Wind</button>
+                    </div>
+
+                    <div id="fp2_content2_24_container">
+                        <div id="fp2_content2_24_image" class="noClick"></div>
+                        <button id="fp2_content2_24" class="grassFont centerText"></button>
+                    </div>
+
+                    <div id="fp2_content2_25_container">
+                        <div id="fp2_content2_25_image" class="noClick"></div>
+                        <button id="fp2_content2_25" class="grassFont centerText">Metal</button>
                     </div>
                 </div>
             </div>
@@ -848,7 +877,7 @@
                     </div>
 
                     <div id="opaqueScreen2"></div>
-                    <div class="boldBlackBorder">Multiversal Warrior v1.3.0 - Elemental Update: Water Alchemist</div>
+                    <div class="boldBlackBorder">Multiversal Warrior v1.4.0 - Elemental Update: Golem Army</div>
                     <button id="options_discord" class="bDefaultButton"></button>
                 </div>
 
@@ -1015,6 +1044,12 @@
                 </div>
                 <div id="content2_20" class="bDefaultStyle fp2Content">
                     <div id="content2_20_text" class="orderedText"></div>
+                </div>
+                <div id="content2_22" class="bDefaultStyle fp2Content">
+                    <div id="content2_22_text" class="orderedText"></div>
+                </div>
+                <div id="content2_24" class="bDefaultStyle fp2Content">
+                    <div id="content2_24_text" class="orderedText"></div>
                 </div>
 
 
@@ -1620,7 +1655,7 @@
                             <div id="content2_19_tutorial" class="bdefaultButtonSkin column backgroundBlue3 relative">
                                 <div class="backgroundBlue1 margin1 roundedEdges">
                                     <div>1. Craft Potion</div>
-                                    <div>2. Drag Potion and Drop it a slot</div>
+                                    <div>2. Drag Potion and Drop it in a slot</div>
                                     <div>3. Upgrade Potion</div>
                                 </div>
                                 <div class="backgroundBlue1 margin1 roundedEdges">
@@ -1635,8 +1670,8 @@
                                     class="width100 centerDivTopColumns backgroundBlue1 roundedEdges">
                                     <div>TRAINING</div>
                                     <div id="content2_19_potion_item1" class="bDefaultStyle blu"></div>
-                                    <div class="padding2 backgroundBlue2 roundedEdges class="
-                                        v-if="universalIn.equipment" v-html="universalIn.equipment.item1.content">
+                                    <div class="padding2 backgroundBlue2 roundedEdges" v-if="universalIn.equipment"
+                                        v-html="universalIn.equipment.item1.content">
                                     </div>
                                 </div>
 
@@ -1644,8 +1679,8 @@
                                     class="width100 centerDivTopColumns backgroundBlue1 roundedEdges">
                                     <div>HUNTING</div>
                                     <div id="content2_19_potion_item2" class="bDefaultStyle blu"></div>
-                                    <div class="padding2 backgroundBlue2 roundedEdges class="
-                                        v-if="universalIn.equipment" v-html="universalIn.equipment.item2.content">
+                                    <div class="padding2 backgroundBlue2 roundedEdges" v-if="universalIn.equipment"
+                                        v-html="universalIn.equipment.item2.content">
                                     </div>
                                 </div>
 
@@ -1653,8 +1688,8 @@
                                     class="width100 centerDivTopColumns backgroundBlue1 roundedEdges">
                                     <div>ATTRIBUTES</div>
                                     <div id="content2_19_potion_item3" class="bDefaultStyle blu"></div>
-                                    <div class="padding2 backgroundBlue2 roundedEdges class="
-                                        v-if="universalIn.equipment" v-html="universalIn.equipment.item3.content">
+                                    <div class="padding2 backgroundBlue2 roundedEdges" v-if="universalIn.equipment"
+                                        v-html="universalIn.equipment.item3.content">
                                     </div>
                                 </div>
 
@@ -1662,8 +1697,8 @@
                                     class="width100 centerDivTopColumns backgroundBlue1 roundedEdges">
                                     <div>CHALLENGER</div>
                                     <div id="content2_19_potion_item4" class="bDefaultStyle blu"></div>
-                                    <div class="padding2 backgroundBlue2 roundedEdges class="
-                                        v-if="universalIn.equipment" v-html="universalIn.equipment.item4.content">
+                                    <div class="padding2 backgroundBlue2 roundedEdges" v-if="universalIn.equipment"
+                                        v-html="universalIn.equipment.item4.content">
                                     </div>
                                 </div>
 
@@ -1790,7 +1825,6 @@
                                             <div id="content2_19_potionUpgrade_content3_item2"
                                                 class="red square height100 defaultStyle roundedEdges"></div>
                                         </div>
-
                                     </div>
 
                                     <div class="height50 width100 row flexBetween relative centerDiv">
@@ -2091,13 +2125,621 @@
                                     class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
                                 </button>
                             </div>
+
+                            <div id="content2_19_node39" class="bDefaultStyle absolute blu">
+                                <div id="content2_19_node39_content" class="height50"></div>
+                                <button id="content2_19_node39_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
+
+                <div id="content2_21" class="bDefaultStyle fp2Content">
+                    <div id="content2_21_menu" class="">
+                        <button id="content2_21_buy" class="defaultButton15"></button>
+                        <button id="content2_21_valutes_button" class="defaultButton5">></button>
+                        <div id="content2_21_valutes_content" class="noClick">
+                            <div id="content2_21_valutes_valute1" class="bdefaultButtonSkin width10 padding1 noClick">
+                            </div>
+                        </div>
+                        <button id="content2_21_resizeBig" class="defaultButton5 top right right absolute">+</button>
+                        <button id="content2_21_resizeSmall" class="defaultButton5 top40 right absolute">-</button>
+                    </div>
+                    <button id="content2_21_treasureShow" class="defaultButton15"></button>
+
+                    <div id="content2_21_treasureSel" class="fp2Content">
+                        <div id="content2_21_treasureGrid" class="backgroundBlue2"></div>
+                        <div id="content2_21_treasure_info" class="bdefaultButtonSkin fp2Content"></div>
+                    </div>
+
+                    <div id="content2_21_scroll" class="scrollPage width100 height100 top left absolute">
+                        <div id="content2_21_size" class="width100 height100 top left absolute">
+
+                            <div id="content2_21_limit1">.</div>
+                            <div id="content2_21_limit2">.</div>
+                            <div id="content2_21_limit3">.</div>
+                            <div id="content2_21_limit4">.</div>
+
+                            <div id="content2_21_zone1" class="bDefaultStyle absolute">
+                                <div class="boldBlackBorder">Training Grounds</div>
+                            </div>
+
+                            <div id="content2_21_zone2" class="bDefaultStyle absolute">
+                                <div class="boldBlackBorder">Mound</div>
+                            </div>
+
+                            <div id="content2_21_zone3" class="bDefaultStyle absolute ">
+                                <div class="boldBlackBorder">Barracks</div>
+                            </div>
+
+                            <svg id="content2_21_lineLayer"></svg>
+
+                            <div id="content2_21_node1" class="bDefaultStyle absolute orange">
+                                <div id="content2_21_node1_content" class="height50"></div>
+                                <button id="content2_21_node1_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_21_node2" class="bDefaultStyle absolute orange">
+                                <div id="content2_21_node2_content" class="height50"></div>
+                                <button id="content2_21_node2_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_21_node3" class="bDefaultStyle absolute orange">
+                                <div id="content2_21_node3_content" class="height50"></div>
+                                <button id="content2_21_node3_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_21_node4" class="bDefaultStyle absolute orange">
+                                <div id="content2_21_node4_content" class="height50"></div>
+                                <button id="content2_21_node4_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_21_node5" class="bDefaultStyle absolute orange">
+                                <div id="content2_21_node5_content" class="height50"></div>
+                                <button id="content2_21_node5_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_21_node6" class="bDefaultStyle absolute orange">
+                                <div id="content2_21_node6_content" class="height50"></div>
+                                <button id="content2_21_node6_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_21_node7" class="bDefaultStyle absolute orange">
+                                <div id="content2_21_node7_content" class="height50"></div>
+                                <button id="content2_21_node7_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_21_node8" class="bDefaultStyle absolute orange">
+                                <div id="content2_21_node8_content" class="height50"></div>
+                                <button id="content2_21_node8_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_21_node9" class="bDefaultStyle absolute orange">
+                                <div id="content2_21_node9_content" class="height50"></div>
+                                <button id="content2_21_node9_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_21_node10" class="bDefaultStyle absolute orange">
+                                <div id="content2_21_node10_content" class="height50"></div>
+                                <button id="content2_21_node10_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_21_node11" class="bDefaultStyle absolute orange">
+                                <div id="content2_21_node11_content" class="height50"></div>
+                                <button id="content2_21_node11_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_21_node12" class="bDefaultStyle absolute orange">
+                                <div id="content2_21_node12_content" class="height50"></div>
+                                <button id="content2_21_node12_button"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height50 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_21_tutorial" class="bdefaultButtonSkin column backgroundOrange2">
+                                <div class="backgroundOrange3 margin1 roundedEdges height100">
+                                    <div>1. Make a strong army</div>
+                                    <div>2. Go in the WIND tab, and win expeditions</div>
+                                    <div>3. CLAIM Treasures from expeditions, drag and drop them in the corresponding
+                                        slot</div>
+                                    <div>4. Upgrade the treasures in METAL</div>
+                                </div>
+                            </div>
+
+                            <div id="content2_21_stats" class="bdefaultButtonSkin column backgroundOrange2">
+                                <div class="backgroundOrange3 margin1 roundedEdges column" v-if="universalIn"
+                                    v-html="universalIn.armyEffectContent">
+
+                                </div>
+                            </div>
+
+                            <div id="content2_21_army" class="bDefaultStyle absolute backgroundOrange2"
+                                v-if="universalIn.armyInfo" v-html="universalIn.armyInfo.default.content2">
+
+                            </div>
+
+                            <div id="content2_21_armyLoadout" class="bDefaultStyle absolute backgroundOrange2">
+                                <div id="content2_21_l1" class="marginTop5">
+                                    <input class="DefaultStyle centerDiv width90" type="text"
+                                        id="content2_21_l_loadout1" name="loadout1" value="Loadout 1"
+                                        disabled=""></input>
+                                    <div id="content2_21_l1_cont" class="row">
+                                        <button id="content2_21_l_loadout1_b1" class="defaultButton">LOAD</button>
+                                        <button id="content2_21_l_loadout1_b2" class="defaultButton">SAVE</button>
+                                    </div>
+                                </div>
+                                <div id="content2_21_l2" class="marginTop5">
+                                    <input class="DefaultStyle centerDiv width90" type="text"
+                                        id="content2_21_l_loadout2" name="loadout2" value="Loadout 2"
+                                        disabled=""></input>
+                                    <div id="content2_21_l2_cont" class="row">
+                                        <button id="content2_21_l_loadout2_b1" class="defaultButton">LOAD</button>
+                                        <button id="content2_21_l_loadout2_b2" class="defaultButton">SAVE</button>
+                                    </div>
+                                </div>
+                                <div id="content2_21_l3" class="marginTop5">
+                                    <input class="DefaultStyle centerDiv width90" type="text"
+                                        id="content2_21_l_loadout3" name="loadout3" value="Loadout 3"
+                                        disabled=""></input>
+                                    <div id="content2_21_l3_cont" class="row">
+                                        <button id="content2_21_l_loadout3_b1" class="defaultButton">LOAD</button>
+                                        <button id="content2_21_l_loadout3_b2" class="defaultButton">SAVE</button>
+                                    </div>
+                                </div>
+                                <div id="content2_21_l4" class="marginTop5">
+                                    <input class="DefaultStyle centerDiv width90" type="text"
+                                        id="content2_21_l_loadout4" name="loadout4" value="Loadout 4"
+                                        disabled=""></input>
+                                    <div id="content2_21_l4_cont" class="row">
+                                        <button id="content2_21_l_loadout4_b1" class="defaultButton">LOAD</button>
+                                        <button id="content2_21_l_loadout4_b2" class="defaultButton">SAVE</button>
+                                    </div>
+                                </div>
+                                <div id="content2_21_l5" class="marginTop5">
+                                    <input class="DefaultStyle centerDiv width90" type="text"
+                                        id="content2_21_l_loadout5" name="loadout5" value="Loadout 5"
+                                        disabled=""></input>
+                                    <div id="content2_21_l5_cont" class="row">
+                                        <button id="content2_21_l_loadout5_b1" class="defaultButton">LOAD</button>
+                                        <button id="content2_21_l_loadout5_b2" class="defaultButton">SAVE</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div id="content2_21_army2" class="bDefaultStyle absolute backgroundOrange2">
+                                <div id="content2_21_army2_army1" class="bdefaultButtonSkin height20 width100 backgroundOrange3"
+                                    v-if="universalIn.armyInfo"
+                                    v-html="universalIn.armyInfo.default.golemTypes.type1.content"></div>
+                                <div id="content2_21_army2_army2" class="bdefaultButtonSkin height20 width100 backgroundOrange3"
+                                    v-if="universalIn.armyInfo"
+                                    v-html="universalIn.armyInfo.default.golemTypes.type2.content"></div>
+                                <div id="content2_21_army2_army3" class="bdefaultButtonSkin height20 width100 backgroundOrange3"
+                                    v-if="universalIn.armyInfo"
+                                    v-html="universalIn.armyInfo.default.golemTypes.type3.content"></div>
+                                <div id="content2_21_army2_army4" class="bdefaultButtonSkin height20 width100 backgroundOrange3"
+                                    v-if="universalIn.armyInfo"
+                                    v-html="universalIn.armyInfo.default.golemTypes.type4.content"></div>
+                                <div id="content2_21_army2_army5" class="bdefaultButtonSkin height20 width100 backgroundOrange3"
+                                    v-if="universalIn.armyInfo"
+                                    v-html="universalIn.armyInfo.default.golemTypes.type5.content"></div>
+                            </div>
+
+                            <div id="content2_21_armyTreasures" class="bDefaultStyle absolute backgroundOrange2">
+
+                                <div id="content2_21_armyTreasures_1" class="height20 width100 row">
+                                    <div class="centerDiv width30 height100">
+                                        <div id="content2_21_armyTreasures_item1"
+                                            class="red square height100 defaultStyle roundedEdges"></div>
+                                    </div>
+                                    <div v-if="universalIn.treasureArmy" v-html="universalIn.treasureArmy.item1.content"
+                                        class="centerDiv width70 height100 column">
+
+                                    </div>
+                                </div>
+
+                                <div id="content2_21_armyTreasures_2" class="height20 width100 row">
+                                    <div class="centerDiv width30 height100">
+                                        <div id="content2_21_armyTreasures_item2"
+                                            class="backgroundOrange1 square height100 defaultStyle roundedEdges"></div>
+                                    </div>
+                                    <div v-if="universalIn.treasureArmy" v-html="universalIn.treasureArmy.item2.content"
+                                        class="centerDiv width70 height100 column">
+
+                                    </div>
+                                </div>
+
+                                <div id="content2_21_armyTreasures_3" class="height20 width100 row">
+                                    <div class="centerDiv width30 height100">
+                                        <div id="content2_21_armyTreasures_item3"
+                                            class="backgroundOrange1 square height100 defaultStyle roundedEdges"></div>
+                                    </div>
+                                    <div v-if="universalIn.treasureArmy" v-html="universalIn.treasureArmy.item3.content"
+                                        class="centerDiv width70 height100 column">
+
+                                    </div>
+                                </div>
+
+                                <div id="content2_21_armyTreasures_4" class="height20 width100 row">
+                                    <div class="centerDiv width30 height100">
+                                        <div id="content2_21_armyTreasures_item4"
+                                            class="backgroundOrange1 square height100 defaultStyle roundedEdges"></div>
+                                    </div>
+                                    <div v-if="universalIn.treasureArmy" v-html="universalIn.treasureArmy.item4.content"
+                                        class="centerDiv width70 height100 column">
+
+                                    </div>
+                                </div>
+
+                                <div id="content2_21_armyTreasures_5" class="height20 width100 row">
+                                    <div class="centerDiv width30 height100">
+                                        <div id="content2_21_armyTreasures_item5"
+                                            class="backgroundOrange1 square height100 defaultStyle roundedEdges"></div>
+                                    </div>
+                                    <div v-if="universalIn.treasureArmy" v-html="universalIn.treasureArmy.item5.content"
+                                        class="centerDiv width70 height100 column">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="content2_21_armyFormation" class="bdefaultButtonSkin padding1 column backgroundOrange2">
+                                <div class="left height20">Formation</div>
+                                <div class="row height80 relative">
+                                    <div id="content2_21_armyFormationSel" class="bdefaultButtonSkin padding1 backgroundOrange1">
+                                    </div>
+                                    <div id="content2_21_armyFormationDesc" class="right50"
+                                        v-if="universalIn.treasureFormation"
+                                        v-html="universalIn.treasureFormation.content"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div id="content2_23" class="bDefaultStyle fp2Content">
+                    <div id="content2_23_menu" class="">
+                        <button id="content2_23_buy" class="defaultButton15"></button>
+                        <button id="content2_23_valutes_button" class="defaultButton5">></button>
+                        <div id="content2_23_valutes_content" class="noClick">
+                            <div id="content2_23_valutes_valute1" class="bdefaultButtonSkin width10 padding1 noClick">
+                            </div>
+                        </div>
+                        <button id="content2_23_resizeBig" class="defaultButton5 top right right absolute">+</button>
+                        <button id="content2_23_resizeSmall" class="defaultButton5 top40 right absolute">-</button>
+                    </div>
+
+                    <div id="content2_23_curtain"></div>
+
+                    <div id="content2_23_expeditionPage" class="row">
+                        <div id="content2_23_expeditionPage_d1" class="height100 width40" v-if="universalIn.armyInfo"
+                            v-html="universalIn.armyInfo.default.content"></div>
+                        <button id="content2_23_expeditionPage_b1"
+                            class="defaultButton height30 width20 centerDivColumns"></button>
+                        <div id="content2_23_expeditionPage_d2" class="height100 width40" v-if="universalIn.armyInfo"
+                            v-html="universalIn.armyInfo.enemy.content"></div>
+                    </div>
+
+                    <div id="content2_23_crusadePage" class="row">
+                        <div id="content2_23_crusadePage_d1" class="height100 width40" v-if="universalIn.armyInfo"
+                            v-html="universalIn.armyInfo.soul.content"></div>
+                        <button id="content2_23_crusadePage_b1"
+                            class="defaultButton height30 width20 centerDivColumns"></button>
+                        <div id="content2_23_crusadePage_d2" class="height100 width40" v-if="universalIn.armyInfo"
+                            v-html="universalIn.armyInfo.elemental.content"></div>
+                    </div>
+
+                    <div id="content2_23_treasureClaim" class="centerDiv">
+                        <div id="content2_23_treasureClaim_d1"></div>
+                    </div>
+
+                    <button id="content2_23_treasureShow" class="defaultButton15"></button>
+
+                    <div id="content2_23_treasureSel" class="fp2Content">
+                        <div id="content2_23_treasureGrid" class="backgroundBlue2"></div>
+                        <div id="content2_23_treasure_info" class="bdefaultButtonSkin fp2Content"></div>
+                    </div>
+
+                    <div id="content2_23_scroll" class="scrollPage width100 height100 top left absolute">
+                        <div id="content2_23_size" class="width100 height100 top left absolute">
+
+                            <div id="content2_23_limit1">.</div>
+                            <div id="content2_23_limit2">.</div>
+                            <div id="content2_23_limit3">.</div>
+                            <div id="content2_23_limit4">.</div>
+
+                            <div id="content2_23_background" class="backgroundImage">
+
+                            </div>
+
+                            <svg id="content2_23_lineLayer"></svg>
+
+                            <div id="content2_23_spire1" class="bDefaultStyle absolute blu">
+                                <div id="content2_23_spire1_content" class="height60 width100 centerDivColumns"
+                                    v-if="universalIn.spires" v-html="universalIn.spires.spire1.content"></div>
+                            </div>
+
+                            <div id="content2_23_spire1Image" class="bDefaultStyle absolute backgroundImage">
+                            </div>
+
+                            <div id="content2_23_spire2" class="bDefaultStyle absolute blu">
+                                <div id="content2_23_spire2_content" class="height60 width100 centerDivColumns"
+                                    v-if="universalIn.spires" v-html="universalIn.spires.spire2.content"></div>
+                            </div>
+
+                            <div id="content2_23_spire2Image" class="bDefaultStyle absolute backgroundImage">
+                            </div>
+
+                            <div id="content2_23_node1" class="bDefaultStyle absolute blu">
+                                <div id="content2_23_node1_content" class="height60 width100"></div>
+
+                                <button id="content2_23_node1_button"
+                                    class="centerDivColumns defaultButton100 column top60 absolute height20 padding3">
+                                </button>
+                                <button id="content2_23_node1_button2"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height20 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_23_node2" class="bDefaultStyle absolute blu">
+                                <div id="content2_23_node2_content" class="height60 width100"></div>
+
+                                <button id="content2_23_node2_button"
+                                    class="centerDivColumns defaultButton100 column top60 absolute height20 padding3">
+                                </button>
+                                <button id="content2_23_node2_button2"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height20 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_23_node3" class="bDefaultStyle absolute blu">
+                                <div id="content2_23_node3_content" class="height60 width100"></div>
+
+                                <button id="content2_23_node3_button"
+                                    class="centerDivColumns defaultButton100 column top60 absolute height20 padding3">
+                                </button>
+                                <button id="content2_23_node3_button2"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height20 padding3">
+                                </button>
+                            </div>
+
+
+                            <div id="content2_23_node4" class="bDefaultStyle absolute blu">
+                                <div id="content2_23_node4_content" class="height60 width100"></div>
+
+                                <button id="content2_23_node4_button"
+                                    class="centerDivColumns defaultButton100 column top60 absolute height20 padding3">
+                                </button>
+                                <button id="content2_23_node4_button2"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height20 padding3">
+                                </button>
+                            </div>
+
+
+                            <div id="content2_23_node5" class="bDefaultStyle absolute blu">
+                                <div id="content2_23_node5_content" class="height60 width100"></div>
+
+                                <button id="content2_23_node5_button"
+                                    class="centerDivColumns defaultButton100 column top60 absolute height20 padding3">
+                                </button>
+                                <button id="content2_23_node5_button2"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height20 padding3">
+                                </button>
+                            </div>
+
+
+                            <div id="content2_23_node6" class="bDefaultStyle absolute blu">
+                                <div id="content2_23_node6_content" class="height60 width100"></div>
+
+                                <button id="content2_23_node6_button"
+                                    class="centerDivColumns defaultButton100 column top60 absolute height20 padding3">
+                                </button>
+                                <button id="content2_23_node6_button2"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height20 padding3">
+                                </button>
+                            </div>
+
+
+                            <div id="content2_23_node7" class="bDefaultStyle absolute blu">
+                                <div id="content2_23_node7_content" class="height60 width100"></div>
+
+                                <button id="content2_23_node7_button"
+                                    class="centerDivColumns defaultButton100 column top60 absolute height20 padding3">
+                                </button>
+                                <button id="content2_23_node7_button2"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height20 padding3">
+                                </button>
+                            </div>
+
+
+                            <div id="content2_23_node8" class="bDefaultStyle absolute blu">
+                                <div id="content2_23_node8_content" class="height60 width100"></div>
+
+                                <button id="content2_23_node8_button"
+                                    class="centerDivColumns defaultButton100 column top60 absolute height20 padding3">
+                                </button>
+                                <button id="content2_23_node8_button2"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height20 padding3">
+                                </button>
+                            </div>
+
+
+                            <div id="content2_23_node9" class="bDefaultStyle absolute blu">
+                                <div id="content2_23_node9_content" class="height60 width100"></div>
+
+                                <button id="content2_23_node9_button"
+                                    class="centerDivColumns defaultButton100 column top60 absolute height20 padding3">
+                                </button>
+                                <button id="content2_23_node9_button2"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height20 padding3">
+                                </button>
+                            </div>
+
+
+                            <div id="content2_23_node10" class="bDefaultStyle absolute blu">
+                                <div id="content2_23_node10_content" class="height60 width100"></div>
+
+                                <button id="content2_23_node10_button"
+                                    class="centerDivColumns defaultButton100 column top60 absolute height20 padding3">
+                                </button>
+                                <button id="content2_23_node10_button2"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height20 padding3">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="content2_25" class="bDefaultStyle fp2Content">
+                    <div id="content2_25_menu" class="">
+                        <button id="content2_25_buy" class="defaultButton15"></button>
+                        <button id="content2_25_valutes_button" class="defaultButton5">></button>
+                        <div id="content2_25_valutes_content" class="noClick">
+                            <div id="content2_25_valutes_valute1" class="bdefaultButtonSkin width10 padding1 noClick">
+                            </div>
+                        </div>
+                        <button id="content2_25_resizeBig" class="defaultButton5 top right right absolute">+</button>
+                        <button id="content2_25_resizeSmall" class="defaultButton5 top40 right absolute">-</button>
+                    </div>
+
+                    <button id="content2_25_treasureShow" class="defaultButton15"></button>
+
+                    <div id="content2_25_treasureSel" class="fp2Content">
+                        <div id="content2_25_treasureGrid" class="backgroundBlue2"></div>
+                        <div id="content2_25_treasure_info" class="bdefaultButtonSkin fp2Content"></div>
+                    </div>
+
+                    <div id="content2_25_scroll" class="scrollPage width100 height100 top left absolute">
+                        <div id="content2_25_size" class="width100 height100 top left absolute">
+
+                            <div id="content2_25_limit1">.</div>
+                            <div id="content2_25_limit2">.</div>
+                            <div id="content2_25_limit3">.</div>
+                            <div id="content2_25_limit4">.</div>
+
+                            <svg id="content2_25_lineLayer"></svg>
+
+                            <div id="content2_25_treasureEquipment" class="bDefaultStyle absolute blu">
+
+                                <div class="relative width100 height100">
+                                    <div id="content2_25_treasureEquipment_1"
+                                        class="height20 width30 row backgroundBlue1 roundedEdges absolute topLeft">
+                                        <div class="centerDiv width30 height100">
+                                            <div id="content2_25_treasureEquipment_item1"
+                                                class="red square height100 defaultStyle roundedEdges"></div>
+                                        </div>
+                                        <div v-if="universalIn.treasureEquipment"
+                                            v-html="universalIn.treasureEquipment.item1.content"
+                                            class="centerDiv width70 height100 column">
+                                        </div>
+                                    </div>
+
+                                    <div id="content2_25_treasureEquipment_2"
+                                        class="height20 width30 row backgroundBlue1 roundedEdges absolute topRight">
+                                        <div class="centerDiv width30 height100">
+                                            <div id="content2_25_treasureEquipment_item2"
+                                                class="red square height100 defaultStyle roundedEdges"></div>
+                                        </div>
+                                        <div v-if="universalIn.treasureEquipment"
+                                            v-html="universalIn.treasureEquipment.item2.content"
+                                            class="centerDiv width70 height100 column">
+                                        </div>
+                                    </div>
+
+                                    <div id="content2_25_treasureEquipment_3"
+                                        class="height20 width30 row backgroundBlue1 roundedEdges absolute bottomLeft">
+                                        <div class="centerDiv width30 height100">
+                                            <div id="content2_25_treasureEquipment_item3"
+                                                class="red square height100 defaultStyle roundedEdges"></div>
+                                        </div>
+                                        <div v-if="universalIn.treasureEquipment"
+                                            v-html="universalIn.treasureEquipment.item3.content"
+                                            class="centerDiv width70 height100 column">
+                                        </div>
+                                    </div>
+
+                                    <div id="content2_25_treasureEquipment_4"
+                                        class="height20 width30 row backgroundBlue1 roundedEdges absolute bottomRight">
+                                        <div class="centerDiv width30 height100">
+                                            <div id="content2_25_treasureEquipment_item4"
+                                                class="red square height100 defaultStyle roundedEdges"></div>
+                                        </div>
+                                        <div v-if="universalIn.treasureEquipment"
+                                            v-html="universalIn.treasureEquipment.item4.content"
+                                            class="centerDiv width70 height100 column">
+                                        </div>
+                                    </div>
+
+                                    <div id="content2_25_treasureEquipment_info" class="width30 square relative center"
+                                        v-if="universalIn.armyInfo" v-html="universalIn.armyInfo.soul.content3">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="content2_25_treasureAugment" class="bDefaultStyle absolute blu">
+                                <div id="content2_25_treasureAugment_1"
+                                    class="height30 width50 row backgroundBlue1 roundedEdges absolute">
+                                    <div class="left width30 height100">
+                                        <div id="content2_25_treasureAugment_item1"
+                                            class="backgroundBlue1 roundedEdges square height100 defaultStyle roundedEdges">
+                                        </div>
+                                    </div>
+                                    <div v-if="universalIn.treasureAugments"
+                                        v-html="universalIn.treasureAugments.item1.content"
+                                        class="centerDiv width70 height100 column">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="content2_25_treasureUpgrade" class="fp2Content">
+                                <div class="relative centerDiv height30 roundedEdges">
+                                    <div id="content2_25_treasureUpgrade_item1"
+                                        class="height100 square absolute red roundedEdges">
+                                    </div>
+                                </div>
+                                <div class="relative centerDiv height20">
+                                    <button id="content2_25_treasureUpgrade_upgradeButton"
+                                        class="defaultButton">UPGRADE</button>
+                                </div>
+                                <div class="relative height50 row centerDiv">
+                                    <div id="content2_25_treasureUpgrade_visual1" class="width30 height100 absolute"
+                                        v-if="universalIn.treasureUpgrade" v-html="universalIn.treasureUpgrade.content">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </div>
     </div>
 
     <div id="fp4">
@@ -2114,13 +2756,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <!-- 2. Carica il tuo script personalizzato (che utilizza BreakInfinity.js) -->
-    <script type="module" src="fullRevamp.js?v=1.107" charset="utf-8"></script>
+    <script type="module" src="fullRevamp.js?v=1.105" charset="utf-8"></script>
 
     <!-- 3. Carica altre librerie necessarie, come crypto-js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 
     <!-- 4. Carica il file CSS per la formattazione -->
-    <link rel="stylesheet" href="cssRevamp.css?v=1.107">
+    <link rel="stylesheet" href="cssRevamp.css?v=1.105">
 
     <!--<script src="./libs/dist/vue.global.js"></script>-->
 </body>
