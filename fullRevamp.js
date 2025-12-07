@@ -15038,7 +15038,7 @@ function valuesSetter(type) {
   var life4 = f(IUniversalIn.armyInfo.default.golemTypes.type4.life)
   var life5 = f(IUniversalIn.armyInfo.default.golemTypes.type5.life)
   var life7 = f(IUniversalIn.earthTree.node9.effect)
-  var life8 = f(IUniversalIn.earthTree.node12.effect)
+  var life8 = f(IUniversalIn.earthTree.node11.effect)
   var life10 = f(IUniversalIn.earthTree.node7.effect)
   var life11 = f(IUniversalIn.treasures.treasure19.effect)
 
@@ -15048,7 +15048,7 @@ function valuesSetter(type) {
   var baseLife4 = f(IUniversalIn.armyInfo.default.golemTypes.type4.baseLife)
   var baseLife5 = f(IUniversalIn.armyInfo.default.golemTypes.type5.baseLife)
   var baseLife7 = f(IUniversalIn.earthTree.node9.effect)
-  var baseLife8 = f(IUniversalIn.earthTree.node12.effect)
+  var baseLife8 = f(IUniversalIn.earthTree.node11.effect)
   var baseLife10 = f(IUniversalIn.earthTree.node7.effect)
   var baseLife11 = f(IUniversalIn.treasures.treasure19.effect)
 
@@ -15073,7 +15073,7 @@ function valuesSetter(type) {
   var damage4 = f(IUniversalIn.armyInfo.default.golemTypes.type4.damage)
   var damage5 = f(IUniversalIn.armyInfo.default.golemTypes.type5.damage)
   var damage7 = f(IUniversalIn.earthTree.node10.effect)
-  var damage8 = f(IUniversalIn.earthTree.node11.effect)
+  var damage8 = f(IUniversalIn.earthTree.node12.effect)
   var damage9 = f(IUniversalIn.earthTree.node8.effect)
   var damage10 = f(IUniversalIn.treasures.treasure19.effect)
 
@@ -15084,7 +15084,7 @@ function valuesSetter(type) {
   var baseDamage4 = f(IUniversalIn.armyInfo.default.golemTypes.type4.baseDamage)
   var baseDamage5 = f(IUniversalIn.armyInfo.default.golemTypes.type5.baseDamage)
   var baseDamage7 = f(IUniversalIn.earthTree.node10.effect)
-  var baseDamage8 = f(IUniversalIn.earthTree.node11.effect)
+  var baseDamage8 = f(IUniversalIn.earthTree.node12.effect)
   var baseDamage9 = f(IUniversalIn.earthTree.node8.effect)
   var baseDamage10 = f(IUniversalIn.treasures.treasure19.effect)
 
@@ -15432,6 +15432,8 @@ function valuesSetter(type) {
     var life5 = f(IUniversalIn.armyInfo.enemy.golemTypes.type5.life)
     var life6 = f(IUniversalIn.treasures.treasure20.effect)
 
+    console.log(life6)
+
     if (f(selectedIn.number).gt(f(0))) {
       IUniversalIn.armyInfo.enemy.life = (f(f(1)).mul(life1).mul(life2).mul(life3).mul(life4).mul(life5)).dividedBy(life6)
     } else {
@@ -15456,7 +15458,7 @@ function valuesSetter(type) {
     }
 
     if (!IFight.youStats.onFight3) {
-      IUniversal.armyInfo.enemy.leftLife = f(selectedIn.life)
+      IUniversal.armyInfo.enemy.leftLife = f(IUniversalIn.armyInfo.enemy.life)
     }
 
     IUniversal.armyInfo.enemy.golemTypes.type1.level = f(selectedIn.golemTypes.type1.level)
@@ -15496,8 +15498,7 @@ function valuesSetter(type) {
     }
 
 
-
-
+    
     if (f(IUniversal.armyInfo.enemy.golemTypes.type1.level).gt(f(0))) {
       IUniversalIn.armyInfo.enemy.golemTypes.type1.damage = f(2).mul(f(IUniversal.armyInfo.enemy.golemTypes.type1.level)).dividedBy(f(IUniversalIn.treasures.treasure2.effect))
     } else {
