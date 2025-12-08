@@ -21340,7 +21340,7 @@ document.getElementById("content2_19_potionUpgrade_upgradeButton").onclick = fun
   if (IUniversal.potionUpgrade.item1.key) {
     if (f(newPotion.level).lte(f(newPotionIn.maxLevel))) {
       if (checkBuyMultiValutes(IUniversalIn.inventoryStorage[IUniversal.potionUpgrade.item1.key].prices)) {
-        if (buyMultiValutes(newPotionIn.prices, "UniNoUpdate")) {
+        if (buyMultiValutes(IUniversalIn.inventoryStorage[IUniversal.potionUpgrade.item1.key].prices, "UniNoUpdate")) {
           IUniversal.inventoryStorage[IUniversal.potionUpgrade.item1.key] = newPotion
           IUniversalIn.inventoryStorage[IUniversal.potionUpgrade.item1.key] = newPotionIn
         }
