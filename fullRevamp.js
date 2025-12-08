@@ -15432,8 +15432,6 @@ function valuesSetter(type) {
     var life5 = f(IUniversalIn.armyInfo.enemy.golemTypes.type5.life)
     var life6 = f(IUniversalIn.treasures.treasure20.effect)
 
-    console.log(life6)
-
     if (f(selectedIn.number).gt(f(0))) {
       IUniversalIn.armyInfo.enemy.life = (f(f(1)).mul(life1).mul(life2).mul(life3).mul(life4).mul(life5)).dividedBy(life6)
     } else {
@@ -23425,6 +23423,12 @@ function visualWaterTree() {
 
   //potion Upgrade
 
+    if (IUniversalIn.inventoryStorage[IUniversal.potionUpgrade.item1.key]) {
+    IUniversalIn.potionUpgradeVisual1 = IUniversalIn.inventoryStorage[IUniversal.potionUpgrade.item1.key].content2
+  } else {
+    IUniversalIn.potionUpgradeVisual1 = ""
+  }
+
   //potion fusion
 
 
@@ -23496,6 +23500,26 @@ function visualInventoryWater() {
 
     if (sel.active) {
       addElement("treasure", x);
+    }
+  }
+
+    addElement("voidTreasure2");
+
+  for (let x in IUniversal.treasures) {
+    var sel = IUniversal.treasures[x]
+
+    if (sel.active) {
+      addElement("treasure2", x);
+    }
+  }
+
+    addElement("voidTreasure3");
+
+  for (let x in IUniversal.treasures) {
+    var sel = IUniversal.treasures[x]
+
+    if (sel.active) {
+      addElement("treasure3", x);
     }
   }
 
@@ -24203,6 +24227,7 @@ function addObjectToSpace(row, col, key, space) {
   }
 
   if (space == "treasure_inventory_wind") {
+
     const gridContainer = document.getElementById("content2_23_treasureGrid");
     const existing = document.getElementById(`content2_23_treasureGrid_${col}${row}`);
 
@@ -28802,6 +28827,80 @@ function addElement(type, key) {
     }
   }
 
+    if (type == "voidTreasure2") {
+    const gridContainer = document.getElementById("content2_23_treasureGrid");
+    const styles = getComputedStyle(gridContainer);
+
+    const numColumns = styles.gridTemplateColumns.trim().split(/\s+/).length;
+    const numRows = styles.gridTemplateRows.trim().split(/\s+/).length;
+
+    const children = Array.from(gridContainer.children);
+
+    for (let y = 1; y <= numRows; y++) {
+      for (let x = 1; x <= numColumns; x++) {
+
+        // Controlla se la cella è occupata
+        var occupied = true;
+        const cellKey = `c${y}r${x}`
+
+        if (IUniversal.treasureInventory[cellKey] == null) {
+          occupied = false
+        }
+
+        if (!occupied) {
+          // Aggiunge all'inventario
+          const cellKey = `c${y}r${x}`;
+          IUniversal.treasureInventory[cellKey] = {
+            key: null,
+            pX: x,
+            pY: y,
+            amount: 1,
+            drag: "inventory",
+          };
+
+          return true;
+        }
+      }
+    }
+  }
+
+    if (type == "voidTreasure3") {
+    const gridContainer = document.getElementById("content2_25_treasureGrid");
+    const styles = getComputedStyle(gridContainer);
+
+    const numColumns = styles.gridTemplateColumns.trim().split(/\s+/).length;
+    const numRows = styles.gridTemplateRows.trim().split(/\s+/).length;
+
+    const children = Array.from(gridContainer.children);
+
+    for (let y = 1; y <= numRows; y++) {
+      for (let x = 1; x <= numColumns; x++) {
+
+        // Controlla se la cella è occupata
+        var occupied = true;
+        const cellKey = `c${y}r${x}`
+
+        if (IUniversal.treasureInventory[cellKey] == null) {
+          occupied = false
+        }
+
+        if (!occupied) {
+          // Aggiunge all'inventario
+          const cellKey = `c${y}r${x}`;
+          IUniversal.treasureInventory[cellKey] = {
+            key: null,
+            pX: x,
+            pY: y,
+            amount: 1,
+            drag: "inventory",
+          };
+
+          return true;
+        }
+      }
+    }
+  }
+
   if (type == "treasure") {
 
     // Controlla se l'oggetto è già nell'inventario
@@ -28814,6 +28913,106 @@ function addElement(type, key) {
     }
 
     const gridContainer = document.getElementById("content2_21_treasureGrid");
+    const styles = getComputedStyle(gridContainer);
+
+    const numColumns = styles.gridTemplateColumns.trim().split(/\s+/).length;
+    const numRows = styles.gridTemplateRows.trim().split(/\s+/).length;
+
+
+    const children = Array.from(gridContainer.children);
+
+    for (let y = 1; y <= numRows; y++) {
+      for (let x = 1; x <= numColumns; x++) {
+
+
+        // Controlla se la cella è occupata
+        var occupied = true;
+        const cellKey = `c${y}r${x}`
+
+        if (IUniversal.treasureInventory[cellKey].key != key && IUniversal.treasureInventory[cellKey].key == null) {
+          occupied = false
+        }
+
+
+        if (!occupied) {
+          // Aggiunge all'inventario
+          const cellKey = `c${y}r${x}`;
+          IUniversal.treasureInventory[cellKey] = {
+            key: key,
+            pX: x,
+            pY: y,
+            amount: 1,
+            drag: "inventory",
+          };
+
+          return true;
+        }
+      }
+    }
+  }
+
+    if (type == "treasure2") {
+
+    // Controlla se l'oggetto è già nell'inventario
+    for (let pos in IUniversal.treasureInventory) {
+      const item = IUniversal.treasureInventory[pos];
+
+      if (item.key === key) {
+        return false; // Oggetto già presente
+      }
+    }
+
+    const gridContainer = document.getElementById("content2_23_treasureGrid");
+    const styles = getComputedStyle(gridContainer);
+
+    const numColumns = styles.gridTemplateColumns.trim().split(/\s+/).length;
+    const numRows = styles.gridTemplateRows.trim().split(/\s+/).length;
+
+
+    const children = Array.from(gridContainer.children);
+
+    for (let y = 1; y <= numRows; y++) {
+      for (let x = 1; x <= numColumns; x++) {
+
+
+        // Controlla se la cella è occupata
+        var occupied = true;
+        const cellKey = `c${y}r${x}`
+
+        if (IUniversal.treasureInventory[cellKey].key != key && IUniversal.treasureInventory[cellKey].key == null) {
+          occupied = false
+        }
+
+
+        if (!occupied) {
+          // Aggiunge all'inventario
+          const cellKey = `c${y}r${x}`;
+          IUniversal.treasureInventory[cellKey] = {
+            key: key,
+            pX: x,
+            pY: y,
+            amount: 1,
+            drag: "inventory",
+          };
+
+          return true;
+        }
+      }
+    }
+  }
+
+    if (type == "treasure3") {
+
+    // Controlla se l'oggetto è già nell'inventario
+    for (let pos in IUniversal.treasureInventory) {
+      const item = IUniversal.treasureInventory[pos];
+
+      if (item.key === key) {
+        return false; // Oggetto già presente
+      }
+    }
+
+    const gridContainer = document.getElementById("content2_25_treasureGrid");
     const styles = getComputedStyle(gridContainer);
 
     const numColumns = styles.gridTemplateColumns.trim().split(/\s+/).length;
