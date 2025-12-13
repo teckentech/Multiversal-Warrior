@@ -1685,17 +1685,6 @@ class Universal {
             expectedRewardsR: 0,
           }
         },
-
-        exp11: {
-          level: 0, leftLife: 0, active: false,
-
-          rewards: {
-            timer: 0,
-
-            expectedRewards: {},
-            expectedRewardsR: 0,
-          }
-        },
       };
 
     this.treasureFormation = options.treasureFormation || {
@@ -4373,39 +4362,6 @@ class UniversalIn {
       },
 
       exp10: {
-        damage: 0, life: 0, type: "elemental", content: "",
-        affinity: 0, maxLevel: 0,
-
-        affinities: {
-          affinity1: {
-            value: 0, content: "", active: false,
-          },
-          affinity2: {
-            value: 0, content: "", active: false,
-          },
-          affinity3: {
-            value: 0, content: "", active: false,
-          },
-          affinity4: {
-            value: 0, content: "", active: false,
-          },
-        },
-
-        rewards: {
-          timerPrice: 0,
-          effect: function () { return },
-          effectContent: function () { return },
-          content: "",
-        },
-
-        effects: {
-          effect1: {
-            type: "", content: "", effect: 0,
-          }
-        },
-      },
-
-      exp11: {
         damage: 0, life: 0, type: "elemental", content: "",
         affinity: 0, maxLevel: 0,
 
@@ -15496,7 +15452,7 @@ function valuesSetter(type) {
     }
 
 
-    
+
     if (f(IUniversal.armyInfo.enemy.golemTypes.type1.level).gt(f(0))) {
       IUniversalIn.armyInfo.enemy.golemTypes.type1.damage = f(2).mul(f(IUniversal.armyInfo.enemy.golemTypes.type1.level)).dividedBy(f(IUniversalIn.treasures.treasure2.effect))
     } else {
@@ -16923,7 +16879,7 @@ function valuesSetter(type) {
         string += `
       <div class="column height100 width10 flexShrinkZero">
         <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.level))} levels</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
       </div>`;
       }
 
@@ -16931,12 +16887,12 @@ function valuesSetter(type) {
         string += `
       <div class="column height100 width10 flexShrinkZero">
         <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.num))} fragments</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
       </div>`;
       }
     }
 
-    return `<div class="height20 width100 row overflowX flex zHigh">${string}</div>`;
+    return string;
   }
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -17065,7 +17021,7 @@ function valuesSetter(type) {
         string += `
       <div class="column height100 width10 flexShrinkZero">
         <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.level))} levels</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
       </div>`;
       }
 
@@ -17073,12 +17029,12 @@ function valuesSetter(type) {
         string += `
       <div class="column height100 width10 flexShrinkZero">
         <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.num))} fragments</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
       </div>`;
       }
     }
 
-    return `<div class="height20 width100 row overflowX flex zHigh">${string}</div>`;
+    return string;
   }
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -17155,7 +17111,7 @@ function valuesSetter(type) {
         string += `
       <div class="column height100 width10 flexShrinkZero">
         <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.level))} levels</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
       </div>`;
       }
 
@@ -17163,12 +17119,12 @@ function valuesSetter(type) {
         string += `
       <div class="column height100 width10 flexShrinkZero">
         <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.num))} fragments</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
       </div>`;
       }
     }
 
-    return `<div class="height20 width100 row overflowX flex zHigh">${string}</div>`;
+    return string;
   }
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -17249,7 +17205,7 @@ function valuesSetter(type) {
         string += `
       <div class="column height100 width10 flexShrinkZero">
         <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.level))} levels</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
       </div>`;
       }
 
@@ -17257,12 +17213,12 @@ function valuesSetter(type) {
         string += `
       <div class="column height100 width10 flexShrinkZero">
         <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.level))} fragments</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
       </div>`;
       }
     }
 
-    return `<div class="height20 width100 row overflowX flex zHigh">${string}</div>`;
+    return string;
   }
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -17347,7 +17303,7 @@ function valuesSetter(type) {
         string += `
       <div class="column height100 width10 flexShrinkZero">
         <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.level))} levels</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
       </div>`;
       }
 
@@ -17355,12 +17311,12 @@ function valuesSetter(type) {
         string += `
       <div class="column height100 width10 flexShrinkZero">
         <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.num))} fragments</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
       </div>`;
       }
     }
 
-    return `<div class="height20 width100 row overflowX flex zHigh">${string}</div>`;
+    return string;
   }
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -17487,7 +17443,7 @@ function valuesSetter(type) {
         string += `
       <div class="column height100 width10 flexShrinkZero">
         <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.level))} levels</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
       </div>`;
       }
 
@@ -17495,12 +17451,12 @@ function valuesSetter(type) {
         string += `
       <div class="column height100 width10 flexShrinkZero">
         <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.num))} fragments</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
       </div>`;
       }
     }
 
-    return `<div class="height20 width100 row overflowX flex zHigh">${string}</div>`;
+    return string;
   }
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -17581,7 +17537,7 @@ function valuesSetter(type) {
         string += `
       <div class="column height100 width10 flexShrinkZero">
         <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.level))} levels</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
       </div>`;
       }
 
@@ -17589,12 +17545,12 @@ function valuesSetter(type) {
         string += `
       <div class="column height100 width10 flexShrinkZero">
         <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.num))} fragments</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
       </div>`;
       }
     }
 
-    return `<div class="height20 width100 row overflowX flex zHigh">${string}</div>`;
+    return string;
   }
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -17725,7 +17681,7 @@ function valuesSetter(type) {
         string += `
       <div class="column height100 width10 flexShrinkZero">
         <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.level))} levels</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
       </div>`;
       }
 
@@ -17733,12 +17689,12 @@ function valuesSetter(type) {
         string += `
       <div class="column height100 width10 flexShrinkZero">
         <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.num))} fragments</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
       </div>`;
       }
     }
 
-    return `<div class="height20 width100 row overflowX flex zHigh">${string}</div>`;
+    return string;
   }
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -17867,7 +17823,7 @@ function valuesSetter(type) {
         string += `
       <div class="column height100 width10 flexShrinkZero">
         <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.level))} levels</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
       </div>`;
       }
 
@@ -17875,12 +17831,12 @@ function valuesSetter(type) {
         string += `
       <div class="column height100 width10 flexShrinkZero">
         <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.num))} fragments</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
       </div>`;
       }
     }
 
-    return `<div class="height20 width100 row overflowX flex zHigh">${string}</div>`;
+    return string;
   }
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -17954,7 +17910,7 @@ function valuesSetter(type) {
         string += `
       <div class="column height100 width10 flexShrinkZero">
         <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.level))} levels</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
       </div>`;
       }
 
@@ -17962,12 +17918,12 @@ function valuesSetter(type) {
         string += `
       <div class="column height100 width10 flexShrinkZero">
         <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.num))} fragments</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
       </div>`;
       }
     }
 
-    return `<div class="height20 width100 row overflowX flex zHigh">${string}</div>`;
+    return string;
   }
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -21598,6 +21554,10 @@ document.getElementById("content2_25_treasureShow").onclick = function () {
 
 //WIND
 
+document.getElementById("content2_23_treasureClaimButton").onclick = function () {
+  claimAllTreasures()
+}
+
 document.getElementById("content2_23_buy").onclick = function () {
   if (f(IUniversal.buyWindTree).lt(f(IUniversal.maxBuyWindTree))) {
     IUniversal.buyWindTree = f(IUniversal.buyWindTree).add(f(1))
@@ -21698,7 +21658,7 @@ document.getElementById("content2_23_node1_button2").onclick = function () {
 
     IUniversal.treasures[x].level = f(IUniversal.treasures[x].level).add(f(sel.level))
     IUniversal.treasures[x].num = f(IUniversal.treasures[x].num).add(f(sel.num))
-    update("content2_23_treasureClaim_d1", IUniversalIn.expeditions.exp1.effectContent(IUniversal.expeditions.exp1.rewards, IUniversalIn.expeditions.exp1.rewards))
+    update("content2_23_treasureClaim_d1", `<div class="height20 width100 row overflowX flex zHigh">${IUniversalIn.expeditions.exp1.effectContent(IUniversal.expeditions.exp1.rewards, IUniversalIn.expeditions.exp1.rewards)}</div>`)
     changePage("expedition", "content2_23_treasureClaim")
   }
   IUniversal.expeditions.exp1.rewards.expectedRewards = null
@@ -21711,7 +21671,7 @@ document.getElementById("content2_23_node2_button2").onclick = function () {
 
     IUniversal.treasures[x].level = f(IUniversal.treasures[x].level).add(f(sel.level))
     IUniversal.treasures[x].num = f(IUniversal.treasures[x].num).add(f(sel.num))
-    update("content2_23_treasureClaim_d1", IUniversalIn.expeditions.exp2.effectContent(IUniversal.expeditions.exp2.rewards, IUniversalIn.expeditions.exp2.rewards))
+    update("content2_23_treasureClaim_d1", `<div class="height20 width100 row overflowX flex zHigh">${IUniversalIn.expeditions.exp2.effectContent(IUniversal.expeditions.exp2.rewards, IUniversalIn.expeditions.exp2.rewards)}</div>`)
     changePage("expedition", "content2_23_treasureClaim")
   }
   IUniversal.expeditions.exp2.rewards.expectedRewards = null
@@ -21724,7 +21684,7 @@ document.getElementById("content2_23_node3_button2").onclick = function () {
 
     IUniversal.treasures[x].level = f(IUniversal.treasures[x].level).add(f(sel.level))
     IUniversal.treasures[x].num = f(IUniversal.treasures[x].num).add(f(sel.num))
-    update("content2_23_treasureClaim_d1", IUniversalIn.expeditions.exp3.effectContent(IUniversal.expeditions.exp3.rewards, IUniversalIn.expeditions.exp3.rewards))
+    update("content2_23_treasureClaim_d1", `<div class="height20 width100 row overflowX flex zHigh">${IUniversalIn.expeditions.exp3.effectContent(IUniversal.expeditions.exp3.rewards, IUniversalIn.expeditions.exp3.rewards)}</div>`)
     changePage("expedition", "content2_23_treasureClaim")
   }
   IUniversal.expeditions.exp3.rewards.expectedRewards = null
@@ -21737,7 +21697,7 @@ document.getElementById("content2_23_node4_button2").onclick = function () {
 
     IUniversal.treasures[x].level = f(IUniversal.treasures[x].level).add(f(sel.level))
     IUniversal.treasures[x].num = f(IUniversal.treasures[x].num).add(f(sel.num))
-    update("content2_23_treasureClaim_d1", IUniversalIn.expeditions.exp3.effectContent(IUniversal.expeditions.exp4.rewards, IUniversalIn.expeditions.exp4.rewards))
+    update("content2_23_treasureClaim_d1", `<div class="height20 width100 row overflowX flex zHigh">${IUniversalIn.expeditions.exp3.effectContent(IUniversal.expeditions.exp4.rewards, IUniversalIn.expeditions.exp4.rewards)}</div>`)
     changePage("expedition", "content2_23_treasureClaim")
   }
   IUniversal.expeditions.exp4.rewards.expectedRewards = null
@@ -21750,7 +21710,7 @@ document.getElementById("content2_23_node5_button2").onclick = function () {
 
     IUniversal.treasures[x].level = f(IUniversal.treasures[x].level).add(f(sel.level))
     IUniversal.treasures[x].num = f(IUniversal.treasures[x].num).add(f(sel.num))
-    update("content2_23_treasureClaim_d1", IUniversalIn.expeditions.exp5.effectContent(IUniversal.expeditions.exp5.rewards, IUniversalIn.expeditions.exp5.rewards))
+    update("content2_23_treasureClaim_d1", `<div class="height20 width100 row overflowX flex zHigh">${IUniversalIn.expeditions.exp5.effectContent(IUniversal.expeditions.exp5.rewards, IUniversalIn.expeditions.exp5.rewards)}</div>`)
     changePage("expedition", "content2_23_treasureClaim")
   }
   IUniversal.expeditions.exp5.rewards.expectedRewards = null
@@ -21763,7 +21723,7 @@ document.getElementById("content2_23_node6_button2").onclick = function () {
 
     IUniversal.treasures[x].level = f(IUniversal.treasures[x].level).add(f(sel.level))
     IUniversal.treasures[x].num = f(IUniversal.treasures[x].num).add(f(sel.num))
-    update("content2_23_treasureClaim_d1", IUniversalIn.expeditions.exp6.effectContent(IUniversal.expeditions.exp6.rewards, IUniversalIn.expeditions.exp6.rewards))
+    update("content2_23_treasureClaim_d1", `<div class="height20 width100 row overflowX flex zHigh">${IUniversalIn.expeditions.exp6.effectContent(IUniversal.expeditions.exp6.rewards, IUniversalIn.expeditions.exp6.rewards)}</div>`)
     changePage("expedition", "content2_23_treasureClaim")
   }
   IUniversal.expeditions.exp6.rewards.expectedRewards = null
@@ -21776,7 +21736,7 @@ document.getElementById("content2_23_node7_button2").onclick = function () {
 
     IUniversal.treasures[x].level = f(IUniversal.treasures[x].level).add(f(sel.level))
     IUniversal.treasures[x].num = f(IUniversal.treasures[x].num).add(f(sel.num))
-    update("content2_23_treasureClaim_d1", IUniversalIn.expeditions.exp7.effectContent(IUniversal.expeditions.exp7.rewards, IUniversalIn.expeditions.exp7.rewards))
+    update("content2_23_treasureClaim_d1", `<div class="height20 width100 row overflowX flex zHigh">${IUniversalIn.expeditions.exp7.effectContent(IUniversal.expeditions.exp7.rewards, IUniversalIn.expeditions.exp7.rewards)}</div>`)
     changePage("expedition", "content2_23_treasureClaim")
   }
   IUniversal.expeditions.exp7.rewards.expectedRewards = null
@@ -21789,7 +21749,7 @@ document.getElementById("content2_23_node8_button2").onclick = function () {
 
     IUniversal.treasures[x].level = f(IUniversal.treasures[x].level).add(f(sel.level))
     IUniversal.treasures[x].num = f(IUniversal.treasures[x].num).add(f(sel.num))
-    update("content2_23_treasureClaim_d1", IUniversalIn.expeditions.exp8.effectContent(IUniversal.expeditions.exp8.rewards, IUniversalIn.expeditions.exp8.rewards))
+    update("content2_23_treasureClaim_d1", `<div class="height20 width100 row overflowX flex zHigh">${IUniversalIn.expeditions.exp8.effectContent(IUniversal.expeditions.exp8.rewards, IUniversalIn.expeditions.exp8.rewards)}</div>`)
     changePage("expedition", "content2_23_treasureClaim")
   }
   IUniversal.expeditions.exp8.rewards.expectedRewards = null
@@ -21802,7 +21762,7 @@ document.getElementById("content2_23_node9_button2").onclick = function () {
 
     IUniversal.treasures[x].level = f(IUniversal.treasures[x].level).add(f(sel.level))
     IUniversal.treasures[x].num = f(IUniversal.treasures[x].num).add(f(sel.num))
-    update("content2_23_treasureClaim_d1", IUniversalIn.expeditions.exp9.effectContent(IUniversal.expeditions.exp9.rewards, IUniversalIn.expeditions.exp9.rewards))
+    update("content2_23_treasureClaim_d1", `<div class="height20 width100 row overflowX flex zHigh">${IUniversalIn.expeditions.exp9.effectContent(IUniversal.expeditions.exp9.rewards, IUniversalIn.expeditions.exp9.rewards)}</div>`)
     changePage("expedition", "content2_23_treasureClaim")
   }
   IUniversal.expeditions.exp9.rewards.expectedRewards = null
@@ -21815,7 +21775,7 @@ document.getElementById("content2_23_node10_button2").onclick = function () {
 
     IUniversal.treasures[x].level = f(IUniversal.treasures[x].level).add(f(sel.level))
     IUniversal.treasures[x].num = f(IUniversal.treasures[x].num).add(f(sel.num))
-    update("content2_23_treasureClaim_d1", IUniversalIn.expeditions.exp10.effectContent(IUniversal.expeditions.exp10.rewards, IUniversalIn.expeditions.exp10.rewards))
+    update("content2_23_treasureClaim_d1", `<div class="height20 width100 row overflowX flex zHigh">${IUniversalIn.expeditions.exp10.effectContent(IUniversal.expeditions.exp10.rewards, IUniversalIn.expeditions.exp10.rewards)}</div>`)
     changePage("expedition", "content2_23_treasureClaim")
   }
   IUniversal.expeditions.exp10.rewards.expectedRewards = null
@@ -23423,7 +23383,7 @@ function visualWaterTree() {
 
   //potion Upgrade
 
-    if (IUniversalIn.inventoryStorage[IUniversal.potionUpgrade.item1.key]) {
+  if (IUniversalIn.inventoryStorage[IUniversal.potionUpgrade.item1.key]) {
     IUniversalIn.potionUpgradeVisual1 = IUniversalIn.inventoryStorage[IUniversal.potionUpgrade.item1.key].content2
   } else {
     IUniversalIn.potionUpgradeVisual1 = ""
@@ -23503,7 +23463,7 @@ function visualInventoryWater() {
     }
   }
 
-    addElement("voidTreasure2");
+  addElement("voidTreasure2");
 
   for (let x in IUniversal.treasures) {
     var sel = IUniversal.treasures[x]
@@ -23513,7 +23473,7 @@ function visualInventoryWater() {
     }
   }
 
-    addElement("voidTreasure3");
+  addElement("voidTreasure3");
 
   for (let x in IUniversal.treasures) {
     var sel = IUniversal.treasures[x]
@@ -24571,6 +24531,14 @@ function visualWindTree() {
 
   //expedition
 
+  //claim all
+
+  //claim all
+
+  update("content2_23_treasureClaimButton", `Claim ${getExpectedTreasures("multi", IUniversal.expeditions.exp3.rewards.expectedRewards)} Treasures`)
+
+  //exp
+
   if (IFight.youStats.onFight3) {
     update("content2_23_expeditionPage_b1", `<span class="boldBlackBorder noClick">STOP</span>
                        <span class="noClick fontSize08 margin1">Increase fight speed every 5s</span>
@@ -24830,6 +24798,21 @@ function getExpectedTreasures(type = "single", element) {
         var sel2 = sel[y]
 
         num = f(num).add(sel2)
+      }
+    }
+
+    return num
+  }
+
+  if (type == "multi") {
+
+    for (let x in IUniversal.expeditions) {
+      var sel = IUniversal.expeditions[x].rewards.expectedRewards
+
+      for (let y in sel) {
+        var sel2 = sel[y]
+
+        num = f(num).add(sel2.num)
       }
     }
 
@@ -28827,7 +28810,7 @@ function addElement(type, key) {
     }
   }
 
-    if (type == "voidTreasure2") {
+  if (type == "voidTreasure2") {
     const gridContainer = document.getElementById("content2_23_treasureGrid");
     const styles = getComputedStyle(gridContainer);
 
@@ -28864,7 +28847,7 @@ function addElement(type, key) {
     }
   }
 
-    if (type == "voidTreasure3") {
+  if (type == "voidTreasure3") {
     const gridContainer = document.getElementById("content2_25_treasureGrid");
     const styles = getComputedStyle(gridContainer);
 
@@ -28951,7 +28934,7 @@ function addElement(type, key) {
     }
   }
 
-    if (type == "treasure2") {
+  if (type == "treasure2") {
 
     // Controlla se l'oggetto è già nell'inventario
     for (let pos in IUniversal.treasureInventory) {
@@ -29001,7 +28984,7 @@ function addElement(type, key) {
     }
   }
 
-    if (type == "treasure3") {
+  if (type == "treasure3") {
 
     // Controlla se l'oggetto è già nell'inventario
     for (let pos in IUniversal.treasureInventory) {
@@ -30006,32 +29989,32 @@ function draggableSet(item, key, keyIn, type, archetype) {
 
       var selectedKey = eval(key).key;
 
-        IUniversal.selTreasure = selectedKey || null;
-        if (IUniversal.selTreasure != null) {
-          unlockShow("content2_21_treasure_info", true);
-          unlockShow("content2_23_treasure_info", true);
-          unlockShow("content2_25_treasure_info", true);
+      IUniversal.selTreasure = selectedKey || null;
+      if (IUniversal.selTreasure != null) {
+        unlockShow("content2_21_treasure_info", true);
+        unlockShow("content2_23_treasure_info", true);
+        unlockShow("content2_25_treasure_info", true);
 
 
-        } else {
-          unlockShow("content2_21_treasure_info", false);
-          unlockShow("content2_23_treasure_info", false);
-          unlockShow("content2_25_treasure_info", false);
+      } else {
+        unlockShow("content2_21_treasure_info", false);
+        unlockShow("content2_23_treasure_info", false);
+        unlockShow("content2_25_treasure_info", false);
 
 
-        }
-      
+      }
+
     });
 
     item.addEventListener("mouseleave", function (e) {
       var selectedKey = eval(key).key;
 
-        IUniversal.selTreasure = null;
-        unlockShow("content2_21_treasure_info", false);
-        unlockShow("content2_23_treasure_info", false);
-        unlockShow("content2_25_treasure_info", false);
+      IUniversal.selTreasure = null;
+      unlockShow("content2_21_treasure_info", false);
+      unlockShow("content2_23_treasure_info", false);
+      unlockShow("content2_25_treasure_info", false);
 
-      
+
     });
 
     item.addEventListener("click", function (e) {
@@ -30596,4 +30579,27 @@ function buildImages(img, divisor) {
     html += `<div style="background-image:url('images/${img}')" class="backgroundImage width10 square"></div>`;
   }
   return html;
+}
+
+function claimAllTreasures() {
+
+  var text = ""
+  for (let x in IUniversalIn.expeditions) {
+    var sel = IUniversal.expeditions[x]
+    var selIn = IUniversalIn.expeditions[x]
+
+    for (let y in IUniversal.expeditions[x].rewards.expectedRewards) {
+
+      var sel2 = IUniversal.expeditions[x].rewards.expectedRewards[y]
+
+      IUniversal.treasures[y].level = f(IUniversal.treasures[y].level).add(f(sel2.level))
+      IUniversal.treasures[y].num = f(IUniversal.treasures[y].num).add(f(sel2.num))
+    }
+
+    text += selIn.effectContent(IUniversal.expeditions[x].rewards, IUniversalIn.expeditions[x].rewards)
+    IUniversal.expeditions[x].rewards.expectedRewards = null
+
+  }
+  update("content2_23_treasureClaim_d1", `<div class="height20 width100 row overflowX flex zHigh">${text}</div>`)
+  changePage("expedition", "content2_23_treasureClaim")
 }

@@ -5254,11 +5254,13 @@ svg#content2_17_lineLayer {
   display: flex;
   flex-direction: row;
   overflow-y: auto;
+    pointer-events: none;
 
   width: 60%;
 }
 
 #content2_17_valutes_content>* {
+    pointer-events:all;
   width: 15%;
   background-color: rgba(90, 99, 99, 0.8);
 }
@@ -5329,12 +5331,14 @@ svg#content2_19_lineLayer {
 }
 
 #content2_19_valutes_content {
+    pointer-events: none;
   display: flex;
   flex-direction: row;
   width: 70%;
 }
 
 #content2_19_valutes_content>* {
+    pointer-events: all;
   width: 15%;
   background-color: rgba(90, 99, 99, 0.8);
 }
@@ -6167,12 +6171,14 @@ svg#content2_21_lineLayer {
 }
 
 #content2_21_valutes_content {
+    pointer-events: none;
   display: flex;
   flex-direction: row;
   width: 70%;
 }
 
 #content2_21_valutes_content>* {
+    pointer-events: all;
   width: 15%;
   background-color: rgba(90, 99, 99, 0.8);
 }
@@ -6481,6 +6487,13 @@ svg#content2_21_lineLayer {
   left: 500%;
 }
 
+#content2_23_treasureClaimButton {
+  z-index: 9;
+  height: 10%;
+  position: absolute;
+  bottom: 13%;
+  right: 1%;
+}
 
 #content2_23_treasureShow {
   z-index: 9;
@@ -6715,12 +6728,14 @@ svg#content2_21_lineLayer {
 }
 
 #content2_23_valutes_content {
+    pointer-events: none;
   display: flex;
   flex-direction: row;
   width: 70%;
 }
 
 #content2_23_valutes_content>* {
+    pointer-events: all;
   width: 15%;
   background-color: rgba(90, 99, 99, 0.8);
 }
@@ -6745,12 +6760,14 @@ svg#content2_21_lineLayer {
 }
 
 #content2_25_valutes_content {
+    pointer-events: none;
   display: flex;
   flex-direction: row;
   width: 70%;
 }
 
 #content2_25_valutes_content>* {
+    pointer-events: all;
   width: 15%;
   background-color: rgba(90, 99, 99, 0.8);
 }
