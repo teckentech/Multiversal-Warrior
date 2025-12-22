@@ -16758,8 +16758,6 @@ function valuesSetter(type) {
   if (getTreasureActive("treasure16")) { var aff2 = f(IUniversalIn.treasures.treasure16.effect) } else { aff2 = f(1) }
   if (getTreasureActive("treasure26")) { var aff4 = f(IUniversalIn.treasures.treasure26.effect) } else { aff4 = f(0) }
 
-  console.log(aff4)
-
   if (getArmyEffectType("fireAffinity")) {
     var aff5 = getArmyEffectValue("fireAffinity")
   } else {
