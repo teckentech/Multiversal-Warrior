@@ -877,7 +877,7 @@
                     </div>
 
                     <div id="opaqueScreen2"></div>
-                    <div class="boldBlackBorder">Multiversal Warrior v1.4.0 - Elemental Update: Golem Army</div>
+                    <div class="boldBlackBorder">Multiversal Warrior v1.4.0 - Elemental Update: Mines</div>
                     <button id="options_discord" class="bDefaultButton"></button>
                 </div>
 
@@ -1106,7 +1106,7 @@
                                     class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
                             </div>
                             <div id="content2_17_node2" class="bDefaultStyle absolute red">
-                                <div id="content2_17_node2_content" class="height50"></div>
+                                <div id="content2_17_node2_content" class="height50 width100"></div>
                                 <button id="content2_17_node2_button"
                                     class="centerDivColumns defaultButton100 column bottom absolute height50 padding3"></button>
                             </div>
@@ -2261,6 +2261,106 @@
                                 </button>
                             </div>
 
+                            <div id="content2_21_under1_desc" class="backgroundOrange1 boldBlackBorder centerDiv"></div>
+
+                            <div id="content2_21_under1" class="row roundedEdges">
+                                <div id="content2_21_under1_1" class="height100 width30 column padding1 backgroundOrange2 roundedEdges">
+                                    <div
+                                        class="height10 width100 centerDiv padding1 backgroundOrange3 roundedEdges boldBlackBorder">
+                                        LOW
+                                        FORGE</div>
+
+                                    <div
+                                        class="height90 width100 padding1 overflowY column backgroundOrange1 roundedEdges">
+                                        <div class="height15 width100 row backgroundOrange2 roundedEdges">
+                                            <div class="height100 width60" v-if="universalIn.forge"
+                                                v-html="universalIn.forge.item1.content"></div>
+                                            <button id="content2_21_forge_item1_button"
+                                                class="height100 width40 defaultButton"></button>
+                                        </div>
+                                        <div class="height15 width100 row backgroundOrange2 roundedEdges">
+                                            <div class="height100 width60" v-if="universalIn.forge"
+                                                v-html="universalIn.forge.item2.content"></div>
+                                            <button id="content2_21_forge_item2_button"
+                                                class="height100 width40 defaultButton"></button>
+                                        </div>
+                                        <div class="height15 width100 row backgroundOrange2 roundedEdges">
+                                            <div class="height100 width60" v-if="universalIn.forge"
+                                                v-html="universalIn.forge.item3.content"></div>
+                                            <button id="content2_21_forge_item3_button"
+                                                class="height100 width40 defaultButton"></button>
+                                        </div>
+                                        <div class="height15 width100 row backgroundOrange2 roundedEdges">
+                                            <div class="height100 width60" v-if="universalIn.forge"
+                                                v-html="universalIn.forge.item4.content"></div>
+                                            <button id="content2_21_forge_item4_button"
+                                                class="height100 width40 defaultButton"></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="content2_21_under1_2" class="height100 width30 column padding1 backgroundOrange2 roundedEdges">
+                                    <div
+                                        class="height10 width100 centerDiv padding1 backgroundOrange3 roundedEdges boldBlackBorder">
+                                        LOW
+                                        MINE</div>
+                                    <div class="height10 width100 centerDiv padding1 backgroundOrange3 roundedEdges"
+                                        v-if="universalIn" v-html="universalIn.mineInfo">
+                                    </div>
+
+                                    <div
+                                        class="height90 width100 padding1 overflowY column backgroundOrange1 roundedEdges">
+                                        <div class="height15 width100 row backgroundOrange2 roundedEdges">
+                                            <div class="height100 width60" v-if="universalIn.mine"
+                                                v-html="universalIn.mine.item1.content"></div>
+                                            <button id="content2_21_mine_item1_button"
+                                                class="height100 width40 defaultButton"></button>
+                                        </div>
+                                        <div class="height15 width100 row backgroundOrange2 roundedEdges">
+                                            <div class="height100 width60" v-if="universalIn.mine"
+                                                v-html="universalIn.mine.item2.content"></div>
+                                            <button id="content2_21_mine_item2_button"
+                                                class="height100 width40 defaultButton"></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div id="content2_21_under1_3" class="height100 width30 column padding1 backgroundOrange2 roundedEdges">
+
+                                    <div
+                                        class="height10 width100 centerDiv padding1 backgroundOrange3 roundedEdges boldBlackBorder">
+                                        ORES</div>
+
+                                    <div
+                                        class="height10 width100 centerDiv column padding1 backgroundOrange3 roundedEdges">
+                                        <div>Life: Mine Power / Life equals ore/s</div>
+                                        <div>Hardness: Mine Power needed to damage ore</div>
+                                    </div>
+
+                                    <div
+                                        class="height80 width100 padding1 overflowY column backgroundOrange1 roundedEdges">
+                                        <div class="height30 width100 row backgroundOrange2 roundedEdges">
+                                            <div class="height100 width60" v-if="universalIn.ore"
+                                                v-html="universalIn.ore.item1.content"></div>
+                                            <button id="content2_21_ore_item1_button"
+                                                class="height100 width40 defaultButton"></button>
+                                        </div>
+                                        <div class="height30 width100 row backgroundOrange2 roundedEdges">
+                                            <div class="height100 width60" v-if="universalIn.ore"
+                                                v-html="universalIn.ore.item2.content"></div>
+                                            <button id="content2_21_ore_item2_button"
+                                                class="height100 width40 defaultButton"></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div id="content2_21_under1_4" class="height100 width20 column padding1 backgroundOrange2 roundedEdges"
+                                    v-if="universalIn" v-html="universalIn.forgeValute1"> </div>
+
+                            </div>
+
                             <div id="content2_21_tutorial" class="bdefaultButtonSkin column backgroundOrange2">
                                 <div class="backgroundOrange3 margin1 roundedEdges height100">
                                     <div>1. Make a strong army</div>
@@ -2620,6 +2720,50 @@
                                     class="centerDivColumns defaultButton100 column bottom absolute height20 padding3">
                                 </button>
                             </div>
+
+                            <div id="content2_23_node11" class="bDefaultStyle absolute blu">
+                                <div id="content2_23_node11_content" class="height60 width100"></div>
+
+                                <button id="content2_23_node11_button"
+                                    class="centerDivColumns defaultButton100 column top60 absolute height20 padding3">
+                                </button>
+                                <button id="content2_23_node11_button2"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height20 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_23_node12" class="bDefaultStyle absolute blu">
+                                <div id="content2_23_node12_content" class="height60 width100"></div>
+
+                                <button id="content2_23_node12_button"
+                                    class="centerDivColumns defaultButton100 column top60 absolute height20 padding3">
+                                </button>
+                                <button id="content2_23_node12_button2"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height20 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_23_node13" class="bDefaultStyle absolute blu">
+                                <div id="content2_23_node13_content" class="height60 width100"></div>
+
+                                <button id="content2_23_node13_button"
+                                    class="centerDivColumns defaultButton100 column top60 absolute height20 padding3">
+                                </button>
+                                <button id="content2_23_node13_button2"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height20 padding3">
+                                </button>
+                            </div>
+
+                            <div id="content2_23_node14" class="bDefaultStyle absolute blu">
+                                <div id="content2_23_node14_content" class="height60 width100"></div>
+
+                                <button id="content2_23_node14_button"
+                                    class="centerDivColumns defaultButton100 column top60 absolute height20 padding3">
+                                </button>
+                                <button id="content2_23_node14_button2"
+                                    class="centerDivColumns defaultButton100 column bottom absolute height20 padding3">
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2713,7 +2857,7 @@
 
                             <div id="content2_25_treasureAugment" class="bDefaultStyle absolute blu">
                                 <div id="content2_25_treasureAugment_1"
-                                    class="height30 width50 row backgroundBlue1 roundedEdges absolute">
+                                    class="height100 width100 row backgroundBlue1 roundedEdges relative">
                                     <div class="left width30 height100">
                                         <div id="content2_25_treasureAugment_item1"
                                             class="backgroundBlue1 roundedEdges square height100 defaultStyle roundedEdges">
@@ -2721,6 +2865,18 @@
                                     </div>
                                     <div v-if="universalIn.treasureAugments"
                                         v-html="universalIn.treasureAugments.item1.content"
+                                        class="centerDiv width70 height100 column">
+                                    </div>
+                                </div>
+                                <div id="content2_25_treasureAugment_2"
+                                    class="height100 width100 row backgroundBlue1 roundedEdges relative">
+                                    <div class="left width30 height100">
+                                        <div id="content2_25_treasureAugment_item2"
+                                            class="backgroundBlue1 roundedEdges square height100 defaultStyle roundedEdges">
+                                        </div>
+                                    </div>
+                                    <div v-if="universalIn.treasureAugments"
+                                        v-html="universalIn.treasureAugments.item2.content"
                                         class="centerDiv width70 height100 column">
                                     </div>
                                 </div>
@@ -2745,7 +2901,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -2764,13 +2919,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <!-- 2. Carica il tuo script personalizzato (che utilizza BreakInfinity.js) -->
-    <script type="module" src="fullRevamp.js?v=1.113" charset="utf-8"></script>
+    <script type="module" src="fullRevamp.js?v=1.114" charset="utf-8"></script>
 
     <!-- 3. Carica altre librerie necessarie, come crypto-js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 
     <!-- 4. Carica il file CSS per la formattazione -->
-    <link rel="stylesheet" href="cssRevamp.css?v=1.113">
+    <link rel="stylesheet" href="cssRevamp.css?v=1.114">
 
     <!--<script src="./libs/dist/vue.global.js"></script>-->
 </body>
