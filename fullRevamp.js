@@ -14970,7 +14970,7 @@ function valuesSetter(type) {
 
   //FORGE
 
-    //MINE STATS
+  //MINE STATS
 
   var sel = IUniversal.mineStats
   var selIn = IUniversalIn.mineStats
@@ -16275,7 +16275,7 @@ function valuesSetter(type) {
     IUniversalIn.armyInfo.default.golemTypes.type1.baseLevel = f(eff1).mul(f(f(IUniversalIn.armyInfo.default.level)))
   }
 
-      if (getArmyEffectType("tankHell")) {
+  if (getArmyEffectType("tankHell")) {
     var tank1 = getArmyEffectValue("tankHell")
   } else {
     tank1 = 1;
@@ -16391,7 +16391,7 @@ function valuesSetter(type) {
 
   }
 
-    if (getTreasureActive("treasure22")) { var bonus1 = f(IUniversalIn.treasures.treasure22.effect) } else { bonus1 = f(1) }
+  if (getTreasureActive("treasure22")) { var bonus1 = f(IUniversalIn.treasures.treasure22.effect) } else { bonus1 = f(1) }
 
 
   if (f(IUniversalIn.armyInfo.default.golemTypes.type3.level).gt(f(0))) {
@@ -16497,7 +16497,7 @@ function valuesSetter(type) {
     var life3 = f(IUniversalIn.armyInfo.enemy.golemTypes.type3.life)
     var life4 = f(IUniversalIn.armyInfo.enemy.golemTypes.type4.life)
     var life5 = f(IUniversalIn.armyInfo.enemy.golemTypes.type5.life)
-  if (getTreasureActive("treasure20")) { var life6 = f(IUniversalIn.treasures.treasure20.effect) } else { life6 = f(1) }
+    if (getTreasureActive("treasure20")) { var life6 = f(IUniversalIn.treasures.treasure20.effect) } else { life6 = f(1) }
 
     if (f(selectedIn.number).gt(f(0))) {
       IUniversalIn.armyInfo.enemy.life = (f(f(1)).mul(life1).mul(life2).mul(life3).mul(life4).mul(life5)).dividedBy(life6)
@@ -16575,7 +16575,7 @@ function valuesSetter(type) {
       IUniversalIn.armyInfo.enemy.golemTypes.type1.damage = f(1)
     }
 
-      if (getTreasureActive("treasure21")) { var boost1 = f(IUniversalIn.treasures.treasure21.effect) } else { boost1 = f(1) }
+    if (getTreasureActive("treasure21")) { var boost1 = f(IUniversalIn.treasures.treasure21.effect) } else { boost1 = f(1) }
 
 
     if (f(IUniversal.armyInfo.enemy.golemTypes.type2.level).gt(f(0))) {
@@ -16668,7 +16668,7 @@ function valuesSetter(type) {
     aff7 = 0;
   }
 
-    if (getTreasureActive("treasure25")) { var aff8 = f(IUniversalIn.treasures.treasure25.effect) } else { aff8 = f(1) }
+  if (getTreasureActive("treasure25")) { var aff8 = f(IUniversalIn.treasures.treasure25.effect) } else { aff8 = f(1) }
 
 
   IUniversalIn.armyInfo.soul.affinities.affinity1.value = ((f(1).add(aff2).add(aff4).add(aff5).add(aff6).minus(aff7)).mul(aff3).mul(aff8)).dividedBy(f(aff1))
@@ -16702,7 +16702,7 @@ function valuesSetter(type) {
     aff6 = 0;
   }
 
-    if (getTreasureActive("treasure15")) { var aff7 = f(IUniversalIn.treasures.treasure15.effect2) } else { aff7 = f(0) }
+  if (getTreasureActive("treasure15")) { var aff7 = f(IUniversalIn.treasures.treasure15.effect2) } else { aff7 = f(0) }
 
 
   IUniversalIn.armyInfo.soul.affinities.affinity2.value = ((f(1).add(aff1).add(aff4).add(aff7).minus(aff6)).mul(aff2)).dividedBy(f(aff5))
@@ -16738,7 +16738,7 @@ function valuesSetter(type) {
 
   if (getTreasureActive("treasure26")) { var aff6 = f(IUniversalIn.treasures.treasure26.effect) } else { aff6 = f(0) }
 
-    if (getTreasureActive("treasure24")) { var aff7 = f(IUniversalIn.treasures.treasure24.effect3) } else { aff7 = f(0) }
+  if (getTreasureActive("treasure24")) { var aff7 = f(IUniversalIn.treasures.treasure24.effect3) } else { aff7 = f(0) }
 
 
   IUniversalIn.armyInfo.soul.affinities.affinity3.value = ((f(1).add(aff1).add(aff2).add(aff6).add(aff7).minus(aff5)).mul(aff4)).dividedBy(f(aff3))
@@ -17013,7 +17013,7 @@ function valuesSetter(type) {
   sel1.fused = f(sel1.fused)
   sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
 
-    sel2.effect = f(2).pow(f(f(sel1.level)))
+  sel2.effect = f(2).pow(f(f(sel1.level)))
 
   if (getTreasureActive("treasure2")) {
     sel1.equip = true;
@@ -17058,7 +17058,7 @@ function valuesSetter(type) {
   sel1.fused = f(sel1.fused)
   sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
 
-    sel2.effect = f(Math.log2(f(IUniversalIn.armyInfo.default.golemTypes.type2.baseLevel).add(f(2)))).mul(f(sel1.level))
+  sel2.effect = f(Math.log2(f(IUniversalIn.armyInfo.default.golemTypes.type2.baseLevel).add(f(2)))).mul(f(sel1.level))
 
 
   if (getTreasureActive("treasure3")) {
@@ -17108,7 +17108,7 @@ function valuesSetter(type) {
   sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
 
 
-    sel2.effect = f(5).mul(f(f(sel1.level)))
+  sel2.effect = f(5).mul(f(f(sel1.level)))
 
 
   if (f(sel1.level).gt(f(0))) {
@@ -17153,7 +17153,7 @@ function valuesSetter(type) {
   sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
 
 
-    sel2.effect = f(5).mul(f(f(sel1.level)))
+  sel2.effect = f(5).mul(f(f(sel1.level)))
 
 
   if (f(sel1.level).gt(f(0))) {
@@ -17198,7 +17198,7 @@ function valuesSetter(type) {
   sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
 
 
-    sel2.effect = f(5).mul(f(f(sel1.level)))
+  sel2.effect = f(5).mul(f(f(sel1.level)))
 
 
   if (f(sel1.level).gt(f(0))) {
@@ -17461,7 +17461,7 @@ function valuesSetter(type) {
   sel2.price = f(f(10).pow(f(3))).mul(f(5).pow(f(sel1.level).minus(f(1))))
 
 
-    sel2.effect = f(2).mul(f(sel1.level))
+  sel2.effect = f(2).mul(f(sel1.level))
 
 
   if (getTreasureActive("treasure11")) {
@@ -17509,7 +17509,7 @@ function valuesSetter(type) {
 
 
 
-    sel2.effect = f(3).mul(f(sel1.level))
+  sel2.effect = f(3).mul(f(sel1.level))
 
 
   if (getTreasureActive("treasure12")) {
@@ -17556,7 +17556,7 @@ function valuesSetter(type) {
   sel2.price = f(f(10).pow(f(7))).mul(f(5).pow(f(sel1.level).minus(f(1))))
 
 
-    sel2.effect = f(1).mul(f(sel1.level))
+  sel2.effect = f(1).mul(f(sel1.level))
 
 
   if (getTreasureActive("treasure13")) {
@@ -17603,8 +17603,8 @@ function valuesSetter(type) {
   sel2.price = f(f(10).pow(f(9))).mul(f(10).pow(f(sel1.level).minus(f(1))))
 
 
-    sel2.effect = f(5).mul(f(sel1.level))
-    sel2.effect2 = f(2).mul(f(sel1.level))
+  sel2.effect = f(5).mul(f(sel1.level))
+  sel2.effect2 = f(2).mul(f(sel1.level))
 
   if (getTreasureActive("treasure14")) {
     sel1.equip = true;
@@ -17651,8 +17651,8 @@ function valuesSetter(type) {
   sel2.price = f(f(10).pow(f(11))).mul(f(10).pow(f(sel1.level).minus(f(1))))
 
 
-    sel2.effect = f(10).mul(f(sel1.level))
-    sel2.effect2 = f(1).mul(f(sel1.level))
+  sel2.effect = f(10).mul(f(sel1.level))
+  sel2.effect2 = f(1).mul(f(sel1.level))
 
   if (getTreasureActive("treasure15")) {
     sel1.equip = true;
@@ -17698,7 +17698,7 @@ function valuesSetter(type) {
 
   sel2.price = f(f(10).pow(f(14))).mul(f(10).pow(f(sel1.level).minus(f(1))))
 
-    sel2.effect = f(1).add(f(0.1).mul(f(sel1.level)))
+  sel2.effect = f(1).add(f(0.1).mul(f(sel1.level)))
 
 
   if (getTreasureActive("treasure16")) {
@@ -17743,8 +17743,8 @@ function valuesSetter(type) {
 
   sel2.price = f(f(10).pow(f(2))).mul(f(5).pow(f(sel1.level).minus(f(1))))
 
-    sel2.effect = f(1).mul(f(sel1.level))
-    sel2.effect2 = f(1).mul(f(sel1.level))
+  sel2.effect = f(1).mul(f(sel1.level))
+  sel2.effect2 = f(1).mul(f(sel1.level))
 
   if (getTreasureActive("treasure17")) {
     sel1.equip = true;
@@ -17789,7 +17789,7 @@ function valuesSetter(type) {
 
   sel2.price = f(f(10).pow(f(7))).mul(f(10).pow(f(sel1.level).minus(f(1))))
 
-    sel2.effect = f(1).mul(f(sel1.level))
+  sel2.effect = f(1).mul(f(sel1.level))
 
 
   if (getTreasureActive("treasure18")) {
@@ -17836,7 +17836,7 @@ function valuesSetter(type) {
   sel2.price = f(f(10).pow(f(18))).mul(f(10).pow(f(sel1.level).minus(f(1))))
 
 
-    sel2.effect = f(1.5).mul(f(sel1.level))
+  sel2.effect = f(1.5).mul(f(sel1.level))
 
 
   if (getTreasureActive("treasure19")) {
@@ -17882,7 +17882,7 @@ function valuesSetter(type) {
 
   sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
 
-    sel2.effect = f(2).pow(f(sel1.level))
+  sel2.effect = f(2).pow(f(sel1.level))
 
 
   if (getTreasureActive("treasure20")) {
@@ -17928,7 +17928,7 @@ function valuesSetter(type) {
 
   sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
 
-    sel2.effect = f(2).pow(f(sel1.level))
+  sel2.effect = f(2).pow(f(sel1.level))
 
 
   if (getTreasureActive("treasure21")) {
@@ -17974,7 +17974,7 @@ function valuesSetter(type) {
 
   sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
 
-    sel2.effect = f(2).pow(f(sel1.level))
+  sel2.effect = f(2).pow(f(sel1.level))
 
 
   if (getTreasureActive("treasure22")) {
@@ -18021,9 +18021,9 @@ function valuesSetter(type) {
   sel2.price = f(f(10).pow(f(24))).mul(f(50).pow(f(sel1.level).minus(f(1))))
 
 
-    sel2.effect = f(25).mul(f(sel1.level))
-    sel2.effect2 = f(10).mul(f(sel1.level))
-    sel2.effect3 = f(5).mul(f(sel1.level))
+  sel2.effect = f(25).mul(f(sel1.level))
+  sel2.effect2 = f(10).mul(f(sel1.level))
+  sel2.effect3 = f(5).mul(f(sel1.level))
 
   if (getTreasureActive("treasure23")) {
     sel1.equip = true;
@@ -18068,9 +18068,9 @@ function valuesSetter(type) {
 
   sel2.price = f(f(10).pow(f(26))).mul(f(50).pow(f(sel1.level).minus(f(1))))
 
-    sel2.effect = f(100).mul(f(sel1.level))
-    sel2.effect2 = f(5).mul(f(sel1.level))
-    sel2.effect3 = f(5).mul(f(sel1.level))
+  sel2.effect = f(100).mul(f(sel1.level))
+  sel2.effect2 = f(5).mul(f(sel1.level))
+  sel2.effect3 = f(5).mul(f(sel1.level))
 
   if (getTreasureActive("treasure24")) {
     sel1.equip = true;
@@ -18116,7 +18116,7 @@ function valuesSetter(type) {
 
   sel2.price = f(f(10).pow(f(28))).mul(f(50).pow(f(sel1.level).minus(f(1))))
 
-    sel2.effect = f(2).pow(f(sel1.level))
+  sel2.effect = f(2).pow(f(sel1.level))
 
 
   if (getTreasureActive("treasure25")) {
@@ -18162,7 +18162,7 @@ function valuesSetter(type) {
 
   sel2.price = f(f(10).pow(f(30))).mul(f(10).pow(f(sel1.level).minus(f(1))))
 
-    sel2.effect = f(1).mul(f(sel1.level))
+  sel2.effect = f(1).mul(f(sel1.level))
 
 
   if (getTreasureActive("treasure26")) {
@@ -20983,7 +20983,7 @@ function valuesSetterDinamic(type) {
   var sel = IUniversal.expeditions.exp1
   var selIn = IUniversalIn.expeditions.exp1
 
-  
+
   if (f(sel.rewards.timer).gte(f(selIn.rewards.timerPrice)) && sel.active) {
     var number = f(sel.rewards.timer).dividedBy(f(selIn.rewards.timerPrice)).floor();
 
@@ -21004,7 +21004,7 @@ function valuesSetterDinamic(type) {
   var sel = IUniversal.expeditions.exp2
   var selIn = IUniversalIn.expeditions.exp2
 
-  
+
   if (f(sel.rewards.timer).gte(f(selIn.rewards.timerPrice)) && sel.active) {
     var number = f(sel.rewards.timer).dividedBy(f(selIn.rewards.timerPrice)).floor();
 
@@ -21025,7 +21025,7 @@ function valuesSetterDinamic(type) {
   var sel = IUniversal.expeditions.exp3
   var selIn = IUniversalIn.expeditions.exp3
 
-  
+
   if (f(sel.rewards.timer).gte(f(selIn.rewards.timerPrice)) && false) {
     var number = f(sel.rewards.timer).dividedBy(f(selIn.rewards.timerPrice)).floor();
 
@@ -26225,7 +26225,7 @@ function addObjectToSpace(row, col, key, space) {
     const gridContainer = document.getElementById(`content2_25_treasureAugment_${key}`);
     const existing = document.getElementById(`content2_25_treasureAugment_${key}_div`);
 
-    if(!gridContainer) return
+    if (!gridContainer) return
 
     if (existing) {
 
@@ -30051,10 +30051,10 @@ function loopShow() {
   unlockShow("content2_25_treasureAugment_1", true)
 
   if (f(IUniversal.expeditions.exp13.level).gt(f(0))) {
-      unlockShow("content2_25_treasureAugment_2", true)
-  }else{
-      unlockShow("content2_25_treasureAugment_2", true)
-      update("content2_25_treasureAugment_2", `<div class="boldBlackBorder centerDiv">Defeat Magma Elemental to unlock</div>`)
+    unlockShow("content2_25_treasureAugment_2", true)
+  } else {
+    unlockShow("content2_25_treasureAugment_2", false)
+    update("content2_25_treasureAugment_2", `<div class="boldBlackBorder centerDiv">Defeat Magma Elemental to unlock</div>`)
   }
 }
 
@@ -32426,45 +32426,50 @@ function draggableSet(item, key, keyIn, type, archetype) {
     }
 
     if (type == "treasureAugments") {
-  item.addEventListener("drop", function (e) {
-    e.preventDefault();
+      item.addEventListener("drop", function (e) {
+        e.preventDefault();
 
-    var dragged = e.dataTransfer.getData("text/plain");
-    var target = key;        // es: IUniversal.augments['item1']
-    var targetIn = keyIn;
+        var dragged = e.dataTransfer.getData("text/plain");
+        var target = key;        // es: IUniversal.augments['item1']
+        var targetIn = keyIn;
 
-    var draggedKeyString = dragged + ".key";
-    var targetKeyString = target + ".key";
+        var draggedKeyString = dragged + ".key";
+        var targetKeyString = target + ".key";
 
-    var draggedDrag = eval(dragged + ".drag");
-    var draggedKey = eval(dragged).key;
-    var targetKey = eval(target).key;
+        var draggedDrag = eval(dragged + ".drag");
+        var draggedKey = eval(dragged).key;
+        var targetKey = eval(target).key;
 
-    // ❌ niente equipment
-    if (draggedDrag == "equipment") return;
+        // ❌ niente equipment
+        if (draggedDrag == "equipment") return;
 
-    // ❌ niente key vuote
-    if (draggedKey == null || draggedKey == undefined) return;
+        if (!(IUniversalIn.treasureInventory[draggedKey].type == eval(targetIn).type)) {
+          return
+        }
 
-    // 🔒 BLOCCO DUPLICATI (INLINE)
-    for (var slot in IUniversal.treasureAugments) {
 
-      if (IUniversal.treasureAugments[slot].key === draggedKey) {
-        return;
-      }
+        // ❌ niente key vuote
+        if (draggedKey == null || draggedKey == undefined) return;
+
+        // 🔒 BLOCCO DUPLICATI (INLINE)
+        for (var slot in IUniversal.treasureAugments) {
+
+          if (IUniversal.treasureAugments[slot].key === draggedKey) {
+            return;
+          }
+        }
+
+        // ✅ assegna
+        eval(`${targetKeyString} = '${draggedKey}'`);
+        eval(`${draggedKeyString} = null`);
+      });
+
+      item.addEventListener("click", function (e) {
+        e.preventDefault();
+        var selectedKey = eval(key).key;
+        IUniversal.selAugment = selectedKey || null;
+      });
     }
-
-    // ✅ assegna
-    eval(`${targetKeyString} = '${draggedKey}'`);
-    eval(`${draggedKeyString} = null`);
-  });
-
-  item.addEventListener("click", function (e) {
-    e.preventDefault();
-    var selectedKey = eval(key).key;
-    IUniversal.selAugment = selectedKey || null;
-  });
-}
   }
 
   if (type == "default") {
@@ -32848,7 +32853,7 @@ function getTreasureActive(key) {
   for (let x in IUniversal.treasureAugments) {
     var sel = IUniversal.treasureAugments[x]
     var selIn = IUniversalIn.treasureAugments[x]
-    
+
     if (treasureIn.type == selIn.type) {
       if (sel.key == key) {
         return true
