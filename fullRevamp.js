@@ -32443,9 +32443,6 @@ function draggableSet(item, key, keyIn, type, archetype) {
         // ❌ niente equipment
         if (draggedDrag == "equipment") return;
 
-        if (!(IUniversalIn.treasureInventory[draggedKey].type == eval(targetIn).type)) {
-          return
-        }
 
 
         // ❌ niente key vuote
