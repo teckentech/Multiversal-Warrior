@@ -17121,7 +17121,7 @@ function valuesSetter(type) {
 
   var sel1 = IUniversal.treasures.treasure5
   var sel2 = IUniversalIn.treasures.treasure5
-
+  
   sel2.maxLevel = Infinity
 
   sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
@@ -31720,6 +31720,7 @@ function potionFusion() {
             newPotion.merges = f(newPotion.merges).add(f(sel.level))
             found = true;
           } else {
+            sel2.level = f(sel.maxLevel)
             newPotion.merges = f(newPotion.merges).add(f(sel.level))
             found = true;
           }
