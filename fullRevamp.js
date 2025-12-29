@@ -17121,7 +17121,7 @@ function valuesSetter(type) {
 
   var sel1 = IUniversal.treasures.treasure5
   var sel2 = IUniversalIn.treasures.treasure5
-  
+
   sel2.maxLevel = Infinity
 
   sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
@@ -32441,15 +32441,14 @@ function draggableSet(item, key, keyIn, type, archetype) {
         var draggedKey = eval(dragged).key;
         var targetKey = eval(target).key;
 
-        // ❌ niente equipment
         if (draggedDrag == "equipment") return;
 
+        if (!(IUniversalIn.treasures[draggedKey].type == eval(targetIn).type)) {
+          return
+        }
 
-
-        // ❌ niente key vuote
         if (draggedKey == null || draggedKey == undefined) return;
 
-        // 🔒 BLOCCO DUPLICATI (INLINE)
         for (var slot in IUniversal.treasureAugments) {
 
           if (IUniversal.treasureAugments[slot].key === draggedKey) {
@@ -32457,7 +32456,6 @@ function draggableSet(item, key, keyIn, type, archetype) {
           }
         }
 
-        // ✅ assegna
         eval(`${targetKeyString} = '${draggedKey}'`);
         eval(`${draggedKeyString} = null`);
       });
