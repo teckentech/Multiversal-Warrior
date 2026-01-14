@@ -53,8 +53,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   passiveImport()
   saveGameData();
   idleTimeChecker()
-  valuesSetter()
-  valuesSetter()
+  fullSetter4()
 
   IShowableClass.init = true;
   freeTick = false
@@ -6226,6 +6225,7 @@ document.addEventListener('visibilitychange', function () {
 const elementCache = Object.create(null);
 
 function update(id, html) {
+
   let el = elementCache[id] || (elementCache[id] = document.getElementById(id));
   if (!el) return;
 
@@ -6956,1068 +6956,46 @@ function visualAutomation() {
 }
 //VALUTE
 
-function fullSetter(type) {
+function fullSetter1(type) {
   if (!waiting || type == "off") {
+    valuesSetterInit()
     valuesSetter()
     valuesSetter()
     valuesSetterDinamic(type)
   }
 }
 
-
-function valuesSetter(type) {
-
-  //Assign Group
-
-  //group1
-  var num = 0;
-
-  if (ITraining.base.base1.active) { num += 1 }
-  if (ITraining.base.base2.active) { num += 1 }
-  if (ITraining.base.base3.active) { num += 1 }
-  if (ITraining.base.base4.active) { num += 1 }
-
-  if (f(num).gt(f(ISelUpgrade.group.group1.maxNum))) { num = ISelUpgrade.group.group1.maxNum }
-
-  ISelUpgrade.group.group1.num = num
-
-  //group2
-  var num = 0;
-
-  if (IUniversal.fireTree.node41.active) { num += 1 }
-  if (IUniversal.fireTree.node42.active) { num += 1 }
-  if (IUniversal.fireTree.node43.active) { num += 1 }
-  if (IUniversal.fireTree.node44.active) { num += 1 }
-
-  if (f(num).gt(f(ISelUpgrade.group.group2.maxNum))) { num = ISelUpgrade.group.group2.maxNum }
-
-  ISelUpgrade.group.group2.num = num
-
-  //group23
-  var num = 0;
-
-  if (IUniversal.ore.item1.active) { num += 1 }
-  if (IUniversal.ore.item2.active) { num += 1 }
-
-  if (f(num).gt(f(ISelUpgrade.group.group3.maxNum))) { num = ISelUpgrade.group.group3.maxNum }
-
-  ISelUpgrade.group.group3.num = num
-
-  //global 
-
-  var global1 = f(IGameData.tickSpeedMult);
-
-  //tickSpeed
-
-  if (!waiting) {
-    IGameData.tickSpeedMult = f(0.05);
+function fullSetter2(type) {
+  if (!waiting || type == "off") {
+    valuesSetterInit()
+    valuesSetter()
+    valuesSetter()
+    valuesSetterDinamic(type)
   }
+}
 
-  var tickSpeed2 = f(IGameData.tickSpeedMult);
-
-  IGameData.tickSpeedProd = f(1).mul(f(tickSpeed2))
-
-  IGameData.tickSpeed = f(IGameData.tickSpeedProd)
-
-  //Power bases
-
-  //damage training
-  var base1_2 = IFightIn.challengerRewards.reward1.effect
-
-  if (f(ITraining.base.base3.tot).gte(f(1))) {
-    var base1_3 = ITraining.base.base3.tot;
+function fullSetter3(type) {
+  if (!waiting || type == "off") {
+    valuesSetterCycle()
   }
-  else {
-    base1_3 = f(1)
+}
+
+function fullSetter4(type) {
+  if (!waiting || type == "off") {
+    valuesSetterInit()
   }
+}
 
-  if (IUniversal.energyUpgrades.upgrade1.active) {
-    var base1_4 = f(IUniversalIn.energyUpgrades.upgrade1.effect);
-  }
-  else {
-    base1_4 = f(0)
-  }
-
-  if (IUniversal.energyUpgrades.upgrade3.active) {
-    var base1_5 = f(IUniversalIn.energyUpgrades.upgrade3.effect);
-  }
-  else {
-    base1_5 = f(1)
-  }
-
-  if (IUniversal.attributes.attributeBonus3.active) {
-    var base1_6 = f(IUniversalIn.attributes.attributeBonus3.effect)
-  } else {
-    var base1_6 = f(1)
-  }
-
-  if (IUniversalIn.potionEffects.effect1.activeValue) {
-    var base1_7 = f(IUniversalIn.potionEffects.effect1.activeValue)
-  } else {
-    var base1_7 = f(1)
-  }
-
-  ITrainingIn.base.base1.prod = (f(0.2).mul(f(base1_2)).add(f(base1_4))).mul(f(base1_3)).mul(f(base1_5)).mul(f(base1_6)).mul(f(base1_7));
-  ITraining.base.base1.level = f(ITraining.base.base1.level);
-  ITrainingIn.base.base1.description = `<span class="boldBlackBorder">${format(f(ITraining.base.base1.tot), 2)}</span>`
-
-
-  //life training
-  var base2_2 = IFightIn.challengerRewards.reward1.effect
-
-  if (f(ITraining.base.base3.tot).gte(f(1))) {
-    var base1_4 = ITraining.base.base3.tot;
-  }
-  else {
-    ITraining.base.base3.tot = f(1)
-  }
-
-  if (IUniversal.energyUpgrades.upgrade6.active) {
-    var base1_5 = IUniversalIn.energyUpgrades.upgrade6.effect;
-  }
-  else {
-    base1_5 = f(0)
-  }
-
-  if (IUniversal.energyUpgrades.upgrade7.active) {
-    var lifeTraining6 = IUniversalIn.energyUpgrades.upgrade7.effect;
-  }
-  else {
-    lifeTraining6 = f(1)
-  }
-
-  if (IUniversal.energyUpgrades.upgrade8.active) {
-    var lifeTraining7 = IUniversalIn.energyUpgrades.upgrade8.effect;
-  }
-  else {
-    lifeTraining7 = f(1)
-  }
-
-  if (IUniversal.attributes.attributeBonus3.active) {
-    var lifeTraining8 = f(IUniversalIn.attributes.attributeBonus3.effect)
-  } else {
-    var lifeTraining8 = f(1)
-  }
-
-  if (IUniversalIn.potionEffects.effect2.activeValue) {
-    var lifeTraining9 = f(IUniversalIn.potionEffects.effect2.activeValue)
-  } else {
-    var lifeTraining9 = f(1)
-  }
-
-  ITrainingIn.base.base2.prod = (f(1).mul(f(base2_2)).add(f(base1_5))).mul(f(base1_4)).mul(f(lifeTraining6)).mul(f(lifeTraining7)).mul(f(lifeTraining8)).mul(f(lifeTraining9));
-  ITraining.base.base2.level = f(ITraining.base.base2.level);
-  ITrainingIn.base.base2.description = `<span class="boldBlackBorder">${format(f(ITraining.base.base2.tot), 2)}</span>`
-
-
-  //Will training
-
-  var base3_1 = IFightIn.challengerRewards.reward2.effect
-
-  if (IUniversal.attributes.attributeBonus4.active) {
-    var base3_2 = f(IUniversalIn.attributes.attributeBonus4.effect)
-  } else {
-    var base3_2 = f(1)
-  }
-
-  if (IUniversalIn.potionEffects.effect9.activeValue) {
-    var base3_3 = f(IUniversalIn.potionEffects.effect9.activeValue)
-  } else {
-    var base3_3 = f(1)
-  }
-
-
-  ITrainingIn.base.base3.prod = f(0.01).mul(f(base3_1)).mul(f(base3_2)).mul(f(base3_3))
-  ITraining.base.base3.level = f(ITraining.base.base3.level);
-  ITrainingIn.base.base3.description = `Physical Training ×<span class="boldBlackBorder">${format(f(ITraining.base.base3.tot), 2)}</span>`
-
-  //Insight training
-
-  var base4_1 = IFightIn.challengerRewards.reward2.effect
-
-  if (IUniversal.attributes.attributeBonus4.active) {
-    var base4_2 = f(IUniversalIn.attributes.attributeBonus4.effect)
-  } else {
-    var base4_2 = f(1)
-  }
-
-  if (IUniversalIn.potionEffects.effect10.activeValue) {
-    var base4_3 = f(IUniversalIn.potionEffects.effect10.activeValue)
-  } else {
-    var base4_3 = f(1)
-  }
-
-  ITrainingIn.base.base4.prod = f(0.01).mul((base4_1)).mul(f(base4_2)).mul(f(base4_3));
-  ITraining.base.base4.level = f(ITraining.base.base4.level);
-  ITrainingIn.base.base4.description = `Essence/s ×<span class="boldBlackBorder">${format(f(ITraining.base.base4.tot), 2)}</span>`
-
-
-  //leftLife
-
-
-  if (!IFight.youStats.onFight1) {
-    IFight.youStats.leftLife = f(IFight.youStats.life)
-    IFight.onFightStats.fightMulti1 = f(1)
-
-  }
-
-  if (!IFight.youStats.onFight2) {
-    IFight.youStats.leftLife2 = f(IFight.youStats.life)
-    IFight.onFightStats.fightMulti2 = f(1)
-
-  }
-
-  //CHALLENGER
-
-  //BASE CHALLENGER
-
-  //name
-
-  IFightIn.challengers.baseChallenger.name = "Challenger"
-
-  //damage
-
-  var cDamage1 = f(IFight.challengers.baseChallenger.level)
-
-  var cDamage2 = cDamage1.dividedBy(5).floor()
-
-  if (IUniversal.energyUpgrades.upgrade16.active) {
-    var cDamage3 = IUniversalIn.energyUpgrades.upgrade16.effect;
-  }
-  else {
-    cDamage3 = f(1)
-  }
-
-  var cDamage4 = cDamage1.dividedBy(10).floor()
-
-  if (IUniversalIn.potionEffects.effect17.activeValue) {
-    var cDamage5 = f(IUniversalIn.potionEffects.effect17.activeValue);
-  }
-  else {
-    cDamage5 = f(1)
-  }
-
-  IFightIn.challengers.baseChallenger.damage = ((f(1).mul(((f(5).add(cDamage2).add(f(cDamage4))).pow((cDamage1).minus(f(1)))))).dividedBy(f(cDamage3).mul(f(cDamage5))))
-
-  //life
-
-  var cLife1 = f(IFight.challengers.baseChallenger.level)
-
-  var cLife3 = cLife1.dividedBy(5).floor()
-
-  if (IUniversal.energyUpgrades.upgrade17.active) {
-    var cLife4 = IUniversalIn.energyUpgrades.upgrade17.effect;
-  }
-  else {
-    cLife4 = f(1)
-  }
-
-  var cLife5 = cLife1.dividedBy(10).floor()
-
-  if (IUniversalIn.potionEffects.effect18.activeValue) {
-    var cLife6 = f(IUniversalIn.potionEffects.effect18.activeValue);
-  }
-  else {
-    cLife6 = f(1)
-  }
-
-  IFightIn.challengers.baseChallenger.life = ((f(10).mul(((((f(5).add(f(cLife3)).add(f(cLife5))).pow(f(cLife1).minus(f(1)))))))).dividedBy(f(cLife4).mul(f(cLife6))))
-
-
-  //leftLife
-
-  if (!IFight.youStats.onFight1) {
-
-    IFight.challengers.baseChallenger.leftLife = f(IFightIn.challengers.baseChallenger.life)
-  }
-
-  //Normal Challenger Max Level
-  IFight.challengers.baseChallenger.level = f(IFight.challengers.baseChallenger.level)
-
-
-  IFightIn.challengers.baseChallenger.maxLevel = f(9).add(f(IUniversal.universe))
-
-  //challenger Rewards
-
-
-  IFight.challengerRewards.reward1.level = f(IFight.challengerRewards.reward1.level)
-  IFight.challengerRewards.reward2.level = f(IFight.challengerRewards.reward2.level)
-
-  if (IFight.normalHuntingRewards.upgrade5.active) {
-    var cReward = f(IFightIn.normalHuntingRewards.upgrade5.effect)
-  } else {
-    cReward = f(1)
-  }
-
-  if (IUniversal.energyUpgrades.upgrade18.active) {
-    var cReward2 = IUniversalIn.energyUpgrades.upgrade18.effect;
-  }
-  else {
-    cReward2 = f(1)
-  }
-
-  IFightIn.challengerRewards.reward1.name = `Damage And Life Training ×<span class="boldBlackBorder">${format(f(IFightIn.challengerRewards.reward1.effect), 0)}</span>`
-  IFightIn.challengerRewards.reward2.name = `Will And Insight Training ×<span class="boldBlackBorder">${format(f(IFightIn.challengerRewards.reward2.effect), 0)}</span>`
-
-  IFightIn.challengerRewards.reward1.effect = (f(2).pow((f(IFight.challengerRewards.reward1.level)))).mul(f(cReward)).mul(f(cReward2))
-  IFightIn.challengerRewards.reward2.effect = (f(2).pow((f(IFight.challengerRewards.reward2.level)))).mul(f(cReward)).mul(f(cReward2))
-  //UNIVERSAL CHALLENGER
-
-  //name
-
-  IUniversalChallenger.challengers.universalChallenger.name = `Universal Challenger ${IUniversalChallenger.challengers.universalChallenger.level}`
-
-  //level
-
-
-  if (!IFight.youStats.onFight2) {
-    IUniversalChallenger.challengers.universalChallenger.level = f(1)
-  }
-
-
-  //damage
-
-  if (type == "universalChallengerChallenge2" || IUniversalChallenger.universalChallengerChallenges.c2.active) {
-    var cDamage1 = f(IUniversalChallenger.challengers.universalChallenger.level).add(f(18))
-  } else {
-    cDamage1 = f(IUniversalChallenger.challengers.universalChallenger.level).add(f(10))
-  }
-
-  if (f(IUniversalChallenger.challengers.universalChallenger.level).gte(f(10))) {
-    var cDamage2 = cDamage1.dividedBy(5).floor()
-  } else {
-    cDamage2 = f(1)
-  }
-
-  if (IUniversal.energyUpgrades.upgrade19.active && !(IUniversalChallenger.universalChallengerChallenges.c2.active)) {
-    var cDamage3 = IUniversalIn.energyUpgrades.upgrade19.effect;
-  }
-  else {
-    cDamage3 = f(1)
-  }
-
-  if (IUniversalIn.potionEffects.effect19.activeValue && !(IUniversalChallenger.universalChallengerChallenges.c2.active)) {
-    var cDamage4 = f(IUniversalIn.potionEffects.effect19.activeValue);
-  }
-  else {
-    cDamage4 = f(1)
-  }
-
-
-  IUniversalChallenger.challengers.universalChallenger.damage = ((f(7.2).add(cDamage2)).pow((cDamage1))).mul(f(cDamage3)).dividedBy(f(cDamage4))
-
-  //life
-
-  if (type == "universalChallengerChallenge2" || IUniversalChallenger.universalChallengerChallenges.c2.active) {
-    var cLife1 = f(IUniversalChallenger.challengers.universalChallenger.level).add(f(18))
-  } else {
-    cLife1 = f(IUniversalChallenger.challengers.universalChallenger.level).add(f(10))
-  }
-
-  if (f(IUniversalChallenger.challengers.universalChallenger.level).gte(f(10))) {
-    var cLife2 = cLife1.dividedBy(5).floor()
-  } else {
-    cLife2 = f(1)
-  }
-
-  if (IUniversal.energyUpgrades.upgrade19.active && !(IUniversalChallenger.universalChallengerChallenges.c2.active)) {
-    var cLife3 = IUniversalIn.energyUpgrades.upgrade19.effect;
-  }
-  else {
-    cLife3 = f(1)
-  }
-
-  if (IUniversalIn.potionEffects.effect19.activeValue && !(IUniversalChallenger.universalChallengerChallenges.c2.active)) {
-    var cLife4 = f(IUniversalIn.potionEffects.effect19.activeValue);
-  }
-  else {
-    cLife4 = f(1)
-  }
-
-  IUniversalChallenger.challengers.universalChallenger.life = ((f(7.2).add(cLife2)).pow((cLife1))).mul(f(cLife3)).dividedBy(f(cLife4))
-
-
-  //leftLife
-
-  if (!IFight.youStats.onFight2) {
-
-    IUniversalChallenger.challengers.universalChallenger.leftLife = f(IUniversalChallenger.challengers.universalChallenger.life)
-  }
-
-  //Universal Challenger Max Level 
-
-  //Universal challenger Rewards
-
-  IUniversalChallengerIn.universalChallengerRewards.reward1.name = `<div>Maximum Universal Challenger <span class="boldBlackBorder">${IUniversalChallenger.challengers.universalChallenger.maxLevel}</span></div><div><span class="boldBlackBorder">${format(sec(IUniversalChallenger.universalShardsProdBase), 1)}/s</span> Universal Shards</div>`
-
-  IUniversalChallenger.universalChallengerRewards.reward1.level = f(IUniversalChallenger.challengers.universalChallenger.maxLevel)
-
-  if (IUniversal.energyUpgrades.upgrade20.active) {
-    var reward1 = IUniversalIn.energyUpgrades.upgrade20.effect;
-  }
-  else {
-    reward1 = f(1)
-  }
-
-  IUniversalChallengerIn.universalChallengerRewards.reward1.effect = ((((f(10).pow((f(IUniversalChallenger.universalChallengerRewards.reward1.level)))))).minus(f(1))).mul(f(reward1))
-
+function valuesSetterInit(type) {
+  if (!IShowableClass.init) return
 
   //UNIVERSAL CHALLENGER CHALLENGES
 
-
+  //c1
   IUniversalChallengerIn.universalChallengerChallenges.c1.name = `<div>Disable Hunting</div>`
 
-  IUniversalChallenger.universalChallengerChallengesRewards.c1.level = f(IUniversalChallenger.universalChallengerChallengesRewards.c1.level)
-
-  IUniversalChallenger.universalChallengerChallenges.c1.maxLevel = f(IUniversalChallenger.universalChallengerChallenges.c1.maxLevel)
-
-
-
+  //c2
   IUniversalChallengerIn.universalChallengerChallenges.c2.name = `<div>Only Training, harder Universal Challenger</div>`
-
-
-  IUniversalChallenger.universalChallengerChallengesRewards.c2.level = f(IUniversalChallenger.universalChallengerChallengesRewards.c2.level)
-
-  IUniversalChallenger.universalChallengerChallenges.c2.maxLevel = f(IUniversalChallenger.universalChallengerChallenges.c2.maxLevel)
-
-
-
-  //UNIVERSAL CHALLENGER CHALLENGES REWARDS
-
-  var sel = IUniversalChallenger.universalChallengerChallengesRewards.c1
-  var sel2 = IUniversalChallengerIn.universalChallengerChallengesRewards.c1
-
-  sel2.name = `<div>Maximum Universal Challenger <span class="boldBlackBorder">${sel.level}</span></div><div><span class="boldBlackBorder">${format(f(IUniversalChallenger.universalNodesProdBase))}/s</span> Universal Nodes</div>`
-
-  if (f(IUniversalChallenger.universalChallengerChallengesRewards.c1.level).gte(f(1))) {
-    sel2.effect = ((f(5).pow((f(IUniversalChallenger.universalChallengerChallengesRewards.c1.level)))))
-  } else {
-    sel2.effect = f(0)
-  }
-
-  var sel = IUniversalChallenger.universalChallengerChallengesRewards.c2
-  var sel2 = IUniversalChallengerIn.universalChallengerChallengesRewards.c2
-
-
-  sel2.name = `<div>Maximum Universal Challenger <span class="boldBlackBorder">${sel.level}</span></div><div><span class="boldBlackBorder">${format(f(IUniversalChallenger.universalCoresProdBase))}/s</span> Universal Cores</div>`
-
-  if (f(IUniversalChallenger.universalChallengerChallengesRewards.c2.level).gte(f(1))) {
-    sel2.effect = ((f(10).pow((f(IUniversalChallenger.universalChallengerChallengesRewards.c2.level)))))
-  } else {
-    sel2.effect = f(0)
-  }
-
-  //hunting
-
-  //Hunt 1
-
-  var sel = IFight.normalHunting.hunt1;
-  var sel2 = IFightIn.normalHunting.hunt1;
-
-  sel.level = f(sel.level);
-
-  IFightIn.normalHunting.hunt1.showLevel = f(sel.level)
-
-  if (IUniversal.huntEvolution.b1.active1) {
-    var extraEffect2 = f(IUniversalIn.huntEvolution.b1.effect1);
-  } else {
-    extraEffect2 = f(1);
-  }
-
-  if (IUniversalIn.potionEffects.effect12.activeValue) {
-    var extraEffect3 = f(IUniversalIn.potionEffects.effect12.activeValue);
-  } else {
-    extraEffect3 = f(1);
-  }
-
-
-  if (sel.active) {
-    sel2.effect = (f(sel.level)).mul(f(1.1).mul(f(1).add(f(0.10).mul(f(sel.level))))).mul(f(extraEffect2)).mul(f(extraEffect3));
-  } else {
-    sel2.effect = f(0);
-  }
-
-  if (IUniversal.huntEvolution.b1.active2) {
-    var extraEffect1 = f(IUniversalIn.huntEvolution.b1.effect2);
-  } else {
-    extraEffect1 = f(1);
-  }
-
-  if (IUniversalIn.potionEffects.effect11.activeValue) {
-    var extraEffect2 = f(IUniversalIn.potionEffects.effect11.activeValue);
-  } else {
-    extraEffect2 = f(1);
-  }
-
-  if (f(sel.level).equals(f(0))) {
-    sel2.price = f(0);
-  } else {
-    sel2.price = ((f(10).pow(1)).mul(f(1.2).pow(f(sel.level))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2));
-  }
-
-  sel2.req = function () {
-    if (IFight.youStats.damage != "NaN") {
-      return f(IFight.youStats.damage).gte(f(0))
-    }
-  }
-
-  sel2.reqDescription = "Reach 1e3 Damage to unlock next";
-
-  if (f(sel.level).greaterThan(f(0))) {
-    sel.active = true;
-  }
-
-  if (sel2.req()) {
-    sel.unlocked = true;
-  }
-
-  // Hunt 2
-  var sel = IFight.normalHunting.hunt2;
-  var sel2 = IFightIn.normalHunting.hunt2;
-
-
-  if (IUniversal.energyUpgrades.upgrade15.active) {
-    var extraEffect1 = f(IFight.normalHunting.hunt1.level).mul(IUniversalIn.energyUpgrades.upgrade15.effect);
-  } else {
-    extraEffect1 = f(0);
-  }
-
-  sel2.showLevel = f(sel.level).add(f(extraEffect1))
-
-  if (IUniversal.huntEvolution.b2.active1) {
-    var extraEffect2 = f(IUniversalIn.huntEvolution.b2.effect1);
-  } else {
-    extraEffect2 = f(1);
-  }
-
-  if (IUniversalIn.potionEffects.effect12.activeValue) {
-    var extraEffect3 = f(IUniversalIn.potionEffects.effect12.activeValue);
-  } else {
-    extraEffect3 = f(1);
-  }
-
-  sel.level = f(sel.level);
-
-  if (sel.active) {
-    sel2.effect = f(20).mul(f(sel.level).add(f(extraEffect1))).mul(f(1).add(f(0.15).mul(f(sel.level).add(f(extraEffect1))))).mul(f(extraEffect2)).mul(f(extraEffect3));
-  } else {
-    sel2.effect = f(0);
-  }
-
-  if (IUniversal.huntEvolution.b2.active2) {
-    var extraEffect1 = f(IUniversalIn.huntEvolution.b2.effect2);
-  } else {
-    extraEffect1 = f(1);
-  }
-
-  if (IUniversalIn.potionEffects.effect11.activeValue) {
-    var extraEffect2 = f(IUniversalIn.potionEffects.effect11.activeValue);
-  } else {
-    extraEffect2 = f(1);
-  }
-
-
-  sel2.price = (f(1).mul(f(10).pow(3)).mul(f(1.3).pow(f(1).add(f(sel.level)))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2));
-
-  sel2.req = function () {
-    if (IFight.youStats.damage != "NaN") {
-      return f(IFight.youStats.damage).gte(f(10).pow(f(3)))
-    }
-  }
-
-
-  sel2.reqDescription = `
-  <div class="width100">
-    <div><i>People who failed this universe</i></div>
-    <div>Reach 1000 Damage to unlock Zombie  (${format(f(IFight.youStats.damage), 1)} / 1000)</div>
-  </div>`;
-
-  if (f(sel.level).greaterThan(f(0))) {
-    sel.active = true;
-  }
-
-  if (sel2.req()) {
-    sel.unlocked = true;
-  }
-
-  // Hunt 3
-  var sel = IFight.normalHunting.hunt3;
-  var sel2 = IFightIn.normalHunting.hunt3;
-
-
-  sel.level = f(sel.level);
-
-  if (IUniversal.energyUpgrades.upgrade15.active) {
-    var extraEffect1 = f(IFight.normalHunting.hunt2.level).mul(IUniversalIn.energyUpgrades.upgrade15.effect);
-  } else {
-    extraEffect1 = f(0);
-  }
-
-  sel2.showLevel = f(sel.level).add(f(extraEffect1))
-
-  if (IUniversal.huntEvolution.b3.active1) {
-    var extraEffect2 = f(IUniversalIn.huntEvolution.b3.effect1);
-  } else {
-    extraEffect2 = f(1);
-  }
-
-  if (IUniversalIn.potionEffects.effect12.activeValue) {
-    var extraEffect3 = f(IUniversalIn.potionEffects.effect12.activeValue);
-  } else {
-    extraEffect3 = f(1);
-  }
-
-
-  if (sel.active) {
-    sel2.effect = f(400).mul(f(sel.level).add(f(extraEffect1))).mul(f(1).add(f(0.20).mul(f(sel.level).add(f(extraEffect1))))).mul(f(extraEffect2)).mul(f(extraEffect3));
-  } else {
-    sel2.effect = f(0);
-  }
-
-  if (IUniversal.huntEvolution.b3.active2) {
-    var extraEffect1 = f(IUniversalIn.huntEvolution.b3.effect2);
-  } else {
-    extraEffect1 = f(1);
-  }
-
-  if (IUniversalIn.potionEffects.effect11.activeValue) {
-    var extraEffect2 = f(IUniversalIn.potionEffects.effect11.activeValue);
-  } else {
-    extraEffect2 = f(1);
-  }
-
-
-  sel2.price = (f(2).mul(f(10).pow(4)).mul(f(1.4).pow(f(1).add(f(sel.level)))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2));
-
-  sel2.req = function () {
-    if (IFight.youStats.damage != "NaN") {
-      return f(IFight.youStats.damage).gte(f(10).pow(f(4)))
-    }
-  }
-
-  sel2.reqDescription = `
-  <div class="width100">
-    <div><i>Why suddenly every knight wants to duel me? Werent Challengers enought?</i></div>
-    <div>Reach 1e4 Damage to unlock Knight  (${format(f(IFight.youStats.damage), 1)} / 1e4)</div>
-  </div>`;
-
-  if (f(sel.level).greaterThan(f(0))) {
-    sel.active = true;
-  }
-
-  if (sel2.req()) {
-    sel.unlocked = true;
-  }
-
-  // Hunt 4
-  var sel = IFight.normalHunting.hunt4;
-  var sel2 = IFightIn.normalHunting.hunt4;
-
-
-  sel.level = f(sel.level);
-
-  if (IUniversal.energyUpgrades.upgrade15.active) {
-    var extraEffect1 = f(IFight.normalHunting.hunt3.level).mul(IUniversalIn.energyUpgrades.upgrade15.effect);
-  } else {
-    extraEffect1 = f(0);
-  }
-
-  sel2.showLevel = f(sel.level).add(f(extraEffect1))
-
-  if (IUniversal.huntEvolution.b4.active1) {
-    var extraEffect2 = f(IUniversalIn.huntEvolution.b4.effect1);
-  } else {
-    extraEffect2 = f(1);
-  }
-
-  if (IUniversalIn.potionEffects.effect12.activeValue) {
-    var extraEffect3 = f(IUniversalIn.potionEffects.effect12.activeValue);
-  } else {
-    extraEffect3 = f(1);
-  }
-
-  if (sel.active) {
-    sel2.effect = f(8000).mul(f(sel.level).add(f(extraEffect1))).mul(f(1).add(f(0.25).mul(f(sel.level).add(f(extraEffect1))))).mul(f(extraEffect2)).mul(f(extraEffect3));
-  } else {
-    sel2.effect = f(0);
-  }
-
-  if (IUniversal.huntEvolution.b4.active2) {
-    var extraEffect1 = f(IUniversalIn.huntEvolution.b4.effect2);
-  } else {
-    extraEffect1 = f(1);
-  }
-
-  if (IUniversalIn.potionEffects.effect11.activeValue) {
-    var extraEffect2 = f(IUniversalIn.potionEffects.effect11.activeValue);
-  } else {
-    extraEffect2 = f(1);
-  }
-
-  sel2.price = (f(1).mul(f(10).pow(7)).mul(f(1.5).pow(f(1).add(f(sel.level)))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2));
-
-  sel2.req = function () {
-    if (IFight.youStats.damage != "NaN") {
-      return f(IFight.youStats.damage).gte(f(10).pow(f(5)))
-    }
-  }
-
-
-  sel2.reqDescription = `
-  <div class="width100">
-    <div><i>Demons have been meeting me, they tell me im the chosen one</i></div>
-    <div>Reach 1e5 Damage to unlock Demon  (${format(f(IFight.youStats.damage), 1)} / 1e5)</div>
-  </div>`;
-
-  if (f(sel.level).greaterThan(f(0))) {
-    sel.active = true;
-  }
-
-  if (sel2.req()) {
-    sel.unlocked = true;
-  }
-
-  // Hunt 5
-  var sel = IFight.normalHunting.hunt5;
-  var sel2 = IFightIn.normalHunting.hunt5;
-
-  sel.level = f(sel.level);
-
-  var hunt1;
-  if (IUniversal.energyUpgrades.upgrade13.active) {
-    hunt1 = f(IUniversalIn.energyUpgrades.upgrade13.effect);
-  } else {
-    hunt1 = f(1);
-  }
-
-  if (IUniversal.energyUpgrades.upgrade15.active) {
-    var extraEffect1 = f(IFight.normalHunting.hunt3.level).mul(IUniversalIn.energyUpgrades.upgrade15.effect);
-  } else {
-    extraEffect1 = f(0);
-  }
-
-  sel2.showLevel = f(sel.level).add(f(extraEffect1))
-
-  if (IUniversal.huntEvolution.b5.active1) {
-    var extraEffect2 = f(IUniversalIn.huntEvolution.b5.effect1);
-  } else {
-    extraEffect2 = f(1);
-  }
-
-  if (IUniversalIn.potionEffects.effect12.activeValue) {
-    var extraEffect3 = f(IUniversalIn.potionEffects.effect12.activeValue);
-  } else {
-    extraEffect3 = f(1);
-  }
-
-  if (sel.active) {
-    sel2.effect = f(160000).mul(f(sel.level).add(f(extraEffect1))).mul((f(1).add(f(0.30)).mul(f(sel.level).add(f(extraEffect1))))).mul(f(extraEffect2)).mul(f(hunt1)).mul(f(extraEffect3));
-  } else {
-    sel2.effect = f(0);
-  }
-
-  if (IUniversal.huntEvolution.b5.active2) {
-    var extraEffect1 = f(IUniversalIn.huntEvolution.b5.effect2);
-  } else {
-    extraEffect1 = f(1);
-  }
-
-  if (IUniversalIn.potionEffects.effect11.activeValue) {
-    var extraEffect2 = f(IUniversalIn.potionEffects.effect11.activeValue);
-  } else {
-    extraEffect2 = f(1);
-  }
-
-  sel2.price = (f(5).mul(f(10).pow(8)).mul(f(1.6).pow(f(1).add(f(sel.level)))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2));
-
-  sel2.req = function () {
-
-    if (IFight.youStats.damage != "NaN") {
-      return f(IFight.youStats.damage).gte(f(10).pow(f(6)))
-    }
-  }
-
-
-
-  sel2.reqDescription = `
-  <div class="width100">
-    <div><i>Fortunately no wyvern knights, i've already dealt with the knights alone</i></div>
-    <div>Reach 1e6 Damage to unlock Wyvern  (${format(f(IFight.youStats.damage), 1)} / 1e6)</div>
-  </div>`;
-
-  if (f(sel.level).greaterThan(f(0))) {
-    sel.active = true;
-  }
-
-  if (sel2.req()) {
-    sel.unlocked = true;
-  }
-
-  //huntingRewards
-
-  //HUNT REWARD 1
-
-  IFightIn.normalHuntingRewards.upgrade1.name = `Damage ×<span class="boldBlackBorder">${format(f(IFightIn.normalHuntingRewards.upgrade1.effect), 0)}</span>`
-
-  IFight.normalHuntingRewards.upgrade1.level = f(IFight.normalHuntingRewards.upgrade1.level)
-
-  if (IUniversal.energyUpgrades.upgrade14.active) {
-    var extraLevel1 = f(Decimal.log10(f(IFight.normalHunting.hunt1.level).mul(f(IUniversalIn.energyUpgrades.upgrade14.effect)))).floor()
-    if (f(extraLevel1).lt(f(0))) {
-      extraLevel1 = f(0)
-    }
-  } else {
-    extraLevel1 = f(0)
-  }
-
-  IFightIn.normalHuntingRewards.upgrade1.showLevel = f(IFight.normalHuntingRewards.upgrade1.level).add(f(extraLevel1))
-
-  IFightIn.normalHuntingRewards.upgrade1.effect = f(2).pow(f(IFight.normalHuntingRewards.upgrade1.level).add(f(extraLevel1)))
-
-  if (IUniversal.huntEvolution.b1.active3) {
-    var extraEffect1 = f(IUniversalIn.huntEvolution.b1.effect3);
-  } else {
-    extraEffect1 = f(1);
-  }
-
-  if (IUniversalIn.potionEffects.effect13.activeValue) {
-    var extraEffect2 = f(IUniversalIn.potionEffects.effect13.activeValue);
-  } else {
-    extraEffect2 = f(1);
-  }
-
-  IFightIn.normalHuntingRewards.upgrade1.price = ((f(10).mul(f(10).pow(f(IFight.normalHuntingRewards.upgrade1.level).add(f(1))))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2))
-
-  IFightIn.normalHuntingRewards.upgrade1.reqDescription = `
-  <div class="width100">
-    <div><i class="centerDiv">Slime cores when Ingested makes me stronger</i></div>
-    <div class="centerDiv">Reach 10 ${IFightIn.normalHunting.hunt1.name}  (${format(f(IFight.normalHunting.hunt1.level), 0)} / 10)</div>
-  </div>`;
-
-  if (f(IFight.normalHuntingRewards.upgrade1.level).greaterThan(f(0))) {
-    IFight.normalHuntingRewards.upgrade1.active = true;
-  }
-
-
-  //HUNT REWARD 2
-
-  IFightIn.normalHuntingRewards.upgrade2.name = `Life ×<span class="boldBlackBorder">${format(f(IFightIn.normalHuntingRewards.upgrade2.effect), 0)}</span>`
-
-  IFight.normalHuntingRewards.upgrade2.level = f(IFight.normalHuntingRewards.upgrade2.level)
-
-  if (IUniversal.energyUpgrades.upgrade15.active) {
-    var extraEffect1 = f(IFight.normalHunting.hunt1.level).mul(IUniversalIn.energyUpgrades.upgrade15.effect);
-  } else {
-    extraEffect1 = f(0);
-  }
-
-  if (IUniversal.energyUpgrades.upgrade14.active) {
-    var extraLevel1 = f(Decimal.log10((f(IFight.normalHunting.hunt2.level).add(f(extraEffect1))).mul(f(IUniversalIn.energyUpgrades.upgrade14.effect)))).floor()
-    if (f(extraLevel1).lt(f(0))) {
-      extraLevel1 = f(0)
-    }
-  } else {
-    extraLevel1 = f(0)
-  }
-
-  IFightIn.normalHuntingRewards.upgrade2.showLevel = f(IFight.normalHuntingRewards.upgrade2.level).add(f(extraLevel1))
-
-
-  IFightIn.normalHuntingRewards.upgrade2.effect = f(5).pow(f(IFight.normalHuntingRewards.upgrade2.level).add(f(extraLevel1)))
-
-  if (IUniversal.huntEvolution.b2.active3) {
-    var extraEffect1 = f(IUniversalIn.huntEvolution.b2.effect3);
-  } else {
-    extraEffect1 = f(1);
-  }
-
-  if (IUniversalIn.potionEffects.effect13.activeValue) {
-    var extraEffect2 = f(IUniversalIn.potionEffects.effect13.activeValue);
-  } else {
-    extraEffect2 = f(1);
-  }
-
-
-  IFightIn.normalHuntingRewards.upgrade2.price = ((f(200).mul(f(100).pow(f(IFight.normalHuntingRewards.upgrade2.level).add(f(1))))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2))
-
-  IFightIn.normalHuntingRewards.upgrade2.reqDescription = `
-  <div class="width100">
-    <div><i class="centerDiv">Understanding zombies life forms makes me able inflict curses on my enemies! Am i evil?</i></div>
-    <div class="centerDiv">Reach 10 ${IFightIn.normalHunting.hunt2.name}  (${format(f(IFight.normalHunting.hunt2.level), 0)} / 10)</div>
-  </div>`;
-
-
-  if (f(IFight.normalHuntingRewards.upgrade2.level).greaterThan(f(0))) {
-    IFight.normalHuntingRewards.upgrade2.active = true;
-  }
-
-  //HUNT REWARD 3
-
-  IFightIn.normalHuntingRewards.upgrade3.name = `Slime multiplies Essence ×<span class="boldBlackBorder">${format(f(IFightIn.normalHuntingRewards.upgrade3.effect), 0)}</span>`
-
-  IFight.normalHuntingRewards.upgrade3.level = f(IFight.normalHuntingRewards.upgrade3.level)
-
-  if (IUniversal.energyUpgrades.upgrade15.active) {
-    var extraEffect1 = f(IFight.normalHunting.hunt2.level).mul(IUniversalIn.energyUpgrades.upgrade15.effect);
-  } else {
-    extraEffect1 = f(0);
-  }
-
-  if (IUniversal.energyUpgrades.upgrade14.active) {
-    var extraLevel1 = f(Decimal.log10((f(IFight.normalHunting.hunt3.level).add(f(extraEffect1))).mul(f(IUniversalIn.energyUpgrades.upgrade14.effect)))).floor()
-    if (f(extraLevel1).lt(f(0))) {
-      extraLevel1 = f(0)
-    }
-  } else {
-    extraLevel1 = f(0)
-  }
-
-  IFightIn.normalHuntingRewards.upgrade3.showLevel = f(IFight.normalHuntingRewards.upgrade3.level).add(f(extraLevel1))
-
-
-  IFightIn.normalHuntingRewards.upgrade3.effect = ((f(IFight.normalHuntingRewards.upgrade3.level).add(f(extraLevel1))).mul(f(1.3).pow(f(IFight.normalHunting.hunt1.level).div(f(10)))))
-
-  if (IUniversal.huntEvolution.b3.active3) {
-    var extraEffect1 = f(IUniversalIn.huntEvolution.b3.effect3);
-  } else {
-    extraEffect1 = f(1);
-  }
-
-  if (IUniversalIn.potionEffects.effect13.activeValue) {
-    var extraEffect2 = f(IUniversalIn.potionEffects.effect13.activeValue);
-  } else {
-    extraEffect2 = f(1);
-  }
-
-  IFightIn.normalHuntingRewards.upgrade3.price = ((f(4000).mul(f(1000).pow(f(IFight.normalHuntingRewards.upgrade3.level).add(f(1))))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2))
-
-  IFightIn.normalHuntingRewards.upgrade3.reqDescription = `
-  <div class="width100">
-    <div><i class="centerDiv">Slime infused with blessings is an essence concentrator</i></div>
-    <div class="centerDiv">Reach 10 ${IFightIn.normalHunting.hunt3.name}  (${format(f(IFight.normalHunting.hunt3.level), 0)} / 10)</div>
-  </div>`;
-
-  if (f(IFight.normalHuntingRewards.upgrade3.level).greaterThan(f(0))) {
-    IFight.normalHuntingRewards.upgrade3.active = true;
-  }
-
-  //HUNT REWARD 4
-
-  IFightIn.normalHuntingRewards.upgrade4.name = `Add <span class="boldBlackBorder">${format(f(IFightIn.normalHuntingRewards.upgrade4.effect).mul(f(100)), 0)}%</span> of Damage to Life`
-
-  IFight.normalHuntingRewards.upgrade4.level = f(IFight.normalHuntingRewards.upgrade4.level)
-
-  if (IUniversal.energyUpgrades.upgrade15.active) {
-    var extraEffect1 = f(IFight.normalHunting.hunt3.level).mul(IUniversalIn.energyUpgrades.upgrade15.effect);
-  } else {
-    extraEffect1 = f(0);
-  }
-
-  if (IUniversal.energyUpgrades.upgrade14.active) {
-    var extraLevel1 = f(Decimal.log10((f(IFight.normalHunting.hunt4.level).add(f(extraEffect1))).mul(f(IUniversalIn.energyUpgrades.upgrade14.effect)))).floor()
-    if (f(extraLevel1).lt(f(0))) {
-      extraLevel1 = f(0)
-    }
-  } else {
-    extraLevel1 = f(0)
-  }
-
-  IFightIn.normalHuntingRewards.upgrade4.showLevel = f(IFight.normalHuntingRewards.upgrade4.level).add(f(extraLevel1))
-
-
-  IFightIn.normalHuntingRewards.upgrade4.effect = f(IFight.normalHuntingRewards.upgrade4.level).add(f(extraLevel1))
-
-  if (IUniversal.huntEvolution.b4.active4) {
-    var extraEffect1 = f(IUniversalIn.huntEvolution.b4.effect3);
-  } else {
-    extraEffect1 = f(1);
-  }
-
-  if (IUniversalIn.potionEffects.effect13.activeValue) {
-    var extraEffect2 = f(IUniversalIn.potionEffects.effect13.activeValue);
-  } else {
-    extraEffect2 = f(1);
-  }
-
-  IFightIn.normalHuntingRewards.upgrade4.price = ((f(80000).mul(f(10000).pow(f(IFight.normalHuntingRewards.upgrade4.level).add(f(1))))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2))
-
-  IFightIn.normalHuntingRewards.upgrade4.reqDescription = `
-  <div class="width100">
-    <i class="centerDiv">The stronger i am, the stronger i spite death</i></div>
-    <div class="centerDiv">Reach 10 ${IFightIn.normalHunting.hunt4.name}  (${format(f(IFight.normalHunting.hunt4.level), 0)} / 10)</div>
-  </div>`;
-
-  if (f(IFight.normalHuntingRewards.upgrade4.level).greaterThan(f(0))) {
-    IFight.normalHuntingRewards.upgrade4.active = true;
-  }
-
-  //HUNT REWARD 5
-
-  IFightIn.normalHuntingRewards.upgrade5.name = `Challenger first reward ×<span class="boldBlackBorder">${format(f(IFightIn.normalHuntingRewards.upgrade5.effect), 0)}</span>`
-
-  IFight.normalHuntingRewards.upgrade5.level = f(IFight.normalHuntingRewards.upgrade5.level)
-
-  if (IUniversal.energyUpgrades.upgrade15.active) {
-    var extraEffect1 = f(IFight.normalHunting.hunt4.level).mul(IUniversalIn.energyUpgrades.upgrade15.effect);
-
-  } else {
-    extraEffect1 = f(0);
-  }
-
-  if (IUniversal.energyUpgrades.upgrade14.active) {
-    var extraLevel1 = f(Decimal.log10((f(IFight.normalHunting.hunt5.level).add(f(extraEffect1))).mul(f(IUniversalIn.energyUpgrades.upgrade14.effect)))).floor()
-    if (f(extraLevel1).lt(f(0))) {
-      extraLevel1 = f(0)
-    }
-  } else {
-    extraLevel1 = f(0)
-  }
-
-  IFightIn.normalHuntingRewards.upgrade5.showLevel = f(IFight.normalHuntingRewards.upgrade5.level).add(f(extraLevel1))
-
-
-  IFightIn.normalHuntingRewards.upgrade5.effect = f(1).add(f(0.1).mul(f(IFight.normalHuntingRewards.upgrade5.level).add(f(extraLevel1))).mul(f(IFight.challengers.baseChallenger.level)))
-
-  if (IUniversal.huntEvolution.b5.active3) {
-    var extraEffect1 = f(IUniversalIn.huntEvolution.b5.effect3);
-  } else {
-    extraEffect1 = f(1);
-  }
-
-  if (IUniversalIn.potionEffects.effect13.activeValue) {
-    var extraEffect2 = f(IUniversalIn.potionEffects.effect13.activeValue);
-  } else {
-    extraEffect2 = f(1);
-  }
-
-
-  IFightIn.normalHuntingRewards.upgrade5.price = ((f(1600000).mul(f(100000).pow(f(IFight.normalHuntingRewards.upgrade5.level).add(f(1))))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2))
-
-  IFightIn.normalHuntingRewards.upgrade5.reqDescription = `
-  <div class="width100">
-    <i class="centerDiv">Draconic arts enchance my training... is the wyvern a dragon?</i></div>
-    <div class="centerDiv">Reach 10 ${IFightIn.normalHunting.hunt5.name}  (${format(f(IFight.normalHunting.hunt5.level), 0)} / 10)</div></div>
-  </div>`;
-
-
-  if (f(IFight.normalHuntingRewards.upgrade5.level).greaterThan(f(0))) {
-    IFight.normalHuntingRewards.upgrade5.active = true;
-  }
-  //Universe
-
-  IUniversal.universe = f(IUniversal.universe)
-
-  //Milestones
-
-  IUniversalIn.milestones.m1.mReqDesc = `Universe 2`
-  IUniversalIn.milestones.m1.mDesc = `Energy`
-
-  IUniversalIn.milestones.m2.mReqDesc = `Universe 5`
-  IUniversalIn.milestones.m2.mDesc = `Universal Challenger, Attributes, Automation`
-
-  IUniversalIn.milestones.m3.mReqDesc = `Universe 40`
-  IUniversalIn.milestones.m3.mDesc = `Sky Tab`
-
 
   //REQUISITES
   //Base
@@ -8031,658 +7009,9 @@ function valuesSetter(type) {
   ITrainingIn.base.base4.reqDescription = `<div><i class="centerDiv">In this reality, the mind sees more than eyes can, is this world enough??</i><br>
   <div class="centerDiv">Unlock New Training At 10 Power</div></div>`;
 
-
-  //ASCENSION UPGRADES
-
-  if (IUniversal.energyUpgrades.upgrade23.active) {
-    var priceDivider1 = f(IUniversalIn.energyUpgrades.upgrade23.effect)
-  } else {
-    priceDivider1 = f(1)
-  }
-
-  //POTENTIAL
-  var sel = IUniversal.energyUpgrades.upgrade1
-  var sel2 = IUniversalIn.energyUpgrades.upgrade1
-
-
-  sel2.name = `<div>
-      <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-      <div class="topRight absolute padding2 grey">1</div>
-  Add <span class="boldBlackBorder">10/s</span> to Damage Training</div><div>×10 per LVL</div>`
-  sel2.effectDesc = `+${format(f(sel2.effect), 0)}`
-  sel.level = f(sel.level)
-  if (f(sel.level).gte(f(1))) {
-    sel2.effect = f(10).pow(f(sel.level))
-  } else {
-    sel2.effect = 0;
-  }
-  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
-
-  if (f(sel.level).gt(f(0))) {
-    sel.active = true;
-  } else {
-    sel.active = false;
-  }
-
-  sel.showReq = true
-
-  var sel = IUniversal.energyUpgrades.upgrade2
-  var sel2 = IUniversalIn.energyUpgrades.upgrade2
-
-
-  sel2.name = `      <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-      <div class="topRight absolute padding2 grey">2</div>
-  Damage <span class="boldBlackBorder">×2</span> per LVL`
-  sel2.effectDesc = `×${format(f(sel2.effect), 0)}`
-  sel.level = f(sel.level)
-  sel2.effect = f(2).pow(f(sel.level))
-  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
-
-  if (f(sel.level).gt(f(0))) {
-    sel.active = true;
-  } else {
-    sel.active = false;
-  }
-
-  if (IUniversal.energyUpgrades.upgrade1.active) {
-    sel.showReq = true
-  } else {
-    sel.showReq = false
-  }
-
-  var sel = IUniversal.energyUpgrades.upgrade3
-  var sel2 = IUniversalIn.energyUpgrades.upgrade3
-
-
-  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-      <div class="topRight absolute padding2 grey">3</div>
-  Damage Training <span class="boldBlackBorder">×5</span> per LVL`
-  sel2.effectDesc = `×${format(f(sel2.effect), 0)}`
-  sel.level = f(sel.level)
-  sel2.effect = f(5).pow(f(sel.level))
-  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
-
-  if (f(sel.level).gt(f(0))) {
-    sel.active = true;
-  } else {
-    sel.active = false;
-  }
-
-  if (IUniversal.energyUpgrades.upgrade2.active) {
-    sel.showReq = true
-  } else {
-    sel.showReq = false
-  }
-
-  var sel = IUniversal.energyUpgrades.upgrade4
-  var sel2 = IUniversalIn.energyUpgrades.upgrade4
-
-
-  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-      <div class="topRight absolute padding2 grey">4</div>
-  <div>Damage <span class="boldBlackBorder">×</span></div> <div><span class="boldBlackBorder">log(Universe Time ×LVL)</span></div>`
-  sel2.effectDesc = `×${format(f(sel2.effect), 0)}`
-  sel.level = f(sel.level)
-  if (f(IGameData.universeTime).gte(f(3)) && IGameData.universeTime != "NaN" && IGameData.universeTime != undefined) {
-    sel2.effect = f(Decimal.log2(IGameData.universeTime)).mul(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
-
-  if (f(sel.level).gt(f(0))) {
-    sel.active = true;
-  } else {
-    sel.active = false;
-  }
-
-  if (IUniversal.energyUpgrades.upgrade3.active) {
-    sel.showReq = true
-  } else {
-    sel.showReq = false
-  }
-
-  var sel = IUniversal.energyUpgrades.upgrade5
-  var sel2 = IUniversalIn.energyUpgrades.upgrade5
-
-
-  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-      <div class="topRight absolute padding2 grey">5</div>
-  Damage <span class="boldBlackBorder">^1.02</span> per LVL`
-  sel2.effectDesc = `^${format(f(sel2.effect), 2)}`
-  sel.level = f(sel.level)
-  sel2.effect = f(1).add(f(0.02).mul(f(sel.level)))
-  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
-
-  if (f(sel.level).gt(f(0))) {
-    sel.active = true;
-  } else {
-    sel.active = false;
-  }
-
-  if (IUniversal.energyUpgrades.upgrade4.active) {
-    sel.showReq = true
-  } else {
-    sel.showReq = false
-  }
-
-  //WEIGHT
-  var sel = IUniversal.energyUpgrades.upgrade6
-  var sel2 = IUniversalIn.energyUpgrades.upgrade6
-
-
-  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-      <div class="topRight absolute padding2 grey">6</div>
-  <div>Add <span class="boldBlackBorder">10/s</span> to Life Training</div><div>×10 per LVL</div>`
-  sel2.effectDesc = `+${format(f(sel2.effect), 0)}`
-  sel.level = f(sel.level)
-  if (f(sel.level).gte(f(1))) {
-    sel2.effect = f(10).pow(f(sel.level))
-  } else {
-    sel2.effect = 0;
-  }
-  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
-
-  if (f(sel.level).gt(f(0))) {
-    sel.active = true;
-  } else {
-    sel.active = false;
-  }
-
-  sel.showReq = true
-
-  var sel = IUniversal.energyUpgrades.upgrade7
-  var sel2 = IUniversalIn.energyUpgrades.upgrade7
-
-
-  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-      <div class="topRight absolute padding2 grey">7</div>
-  <div>Life Training <span class="boldBlackBorder">×</span></div> <div><span class="boldBlackBorder">Universe×LVL</span></div>`
-  sel2.effectDesc = `×${format(f(sel2.effect), 0)}`
-  sel.level = f(sel.level)
-  sel2.effect = f(IUniversal.universe).mul(f(sel.level))
-  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
-
-  if (f(sel.level).gt(f(0))) {
-    sel.active = true;
-  } else {
-    sel.active = false;
-  }
-
-  if (IUniversal.energyUpgrades.upgrade6.active) {
-    sel.showReq = true
-  } else {
-    sel.showReq = false
-  }
-
-  var sel = IUniversal.energyUpgrades.upgrade8
-  var sel2 = IUniversalIn.energyUpgrades.upgrade8
-
-
-  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-      <div class="topRight absolute padding2 grey">8</div>
-  Life Training <span class="boldBlackBorder">×2</span> per LVL`
-  sel2.effectDesc = `×${format(f(sel2.effect), 0)}`
-  sel.level = f(sel.level)
-  sel2.effect = f(2).pow(f(sel.level))
-  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
-
-  if (f(sel.level).gt(f(0))) {
-    sel.active = true;
-  } else {
-    sel.active = false;
-  }
-
-  if (IUniversal.energyUpgrades.upgrade7.active) {
-    sel.showReq = true
-  } else {
-    sel.showReq = false
-  }
-
-  var sel = IUniversal.energyUpgrades.upgrade9
-  var sel2 = IUniversalIn.energyUpgrades.upgrade9
-
-
-  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-      <div class="topRight absolute padding2 grey">9</div>
-  Life <span class="boldBlackBorder">×5</span> per LVL`
-  sel2.effectDesc = `×${format(f(sel2.effect), 0)}`
-  sel.level = f(sel.level)
-  sel2.effect = f(5).pow(f(sel.level))
-  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
-
-  if (f(sel.level).gt(f(0))) {
-    sel.active = true;
-  } else {
-    sel.active = false;
-  }
-
-  if (IUniversal.energyUpgrades.upgrade8.active) {
-    sel.showReq = true
-  } else {
-    sel.showReq = false
-  }
-
-  var sel = IUniversal.energyUpgrades.upgrade10
-  var sel2 = IUniversalIn.energyUpgrades.upgrade10
-
-
-  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-      <div class="topRight absolute padding2 grey">10</div>
-  Life <span class="boldBlackBorder">^1.02</span> per LVL`
-  sel2.effectDesc = `^${format(f(sel2.effect), 2)}`
-  sel.level = f(sel.level)
-  sel2.effect = f(1).add(f(0.02).mul(f(sel.level)))
-  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
-
-  if (f(sel.level).gt(f(0))) {
-    sel.active = true;
-  } else {
-    sel.active = false;
-  }
-
-  if (IUniversal.energyUpgrades.upgrade9.active) {
-    sel.showReq = true
-  } else {
-    sel.showReq = false
-  }
-
-  //PURITY
-  var sel = IUniversal.energyUpgrades.upgrade11
-  var sel2 = IUniversalIn.energyUpgrades.upgrade11
-
-
-  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-      <div class="topRight absolute padding2 grey">11</div>
-  Essence/s <span class="boldBlackBorder">×5</span> per LVL`
-  sel2.effectDesc = `×${format(f(sel2.effect), 0)}`
-  sel.level = f(sel.level)
-  sel2.effect = f(5).pow(f(sel.level))
-  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
-
-  if (f(sel.level).gt(f(0))) {
-    sel.active = true;
-  } else {
-    sel.active = false;
-  }
-
-  sel.showReq = true
-
-  var sel = IUniversal.energyUpgrades.upgrade12
-  var sel2 = IUniversalIn.energyUpgrades.upgrade12
-
-
-  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-      <div class="topRight absolute padding2 grey">12</div>
-  Essence/s <span class="boldBlackBorder">×log(Total hunt levels ×LVL)</span>`
-  sel2.effectDesc = `×${format(f(sel2.effect), 0)}`
-  sel.level = f(sel.level)
-
-  var tot = f(0)
-  for (let i in IFight.normalHunting) {
-    var s = IFight.normalHunting[i]
-
-    tot = f(tot).add(f(s.level))
-  }
-
-  if (f(tot).gte(f(3))) {
-    sel2.effect = f(Decimal.log2(tot)).mul(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
-
-  if (f(sel.level).gt(f(0))) {
-    sel.active = true;
-  } else {
-    sel.active = false;
-  }
-
-  if (IUniversal.energyUpgrades.upgrade11.active) {
-    sel.showReq = true
-  } else {
-    sel.showReq = false
-  }
-
-  var sel = IUniversal.energyUpgrades.upgrade13
-  var sel2 = IUniversalIn.energyUpgrades.upgrade13
-
-
-  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-      <div class="topRight absolute padding2 grey">13</div>
-  Wyverns Essence/s <span class="boldBlackBorder">×log(Knights ×LVL)</span>`
-  sel2.effectDesc = `×${format(f(sel2.effect), 0)}`
-  sel.level = f(sel.level)
-  if (f(IFight.normalHunting.hunt3.level).gte(2)) {
-    sel2.effect = f(Decimal.log2(IFight.normalHunting.hunt3.level)).mul(f(sel.level))
-
-  } else {
-    sel2.effect = f(1)
-  }
-  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
-
-  if (f(sel.level).gt(f(0))) {
-    sel.active = true;
-  } else {
-    sel.active = false;
-  }
-
-  if (IUniversal.energyUpgrades.upgrade12.active) {
-    sel.showReq = true
-  } else {
-    sel.showReq = false
-  }
-
-  var sel = IUniversal.energyUpgrades.upgrade14
-  var sel2 = IUniversalIn.energyUpgrades.upgrade14
-
-
-  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-      <div class="topRight absolute padding2 grey">14</div>
-  Each hunt grants a free matching upgrade: <span class="boldBlackBorder">log₁₀(Hunt ×LVL)</span>`
-  sel2.effectDesc = ``
-  sel.level = f(sel.level)
-  sel2.effect = f(sel.level)
-  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
-
-  if (f(sel.level).gt(f(0))) {
-    sel.active = true;
-  } else {
-    sel.active = false;
-  }
-
-  if (IUniversal.energyUpgrades.upgrade13.active) {
-    sel.showReq = true
-  } else {
-    sel.showReq = false
-  }
-
-  var sel = IUniversal.energyUpgrades.upgrade15
-  var sel2 = IUniversalIn.energyUpgrades.upgrade15
-
-
-  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-      <div class="topRight absolute padding2 grey">15</div>
-  each Hunt gives <span class="boldBlackBorder">50% ×LVL</span> of its levels to next hunt`
-  sel2.effectDesc = `${format(f(f(sel.level).mul(f(50))), 0)}%`
-  sel.level = f(sel.level)
-  sel2.effect = f(0.50).mul(f(sel.level))
-  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
-
-  if (f(sel.level).gt(f(0))) {
-    sel.active = true;
-  } else {
-    sel.active = false;
-  }
-
-  if (IUniversal.energyUpgrades.upgrade14.active) {
-    sel.showReq = true
-  } else {
-    sel.showReq = false
-  }
-
-  //ORIGINALITY
-  var sel = IUniversal.energyUpgrades.upgrade16
-  var sel2 = IUniversalIn.energyUpgrades.upgrade16
-
-
-  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-      <div class="topRight absolute padding2 grey">16</div>
-  Challenger Damage <span class="boldBlackBorder">/5</span> per LVL`
-  sel2.effectDesc = `/${format(f(sel2.effect), 0)}`
-  sel.level = f(sel.level)
-  sel2.effect = f(5).pow(f(sel.level))
-  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
-
-  if (f(sel.level).gt(f(0))) {
-    sel.active = true;
-  } else {
-    sel.active = false;
-  }
-
-  sel.showReq = true
-
-  var sel = IUniversal.energyUpgrades.upgrade17
-  var sel2 = IUniversalIn.energyUpgrades.upgrade17
-
-
-  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-      <div class="topRight absolute padding2 grey">17</div>
-  Challenger Life <span class="boldBlackBorder">/5</span> per LVL`
-  sel2.effectDesc = `/${format(f(sel2.effect), 0)}`
-  sel.level = f(sel.level)
-  sel2.effect = f(5).pow(f(sel.level))
-  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
-
-  if (f(sel.level).gt(f(0))) {
-    sel.active = true;
-  } else {
-    sel.active = false;
-  }
-
-  if (IUniversal.energyUpgrades.upgrade16.active) {
-    sel.showReq = true
-  } else {
-    sel.showReq = false
-  }
-
-  var sel = IUniversal.energyUpgrades.upgrade18
-  var sel2 = IUniversalIn.energyUpgrades.upgrade18
-
-
-  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-      <div class="topRight absolute padding2 grey">18</div>
-  Challenger Rewards <span class="boldBlackBorder">×2</span> per LVL`
-  sel2.effectDesc = `×${format(f(sel2.effect), 0)}`
-  sel.level = f(sel.level)
-  sel2.effect = f(2).pow(f(sel.level))
-  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
-
-  if (f(sel.level).gt(f(0))) {
-    sel.active = true;
-  } else {
-    sel.active = false;
-  }
-
-  if (IUniversal.energyUpgrades.upgrade17.active) {
-    sel.showReq = true
-  } else {
-    sel.showReq = false
-  }
-
-  var sel = IUniversal.energyUpgrades.upgrade19
-  var sel2 = IUniversalIn.energyUpgrades.upgrade19
-
-
-  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-      <div class="topRight absolute padding2 grey">19</div>
-  Universal Challenger is <span class="boldBlackBorder">10</span> times weaker per LVL`
-  sel2.effectDesc = `/${format(f(f(1).dividedBy(sel2.effect)), 0)}`
-  sel.level = f(sel.level)
-  sel2.effect = f(0.1).pow(f(sel.level))
-  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
-
-  if (f(sel.level).gt(f(0))) {
-    sel.active = true;
-  } else {
-    sel.active = false;
-  }
-
-  if (IUniversal.energyUpgrades.upgrade18.active) {
-    sel.showReq = true
-  } else {
-    sel.showReq = false
-  }
-
-  var sel = IUniversal.energyUpgrades.upgrade20
-  var sel2 = IUniversalIn.energyUpgrades.upgrade20
-
-
-  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-      <div class="topRight absolute padding2 grey">20</div>
-  Universal Shards <span class="boldBlackBorder">×2</span> per LVL`
-  sel2.effectDesc = `×${format(f(sel2.effect), 0)}`
-  sel.level = f(sel.level)
-  sel2.effect = f(2).pow(f(sel.level))
-  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
-
-  if (f(sel.level).gt(f(0))) {
-    sel.active = true;
-  } else {
-    sel.active = false;
-  }
-
-  if (IUniversal.energyUpgrades.upgrade19.active) {
-    sel.showReq = true
-  } else {
-    sel.showReq = false
-  }
-
-  var sel = IUniversal.energyUpgrades.upgrade21
-  var sel2 = IUniversalIn.energyUpgrades.upgrade21
-
-
-  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-      <div class="topRight absolute padding2 grey">21</div>
-  <div>(Requires adjacent upgrades)</div>
-  <div>Damage & Life <span class="boldBlackBorder">×log(Power ×LVL)</span></div>`
-  sel2.effectDesc = `×${format(f(sel2.effect), 0)}`
-  sel.level = f(sel.level)
-
-  if (f(IGameData.power).gte(f(3))) {
-    sel2.effect = f(Decimal.log2(IGameData.power)).mul(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-  sel2.price = f(5).pow(f(sel.level).add(f(1)))
-
-  if (f(sel.level).gt(f(0))) {
-    sel.active = true;
-  } else {
-    sel.active = false;
-  }
-
-  if (IUniversal.energyUpgrades.upgrade5.active && IUniversal.energyUpgrades.upgrade10.active) {
-    sel.showReq = true
-  } else {
-    sel.showReq = false
-  }
-
-  var sel = IUniversal.energyUpgrades.upgrade22
-  var sel2 = IUniversalIn.energyUpgrades.upgrade22
-
-
-  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-      <div class="topRight absolute padding2 grey">22</div>
-  <div>(Requires adjacent upgrades)</div>
-  <div>U. Nodes & Cores</div>
-              <div><span class="boldBlackBorder">×log(U. Shards ×LVL)</span></div>
-              `
-  sel2.effectDesc = `× ${format(f(sel2.effect), 0)}`
-  sel.level = f(sel.level)
-  sel2.effect = f(Decimal.log2(IUniversalChallenger.universalShards)).mul(f(sel.level))
-  sel2.price = f(5).pow(f(sel.level).add(f(1)))
-
-  if (f(sel.level).gt(f(0))) {
-    sel.active = true;
-  } else {
-    sel.active = false;
-  }
-
-  if (IUniversal.energyUpgrades.upgrade15.active && IUniversal.energyUpgrades.upgrade20.active) {
-    sel.showReq = true
-  } else {
-    sel.showReq = false
-  }
-
-  var sel = IUniversal.energyUpgrades.upgrade23
-  var sel2 = IUniversalIn.energyUpgrades.upgrade23
-
-
-  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-      <div class="topRight absolute padding2 grey">23</div>
-  <div>(Requires adjacent upgrades)</div>
-  <div>Energy upgrades price <span class="boldBlackBorder">/2 ×LVL</span></div>
-              <div>Except fusion upgrades </div>
-`
-  sel2.effectDesc = `/${format(f(sel2.effect), 2)}`
-  sel.level = f(sel.level)
-  sel2.effect = f(0.5).pow(f(sel.level))
-  sel2.price = f(5).pow(f(sel.level).add(f(1)))
-
-  if (f(sel.level).gt(f(0))) {
-    sel.active = true;
-  } else {
-    sel.active = false;
-  }
-
-  if (IUniversal.energyUpgrades.upgrade10.active && IUniversal.energyUpgrades.upgrade15.active) {
-    sel.showReq = true
-  } else {
-    sel.showReq = false
-  }
-
-  //ASCENSION
-
-  IUniversal.ascensionPointMax = f(IUniversal.universe).minus(f(1))
-
-  //ATTRIBUTES
-
-  if (f(IUniversalIn.attributes.attributeBonus1.effect).gte(f(1))) {
-    IUniversal.attributes.attributeBonus1.active = true;
-  } else {
-    IUniversal.attributes.attributeBonus1.active = false;
-    IUniversalIn.attributes.attributeBonus1.effect = f(1)
-  }
-
-  if (f(IUniversalIn.attributes.attributeBonus2.effect).gte(f(1))) {
-    IUniversal.attributes.attributeBonus2.active = true;
-  } else {
-    IUniversal.attributes.attributeBonus2.active = false;
-    IUniversalIn.attributes.attributeBonus2.effect = f(1)
-  }
-
-  if (f(IUniversalIn.attributes.attributeBonus3.effect).gte(f(1))) {
-    IUniversal.attributes.attributeBonus3.active = true;
-  } else {
-    IUniversal.attributes.attributeBonus3.active = false;
-    IUniversalIn.attributes.attributeBonus3.effect = f(1)
-  }
-
-  if (f(IUniversalIn.attributes.attributeBonus4.effect).gte(f(1))) {
-    IUniversal.attributes.attributeBonus4.active = true;
-  } else {
-    IUniversal.attributes.attributeBonus4.active = false;
-    IUniversalIn.attributes.attributeBonus4.effect = f(1)
-  }
-
-  if (f(IUniversalIn.attributes.attributeBonus5.effect).gte(f(1))) {
-    IUniversal.attributes.attributeBonus5.active = true;
-  } else {
-    IUniversal.attributes.attributeBonus5.active = false;
-    IUniversalIn.attributes.attributeBonus5.effect = f(1)
-  }
-
-  if (f(IUniversalIn.attributes.attributeBonus6.effect).gte(f(1))) {
-    IUniversal.attributes.attributeBonus6.active = true;
-  } else {
-    IUniversal.attributes.attributeBonus6.active = false;
-    IUniversalIn.attributes.attributeBonus6.effect = f(1)
-  }
-
-  IUniversalIn.attributes.attributeBonus1.name = `Universal Shards ×<span class="boldBlackBorder">${format(f(IUniversalIn.attributes.attributeBonus1.effect))}</span>`
-  IUniversalIn.attributes.attributeBonus2.name = `Essence ×<span class="boldBlackBorder">${format(f(IUniversalIn.attributes.attributeBonus2.effect))}</span>`
-
-  IUniversalIn.attributes.attributeBonus3.name = `Damage and Life Training ×<span class="boldBlackBorder">${format(f(IUniversalIn.attributes.attributeBonus3.effect))}</span>`
-  IUniversalIn.attributes.attributeBonus4.name = `Will and Insight Training ×<span class="boldBlackBorder">${format(f(IUniversalIn.attributes.attributeBonus4.effect))}</span>`
-
-  IUniversalIn.attributes.attributeBonus5.name = `Damage ×<span class="boldBlackBorder">${format(f(IUniversalIn.attributes.attributeBonus5.effect))}</span>`
-  IUniversalIn.attributes.attributeBonus6.name = `Life ×<span class="boldBlackBorder">${format(f(IUniversalIn.attributes.attributeBonus6.effect))}</span>`
-
   //ATTRIBUTES UNLOCK
 
-
+  //attribute 1
   if (IUniversal.attributes.attributesUnlock1.active) {
     IUniversalIn.attributes.attributesUnlock1.name = `<div class="boldBlackBorder">CHALLENGES UNLOCKED</div>
                                                   <div class="boldBlackBorder">Go in Universal Challenger</div>
@@ -8696,11 +7025,7 @@ function valuesSetter(type) {
                                                   <div>100 Regeneration Points</div>`
   }
 
-  IUniversalIn.attributes.attributesUnlock1.req = function () {
-    return f(IUniversal.attributes.critPoints).gte(f(50))
-      && f(IUniversal.attributes.regenerationPoints).gte(f(100))
-  }
-
+  //attribute 2
 
   if (IUniversal.attributes.attributesUnlock2.active) {
     IUniversalIn.attributes.attributesUnlock2.name = `<div class="boldBlackBorder">HUNTING</div>
@@ -8716,11 +7041,7 @@ function valuesSetter(type) {
                                                   <div>100 Defence Points</div>`
   }
 
-  IUniversalIn.attributes.attributesUnlock2.req = function () {
-    return f(IUniversal.attributes.defencePenetrationPoints).gte(f(50))
-      && f(IUniversal.attributes.defencePoints).gte(f(100))
-  }
-
+  //attribute 3
 
   if (IUniversal.attributes.attributesUnlock3.active) {
     IUniversalIn.attributes.attributesUnlock3.name = `<div class="boldBlackBorder">ENERGY</div>
@@ -8732,719 +7053,9 @@ function valuesSetter(type) {
                                                   <div>50 Shield Points</div>`
   }
 
-  IUniversalIn.attributes.attributesUnlock3.req = function () {
-    return f(IUniversal.attributes.lifeStealPoints).gte(f(50))
-      && f(IUniversal.attributes.shieldPoints).gte(f(50))
-  }
-
-  //CRIT
-  //Crit Rate
-  IUniversalIn.attributes.critRate.name = `Critical rate: <span class="boldBlackBorder">&nbsp${f(IUniversalIn.attributes.critRate.effect).mul(f(100))}%</span>`
-  IUniversal.attributes.critRate.level = f(IUniversal.attributes.critRate.level)
-
-  IUniversalIn.attributes.critRate.effect = f(0.1).mul(f(IUniversal.attributes.critRate.level))
-  IUniversalIn.attributes.critRate.price = f(10).pow(f(IUniversal.attributes.critRate.level).add(f(2)))
-
-  //Crit Damage
-  IUniversalIn.attributes.critDamage.name = `Critical damage: <span class="boldBlackBorder">&nbsp${f(IUniversalIn.attributes.critDamage.effect).mul(f(100))}%</span>`
-  IUniversal.attributes.critDamage.level = f(IUniversal.attributes.critDamage.level)
-
-  IUniversalIn.attributes.critDamage.effect = f(1).add(f(0.1).mul(f(IUniversal.attributes.critDamage.level)))
-  IUniversalIn.attributes.critDamage.price = f(25).pow(f(IUniversal.attributes.critDamage.level).add(f(1)))
-
-
-  if (f(IUniversal.attributes.critRate.level).gte(f(1))) {
-    var points1 = f(IUniversal.attributes.critRate.level)
-  } else {
-    points1 = f(1)
-  }
-
-  if (f(IUniversal.attributes.critDamage.level).gte(f(1))) {
-    var points2 = f(IUniversal.attributes.critDamage.level)
-  } else {
-    points2 = f(1)
-  }
-
-  if (IUniversalIn.potionEffects.effect14.activeValue) {
-    var points3 = f(IUniversalIn.potionEffects.effect14.activeValue);
-  } else {
-    points3 = f(1);
-  }
-
-
-  IUniversal.attributes.critPoints = f(points1).mul(f(points2)).mul(f(points3))
-  IUniversalIn.attributes.critPointsName = `<span class="boldBlackBorder">${format(f(IUniversal.attributes.critPoints))}</span> Critical Points`
-
-
-  //LIFE REGENERATION
-  //life regeneration
-
-
-  IUniversalIn.attributes.regeneration.name = `<span class="boldBlackBorder">&nbsp${format(f(IUniversal.attributes.regeneration.level))}</span> Essence`
-  IUniversal.attributes.regeneration.level = f(IUniversal.attributes.regeneration.level)
-
-
-  if (f(IUniversal.attributes.regeneration.level).gte(f(10))) {
-    IUniversalIn.attributes.regeneration.effect = f(IUniversal.attributes.regeneration.level)
-  } else {
-    IUniversalIn.attributes.regeneration.effect = f(1)
-  }
-
-  IUniversalIn.attributes.regeneration.price = f(IUniversalIn.attributes.regeneration.price)
-
-  if (f(IUniversal.attributes.maxRegeneration.level).gte(f(1))) {
-    var points2 = f(IUniversal.attributes.maxRegeneration.level)
-  } else {
-    points2 = f(1)
-  }
-
-  if (IUniversalIn.potionEffects.effect14.activeValue) {
-    var points3 = f(IUniversalIn.potionEffects.effect14.activeValue);
-  } else {
-    points3 = f(1);
-  }
-
-
-  IUniversal.attributes.regenerationPoints = f(Decimal.log(IUniversalIn.attributes.regeneration.effect, 10)).mul(f(points2)).mul(f(points3))
-  IUniversalIn.attributes.regenerationPointsName = `<span class="boldBlackBorder">${format(f(IUniversal.attributes.regenerationPoints))}</span> Regeneration Points`
-
-  //max life regeneration
-  IUniversalIn.attributes.maxRegeneration.name = `Maximum life regeneration: <span class="boldBlackBorder">&nbsp${f(IUniversalIn.attributes.maxRegeneration.effect).mul(f(100))}</span>%`
-  IUniversal.attributes.maxRegeneration.level = f(IUniversal.attributes.maxRegeneration.level)
-
-  IUniversalIn.attributes.maxRegeneration.effect = f(0.1).mul(f(IUniversal.attributes.maxRegeneration.level))
-  IUniversalIn.attributes.maxRegeneration.price = f(50).pow(f(IUniversal.attributes.maxRegeneration.level).add(f(1)))
-
-  //DEFENCE PENETRATION
-  //Defence Penetration
-  IUniversalIn.attributes.defencePenetration.name = `<span class="boldBlackBorder">${format(f(IUniversal.attributes.defencePenetration.level))}</span> Damage and Life Training`
-  IUniversal.attributes.defencePenetration.level = f(IUniversal.attributes.defencePenetration.level)
-
-  if (f(IUniversal.attributes.defencePenetration.level).gte(f(10))) {
-    IUniversalIn.attributes.defencePenetration.effect = f(IUniversal.attributes.defencePenetration.level)
-  } else {
-    IUniversalIn.attributes.defencePenetration.effect = f(1)
-  }
-
-  IUniversalIn.attributes.defencePenetration.price = f(IUniversalIn.attributes.defencePenetration.price)
-
-  //Max Defence Penetration
-
-  IUniversalIn.attributes.maxDefencePenetration.name = `Maximum defence penetration: <span class="boldBlackBorder">&nbsp${f(IUniversalIn.attributes.maxDefencePenetration.effect).mul(f(100))}</span>%`
-  IUniversal.attributes.maxDefencePenetration.level = f(IUniversal.attributes.maxDefencePenetration.level)
-
-  IUniversalIn.attributes.maxDefencePenetration.effect = f(0.1).mul(f(IUniversal.attributes.maxDefencePenetration.level))
-  IUniversalIn.attributes.maxDefencePenetration.price = f(50).pow(f(IUniversal.attributes.maxDefencePenetration.level).add(f(1)))
-
-  if (f(IUniversal.attributes.maxDefencePenetration.level).gte(f(1))) {
-    var points2 = f(IUniversal.attributes.maxDefencePenetration.level)
-  } else {
-    points2 = f(1)
-  }
-
-  if (IUniversalIn.potionEffects.effect15.activeValue) {
-    var points3 = f(IUniversalIn.potionEffects.effect15.activeValue);
-  } else {
-    points3 = f(1);
-  }
-
-  IUniversal.attributes.defencePenetrationPoints = f(Decimal.log(IUniversalIn.attributes.defencePenetration.effect, 10)).mul(f(points2)).mul(f(points3))
-  IUniversalIn.attributes.defencePenetrationPointsName = `<span class="boldBlackBorder">${format(f(IUniversal.attributes.defencePenetrationPoints))}</span> Defence Penetration Points`
-
-  //DEFENCE
-  //Defence
-
-
-  IUniversal.attributes.defence.level = f(IUniversal.attributes.defence.level)
-
-  IUniversalIn.attributes.defence.odds = f(1).div(f(2).pow(f(IUniversal.attributes.defence.level).minus(f(10).times(f(IUniversal.attributes.defence.level).div(f(10)).floor()))));
-
-  IUniversalIn.attributes.defence.price = f(250).mul(f(100).pow(f(IUniversal.attributes.defence.level).div(10).floor())).mul(f(1).dividedBy(f(IUniversalIn.attributes.defence.odds)))
-
-  IUniversalIn.attributes.defence.correctedPrice = f(250).mul(f(100).pow(f(IUniversal.attributes.defence.level).div(10).floor()))
-
-  //Max Defence
-  IUniversalIn.attributes.maxDefence.name = `Maximum defence: <span class="boldBlackBorder">&nbsp${f(IUniversalIn.attributes.maxDefence.effect).mul(f(100))}</span>%`
-  IUniversal.attributes.maxDefence.level = f(IUniversal.attributes.maxDefence.level)
-
-  IUniversalIn.attributes.maxDefence.effect = f(0.1).mul(f(IUniversal.attributes.maxDefence.level))
-  IUniversalIn.attributes.maxDefence.price = f(25).pow(f(IUniversal.attributes.maxDefence.level).add(f(1)))
-
-  if (f(IUniversal.attributes.defence.level).gte(f(1))) {
-    var points1 = f(IUniversal.attributes.defence.level)
-  } else {
-    points1 = f(1)
-  }
-
-  if (f(IUniversal.attributes.maxDefence.level).gte(f(1))) {
-    var points2 = f(IUniversal.attributes.maxDefence.level)
-  } else {
-    points2 = f(1)
-  }
-
-  if (IUniversalIn.potionEffects.effect15.activeValue) {
-    var points3 = f(IUniversalIn.potionEffects.effect15.activeValue);
-  } else {
-    points3 = f(1);
-  }
-
-
-  IUniversal.attributes.defencePoints = f(points1).mul(f(points2)).mul(f(points3))
-  IUniversalIn.attributes.defencePointsName = `<span class="boldBlackBorder">${format(f(IUniversal.attributes.defencePoints))}</span> Defence Points`
-
-
-  //LIFE STEAL
-  //Life Steal
-
-  if (IUniversal.attributes.lifeSteal.active) {
-    IUniversal.attributes.lifeSteal.level = f(IUniversal.attributes.lifeSteal.level).add(f(IUniversalChallenger.universalCoresProd))
-  }
-
-  if (f(IUniversal.attributes.lifeSteal.level).gte(f(10))) {
-    IUniversalIn.attributes.shield.effect = f(Decimal.log(IUniversal.attributes.lifeSteal.level, 10))
-    var points1 = f(Decimal.log(IUniversal.attributes.lifeSteal.level, 10))
-  } else {
-    IUniversalIn.attributes.shield.effect = f(1)
-    points1 = f(1)
-  }
-
-  //Max Life Steal
-  IUniversalIn.attributes.lifeStealMax.name = `Maximum life steal: <span class="boldBlackBorder">&nbsp${f(IUniversalIn.attributes.lifeStealMax.effect).mul(f(100))}</span>%`
-  IUniversal.attributes.lifeStealMax.level = f(IUniversal.attributes.lifeStealMax.level)
-
-  IUniversalIn.attributes.lifeStealMax.effect = f(0.1).mul(f(IUniversal.attributes.lifeStealMax.level))
-
-  IUniversalIn.attributes.lifeStealMax.price = f(25).pow(f(IUniversal.attributes.lifeStealMax.level).add(f(1)))
-
-  if (f(IUniversal.attributes.lifeStealMax.level).gte(f(1))) {
-
-    var points2 = f(IUniversal.attributes.lifeStealMax.level)
-  } else {
-    points2 = f(1)
-  }
-
-  if (IUniversalIn.potionEffects.effect16.activeValue) {
-    var points3 = f(IUniversalIn.potionEffects.effect16.activeValue);
-  } else {
-    points3 = f(1);
-  }
-
-
-  IUniversal.attributes.lifeStealPoints = f(points1).mul(f(points2)).mul(f(points3))
-  IUniversalIn.attributes.lifeStealPointsName = `<span class="boldBlackBorder">${format(f(IUniversal.attributes.lifeStealPoints))}</span> Life Steal Points`
-
-  //SHIELD
-
-  //Shield
-  IUniversalIn.attributes.shield.name = `<span class="boldBlackBorder">${format(f(IUniversal.attributes.shield.level))}</span> Universal Cores`
-  IUniversal.attributes.shield.level = f(IUniversal.attributes.shield.level)
-
-  if (f(IUniversal.attributes.shield.level).gte(f(10))) {
-    IUniversalIn.attributes.shield.effect = f(Decimal.log(IUniversal.attributes.shield.level, 10))
-    var points1 = f(Decimal.log(IUniversal.attributes.shield.level, 10))
-  } else {
-    IUniversalIn.attributes.shield.effect = f(1)
-    points1 = f(1)
-  }
-
-  IUniversalIn.attributes.shield.price = f(IUniversalIn.attributes.shield.price)
-
-  //Max Shield
-
-  IUniversalIn.attributes.maxShield.name = `Maximum shield: <span class="boldBlackBorder">&nbsp${f(IUniversalIn.attributes.maxShield.effect).mul(f(100))}</span>%`
-  IUniversal.attributes.maxShield.level = f(IUniversal.attributes.maxShield.level)
-
-  IUniversalIn.attributes.maxShield.effect = f(0.1).mul(f(IUniversal.attributes.maxShield.level))
-  IUniversalIn.attributes.maxShield.price = f(50).pow(f(IUniversal.attributes.maxShield.level).add(f(1)))
-
-  if (f(IUniversal.attributes.shield.level).gte(f(1))) {
-    var points2 = f(IUniversal.attributes.maxShield.level)
-  } else {
-    points2 = f(1)
-  }
-
-  if (IUniversalIn.potionEffects.effect16.activeValue) {
-    var points3 = f(IUniversalIn.potionEffects.effect16.activeValue);
-  } else {
-    points3 = f(1);
-  }
-
-  IUniversal.attributes.shieldPoints = f(points1).mul(f(points2)).mul(f(points3))
-  IUniversalIn.attributes.shieldPointsName = `<span class="boldBlackBorder">${format(f(IUniversal.attributes.shieldPoints))}</span> Shield Points`
-
-
-  //ATTRIBUTES BONUS
-
-
-  IUniversalIn.attributes.attributeBonus1.effect = f(IUniversal.attributes.critPoints).pow(f(1.5))
-  IUniversalIn.attributes.attributeBonus2.effect = f(IUniversal.attributes.regenerationPoints).pow(f(1.5))
-  IUniversalIn.attributes.attributeBonus3.effect = f(IUniversal.attributes.defencePoints).pow(f(1.5))
-  IUniversalIn.attributes.attributeBonus4.effect = f(IUniversal.attributes.defencePenetrationPoints).pow(f(1.5))
-  IUniversalIn.attributes.attributeBonus5.effect = f(IUniversal.attributes.lifeStealPoints).pow(f(1.5))
-  IUniversalIn.attributes.attributeBonus6.effect = f(IUniversal.attributes.shieldPoints).pow(f(1.5))
-
-
-  //HUNT EVOLUTION
-
-  var globalEffect1 = f(1)
-
-  if (IUniversal.huntEvolution.b1.active4) {
-    globalEffect1 = f(globalEffect1).mul(f(IUniversalIn.huntEvolution.b1.effect4))
-  }
-
-  if (IUniversal.huntEvolution.b2.active4) {
-    globalEffect1 = f(globalEffect1).mul(f(IUniversalIn.huntEvolution.b2.effect4))
-  }
-
-  if (IUniversal.huntEvolution.b3.active4) {
-    globalEffect1 = f(globalEffect1).mul(f(IUniversalIn.huntEvolution.b3.effect4))
-  }
-
-  if (IUniversal.huntEvolution.b4.active4) {
-    globalEffect1 = f(globalEffect1).mul(f(IUniversalIn.huntEvolution.b4.effect4))
-  }
-
-  if (IUniversal.huntEvolution.b5.active4) {
-    globalEffect1 = f(globalEffect1).mul(f(IUniversalIn.huntEvolution.b5.effect4))
-  }
-
-  var sel = IUniversal.huntEvolution.b1
-  var sel2 = IUniversalIn.huntEvolution.b1
-
-
-  if (Math.floor(f(sel.level).add(f(3)) / 4) > 0) {
-    var labelEffect1 = IUniversalIn.huntEvolutionLabels.effect1["level" + Math.floor(f(sel.level).add(f(3)) / 4)];
-    sel2.description1 = `Essence/s ×<span class="boldBlackBorder">${format(f(sel2.effect1))}</span>`
-    sel.active1 = true
-  } else {
-    labelEffect1 = ""
-    sel2.description1 = ""
-    sel.active1 = false
-  }
-
-  if (Math.floor(f(sel.level).add(f(2)) / 4) > 0) {
-    var labelEffect2 = IUniversalIn.huntEvolutionLabels.effect2["level" + Math.floor(f(sel.level).add(f(2)) / 4)];
-    sel2.description2 = `Price /<span class="boldBlackBorder">${format(f(sel2.effect2))}</span>`
-    sel.active2 = true
-  } else {
-    labelEffect2 = ""
-    sel2.description2 = ""
-    sel.active2 = false
-  }
-
-  if (Math.floor(f(sel.level).add(f(1)) / 4) > 0) {
-    var labelEffect3 = IUniversalIn.huntEvolutionLabels.effect3["level" + Math.floor(f(sel.level).add(f(1)) / 4)];
-    sel2.description3 = `Associated effect Price /<span class="boldBlackBorder">${format(f(sel2.effect3))}</span>`
-    sel.active3 = true
-  } else {
-    labelEffect3 = ""
-    sel2.description3 = ""
-    sel.active3 = false
-  }
-
-  if (Math.floor(f(sel.level).add(f(0)) / 4) > 0) {
-    var labelEffect4 = IUniversalIn.huntEvolutionLabels.effect4["level" + Math.floor(f(sel.level).add(f(0)) / 4)];
-    sel2.description4 = `Evolution upgrades ×<span class="boldBlackBorder">${format(f(sel2.effect4))}</span>`
-    sel.active4 = true
-  } else {
-    labelEffect4 = ""
-    sel2.description4 = ""
-    sel.active4 = false
-  }
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(40)
-
-  sel2.effect1 = f(5).pow(Math.floor(f(sel.level).add(f(3)) / 4)).mul(f(globalEffect1))
-  sel2.effect2 = f(10).pow(Math.floor(f(sel.level).add(f(2)) / 4)).mul(f(globalEffect1))
-  sel2.effect3 = f(10).pow(Math.floor(f(sel.level).add(f(1)) / 4)).mul(f(globalEffect1))
-  sel2.effect4 = f(2).pow(Math.floor(f(sel.level).add(f(0)) / 4))
-
-  sel2.price = f(f(10).pow(f(14))).mul(f(10).pow(f(sel.level)))
-
-  if (f(sel.level).equals(f(sel2.maxLevel))) {
-    update(`content2_6_huntEvolution_upgrades_b1`, `<div class="noClick">MAX</div>`)
-  } else {
-    update(`content2_6_huntEvolution_upgrades_b1`, `<div class="noClick">EVOLVE</div>
-                                                  <div class="noClick"><span class="boldBlackBorder" class="noClick">${format(f(sel2.price))}</span> Universal Shards</div>`)
-  }
-  update("content2_6_huntEvolution_upgrades_u1_1", `<div>${labelEffect1}</div>
-                                                    <div>${sel2.description1}</div>`)
-  update("content2_6_huntEvolution_upgrades_u1_2", `<div>${labelEffect2}</div>
-                                                    <div>${sel2.description2}</div>`)
-  update("content2_6_huntEvolution_upgrades_u1_3", `<div>${labelEffect3}</div>
-                                                    <div>${sel2.description3}</div>`)
-  update("content2_6_huntEvolution_upgrades_u1_4", `<div>${labelEffect4}</div>
-                                                    <div>${sel2.description4}</div>`)
-  for (var x = 1; x <= 4; x++) {
-    var nextIdx = ((f(sel.level)) % 4) + 1;
-    if (nextIdx === 0) nextIdx = 4;   // fix matematico
-    if (x === nextIdx) {
-      document.getElementById(`content2_6_huntEvolution_upgrades_u1_${x}`).style.backgroundColor = "#345fd4ff";
-    } else {
-      document.getElementById(`content2_6_huntEvolution_upgrades_u1_${x}`).style.backgroundColor = "";
-    }
-  }
-
-  var sel = IUniversal.huntEvolution.b2
-  var sel2 = IUniversalIn.huntEvolution.b2
-
-
-  if (Math.floor(f(sel.level).add(f(3)).dividedBy(f(4))) > 0) {
-    var labelEffect1 = IUniversalIn.huntEvolutionLabels.effect1["level" + Math.floor(f(sel.level).add(f(3)).dividedBy(f(4)))];
-    sel2.description1 = `Essence/s ×<span class="boldBlackBorder">${format(f(sel2.effect1))}</span>`
-
-    sel.active1 = true
-
-  } else {
-    labelEffect1 = ""
-    sel2.description1 = ""
-    sel.active1 = false
-  }
-
-  if (Math.floor(f(sel.level).add(f(2)).dividedBy(f(4))) > 0) {
-    var labelEffect2 = IUniversalIn.huntEvolutionLabels.effect2["level" + Math.floor(f(sel.level).add(f(2)).dividedBy(f(4)))];
-    sel2.description2 = `Price /<span class="boldBlackBorder">${format(f(sel2.effect2))}</span>`
-
-    sel.active2 = true
-  } else {
-    labelEffect2 = ""
-    sel2.description2 = ""
-    sel.active2 = false
-  }
-
-  if (Math.floor(f(sel.level).add(f(1)) / 4) > 0) {
-    var labelEffect3 = IUniversalIn.huntEvolutionLabels.effect3["level" + Math.floor(f(sel.level).add(f(1)) / 4)];
-    sel2.description3 = `Associated effect Price /<span class="boldBlackBorder">${format(f(sel2.effect3))}</span>`
-
-    sel.active3 = true
-  } else {
-    labelEffect3 = ""
-    sel2.description3 = ""
-    sel.active3 = false
-  }
-
-  if (Math.floor(f(sel.level).add(f(0)) / 4) > 0) {
-    var labelEffect4 = IUniversalIn.huntEvolutionLabels.effect4["level" + Math.floor(f(sel.level).add(f(0)) / 4)];
-    sel2.description4 = ` Evolution upgrades ×<span class="boldBlackBorder">${format(f(sel2.effect4))}</span>`
-
-    sel.active4 = true
-  } else {
-    labelEffect4 = ""
-    sel2.description4 = ""
-    sel.active4 = false
-  }
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(40)
-
-  sel2.effect1 = f(5).pow(Math.floor(f(sel.level).add(f(3)) / 4)).mul(f(globalEffect1))
-  sel2.effect2 = f(10).pow(Math.floor(f(sel.level).add(f(2)) / 4)).mul(f(globalEffect1))
-  sel2.effect3 = f(10).pow(Math.floor(f(sel.level).add(f(1)) / 4)).mul(f(globalEffect1))
-  sel2.effect4 = f(2).pow(Math.floor(f(sel.level).add(f(0)) / 4))
-
-  sel2.price = f(f(10).pow(f(14))).mul(f(10).pow(f(sel.level)))
-
-  if (f(sel.level).equals(f(sel2.maxLevel))) {
-    update(`content2_6_huntEvolution_upgrades_b2`, `<div class="noClick">MAX</div>`)
-  } else {
-    update(`content2_6_huntEvolution_upgrades_b2`, `<div class="noClick">EVOLVE</div>
-                                                  <div class="noClick"><span class="boldBlackBorder" class="noClick">${format(f(sel2.price))}</span> Universal Shards</div>`)
-  }
-  update("content2_6_huntEvolution_upgrades_u2_1", `<div>${labelEffect1}</div>
-                                                    <div>${sel2.description1}</div>`)
-  update("content2_6_huntEvolution_upgrades_u2_2", `<div>${labelEffect2}</div>
-                                                    <div>${sel2.description2}</div>`)
-  update("content2_6_huntEvolution_upgrades_u2_3", `<div>${labelEffect3}</div>
-                                                    <div>${sel2.description3}</div>`)
-  update("content2_6_huntEvolution_upgrades_u2_4", `<div>${labelEffect4}</div>
-                                                    <div>${sel2.description4}</div>`)
-
-  for (var x = 1; x <= 4; x++) {
-    var nextIdx = ((f(sel.level)) % 4) + 1;
-    if (nextIdx === 0) nextIdx = 4;   // fix matematico
-    if (x === nextIdx) {
-      document.getElementById(`content2_6_huntEvolution_upgrades_u2_${x}`).style.backgroundColor = "#345fd4ff";
-    } else {
-      document.getElementById(`content2_6_huntEvolution_upgrades_u2_${x}`).style.backgroundColor = "";
-    }
-  }
-
-  var sel = IUniversal.huntEvolution.b3
-  var sel2 = IUniversalIn.huntEvolution.b3
-
-
-  if (Math.floor(f(sel.level).add(f(3)) / 4) > 0) {
-    var labelEffect1 = IUniversalIn.huntEvolutionLabels.effect1["level" + Math.floor(f(sel.level).add(f(3)) / 4)];
-    sel2.description1 = `Essence/s ×<span class="boldBlackBorder">${format(f(sel2.effect1))}</span>`
-    sel.active1 = true
-  } else {
-    labelEffect1 = ""
-    sel2.description1 = ""
-    sel.active1 = false
-  }
-
-  if (Math.floor(f(sel.level).add(f(2)) / 4) > 0) {
-    var labelEffect2 = IUniversalIn.huntEvolutionLabels.effect2["level" + Math.floor(f(sel.level).add(f(2)) / 4)];
-    sel2.description2 = `Price /<span class="boldBlackBorder">${format(f(sel2.effect2))}</span>`
-    sel.active2 = true
-  } else {
-    labelEffect2 = ""
-    sel2.description2 = ""
-    sel.active2 = false
-  }
-
-  if (Math.floor(f(sel.level).add(f(1)) / 4) > 0) {
-    var labelEffect3 = IUniversalIn.huntEvolutionLabels.effect3["level" + Math.floor(f(sel.level).add(f(1)) / 4)];
-    sel2.description3 = `Associated effect Price /<span class="boldBlackBorder">${format(f(sel2.effect3))}</span>`
-    sel.active3 = true
-  } else {
-    labelEffect3 = ""
-    sel2.description3 = ""
-    sel.active3 = false
-  }
-
-  if (Math.floor(f(sel.level).add(f(0)) / 4) > 0) {
-    var labelEffect4 = IUniversalIn.huntEvolutionLabels.effect4["level" + Math.floor(f(sel.level).add(f(0)) / 4)];
-    sel2.description4 = `Evolution upgrades ×<span class="boldBlackBorder">${format(f(sel2.effect4))}</span>`
-    sel.active4 = true
-  } else {
-    labelEffect4 = ""
-    sel2.description4 = ""
-    sel.active4 = false
-  }
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(40)
-
-  sel2.effect1 = f(5).pow(Math.floor(f(sel.level).add(f(3)) / 4)).mul(f(globalEffect1))
-  sel2.effect2 = f(10).pow(Math.floor(f(sel.level).add(f(2)) / 4)).mul(f(globalEffect1))
-  sel2.effect3 = f(10).pow(Math.floor(f(sel.level).add(f(1)) / 4)).mul(f(globalEffect1))
-  sel2.effect4 = f(2).pow(Math.floor(f(sel.level).add(f(0)) / 4))
-
-  sel2.price = f(f(10).pow(f(7))).mul(f(10).pow(f(sel.level)))
-
-  if (f(sel.level).equals(f(sel2.maxLevel))) {
-    update(`content2_6_huntEvolution_upgrades_b3`, `<div class="noClick">MAX</div>`)
-  } else {
-    update(`content2_6_huntEvolution_upgrades_b3`, `<div class="noClick">EVOLVE</div>
-                                                  <div class="noClick"><span class="boldBlackBorder" class="noClick">${format(f(sel2.price))}</span> Universal Nodes</div>`)
-  }
-  update("content2_6_huntEvolution_upgrades_u3_1", `<div>${labelEffect1}</div>
-                                                    <div>${sel2.description1}</div>`)
-  update("content2_6_huntEvolution_upgrades_u3_2", `<div>${labelEffect2}</div>
-                                                    <div>${sel2.description2}</div>`)
-  update("content2_6_huntEvolution_upgrades_u3_3", `<div>${labelEffect3}</div>
-                                                    <div>${sel2.description3}</div>`)
-  update("content2_6_huntEvolution_upgrades_u3_4", `<div>${labelEffect4}</div>
-                                                    <div>${sel2.description4}</div>`)
-
-  for (var x = 1; x <= 4; x++) {
-    var nextIdx = ((f(sel.level)) % 4) + 1;
-    if (nextIdx === 0) nextIdx = 4;   // fix matematico
-    if (x === nextIdx) {
-      document.getElementById(`content2_6_huntEvolution_upgrades_u3_${x}`).style.backgroundColor = "#345fd4ff";
-    } else {
-      document.getElementById(`content2_6_huntEvolution_upgrades_u3_${x}`).style.backgroundColor = "";
-    }
-  }
-
-  var sel = IUniversal.huntEvolution.b4
-  var sel2 = IUniversalIn.huntEvolution.b4
-
-
-  if (Math.floor(f(sel.level).add(f(3)) / 4) > 0) {
-    var labelEffect1 = IUniversalIn.huntEvolutionLabels.effect1["level" + Math.floor(f(sel.level).add(f(3)) / 4)];
-    sel2.description1 = `Essence/s ×<span class="boldBlackBorder">${format(f(sel2.effect1))}</span>`
-    sel.active1 = true
-  } else {
-    labelEffect1 = ""
-    sel2.description1 = ""
-    sel.active1 = false
-  }
-
-  if (Math.floor(f(sel.level).add(f(2)) / 4) > 0) {
-    var labelEffect2 = IUniversalIn.huntEvolutionLabels.effect2["level" + Math.floor(f(sel.level).add(f(2)) / 4)];
-    sel2.description2 = `Price /<span class="boldBlackBorder">${format(f(sel2.effect2))}</span>`
-    sel.active2 = true
-  } else {
-    labelEffect2 = ""
-    sel2.description2 = ""
-    sel.active2 = false
-  }
-
-  if (Math.floor(f(sel.level).add(f(1)) / 4) > 0) {
-    var labelEffect3 = IUniversalIn.huntEvolutionLabels.effect3["level" + Math.floor(f(sel.level).add(f(1)) / 4)];
-    sel2.description3 = `Associated effect Price /<span class="boldBlackBorder">${format(f(sel2.effect3))}</span>`
-    sel.active3 = true
-  } else {
-    labelEffect3 = ""
-    sel2.description3 = ""
-    sel.active3 = false
-  }
-
-  if (Math.floor(f(sel.level).add(f(0)) / 4) > 0) {
-    var labelEffect4 = IUniversalIn.huntEvolutionLabels.effect4["level" + Math.floor(f(sel.level).add(f(0)) / 4)];
-    sel2.description4 = `Evolution upgrades ×<span class="boldBlackBorder">${format(f(sel2.effect4))}</span>`
-    sel.active4 = true
-  } else {
-    labelEffect4 = ""
-    sel2.description4 = ""
-    sel.active4 = false
-  }
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(40)
-
-  sel2.effect1 = f(5).pow(Math.floor(f(sel.level).add(f(3)) / 4)).mul(f(globalEffect1))
-  sel2.effect2 = f(10).pow(Math.floor(f(sel.level).add(f(2)) / 4)).mul(f(globalEffect1))
-  sel2.effect3 = f(10).pow(Math.floor(f(sel.level).add(f(1)) / 4)).mul(f(globalEffect1))
-  sel2.effect4 = f(2).pow(Math.floor(f(sel.level).add(f(0)) / 4))
-
-  sel2.price = f(f(10).pow(f(7))).mul(f(10).pow(f(sel.level)))
-
-  if (f(sel.level).equals(f(sel2.maxLevel))) {
-    update(`content2_6_huntEvolution_upgrades_b4`, `<div class="noClick">MAX</div>`)
-  } else {
-    update(`content2_6_huntEvolution_upgrades_b4`, `<div class="noClick">EVOLVE</div>
-                                                  <div class="noClick"><span class="boldBlackBorder" class="noClick">${format(f(sel2.price))}</span> Universal Nodes</div>`)
-  }
-  update("content2_6_huntEvolution_upgrades_u4_1", `<div>${labelEffect1}</div>
-                                                    <div>${sel2.description1}</div>`)
-  update("content2_6_huntEvolution_upgrades_u4_2", `<div>${labelEffect2}</div>
-                                                    <div>${sel2.description2}</div>`)
-  update("content2_6_huntEvolution_upgrades_u4_3", `<div>${labelEffect3}</div>
-                                                    <div>${sel2.description3}</div>`)
-  update("content2_6_huntEvolution_upgrades_u4_4", `<div>${labelEffect4}</div>
-                                                    <div>${sel2.description4}</div>`)
-
-
-  for (var x = 1; x <= 4; x++) {
-    var nextIdx = ((f(sel.level)) % 4) + 1;
-    if (nextIdx === 0) nextIdx = 4;   // fix matematico
-    if (x === nextIdx) {
-      document.getElementById(`content2_6_huntEvolution_upgrades_u4_${x}`).style.backgroundColor = "#345fd4ff";
-    } else {
-      document.getElementById(`content2_6_huntEvolution_upgrades_u4_${x}`).style.backgroundColor = "";
-    }
-  }
-
-  var sel = IUniversal.huntEvolution.b5
-  var sel2 = IUniversalIn.huntEvolution.b5
-
-
-  if (Math.floor(f(sel.level).add(f(3)) / 4) > 0) {
-    var labelEffect1 = IUniversalIn.huntEvolutionLabels.effect1["level" + Math.floor(f(sel.level).add(f(3)) / 4)];
-    sel2.description1 = `Essence/s ×<span class="boldBlackBorder">${format(f(sel2.effect1))}</span>`
-    sel.active1 = true
-  } else {
-    labelEffect1 = ""
-    sel2.description1 = ""
-    sel.active1 = false
-  }
-
-  if (Math.floor(f(sel.level).add(f(2)) / 4) > 0) {
-    var labelEffect2 = IUniversalIn.huntEvolutionLabels.effect2["level" + Math.floor(f(sel.level).add(f(2)) / 4)];
-    sel2.description2 = `Price /<span class="boldBlackBorder">${format(f(sel2.effect2))}</span>`
-    sel.active2 = true
-  } else {
-    labelEffect2 = ""
-    sel2.description2 = ""
-    sel.active2 = false
-  }
-
-  if (Math.floor(f(sel.level).add(f(1)) / 4) > 0) {
-    var labelEffect3 = IUniversalIn.huntEvolutionLabels.effect3["level" + Math.floor(f(sel.level).add(f(1)) / 4)];
-    sel2.description3 = `Associated effect Price /<span class="boldBlackBorder">${format(f(sel2.effect3))}</span>`
-    sel.active3 = true
-  } else {
-    labelEffect3 = ""
-    sel2.description3 = ""
-    sel.active3 = false
-  }
-
-  if (Math.floor(f(sel.level).add(f(0)) / 4) > 0) {
-    var labelEffect4 = IUniversalIn.huntEvolutionLabels.effect4["level" + Math.floor(f(sel.level).add(f(0)) / 4)];
-    sel2.description4 = `Evolution upgrades ×<span class="boldBlackBorder">${format(f(sel2.effect4))}</span>`
-    sel.active4 = true
-  } else {
-    labelEffect4 = ""
-    sel2.description4 = ""
-    sel.active4 = false
-  }
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(40)
-
-  sel2.effect1 = f(5).pow(Math.floor(f(sel.level).add(f(3)) / 4)).mul(f(globalEffect1))
-  sel2.effect2 = f(10).pow(Math.floor(f(sel.level).add(f(2)) / 4)).mul(f(globalEffect1))
-  sel2.effect3 = f(10).pow(Math.floor(f(sel.level).add(f(1)) / 4)).mul(f(globalEffect1))
-  sel2.effect4 = f(2).pow(Math.floor(f(sel.level).add(f(0)) / 4))
-
-  sel2.price = f(1000).mul(f(10).pow(f(sel.level)))
-
-  if (f(sel.level).equals(f(sel2.maxLevel))) {
-    update(`content2_6_huntEvolution_upgrades_b5`, `<div class="noClick">MAX</div>`)
-  } else {
-    update(`content2_6_huntEvolution_upgrades_b5`, `<div class="noClick">EVOLVE</div>
-                                                  <div class="noClick"><span class="boldBlackBorder" class="noClick">${format(f(sel2.price))}</span> Universal Cores</div>`)
-  }
-  update("content2_6_huntEvolution_upgrades_u5_1", `<div>${labelEffect1}</div>
-                                                    <div>${sel2.description1}</div>`)
-  update("content2_6_huntEvolution_upgrades_u5_2", `<div>${labelEffect2}</div>
-                                                    <div>${sel2.description2}</div>`)
-  update("content2_6_huntEvolution_upgrades_u5_3", `<div>${labelEffect3}</div>
-                                                    <div>${sel2.description3}</div>`)
-  update("content2_6_huntEvolution_upgrades_u5_4", `<div>${labelEffect4}</div>
-                                                    <div>${sel2.description4}</div>`)
-
-
-
-  for (var x = 1; x <= 4; x++) {
-    var nextIdx = ((f(sel.level)) % 4) + 1;
-    if (nextIdx === 0) nextIdx = 4;   // fix matematico
-    if (x === nextIdx) {
-      document.getElementById(`content2_6_huntEvolution_upgrades_u5_${x}`).style.backgroundColor = "#345fd4ff";
-    } else {
-      document.getElementById(`content2_6_huntEvolution_upgrades_u5_${x}`).style.backgroundColor = "";
-    }
-  }
-
   //AUTOMATION
-  //Automation 1
 
-  IUniversal.automation.automation1.level = f(IUniversal.automation.automation1.level)
-
-
-  IUniversalIn.automation.automation1.maxLevel = f(3)
-
-  ISelUpgrade.group.group1.maxNum = f(IUniversal.automation.automation1.level).add(f(1))
-
-  IUniversalIn.automation.automation1.price = (f(10).pow(5)).pow(f(IUniversal.automation.automation1.level).add(f(1)))
-
-  //AUTOMATION 2
-
-  IUniversalIn.automation.automation2.price = (f(10).pow(f(7)))
-
-  //AUTOMATION 3
-
-  IUniversalIn.automation.automation3.price = (f(10).pow(f(11)))
-
-  //AUTOMATION 4
-
-  IUniversalIn.automation.automation4.price = (f(10).pow(f(15)))
-
-  //AUTOMATION 5
-
-  IUniversalIn.automation.automation5.price = (f(10).pow(f(23)))
-
-  //Automation 6
-
-  IUniversal.automation.automation6.level = f(IUniversal.automation.automation6.level)
-
-  IUniversalIn.automation.automation6.maxLevel = f(3)
-
-  IUniversalIn.automation.automation6.price = (f(10).pow(10)).pow(f(IUniversal.automation.automation6.level).add(f(1)))
+  //automation 6
 
   IUniversalIn.automation.automation6.option0 = "Fight from the start"
 
@@ -9453,38 +7064,6 @@ function valuesSetter(type) {
   IUniversalIn.automation.automation6.option2 = "Fight 10 Universal Challengers from the maximum"
 
   IUniversalIn.automation.automation6.option3 = "Fight 5 Universal Challengers from the maximum"
-
-  //Automation 7
-
-  IUniversalIn.automation.automation7.price = (f(10).pow(f(40)))
-
-  //Automation 8
-
-  IUniversalIn.automation.automation8.price = (f(10).pow(f(45)))
-
-  //Automation 9
-
-  IUniversalIn.automation.automation9.price = (f(10).pow(f(60)))
-
-  //Automation 10
-
-  IUniversalIn.automation.automation10.price = (f(10).pow(f(65)))
-
-  //Automation 11
-
-  IUniversalIn.automation.automation11.price = (f(10).pow(f(80)))
-
-  //Automation 12
-
-  IUniversalIn.automation.automation12.price = (f(10).pow(f(85)))
-
-  //Automation 13
-
-  IUniversalIn.automation.automation13.price = (f(10).pow(f(70)))
-
-  //Automation 14
-
-  IUniversalIn.automation.automation14.price = (f(10).pow(f(90)))
 
   //LORE
 
@@ -9566,62 +7145,13 @@ function valuesSetter(type) {
     "When sculpted into rings or forged into blades, these energies gain a new strength,\n" +
     "and some say they may even become vessels into the elemental universes.\n" +
     "Souls.\n";
+
   //FIRE TREE
-  //
-
-
-  //HEAT TIMER
-
-  if (IUniversal.fireTree.node42.active) {
-    var heat1 = f(IUniversalIn.fireTree.node42.effect)
-  } else {
-    heat1 = f(0)
-  }
-
-  if (IUniversal.fireTree.node51.active) {
-    var heat2 = f(IUniversalIn.fireTree.node51.effect)
-  } else {
-    heat2 = f(0)
-  }
-
-  IUniversal.heatTimer = f(10).add(f(heat1)).add(f(heat2))
-
 
   //NODE 1
   var sel = IUniversal.fireTree.node1
   var sel2 = IUniversalIn.fireTree.node1
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Fire Rift</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">1</div>
-                  <div class="centerDiv padding2 fontSize09"><span class="boldBlackBorder">${format(f(sel2.effect), 0)}</span>&nbsp;Fire/s</div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Universal Cores</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(100)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level).minus(f(1)))
-  } else {
-    sel2.effect = f(0)
-  }
-
-  sel2.price = (f(10).pow(f(15))).mul(f(10).pow(f(5).mul(f(sel.level))))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node1.priceIdentity, IUniversalIn.fireTree.node1.price, "uniChallenger")) { return true } }
   sel2.req = function () { return true }
 
@@ -9629,50 +7159,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node2
   var sel2 = IUniversalIn.fireTree.node2
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Woodcutter</div>
-                  <div class="topRight absolute padding2 grey">2</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="centerDiv column"><div><span class="boldBlackBorder fontSize09">${format(f(IUniversal.woodProdBase), 0)}</span>&nbsp;Wood/s</div>
-                  <div class="fontSize09"><span class="boldBlackBorder">${format(f(IUniversal.wood), 0)}</span>&nbsp;Wood ⇒ ×<span class="boldBlackBorder">${format(f(sel2.effect2), 1)}</span> Fire/s</div></div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire</div>`
-
-
-  var extraLevel1 = f(IUniversalIn.fireTree.node13.effect)
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(10).add(f(extraLevel1))
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level).minus(f(1)))
-  } else {
-    sel2.effect = f(0)
-  }
-
-  var effect1 = f(IUniversalIn.fireTree.node19.effect)
-
-
-  if (f(sel2.effect).gt(f(0))) {
-    sel2.effect2 = f(2).pow(f(Decimal.log10(f(IUniversal.wood).add(f(10))))).mul(f(effect1))
-  } else {
-    sel2.effect2 = f(1)
-  }
-
-  var price1 = f(IUniversalIn.fireTree.node16.effect)
-
-
-  sel2.price = f(10).mul(f(2).pow(f(sel.level))).dividedBy(f(price1))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node2.priceIdentity, IUniversalIn.fireTree.node2.price, "uni")) { return true } }
   sel2.req = function () { return IUniversal.fireTree.node1.active }
 
@@ -9680,50 +7166,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node3
   var sel2 = IUniversalIn.fireTree.node3
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Miner</div>
-                  <div class="topRight absolute padding2 grey">3</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="centerDiv column fontSize09"><div><span class="boldBlackBorder">${format(f(IUniversal.coalProdBase), 0)}</span>&nbsp;Coal/s</div>
-                                                 <div><span class="boldBlackBorder">${format(f(IUniversal.coal), 0)}</span>&nbsp;Coal ⇒ ×<span class="boldBlackBorder">${format(f(sel2.effect2), 1)}</span> Fire/s</div></div>
-                  
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire</div>`
-
-
-
-  var extraLevel1 = f(IUniversalIn.fireTree.node14.effect)
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(10).add(f(extraLevel1))
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level).minus(f(1)))
-  } else {
-    sel2.effect = f(0)
-  }
-
-  var effect1 = f(IUniversalIn.fireTree.node19.effect)
-
-
-  if (f(sel2.effect).gt(f(0))) {
-    sel2.effect2 = ((f(2).pow(f(Decimal.log10(f(IUniversal.coal).add(f(10)))))).pow(f(1.2))).mul(f(effect1))
-  } else {
-    sel2.effect2 = f(1)
-  }
-
-  var price1 = f(IUniversalIn.fireTree.node17.effect)
-
-  sel2.price = f(f(10).pow(f(4))).mul(f(5).pow(f(sel.level))).dividedBy(f(price1))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node3.priceIdentity, IUniversalIn.fireTree.node3.price, "uni")) { return true } }
   sel2.req = function () { return IUniversal.fireTree.node2.active }
 
@@ -9731,51 +7173,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node4
   var sel2 = IUniversalIn.fireTree.node4
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Fire Warrior</div>
-                  <div class="topRight absolute padding2 grey">4</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="centerDiv column fontSize09"><div><span class="boldBlackBorder">${format(f(IUniversal.magmaProdBase), 0)}</span>&nbsp;Magma/s</div>
-                                                 <div><span class="boldBlackBorder">${format(f(IUniversal.magma), 0)}</span>&nbsp;Magma ⇒ ×<span class="boldBlackBorder">${format(f(sel2.effect2), 1)}</span> Fire/s</div></div>
-                  
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire</div>`
-
-
-
-  var extraLevel1 = f(IUniversalIn.fireTree.node15.effect)
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(10).add(f(extraLevel1))
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level).minus(f(1)))
-  } else {
-    sel2.effect = f(0)
-  }
-
-  var effect1 = f(IUniversalIn.fireTree.node19.effect)
-
-  if (f(sel2.effect).gt(f(0))) {
-    sel2.effect2 = ((f(2).pow(f(Decimal.log10(f(IUniversal.magma).add(f(10)))))).pow(f(1.8))).mul(f(effect1))
-  } else {
-    sel2.effect2 = f(1)
-  }
-
-  var price1 = f(IUniversalIn.fireTree.node18.effect)
-
-
-  sel2.price = f(f(10).pow(f(10))).mul(f(15).pow(f(sel.level))).dividedBy(f(price1))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node4.priceIdentity, IUniversalIn.fireTree.node4.price, "uni")) { return true } }
   sel2.req = function () { return IUniversal.fireTree.node3.active }
 
@@ -9783,31 +7180,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node5
   var sel2 = IUniversalIn.fireTree.node5
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Tree Cutter</div>
-                  <div class="topRight absolute padding2 grey">5</div>
-                  <div class="centerDiv padding1 column fontSize09"><div><span class="boldBlackBorder">${format(f(sel.level), 0)}</span>&nbsp;Wood sacrificed</div>
-                                                 <div>Wood/s<span class="boldBlackBorder"> ×${format(f(sel2.effect), 1)}</span>&nbsp;</div>
-                  
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">Sacrifice</div>
-                <div class="centerDiv noClick">Wood</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = Infinity
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1.5).pow(f(Decimal.log10(f(sel.level).add(f(10)))))
-  } else {
-    sel2.effect = f(1)
-  }
-
-  sel2.price = (f(10).pow(f(15))).add(f(5).mul(sel.level).mul(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { return true }
   sel2.req = function () { return IUniversal.fireTree.node2.active }
 
@@ -9815,31 +7187,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node6
   var sel2 = IUniversalIn.fireTree.node6
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Bedrock Miner</div>
-                  <div class="topRight absolute padding2 grey">6</div>
-                  <div class="centerDiv padding1 column fontSize09"><div><span class="boldBlackBorder">${format(f(sel.level), 0)}</span>&nbsp;Coal sacrificed</div>
-                                                 <div>Coal/s<span class="boldBlackBorder"> ×${format(f(sel2.effect), 1)}</span>&nbsp;</div>
-                  
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">Sacrifice</div>
-                <div class="centerDiv noClick">Coal</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = Infinity
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1.5).pow(f(Decimal.log10(f(sel.level).add(f(10)))))
-  } else {
-    sel2.effect = f(1)
-  }
-
-  sel2.price = (f(10).pow(f(15))).add(f(5).mul(sel.level).mul(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { return true }
   sel2.req = function () { return IUniversal.fireTree.node3.active }
 
@@ -9847,31 +7194,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node7
   var sel2 = IUniversalIn.fireTree.node7
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Magma Champion</div>
-                  <div class="topRight absolute padding2 grey">7</div>
-                  <div class="centerDiv padding1 column fontSize09"><div><span class="boldBlackBorder">${format(f(sel.level), 0)}</span>&nbsp;Magma sacrificed</div>
-                                                 <div>Magma/s<span class="boldBlackBorder"> ×${format(f(sel2.effect), 1)}</span>&nbsp;</div>
-                  
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">Sacrifice</div>
-                <div class="centerDiv noClick">Magma</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = Infinity
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1.5).pow(f(Decimal.log10(f(sel.level).add(f(10)))))
-  } else {
-    sel2.effect = f(1)
-  }
-
-  sel2.price = (f(10).pow(f(15))).add(f(5).mul(sel.level).mul(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { return true }
   sel2.req = function () { return IUniversal.fireTree.node4.active }
 
@@ -9879,30 +7201,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node8
   var sel2 = IUniversalIn.fireTree.node8
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Forest Destroyer</div>
-                 <div class="topRight absolute padding2 grey">8</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div><span class="boldBlackBorder padding2 fontSize09">×${format(f(sel2.effect), 0)}</span>&nbsp;Wood/s</div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Heat</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(10)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  sel2.effect = f(5).pow(f(sel.level))
-  sel2.price = (f(10).pow(f(15))).add(f(5).mul(sel.level).mul(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node8.priceIdentity, IUniversalIn.fireTree.node8.price, "uni")) { return true } }
   sel2.req = function () { return IUniversal.fireTree.node5.active && IUniversalIn.fireMilestones.m5.mCheck() }
 
@@ -9910,30 +7208,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node9
   var sel2 = IUniversalIn.fireTree.node9
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Mine Eater</div>
-                 <div class="topRight absolute padding2 grey">9</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div><span class="boldBlackBorder padding2 fontSize09">×${format(f(sel2.effect), 0)}</span>&nbsp;Coal/s</div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Heat</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(10)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  sel2.effect = f(5).pow(f(sel.level))
-  sel2.price = (f(10).pow(f(15))).add(f(5).mul(sel.level).mul(f(sel.level)))
-
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node9.priceIdentity, IUniversalIn.fireTree.node9.price, "uni")) { return true } }
   sel2.req = function () { return IUniversal.fireTree.node6.active && IUniversalIn.fireMilestones.m5.mCheck() }
 
@@ -9941,30 +7215,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node10
   var sel2 = IUniversalIn.fireTree.node10
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Fire Lord</div>
-                 <div class="topRight absolute padding2 grey">10</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div><span class="boldBlackBorder padding2 fontSize09">×${format(f(sel2.effect), 0)}</span>&nbsp;Magma/s</div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Heat</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(10)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  sel2.effect = f(5).pow(f(sel.level))
-  sel2.price = (f(10).pow(f(15))).add(f(5).mul(sel.level).mul(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node10.priceIdentity, IUniversalIn.fireTree.node10.price, "uni")) { return true } }
   sel2.req = function () { return IUniversal.fireTree.node7.active && IUniversalIn.fireMilestones.m5.mCheck() }
 
@@ -9972,70 +7222,14 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node11
   var sel2 = IUniversalIn.fireTree.node11
 
-
-  if (f(IUniversal.fire).gt(f(0))) {
-    var tempEffect = IUniversal.fire
-  } else {
-    tempEffect = f(0)
-  }
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Size</div>
-                 <div class="topRight absolute padding2 grey">11</div>
-                 <div><span class="boldBlackBorder fontSize09">${format(f(tempEffect), 0)}</span>&nbsp;Fire ⇒ <span class="boldBlackBorder">${format(f(IUniversal.size), 0)} (+${format(f(sel2.effect))})</span>&nbsp;Size</div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">Sacrifice Fire and all upgrades 2-7</div>`
-
-  sel.level = f(0)
-  sel2.maxLevel = Infinity
-
-  if (f(tempEffect).gt(f(0))) {
-    sel2.effect = f(2).pow(f(Decimal.ln(f(tempEffect).add(f(2)))).minus(f(1))).minus(f(1)).mul(f(IUniversalIn.fireTree.node38.effect))
-    if (f(sel2.effect).lt(f(0))) {
-      sel2.effect = f(0)
-    }
-  } else {
-    sel2.effect = f(0)
-  }
-
-  sel2.price = (f(10).pow(f(15))).add(f(5).mul(sel.level).mul(f(sel.level)))
-
-  if (f(IUniversal.size).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { return true }
   sel2.req = function () { return IUniversal.fireTree.node2.active }
+
 
   //NODE 12
   var sel = IUniversal.fireTree.node12
   var sel2 = IUniversalIn.fireTree.node12
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Dry Air</div>
-                 <div class="topRight absolute padding2 grey">12</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Fire/s ×1.2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 1)}</span>)</div>
-                                                 
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Size</div>`
-
-
-  var extraLevel1 = f(IUniversalIn.fireTree.node22.effect)
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(100).add(f(extraLevel1))
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  sel2.effect = f(1.2).pow(f(sel.level))
-  sel2.price = f(0.5).mul(f(10).pow(f(1))).mul(f(3).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node12.priceIdentity, IUniversalIn.fireTree.node12.price, "uni")) { return true } }
   sel2.req = function () { return IUniversal.fireTree.node11.active }
 
@@ -10043,37 +7237,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node13
   var sel2 = IUniversalIn.fireTree.node13
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Big Forest</div>
-                 <div class="topRight absolute padding2 grey">13</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Woodcutter max level <span class="boldBlackBorder">+${format(f(sel2.effect), 0)}</span></div>
-                                                 
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Size</div>`
-
-
-
-  var extraLevel1 = f(IUniversalIn.fireTree.node22.effect)
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(90).add(f(extraLevel1))
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(sel.level)
-  } else {
-    sel2.effect = f(0)
-  }
-  sel2.price = (f(5).mul(f(10).pow(f(1))).mul(f(5).pow(f(sel.level))))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node13.priceIdentity, IUniversalIn.fireTree.node13.price, "uni")) { return true } }
   sel2.req = function () { return IUniversal.fireTree.node12.active }
 
@@ -10081,43 +7244,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node14
   var sel2 = IUniversalIn.fireTree.node14
 
-
-  if (f(IUniversal.coal).gt(f(0))) {
-    var tempEffect = f(Decimal.log10(f(IUniversal.coal).add(f(10))))
-  } else {
-    tempEffect = f(1)
-  }
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Fuel Factory</div>
-                 <div class="topRight absolute padding2 grey">14</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Miner max level <span class="boldBlackBorder">+${format(f(sel2.effect), 0)}</span></div>
-                                                 
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Size</div>`
-
-
-  var extraLevel1 = f(IUniversalIn.fireTree.node22.effect)
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(90).add(f(extraLevel1))
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(sel.level)
-  } else {
-    sel2.effect = f(0)
-  }
-  sel2.price = (f(50).mul(f(10).pow(f(1))).mul(f(8).pow(f(sel.level))))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node14.priceIdentity, IUniversalIn.fireTree.node14.price, "uni")) { return true } }
   sel2.req = function () { return IUniversal.fireTree.node13.active }
 
@@ -10125,37 +7251,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node15
   var sel2 = IUniversalIn.fireTree.node15
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Magma Pools</div>
-                 <div class="topRight absolute padding2 grey">15</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Fire Warrior max level <span class="boldBlackBorder">+${format(f(sel2.effect), 0)}</span></div>
-                                                 
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Size</div>`
-
-
-  var extraLevel1 = f(IUniversalIn.fireTree.node22.effect)
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(90).add(f(extraLevel1))
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(sel.level)
-  } else {
-    sel2.effect = f(0)
-  }
-  sel2.price = (f(5000).mul(f(10).pow(f(1))).mul(f(30).pow(f(sel.level))))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node15.priceIdentity, IUniversalIn.fireTree.node15.price, "uni")) { return true } }
   sel2.req = function () { return IUniversal.fireTree.node14.active }
 
@@ -10163,35 +7258,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node16
   var sel2 = IUniversalIn.fireTree.node16
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Tree Farms</div>
-                 <div class="topRight absolute padding2 grey">16</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Woodcutter price /2 (<span class="boldBlackBorder">/${format(f(sel2.effect), 0)}</span>)</div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Size</div>`
-
-  var extraLevel1 = f(IUniversalIn.fireTree.node22.effect)
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(5).add(f(extraLevel1))
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-  sel2.price = (f(5).mul(f(10).pow(f(1))).mul(f(10).pow(f(sel.level))))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node16.priceIdentity, IUniversalIn.fireTree.node16.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node12.active) }
 
@@ -10199,116 +7265,20 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node17
   var sel2 = IUniversalIn.fireTree.node17
 
-
-  if (f(IUniversal.size).gt(f(0))) {
-    var tempEffect = f(Decimal.log10(f(IUniversal.size).add(f(10))))
-  } else {
-    tempEffect = f(1)
-  }
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Quarries</div>
-                 <div class="topRight absolute padding2 grey">17</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Miner price /2 (<span class="boldBlackBorder">/${format(f(sel2.effect), 0)}</span>)</div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Size</div>`
-
-  var extraLevel1 = f(IUniversalIn.fireTree.node22.effect)
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(5).add(f(extraLevel1))
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-  sel2.price = (f(50).mul(f(10).pow(f(1))).mul(f(12).pow(f(sel.level))))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node17.priceIdentity, IUniversalIn.fireTree.node17.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node16.active) }
-
 
   //NODE 18
   var sel = IUniversal.fireTree.node18
   var sel2 = IUniversalIn.fireTree.node18
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Fire Union</div>
-                 <div class="topRight absolute padding2 grey">18</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Fire Warrior price /2 (<span class="boldBlackBorder">/${format(f(sel2.effect), 0)}</span>)</div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Size</div>`
-
-  var extraLevel1 = f(IUniversalIn.fireTree.node22.effect)
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(5).add(f(extraLevel1))
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-  sel2.price = (f(5000).mul(f(10).pow(f(1))).mul(f(30).pow(f(sel.level))))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node18.priceIdentity, IUniversalIn.fireTree.node18.price, "uni")) { return true } }
   sel2.req = function () { return IUniversal.fireTree.node17.active }
-
 
   //NODE 19
   var sel = IUniversal.fireTree.node19
   var sel2 = IUniversalIn.fireTree.node19
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Living Trees</div>
-                 <div class="topRight absolute padding2 grey">19</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Woodcutter effect ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)</div>
-
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Size</div>`
-
-  var extraLevel1 = f(IUniversalIn.fireTree.node22.effect)
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(5).add(f(extraLevel1))
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-  sel2.price = (f(5).mul(f(10).pow(f(1))).mul(f(10).pow(f(sel.level))))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node19.priceIdentity, IUniversalIn.fireTree.node19.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node16.active) }
 
@@ -10316,76 +7286,13 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node20
   var sel2 = IUniversalIn.fireTree.node20
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Coal Planets</div>
-                 <div class="topRight absolute padding2 grey">20</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Miner effect ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)</div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Size</div>`
-
-
-  var extraLevel1 = f(IUniversalIn.fireTree.node22.effect)
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(5).add(f(extraLevel1))
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-  sel2.price = (f(5000).mul(f(10).pow(f(1))).mul(f(12).pow(f(sel.level))))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node20.priceIdentity, IUniversalIn.fireTree.node20.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node17.active) }
-
 
   //NODE 21
   var sel = IUniversal.fireTree.node21
   var sel2 = IUniversalIn.fireTree.node21
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Liquid Fire</div>
-                 <div class="topRight absolute padding2 grey">21</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Fire Warrior effect ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)</div>
-
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Size</div>`
-
-
-  var extraLevel1 = f(IUniversalIn.fireTree.node22.effect)
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(5).add(f(extraLevel1))
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-  sel2.price = (f(500000).mul(f(10).pow(f(1))).mul(f(30).pow(f(sel.level))))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node21.priceIdentity, IUniversalIn.fireTree.node21.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node18.active) }
 
@@ -10394,33 +7301,6 @@ function valuesSetter(type) {
   var sel2 = IUniversalIn.fireTree.node22
 
 
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Fire Planet</div>
-                 <div class="topRight absolute padding2 grey">22</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>upgrades 12-21 max level <span class="boldBlackBorder">+${format(f(sel2.effect), 0)}</span></div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Size</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(100)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(sel.level)
-  } else {
-    sel2.effect = f(0)
-  }
-  sel2.price = (f(500000).mul(f(10).pow(f(1))).mul(f(100).pow(f(sel.level))))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node22.priceIdentity, IUniversalIn.fireTree.node22.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node15.active && IUniversal.fireTree.node18.active) }
 
@@ -10428,34 +7308,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node23
   var sel2 = IUniversalIn.fireTree.node23
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Charcoal Empire</div>
-                 <div class="topRight absolute padding2 grey">23</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Coal/s ×Wood (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>) cumulative</div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Size</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(5)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1.2).pow(Decimal.log10(f(IUniversal.wood))).mul(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-  sel2.price = (f(5000000000).mul(f(10).pow(f(1))).mul(f(1000000).pow(f(sel.level))))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node23.priceIdentity, IUniversalIn.fireTree.node23.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node22.active) }
 
@@ -10463,33 +7315,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node24
   var sel2 = IUniversalIn.fireTree.node24
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Core Feeder</div>
-                 <div class="topRight absolute padding2 grey">24</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Magma/s ×Coal (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>) cumulative</div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Size</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(5)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1.2).pow(Decimal.log10(f(IUniversal.coal))).mul(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-  sel2.price = (f(50000000000000).mul(f(10).pow(f(1))).mul(f(10000000).pow(f(sel.level))))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node24.priceIdentity, IUniversalIn.fireTree.node24.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node23.active) }
 
@@ -10497,35 +7322,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node25
   var sel2 = IUniversalIn.fireTree.node25
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Fire Blood</div>
-                 <div class="topRight absolute padding2 grey">25</div>
-                                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-
-                 <div class="centerDiv padding1 column fontSize09"><div>Damage x1.2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 1)}</span>)</div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Size</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = Infinity
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1.2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-  sel2.price = f(1).mul(f(10).pow(f(1))).mul(f(10).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node25.priceIdentity, IUniversalIn.fireTree.node25.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node11.active) }
 
@@ -10533,33 +7329,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node26
   var sel2 = IUniversalIn.fireTree.node26
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Magma Skin</div>
-                 <div class="topRight absolute padding2 grey">26</div>
-                                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Life x1.2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 1)}</span>)</div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Size</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = Infinity
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1.2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-  sel2.price = f(1).mul(f(10).pow(f(1))).mul(f(10).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node26.priceIdentity, IUniversalIn.fireTree.node26.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node11.active) }
 
@@ -10567,96 +7336,15 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node27
   var sel2 = IUniversalIn.fireTree.node27
 
-
-  if (sel.active) {
-    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Universe Furnace</div>
-                 <div class="topRight absolute padding2 grey">27</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Burn empty universes with Heat</div>
-                                                        <div>Produce Fire Shards</div>
-                                                        <div class="line"></div>
-                                                        <div>Heat /${format(f(sel2.effect2), 2)} every ${format(f(IUniversal.heatTimer))} seconds</div>
-                                                        <div class="centerDiv noClick boldBlackBorder">${format(f(f(IUniversal.heatTimer).minus(f(IUniversal.heatCurrentTimer))), 1)}s</div>
-                                                        <div><span class="boldBlackBorder">${format(f(IUniversal.heat), 1)}</span> Heat</div>
-                                                        <div></div>
-                 </div>`
-  } else {
-    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Universe Furnace</div>
-                 <div class="topRight absolute padding2 grey">27</div>
-                 <div class="centerDiv padding1 column"><div>Burn empty universes with Heat</div>
-                 </div>`
-  }
-  if (sel.active) {
-    unlockShow("content2_17_node27_button", false)
-    sel2.button = ``
-  } else {
-    unlockShow("content2_17_node27_button", true)
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Size</div>`
-  }
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(1)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (sel.active) {
-    sel2.effect = f(1.2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-  if (sel.active) {
-    sel2.effect2 = f(2).minus(f(IUniversalIn.fireTree.node53.effect))
-  } else {
-    sel2.effect2 = f(1)
-  }
-  sel2.price = f(f(10).pow(f(30)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node27.priceIdentity, IUniversalIn.fireTree.node27.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node11.active) }
+
 
   //NODE 28
   var sel = IUniversal.fireTree.node28
   var sel2 = IUniversalIn.fireTree.node28
 
 
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Manual Burner</div>
-                 <div class="topRight absolute padding2 grey">28</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Heat <span class="boldBlackBorder">+${format(f(sel2.effect), 1)}</span></div>
-                 </div>`
-
-  if (!sel.activeTimer) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">Click</div>`
-
-  } else {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">Wait ${format(f(f(sel.timer).minus(f(sel.currentTimer))), 1)}s</div>`
-
-  }
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = Infinity
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  sel2.effect = f(1).mul(f(IUniversalIn.fireTree.node48.effect))
-
-  sel2.price = f(0)
-  sel.timer = f(2)
-  sel.currentTimer = f(sel.currentTimer)
-
-
-
-  if (sel2.req()) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node28.priceIdentity, IUniversalIn.fireTree.node28.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node27.active) }
 
@@ -10664,123 +7352,7 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node29
   var sel2 = IUniversalIn.fireTree.node29
 
-  sel.level = f(sel.level)
-
-
-
-  var req = f(5).mul(f(2).pow(f(f(sel.level))))
-
-  if (f(IUniversal.heat).gte(f(req))) {
-    sel.level = f(sel.level).add(f(1))
-  }
-
-  var name = `Burnt Universe ${sel.level}`
-
-  const sizes = Object.values(IUniversalIn.node29Size);
-  const selectedSize = sizes.filter(s => s.req <= sel.level).sort((a, b) => b.req - a.req)[0];
-  var size = selectedSize ? `(${selectedSize.name})` : `(Unknown Size)`;
-
-  var requirement = `Requires <span class="noClick boldBlackBorder">${format(f(IUniversal.heat))} / ${format(f(req))}</span> Heat`
-  var eff = `<div><span class="noClick boldBlackBorder">${format(f(IUniversal.fireShards))}</span> Fire Shards</div>
-  <div><span class="noClick boldBlackBorder">${format(sec(IUniversal.fireShardsProd))}</span>/s</div>`
-
-  sel2.content = `
-  <div class="top centerDivTopColumns">
-    <div class="">${name}</div>
-    <div class="">${size}</div>
-    <div class="margin1">${eff}</div>
-    <div class="margin1">${requirement}</div>
-  </div>
-`;
-
-
-  var container = document.getElementById("svgUn");
-  if (container && container.innerHTML != null) {
-    container.innerHTML = svgConcentricBitNode(f(sel.level).add(f(1)))
-  }
-
-  var container = document.getElementById("containUn");
-  if (container && container.innerHTML != null) {
-    container.innerHTML = createSquareSvgString("rgba(221, 188, 0, 1)")
-  }
-
-  if (f(IUniversal.fireTree.node50.level).gt(0)) {
-
-    var image = "images/gear1.png"
-
-    if (f(IUniversal.fireTree.node52.level).gte(f(2))) {
-      image = "images/gear2.png"
-    }
-    if (f(IUniversal.fireTree.node52.level).gte(f(4))) {
-      image = "images/gear3.png"
-    }
-    if (f(IUniversal.fireTree.node52.level).gte(f(6))) {
-      image = "images/gear4.png"
-    }
-
-    var container = document.getElementById("gearUn");
-    if (IUniversal.fireTree.node50.animation == false) {
-      if (container && container.innerHTML != null) {
-        container.innerHTML = gearDivString(IUniversal.fireTree.node50.timer * 1000, image, "fastRotation");
-      }
-      IUniversal.fireTree.node50.animation = true;
-    }
-    else {
-      if (container && container.innerHTML == "") {
-        container.innerHTML = gearDivString(IUniversal.fireTree.node50.timer * 1000, image, "stop");
-      }
-    }
-  }
-
-  if (IUniversal.fireTree.node30.animation == false) {
-    const container = document.querySelector("#svgAnimationContainer");
-    container.innerHTML = ""; // svuota container
-
-    if (f(IUniversal.fireTree.node30.level).gt(0)) {
-      container.appendChild(pressSvg(90, 80, 10, 10, 0, IUniversal.fireTree.node30.timer * 1000, "images/press.png"));
-    }
-    if (f(IUniversal.fireTree.node33.level).gte(1)) {
-      container.appendChild(pressSvg(90, 80, 30, 30, 0, IUniversal.fireTree.node30.timer * 1000, "images/press.png"));
-    }
-    if (f(IUniversal.fireTree.node33.level).gte(2)) {
-      container.appendChild(pressSvg(90, 80, 70, 70, 0, IUniversal.fireTree.node30.timer * 1000, "images/press.png"));
-    }
-    if (f(IUniversal.fireTree.node33.level).gte(3)) {
-      container.appendChild(pressSvg(90, 80, 90, 90, 0, IUniversal.fireTree.node30.timer * 1000, "images/press.png"));
-    }
-
-    IUniversal.fireTree.node30.animation = true;
-  }
-
-  if (f(IUniversal.fireTree.node30.level).equals(0)) {
-    const container = document.querySelector("#svgAnimationContainer");
-    container.innerHTML = "";
-  }
-
-  if (IUniversal.fireTree.node34.animation == false) {
-    const container = document.querySelector("#svgAnimationContainer2");
-    container.innerHTML = "";
-    if (f(IUniversal.fireTree.node34.level).gte(0)) {
-      container.appendChild(pressSvg(90, 80, 50, 50, 0, IUniversal.fireTree.node34.timer * 1000, "images/press2.png"));
-    }
-    IUniversal.fireTree.node34.animation = true;
-  }
-
-  if (f(IUniversal.fireTree.node34.level).equals(0)) {
-    const container = document.querySelector("#svgAnimationContainer2");
-    container.innerHTML = "";
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(5).pow(f(f(sel.level)).minus(f(1)))
-  } else {
-    sel2.effect = f(0)
-  }
-
-  if (sel2.req()) { sel.active = false }
-  if (sel.active) { sel.unlocked = false }
   sel2.req = function () { return (IUniversal.fireTree.node27.active) }
-
   //NODE 29 MILESTONES
 
   IUniversalIn.fireMilestones.m1.mReqDesc = `Burnt Universe 15`
@@ -10809,50 +7381,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node30
   var sel2 = IUniversalIn.fireTree.node30
 
-  if (sel.active) {
-    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Press</div>
-                 <div class="topRight absolute padding2 grey">30</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Heat <span class="boldBlackBorder">+${format(f(sel2.effect))}</span> Every <span class="boldBlackBorder">${format(f(IUniversal.fireTree.node30.timer))}s</span></div>
-                                                        <div class="line"></div>
-                                                        <div class="noClick"><span class="boldBlackBorder">${format(f(f(sel.timer).minus(f(sel.currentTimer))), 1)}s</span>  delay</div>
-                                                        <div></div>
-                 </div>`
-  } else {
-    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Press</div>
-                 <div class="topRight absolute padding2 grey">30</div>
-                 <div class="centerDiv padding1 column"><div>Produce Heat automatically</div>
-                 </div>`
-  }
-  if (sel.active) {
-    unlockShow("content2_17_node30_button", false)
-    sel2.button = ``
-  } else {
-    unlockShow("content2_17_node30_button", true)
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire Shards</div>`
-  }
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(1)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (sel.active) {
-    sel2.effect = f(1).mul(f(IUniversalIn.fireTree.node31.effect)).mul(f(IUniversalIn.fireTree.node33.effect)).mul(f(IUniversalIn.fireTree.node34.effect2)).mul(f(IUniversalIn.fireTree.node41.effect)).mul(f(IUniversalIn.fireTree.node49.effect)).mul(f(IUniversalIn.fireTree.node50.effect2))
-  } else {
-    sel2.effect = f(0)
-  }
-
-  sel2.price = f(10)
-  sel.timer = f(10).dividedBy(f(IUniversalIn.fireTree.node32.effect))
-  sel.currentTimer = f(sel.currentTimer)
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node30.priceIdentity, IUniversalIn.fireTree.node30.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node27.active) }
 
@@ -10860,34 +7388,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node31
   var sel2 = IUniversalIn.fireTree.node31
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Heavy Metal</div>
-                 <div class="topRight absolute padding2 grey">31</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Press Heat ×3 <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire Shards</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(10)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(3).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-  sel2.price = f(f(10).pow(f(2))).mul(((f(25).pow(f(sel.level)))))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node31.priceIdentity, IUniversalIn.fireTree.node31.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node30.active) }
 
@@ -10895,34 +7395,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node32
   var sel2 = IUniversalIn.fireTree.node32
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Faster Press</div>
-                 <div class="topRight absolute padding2 grey">32</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Press delay /1.2 (<span class="boldBlackBorder">/${format(f(sel2.effect), 1)}</span>)</div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire Shards</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(13)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1.2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-  sel2.price = f(f(10).pow(f(3))).mul((f(25).pow(f(sel.level))).mul(f(1.2).pow(f(sel.level))))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node32.priceIdentity, IUniversalIn.fireTree.node32.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node31.active) }
 
@@ -10930,118 +7402,13 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node33
   var sel2 = IUniversalIn.fireTree.node33
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Press Row</div>
-                 <div class="topRight absolute padding2 grey">33</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Press quantity <span class="boldBlackBorder">+${format(f(sel.level), 0)}</span></div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire Shards</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(3)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1).mul(f(sel.level).add(f(1)))
-  } else {
-    sel2.effect = f(1)
-  }
-
-  sel2.price = f(f(10).pow(f(4))).mul((f(25).pow(f(sel.level))).mul(f(1.2).pow(f(sel.level))))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node33.priceIdentity, IUniversalIn.fireTree.node33.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node32.active) }
-
 
   //NODE 34
   var sel = IUniversal.fireTree.node34
   var sel2 = IUniversalIn.fireTree.node34
 
-
-  if (IUniversal.fireTree.node34.activeTimer) {
-    var time2 = format(f(f(sel.timer2).minus(f(sel.currentTimer2))), 1)
-  } else {
-    time2 = f(0)
-  }
-
-  if (sel.active) {
-    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Gravity Press</div>
-                 <div class="topRight absolute padding2 grey">34</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Press <span class="boldBlackBorder">×${format(f(sel2.effect))}</span> Every <span class="boldBlackBorder">${format(f(sel.timer))}s</span></div>
-                                                        <div><span class="boldBlackBorder">${format(f(sel.timer2))}s</span> duration</div>
-                                                        <div class="line"></div>
-                                                        <div><span class="boldBlackBorder">${format(f(f(sel.timer).minus(f(sel.currentTimer))), 1)}s</span> delay</div>
-                                                        <div><span class="boldBlackBorder">${format(f(time2), 1)}s</span> remaining</div>
-                                                        <div>Press <span class="boldBlackBorder">×${format(f(sel2.effect2))}</span></div>
-                                                        <div></div>
-                 </div>`
-  } else {
-    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Gravity Press</div>
-                 <div class="topRight absolute padding2 grey">34</div>
-                 <div class="centerDiv padding1 column"><div>Multiply Press periodically</div>
-                 </div>`
-  }
-  if (sel.active) {
-    unlockShow("content2_17_node34_button", false)
-    sel2.button = ``
-  } else {
-    unlockShow("content2_17_node34_button", true)
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire Shards</div>`
-  }
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(1)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (IUniversal.fireTree.node44.active) {
-    var bonus1 = f(IUniversalIn.fireTree.node44.effect).mul(f(2))
-  } else {
-    bonus1 = f(1)
-  }
-
-  sel2.effect = f(2).mul(f(IUniversalIn.fireTree.node35.effect)).mul(f(bonus1)).mul(f(IUniversalIn.fireTree.node64.effect))
-
-  if (IUniversal.fireTree.node34.activeTimer) {
-    sel2.effect2 = f(sel2.effect)
-  } else {
-    sel2.effect2 = f(1)
-  }
-
-  sel2.price = f(f(10).pow(f(7)))
-
-  if (IUniversal.fireTree.node44.active) {
-    var timer1 = f(IUniversalIn.fireTree.node44.effect)
-  } else {
-    timer1 = f(1)
-  }
-
-  sel.timer = f(60).dividedBy(f(IUniversalIn.fireTree.node36.effect)).mul(f(timer1))
-  sel.currentTimer = f(sel.currentTimer)
-
-  if (f(sel.timer2).lt(f(sel.timer))) {
-    sel.timer2 = f(10).mul(f(IUniversalIn.fireTree.node37.effect))
-  } else {
-    sel.timer2 = f(sel.timer)
-  }
-  sel.currentTimer2 = f(sel.currentTimer2)
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node34.priceIdentity, IUniversalIn.fireTree.node34.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node30.active) }
 
@@ -11049,34 +7416,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node35
   var sel2 = IUniversalIn.fireTree.node35
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Gravity Warp</div>
-                 <div class="topRight absolute padding2 grey">35</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Gravity Press multi ×1.5 <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire Shards</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(6)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1.5).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-  sel2.price = f(f(10).pow(f(8))).mul((f(50).pow(f(sel.level))).mul(f(2).pow(f(sel.level))))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node35.priceIdentity, IUniversalIn.fireTree.node35.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node34.active) }
 
@@ -11084,34 +7423,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node36
   var sel2 = IUniversalIn.fireTree.node36
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Time Warp</div>
-                 <div class="topRight absolute padding2 grey">36</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Gravity Press delay /1.1 (<span class="boldBlackBorder">/${format(f(sel2.effect), 1)}</span>)</div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire Shards</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(10)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1.1).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-  sel2.price = f(f(10).pow(f(9))).mul((f(50).pow(f(sel.level))).mul(f(2).pow(f(sel.level))))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node36.priceIdentity, IUniversalIn.fireTree.node36.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node35.active) }
 
@@ -11119,36 +7430,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node37
   var sel2 = IUniversalIn.fireTree.node37
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Space Warp</div>
-                 <div class="topRight absolute padding2 grey">37</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Gravity Press duration ×1.2 (<span class="boldBlackBorder">×${format(f(sel.level), 1)}</span>)</div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire Shards</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(5)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1.2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-  sel2.price = f(f(10).pow(f(10))).mul((f(50).pow(f(sel.level))).mul(f(2).pow(f(sel.level))))
-
-
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node37.priceIdentity, IUniversalIn.fireTree.node37.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node36.active) }
 
@@ -11156,34 +7437,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node38
   var sel2 = IUniversalIn.fireTree.node38
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Catalyst</div>
-                 <div class="topRight absolute padding2 grey">38</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Size ×1.5 (<span class="boldBlackBorder">×${format(f(sel2.effect), 1)}</span>)</div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Heat</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(100)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1.5).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-  sel2.price = f(2).mul(f(2).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node38.priceIdentity, IUniversalIn.fireTree.node38.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node27.active) }
 
@@ -11192,46 +7445,6 @@ function valuesSetter(type) {
   var sel2 = IUniversalIn.fireTree.node39
 
 
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Sun</div>
-                 <div class="topRight absolute padding2 grey">39</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv column fontSize09"><div><span class="boldBlackBorder">${format(f(IUniversal.lightProdBase), 0)}</span>&nbsp;Light/s</div>
-                                                 <div><span class="boldBlackBorder">${format(f(IUniversal.light), 0)}</span>&nbsp;Light ⇒ ×<span class="boldBlackBorder">${format(f(sel2.effect2), 1)}</span> Fire/s</div></div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire</div>`
-
-  sel.level = f(sel.level)
-
-  var extraLevel1 = f(IUniversalIn.fireTree.node45.effect)
-  sel2.maxLevel = f(5).add(f(extraLevel1))
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(10).pow(f(sel.level).minus(f(1)))
-  } else {
-    sel2.effect = f(0)
-  }
-
-  var effect1 = f(IUniversalIn.fireTree.node47.effect)
-
-  if (f(sel2.effect).gt(f(0))) {
-    sel2.effect2 = ((f(2).pow(f(Decimal.log10(f(IUniversal.light).add(f(10)))))).pow(f(3))).mul(f(effect1))
-  } else {
-    sel2.effect2 = f(1)
-  }
-
-  var price1 = f(IUniversalIn.fireTree.node46.effect)
-
-  sel2.price = (f(f(10).pow(f(40))).mul((f(10).pow(f(10))).pow(f(sel.level)))).dividedBy(f(price1))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node39.priceIdentity, IUniversalIn.fireTree.node39.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node27.active) && IUniversalIn.fireMilestones.m2.mCheck() }
 
@@ -11239,79 +7452,12 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node40
   var sel2 = IUniversalIn.fireTree.node40
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Quasar</div>
-                  <div class="topRight absolute padding2 grey">40</div>
-                  <div class="centerDiv padding1 column fontSize09"><div><span class="boldBlackBorder">${format(f(sel.level), 0)}</span>&nbsp;Light sacrificed</div>
-                                                 <div>Fire Shards/s<span class="boldBlackBorder"> ×${format(f(sel2.effect), 1)}</span>&nbsp;</div>
-                  
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">Sacrifice</div>
-                <div class="centerDiv noClick">Light</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = Infinity
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(3).pow(f(Decimal.log10(f(sel.level).add(f(10)))))
-  } else {
-    sel2.effect = f(1)
-  }
-
-  sel2.price = (f(10).pow(f(15))).add(f(5).mul(sel.level).mul(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { return true }
   sel2.req = function () { return (IUniversal.fireTree.node39.active) && IUniversalIn.fireMilestones.m2.mCheck() }
 
   //NODE 41
   var sel = IUniversal.fireTree.node41
   var sel2 = IUniversalIn.fireTree.node41
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(10)
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Press Surge</div>
-                  <div class="topRight absolute padding2 grey">41</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>+10% (<span class="boldBlackBorder">${format(f(sel2.effect2).mul(f(100)))}%</span>) odds for Press x5</div>
-                 <div>(next press Heat<span class="boldBlackBorder"> ×${format(f(sel2.effect), 1)}</span>)</div>
-                  
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire Shards</div>`
-
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (sel.active) {
-    sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">ON</div>`
-  }
-  else {
-    sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">OFF</div>`
-  }
-
-  if (f(sel.level).gt(f(0)) && IUniversal.fireTree.node41.trigger) {
-    sel2.effect = f(5)
-  } else {
-    sel2.effect = f(1)
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect2 = f(0.1).mul(f(sel.level))
-  }
-
-  sel2.price = f(10).pow(f(12)).mul((f(f(10).pow(f(2)))).pow(f(sel.level)))
-
-  if (sel.active) { sel.unlocked = true }
 
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node41.priceIdentity, IUniversalIn.fireTree.node41.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node33.active) && IUniversalIn.fireMilestones.m1.mCheck() }
@@ -11320,42 +7466,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node42
   var sel2 = IUniversalIn.fireTree.node42
 
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(10)
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Press Momentum</div>
-                  <div class="topRight absolute padding2 grey">42</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>+1s (<span class="boldBlackBorder">${format(f(sel2.effect), 0)}s</span>) to Heat reduction delay</div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire Shards</div>`
-
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (sel.active) {
-    sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">ON</div>`
-  }
-  else {
-    sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">OFF</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1).mul(f(sel.level))
-  } else {
-    sel2.effect = f(0)
-  }
-
-  sel2.price = f(10).pow(f(18)).mul((f(f(10).pow(f(1)))).pow(f(sel.level)))
-
-
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node42.priceIdentity, IUniversalIn.fireTree.node42.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node33.active) && IUniversalIn.fireMilestones.m1.mCheck() }
 
@@ -11363,44 +7473,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node43
   var sel2 = IUniversalIn.fireTree.node43
 
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(4)
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Fire Singularity</div>
-                  <div class="topRight absolute padding2 grey">43</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Fire Shards x2 (<span class="boldBlackBorder">×${format(f(sel2.effect))}</span>) when Gravity Press is active</div>
-
-                  
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire Shards</div>`
-
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (sel.active) {
-    sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">ON</div>`
-  }
-  else {
-    sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">OFF</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-  sel2.price = f(10).pow(f(12)).mul((f(f(10).pow(f(4)))).pow(f(sel.level)))
-
-
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node43.priceIdentity, IUniversalIn.fireTree.node43.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node37.active) && IUniversalIn.fireMilestones.m1.mCheck() }
 
@@ -11408,45 +7480,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node44
   var sel2 = IUniversalIn.fireTree.node44
 
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(1)
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Relativity</div>
-                  <div class="topRight absolute padding2 grey">44</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div><span class="boldBlackBorder">×${format(f(sel2.effect))}</span> Gravity Press delay</div>
-                 <div class="centerDiv padding1 column fontSize09"><div><span class="boldBlackBorder">×${format(f(sel2.effect).mul(f(2)))}</span> Gravity Press multi</div>
-                  
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire Shards</div>`
-
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (sel.active) {
-    sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">ON</div>`
-  }
-  else {
-    sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">OFF</div>`
-  }
-
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2)
-  } else {
-    sel2.effect = f(2)
-  }
-
-  sel2.price = f(10).pow(f(18)).mul((f(f(10).pow(f(3)))).pow(f(sel.level)))
-
-
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node44.priceIdentity, IUniversalIn.fireTree.node44.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node37.active) && IUniversalIn.fireMilestones.m1.mCheck() }
 
@@ -11454,36 +7487,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node45
   var sel2 = IUniversalIn.fireTree.node45
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Local Bubble</div>
-                 <div class="topRight absolute padding2 grey">45</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Sun max level <span class="boldBlackBorder">+${format(f(sel2.effect), 0)}</span></div>
-                                                 
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Size</div>`
-
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(90)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(sel.level)
-  } else {
-    sel2.effect = f(0)
-  }
-  sel2.price = ((f(10)).pow(f(55))).mul((f(10).pow(f(5))).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node45.priceIdentity, IUniversalIn.fireTree.node45.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node22.active) && IUniversalIn.fireMilestones.m3.mCheck() }
 
@@ -11491,33 +7494,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node46
   var sel2 = IUniversalIn.fireTree.node46
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Young Star</div>
-                 <div class="topRight absolute padding2 grey">46</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Sun price /1e5 (<span class="boldBlackBorder">/${format(f(sel2.effect), 0)}</span>)</div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Size</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(20)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = (f(10).pow(f(5))).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-  sel2.price = ((f(10)).pow(f(50))).mul((f(10).pow(f(5))).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node46.priceIdentity, IUniversalIn.fireTree.node46.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node22.active) && IUniversalIn.fireMilestones.m3.mCheck() }
 
@@ -11525,34 +7501,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node47
   var sel2 = IUniversalIn.fireTree.node47
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Big Blue</div>
-                 <div class="topRight absolute padding2 grey">47</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Sun effect ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)</div>
-
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Size</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(20)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-  sel2.price = ((f(10)).pow(f(55))).mul((f(10).pow(f(5))).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node47.priceIdentity, IUniversalIn.fireTree.node47.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node46.active) && IUniversalIn.fireMilestones.m3.mCheck() }
 
@@ -11560,34 +7508,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node48
   var sel2 = IUniversalIn.fireTree.node48
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Universal Labor</div>
-                 <div class="topRight absolute padding2 grey">48</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Manual Burner ×1.5 (<span class="boldBlackBorder">×${format(f(sel2.effect), 1)}</span>)</div>
-
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire Shards</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(10)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1.5).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-  sel2.price = (f(5).mul(f(10).pow(f(1))).mul(f(5).pow(f(sel.level))))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node48.priceIdentity, IUniversalIn.fireTree.node48.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node28.active) }
 
@@ -11595,34 +7515,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node49
   var sel2 = IUniversalIn.fireTree.node49
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Heaviest Metal</div>
-                 <div class="topRight absolute padding2 grey">49</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Press Heat ×3 <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire Shards</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(10)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(3).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-  sel2.price = f(f(10).pow(f(20))).mul(((f(100).pow(f(sel.level)))))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node49.priceIdentity, IUniversalIn.fireTree.node49.price, "uni")) { return true } }
   sel2.req = function () { return f(IUniversal.fireTree.node31.level).gte(f(IUniversalIn.fireTree.node31.maxLevel)) }
 
@@ -11630,60 +7522,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node50
   var sel2 = IUniversalIn.fireTree.node50
 
-
-  if (sel.active) {
-    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Gear</div>
-                 <div class="topRight absolute padding2 grey">50</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Heat <span class="boldBlackBorder">×${format(f(sel2.effect), 2)}</span> every second</span></div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Resets when Universe Furnace reduces Heat (<span class="boldBlackBorder">${IUniversal.heatTimer}s</span>)</div>
-                                                        <div class="line"></div>
-                                                        <div class=""><span class="boldBlackBorder">${format(f(f(sel.timer).minus(f(sel.currentTimer))), 1)}s</span> remaining</div>
-                                                        <div">Heat <span class="boldBlackBorder">×${format(f(f(sel2.effect2)), 1)}</span></div>
-                                                        <div></div>
-                 </div>`
-  } else {
-    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Gear</div>
-                 <div class="topRight absolute padding2 grey">50</div>
-                 <div class="centerDiv padding1 column"><div>Multiply Heat automatically</div>
-                 </div>`
-  }
-
-  if (sel.active) {
-    unlockShow("content2_17_node50_button", false)
-    sel2.button = ``
-  } else {
-    unlockShow("content2_17_node50_button", true)
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire Shards</div>`
-  }
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(1)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (sel.active) {
-    sel2.effect = f(1.15).add(f(IUniversalIn.fireTree.node52.effect)).add(f(IUniversalIn.fireTree.node63.effect))
-  } else {
-    sel2.effect = f(1)
-  }
-
-  if (sel.active) {
-    sel2.effect2 = f(sel2.effect).pow(f(sel.currentTimer))
-  } else {
-    sel2.effect2 = f(1)
-  }
-
-  sel2.price = f(f(10).pow(f(28))).mul((f(10).pow(f(3))).pow(f(sel.level)))
-  sel.timer = f(IUniversal.heatTimer)
-  sel.currentTimer = f(sel.currentTimer)
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node50.priceIdentity, IUniversalIn.fireTree.node50.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node38.active) && IUniversalIn.fireMilestones.m4.mCheck() }
 
@@ -11691,34 +7529,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node51
   var sel2 = IUniversalIn.fireTree.node51
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Entropy Distorter</div>
-                  <div class="topRight absolute padding2 grey">51</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>+1s (<span class="boldBlackBorder">${format(f(sel2.effect), 0)}s</span>) to Heat reduction delay</div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire Shards</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(10)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (sel.active) {
-    sel2.effect = f(1).mul(f(sel.level))
-  } else {
-    sel2.effect = f(0)
-  }
-
-  sel2.price = f(f(10).pow(f(30))).mul((f(10).pow(f(3))).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node51.priceIdentity, IUniversalIn.fireTree.node51.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node50.active) && IUniversalIn.fireMilestones.m4.mCheck() }
 
@@ -11726,36 +7536,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node52
   var sel2 = IUniversalIn.fireTree.node52
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Dents</div>
-                 <div class="topRight absolute padding2 grey">52</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09">
-                 <div>Gear effect +0.03 </div>
-                 <div><span class="boldBlackBorder">(Gear effect: ${format(f(IUniversalIn.fireTree.node50.effect), 2)})</span></div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire Shards</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(10)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (sel.active) {
-    sel2.effect = f(0.03).mul(f(sel.level))
-  } else {
-    sel2.effect = f(0)
-  }
-
-  sel2.price = f(f(10).pow(f(30))).mul((f(10).pow(f(3))).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node52.priceIdentity, IUniversalIn.fireTree.node52.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node50.active) && IUniversalIn.fireMilestones.m4.mCheck() }
 
@@ -11763,36 +7543,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node53
   var sel2 = IUniversalIn.fireTree.node53
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Vacum Chamber</div>
-                 <div class="topRight absolute padding2 grey">53</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09">
-                    <div>Heat reduction -0.05</div>
-                    <div">(Heat reduction:<span class="boldBlackBorder"> /${format(f(IUniversalIn.fireTree.node27.effect2), 2)}</span>)</div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire Shards</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(10)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (sel.active) {
-    sel2.effect = f(0.05).mul(f(sel.level))
-  } else {
-    sel2.effect = f(0)
-  }
-
-  sel2.price = f(f(10).pow(f(32))).mul((f(10).pow(f(3))).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node53.priceIdentity, IUniversalIn.fireTree.node53.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node52.active) && IUniversalIn.fireMilestones.m4.mCheck() }
 
@@ -11800,44 +7550,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node54
   var sel2 = IUniversalIn.fireTree.node54
 
-
-  if (sel.active) {
-    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Ash Dynamo</div>
-                 <div class="topRight absolute padding2 grey">54</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>When Gear resets, add <span class="boldBlackBorder">${format(f(sel2.effect))}</span> Rotation</div>
-                 <div class="centerDiv padding1 column fontSize09"><div><span class="boldBlackBorder">${format(f(IUniversal.rotation), 1)}</span> Rotations</div>
-                 </div>`
-  } else {
-    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Ash Dynamo</div>
-                 <div class="topRight absolute padding2 grey">54</div>
-                 <div class="centerDiv padding1 column"><div>Every time Gear resets, add rotation</div>
-                 </div>`
-  }
-
-  if (sel.active) {
-    unlockShow("content2_17_node54_button", false)
-    sel2.button = ``
-  } else {
-    unlockShow("content2_17_node54_button", true)
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire Shards</div>`
-  }
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(1)
-
-  if (sel.active) {
-    sel2.effect = f(1).mul(f(IUniversalIn.fireTree.node57.effect))
-  } else {
-    sel2.effect = f(0)
-  }
-
-  sel2.price = f(f(10).pow(f(34))).mul((f(10).pow(f(3))).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node54.priceIdentity, IUniversalIn.fireTree.node54.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node52.active) && IUniversalIn.fireMilestones.m4.mCheck() }
 
@@ -11845,35 +7557,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node55
   var sel2 = IUniversalIn.fireTree.node55
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Solar Flare</div>
-                  <div class="topRight absolute padding2 grey">55</div>
-                  <div class="centerDiv padding1 column fontSize09"><div><span class="boldBlackBorder">${format(f(sel.level), 0)}</span>&nbsp;Rotation sacrificed</div>
-                                                 <div>Fire/s<span class="boldBlackBorder"> ×${format(f(sel2.effect), 1)}</span>&nbsp;</div>
-                  
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">Sacrifice</div>
-                <div class="centerDiv noClick">Rotation</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = Infinity
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (sel.active) {
-    sel2.effect = f(2).pow(f(Decimal.log2(f(sel.level).add(f(2)))))
-  } else {
-    sel2.effect = f(1)
-  }
-
-  sel2.price = f(f(10).pow(f(38))).mul((f(10).pow(f(3))).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { return true }
   sel2.req = function () { return (IUniversal.fireTree.node54.active) && IUniversalIn.fireMilestones.m4.mCheck() }
 
@@ -11881,34 +7564,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node56
   var sel2 = IUniversalIn.fireTree.node56
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Circular Extraction</div>
-                 <div class="topRight absolute padding2 grey">56</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                                  <div class="centerDiv padding1 column fontSize09"><div>Fire Shards ×Rotation <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire Shards</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(10)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (sel.active) {
-    sel2.effect = f(2).pow(f(Decimal.log2(f(IUniversal.rotation).add(f(2))))).mul(f(2).pow(f(sel.level)))
-  } else {
-    sel2.effect = f(1)
-  }
-
-  sel2.price = f(f(10).pow(f(38))).mul((f(10).pow(f(3))).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node56.priceIdentity, IUniversalIn.fireTree.node56.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node54.active) && IUniversalIn.fireMilestones.m4.mCheck() }
 
@@ -11916,34 +7571,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node57
   var sel2 = IUniversalIn.fireTree.node57
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Orbital Dynamic</div>
-                 <div class="topRight absolute padding2 grey">57</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Rotation ×5 <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire Shards</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(10)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(5).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-  sel2.price = f(f(10).pow(f(42))).mul((f(10).pow(f(3))).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node57.priceIdentity, IUniversalIn.fireTree.node57.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node56.active) && IUniversalIn.fireMilestones.m4.mCheck() }
 
@@ -11951,34 +7578,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node58
   var sel2 = IUniversalIn.fireTree.node58
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Forest Destroyer</div>
-                 <div class="topRight absolute padding2 grey">58</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Sacrifice <span class="boldBlackBorder">${format(f(sel2.effect).mul(f(100)))}%</span> of Wood every second for free</div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(10)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (sel.active) {
-    sel2.effect = f(f(10).pow(f(sel.level).minus(f(1)))).dividedBy(f(100))
-  } else {
-    sel2.effect = f(0)
-  }
-
-  sel2.price = f(f(10).pow(f(105))).mul(((f(f(10).pow(f(10))).pow(f(sel.level)))))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node58.priceIdentity, IUniversalIn.fireTree.node58.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node5.active) && IUniversalIn.fireMilestones.m5.mCheck() }
 
@@ -11986,34 +7585,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node59
   var sel2 = IUniversalIn.fireTree.node59
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Mine Eater</div>
-                 <div class="topRight absolute padding2 grey">59</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Sacrifice <span class="boldBlackBorder">${format(f(sel2.effect).mul(f(100)))}%</span> of Coal every second for free</div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(10)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (sel.active) {
-    sel2.effect = f(f(10).pow(f(sel.level).minus(f(1)))).dividedBy(f(100))
-  } else {
-    sel2.effect = f(0)
-  }
-
-  sel2.price = f(f(10).pow(f(110))).mul(((f(f(10).pow(f(10))).pow(f(sel.level)))))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node59.priceIdentity, IUniversalIn.fireTree.node59.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node6.active) && IUniversalIn.fireMilestones.m5.mCheck() }
 
@@ -12021,34 +7592,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node60
   var sel2 = IUniversalIn.fireTree.node60
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Fire Lord</div>
-                 <div class="topRight absolute padding2 grey">60</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Sacrifice <span class="boldBlackBorder">${format(f(sel2.effect).mul(f(100)))}%</span> of Magma every second for free</div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(10)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (sel.active) {
-    sel2.effect = f(f(10).pow(f(sel.level).minus(f(1)))).dividedBy(f(100))
-  } else {
-    sel2.effect = f(0)
-  }
-
-  sel2.price = f(f(10).pow(f(115))).mul(((f(f(10).pow(f(10))).pow(f(sel.level)))))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node60.priceIdentity, IUniversalIn.fireTree.node60.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node7.active) && IUniversalIn.fireMilestones.m5.mCheck() }
 
@@ -12056,34 +7599,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node61
   var sel2 = IUniversalIn.fireTree.node61
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Universal Bonfire</div>
-                 <div class="topRight absolute padding2 grey">61</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Universal Nodes ×2 <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Size</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = Infinity
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-  sel2.price = f(f(10).pow(f(100))).mul(f(10).pow(f(5)).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node61.priceIdentity, IUniversalIn.fireTree.node61.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node11.active) && IUniversalIn.fireMilestones.m6.mCheck() }
 
@@ -12091,34 +7606,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node62
   var sel2 = IUniversalIn.fireTree.node62
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Fire Black Holes</div>
-                 <div class="topRight absolute padding2 grey">62</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Universal Cores ×2 <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Size</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = Infinity
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-  sel2.price = f(f(10).pow(f(100))).mul(f(10).pow(f(5)).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node62.priceIdentity, IUniversalIn.fireTree.node62.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node11.active) && IUniversalIn.fireMilestones.m6.mCheck() }
 
@@ -12126,34 +7613,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node63
   var sel2 = IUniversalIn.fireTree.node63
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Concentric Gears</div>
-                 <div class="topRight absolute padding2 grey">63</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Gear effect +0.01 <span class="boldBlackBorder">(+${format(f(sel2.effect), 2)})</span></div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire Shards</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(100)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(0.01).mul(f(sel.level))
-  } else {
-    sel2.effect = f(0)
-  }
-
-  sel2.price = f(f(10).pow(f(61))).mul(f(10).pow(f(2)).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node63.priceIdentity, IUniversalIn.fireTree.node63.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node56.active) && IUniversalIn.fireMilestones.m7.mCheck() }
 
@@ -12161,38 +7620,8 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node64
   var sel2 = IUniversalIn.fireTree.node64
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Neutron Press</div>
-                 <div class="topRight absolute padding2 grey">64</div>
-                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Gravity Press multi ×1.1 <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
-                 </div>`
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire Shards</div>`
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(100)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1.1).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-  sel2.price = f(f(10).pow(f(60))).mul(f(10).pow(f(2)).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node64.priceIdentity, IUniversalIn.fireTree.node64.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node35.active) && IUniversalIn.fireMilestones.m7.mCheck() }
-
-  //Potion Types
 
   //WATER TREE
 
@@ -12201,38 +7630,6 @@ function valuesSetter(type) {
   var sel = IUniversal.waterTree.node1
   var sel2 = IUniversalIn.waterTree.node1
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Water Rift</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">1</div>
-                  <div class="centerDiv padding2 fontSize09">Water/s ×2(<span class="boldBlackBorder">×${format(f(sel2.effect), 1)}</span>)&nbsp;</div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Universal Cores</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(100)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = (f(10).pow(f(40))).mul(f(10).pow(f(5).mul(f(sel.level))))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node1.priceIdentity, IUniversalIn.waterTree.node1.price, "uniChallenger")) { return true } }
   sel2.req = function () { return true }
 
@@ -12240,40 +7637,6 @@ function valuesSetter(type) {
   var sel = IUniversal.waterTree.node2
   var sel2 = IUniversalIn.waterTree.node2
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Water Sorcerers</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-                  <div class="topRight absolute padding2 grey">2</div>
-                  <div class="centerDiv padding2 fontSize09">Water/s&nbsp<span class="boldBlackBorder">+${format(f(sel2.effect), 1)}</span>&nbsp;</div>
-                 </div>`
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Water</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = Infinity
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1.5).pow(f(sel.level))
-  } else {
-    sel2.effect = f(0)
-  }
-
-  if (sel.active) {
-    sel2.price = (f(0.5).mul(f(10).pow(f(1)))).mul(f(2).pow(f(1).mul(f(sel.level))))
-  } else {
-    sel2.effect = f(0)
-  }
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node2.priceIdentity, IUniversalIn.waterTree.node2.price, "uni")) { return true } }
   sel2.req = function () { return true }
 
@@ -12281,38 +7644,6 @@ function valuesSetter(type) {
   var sel = IUniversal.waterTree.node3
   var sel2 = IUniversalIn.waterTree.node3
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Water Density</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">3</div>
-                  <div class="centerDiv padding2 fontSize09">Water Max +10 (<span class="boldBlackBorder">+${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Water</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(100)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(10).mul(f(sel.level))
-  } else {
-    sel2.effect = f(0)
-  }
-
-
-  sel2.price = (f(10).pow(f(1))).mul(f(2).pow(f(1).mul(f(sel.level))))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node3.priceIdentity, IUniversalIn.waterTree.node3.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node2.active) }
 
@@ -12320,38 +7651,6 @@ function valuesSetter(type) {
   var sel = IUniversal.waterTree.node4
   var sel2 = IUniversalIn.waterTree.node4
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Erosion</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-                  <div class="topRight absolute padding2 grey">4</div>
-                  <div class="centerDiv padding2 fontSize09">Water Max ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Water</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = Infinity
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = (f(30).pow(f(1))).mul(f(3).pow(f(1).mul(f(sel.level))))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node4.priceIdentity, IUniversalIn.waterTree.node4.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node3.active) || (IUniversal.waterTree.node5.active) }
 
@@ -12359,38 +7658,6 @@ function valuesSetter(type) {
   var sel = IUniversal.waterTree.node5
   var sel2 = IUniversalIn.waterTree.node5
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Water Lich</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">5</div>
-                  <div class="centerDiv padding2 fontSize09">Water/s ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Water</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(100)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = (f(10).pow(f(3))).mul(f(10).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node5.priceIdentity, IUniversalIn.waterTree.node5.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node2.active) }
 
@@ -12398,53 +7665,6 @@ function valuesSetter(type) {
   var sel = IUniversal.waterTree.node6
   var sel2 = IUniversalIn.waterTree.node6
 
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Erbs</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">6</div>
-                  <div class="centerDiv padding2 fontSize09">Produce Erbs and Craft potions</div>
-                 </div>`
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Water</div>`
-
-  if (f(sel.level).equals(f(sel2.maxLevel))) {
-    unlockShow("content2_19_node6_button", false)
-
-    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Erbs</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">6</div>
-                  <div class="centerDiv padding2 fontSize09">
-                      <span class="boldBlackBorder">${format(f(IUniversal.erbs), 0)}/${format(f(IUniversal.erbsMax), 0)}</span>&nbsp;Erbs</div>
-                  <div class="centerDiv padding1 column fontSize09"><div><span class="boldBlackBorder">${format(sec(f(IUniversal.erbsProd), 1))}</span> Erbs/s</div>
-                 </div>
-                <div class="line"></div>
-                <div class="centerDiv padding1 column fontSize09">Training potions unlocked</div>`
-  } else {
-    unlockShow("content2_19_node6_button", true)
-
-  }
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(1)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  sel2.price = f(100)
-
-  if (sel.active) {
-    sel2.effect = f(0.1)
-  } else {
-    sel2.effect = f(0)
-  }
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node6.priceIdentity, IUniversalIn.waterTree.node6.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node3.active) }
 
@@ -12452,38 +7672,6 @@ function valuesSetter(type) {
   var sel = IUniversal.waterTree.node7
   var sel2 = IUniversalIn.waterTree.node7
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Garden</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-                  <div class="topRight absolute padding2 grey">7</div>
-                  <div class="centerDiv padding2 fontSize09">Erbs/s ×1.35 (<span class="boldBlackBorder">×${format(f(sel2.effect), 1)}</span>)&nbsp;</div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Water</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = Infinity
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = (f(1.35).pow(f(sel.level)))
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = (f(5).mul(f(10).pow(f(2)))).mul(f(3).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node7.priceIdentity, IUniversalIn.waterTree.node7.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node6.active) }
 
@@ -12491,38 +7679,6 @@ function valuesSetter(type) {
   var sel = IUniversal.waterTree.node8
   var sel2 = IUniversalIn.waterTree.node8
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Herbarium</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">8</div>
-                  <div class="centerDiv padding2 fontSize09">Erbs Max +10 (<span class="boldBlackBorder">+${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Water</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(100)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(10).mul(f(sel.level))
-  } else {
-    sel2.effect = f(0)
-  }
-
-
-  sel2.price = (f(10).pow(f(3))).mul(f(5).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node8.priceIdentity, IUniversalIn.waterTree.node8.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node7.active) }
 
@@ -12530,37 +7686,6 @@ function valuesSetter(type) {
   var sel = IUniversal.waterTree.node9
   var sel2 = IUniversalIn.waterTree.node9
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Magic Lands</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-                  <div class="topRight absolute padding2 grey">9</div>
-                  <div class="centerDiv padding2 fontSize09">Erbs Max ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Water</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = Infinity
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-  sel2.price = (f(10).pow(f(4))).mul(f(20).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node9.priceIdentity, IUniversalIn.waterTree.node9.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node8.active) }
 
@@ -12568,93 +7693,13 @@ function valuesSetter(type) {
   var sel = IUniversal.waterTree.node10
   var sel2 = IUniversalIn.waterTree.node10
 
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Fluid Fire</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">10</div>
-                  <div class="centerDiv padding2 fontSize09">Produce Fluid Fire and Craft potions</div>
-                 </div>`
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Elixir</div>`
-
-  if (f(sel.level).equals(f(sel2.maxLevel))) {
-    unlockShow("content2_19_node10_button", false)
-
-    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Fluid Fire</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">10</div>
-                  <div class="centerDiv padding2 fontSize09">
-                      <span class="boldBlackBorder">${format(f(IUniversal.fluidFire), 0)}/${format(f(IUniversal.fluidFireMax), 0)}</span>&nbsp;Fluid Fire</div>
-                  <div class="centerDiv padding1 column fontSize09"><div><span class="boldBlackBorder">${format(sec(f(IUniversal.fluidFireProd), 1))}</span> Fluid Fire/s</div>
-                 </div>
-                <div class="line"></div>
-                <div class="centerDiv padding1 column fontSize09">Hunting potions unlocked</div>`
-  } else {
-    unlockShow("content2_19_node10_button", true)
-
-  }
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(1)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  sel2.price = f(20)
-
-  if (sel.active) {
-    sel2.effect = f(0.1)
-  } else {
-    sel2.effect = f(0)
-  }
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node10.priceIdentity, IUniversalIn.waterTree.node10.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node6.active) }
-
 
   //NODE 11
   var sel = IUniversal.waterTree.node11
   var sel2 = IUniversalIn.waterTree.node11
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Diluted Flame</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-                  <div class="topRight absolute padding2 grey">11</div>
-                  <div class="centerDiv padding2 fontSize09">Fluid Fire/s ×1.35 (<span class="boldBlackBorder">×${format(f(sel2.effect), 1)}</span>)&nbsp;</div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Elixir</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = Infinity
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1.35).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = (f(10).pow(f(2))).mul(f(2).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node11.priceIdentity, IUniversalIn.waterTree.node11.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node10.active) }
 
@@ -12662,38 +7707,6 @@ function valuesSetter(type) {
   var sel = IUniversal.waterTree.node12
   var sel2 = IUniversalIn.waterTree.node12
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Eternal Flame</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">12</div>
-                  <div class="centerDiv padding2 fontSize09">Fluid Fire Max +10 (<span class="boldBlackBorder">+${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Elixir</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(100)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(10).mul(f(sel.level))
-  } else {
-    sel2.effect = f(0)
-  }
-
-
-  sel2.price = (f(2).mul(f(10).pow(f(2)))).mul(f(5).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node12.priceIdentity, IUniversalIn.waterTree.node12.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node11.active) }
 
@@ -12701,37 +7714,6 @@ function valuesSetter(type) {
   var sel = IUniversal.waterTree.node13
   var sel2 = IUniversalIn.waterTree.node13
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Anti Evaporation</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-                  <div class="topRight absolute padding2 grey">13</div>
-                  <div class="centerDiv padding2 fontSize09">Fluid Fire Max ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Elixir</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = Infinity
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-  sel2.price = (f(4).mul(f(10).pow(f(2)))).mul(f(10).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node13.priceIdentity, IUniversalIn.waterTree.node13.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node12.active) }
 
@@ -12739,93 +7721,13 @@ function valuesSetter(type) {
   var sel = IUniversal.waterTree.node14
   var sel2 = IUniversalIn.waterTree.node14
 
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Water Gem</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">14</div>
-                  <div class="centerDiv padding2 fontSize09">Produce Water Gem and Craft potions</div>
-                 </div>`
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Ambrosia</div>`
-
-  if (f(sel.level).equals(f(sel2.maxLevel))) {
-    unlockShow("content2_19_node14_button", false)
-
-    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Water Gem</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">14</div>
-                  <div class="centerDiv padding2 fontSize09">
-                      <span class="boldBlackBorder">${format(f(IUniversal.waterGem), 0)}/${format(f(IUniversal.waterGemMax), 0)}</span>&nbsp;Water Gem</div>
-                  <div class="centerDiv padding1 column fontSize09"><div><span class="boldBlackBorder">${format(sec(f(IUniversal.waterGemProd), 1))}</span> Water Gem/s</div>
-                 </div>
-                <div class="line"></div>
-                <div class="centerDiv padding1 column fontSize09">Attributes potions unlocked</div>`
-  } else {
-    unlockShow("content2_19_node14_button", true)
-
-  }
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(1)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  sel2.price = f(20)
-
-  if (sel.active) {
-    sel2.effect = f(0.1)
-  } else {
-    sel2.effect = f(0)
-  }
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node14.priceIdentity, IUniversalIn.waterTree.node14.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node10.active) }
-
 
   //NODE 15
   var sel = IUniversal.waterTree.node15
   var sel2 = IUniversalIn.waterTree.node15
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Perma Glacier</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-                  <div class="topRight absolute padding2 grey">15</div>
-                  <div class="centerDiv padding2 fontSize09">Water Gem/s ×1.5 (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)&nbsp; </div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Ambrosia</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = Infinity
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1.5).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = (f(10).pow(f(2))).mul(f(2).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node15.priceIdentity, IUniversalIn.waterTree.node15.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node14.active) }
 
@@ -12833,38 +7735,6 @@ function valuesSetter(type) {
   var sel = IUniversal.waterTree.node16
   var sel2 = IUniversalIn.waterTree.node16
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Smaller Gem</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">16</div>
-                  <div class="centerDiv padding2 fontSize09">Water Gem Max +10 (<span class="boldBlackBorder">+${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Ambrosia</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(100)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(10).mul(f(sel.level))
-  } else {
-    sel2.effect = f(0)
-  }
-
-
-  sel2.price = (f(2).mul(f(10).pow(f(2)))).mul(f(3).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node16.priceIdentity, IUniversalIn.waterTree.node16.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node15.active) }
 
@@ -12872,92 +7742,12 @@ function valuesSetter(type) {
   var sel = IUniversal.waterTree.node17
   var sel2 = IUniversalIn.waterTree.node17
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Gem Inclusion</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-                  <div class="topRight absolute padding2 grey">17</div>
-                  <div class="centerDiv padding2 fontSize09">Water Gem Max ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Ambrosia</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = Infinity
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = (f(4).mul(f(10).pow(f(2)))).mul(f(5).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node17.priceIdentity, IUniversalIn.waterTree.node17.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node16.active) }
-
   //NODE 18
   var sel = IUniversal.waterTree.node18
   var sel2 = IUniversalIn.waterTree.node18
 
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Pyrofrost</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">18</div>
-                  <div class="centerDiv padding2 fontSize09">Produce Pyrofrost and Craft potions</div>
-                 </div>`
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Ambrosia</div>`
-
-  if (f(sel.level).equals(f(sel2.maxLevel))) {
-    unlockShow("content2_19_node18_button", false)
-
-    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Pyrofrost</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">18</div>
-                  <div class="centerDiv padding2 fontSize09">
-                      <span class="boldBlackBorder">${format(f(IUniversal.pyroFrost), 0)}/${format(f(IUniversal.pyroFrostMax), 0)}</span>&nbsp;Pyrofrost</div>
-                  <div class="centerDiv padding1 column fontSize09"><div><span class="boldBlackBorder">${format(sec(f(IUniversal.pyroFrostProd), 1))}</span> Pyrofrost/s</div>
-                 </div>
-                <div class="line"></div>
-                <div class="centerDiv padding1 column fontSize09">Challenger potions unlocked</div>`
-  } else {
-    unlockShow("content2_19_node18_button", true)
-
-  }
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(1)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  sel2.price = f(10).pow(f(4))
-
-  if (sel.active) {
-    sel2.effect = f(0.1)
-  } else {
-    sel2.effect = f(0)
-  }
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node18.priceIdentity, IUniversalIn.waterTree.node18.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node14.active) }
 
@@ -12965,38 +7755,6 @@ function valuesSetter(type) {
   var sel = IUniversal.waterTree.node19
   var sel2 = IUniversalIn.waterTree.node19
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Ambivalent Cycle</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-                  <div class="topRight absolute padding2 grey">19</div>
-                  <div class="centerDiv padding2 fontSize09">Pyrofrost/s ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Erbs</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = Infinity
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = (f(10).pow(f(6))).mul(f(10).pow(f(1).mul(f(sel.level))))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node19.priceIdentity, IUniversalIn.waterTree.node19.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node18.active) }
 
@@ -13004,38 +7762,6 @@ function valuesSetter(type) {
   var sel = IUniversal.waterTree.node20
   var sel2 = IUniversalIn.waterTree.node20
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Contrasting Growth</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">20</div>
-                  <div class="centerDiv padding2 fontSize09">Pyrofrost Max +10 (<span class="boldBlackBorder">+${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fluid Fire</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(100)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(10).mul(f(sel.level))
-  } else {
-    sel2.effect = f(0)
-  }
-
-
-  sel2.price = (f(10).pow(f(5))).mul(f(10).pow(f(1).mul(f(sel.level))))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node20.priceIdentity, IUniversalIn.waterTree.node20.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node19.active) }
 
@@ -13043,38 +7769,6 @@ function valuesSetter(type) {
   var sel = IUniversal.waterTree.node21
   var sel2 = IUniversalIn.waterTree.node21
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Glacial Hell</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-                  <div class="topRight absolute padding2 grey">21</div>
-                  <div class="centerDiv padding2 fontSize09">Pyrofrost Max ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Water Gem</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = Infinity
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = (f(10).pow(f(4))).mul(f(10).pow(f(1).mul(f(sel.level))))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node21.priceIdentity, IUniversalIn.waterTree.node21.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node20.active) }
 
@@ -13082,59 +7776,6 @@ function valuesSetter(type) {
   var sel = IUniversal.waterTree.node22
   var sel2 = IUniversalIn.waterTree.node22
 
-
-  if (sel.active) {
-    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Purification</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">22</div>
-                  <div class="centerDiv padding2 fontSize09">Water can be higher than Max, with lower Water/s</div>
-                  <div class="centerDiv padding2 fontSize09">Water/s &nbsp;<span class="boldBlackBorder">/${format(f(1).dividedBy(f(f(sel2.effect))))}</span></div>
-                 </div>`
-
-
-
-    unlockShow("content2_19_node22_button", false)
-    sel2.button = ``
-  } else {
-    unlockShow("content2_19_node22_button", true)
-    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Purification</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">22</div>
-                  <div class="centerDiv padding2 fontSize09">Water can be higher than Max, with lower Water/s</div>
-                 </div>`
-
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Water</div>`
-  }
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(1)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  var difference = f(IUniversal.water).dividedBy(f(IUniversal.waterMax))
-  var calc = f(f(5).pow(f(Decimal.log10(f(difference)))))
-
-  if (f(sel.level).gt(f(0))) {
-    if (f(IUniversal.water).gte(f(IUniversal.waterMax))) {
-      sel2.effect = f(1).dividedBy(calc)
-    } else {
-      sel2.effect = f(1)
-    }
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-
-  sel2.price = f(10).pow(f(4))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node22.priceIdentity, IUniversalIn.waterTree.node22.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node4.active) }
 
@@ -13142,38 +7783,6 @@ function valuesSetter(type) {
   var sel = IUniversal.waterTree.node23
   var sel2 = IUniversalIn.waterTree.node23
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Runic Container</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">23</div>
-                  <div class="centerDiv padding2 fontSize09">Elixir Max +10 (<span class="boldBlackBorder">+${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Water</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(100)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(10).mul(f(sel.level))
-  } else {
-    sel2.effect = f(0)
-  }
-
-
-  sel2.price = (f(5).mul(f(10).pow(f(5)))).mul(f(2).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node23.priceIdentity, IUniversalIn.waterTree.node23.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node22.active) }
 
@@ -13181,38 +7790,6 @@ function valuesSetter(type) {
   var sel = IUniversal.waterTree.node24
   var sel2 = IUniversalIn.waterTree.node24
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Pure Magic</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-                  <div class="topRight absolute padding2 grey">24</div>
-                  <div class="centerDiv padding2 fontSize09">Elixir Max ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Water</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = Infinity
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = (f(10).pow(f(6))).mul(f(4).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node24.priceIdentity, IUniversalIn.waterTree.node24.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node23.active) || (IUniversal.waterTree.node25.active) }
 
@@ -13220,38 +7797,6 @@ function valuesSetter(type) {
   var sel = IUniversal.waterTree.node25
   var sel2 = IUniversalIn.waterTree.node25
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Mage Tower</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-                  <div class="topRight absolute padding2 grey">25</div>
-                  <div class="centerDiv padding2 fontSize09">Elixir/s&nbsp;<span class="boldBlackBorder">+${format(f(sel2.effect), 1)}</span></div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Water</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = Infinity
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(0.4).mul(f(2.35).pow(f(sel.level)).minus(f(1)))
-  } else {
-    sel2.effect = f(0)
-  }
-
-
-  sel2.price = (f(10).pow(f(5))).mul(f(5).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node25.priceIdentity, IUniversalIn.waterTree.node25.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node22.active) }
 
@@ -13259,178 +7804,28 @@ function valuesSetter(type) {
   var sel = IUniversal.waterTree.node26
   var sel2 = IUniversalIn.waterTree.node26
 
-
-  if (sel.active) {
-    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Unbound Elixir</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">26</div>
-                  <div class="centerDiv padding2 fontSize09">Elixir can be higher than Max, with lower Elixir/s</div>
-                  <div class="centerDiv padding2 fontSize09">Elixir/s &nbsp;<span class="boldBlackBorder">/${format(f(1).dividedBy(f(sel2.effect)))}</span></div>
-                 </div>`
-
-
-
-    unlockShow("content2_19_node26_button", false)
-    sel2.button = ``
-  } else {
-    unlockShow("content2_19_node26_button", true)
-    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Unbound Elixir</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">26</div>
-                  <div class="centerDiv padding2 fontSize09">Elixir can be higher than Max, with lower Elixir/s</div>
-                 </div>`
-
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Elixir</div>`
-  }
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(1)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  var difference = f(IUniversal.elisir).dividedBy(f(IUniversal.elisirMax))
-  var calc = f(f(5).pow(f(Decimal.log10(f(difference)))))
-
-  if (f(sel.level).gt(f(0))) {
-    if (f(IUniversal.elisir).gte(f(IUniversal.elisirMax))) {
-      sel2.effect = f(1).dividedBy(calc)
-    } else {
-      sel2.effect = f(1)
-    }
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = f(10).pow(f(4))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node26.priceIdentity, IUniversalIn.waterTree.node26.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node24.active) }
-
 
   //NODE 27
   var sel = IUniversal.waterTree.node27
   var sel2 = IUniversalIn.waterTree.node27
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Vessel</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">27</div>
-                  <div class="centerDiv padding2 fontSize09">Ambrosia Max +10 (<span class="boldBlackBorder">+${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Elixir</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(100)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(10).mul(f(sel.level))
-  } else {
-    sel2.effect = f(0)
-  }
-
-
-  sel2.price = (f(5).mul(f(10).pow(f(5)))).mul(f(3).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node27.priceIdentity, IUniversalIn.waterTree.node27.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node26.active) }
-
 
   //NODE 28
   var sel = IUniversal.waterTree.node28
   var sel2 = IUniversalIn.waterTree.node28
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Mythril Flask</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-                  <div class="topRight absolute padding2 grey">28</div>
-                  <div class="centerDiv padding2 fontSize09">Ambrosia Max ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Elixir</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = Infinity
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = (f(10).pow(f(7))).mul(f(4).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node28.priceIdentity, IUniversalIn.waterTree.node28.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node27.active) || (IUniversal.waterTree.node29.active) }
-
 
   //NODE 29
   var sel = IUniversal.waterTree.node29
   var sel2 = IUniversalIn.waterTree.node29
 
 
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Deverin's Gift</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
-                  <div class="topRight absolute padding2 grey">29</div>
-                  <div class="centerDiv padding2 fontSize09">Ambrosia/s&nbsp<span class="boldBlackBorder">+${format(f(sel2.effect), 1)}</span></div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Elixir</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = Infinity
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(0.1).mul(f(2).pow(f(sel.level)))
-  } else {
-    sel2.effect = f(0)
-  }
-
-
-  sel2.price = (f(10).pow(f(5))).mul(f(5).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node29.priceIdentity, IUniversalIn.waterTree.node29.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node26.active) }
 
@@ -13438,38 +7833,6 @@ function valuesSetter(type) {
   var sel = IUniversal.waterTree.node30
   var sel2 = IUniversalIn.waterTree.node30
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">MagiTea</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">30</div>
-                  <div class="centerDiv padding2 fontSize09">Water Max ×1.2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 1)}</span>)&nbsp;</div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Erbs</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(100)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1.2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = f(2).pow(f(sel.level))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node30.priceIdentity, IUniversalIn.waterTree.node30.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node6.active) }
 
@@ -13477,38 +7840,6 @@ function valuesSetter(type) {
   var sel = IUniversal.waterTree.node31
   var sel2 = IUniversalIn.waterTree.node31
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Forbidden Water</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">31</div>
-                  <div class="centerDiv padding2 fontSize09">Water Max ×1.2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 1)}</span>)&nbsp;</div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fluid Fire</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(100)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1.2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = f(2).pow(f(sel.level))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node31.priceIdentity, IUniversalIn.waterTree.node31.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node10.active) }
 
@@ -13516,38 +7847,6 @@ function valuesSetter(type) {
   var sel = IUniversal.waterTree.node32
   var sel2 = IUniversalIn.waterTree.node32
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Crystal Spring</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">32</div>
-                  <div class="centerDiv padding2 fontSize09">Water Max ×1.2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 1)}</span>)&nbsp;</div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Water Gem</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(100)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1.2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = f(2).pow(f(sel.level))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node32.priceIdentity, IUniversalIn.waterTree.node32.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node14.active) }
 
@@ -13555,296 +7854,50 @@ function valuesSetter(type) {
   var sel = IUniversal.waterTree.node33
   var sel2 = IUniversalIn.waterTree.node33
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Concoction</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">33</div>
-                  <div class="centerDiv padding2 fontSize09">Water Max ×1.2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 1)}</span>)&nbsp;</div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">PyroFrost</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(100)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1.2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = f(2).pow(f(sel.level))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node33.priceIdentity, IUniversalIn.waterTree.node33.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node18.active) }
-
 
   //NODE 34
   var sel = IUniversal.waterTree.node34
   var sel2 = IUniversalIn.waterTree.node34
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Alchemist Pot</div>
-                  <div class="topRight absolute padding2 grey">34</div>
-                  <div class="centerDiv padding2 fontSize09">Unlock Potion Source</div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Water</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(1)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1.2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = f(10).pow(f(6))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node34.priceIdentity, IUniversalIn.waterTree.node34.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node22.active) }
-
 
   //NODE 35
   var sel = IUniversal.waterTree.node35
   var sel2 = IUniversalIn.waterTree.node35
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Arcane Distillation</div>
-                  <div class="topRight absolute padding2 grey">35</div>
-                  <div class="centerDiv padding2 fontSize09">Unlock Potion Fusion</div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Elixir</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(1)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1.2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = f(10).pow(f(6))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node35.priceIdentity, IUniversalIn.waterTree.node35.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node24.active) }
-
 
   //NODE 36
   var sel = IUniversal.waterTree.node36
   var sel2 = IUniversalIn.waterTree.node36
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Runic Pot</div>
-                  <div class="topRight absolute padding2 grey">36</div>
-                  <div class="centerDiv padding2 fontSize09">Unlock new Potion Sources</div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Elixir</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(1)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1.2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = f(10).pow(f(5))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node36.priceIdentity, IUniversalIn.waterTree.node36.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node24.active) }
-
 
   //NODE 37
   var sel = IUniversal.waterTree.node37
   var sel2 = IUniversalIn.waterTree.node37
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Heavens Pot</div>
-                  <div class="topRight absolute padding2 grey">37</div>
-                  <div class="centerDiv padding2 fontSize09">Unlock new Potion Sources</div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Ambrosia</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(1)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1.2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = f(10).pow(f(5))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node37.priceIdentity, IUniversalIn.waterTree.node37.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node28.active) }
-
 
   //NODE 38
   var sel = IUniversal.waterTree.node38
   var sel2 = IUniversalIn.waterTree.node38
 
-
-  if (sel.active) {
-    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Everflowing Divinity</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">38</div>
-                  <div class="centerDiv padding2 fontSize09">Ambrosia can be higher than Max, with lower Ambrosia/s</div>
-                  <div class="centerDiv padding2 fontSize09">Ambrosia/s &nbsp;<span class="boldBlackBorder">/${format(f(1).dividedBy(f(sel2.effect)))}</span></div>
-                 </div>`
-
-
-
-    unlockShow("content2_19_node38_button", false)
-    sel2.button = ``
-  } else {
-    unlockShow("content2_19_node38_button", true)
-    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Everflowing Divinity</div>
-                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">38</div>
-                  <div class="centerDiv padding2 fontSize09">Ambrosia can be higher than Max, with lower Ambrosia/s</div>
-                 </div>`
-
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Ambrosia</div>`
-  }
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(1)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  var difference = f(IUniversal.ambrosia).dividedBy(f(IUniversal.ambrosiaMax))
-  var calc = f(f(5).pow(f(Decimal.log10(f(difference)))))
-
-  if (f(sel.level).gt(f(0))) {
-    if (f(IUniversal.ambrosia).gte(f(IUniversal.ambrosiaMax))) {
-      sel2.effect = f(1).dividedBy(calc)
-    } else {
-      sel2.effect = f(1)
-    }
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = f(10).pow(f(4))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node38.priceIdentity, IUniversalIn.waterTree.node38.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node28.active) }
 
   //NODE 39
-
   var sel = IUniversal.waterTree.node39
   var sel2 = IUniversalIn.waterTree.node39
 
-
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Life Inscriber</div>
-                  <div class="topRight absolute padding2 grey">39</div>
-                  <div class="centerDiv padding2 fontSize09">Unlock Earth Tab in Sky</div>
-                 </div>`
-
-
-
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Ambrosia</div>`
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(1)
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1.2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = f(10).pow(f(6))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node39.priceIdentity, IUniversalIn.waterTree.node39.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node38.active) }
-
 
   //Potion Info
 
@@ -14050,338 +8103,4622 @@ function valuesSetter(type) {
 
   //Potions Effects
 
-  potionSetter()
-
-  potionInfoStatic()
-  potionEquipmentStatic()
-
   //EFFECT 1
-  var potionLevel = getPotionLevel("damage_training", "equipment")
-
-  var effectLevel = getPotionEffectTier("damage_training", "equipment")
 
   IUniversalIn.potionEffects.effect1.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(2).add(f(effectLevel).minus(f(1)))).pow(f(potionLevel).add(f(1))) }
-  if (potionLevel == null && effectLevel == null) {
-    IUniversalIn.potionEffects.effect1.activeValue = f(1)
-  } else {
-    IUniversalIn.potionEffects.effect1.activeValue = (f(2).add(f(effectLevel).minus(f(1)))).pow(f(potionLevel).add(f(1)))
-  }
-  IUniversalIn.potionEffects.effect1.value = IUniversalIn.potionEffects.effect1.valueFormula()
-
   IUniversalIn.potionEffects.effect1.contentFormula = function () { return `Damage Training <span class="boldBlackBorder">×${format(f(this.value))}</span> (${format(f(ITrainingIn.base.base1.prod))})` }
-  IUniversalIn.potionEffects.effect1.content = `Damage Training <span class="boldBlackBorder">×${format(f(IUniversalIn.potionEffects.effect1.value))}</span> (${format(f(ITrainingIn.base.base1.prod))})`
-
 
   //EFFECT 2
-  var potionLevel = getPotionLevel("life_training", "equipment")
-
-  var effectLevel = getPotionEffectTier("life_training", "equipment")
-
   IUniversalIn.potionEffects.effect2.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(2).add(f(effectLevel).minus(f(1)))).pow(f(potionLevel).add(f(1))) }
-  if (potionLevel == null && effectLevel == null) {
-    IUniversalIn.potionEffects.effect2.activeValue = f(1)
-  } else {
-    IUniversalIn.potionEffects.effect2.activeValue = (f(2).add(f(effectLevel).minus(f(1)))).pow(f(potionLevel).add(f(1)))
-  }
-  IUniversalIn.potionEffects.effect2.value = IUniversalIn.potionEffects.effect2.valueFormula()
-
   IUniversalIn.potionEffects.effect2.contentFormula = function () { return `Life Training <span class="boldBlackBorder">×${format(f(this.value))}</span> (${format(f(ITrainingIn.base.base2.prod))})` }
-  IUniversalIn.potionEffects.effect2.content = `Life Training <span class="boldBlackBorder">×${format(f(IUniversalIn.potionEffects.effect2.value))}</span> (${format(f(ITrainingIn.base.base2.prod))})`
-
 
   //EFFECT 3
-  var potionLevel = getMatchingPotionLevel(IUniversal.potionSource.item1.key, "source", "source")
-
-  var effectLevel = getMatchingEffectTier(IUniversal.potionSource.item1.key, "source", "source")
-
   IUniversalIn.potionEffects.effect3.valueFormula = function (potionLevel = 0, effectLevel = 1) { return f(f(5).add(f(f(5).mul(f(effectLevel).minus(f(1)))))).pow(f(potionLevel).add(f(1))) }
-
-  if (potionLevel == null && effectLevel == null) {
-    IUniversalIn.potionEffects.effect3.activeValue = f(0)
-  } else {
-    IUniversalIn.potionEffects.effect3.activeValue = f(f(5).add(f(f(5).mul(f(effectLevel).minus(f(1)))))).pow(f(potionLevel).add(f(1)))
-  }
-
-  IUniversalIn.potionEffects.effect3.value = IUniversalIn.potionEffects.effect3.valueFormula()
-
-
   IUniversalIn.potionEffects.effect3.contentFormula = function () {
     return `<div>Place this potion in Source</div>
                                                                 <span class="boldBlackBorder">${format(f(this.value))}</span> Accumulation/s`
   }
+
+  //EFFECT 4
+  IUniversalIn.potionEffects.effect4.valueFormula = function (potionLevel = 0, effectLevel = 1) { return f(f(5).add(f(f(5).mul(f(effectLevel).minus(f(1)))))).pow(f(potionLevel).add(f(1))) }
+  IUniversalIn.potionEffects.effect4.contentFormula = function () { return `<span class="boldBlackBorder">${format(f(this.value))}</span> Accumulation/s` }
+
+  //EFFECT 5
+  IUniversalIn.potionEffects.effect5.valueFormula = function (potionLevel = 0, effectLevel = 1) { return f(f(5).add(f(f(5).mul(f(effectLevel).minus(f(1)))))).pow(f(potionLevel).add(f(1))) }
+  IUniversalIn.potionEffects.effect5.contentFormula = function () { return `<span class="boldBlackBorder">${format(f(this.value))}</span> Accumulation/s` }
+
+  //EFFECT 6
+  IUniversalIn.potionEffects.effect6.valueFormula = function (potionLevel = 0, effectLevel = 1) { return f(f(5).add(f(f(5).mul(f(effectLevel).minus(f(1)))))).pow(f(potionLevel).add(f(1))) }
+  IUniversalIn.potionEffects.effect6.contentFormula = function () { return `<span class="boldBlackBorder">${format(f(this.value))}</span> Accumulation/s` }
+
+  //EFFECT 7
+  IUniversalIn.potionEffects.effect7.valueFormula = function (potionLevel = 0, effectLevel = 1) { f(f(5).add(f(f(5).mul(f(effectLevel).minus(f(1)))))).pow(f(potionLevel).add(f(1))) }
+  IUniversalIn.potionEffects.effect7.contentFormula = function () { return `<span class="boldBlackBorder">${format(f(this.value))}</span> Accumulation/s` }
+
+  //EFFECT 8
+  IUniversalIn.potionEffects.effect8.valueFormula = function (potionLevel = 0, effectLevel = 1) { return f(f(5).add(f(f(5).mul(f(effectLevel).minus(f(1)))))).pow(f(potionLevel).add(f(1))) }
+  IUniversalIn.potionEffects.effect8.contentFormula = function () { return `<span class="boldBlackBorder">${format(f(this.value))}</span> Accumulation/s` }
+
+  //EFFECT 9
+  IUniversalIn.potionEffects.effect9.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(1.5).add(f(0.5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
+  IUniversalIn.potionEffects.effect9.contentFormula = function () { return `Will Training <span class="boldBlackBorder">×${format(f(this.value))}</span> (${format(f(ITrainingIn.base.base3.prod))})` }
+
+  //EFFECT 10
+  IUniversalIn.potionEffects.effect10.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(1.5).add(f(0.5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
+  IUniversalIn.potionEffects.effect10.contentFormula = function () { return `Insight Training <span class="boldBlackBorder">×${format(f(this.value))}</span> (${format(f(ITrainingIn.base.base4.prod))})` }
+
+  //EFFECT 11
+  IUniversalIn.potionEffects.effect11.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(3).add(f(3).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
+  IUniversalIn.potionEffects.effect11.contentFormula = function () { return `Hunts Price <span class="boldBlackBorder">/${format(f(this.value))}</span>` }
+
+  //EFFECT 12
+  IUniversalIn.potionEffects.effect12.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(3).add(f(3).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
+  IUniversalIn.potionEffects.effect12.contentFormula = function () { return `Hunts Essence/s <span class="boldBlackBorder">×${format(f(this.value))}</span> (${format(f(IGameData.essenceProd))})` }
+
+  //EFFECT 13
+  IUniversalIn.potionEffects.effect13.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(5).add(f(5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
+  IUniversalIn.potionEffects.effect13.contentFormula = function () { return `Hunt upgrades Price <span class="boldBlackBorder">/${format(f(this.value))}</span>` }
+
+  //EFFECT 14
+  IUniversalIn.potionEffects.effect14.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(4).add(f(4).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
+  IUniversalIn.potionEffects.effect14.contentFormula = function () { return `Critical and Life Regeneration Points <span class="boldBlackBorder">×${format(f(this.value))}</span>` }
+
+  //EFFECT 15
+  IUniversalIn.potionEffects.effect15.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(4).add(f(4).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
+  IUniversalIn.potionEffects.effect15.contentFormula = function () { return `Defence Penetration and Defence points <span class="boldBlackBorder">×${format(f(this.value))}</span>` }
+
+  //EFFECT 16
+  IUniversalIn.potionEffects.effect16.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(4).add(f(4).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
+  IUniversalIn.potionEffects.effect16.contentFormula = function () { return `Life Steal and Shield points <span class="boldBlackBorder">×${format(f(this.value))}</span>` }
+
+  //EFFECT 17
+  IUniversalIn.potionEffects.effect17.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(5).add(f(5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
+  IUniversalIn.potionEffects.effect17.contentFormula = function () { return `Challenger Damage <span class="boldBlackBorder">/${format(f(this.value))}</span> (${format(f(IFightIn.challengers.baseChallenger.damage))})` }
+
+  //EFFECT 18
+  IUniversalIn.potionEffects.effect18.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(5).add(f(5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
+  IUniversalIn.potionEffects.effect18.contentFormula = function () { return `Challenger Life <span class="boldBlackBorder">/${format(f(this.value))}</span> (${format(f(IFightIn.challengers.baseChallenger.life))})` }
+
+  //EFFECT 19
+  IUniversalIn.potionEffects.effect19.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(5).add(f(5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
+  IUniversalIn.potionEffects.effect19.contentFormula = function () { return `Universal Challenger is <span class="boldBlackBorder">${format(f(this.value))}</span> times weaker` }
+
+  potionSetter()
+
+  //EARTH TREE
+
+  //NODE 1
+  var sel = IUniversal.earthTree.node1
+  var sel2 = IUniversalIn.earthTree.node1
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node1.priceIdentity, IUniversalIn.earthTree.node1.price, "uni")) { return true } }
+  sel2.req = function () { return true }
+
+  //NODE 2
+  var sel = IUniversal.earthTree.node2
+  var sel2 = IUniversalIn.earthTree.node2
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node2.priceIdentity, IUniversalIn.earthTree.node2.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node1.active) }
+
+  //NODE 3
+  var sel = IUniversal.earthTree.node3
+  var sel2 = IUniversalIn.earthTree.node3
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node3.priceIdentity, IUniversalIn.earthTree.node3.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node2.active) }
+
+  //NODE 4
+  var sel = IUniversal.earthTree.node4
+  var sel2 = IUniversalIn.earthTree.node4
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node4.priceIdentity, IUniversalIn.earthTree.node4.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node3.active) }
+
+  //NODE 5
+  var sel = IUniversal.earthTree.node5
+  var sel2 = IUniversalIn.earthTree.node5
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node5.priceIdentity, IUniversalIn.earthTree.node5.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node1.active) }
+
+  //NODE 6
+  var sel = IUniversal.earthTree.node6
+  var sel2 = IUniversalIn.earthTree.node6
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node6.priceIdentity, IUniversalIn.earthTree.node6.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node5.active) }
+
+  //NODE 7
+  var sel = IUniversal.earthTree.node7
+  var sel2 = IUniversalIn.earthTree.node7
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node7.priceIdentity, IUniversalIn.earthTree.node7.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node5.active) }
+
+  //NODE 8
+  var sel = IUniversal.earthTree.node8
+  var sel2 = IUniversalIn.earthTree.node8
+
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node8.priceIdentity, IUniversalIn.earthTree.node8.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node6.active) }
+
+  //NODE 9
+  var sel = IUniversal.earthTree.node9
+  var sel2 = IUniversalIn.earthTree.node9
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node9.priceIdentity, IUniversalIn.earthTree.node9.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node10.active) }
+
+  //NODE 10
+  var sel = IUniversal.earthTree.node10
+  var sel2 = IUniversalIn.earthTree.node10
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node10.priceIdentity, IUniversalIn.earthTree.node10.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node2.active) }
+
+  //NODE 11
+  var sel = IUniversal.earthTree.node11
+  var sel2 = IUniversalIn.earthTree.node11
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node11.priceIdentity, IUniversalIn.earthTree.node11.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node9.active) }
+
+  //NODE 12
+  var sel = IUniversal.earthTree.node12
+  var sel2 = IUniversalIn.earthTree.node12
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node12.priceIdentity, IUniversalIn.earthTree.node12.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node10.active) }
+
+  //miners
+  //item1
+  var sel = IUniversal.forge.item1
+  var sel2 = IUniversalIn.forge.item1
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.forge.item1.priceIdentity, IUniversalIn.forge.item1.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.forge.item1.active) }
+
+  //item2
+  var sel = IUniversal.forge.item2
+  var sel2 = IUniversalIn.forge.item2
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.forge.item2.priceIdentity, IUniversalIn.forge.item2.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.forge.item2.active) }
+
+  //item3
+  var sel = IUniversal.forge.item3
+  var sel2 = IUniversalIn.forge.item3
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.forge.item3.priceIdentity, IUniversalIn.forge.item3.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.forge.item3.active) }
+
+  //item4
+  var sel = IUniversal.forge.item4
+  var sel2 = IUniversalIn.forge.item4
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.forge.item4.priceIdentity, IUniversalIn.forge.item4.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.forge.item4.active) }
+
+
+  //mines
+  //item1
+  var sel = IUniversal.mine.item1
+  var sel2 = IUniversalIn.mine.item1
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.mine.item1.priceIdentity, IUniversalIn.mine.item1.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.mine.item1.active) }
+
+  //item2
+  var sel = IUniversal.mine.item2
+  var sel2 = IUniversalIn.mine.item2
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.mine.item2.priceIdentity, IUniversalIn.mine.item2.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.mine.item2.active) }
+
+  //ORES
+
+  //item1
+  var sel = IUniversal.ore.item1
+  var sel2 = IUniversalIn.ore.item1
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.ore.item1.priceIdentity, IUniversalIn.ore.item1.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.ore.item1.active) }
+
+  //item2
+  var sel = IUniversal.ore.item2
+  var sel2 = IUniversalIn.ore.item2
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.ore.time2.priceIdentity, IUniversalIn.ore.time2.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.ore.time2.active) }
+
+  //WIND
+
+  //NODE 1
+  var sel = IUniversal.windTree.node1
+  var sel2 = IUniversalIn.windTree.node1
+  var exp = IUniversal.expeditions.exp1
+  var exp2 = IUniversalIn.expeditions.exp1
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node1.priceIdentity, IUniversalIn.windTree.node1.price, "uni")) { return true } }
+  sel2.req = function () { return true }
+
+  //NODE 2
+
+  var sel = IUniversal.windTree.node2
+  var sel2 = IUniversalIn.windTree.node2
+  var exp = IUniversal.expeditions.exp2
+  var exp2 = IUniversalIn.expeditions.exp2
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node2.priceIdentity, IUniversalIn.windTree.node2.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node1.active) }
+
+  //NODE 3
+
+  var sel = IUniversal.windTree.node3
+  var sel2 = IUniversalIn.windTree.node3
+  var exp = IUniversal.expeditions.exp3
+  var exp2 = IUniversalIn.expeditions.exp3
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node3.priceIdentity, IUniversalIn.windTree.node3.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node7.active) }
+
+  //NODE 4
+  var sel = IUniversal.windTree.node4
+  var sel2 = IUniversalIn.windTree.node4
+  var exp = IUniversal.expeditions.exp4
+  var exp2 = IUniversalIn.expeditions.exp4
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node4.priceIdentity, IUniversalIn.windTree.node4.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node3.active) }
+
+  //NODE 5
+  var sel = IUniversal.windTree.node5
+  var sel2 = IUniversalIn.windTree.node5
+  var exp = IUniversal.expeditions.exp5
+  var exp2 = IUniversalIn.expeditions.exp5
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node5.priceIdentity, IUniversalIn.windTree.node5.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node4.active) }
+
+  //NODE 6
+  var sel = IUniversal.windTree.node6
+  var sel2 = IUniversalIn.windTree.node6
+  var exp = IUniversal.expeditions.exp6
+  var exp2 = IUniversalIn.expeditions.exp6
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node6.priceIdentity, IUniversalIn.windTree.node6.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node1.active) }
+
+  //NODE 7
+  var sel = IUniversal.windTree.node7
+  var sel2 = IUniversalIn.windTree.node7
+  var exp = IUniversal.expeditions.exp7
+  var exp2 = IUniversalIn.expeditions.exp7
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node7.priceIdentity, IUniversalIn.windTree.node7.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node2.active && IUniversal.windTree.node6.active) }
+
+  //NODE 8
+  var sel = IUniversal.windTree.node8
+  var sel2 = IUniversalIn.windTree.node8
+  var exp = IUniversal.expeditions.exp8
+  var exp2 = IUniversalIn.expeditions.exp8
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node8.priceIdentity, IUniversalIn.windTree.node8.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node6.active) }
+
+  //NODE 9
+  var sel = IUniversal.windTree.node9
+  var sel2 = IUniversalIn.windTree.node9
+  var exp = IUniversal.expeditions.exp9
+  var exp2 = IUniversalIn.expeditions.exp9
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node9.priceIdentity, IUniversalIn.windTree.node9.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node8.active) }
+
+  //NODE 10
+  var sel = IUniversal.windTree.node10
+  var sel2 = IUniversalIn.windTree.node10
+  var exp = IUniversal.expeditions.exp10
+  var exp2 = IUniversalIn.expeditions.exp10
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node10.priceIdentity, IUniversalIn.windTree.node10.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node5.active) }
+
+  //NODE 11
+  var sel = IUniversal.windTree.node11
+  var sel2 = IUniversalIn.windTree.node11
+  var exp = IUniversal.expeditions.exp11
+  var exp2 = IUniversalIn.expeditions.exp11
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node11.priceIdentity, IUniversalIn.windTree.node11.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node8.active) }
+
+  //NODE 12
+  var sel = IUniversal.windTree.node12
+  var sel2 = IUniversalIn.windTree.node12
+  var exp = IUniversal.expeditions.exp12
+  var exp2 = IUniversalIn.expeditions.exp12
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node12.priceIdentity, IUniversalIn.windTree.node12.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node11.active) }
+
+  //NODE 13
+  var sel = IUniversal.windTree.node13
+  var sel2 = IUniversalIn.windTree.node13
+  var exp = IUniversal.expeditions.exp13
+  var exp2 = IUniversalIn.expeditions.exp13
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node13.priceIdentity, IUniversalIn.windTree.node13.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node10.active) }
+
+  //NODE 14
+  var sel = IUniversal.windTree.node14
+  var sel2 = IUniversalIn.windTree.node14
+  var exp = IUniversal.expeditions.exp14
+  var exp2 = IUniversalIn.expeditions.exp14
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node14.priceIdentity, IUniversalIn.windTree.node14.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node13.active) }
+
+  //Expeditions
+  //expedition 1
+  var sel = IUniversal.expeditions.exp1
+  var selIn = IUniversalIn.expeditions.exp1
+
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
+    var sel = ["treasure4", "treasure5", "treasure6"];
+
+    for (let item of sel) {
+      setExpectedReward(selT, item);
+    }
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure4.level = f(selT.expectedRewards.treasure4.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(1))) {
+      selT.expectedRewards.treasure5.level = f(selT.expectedRewards.treasure5.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(2))) {
+      selT.expectedRewards.treasure6.level = f(selT.expectedRewards.treasure6.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(3))) {
+      selT.expectedRewards.treasure4.level = f(selT.expectedRewards.treasure4.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(4))) {
+      selT.expectedRewards.treasure5.level = f(selT.expectedRewards.treasure5.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(5))) {
+      selT.expectedRewards.treasure6.level = f(selT.expectedRewards.treasure6.level).add(f(1));
+      return
+    }
+
+    if (f(number).lt(f(sel.length))) {
+      const pick = Math.floor(Math.random() * sel.length);
+      const key = sel[pick];
+
+      if (!selT.expectedRewards) {
+        selT.expectedRewards = {};
+      }
+
+      if (!selT.expectedRewards[key]) {
+        selT.expectedRewards[key] = { num: f(0) };
+      }
+
+      selT.expectedRewards[key].num =
+        f(selT.expectedRewards[key].num).add(f(1));
+      return;
+    }
+
+    for (let x in sel) {
+      var sel2 = sel[x];
+      var level = f(number).dividedBy(f(sel.length));
+
+      if (!selT.expectedRewards) {
+        selT.expectedRewards = {};
+      }
+
+      if (!selT.expectedRewards[sel2]) {
+        selT.expectedRewards[sel2] = { num: f(0) };
+      }
+
+      selT.expectedRewards[sel2].num =
+        f(selT.expectedRewards[sel2].num).add(f(level));
+    }
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
+      </div>`;
+      }
+    }
+
+    return string;
+  }
+
+  //expedition 2
+  var sel = IUniversal.expeditions.exp2
+  var selIn = IUniversalIn.expeditions.exp2
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
+    var sel = ["treasure1"];
+
+    for (let x in sel) {
+      setExpectedReward(selT, sel[x])
+    }
+
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure1.level = f(selT.expectedRewards.treasure1.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(1))) {
+      selT.expectedRewards.treasure1.level = f(selT.expectedRewards.treasure1.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(2))) {
+      selT.expectedRewards.treasure1.level = f(selT.expectedRewards.treasure1.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(3))) {
+      selT.expectedRewards.treasure1.level = f(selT.expectedRewards.treasure1.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(4))) {
+      selT.expectedRewards.treasure1.level = f(selT.expectedRewards.treasure1.level).add(f(1));
+      return
+    }
+
+    if (f(number).lt(f(sel.length))) {
+      const pick = Math.floor(Math.random() * sel.length);
+      const key = sel[pick];
+
+      if (!selT.expectedRewards) {
+        selT.expectedRewards = {};
+      }
+
+      if (!selT.expectedRewards[key]) {
+        selT.expectedRewards[key] = { num: f(0) };
+      }
+
+      selT.expectedRewards[key].num =
+        f(selT.expectedRewards[key].num).add(f(1));
+      return;
+    }
+
+    for (let x in sel) {
+      var sel2 = sel[x];
+      var level = f(number).dividedBy(f(sel.length));
+
+      if (!selT.expectedRewards) {
+        selT.expectedRewards = {};
+      }
+
+      if (!selT.expectedRewards[sel2]) {
+        selT.expectedRewards[sel2] = { num: f(0) };
+      }
+
+      selT.expectedRewards[sel2].num =
+        f(selT.expectedRewards[sel2].num).add(f(level));
+    }
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
+      </div>`;
+      }
+    }
+
+    return string;
+  }
+
+  //expedition 3
+  var sel = IUniversal.expeditions.exp3
+  var selIn = IUniversalIn.expeditions.exp3
+
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
+    var sel = ["treasure11", "treasure12", "treasure13"];
+
+    for (let x in sel) {
+      setExpectedReward(selT, sel[x])
+    }
+
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure11.level = f(selT.expectedRewards.treasure11.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(1))) {
+      selT.expectedRewards.treasure12.level = f(selT.expectedRewards.treasure12.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(2))) {
+      selT.expectedRewards.treasure13.level = f(selT.expectedRewards.treasure13.level).add(f(1));
+      return
+    }
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
+      </div>`;
+      }
+    }
+
+    return string;
+  }
+
+  //expedition 4
+  var sel = IUniversal.expeditions.exp4
+  var selIn = IUniversalIn.expeditions.exp4
+
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number, precise = "") {
+    var sel = ["treasure18", "treasure14"];
+
+
+    for (let x in sel) {
+      setExpectedReward(selT, sel[x])
+    }
+
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure18.level = f(selT.expectedRewards.treasure18.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(1))) {
+      selT.expectedRewards.treasure14.level = f(selT.expectedRewards.treasure14.level).add(f(1));
+      return
+    }
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
+      </div>`;
+      }
+    }
+
+    return string;
+  }
+
+  //expedition 5
+  var sel = IUniversal.expeditions.exp5
+  var selIn = IUniversalIn.expeditions.exp5
+
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
+    var sel = ["treasure15", "treasure19"];
+
+    for (let x in sel) {
+      setExpectedReward(selT, sel[x])
+    }
+
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure15.level = f(selT.expectedRewards.treasure15.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(1))) {
+      selT.expectedRewards.treasure19.level = f(selT.expectedRewards.treasure19.level).add(f(1));
+      return
+    }
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
+      </div>`;
+      }
+    }
+
+    return string;
+  }
+
+  //expedition 6
+  var sel = IUniversal.expeditions.exp6
+  var selIn = IUniversalIn.expeditions.exp6
+
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
+    var sel = ["treasure2"];
+    var sel2 = ["treasure2", "treasure7"];
+
+
+    for (let x in sel2) {
+      setExpectedReward(selT, sel2[x])
+    }
+
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure7.level = f(selT.expectedRewards.treasure7.level).add(f(1));
+      selT.expectedRewards.treasure2.level = f(selT.expectedRewards.treasure2.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(1))) {
+      selT.expectedRewards.treasure2.level = f(selT.expectedRewards.treasure2.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(2))) {
+      selT.expectedRewards.treasure2.level = f(selT.expectedRewards.treasure2.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(3))) {
+      selT.expectedRewards.treasure2.level = f(selT.expectedRewards.treasure2.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(4))) {
+      selT.expectedRewards.treasure2.level = f(selT.expectedRewards.treasure2.level).add(f(1));
+      return
+    }
+
+    if (f(number).lt(f(sel.length))) {
+      const pick = Math.floor(Math.random() * sel.length);
+      const key = sel[pick];
+
+      if (!selT.expectedRewards) {
+        selT.expectedRewards = {};
+      }
+
+      if (!selT.expectedRewards[key]) {
+        selT.expectedRewards[key] = { num: f(0) };
+      }
+
+      selT.expectedRewards[key].num =
+        f(selT.expectedRewards[key].num).add(f(1));
+      return;
+    }
+
+    for (let x in sel) {
+      var sel2 = sel[x];
+      var level = f(number).dividedBy(f(sel.length));
+
+      if (!selT.expectedRewards) {
+        selT.expectedRewards = {};
+      }
+
+      if (!selT.expectedRewards[sel2]) {
+        selT.expectedRewards[sel2] = { num: f(0) };
+      }
+
+      selT.expectedRewards[sel2].num =
+        f(selT.expectedRewards[sel2].num).add(f(level));
+    }
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
+      </div>`;
+      }
+    }
+
+    return string;
+  }
+
+  //expedition 7
+  var sel = IUniversal.expeditions.exp7
+  var selIn = IUniversalIn.expeditions.exp7
+
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
+    var sel = ["treasure17"];
+
+    for (let x in sel) {
+      setExpectedReward(selT, sel[x])
+    }
+
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure17.level = f(selT.expectedRewards.treasure17.level).add(f(1));
+      return
+    }
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
+      </div>`;
+      }
+    }
+
+    return string;
+  }
+
+  //expedition 8
+  var sel = IUniversal.expeditions.exp8
+  var selIn = IUniversalIn.expeditions.exp8
+
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
+    var sel = ["treasure3"];
+    var sel2 = ["treasure3", "treasure10"];
+
+    for (let x in sel2) {
+      setExpectedReward(selT, sel2[x])
+    }
+
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure10.level = f(selT.expectedRewards.treasure10.level).add(f(1));
+      selT.expectedRewards.treasure3.level = f(selT.expectedRewards.treasure3.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(1))) {
+      selT.expectedRewards.treasure3.level = f(selT.expectedRewards.treasure3.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(2))) {
+      selT.expectedRewards.treasure3.level = f(selT.expectedRewards.treasure3.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(3))) {
+      selT.expectedRewards.treasure3.level = f(selT.expectedRewards.treasure3.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(4))) {
+      selT.expectedRewards.treasure3.level = f(selT.expectedRewards.treasure3.level).add(f(1));
+      return
+    }
+
+    if (f(number).lt(f(sel.length))) {
+      const pick = Math.floor(Math.random() * sel.length);
+      const key = sel[pick];
+
+      if (!selT.expectedRewards) {
+        selT.expectedRewards = {};
+      }
+
+      if (!selT.expectedRewards[key]) {
+        selT.expectedRewards[key] = { num: f(0) };
+      }
+
+      selT.expectedRewards[key].num =
+        f(selT.expectedRewards[key].num).add(f(1));
+      return;
+    }
+
+    for (let x in sel) {
+      var sel2 = sel[x];
+      var level = f(number).dividedBy(f(sel.length));
+
+      if (!selT.expectedRewards) {
+        selT.expectedRewards = {};
+      }
+
+      if (!selT.expectedRewards[sel2]) {
+        selT.expectedRewards[sel2] = { num: f(0) };
+      }
+
+      selT.expectedRewards[sel2].num =
+        f(selT.expectedRewards[sel2].num).add(f(level));
+    }
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
+      </div>`;
+      }
+    }
+
+    return string;
+  }
+
+  //expedition 9
+  var sel = IUniversal.expeditions.exp9
+  var selIn = IUniversalIn.expeditions.exp9
+
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
+    var sel = ["treasure20"];
+
+    for (let x in sel) {
+      setExpectedReward(selT, sel[x])
+    }
+
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure20.level = f(selT.expectedRewards.treasure20.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(1))) {
+      selT.expectedRewards.treasure20.level = f(selT.expectedRewards.treasure20.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(2))) {
+      selT.expectedRewards.treasure20.level = f(selT.expectedRewards.treasure20.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(3))) {
+      selT.expectedRewards.treasure20.level = f(selT.expectedRewards.treasure20.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(4))) {
+      selT.expectedRewards.treasure20.level = f(selT.expectedRewards.treasure20.level).add(f(1));
+      return
+    }
+
+    if (f(number).lt(f(sel.length))) {
+      const pick = Math.floor(Math.random() * sel.length);
+      const key = sel[pick];
+
+      if (!selT.expectedRewards) {
+        selT.expectedRewards = {};
+      }
+
+      if (!selT.expectedRewards[key]) {
+        selT.expectedRewards[key] = { num: f(0) };
+      }
+
+      selT.expectedRewards[key].num =
+        f(selT.expectedRewards[key].num).add(f(1));
+      return;
+    }
+
+    for (let x in sel) {
+      var sel2 = sel[x];
+      var level = f(number).dividedBy(f(sel.length));
+
+      if (!selT.expectedRewards) {
+        selT.expectedRewards = {};
+      }
+
+      if (!selT.expectedRewards[sel2]) {
+        selT.expectedRewards[sel2] = { num: f(0) };
+      }
+
+      selT.expectedRewards[sel2].num =
+        f(selT.expectedRewards[sel2].num).add(f(level));
+    }
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
+      </div>`;
+      }
+    }
+
+    return string;
+  }
+
+  //expedition 10
+  var sel = IUniversal.expeditions.exp10
+  var selIn = IUniversalIn.expeditions.exp10
+
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
+    var sel = ["treasure16"];
+
+    for (let x in sel) {
+      setExpectedReward(selT, sel[x])
+    }
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure16.level = f(selT.expectedRewards.treasure16.level).add(f(1));
+      return
+    }
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
+      </div>`;
+      }
+    }
+
+    return string;
+  }
+
+  //expedition 11
+  var sel = IUniversal.expeditions.exp11
+  var selIn = IUniversalIn.expeditions.exp11
+
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
+    var sel = ["treasure21"];
+    var sel2 = ["treasure21", "treasure8"];
+
+    for (let x in sel2) {
+      setExpectedReward(selT, sel2[x])
+    }
+
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure8.level = f(selT.expectedRewards.treasure8.level).add(f(1));
+      selT.expectedRewards.treasure21.level = f(selT.expectedRewards.treasure21.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(1))) {
+      selT.expectedRewards.treasure21.level = f(selT.expectedRewards.treasure21.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(2))) {
+      selT.expectedRewards.treasure21.level = f(selT.expectedRewards.treasure21.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(3))) {
+      selT.expectedRewards.treasure21.level = f(selT.expectedRewards.treasure21.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(4))) {
+      selT.expectedRewards.treasure21.level = f(selT.expectedRewards.treasure21.level).add(f(1));
+      return
+    }
+
+    if (f(number).lt(f(sel.length))) {
+      const pick = Math.floor(Math.random() * sel.length);
+      const key = sel[pick];
+
+      if (!selT.expectedRewards) {
+        selT.expectedRewards = {};
+      }
+
+      if (!selT.expectedRewards[key]) {
+        selT.expectedRewards[key] = { num: f(0) };
+      }
+
+      selT.expectedRewards[key].num =
+        f(selT.expectedRewards[key].num).add(f(1));
+      return;
+    }
+
+    for (let x in sel) {
+      var sel2 = sel[x];
+      var level = f(number).dividedBy(f(sel.length));
+
+      if (!selT.expectedRewards) {
+        selT.expectedRewards = {};
+      }
+
+      if (!selT.expectedRewards[sel2]) {
+        selT.expectedRewards[sel2] = { num: f(0) };
+      }
+
+      selT.expectedRewards[sel2].num =
+        f(selT.expectedRewards[sel2].num).add(f(level));
+    }
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
+      </div>`;
+      }
+    }
+
+    return string;
+  }
+
+  //expedition 12
+  var sel = IUniversal.expeditions.exp12
+  var selIn = IUniversalIn.expeditions.exp12
+
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
+    var sel = ["treasure22"];
+
+    for (let x in sel) {
+      setExpectedReward(selT, sel[x])
+    }
+
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure22.level = f(selT.expectedRewards.treasure22.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(1))) {
+      selT.expectedRewards.treasure22.level = f(selT.expectedRewards.treasure22.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(2))) {
+      selT.expectedRewards.treasure22.level = f(selT.expectedRewards.treasure22.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(3))) {
+      selT.expectedRewards.treasure22.level = f(selT.expectedRewards.treasure22.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(4))) {
+      selT.expectedRewards.treasure22.level = f(selT.expectedRewards.treasure22.level).add(f(1));
+      return
+    }
+
+    if (f(number).lt(f(sel.length))) {
+      const pick = Math.floor(Math.random() * sel.length);
+      const key = sel[pick];
+
+      if (!selT.expectedRewards) {
+        selT.expectedRewards = {};
+      }
+
+      if (!selT.expectedRewards[key]) {
+        selT.expectedRewards[key] = { num: f(0) };
+      }
+
+      selT.expectedRewards[key].num =
+        f(selT.expectedRewards[key].num).add(f(1));
+      return;
+    }
+
+    for (let x in sel) {
+      var sel2 = sel[x];
+      var level = f(number).dividedBy(f(sel.length));
+
+      if (!selT.expectedRewards) {
+        selT.expectedRewards = {};
+      }
+
+      if (!selT.expectedRewards[sel2]) {
+        selT.expectedRewards[sel2] = { num: f(0) };
+      }
+
+      selT.expectedRewards[sel2].num =
+        f(selT.expectedRewards[sel2].num).add(f(level));
+    }
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
+      </div>`;
+      }
+    }
+
+    return string;
+  }
+
+  //expedition 13
+  var sel = IUniversal.expeditions.exp13
+  var selIn = IUniversalIn.expeditions.exp13
+
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
+    var sel = ["treasure23", "treasure24", "treasure25"];
+
+    for (let x in sel) {
+      setExpectedReward(selT, sel[x])
+    }
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure23.level = f(selT.expectedRewards.treasure23.level).add(f(1));
+      return
+    }
+
+    if (f(exp.level).eq(f(1))) {
+      selT.expectedRewards.treasure24.level = f(selT.expectedRewards.treasure24.level).add(f(1));
+      return
+    }
+
+    if (f(exp.level).eq(f(2))) {
+      selT.expectedRewards.treasure25.level = f(selT.expectedRewards.treasure25.level).add(f(1));
+      return
+    }
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
+      </div>`;
+      }
+    }
+
+    return string;
+  }
+
+  //expedition 14
+  var sel = IUniversal.expeditions.exp14
+  var selIn = IUniversalIn.expeditions.exp14
+
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
+    var sel = ["treasure26"];
+
+    for (let x in sel) {
+      setExpectedReward(selT, sel[x])
+    }
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure26.level = f(selT.expectedRewards.treasure26.level).add(f(1));
+      return
+    }
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
+      </div>`;
+      }
+    }
+
+    return string;
+  }
+}
+
+function valuesSetterCycle(type) {
+
+  //only for visual stuff
+
+  //Power Bases
+
+  //damage training
+  ITrainingIn.base.base1.description = `<span class="boldBlackBorder">${format(f(ITraining.base.base1.tot), 2)}</span>`
+
+  //life training
+
+  ITrainingIn.base.base2.description = `<span class="boldBlackBorder">${format(f(ITraining.base.base2.tot), 2)}</span>`
+
+  //will training
+
+  ITrainingIn.base.base3.description = `Physical Training ×<span class="boldBlackBorder">${format(f(ITraining.base.base3.tot), 2)}</span>`
+
+  //insight training
+
+  ITrainingIn.base.base4.description = `Essence/s ×<span class="boldBlackBorder">${format(f(ITraining.base.base4.tot), 2)}</span>`
+
+  //CHALLENGER
+
+  //BASE CHALLENGER
+
+  //name
+
+  IFightIn.challengers.baseChallenger.name = "Challenger"
+
+  //challenger rewards
+
+  IFightIn.challengerRewards.reward1.name = `Damage And Life Training ×<span class="boldBlackBorder">${format(f(IFightIn.challengerRewards.reward1.effect), 0)}</span>`
+  IFightIn.challengerRewards.reward2.name = `Will And Insight Training ×<span class="boldBlackBorder">${format(f(IFightIn.challengerRewards.reward2.effect), 0)}</span>`
+
+  //UNIVERSAL CHALLENGER
+
+  //name
+
+  IUniversalChallenger.challengers.universalChallenger.name = `Universal Challenger ${IUniversalChallenger.challengers.universalChallenger.level}`
+
+
+  //Universal challenger Rewards
+
+  IUniversalChallengerIn.universalChallengerRewards.reward1.name = `<div>Maximum Universal Challenger <span class="boldBlackBorder">${IUniversalChallenger.challengers.universalChallenger.maxLevel}</span></div><div><span class="boldBlackBorder">${format(sec(IUniversalChallenger.universalShardsProdBase), 1)}/s</span> Universal Shards</div>`
+
+
+  //UNIVERSAL CHALLENGER CHALLENGES REWARDS
+
+  //c1
+  var sel = IUniversalChallenger.universalChallengerChallengesRewards.c1
+  var sel2 = IUniversalChallengerIn.universalChallengerChallengesRewards.c1
+
+  sel2.name = `<div>Maximum Universal Challenger <span class="boldBlackBorder">${sel.level}</span></div><div><span class="boldBlackBorder">${format(f(IUniversalChallenger.universalNodesProdBase))}/s</span> Universal Nodes</div>`
+
+
+  //c2
+  var sel = IUniversalChallenger.universalChallengerChallengesRewards.c2
+  var sel2 = IUniversalChallengerIn.universalChallengerChallengesRewards.c2
+
+  sel2.name = `<div>Maximum Universal Challenger <span class="boldBlackBorder">${sel.level}</span></div><div><span class="boldBlackBorder">${format(f(IUniversalChallenger.universalCoresProdBase))}/s</span> Universal Cores</div>`
+
+  //hunting
+
+  //Hunt 1
+  var sel = IFight.normalHunting.hunt1;
+  var sel2 = IFightIn.normalHunting.hunt1;
+
+  sel2.reqDescription = "Reach 1e3 Damage to unlock next";
+
+  //Hunt 2
+  var sel = IFight.normalHunting.hunt2;
+  var sel2 = IFightIn.normalHunting.hunt2;
+
+  sel2.reqDescription = `
+  <div class="width100">
+    <div><i>People who failed this universe</i></div>
+    <div>Reach 1000 Damage to unlock Zombie  (${format(f(IFight.youStats.damage), 1)} / 1000)</div>
+  </div>`;
+
+  //Hunt 3
+  var sel = IFight.normalHunting.hunt3;
+  var sel2 = IFightIn.normalHunting.hunt3;
+
+  sel2.reqDescription = `
+  <div class="width100">
+    <div><i>Why suddenly every knight wants to duel me? Werent Challengers enought?</i></div>
+    <div>Reach 1e4 Damage to unlock Knight  (${format(f(IFight.youStats.damage), 1)} / 1e4)</div>
+  </div>`;
+
+
+  //Hunt 4
+  var sel = IFight.normalHunting.hunt4;
+  var sel2 = IFightIn.normalHunting.hunt4;
+
+  sel2.reqDescription = `
+  <div class="width100">
+    <div><i>Demons have been meeting me, they tell me im the chosen one</i></div>
+    <div>Reach 1e5 Damage to unlock Demon  (${format(f(IFight.youStats.damage), 1)} / 1e5)</div>
+  </div>`;
+
+  // Hunt 5
+  var sel = IFight.normalHunting.hunt5;
+  var sel2 = IFightIn.normalHunting.hunt5;
+
+  sel2.reqDescription = `
+  <div class="width100">
+    <div><i>Fortunately no wyvern knights, i've already dealt with the knights alone</i></div>
+    <div>Reach 1e6 Damage to unlock Wyvern  (${format(f(IFight.youStats.damage), 1)} / 1e6)</div>
+  </div>`;
+
+  //huntingRewards
+
+  //HUNT REWARD 1
+
+  IFightIn.normalHuntingRewards.upgrade1.name = `Damage ×<span class="boldBlackBorder">${format(f(IFightIn.normalHuntingRewards.upgrade1.effect), 0)}</span>`
+
+  IFightIn.normalHuntingRewards.upgrade1.reqDescription = `
+  <div class="width100">
+    <div><i class="centerDiv">Slime cores when Ingested makes me stronger</i></div>
+    <div class="centerDiv">Reach 10 ${IFightIn.normalHunting.hunt1.name}  (${format(f(IFight.normalHunting.hunt1.level), 0)} / 10)</div>
+  </div>`;
+
+  //HUNT REWARD 2
+
+  IFightIn.normalHuntingRewards.upgrade2.name = `Life ×<span class="boldBlackBorder">${format(f(IFightIn.normalHuntingRewards.upgrade2.effect), 0)}</span>`
+
+  IFightIn.normalHuntingRewards.upgrade2.reqDescription = `
+  <div class="width100">
+    <div><i class="centerDiv">Understanding zombies life forms makes me able inflict curses on my enemies! Am i evil?</i></div>
+    <div class="centerDiv">Reach 10 ${IFightIn.normalHunting.hunt2.name}  (${format(f(IFight.normalHunting.hunt2.level), 0)} / 10)</div>
+  </div>`;
+
+  //HUNT REWARD 3
+
+  IFightIn.normalHuntingRewards.upgrade3.name = `Slime multiplies Essence ×<span class="boldBlackBorder">${format(f(IFightIn.normalHuntingRewards.upgrade3.effect), 0)}</span>`
+
+  IFightIn.normalHuntingRewards.upgrade3.reqDescription = `
+  <div class="width100">
+    <div><i class="centerDiv">Slime infused with blessings is an essence concentrator</i></div>
+    <div class="centerDiv">Reach 10 ${IFightIn.normalHunting.hunt3.name}  (${format(f(IFight.normalHunting.hunt3.level), 0)} / 10)</div>
+  </div>`;
+
+  //HUNT REWARD 4
+
+  IFightIn.normalHuntingRewards.upgrade4.name = `Add <span class="boldBlackBorder">${format(f(IFightIn.normalHuntingRewards.upgrade4.effect).mul(f(100)), 0)}%</span> of Damage to Life`
+
+  IFightIn.normalHuntingRewards.upgrade4.reqDescription = `
+  <div class="width100">
+    <i class="centerDiv">The stronger i am, the stronger i spite death</i></div>
+    <div class="centerDiv">Reach 10 ${IFightIn.normalHunting.hunt4.name}  (${format(f(IFight.normalHunting.hunt4.level), 0)} / 10)</div>
+  </div>`;
+
+  //HUNT REWARD 5
+
+  IFightIn.normalHuntingRewards.upgrade5.name = `Challenger first reward ×<span class="boldBlackBorder">${format(f(IFightIn.normalHuntingRewards.upgrade5.effect), 0)}</span>`
+
+  IFightIn.normalHuntingRewards.upgrade5.reqDescription = `
+  <div class="width100">
+    <i class="centerDiv">Draconic arts enchance my training... is the wyvern a dragon?</i></div>
+    <div class="centerDiv">Reach 10 ${IFightIn.normalHunting.hunt5.name}  (${format(f(IFight.normalHunting.hunt5.level), 0)} / 10)</div></div>
+  </div>`;
+
+  //Milestones
+
+  IUniversalIn.milestones.m1.mReqDesc = `Universe 2`
+  IUniversalIn.milestones.m1.mDesc = `Energy`
+
+  IUniversalIn.milestones.m2.mReqDesc = `Universe 5`
+  IUniversalIn.milestones.m2.mDesc = `Universal Challenger, Attributes, Automation`
+
+  IUniversalIn.milestones.m3.mReqDesc = `Universe 40`
+  IUniversalIn.milestones.m3.mDesc = `Sky Tab`
+
+  //ASCENSION UPGRADES
+
+  var sel = IUniversal.energyUpgrades.upgrade1
+  var sel2 = IUniversalIn.energyUpgrades.upgrade1
+
+
+  sel2.name = `<div>
+      <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+      <div class="topRight absolute padding2 grey">1</div>
+  Add <span class="boldBlackBorder">10/s</span> to Damage Training</div><div>×10 per LVL</div>`
+  sel2.effectDesc = `+${format(f(sel2.effect), 0)}`
+
+  var sel = IUniversal.energyUpgrades.upgrade2
+  var sel2 = IUniversalIn.energyUpgrades.upgrade2
+
+
+  sel2.name = `      <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+      <div class="topRight absolute padding2 grey">2</div>
+  Damage <span class="boldBlackBorder">×2</span> per LVL`
+  sel2.effectDesc = `×${format(f(sel2.effect), 0)}`
+
+  var sel = IUniversal.energyUpgrades.upgrade3
+  var sel2 = IUniversalIn.energyUpgrades.upgrade3
+
+
+  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+      <div class="topRight absolute padding2 grey">3</div>
+  Damage Training <span class="boldBlackBorder">×5</span> per LVL`
+
+  var sel = IUniversal.energyUpgrades.upgrade4
+  var sel2 = IUniversalIn.energyUpgrades.upgrade4
+
+
+  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+      <div class="topRight absolute padding2 grey">4</div>
+  <div>Damage <span class="boldBlackBorder">×</span></div> <div><span class="boldBlackBorder">log(Universe Time ×LVL)</span></div>`
+  sel2.effectDesc = `×${format(f(sel2.effect), 0)}`
+
+  var sel = IUniversal.energyUpgrades.upgrade5
+  var sel2 = IUniversalIn.energyUpgrades.upgrade5
+
+
+  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+      <div class="topRight absolute padding2 grey">5</div>
+  Damage <span class="boldBlackBorder">^1.02</span> per LVL`
+  sel2.effectDesc = `^${format(f(sel2.effect), 2)}`
+
+  var sel = IUniversal.energyUpgrades.upgrade6
+  var sel2 = IUniversalIn.energyUpgrades.upgrade6
+
+
+  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+      <div class="topRight absolute padding2 grey">6</div>
+  <div>Add <span class="boldBlackBorder">10/s</span> to Life Training</div><div>×10 per LVL</div>`
+  sel2.effectDesc = `+${format(f(sel2.effect), 0)}`
+
+  var sel = IUniversal.energyUpgrades.upgrade7
+  var sel2 = IUniversalIn.energyUpgrades.upgrade7
+
+
+  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+      <div class="topRight absolute padding2 grey">7</div>
+  <div>Life Training <span class="boldBlackBorder">×</span></div> <div><span class="boldBlackBorder">Universe×LVL</span></div>`
+  sel2.effectDesc = `×${format(f(sel2.effect), 0)}`
+
+  var sel = IUniversal.energyUpgrades.upgrade8
+  var sel2 = IUniversalIn.energyUpgrades.upgrade8
+
+
+  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+      <div class="topRight absolute padding2 grey">8</div>
+  Life Training <span class="boldBlackBorder">×2</span> per LVL`
+  sel2.effectDesc = `×${format(f(sel2.effect), 0)}`
+
+  var sel = IUniversal.energyUpgrades.upgrade9
+  var sel2 = IUniversalIn.energyUpgrades.upgrade9
+
+
+  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+      <div class="topRight absolute padding2 grey">9</div>
+  Life <span class="boldBlackBorder">×5</span> per LVL`
+  sel2.effectDesc = `×${format(f(sel2.effect), 0)}`
+
+  var sel = IUniversal.energyUpgrades.upgrade10
+  var sel2 = IUniversalIn.energyUpgrades.upgrade10
+
+
+  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+      <div class="topRight absolute padding2 grey">10</div>
+  Life <span class="boldBlackBorder">^1.02</span> per LVL`
+  sel2.effectDesc = `^${format(f(sel2.effect), 2)}`
+
+  var sel = IUniversal.energyUpgrades.upgrade11
+  var sel2 = IUniversalIn.energyUpgrades.upgrade11
+
+
+  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+      <div class="topRight absolute padding2 grey">11</div>
+  Essence/s <span class="boldBlackBorder">×5</span> per LVL`
+  sel2.effectDesc = `×${format(f(sel2.effect), 0)}`
+
+  var sel = IUniversal.energyUpgrades.upgrade12
+  var sel2 = IUniversalIn.energyUpgrades.upgrade12
+
+
+  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+      <div class="topRight absolute padding2 grey">12</div>
+  Essence/s <span class="boldBlackBorder">×log(Total hunt levels ×LVL)</span>`
+  sel2.effectDesc = `×${format(f(sel2.effect), 0)}`
+
+  var sel = IUniversal.energyUpgrades.upgrade13
+  var sel2 = IUniversalIn.energyUpgrades.upgrade13
+
+
+  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+      <div class="topRight absolute padding2 grey">13</div>
+  Wyverns Essence/s <span class="boldBlackBorder">×log(Knights ×LVL)</span>`
+  sel2.effectDesc = `×${format(f(sel2.effect), 0)}`
+
+  var sel = IUniversal.energyUpgrades.upgrade14
+  var sel2 = IUniversalIn.energyUpgrades.upgrade14
+
+
+  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+      <div class="topRight absolute padding2 grey">14</div>
+  Each hunt grants a free matching upgrade: <span class="boldBlackBorder">log₁₀(Hunt ×LVL)</span>`
+  sel2.effectDesc = ``
+
+  var sel = IUniversal.energyUpgrades.upgrade15
+  var sel2 = IUniversalIn.energyUpgrades.upgrade15
+
+
+  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+      <div class="topRight absolute padding2 grey">15</div>
+  each Hunt gives <span class="boldBlackBorder">50% ×LVL</span> of its levels to next hunt`
+  sel2.effectDesc = `${format(f(f(sel.level).mul(f(50))), 0)}%`
+
+  var sel = IUniversal.energyUpgrades.upgrade16
+  var sel2 = IUniversalIn.energyUpgrades.upgrade16
+
+
+  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+      <div class="topRight absolute padding2 grey">16</div>
+  Challenger Damage <span class="boldBlackBorder">/5</span> per LVL`
+  sel2.effectDesc = `/${format(f(sel2.effect), 0)}`
+
+  var sel = IUniversal.energyUpgrades.upgrade17
+  var sel2 = IUniversalIn.energyUpgrades.upgrade17
+
+
+  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+      <div class="topRight absolute padding2 grey">17</div>
+  Challenger Life <span class="boldBlackBorder">/5</span> per LVL`
+  sel2.effectDesc = `/${format(f(sel2.effect), 0)}`
+
+  var sel = IUniversal.energyUpgrades.upgrade18
+  var sel2 = IUniversalIn.energyUpgrades.upgrade18
+
+
+  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+      <div class="topRight absolute padding2 grey">18</div>
+  Challenger Rewards <span class="boldBlackBorder">×2</span> per LVL`
+  sel2.effectDesc = `×${format(f(sel2.effect), 0)}`
+
+  var sel = IUniversal.energyUpgrades.upgrade19
+  var sel2 = IUniversalIn.energyUpgrades.upgrade19
+
+
+  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+      <div class="topRight absolute padding2 grey">19</div>
+  Universal Challenger is <span class="boldBlackBorder">10</span> times weaker per LVL`
+  sel2.effectDesc = `/${format(f(f(1).dividedBy(sel2.effect)), 0)}`
+
+  var sel = IUniversal.energyUpgrades.upgrade20
+  var sel2 = IUniversalIn.energyUpgrades.upgrade20
+
+
+  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+      <div class="topRight absolute padding2 grey">20</div>
+  Universal Shards <span class="boldBlackBorder">×2</span> per LVL`
+  sel2.effectDesc = `×${format(f(sel2.effect), 0)}`
+
+  var sel = IUniversal.energyUpgrades.upgrade21
+  var sel2 = IUniversalIn.energyUpgrades.upgrade21
+
+
+  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+      <div class="topRight absolute padding2 grey">21</div>
+  <div>(Requires adjacent upgrades)</div>
+  <div>Damage & Life <span class="boldBlackBorder">×log(Power ×LVL)</span></div>`
+  sel2.effectDesc = `×${format(f(sel2.effect), 0)}`
+
+  var sel = IUniversal.energyUpgrades.upgrade22
+  var sel2 = IUniversalIn.energyUpgrades.upgrade22
+
+
+  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+      <div class="topRight absolute padding2 grey">22</div>
+  <div>(Requires adjacent upgrades)</div>
+  <div>U. Nodes & Cores</div>
+              <div><span class="boldBlackBorder">×log(U. Shards ×LVL)</span></div>
+              `
+  sel2.effectDesc = `× ${format(f(sel2.effect), 0)}`
+
+  var sel = IUniversal.energyUpgrades.upgrade23
+  var sel2 = IUniversalIn.energyUpgrades.upgrade23
+
+
+  sel2.name = `<div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+      <div class="topRight absolute padding2 grey">23</div>
+  <div>(Requires adjacent upgrades)</div>
+  <div>Energy upgrades price <span class="boldBlackBorder">/2 ×LVL</span></div>
+              <div>Except fusion upgrades </div>
+`
+  sel2.effectDesc = `/${format(f(sel2.effect), 2)}`
+
+  //ATTRIBUTES
+
+  IUniversalIn.attributes.attributeBonus1.name = `Universal Shards ×<span class="boldBlackBorder">${format(f(IUniversalIn.attributes.attributeBonus1.effect))}</span>`
+  IUniversalIn.attributes.attributeBonus2.name = `Essence ×<span class="boldBlackBorder">${format(f(IUniversalIn.attributes.attributeBonus2.effect))}</span>`
+
+  IUniversalIn.attributes.attributeBonus3.name = `Damage and Life Training ×<span class="boldBlackBorder">${format(f(IUniversalIn.attributes.attributeBonus3.effect))}</span>`
+  IUniversalIn.attributes.attributeBonus4.name = `Will and Insight Training ×<span class="boldBlackBorder">${format(f(IUniversalIn.attributes.attributeBonus4.effect))}</span>`
+
+  IUniversalIn.attributes.attributeBonus5.name = `Damage ×<span class="boldBlackBorder">${format(f(IUniversalIn.attributes.attributeBonus5.effect))}</span>`
+  IUniversalIn.attributes.attributeBonus6.name = `Life ×<span class="boldBlackBorder">${format(f(IUniversalIn.attributes.attributeBonus6.effect))}</span>`
+
+  //CRIT
+  IUniversalIn.attributes.critRate.name = `Critical rate: <span class="boldBlackBorder">&nbsp${f(IUniversalIn.attributes.critRate.effect).mul(f(100))}%</span>`
+  IUniversalIn.attributes.critDamage.name = `Critical damage: <span class="boldBlackBorder">&nbsp${f(IUniversalIn.attributes.critDamage.effect).mul(f(100))}%</span>`
+  IUniversalIn.attributes.critPointsName = `<span class="boldBlackBorder">${format(f(IUniversal.attributes.critPoints))}</span> Critical Points`
+
+  //LIFE REGENERATION
+  IUniversalIn.attributes.regeneration.name = `<span class="boldBlackBorder">&nbsp${format(f(IUniversal.attributes.regeneration.level))}</span> Essence`
+  IUniversalIn.attributes.regenerationPointsName = `<span class="boldBlackBorder">${format(f(IUniversal.attributes.regenerationPoints))}</span> Regeneration Points`
+  //max life regeneration
+
+  IUniversalIn.attributes.maxRegeneration.name = `Maximum life regeneration: <span class="boldBlackBorder">&nbsp${f(IUniversalIn.attributes.maxRegeneration.effect).mul(f(100))}</span>%`
+
+  //DEFENCE PENETRATION
+  //Defence Penetration
+  IUniversalIn.attributes.defencePenetration.name = `<span class="boldBlackBorder">${format(f(IUniversal.attributes.defencePenetration.level))}</span> Damage and Life Training`
+
+  //Max Defence Penetration
+
+  IUniversalIn.attributes.maxDefencePenetration.name = `Maximum defence penetration: <span class="boldBlackBorder">&nbsp${f(IUniversalIn.attributes.maxDefencePenetration.effect).mul(f(100))}</span>%`
+  IUniversalIn.attributes.defencePenetrationPointsName = `<span class="boldBlackBorder">${format(f(IUniversal.attributes.defencePenetrationPoints))}</span> Defence Penetration Points`
+
+  //DEFENCE
+  //Max Defence
+  IUniversalIn.attributes.maxDefence.name = `Maximum defence: <span class="boldBlackBorder">&nbsp${f(IUniversalIn.attributes.maxDefence.effect).mul(f(100))}</span>%`
+  IUniversalIn.attributes.defencePointsName = `<span class="boldBlackBorder">${format(f(IUniversal.attributes.defencePoints))}</span> Defence Points`
+
+  //LIFE STEAL
+  //Max Life Steal
+  IUniversalIn.attributes.lifeStealMax.name = `Maximum life steal: <span class="boldBlackBorder">&nbsp${f(IUniversalIn.attributes.lifeStealMax.effect).mul(f(100))}</span>%`
+  IUniversalIn.attributes.lifeStealPointsName = `<span class="boldBlackBorder">${format(f(IUniversal.attributes.lifeStealPoints))}</span> Life Steal Points`
+
+  //SHIELD
+  //Shield
+  IUniversalIn.attributes.shield.name = `<span class="boldBlackBorder">${format(f(IUniversal.attributes.shield.level))}</span> Universal Cores`
+
+  //Max Shield
+
+  IUniversalIn.attributes.maxShield.name = `Maximum shield: <span class="boldBlackBorder">&nbsp${f(IUniversalIn.attributes.maxShield.effect).mul(f(100))}</span>%`
+  IUniversalIn.attributes.shieldPointsName = `<span class="boldBlackBorder">${format(f(IUniversal.attributes.shieldPoints))}</span> Shield Points`
+
+  //HUNT EVOLUTION
+
+  var sel = IUniversal.huntEvolution.b1
+  var sel2 = IUniversalIn.huntEvolution.b1
+
+
+  if (Math.floor(f(sel.level).add(f(3)) / 4) > 0) {
+    var labelEffect1 = IUniversalIn.huntEvolutionLabels.effect1["level" + Math.floor(f(sel.level).add(f(3)) / 4)];
+    sel2.description1 = `Essence/s ×<span class="boldBlackBorder">${format(f(sel2.effect1))}</span>`
+  } else {
+    labelEffect1 = ""
+    sel2.description1 = ""
+  }
+
+  if (Math.floor(f(sel.level).add(f(2)) / 4) > 0) {
+    var labelEffect2 = IUniversalIn.huntEvolutionLabels.effect2["level" + Math.floor(f(sel.level).add(f(2)) / 4)];
+    sel2.description2 = `Price /<span class="boldBlackBorder">${format(f(sel2.effect2))}</span>`
+  } else {
+    labelEffect2 = ""
+    sel2.description2 = ""
+  }
+
+  if (Math.floor(f(sel.level).add(f(1)) / 4) > 0) {
+    var labelEffect3 = IUniversalIn.huntEvolutionLabels.effect3["level" + Math.floor(f(sel.level).add(f(1)) / 4)];
+    sel2.description3 = `Associated effect Price /<span class="boldBlackBorder">${format(f(sel2.effect3))}</span>`
+  } else {
+    labelEffect3 = ""
+    sel2.description3 = ""
+  }
+
+  if (Math.floor(f(sel.level).add(f(0)) / 4) > 0) {
+    var labelEffect4 = IUniversalIn.huntEvolutionLabels.effect4["level" + Math.floor(f(sel.level).add(f(0)) / 4)];
+    sel2.description4 = `Evolution upgrades ×<span class="boldBlackBorder">${format(f(sel2.effect4))}</span>`
+  } else {
+    labelEffect4 = ""
+    sel2.description4 = ""
+  }
+
+  if (f(sel.level).equals(f(sel2.maxLevel))) {
+    update(`content2_6_huntEvolution_upgrades_b1`, `<div class="noClick">MAX</div>`)
+  } else {
+    update(`content2_6_huntEvolution_upgrades_b1`, `<div class="noClick">EVOLVE</div>
+                                                  <div class="noClick"><span class="boldBlackBorder" class="noClick">${format(f(sel2.price))}</span> Universal Shards</div>`)
+  }
+  update("content2_6_huntEvolution_upgrades_u1_1", `<div>${labelEffect1}</div>
+                                                    <div>${sel2.description1}</div>`)
+  update("content2_6_huntEvolution_upgrades_u1_2", `<div>${labelEffect2}</div>
+                                                    <div>${sel2.description2}</div>`)
+  update("content2_6_huntEvolution_upgrades_u1_3", `<div>${labelEffect3}</div>
+                                                    <div>${sel2.description3}</div>`)
+  update("content2_6_huntEvolution_upgrades_u1_4", `<div>${labelEffect4}</div>
+                                                    <div>${sel2.description4}</div>`)
+
+
+  for (var x = 1; x <= 4; x++) {
+    var nextIdx = ((f(sel.level)) % 4) + 1;
+    if (nextIdx === 0) nextIdx = 4;   // fix matematico
+    if (x === nextIdx) {
+      document.getElementById(`content2_6_huntEvolution_upgrades_u1_${x}`).style.backgroundColor = "#345fd4ff";
+    } else {
+      document.getElementById(`content2_6_huntEvolution_upgrades_u1_${x}`).style.backgroundColor = "";
+    }
+  }
+
+  var sel = IUniversal.huntEvolution.b2
+  var sel2 = IUniversalIn.huntEvolution.b2
+
+
+  if (Math.floor(f(sel.level).add(f(3)).dividedBy(f(4))) > 0) {
+    var labelEffect1 = IUniversalIn.huntEvolutionLabels.effect1["level" + Math.floor(f(sel.level).add(f(3)).dividedBy(f(4)))];
+    sel2.description1 = `Essence/s ×<span class="boldBlackBorder">${format(f(sel2.effect1))}</span>`
+
+
+  } else {
+    labelEffect1 = ""
+    sel2.description1 = ""
+  }
+
+  if (Math.floor(f(sel.level).add(f(2)).dividedBy(f(4))) > 0) {
+    var labelEffect2 = IUniversalIn.huntEvolutionLabels.effect2["level" + Math.floor(f(sel.level).add(f(2)).dividedBy(f(4)))];
+    sel2.description2 = `Price /<span class="boldBlackBorder">${format(f(sel2.effect2))}</span>`
+
+  } else {
+    labelEffect2 = ""
+    sel2.description2 = ""
+  }
+
+  if (Math.floor(f(sel.level).add(f(1)) / 4) > 0) {
+    var labelEffect3 = IUniversalIn.huntEvolutionLabels.effect3["level" + Math.floor(f(sel.level).add(f(1)) / 4)];
+    sel2.description3 = `Associated effect Price /<span class="boldBlackBorder">${format(f(sel2.effect3))}</span>`
+
+  } else {
+    labelEffect3 = ""
+    sel2.description3 = ""
+  }
+
+  if (Math.floor(f(sel.level).add(f(0)) / 4) > 0) {
+    var labelEffect4 = IUniversalIn.huntEvolutionLabels.effect4["level" + Math.floor(f(sel.level).add(f(0)) / 4)];
+    sel2.description4 = ` Evolution upgrades ×<span class="boldBlackBorder">${format(f(sel2.effect4))}</span>`
+
+  } else {
+    labelEffect4 = ""
+    sel2.description4 = ""
+  }
+
+  if (f(sel.level).equals(f(sel2.maxLevel))) {
+    update(`content2_6_huntEvolution_upgrades_b2`, `<div class="noClick">MAX</div>`)
+  } else {
+    update(`content2_6_huntEvolution_upgrades_b2`, `<div class="noClick">EVOLVE</div>
+                                                  <div class="noClick"><span class="boldBlackBorder" class="noClick">${format(f(sel2.price))}</span> Universal Shards</div>`)
+  }
+  update("content2_6_huntEvolution_upgrades_u2_1", `<div>${labelEffect1}</div>
+                                                    <div>${sel2.description1}</div>`)
+  update("content2_6_huntEvolution_upgrades_u2_2", `<div>${labelEffect2}</div>
+                                                    <div>${sel2.description2}</div>`)
+  update("content2_6_huntEvolution_upgrades_u2_3", `<div>${labelEffect3}</div>
+                                                    <div>${sel2.description3}</div>`)
+  update("content2_6_huntEvolution_upgrades_u2_4", `<div>${labelEffect4}</div>
+                                                    <div>${sel2.description4}</div>`)
+
+  for (var x = 1; x <= 4; x++) {
+    var nextIdx = ((f(sel.level)) % 4) + 1;
+    if (nextIdx === 0) nextIdx = 4;   // fix matematico
+    if (x === nextIdx) {
+      document.getElementById(`content2_6_huntEvolution_upgrades_u2_${x}`).style.backgroundColor = "#345fd4ff";
+    } else {
+      document.getElementById(`content2_6_huntEvolution_upgrades_u2_${x}`).style.backgroundColor = "";
+    }
+  }
+
+
+
+  var sel = IUniversal.huntEvolution.b3
+  var sel2 = IUniversalIn.huntEvolution.b3
+
+
+  if (Math.floor(f(sel.level).add(f(3)) / 4) > 0) {
+    var labelEffect1 = IUniversalIn.huntEvolutionLabels.effect1["level" + Math.floor(f(sel.level).add(f(3)) / 4)];
+    sel2.description1 = `Essence/s ×<span class="boldBlackBorder">${format(f(sel2.effect1))}</span>`
+  } else {
+    labelEffect1 = ""
+    sel2.description1 = ""
+  }
+
+  if (Math.floor(f(sel.level).add(f(2)) / 4) > 0) {
+    var labelEffect2 = IUniversalIn.huntEvolutionLabels.effect2["level" + Math.floor(f(sel.level).add(f(2)) / 4)];
+    sel2.description2 = `Price /<span class="boldBlackBorder">${format(f(sel2.effect2))}</span>`
+  } else {
+    labelEffect2 = ""
+    sel2.description2 = ""
+  }
+
+  if (Math.floor(f(sel.level).add(f(1)) / 4) > 0) {
+    var labelEffect3 = IUniversalIn.huntEvolutionLabels.effect3["level" + Math.floor(f(sel.level).add(f(1)) / 4)];
+    sel2.description3 = `Associated effect Price /<span class="boldBlackBorder">${format(f(sel2.effect3))}</span>`
+  } else {
+    labelEffect3 = ""
+    sel2.description3 = ""
+  }
+
+  if (Math.floor(f(sel.level).add(f(0)) / 4) > 0) {
+    var labelEffect4 = IUniversalIn.huntEvolutionLabels.effect4["level" + Math.floor(f(sel.level).add(f(0)) / 4)];
+    sel2.description4 = `Evolution upgrades ×<span class="boldBlackBorder">${format(f(sel2.effect4))}</span>`
+  } else {
+    labelEffect4 = ""
+    sel2.description4 = ""
+  }
+
+  if (f(sel.level).equals(f(sel2.maxLevel))) {
+    update(`content2_6_huntEvolution_upgrades_b3`, `<div class="noClick">MAX</div>`)
+  } else {
+    update(`content2_6_huntEvolution_upgrades_b3`, `<div class="noClick">EVOLVE</div>
+                                                  <div class="noClick"><span class="boldBlackBorder" class="noClick">${format(f(sel2.price))}</span> Universal Nodes</div>`)
+  }
+  update("content2_6_huntEvolution_upgrades_u3_1", `<div>${labelEffect1}</div>
+                                                    <div>${sel2.description1}</div>`)
+  update("content2_6_huntEvolution_upgrades_u3_2", `<div>${labelEffect2}</div>
+                                                    <div>${sel2.description2}</div>`)
+  update("content2_6_huntEvolution_upgrades_u3_3", `<div>${labelEffect3}</div>
+                                                    <div>${sel2.description3}</div>`)
+  update("content2_6_huntEvolution_upgrades_u3_4", `<div>${labelEffect4}</div>
+                                                    <div>${sel2.description4}</div>`)
+
+  for (var x = 1; x <= 4; x++) {
+    var nextIdx = ((f(sel.level)) % 4) + 1;
+    if (nextIdx === 0) nextIdx = 4;   // fix matematico
+    if (x === nextIdx) {
+      document.getElementById(`content2_6_huntEvolution_upgrades_u3_${x}`).style.backgroundColor = "#345fd4ff";
+    } else {
+      document.getElementById(`content2_6_huntEvolution_upgrades_u3_${x}`).style.backgroundColor = "";
+    }
+  }
+
+  var sel = IUniversal.huntEvolution.b4
+  var sel2 = IUniversalIn.huntEvolution.b4
+
+
+  if (Math.floor(f(sel.level).add(f(3)) / 4) > 0) {
+    var labelEffect1 = IUniversalIn.huntEvolutionLabels.effect1["level" + Math.floor(f(sel.level).add(f(3)) / 4)];
+    sel2.description1 = `Essence/s ×<span class="boldBlackBorder">${format(f(sel2.effect1))}</span>`
+  } else {
+    labelEffect1 = ""
+    sel2.description1 = ""
+  }
+
+  if (Math.floor(f(sel.level).add(f(2)) / 4) > 0) {
+    var labelEffect2 = IUniversalIn.huntEvolutionLabels.effect2["level" + Math.floor(f(sel.level).add(f(2)) / 4)];
+    sel2.description2 = `Price /<span class="boldBlackBorder">${format(f(sel2.effect2))}</span>`
+  } else {
+    labelEffect2 = ""
+    sel2.description2 = ""
+  }
+
+  if (Math.floor(f(sel.level).add(f(1)) / 4) > 0) {
+    var labelEffect3 = IUniversalIn.huntEvolutionLabels.effect3["level" + Math.floor(f(sel.level).add(f(1)) / 4)];
+    sel2.description3 = `Associated effect Price /<span class="boldBlackBorder">${format(f(sel2.effect3))}</span>`
+  } else {
+    labelEffect3 = ""
+    sel2.description3 = ""
+  }
+
+  if (Math.floor(f(sel.level).add(f(0)) / 4) > 0) {
+    var labelEffect4 = IUniversalIn.huntEvolutionLabels.effect4["level" + Math.floor(f(sel.level).add(f(0)) / 4)];
+    sel2.description4 = `Evolution upgrades ×<span class="boldBlackBorder">${format(f(sel2.effect4))}</span>`
+  } else {
+    labelEffect4 = ""
+    sel2.description4 = ""
+  }
+
+  if (f(sel.level).equals(f(sel2.maxLevel))) {
+    update(`content2_6_huntEvolution_upgrades_b4`, `<div class="noClick">MAX</div>`)
+  } else {
+    update(`content2_6_huntEvolution_upgrades_b4`, `<div class="noClick">EVOLVE</div>
+                                                  <div class="noClick"><span class="boldBlackBorder" class="noClick">${format(f(sel2.price))}</span> Universal Nodes</div>`)
+  }
+  update("content2_6_huntEvolution_upgrades_u4_1", `<div>${labelEffect1}</div>
+                                                    <div>${sel2.description1}</div>`)
+  update("content2_6_huntEvolution_upgrades_u4_2", `<div>${labelEffect2}</div>
+                                                    <div>${sel2.description2}</div>`)
+  update("content2_6_huntEvolution_upgrades_u4_3", `<div>${labelEffect3}</div>
+                                                    <div>${sel2.description3}</div>`)
+  update("content2_6_huntEvolution_upgrades_u4_4", `<div>${labelEffect4}</div>
+                                                    <div>${sel2.description4}</div>`)
+
+
+  for (var x = 1; x <= 4; x++) {
+    var nextIdx = ((f(sel.level)) % 4) + 1;
+    if (nextIdx === 0) nextIdx = 4;   // fix matematico
+    if (x === nextIdx) {
+      document.getElementById(`content2_6_huntEvolution_upgrades_u4_${x}`).style.backgroundColor = "#345fd4ff";
+    } else {
+      document.getElementById(`content2_6_huntEvolution_upgrades_u4_${x}`).style.backgroundColor = "";
+    }
+  }
+
+
+  var sel = IUniversal.huntEvolution.b5
+  var sel2 = IUniversalIn.huntEvolution.b5
+
+
+  if (Math.floor(f(sel.level).add(f(3)) / 4) > 0) {
+    var labelEffect1 = IUniversalIn.huntEvolutionLabels.effect1["level" + Math.floor(f(sel.level).add(f(3)) / 4)];
+    sel2.description1 = `Essence/s ×<span class="boldBlackBorder">${format(f(sel2.effect1))}</span>`
+  } else {
+    labelEffect1 = ""
+    sel2.description1 = ""
+  }
+
+  if (Math.floor(f(sel.level).add(f(2)) / 4) > 0) {
+    var labelEffect2 = IUniversalIn.huntEvolutionLabels.effect2["level" + Math.floor(f(sel.level).add(f(2)) / 4)];
+    sel2.description2 = `Price /<span class="boldBlackBorder">${format(f(sel2.effect2))}</span>`
+  } else {
+    labelEffect2 = ""
+    sel2.description2 = ""
+  }
+
+  if (Math.floor(f(sel.level).add(f(1)) / 4) > 0) {
+    var labelEffect3 = IUniversalIn.huntEvolutionLabels.effect3["level" + Math.floor(f(sel.level).add(f(1)) / 4)];
+    sel2.description3 = `Associated effect Price /<span class="boldBlackBorder">${format(f(sel2.effect3))}</span>`
+  } else {
+    labelEffect3 = ""
+    sel2.description3 = ""
+  }
+
+  if (Math.floor(f(sel.level).add(f(0)) / 4) > 0) {
+    var labelEffect4 = IUniversalIn.huntEvolutionLabels.effect4["level" + Math.floor(f(sel.level).add(f(0)) / 4)];
+    sel2.description4 = `Evolution upgrades ×<span class="boldBlackBorder">${format(f(sel2.effect4))}</span>`
+  } else {
+    labelEffect4 = ""
+    sel2.description4 = ""
+  }
+
+
+  if (f(sel.level).equals(f(sel2.maxLevel))) {
+    update(`content2_6_huntEvolution_upgrades_b5`, `<div class="noClick">MAX</div>`)
+  } else {
+    update(`content2_6_huntEvolution_upgrades_b5`, `<div class="noClick">EVOLVE</div>
+                                                  <div class="noClick"><span class="boldBlackBorder" class="noClick">${format(f(sel2.price))}</span> Universal Cores</div>`)
+  }
+  update("content2_6_huntEvolution_upgrades_u5_1", `<div>${labelEffect1}</div>
+                                                    <div>${sel2.description1}</div>`)
+  update("content2_6_huntEvolution_upgrades_u5_2", `<div>${labelEffect2}</div>
+                                                    <div>${sel2.description2}</div>`)
+  update("content2_6_huntEvolution_upgrades_u5_3", `<div>${labelEffect3}</div>
+                                                    <div>${sel2.description3}</div>`)
+  update("content2_6_huntEvolution_upgrades_u5_4", `<div>${labelEffect4}</div>
+                                                    <div>${sel2.description4}</div>`)
+
+
+
+  for (var x = 1; x <= 4; x++) {
+    var nextIdx = ((f(sel.level)) % 4) + 1;
+    if (nextIdx === 0) nextIdx = 4;   // fix matematico
+    if (x === nextIdx) {
+      document.getElementById(`content2_6_huntEvolution_upgrades_u5_${x}`).style.backgroundColor = "#345fd4ff";
+    } else {
+      document.getElementById(`content2_6_huntEvolution_upgrades_u5_${x}`).style.backgroundColor = "";
+    }
+  }
+
+  //FIRE TREE
+
+  //NODE 1
+  var sel = IUniversal.fireTree.node1
+  var sel2 = IUniversalIn.fireTree.node1
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Fire Rift</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">1</div>
+                  <div class="centerDiv padding2 fontSize09"><span class="boldBlackBorder">${format(f(sel2.effect), 0)}</span>&nbsp;Fire/s</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Universal Cores</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 2
+  var sel = IUniversal.fireTree.node2
+  var sel2 = IUniversalIn.fireTree.node2
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Woodcutter</div>
+                  <div class="topRight absolute padding2 grey">2</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="centerDiv column"><div><span class="boldBlackBorder fontSize09">${format(f(IUniversal.woodProdBase), 0)}</span>&nbsp;Wood/s</div>
+                  <div class="fontSize09"><span class="boldBlackBorder">${format(f(IUniversal.wood), 0)}</span>&nbsp;Wood ⇒ ×<span class="boldBlackBorder">${format(f(sel2.effect2), 1)}</span> Fire/s</div></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 3
+  var sel = IUniversal.fireTree.node3
+  var sel2 = IUniversalIn.fireTree.node3
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Miner</div>
+                  <div class="topRight absolute padding2 grey">3</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="centerDiv column fontSize09"><div><span class="boldBlackBorder">${format(f(IUniversal.coalProdBase), 0)}</span>&nbsp;Coal/s</div>
+                                                 <div><span class="boldBlackBorder">${format(f(IUniversal.coal), 0)}</span>&nbsp;Coal ⇒ ×<span class="boldBlackBorder">${format(f(sel2.effect2), 1)}</span> Fire/s</div></div>
+                  
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 4
+  var sel = IUniversal.fireTree.node4
+  var sel2 = IUniversalIn.fireTree.node4
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Fire Warrior</div>
+                  <div class="topRight absolute padding2 grey">4</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="centerDiv column fontSize09"><div><span class="boldBlackBorder">${format(f(IUniversal.magmaProdBase), 0)}</span>&nbsp;Magma/s</div>
+                                                 <div><span class="boldBlackBorder">${format(f(IUniversal.magma), 0)}</span>&nbsp;Magma ⇒ ×<span class="boldBlackBorder">${format(f(sel2.effect2), 1)}</span> Fire/s</div></div>
+                  
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 5
+  var sel = IUniversal.fireTree.node5
+  var sel2 = IUniversalIn.fireTree.node5
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Tree Cutter</div>
+                  <div class="topRight absolute padding2 grey">5</div>
+                  <div class="centerDiv padding1 column fontSize09"><div><span class="boldBlackBorder">${format(f(sel.level), 0)}</span>&nbsp;Wood sacrificed</div>
+                                                 <div>Wood/s<span class="boldBlackBorder"> ×${format(f(sel2.effect), 1)}</span>&nbsp;</div>
+                  
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">Sacrifice</div>
+                <div class="centerDiv noClick">Wood</div>`
+
+  //NODE 6
+  var sel = IUniversal.fireTree.node6
+  var sel2 = IUniversalIn.fireTree.node6
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Bedrock Miner</div>
+                  <div class="topRight absolute padding2 grey">6</div>
+                  <div class="centerDiv padding1 column fontSize09"><div><span class="boldBlackBorder">${format(f(sel.level), 0)}</span>&nbsp;Coal sacrificed</div>
+                                                 <div>Coal/s<span class="boldBlackBorder"> ×${format(f(sel2.effect), 1)}</span>&nbsp;</div>
+                  
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">Sacrifice</div>
+                <div class="centerDiv noClick">Coal</div>`
+
+  //NODE 7
+  var sel = IUniversal.fireTree.node7
+  var sel2 = IUniversalIn.fireTree.node7
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Magma Champion</div>
+                  <div class="topRight absolute padding2 grey">7</div>
+                  <div class="centerDiv padding1 column fontSize09"><div><span class="boldBlackBorder">${format(f(sel.level), 0)}</span>&nbsp;Magma sacrificed</div>
+                                                 <div>Magma/s<span class="boldBlackBorder"> ×${format(f(sel2.effect), 1)}</span>&nbsp;</div>
+                  
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">Sacrifice</div>
+                <div class="centerDiv noClick">Magma</div>`
+
+  //NODE 8
+  var sel = IUniversal.fireTree.node8
+  var sel2 = IUniversalIn.fireTree.node8
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Forest Destroyer</div>
+                 <div class="topRight absolute padding2 grey">8</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div><span class="boldBlackBorder padding2 fontSize09">×${format(f(sel2.effect), 0)}</span>&nbsp;Wood/s</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Heat</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 9
+  var sel = IUniversal.fireTree.node9
+  var sel2 = IUniversalIn.fireTree.node9
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Mine Eater</div>
+                 <div class="topRight absolute padding2 grey">9</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div><span class="boldBlackBorder padding2 fontSize09">×${format(f(sel2.effect), 0)}</span>&nbsp;Coal/s</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Heat</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+
+  //NODE 10
+  var sel = IUniversal.fireTree.node10
+  var sel2 = IUniversalIn.fireTree.node10
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Fire Lord</div>
+                 <div class="topRight absolute padding2 grey">10</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div><span class="boldBlackBorder padding2 fontSize09">×${format(f(sel2.effect), 0)}</span>&nbsp;Magma/s</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Heat</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 11
+  var sel = IUniversal.fireTree.node11
+  var sel2 = IUniversalIn.fireTree.node11
+
+
+  if (f(IUniversal.fire).gt(f(0))) {
+    var tempEffect = IUniversal.fire
+  } else {
+    tempEffect = f(0)
+  }
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Size</div>
+                 <div class="topRight absolute padding2 grey">11</div>
+                 <div><span class="boldBlackBorder fontSize09">${format(f(tempEffect), 0)}</span>&nbsp;Fire ⇒ <span class="boldBlackBorder">${format(f(IUniversal.size), 0)} (+${format(f(sel2.effect))})</span>&nbsp;Size</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">Sacrifice Fire and all upgrades 2-7</div>`
+
+
+  //NODE 12
+  var sel = IUniversal.fireTree.node12
+  var sel2 = IUniversalIn.fireTree.node12
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Dry Air</div>
+                 <div class="topRight absolute padding2 grey">12</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Fire/s ×1.2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 1)}</span>)</div>
+                                                 
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  var sel = IUniversal.fireTree.node13
+  var sel2 = IUniversalIn.fireTree.node13
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Big Forest</div>
+                 <div class="topRight absolute padding2 grey">13</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Woodcutter max level <span class="boldBlackBorder">+${format(f(sel2.effect), 0)}</span></div>
+                                                 
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 14
+  var sel = IUniversal.fireTree.node14
+  var sel2 = IUniversalIn.fireTree.node14
+
+
+  if (f(IUniversal.coal).gt(f(0))) {
+    var tempEffect = f(Decimal.log10(f(IUniversal.coal).add(f(10))))
+  } else {
+    tempEffect = f(1)
+  }
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Fuel Factory</div>
+                 <div class="topRight absolute padding2 grey">14</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Miner max level <span class="boldBlackBorder">+${format(f(sel2.effect), 0)}</span></div>
+                                                 
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+
+  //NODE 15
+  var sel = IUniversal.fireTree.node15
+  var sel2 = IUniversalIn.fireTree.node15
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Magma Pools</div>
+                 <div class="topRight absolute padding2 grey">15</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Fire Warrior max level <span class="boldBlackBorder">+${format(f(sel2.effect), 0)}</span></div>
+                                                 
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 16
+  var sel = IUniversal.fireTree.node16
+  var sel2 = IUniversalIn.fireTree.node16
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Tree Farms</div>
+                 <div class="topRight absolute padding2 grey">16</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Woodcutter price /2 (<span class="boldBlackBorder">/${format(f(sel2.effect), 0)}</span>)</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 17
+  var sel = IUniversal.fireTree.node17
+  var sel2 = IUniversalIn.fireTree.node17
+
+
+  if (f(IUniversal.size).gt(f(0))) {
+    var tempEffect = f(Decimal.log10(f(IUniversal.size).add(f(10))))
+  } else {
+    tempEffect = f(1)
+  }
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Quarries</div>
+                 <div class="topRight absolute padding2 grey">17</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Miner price /2 (<span class="boldBlackBorder">/${format(f(sel2.effect), 0)}</span>)</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+
+  //NODE 18
+  var sel = IUniversal.fireTree.node18
+  var sel2 = IUniversalIn.fireTree.node18
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Fire Union</div>
+                 <div class="topRight absolute padding2 grey">18</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Fire Warrior price /2 (<span class="boldBlackBorder">/${format(f(sel2.effect), 0)}</span>)</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+
+  //NODE 19
+  var sel = IUniversal.fireTree.node19
+  var sel2 = IUniversalIn.fireTree.node19
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Living Trees</div>
+                 <div class="topRight absolute padding2 grey">19</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Woodcutter effect ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)</div>
+
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 20
+  var sel = IUniversal.fireTree.node20
+  var sel2 = IUniversalIn.fireTree.node20
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Coal Planets</div>
+                 <div class="topRight absolute padding2 grey">20</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Miner effect ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+
+  //NODE 21
+  var sel = IUniversal.fireTree.node21
+  var sel2 = IUniversalIn.fireTree.node21
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Liquid Fire</div>
+                 <div class="topRight absolute padding2 grey">21</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Fire Warrior effect ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)</div>
+
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 22
+  var sel = IUniversal.fireTree.node22
+  var sel2 = IUniversalIn.fireTree.node22
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Fire Planet</div>
+                 <div class="topRight absolute padding2 grey">22</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>upgrades 12-21 max level <span class="boldBlackBorder">+${format(f(sel2.effect), 0)}</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 23
+  var sel = IUniversal.fireTree.node23
+  var sel2 = IUniversalIn.fireTree.node23
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Charcoal Empire</div>
+                 <div class="topRight absolute padding2 grey">23</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Coal/s ×Wood (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>) cumulative</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 24
+  var sel = IUniversal.fireTree.node24
+  var sel2 = IUniversalIn.fireTree.node24
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Core Feeder</div>
+                 <div class="topRight absolute padding2 grey">24</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Magma/s ×Coal (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>) cumulative</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 25
+  var sel = IUniversal.fireTree.node25
+  var sel2 = IUniversalIn.fireTree.node25
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Fire Blood</div>
+                 <div class="topRight absolute padding2 grey">25</div>
+                                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+
+                 <div class="centerDiv padding1 column fontSize09"><div>Damage x1.2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 1)}</span>)</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 26
+  var sel = IUniversal.fireTree.node26
+  var sel2 = IUniversalIn.fireTree.node26
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Magma Skin</div>
+                 <div class="topRight absolute padding2 grey">26</div>
+                                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Life x1.2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 1)}</span>)</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 27
+  var sel = IUniversal.fireTree.node27
+  var sel2 = IUniversalIn.fireTree.node27
+
+
+  if (sel.active) {
+    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Universe Furnace</div>
+                 <div class="topRight absolute padding2 grey">27</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Burn empty universes with Heat</div>
+                                                        <div>Produce Fire Shards</div>
+                                                        <div class="line"></div>
+                                                        <div>Heat /${format(f(sel2.effect2), 2)} every ${format(f(IUniversal.heatTimer))} seconds</div>
+                                                        <div class="centerDiv noClick boldBlackBorder">${format(f(f(IUniversal.heatTimer).minus(f(IUniversal.heatCurrentTimer))), 1)}s</div>
+                                                        <div><span class="boldBlackBorder">${format(f(IUniversal.heat), 1)}</span> Heat</div>
+                                                        <div></div>
+                 </div>`
+  } else {
+    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Universe Furnace</div>
+                 <div class="topRight absolute padding2 grey">27</div>
+                 <div class="centerDiv padding1 column"><div>Burn empty universes with Heat</div>
+                 </div>`
+  }
+  if (sel.active) {
+    unlockShow("content2_17_node27_button", false)
+    sel2.button = ``
+  } else {
+    unlockShow("content2_17_node27_button", true)
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+  }
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 28
+  var sel = IUniversal.fireTree.node28
+  var sel2 = IUniversalIn.fireTree.node28
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Manual Burner</div>
+                 <div class="topRight absolute padding2 grey">28</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Heat <span class="boldBlackBorder">+${format(f(sel2.effect), 1)}</span></div>
+                 </div>`
+
+  if (!sel.activeTimer) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">Click</div>`
+
+  } else {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">Wait ${format(f(f(sel.timer).minus(f(sel.currentTimer))), 1)}s</div>`
+
+  }
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 29
+  var sel = IUniversal.fireTree.node29
+  var sel2 = IUniversalIn.fireTree.node29
+
+
+  var name = `Burnt Universe ${sel.level}`
+
+  var req = f(5).mul(f(2).pow(f(f(sel.level))))
+
+  const sizes = Object.values(IUniversalIn.node29Size);
+  const selectedSize = sizes.filter(s => s.req <= sel.level).sort((a, b) => b.req - a.req)[0];
+  var size = selectedSize ? `(${selectedSize.name})` : `(Unknown Size)`;
+
+  var requirement = `Requires <span class="noClick boldBlackBorder">${format(f(IUniversal.heat))} / ${format(f(req))}</span> Heat`
+  var eff = `<div><span class="noClick boldBlackBorder">${format(f(IUniversal.fireShards))}</span> Fire Shards</div>
+  <div><span class="noClick boldBlackBorder">${format(sec(IUniversal.fireShardsProd))}</span>/s</div>`
+
+  sel2.content = `
+  <div class="top centerDivTopColumns">
+    <div class="">${name}</div>
+    <div class="">${size}</div>
+    <div class="margin1">${eff}</div>
+    <div class="margin1">${requirement}</div>
+  </div>
+`
+
+
+  var container = document.getElementById("svgUn");
+  if (container && container.innerHTML != null) {
+    container.innerHTML = svgConcentricBitNode(f(sel.level).add(f(1)))
+  }
+
+  var container = document.getElementById("containUn");
+  if (container && container.innerHTML != null) {
+    container.innerHTML = createSquareSvgString("rgba(221, 188, 0, 1)")
+  }
+
+  if (f(IUniversal.fireTree.node50.level).gt(0)) {
+
+    var image = "images/gear1.png"
+
+    if (f(IUniversal.fireTree.node52.level).gte(f(2))) {
+      image = "images/gear2.png"
+    }
+    if (f(IUniversal.fireTree.node52.level).gte(f(4))) {
+      image = "images/gear3.png"
+    }
+    if (f(IUniversal.fireTree.node52.level).gte(f(6))) {
+      image = "images/gear4.png"
+    }
+
+    var container = document.getElementById("gearUn");
+    if (IUniversal.fireTree.node50.animation == false) {
+      if (container && container.innerHTML != null) {
+        container.innerHTML = gearDivString(IUniversal.fireTree.node50.timer * 1000, image, "fastRotation");
+      }
+      IUniversal.fireTree.node50.animation = true;
+    }
+    else {
+      if (container && container.innerHTML == "") {
+        container.innerHTML = gearDivString(IUniversal.fireTree.node50.timer * 1000, image, "stop");
+      }
+    }
+  }
+
+  if (IUniversal.fireTree.node30.animation == false) {
+    const container = document.querySelector("#svgAnimationContainer");
+    container.innerHTML = ""; // svuota container
+
+    if (f(IUniversal.fireTree.node30.level).gt(0)) {
+      container.appendChild(pressSvg(90, 80, 10, 10, 0, IUniversal.fireTree.node30.timer * 1000, "images/press.png"));
+    }
+    if (f(IUniversal.fireTree.node33.level).gte(1)) {
+      container.appendChild(pressSvg(90, 80, 30, 30, 0, IUniversal.fireTree.node30.timer * 1000, "images/press.png"));
+    }
+    if (f(IUniversal.fireTree.node33.level).gte(2)) {
+      container.appendChild(pressSvg(90, 80, 70, 70, 0, IUniversal.fireTree.node30.timer * 1000, "images/press.png"));
+    }
+    if (f(IUniversal.fireTree.node33.level).gte(3)) {
+      container.appendChild(pressSvg(90, 80, 90, 90, 0, IUniversal.fireTree.node30.timer * 1000, "images/press.png"));
+    }
+
+    IUniversal.fireTree.node30.animation = true;
+  }
+
+  if (f(IUniversal.fireTree.node30.level).equals(0)) {
+    const container = document.querySelector("#svgAnimationContainer");
+    container.innerHTML = "";
+  }
+
+  if (IUniversal.fireTree.node34.animation == false) {
+    const container = document.querySelector("#svgAnimationContainer2");
+    container.innerHTML = "";
+    if (f(IUniversal.fireTree.node34.level).gte(0)) {
+      container.appendChild(pressSvg(90, 80, 50, 50, 0, IUniversal.fireTree.node34.timer * 1000, "images/press2.png"));
+    }
+    IUniversal.fireTree.node34.animation = true;
+  }
+
+  if (f(IUniversal.fireTree.node34.level).equals(0)) {
+    const container = document.querySelector("#svgAnimationContainer2");
+    container.innerHTML = "";
+  }
+
+  //NODE 30
+  var sel = IUniversal.fireTree.node30
+  var sel2 = IUniversalIn.fireTree.node30
+
+  if (sel.active) {
+    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Press</div>
+                 <div class="topRight absolute padding2 grey">30</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Heat <span class="boldBlackBorder">+${format(f(sel2.effect))}</span> Every <span class="boldBlackBorder">${format(f(IUniversal.fireTree.node30.timer))}s</span></div>
+                                                        <div class="line"></div>
+                                                        <div class="noClick"><span class="boldBlackBorder">${format(f(f(sel.timer).minus(f(sel.currentTimer))), 1)}s</span>  delay</div>
+                                                        <div></div>
+                 </div>`
+  } else {
+    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Press</div>
+                 <div class="topRight absolute padding2 grey">30</div>
+                 <div class="centerDiv padding1 column"><div>Produce Heat automatically</div>
+                 </div>`
+  }
+  if (sel.active) {
+    unlockShow("content2_17_node30_button", false)
+    sel2.button = ``
+  } else {
+    unlockShow("content2_17_node30_button", true)
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire Shards</div>`
+  }
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 31
+  var sel = IUniversal.fireTree.node31
+  var sel2 = IUniversalIn.fireTree.node31
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Heavy Metal</div>
+                 <div class="topRight absolute padding2 grey">31</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Press Heat ×3 <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire Shards</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+
+  //NODE 32
+  var sel = IUniversal.fireTree.node32
+  var sel2 = IUniversalIn.fireTree.node32
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Faster Press</div>
+                 <div class="topRight absolute padding2 grey">32</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Press delay /1.2 (<span class="boldBlackBorder">/${format(f(sel2.effect), 1)}</span>)</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire Shards</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+
+  //NODE 33
+  var sel = IUniversal.fireTree.node33
+  var sel2 = IUniversalIn.fireTree.node33
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Press Row</div>
+                 <div class="topRight absolute padding2 grey">33</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Press quantity <span class="boldBlackBorder">+${format(f(sel.level), 0)}</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire Shards</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 34
+  var sel = IUniversal.fireTree.node34
+  var sel2 = IUniversalIn.fireTree.node34
+
+
+  if (IUniversal.fireTree.node34.activeTimer) {
+    var time2 = format(f(f(sel.timer2).minus(f(sel.currentTimer2))), 1)
+  } else {
+    time2 = f(0)
+  }
+
+  if (sel.active) {
+    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Gravity Press</div>
+                 <div class="topRight absolute padding2 grey">34</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Press <span class="boldBlackBorder">×${format(f(sel2.effect))}</span> Every <span class="boldBlackBorder">${format(f(sel.timer))}s</span></div>
+                                                        <div><span class="boldBlackBorder">${format(f(sel.timer2))}s</span> duration</div>
+                                                        <div class="line"></div>
+                                                        <div><span class="boldBlackBorder">${format(f(f(sel.timer).minus(f(sel.currentTimer))), 1)}s</span> delay</div>
+                                                        <div><span class="boldBlackBorder">${format(f(time2), 1)}s</span> remaining</div>
+                                                        <div>Press <span class="boldBlackBorder">×${format(f(sel2.effect2))}</span></div>
+                                                        <div></div>
+                 </div>`
+  } else {
+    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Gravity Press</div>
+                 <div class="topRight absolute padding2 grey">34</div>
+                 <div class="centerDiv padding1 column"><div>Multiply Press periodically</div>
+                 </div>`
+  }
+  if (sel.active) {
+    unlockShow("content2_17_node34_button", false)
+    sel2.button = ``
+  } else {
+    unlockShow("content2_17_node34_button", true)
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire Shards</div>`
+  }
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 35
+  var sel = IUniversal.fireTree.node35
+  var sel2 = IUniversalIn.fireTree.node35
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Gravity Warp</div>
+                 <div class="topRight absolute padding2 grey">35</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Gravity Press multi ×1.5 <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire Shards</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+
+  //NODE 36
+  var sel = IUniversal.fireTree.node36
+  var sel2 = IUniversalIn.fireTree.node36
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Time Warp</div>
+                 <div class="topRight absolute padding2 grey">36</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Gravity Press delay /1.1 (<span class="boldBlackBorder">/${format(f(sel2.effect), 1)}</span>)</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire Shards</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+
+  //NODE 37
+  var sel = IUniversal.fireTree.node37
+  var sel2 = IUniversalIn.fireTree.node37
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Space Warp</div>
+                 <div class="topRight absolute padding2 grey">37</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Gravity Press duration ×1.2 (<span class="boldBlackBorder">×${format(f(sel.level), 1)}</span>)</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire Shards</div>`
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 38
+  var sel = IUniversal.fireTree.node38
+  var sel2 = IUniversalIn.fireTree.node38
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Catalyst</div>
+                 <div class="topRight absolute padding2 grey">38</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Size ×1.5 (<span class="boldBlackBorder">×${format(f(sel2.effect), 1)}</span>)</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Heat</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 39
+  var sel = IUniversal.fireTree.node39
+  var sel2 = IUniversalIn.fireTree.node39
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Sun</div>
+                 <div class="topRight absolute padding2 grey">39</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv column fontSize09"><div><span class="boldBlackBorder">${format(f(IUniversal.lightProdBase), 0)}</span>&nbsp;Light/s</div>
+                                                 <div><span class="boldBlackBorder">${format(f(IUniversal.light), 0)}</span>&nbsp;Light ⇒ ×<span class="boldBlackBorder">${format(f(sel2.effect2), 1)}</span> Fire/s</div></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 40
+  var sel = IUniversal.fireTree.node40
+  var sel2 = IUniversalIn.fireTree.node40
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Quasar</div>
+                  <div class="topRight absolute padding2 grey">40</div>
+                  <div class="centerDiv padding1 column fontSize09"><div><span class="boldBlackBorder">${format(f(sel.level), 0)}</span>&nbsp;Light sacrificed</div>
+                                                 <div>Fire Shards/s<span class="boldBlackBorder"> ×${format(f(sel2.effect), 1)}</span>&nbsp;</div>
+                  
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">Sacrifice</div>
+                <div class="centerDiv noClick">Light</div>`
+
+  //NODE 41
+  var sel = IUniversal.fireTree.node41
+  var sel2 = IUniversalIn.fireTree.node41
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Press Surge</div>
+                  <div class="topRight absolute padding2 grey">41</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>+10% (<span class="boldBlackBorder">${format(f(sel2.effect2).mul(f(100)))}%</span>) odds for Press x5</div>
+                 <div>(next press Heat<span class="boldBlackBorder"> ×${format(f(sel2.effect), 1)}</span>)</div>
+                  
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire Shards</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (sel.active) {
+    sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">ON</div>`
+  }
+  else {
+    sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">OFF</div>`
+  }
+
+  //NODE 42
+  var sel = IUniversal.fireTree.node42
+  var sel2 = IUniversalIn.fireTree.node42
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Press Momentum</div>
+                  <div class="topRight absolute padding2 grey">42</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>+1s (<span class="boldBlackBorder">${format(f(sel2.effect), 0)}s</span>) to Heat reduction delay</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire Shards</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (sel.active) {
+    sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">ON</div>`
+  }
+  else {
+    sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">OFF</div>`
+  }
+
+
+  //NODE 43
+  var sel = IUniversal.fireTree.node43
+  var sel2 = IUniversalIn.fireTree.node43
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Fire Singularity</div>
+                  <div class="topRight absolute padding2 grey">43</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Fire Shards x2 (<span class="boldBlackBorder">×${format(f(sel2.effect))}</span>) when Gravity Press is active</div>
+
+                  
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire Shards</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (sel.active) {
+    sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">ON</div>`
+  }
+  else {
+    sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">OFF</div>`
+  }
+
+  //NODE 44
+  var sel = IUniversal.fireTree.node44
+  var sel2 = IUniversalIn.fireTree.node44
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Relativity</div>
+                  <div class="topRight absolute padding2 grey">44</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div><span class="boldBlackBorder">×${format(f(sel2.effect))}</span> Gravity Press delay</div>
+                 <div class="centerDiv padding1 column fontSize09"><div><span class="boldBlackBorder">×${format(f(sel2.effect).mul(f(2)))}</span> Gravity Press multi</div>
+                  
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire Shards</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  if (sel.active) {
+    sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">ON</div>`
+  }
+  else {
+    sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">OFF</div>`
+  }
+
+
+  //NODE 45
+  var sel = IUniversal.fireTree.node45
+  var sel2 = IUniversalIn.fireTree.node45
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Local Bubble</div>
+                 <div class="topRight absolute padding2 grey">45</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Sun max level <span class="boldBlackBorder">+${format(f(sel2.effect), 0)}</span></div>
+                                                 
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 46
+  var sel = IUniversal.fireTree.node46
+  var sel2 = IUniversalIn.fireTree.node46
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Young Star</div>
+                 <div class="topRight absolute padding2 grey">46</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Sun price /1e5 (<span class="boldBlackBorder">/${format(f(sel2.effect), 0)}</span>)</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 47
+  var sel = IUniversal.fireTree.node47
+  var sel2 = IUniversalIn.fireTree.node47
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Big Blue</div>
+                 <div class="topRight absolute padding2 grey">47</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Sun effect ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)</div>
+
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 48
+  var sel = IUniversal.fireTree.node48
+  var sel2 = IUniversalIn.fireTree.node48
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Universal Labor</div>
+                 <div class="topRight absolute padding2 grey">48</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Manual Burner ×1.5 (<span class="boldBlackBorder">×${format(f(sel2.effect), 1)}</span>)</div>
+
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire Shards</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 49
+  var sel = IUniversal.fireTree.node49
+  var sel2 = IUniversalIn.fireTree.node49
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Heaviest Metal</div>
+                 <div class="topRight absolute padding2 grey">49</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Press Heat ×3 <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire Shards</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 50
+  var sel = IUniversal.fireTree.node50
+  var sel2 = IUniversalIn.fireTree.node50
+
+
+  if (sel.active) {
+    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Gear</div>
+                 <div class="topRight absolute padding2 grey">50</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Heat <span class="boldBlackBorder">×${format(f(sel2.effect), 2)}</span> every second</span></div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Resets when Universe Furnace reduces Heat (<span class="boldBlackBorder">${IUniversal.heatTimer}s</span>)</div>
+                                                        <div class="line"></div>
+                                                        <div class=""><span class="boldBlackBorder">${format(f(f(sel.timer).minus(f(sel.currentTimer))), 1)}s</span> remaining</div>
+                                                        <div">Heat <span class="boldBlackBorder">×${format(f(f(sel2.effect2)), 1)}</span></div>
+                                                        <div></div>
+                 </div>`
+  } else {
+    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Gear</div>
+                 <div class="topRight absolute padding2 grey">50</div>
+                 <div class="centerDiv padding1 column"><div>Multiply Heat automatically</div>
+                 </div>`
+  }
+
+  if (sel.active) {
+    unlockShow("content2_17_node50_button", false)
+    sel2.button = ``
+  } else {
+    unlockShow("content2_17_node50_button", true)
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire Shards</div>`
+  }
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 51
+  var sel = IUniversal.fireTree.node51
+  var sel2 = IUniversalIn.fireTree.node51
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Entropy Distorter</div>
+                  <div class="topRight absolute padding2 grey">51</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>+1s (<span class="boldBlackBorder">${format(f(sel2.effect), 0)}s</span>) to Heat reduction delay</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire Shards</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 52
+  var sel = IUniversal.fireTree.node52
+  var sel2 = IUniversalIn.fireTree.node52
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Dents</div>
+                 <div class="topRight absolute padding2 grey">52</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09">
+                 <div>Gear effect +0.03 </div>
+                 <div><span class="boldBlackBorder">(Gear effect: ${format(f(IUniversalIn.fireTree.node50.effect), 2)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire Shards</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 53
+  var sel = IUniversal.fireTree.node53
+  var sel2 = IUniversalIn.fireTree.node53
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Vacum Chamber</div>
+                 <div class="topRight absolute padding2 grey">53</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09">
+                    <div>Heat reduction -0.05</div>
+                    <div">(Heat reduction:<span class="boldBlackBorder"> /${format(f(IUniversalIn.fireTree.node27.effect2), 2)}</span>)</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire Shards</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+
+  //NODE 54
+  var sel = IUniversal.fireTree.node54
+  var sel2 = IUniversalIn.fireTree.node54
+
+
+  if (sel.active) {
+    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Ash Dynamo</div>
+                 <div class="topRight absolute padding2 grey">54</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>When Gear resets, add <span class="boldBlackBorder">${format(f(sel2.effect))}</span> Rotation</div>
+                 <div class="centerDiv padding1 column fontSize09"><div><span class="boldBlackBorder">${format(f(IUniversal.rotation), 1)}</span> Rotations</div>
+                 </div>`
+  } else {
+    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Ash Dynamo</div>
+                 <div class="topRight absolute padding2 grey">54</div>
+                 <div class="centerDiv padding1 column"><div>Every time Gear resets, add rotation</div>
+                 </div>`
+  }
+
+  if (sel.active) {
+    unlockShow("content2_17_node54_button", false)
+    sel2.button = ``
+  } else {
+    unlockShow("content2_17_node54_button", true)
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire Shards</div>`
+  }
+
+
+  //NODE 55
+  var sel = IUniversal.fireTree.node55
+  var sel2 = IUniversalIn.fireTree.node55
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Solar Flare</div>
+                  <div class="topRight absolute padding2 grey">55</div>
+                  <div class="centerDiv padding1 column fontSize09"><div><span class="boldBlackBorder">${format(f(sel.level), 0)}</span>&nbsp;Rotation sacrificed</div>
+                                                 <div>Fire/s<span class="boldBlackBorder"> ×${format(f(sel2.effect), 1)}</span>&nbsp;</div>
+                  
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">Sacrifice</div>
+                <div class="centerDiv noClick">Rotation</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+
+  //NODE 56
+  var sel = IUniversal.fireTree.node56
+  var sel2 = IUniversalIn.fireTree.node56
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Circular Extraction</div>
+                 <div class="topRight absolute padding2 grey">56</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                                  <div class="centerDiv padding1 column fontSize09"><div>Fire Shards ×Rotation <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire Shards</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+
+  //NODE 57
+  var sel = IUniversal.fireTree.node57
+  var sel2 = IUniversalIn.fireTree.node57
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Orbital Dynamic</div>
+                 <div class="topRight absolute padding2 grey">57</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Rotation ×5 <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire Shards</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 58
+  var sel = IUniversal.fireTree.node58
+  var sel2 = IUniversalIn.fireTree.node58
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Forest Destroyer</div>
+                 <div class="topRight absolute padding2 grey">58</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Sacrifice <span class="boldBlackBorder">${format(f(sel2.effect).mul(f(100)))}%</span> of Wood every second for free</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 59
+  var sel = IUniversal.fireTree.node59
+  var sel2 = IUniversalIn.fireTree.node59
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Mine Eater</div>
+                 <div class="topRight absolute padding2 grey">59</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Sacrifice <span class="boldBlackBorder">${format(f(sel2.effect).mul(f(100)))}%</span> of Coal every second for free</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 60
+  var sel = IUniversal.fireTree.node60
+  var sel2 = IUniversalIn.fireTree.node60
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Fire Lord</div>
+                 <div class="topRight absolute padding2 grey">60</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Sacrifice <span class="boldBlackBorder">${format(f(sel2.effect).mul(f(100)))}%</span> of Magma every second for free</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 61
+  var sel = IUniversal.fireTree.node61
+  var sel2 = IUniversalIn.fireTree.node61
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Universal Bonfire</div>
+                 <div class="topRight absolute padding2 grey">61</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Universal Nodes ×2 <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 62
+  var sel = IUniversal.fireTree.node62
+  var sel2 = IUniversalIn.fireTree.node62
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Fire Black Holes</div>
+                 <div class="topRight absolute padding2 grey">62</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Universal Cores ×2 <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 63
+  var sel = IUniversal.fireTree.node63
+  var sel2 = IUniversalIn.fireTree.node63
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Concentric Gears</div>
+                 <div class="topRight absolute padding2 grey">63</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Gear effect +0.01 <span class="boldBlackBorder">(+${format(f(sel2.effect), 2)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire Shards</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 64
+  var sel = IUniversal.fireTree.node64
+  var sel2 = IUniversalIn.fireTree.node64
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Neutron Press</div>
+                 <div class="topRight absolute padding2 grey">64</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Gravity Press multi ×1.1 <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire Shards</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+
+  //WATER TREE
+
+  //NODE 1
+  var sel = IUniversal.waterTree.node1
+  var sel2 = IUniversalIn.waterTree.node1
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Water Rift</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">1</div>
+                  <div class="centerDiv padding2 fontSize09">Water/s ×2(<span class="boldBlackBorder">×${format(f(sel2.effect), 1)}</span>)&nbsp;</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Universal Cores</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 2
+  var sel = IUniversal.waterTree.node2
+  var sel2 = IUniversalIn.waterTree.node2
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Water Sorcerers</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+                  <div class="topRight absolute padding2 grey">2</div>
+                  <div class="centerDiv padding2 fontSize09">Water/s&nbsp<span class="boldBlackBorder">+${format(f(sel2.effect), 1)}</span>&nbsp;</div>
+                 </div>`
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Water</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 3
+  var sel = IUniversal.waterTree.node3
+  var sel2 = IUniversalIn.waterTree.node3
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Water Density</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">3</div>
+                  <div class="centerDiv padding2 fontSize09">Water Max +10 (<span class="boldBlackBorder">+${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Water</div>`
+
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 4
+  var sel = IUniversal.waterTree.node4
+  var sel2 = IUniversalIn.waterTree.node4
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Erosion</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+                  <div class="topRight absolute padding2 grey">4</div>
+                  <div class="centerDiv padding2 fontSize09">Water Max ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Water</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 5
+  var sel = IUniversal.waterTree.node5
+  var sel2 = IUniversalIn.waterTree.node5
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Water Lich</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">5</div>
+                  <div class="centerDiv padding2 fontSize09">Water/s ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Water</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 6
+  var sel = IUniversal.waterTree.node6
+  var sel2 = IUniversalIn.waterTree.node6
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Erbs</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">6</div>
+                  <div class="centerDiv padding2 fontSize09">Produce Erbs and Craft potions</div>
+                 </div>`
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Water</div>`
+
+  if (f(sel.level).equals(f(sel2.maxLevel))) {
+    unlockShow("content2_19_node6_button", false)
+
+    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Erbs</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">6</div>
+                  <div class="centerDiv padding2 fontSize09">
+                      <span class="boldBlackBorder">${format(f(IUniversal.erbs), 0)}/${format(f(IUniversal.erbsMax), 0)}</span>&nbsp;Erbs</div>
+                  <div class="centerDiv padding1 column fontSize09"><div><span class="boldBlackBorder">${format(sec(f(IUniversal.erbsProd), 1))}</span> Erbs/s</div>
+                 </div>
+                <div class="line"></div>
+                <div class="centerDiv padding1 column fontSize09">Training potions unlocked</div>`
+  } else {
+    unlockShow("content2_19_node6_button", true)
+
+  }
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 7
+  var sel = IUniversal.waterTree.node7
+  var sel2 = IUniversalIn.waterTree.node7
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Garden</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+                  <div class="topRight absolute padding2 grey">7</div>
+                  <div class="centerDiv padding2 fontSize09">Erbs/s ×1.35 (<span class="boldBlackBorder">×${format(f(sel2.effect), 1)}</span>)&nbsp;</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Water</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 8
+  var sel = IUniversal.waterTree.node8
+  var sel2 = IUniversalIn.waterTree.node8
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Herbarium</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">8</div>
+                  <div class="centerDiv padding2 fontSize09">Erbs Max +10 (<span class="boldBlackBorder">+${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Water</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 9
+  var sel = IUniversal.waterTree.node9
+  var sel2 = IUniversalIn.waterTree.node9
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Magic Lands</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+                  <div class="topRight absolute padding2 grey">9</div>
+                  <div class="centerDiv padding2 fontSize09">Erbs Max ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Water</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 10
+  var sel = IUniversal.waterTree.node10
+  var sel2 = IUniversalIn.waterTree.node10
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Fluid Fire</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">10</div>
+                  <div class="centerDiv padding2 fontSize09">Produce Fluid Fire and Craft potions</div>
+                 </div>`
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Elixir</div>`
+
+  if (f(sel.level).equals(f(sel2.maxLevel))) {
+    unlockShow("content2_19_node10_button", false)
+
+    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Fluid Fire</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">10</div>
+                  <div class="centerDiv padding2 fontSize09">
+                      <span class="boldBlackBorder">${format(f(IUniversal.fluidFire), 0)}/${format(f(IUniversal.fluidFireMax), 0)}</span>&nbsp;Fluid Fire</div>
+                  <div class="centerDiv padding1 column fontSize09"><div><span class="boldBlackBorder">${format(sec(f(IUniversal.fluidFireProd), 1))}</span> Fluid Fire/s</div>
+                 </div>
+                <div class="line"></div>
+                <div class="centerDiv padding1 column fontSize09">Hunting potions unlocked</div>`
+  } else {
+    unlockShow("content2_19_node10_button", true)
+
+  }
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 11
+  var sel = IUniversal.waterTree.node11
+  var sel2 = IUniversalIn.waterTree.node11
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Diluted Flame</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+                  <div class="topRight absolute padding2 grey">11</div>
+                  <div class="centerDiv padding2 fontSize09">Fluid Fire/s ×1.35 (<span class="boldBlackBorder">×${format(f(sel2.effect), 1)}</span>)&nbsp;</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Elixir</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 12
+  var sel = IUniversal.waterTree.node12
+  var sel2 = IUniversalIn.waterTree.node12
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Eternal Flame</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">12</div>
+                  <div class="centerDiv padding2 fontSize09">Fluid Fire Max +10 (<span class="boldBlackBorder">+${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Elixir</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 13
+  var sel = IUniversal.waterTree.node13
+  var sel2 = IUniversalIn.waterTree.node13
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Anti Evaporation</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+                  <div class="topRight absolute padding2 grey">13</div>
+                  <div class="centerDiv padding2 fontSize09">Fluid Fire Max ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Elixir</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 14
+  var sel = IUniversal.waterTree.node14
+  var sel2 = IUniversalIn.waterTree.node14
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Water Gem</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">14</div>
+                  <div class="centerDiv padding2 fontSize09">Produce Water Gem and Craft potions</div>
+                 </div>`
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Ambrosia</div>`
+
+  if (f(sel.level).equals(f(sel2.maxLevel))) {
+    unlockShow("content2_19_node14_button", false)
+
+    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Water Gem</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">14</div>
+                  <div class="centerDiv padding2 fontSize09">
+                      <span class="boldBlackBorder">${format(f(IUniversal.waterGem), 0)}/${format(f(IUniversal.waterGemMax), 0)}</span>&nbsp;Water Gem</div>
+                  <div class="centerDiv padding1 column fontSize09"><div><span class="boldBlackBorder">${format(sec(f(IUniversal.waterGemProd), 1))}</span> Water Gem/s</div>
+                 </div>
+                <div class="line"></div>
+                <div class="centerDiv padding1 column fontSize09">Attributes potions unlocked</div>`
+  } else {
+    unlockShow("content2_19_node14_button", true)
+
+  }
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 15
+  var sel = IUniversal.waterTree.node15
+  var sel2 = IUniversalIn.waterTree.node15
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Perma Glacier</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+                  <div class="topRight absolute padding2 grey">15</div>
+                  <div class="centerDiv padding2 fontSize09">Water Gem/s ×1.5 (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)&nbsp; </div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Ambrosia</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 16
+  var sel = IUniversal.waterTree.node16
+  var sel2 = IUniversalIn.waterTree.node16
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Smaller Gem</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">16</div>
+                  <div class="centerDiv padding2 fontSize09">Water Gem Max +10 (<span class="boldBlackBorder">+${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Ambrosia</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 17
+  var sel = IUniversal.waterTree.node17
+  var sel2 = IUniversalIn.waterTree.node17
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Gem Inclusion</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+                  <div class="topRight absolute padding2 grey">17</div>
+                  <div class="centerDiv padding2 fontSize09">Water Gem Max ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Ambrosia</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 18
+  var sel = IUniversal.waterTree.node18
+  var sel2 = IUniversalIn.waterTree.node18
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Pyrofrost</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">18</div>
+                  <div class="centerDiv padding2 fontSize09">Produce Pyrofrost and Craft potions</div>
+                 </div>`
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Ambrosia</div>`
+
+  if (f(sel.level).equals(f(sel2.maxLevel))) {
+    unlockShow("content2_19_node18_button", false)
+
+    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Pyrofrost</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">18</div>
+                  <div class="centerDiv padding2 fontSize09">
+                      <span class="boldBlackBorder">${format(f(IUniversal.pyroFrost), 0)}/${format(f(IUniversal.pyroFrostMax), 0)}</span>&nbsp;Pyrofrost</div>
+                  <div class="centerDiv padding1 column fontSize09"><div><span class="boldBlackBorder">${format(sec(f(IUniversal.pyroFrostProd), 1))}</span> Pyrofrost/s</div>
+                 </div>
+                <div class="line"></div>
+                <div class="centerDiv padding1 column fontSize09">Challenger potions unlocked</div>`
+  } else {
+    unlockShow("content2_19_node18_button", true)
+
+  }
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 19
+  var sel = IUniversal.waterTree.node19
+  var sel2 = IUniversalIn.waterTree.node19
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Ambivalent Cycle</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+                  <div class="topRight absolute padding2 grey">19</div>
+                  <div class="centerDiv padding2 fontSize09">Pyrofrost/s ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Erbs</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 20
+  var sel = IUniversal.waterTree.node20
+  var sel2 = IUniversalIn.waterTree.node20
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Contrasting Growth</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">20</div>
+                  <div class="centerDiv padding2 fontSize09">Pyrofrost Max +10 (<span class="boldBlackBorder">+${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fluid Fire</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 21
+  var sel = IUniversal.waterTree.node21
+  var sel2 = IUniversalIn.waterTree.node21
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Glacial Hell</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+                  <div class="topRight absolute padding2 grey">21</div>
+                  <div class="centerDiv padding2 fontSize09">Pyrofrost Max ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Water Gem</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 22
+  var sel = IUniversal.waterTree.node22
+  var sel2 = IUniversalIn.waterTree.node22
+
+
+  if (sel.active) {
+    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Purification</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">22</div>
+                  <div class="centerDiv padding2 fontSize09">Water can be higher than Max, with lower Water/s</div>
+                  <div class="centerDiv padding2 fontSize09">Water/s &nbsp;<span class="boldBlackBorder">/${format(f(1).dividedBy(f(f(sel2.effect))))}</span></div>
+                 </div>`
+
+
+
+    unlockShow("content2_19_node22_button", false)
+    sel2.button = ``
+  } else {
+    unlockShow("content2_19_node22_button", true)
+    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Purification</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">22</div>
+                  <div class="centerDiv padding2 fontSize09">Water can be higher than Max, with lower Water/s</div>
+                 </div>`
+
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Water</div>`
+  }
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 23
+  var sel = IUniversal.waterTree.node23
+  var sel2 = IUniversalIn.waterTree.node23
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Runic Container</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">23</div>
+                  <div class="centerDiv padding2 fontSize09">Elixir Max +10 (<span class="boldBlackBorder">+${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Water</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 24
+  var sel = IUniversal.waterTree.node24
+  var sel2 = IUniversalIn.waterTree.node24
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Pure Magic</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+                  <div class="topRight absolute padding2 grey">24</div>
+                  <div class="centerDiv padding2 fontSize09">Elixir Max ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Water</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 25
+  var sel = IUniversal.waterTree.node25
+  var sel2 = IUniversalIn.waterTree.node25
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Mage Tower</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+                  <div class="topRight absolute padding2 grey">25</div>
+                  <div class="centerDiv padding2 fontSize09">Elixir/s&nbsp;<span class="boldBlackBorder">+${format(f(sel2.effect), 1)}</span></div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Water</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 26
+  var sel = IUniversal.waterTree.node26
+  var sel2 = IUniversalIn.waterTree.node26
+
+
+  if (sel.active) {
+    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Unbound Elixir</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">26</div>
+                  <div class="centerDiv padding2 fontSize09">Elixir can be higher than Max, with lower Elixir/s</div>
+                  <div class="centerDiv padding2 fontSize09">Elixir/s &nbsp;<span class="boldBlackBorder">/${format(f(1).dividedBy(f(sel2.effect)))}</span></div>
+                 </div>`
+
+
+
+    unlockShow("content2_19_node26_button", false)
+    sel2.button = ``
+  } else {
+    unlockShow("content2_19_node26_button", true)
+    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Unbound Elixir</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">26</div>
+                  <div class="centerDiv padding2 fontSize09">Elixir can be higher than Max, with lower Elixir/s</div>
+                 </div>`
+
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Elixir</div>`
+  }
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 27
+  var sel = IUniversal.waterTree.node27
+  var sel2 = IUniversalIn.waterTree.node27
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Vessel</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">27</div>
+                  <div class="centerDiv padding2 fontSize09">Ambrosia Max +10 (<span class="boldBlackBorder">+${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Elixir</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 28
+  var sel = IUniversal.waterTree.node28
+  var sel2 = IUniversalIn.waterTree.node28
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Mythril Flask</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+                  <div class="topRight absolute padding2 grey">28</div>
+                  <div class="centerDiv padding2 fontSize09">Ambrosia Max ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Elixir</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 29
+  var sel = IUniversal.waterTree.node29
+  var sel2 = IUniversalIn.waterTree.node29
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Deverin's Gift</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+                  <div class="topRight absolute padding2 grey">29</div>
+                  <div class="centerDiv padding2 fontSize09">Ambrosia/s&nbsp<span class="boldBlackBorder">+${format(f(sel2.effect), 1)}</span></div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Elixir</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 30
+  var sel = IUniversal.waterTree.node30
+  var sel2 = IUniversalIn.waterTree.node30
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">MagiTea</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">30</div>
+                  <div class="centerDiv padding2 fontSize09">Water Max ×1.2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 1)}</span>)&nbsp;</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Erbs</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 31
+  var sel = IUniversal.waterTree.node31
+  var sel2 = IUniversalIn.waterTree.node31
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Forbidden Water</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">31</div>
+                  <div class="centerDiv padding2 fontSize09">Water Max ×1.2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 1)}</span>)&nbsp;</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fluid Fire</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 32
+  var sel = IUniversal.waterTree.node32
+  var sel2 = IUniversalIn.waterTree.node32
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Crystal Spring</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">32</div>
+                  <div class="centerDiv padding2 fontSize09">Water Max ×1.2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 1)}</span>)&nbsp;</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Water Gem</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 33
+  var sel = IUniversal.waterTree.node33
+  var sel2 = IUniversalIn.waterTree.node33
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Concoction</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">33</div>
+                  <div class="centerDiv padding2 fontSize09">Water Max ×1.2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 1)}</span>)&nbsp;</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">PyroFrost</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 34
+  var sel = IUniversal.waterTree.node34
+  var sel2 = IUniversalIn.waterTree.node34
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Alchemist Pot</div>
+                  <div class="topRight absolute padding2 grey">34</div>
+                  <div class="centerDiv padding2 fontSize09">Unlock Potion Source</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Water</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 35
+  var sel = IUniversal.waterTree.node35
+  var sel2 = IUniversalIn.waterTree.node35
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Arcane Distillation</div>
+                  <div class="topRight absolute padding2 grey">35</div>
+                  <div class="centerDiv padding2 fontSize09">Unlock Potion Fusion</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Elixir</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 36
+  var sel = IUniversal.waterTree.node36
+  var sel2 = IUniversalIn.waterTree.node36
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Runic Pot</div>
+                  <div class="topRight absolute padding2 grey">36</div>
+                  <div class="centerDiv padding2 fontSize09">Unlock new Potion Sources</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Elixir</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 37
+  var sel = IUniversal.waterTree.node37
+  var sel2 = IUniversalIn.waterTree.node37
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Heavens Pot</div>
+                  <div class="topRight absolute padding2 grey">37</div>
+                  <div class="centerDiv padding2 fontSize09">Unlock new Potion Sources</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Ambrosia</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 38
+  var sel = IUniversal.waterTree.node38
+  var sel2 = IUniversalIn.waterTree.node38
+
+
+  if (sel.active) {
+    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Everflowing Divinity</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">38</div>
+                  <div class="centerDiv padding2 fontSize09">Ambrosia can be higher than Max, with lower Ambrosia/s</div>
+                  <div class="centerDiv padding2 fontSize09">Ambrosia/s &nbsp;<span class="boldBlackBorder">/${format(f(1).dividedBy(f(sel2.effect)))}</span></div>
+                 </div>`
+
+
+
+    unlockShow("content2_19_node38_button", false)
+    sel2.button = ``
+  } else {
+    unlockShow("content2_19_node38_button", true)
+    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Everflowing Divinity</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">38</div>
+                  <div class="centerDiv padding2 fontSize09">Ambrosia can be higher than Max, with lower Ambrosia/s</div>
+                 </div>`
+
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Ambrosia</div>`
+  }
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 39
+
+  var sel = IUniversal.waterTree.node39
+  var sel2 = IUniversalIn.waterTree.node39
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Life Inscriber</div>
+                  <div class="topRight absolute padding2 grey">39</div>
+                  <div class="centerDiv padding2 fontSize09">Unlock Earth Tab in Sky</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Ambrosia</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //Potion Effects
+  //EFFECT 1
+  IUniversalIn.potionEffects.effect1.content = `Damage Training <span class="boldBlackBorder">×${format(f(IUniversalIn.potionEffects.effect1.value))}</span> (${format(f(ITrainingIn.base.base1.prod))})`
+
+  //EFFECT 2
+  IUniversalIn.potionEffects.effect2.content = `Life Training <span class="boldBlackBorder">×${format(f(IUniversalIn.potionEffects.effect2.value))}</span> (${format(f(ITrainingIn.base.base2.prod))})`
+
+  //EFFECT 3
   IUniversalIn.potionEffects.effect3.content = `<span class="boldBlackBorder">${format(f(IUniversalIn.potionEffects.effect3.value))} Accumulation/s</span>`
 
   //EFFECT 4
-  var potionLevel = getMatchingPotionLevel(IUniversal.potionSource.item2.key, "source", "source")
-
-  var effectLevel = getMatchingEffectTier(IUniversal.potionSource.item2.key, "source", "source")
-
-  IUniversalIn.potionEffects.effect4.valueFormula = function (potionLevel = 0, effectLevel = 1) { return f(f(5).add(f(f(5).mul(f(effectLevel).minus(f(1)))))).pow(f(potionLevel).add(f(1))) }
-  if (potionLevel == null && effectLevel == null) {
-    IUniversalIn.potionEffects.effect4.activeValue = f(0)
-  } else {
-    IUniversalIn.potionEffects.effect4.activeValue = f(f(5).add(f(f(5).mul(f(effectLevel).minus(f(1)))))).pow(f(potionLevel).add(f(1)))
-  }
-  IUniversalIn.potionEffects.effect4.value = IUniversalIn.potionEffects.effect4.valueFormula()
-
-  IUniversalIn.potionEffects.effect4.contentFormula = function () { return `<span class="boldBlackBorder">${format(f(this.value))}</span> Accumulation/s` }
   IUniversalIn.potionEffects.effect4.content = `<span class="boldBlackBorder">${format(f(IUniversalIn.potionEffects.effect4.value))} Accumulation/s</span>`
 
   //EFFECT 5
-  var potionLevel = getMatchingPotionLevel(IUniversal.potionSource.item3.key, "source", "source")
-
-  var effectLevel = getMatchingEffectTier(IUniversal.potionSource.item3.key, "source", "source")
-
-  IUniversalIn.potionEffects.effect5.valueFormula = function (potionLevel = 0, effectLevel = 1) { return f(f(5).add(f(f(5).mul(f(effectLevel).minus(f(1)))))).pow(f(potionLevel).add(f(1))) }
-  if (potionLevel == null && effectLevel == null) {
-    IUniversalIn.potionEffects.effect5.activeValue = f(0)
-  } else {
-    IUniversalIn.potionEffects.effect5.activeValue = f(f(5).add(f(f(5).mul(f(effectLevel).minus(f(1)))))).pow(f(potionLevel).add(f(1)))
-  }
-  IUniversalIn.potionEffects.effect5.value = IUniversalIn.potionEffects.effect5.valueFormula()
-
-  IUniversalIn.potionEffects.effect5.contentFormula = function () { return `<span class="boldBlackBorder">${format(f(this.value))}</span> Accumulation/s` }
   IUniversalIn.potionEffects.effect5.content = `<span class="boldBlackBorder">${format(f(IUniversalIn.potionEffects.effect5.value))} Accumulation/s</span>`
 
   //EFFECT 6
-  var potionLevel = getMatchingPotionLevel(IUniversal.potionSource.item4.key, "source", "source")
-
-  var effectLevel = getMatchingEffectTier(IUniversal.potionSource.item4.key, "source", "source")
-
-  IUniversalIn.potionEffects.effect6.valueFormula = function (potionLevel = 0, effectLevel = 1) { return f(f(5).add(f(f(5).mul(f(effectLevel).minus(f(1)))))).pow(f(potionLevel).add(f(1))) }
-  if (potionLevel == null && effectLevel == null) {
-    IUniversalIn.potionEffects.effect6.activeValue = f(0)
-  } else {
-    IUniversalIn.potionEffects.effect6.activeValue = f(f(5).add(f(f(5).mul(f(effectLevel).minus(f(1)))))).pow(f(potionLevel).add(f(1)))
-  }
-  IUniversalIn.potionEffects.effect6value = IUniversalIn.potionEffects.effect6.valueFormula()
-
-  IUniversalIn.potionEffects.effect6.contentFormula = function () { return `<span class="boldBlackBorder">${format(f(this.value))}</span> Accumulation/s` }
   IUniversalIn.potionEffects.effect6.content = `<span class="boldBlackBorder">${format(f(IUniversalIn.potionEffects.effect6.value))} Accumulation/s</span>`
 
   //EFFECT 7
-  var potionLevel = getMatchingPotionLevel(IUniversal.potionSource.item5.key, "source", "source")
-
-  var effectLevel = getMatchingEffectTier(IUniversal.potionSource.item5.key, "source", "source")
-
-  IUniversalIn.potionEffects.effect7.valueFormula = function (potionLevel = 0, effectLevel = 1) { f(f(5).add(f(f(5).mul(f(effectLevel).minus(f(1)))))).pow(f(potionLevel).add(f(1))) }
-  if (potionLevel == null && effectLevel == null) {
-    IUniversalIn.potionEffects.effect7.activeValue = f(0)
-  } else {
-    IUniversalIn.potionEffects.effect7.activeValue = f(f(5).add(f(f(5).mul(f(effectLevel).minus(f(1)))))).pow(f(potionLevel).add(f(1)))
-  }
-  IUniversalIn.potionEffects.effect7.value = IUniversalIn.potionEffects.effect7.valueFormula()
-
-  IUniversalIn.potionEffects.effect7.contentFormula = function () { return `<span class="boldBlackBorder">${format(f(this.value))}</span> Accumulation/s` }
   IUniversalIn.potionEffects.effect7.content = `<span class="boldBlackBorder">${format(f(IUniversalIn.potionEffects.effect7.value))} Accumulation/s</span>`
 
   //EFFECT 8
-  var potionLevel = getMatchingPotionLevel(IUniversal.potionSource.item6.key, "source", "source")
-
-  var effectLevel = getMatchingEffectTier(IUniversal.potionSource.item6.key, "source", "source")
-
-  IUniversalIn.potionEffects.effect8.valueFormula = function (potionLevel = 0, effectLevel = 1) { return f(f(5).add(f(f(5).mul(f(effectLevel).minus(f(1)))))).pow(f(potionLevel).add(f(1))) }
-  if (potionLevel == null && effectLevel == null) {
-    IUniversalIn.potionEffects.effect8.activeValue = f(0)
-  } else {
-    IUniversalIn.potionEffects.effect8.activeValue = f(f(5).add(f(f(5).mul(f(effectLevel).minus(f(1)))))).pow(f(potionLevel).add(f(1)))
-  }
-  IUniversalIn.potionEffects.effect8.value = IUniversalIn.potionEffects.effect8.valueFormula()
-
-  IUniversalIn.potionEffects.effect8.contentFormula = function () { return `<span class="boldBlackBorder">${format(f(this.value))}</span> Accumulation/s` }
   IUniversalIn.potionEffects.effect8.content = `<span class="boldBlackBorder">${format(f(IUniversalIn.potionEffects.effect8.value))} Accumulation/s</span>`
 
   //EFFECT 9
-  var potionLevel = getPotionLevel("will_training", "equipment")
-
-  var effectLevel = getPotionEffectTier("will_training", "equipment")
-
-  IUniversalIn.potionEffects.effect9.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(1.5).add(f(0.5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
-  if (potionLevel == null && effectLevel == null) {
-    IUniversalIn.potionEffects.effect9.activeValue = f(1)
-  } else {
-    IUniversalIn.potionEffects.effect9.activeValue = (f(1.5).add(f(0.5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
-  }
-  IUniversalIn.potionEffects.effect9.value = IUniversalIn.potionEffects.effect9.valueFormula()
-
-  IUniversalIn.potionEffects.effect9.contentFormula = function () { return `Will Training <span class="boldBlackBorder">×${format(f(this.value))}</span> (${format(f(ITrainingIn.base.base3.prod))})` }
   IUniversalIn.potionEffects.effect9.content = `Will Training <span class="boldBlackBorder">×${format(f(IUniversalIn.potionEffects.effect9.value))}</span> (${format(f(ITrainingIn.base.base3.prod))})`
 
   //EFFECT 10
-  var potionLevel = getPotionLevel("insight_training", "equipment")
-
-  var effectLevel = getPotionEffectTier("insight_training", "equipment")
-
-  IUniversalIn.potionEffects.effect10.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(1.5).add(f(0.5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
-  if (potionLevel == null && effectLevel == null) {
-    IUniversalIn.potionEffects.effect10.activeValue = f(1)
-  } else {
-    IUniversalIn.potionEffects.effect10.activeValue = (f(1.5).add(f(0.5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
-  }
-  IUniversalIn.potionEffects.effect10.value = IUniversalIn.potionEffects.effect10.valueFormula()
-
-  IUniversalIn.potionEffects.effect10.contentFormula = function () { return `Insight Training <span class="boldBlackBorder">×${format(f(this.value))}</span> (${format(f(ITrainingIn.base.base4.prod))})` }
   IUniversalIn.potionEffects.effect10.content = `Insight Training <span class="boldBlackBorder">×${format(f(IUniversalIn.potionEffects.effect10.value))}</span> (${format(f(ITrainingIn.base.base4.prod))})`
 
   //EFFECT 11
-  var potionLevel = getPotionLevel("huntPrice_hunting", "equipment")
-
-  var effectLevel = getPotionEffectTier("huntPrice_hunting", "equipment")
-
-  IUniversalIn.potionEffects.effect11.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(3).add(f(3).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
-  if (potionLevel == null && effectLevel == null) {
-    IUniversalIn.potionEffects.effect11.activeValue = f(1)
-  } else {
-    IUniversalIn.potionEffects.effect11.activeValue = (f(3).add(f(3).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
-  }
-  IUniversalIn.potionEffects.effect11.value = IUniversalIn.potionEffects.effect11.valueFormula()
-
-  IUniversalIn.potionEffects.effect11.contentFormula = function () { return `Hunts Price <span class="boldBlackBorder">/${format(f(this.value))}</span>` }
   IUniversalIn.potionEffects.effect11.content = `Hunts Price <span class="boldBlackBorder">/${format(f(IUniversalIn.potionEffects.effect11.value))}</span>`
 
   //EFFECT 12
-  var potionLevel = getPotionLevel("huntEssence_hunting", "equipment")
-
-  var effectLevel = getPotionEffectTier("huntEssence_hunting", "equipment")
-
-  IUniversalIn.potionEffects.effect12.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(3).add(f(3).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
-  if (potionLevel == null && effectLevel == null) {
-    IUniversalIn.potionEffects.effect12.activeValue = f(1)
-  } else {
-    IUniversalIn.potionEffects.effect12.activeValue = (f(3).add(f(3).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
-  }
-  IUniversalIn.potionEffects.effect12.value = IUniversalIn.potionEffects.effect12.valueFormula()
-
-  IUniversalIn.potionEffects.effect12.contentFormula = function () { return `Hunts Essence/s <span class="boldBlackBorder">×${format(f(this.value))}</span> (${format(f(IGameData.essenceProd))})` }
   IUniversalIn.potionEffects.effect12.content = `Hunts Essence/s <span class="boldBlackBorder">×${format(f(IUniversalIn.potionEffects.effect12.value))}</span> (${format(f(IGameData.essenceProd))})`
 
   //EFFECT 13
-  var potionLevel = getPotionLevel("huntUpgradePrice_hunting", "equipment")
-
-  var effectLevel = getPotionEffectTier("huntUpgradePrice_hunting", "equipment")
-
-  IUniversalIn.potionEffects.effect13.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(5).add(f(5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
-  if (potionLevel == null && effectLevel == null) {
-    IUniversalIn.potionEffects.effect13.activeValue = f(1)
-  } else {
-    IUniversalIn.potionEffects.effect13.activeValue = (f(5).add(f(5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
-  }
-  IUniversalIn.potionEffects.effect13.value = IUniversalIn.potionEffects.effect13.valueFormula()
-
-  IUniversalIn.potionEffects.effect13.contentFormula = function () { return `Hunt upgrades Price <span class="boldBlackBorder">/${format(f(this.value))}</span>` }
   IUniversalIn.potionEffects.effect13.content = `Hunt upgrades Price <span class="boldBlackBorder">/${format(f(IUniversalIn.potionEffects.effect13.value))}</span>`
 
   //EFFECT 14
-  var potionLevel = getPotionLevel("criticalRegeneration_attributes", "equipment")
-
-  var effectLevel = getPotionEffectTier("criticalRegeneration_attributes", "equipment")
-
-  IUniversalIn.potionEffects.effect14.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(4).add(f(4).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
-  if (potionLevel == null && effectLevel == null) {
-    IUniversalIn.potionEffects.effect14.activeValue = f(1)
-  } else {
-    IUniversalIn.potionEffects.effect14.activeValue = (f(4).add(f(4).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
-  }
-  IUniversalIn.potionEffects.effect14.value = IUniversalIn.potionEffects.effect14.valueFormula()
-
-  IUniversalIn.potionEffects.effect14.contentFormula = function () { return `Critical and Life Regeneration Points <span class="boldBlackBorder">×${format(f(this.value))}</span>` }
   IUniversalIn.potionEffects.effect14.content = `Critical and Life Regeneration points <span class="boldBlackBorder">×${format(f(IUniversalIn.potionEffects.effect14.value))}</span>`
 
-
   //EFFECT 15
-  var potionLevel = getPotionLevel("defencePenDefence_attributes", "equipment")
-
-  var effectLevel = getPotionEffectTier("defencePenDefence_attributes", "equipment")
-
-  IUniversalIn.potionEffects.effect15.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(4).add(f(4).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
-  if (potionLevel == null && effectLevel == null) {
-    IUniversalIn.potionEffects.effect15.activeValue = f(1)
-  } else {
-    IUniversalIn.potionEffects.effect15.activeValue = (f(4).add(f(4).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
-  }
-  IUniversalIn.potionEffects.effect15.value = IUniversalIn.potionEffects.effect15.valueFormula()
-
-  IUniversalIn.potionEffects.effect15.contentFormula = function () { return `Defence Penetration and Defence points <span class="boldBlackBorder">×${format(f(this.value))}</span>` }
   IUniversalIn.potionEffects.effect15.content = `Defence Penetration and Defence points <span class="boldBlackBorder">×${format(f(IUniversalIn.potionEffects.effect15.value))}</span>`
 
-
   //EFFECT 16
-  var potionLevel = getPotionLevel("lifestealShield_attributes", "equipment")
-
-  var effectLevel = getPotionEffectTier("lifestealShield_attributes", "equipment")
-
-  IUniversalIn.potionEffects.effect16.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(4).add(f(4).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
-  if (potionLevel == null && effectLevel == null) {
-    IUniversalIn.potionEffects.effect16.activeValue = f(1)
-  } else {
-    IUniversalIn.potionEffects.effect16.activeValue = (f(4).add(f(4).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
-  }
-  IUniversalIn.potionEffects.effect16.value = IUniversalIn.potionEffects.effect16.valueFormula()
-
-  IUniversalIn.potionEffects.effect16.contentFormula = function () { return `Life Steal and Shield points <span class="boldBlackBorder">×${format(f(this.value))}</span>` }
   IUniversalIn.potionEffects.effect16.content = `Life Steal and Shield points <span class="boldBlackBorder">×${format(f(IUniversalIn.potionEffects.effect16.value))}</span>`
 
   //EFFECT 17
-  var potionLevel = getPotionLevel("challengerDamage_challenger", "equipment")
-
-  var effectLevel = getPotionEffectTier("challengerDamage_challenger", "equipment")
-
-  IUniversalIn.potionEffects.effect17.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(5).add(f(5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
-  if (potionLevel == null && effectLevel == null) {
-    IUniversalIn.potionEffects.effect17.activeValue = f(1)
-  } else {
-    IUniversalIn.potionEffects.effect17.activeValue = (f(5).add(f(5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
-  }
-
-  IUniversalIn.potionEffects.effect17.value = IUniversalIn.potionEffects.effect17.valueFormula()
-
-  IUniversalIn.potionEffects.effect17.contentFormula = function () { return `Challenger Damage <span class="boldBlackBorder">/${format(f(this.value))}</span> (${format(f(IFightIn.challengers.baseChallenger.damage))})` }
   IUniversalIn.potionEffects.effect17.content = `Challenger Damage <span class="boldBlackBorder">/${format(f(IUniversalIn.potionEffects.effect17.value))}</span> (${format(f(IFightIn.challengers.baseChallenger.damage))})`
+
   //EFFECT 18
-  var potionLevel = getPotionLevel("challengerLife_challenger", "equipment")
-
-  var effectLevel = getPotionEffectTier("challengerLife_challenger", "equipment")
-
-  IUniversalIn.potionEffects.effect18.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(5).add(f(5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
-  if (potionLevel == null && effectLevel == null) {
-    IUniversalIn.potionEffects.effect18.activeValue = f(1)
-  } else {
-    IUniversalIn.potionEffects.effect18.activeValue = (f(5).add(f(5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
-  }
-  IUniversalIn.potionEffects.effect18.value = IUniversalIn.potionEffects.effect18.valueFormula()
-
-  IUniversalIn.potionEffects.effect18.contentFormula = function () { return `Challenger Life <span class="boldBlackBorder">/${format(f(this.value))}</span> (${format(f(IFightIn.challengers.baseChallenger.life))})` }
   IUniversalIn.potionEffects.effect18.content = `Challenger Life <span class="boldBlackBorder">/${format(f(IUniversalIn.potionEffects.effect18.value))}</span> (${format(f(IFightIn.challengers.baseChallenger.life))})`
 
   //EFFECT 19
-  var potionLevel = getPotionLevel("universalChallenger_challenger", "equipment")
-
-  var effectLevel = getPotionEffectTier("universalChallenger_challenger", "equipment")
-
-  IUniversalIn.potionEffects.effect19.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(5).add(f(5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
-  if (potionLevel == null && effectLevel == null) {
-    IUniversalIn.potionEffects.effect19.activeValue = f(1)
-  } else {
-    IUniversalIn.potionEffects.effect19.activeValue = (f(5).add(f(5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
-  }
-  IUniversalIn.potionEffects.effect19.value = IUniversalIn.potionEffects.effect19.valueFormula()
-
-  IUniversalIn.potionEffects.effect19.contentFormula = function () { return `Universal Challenger is <span class="boldBlackBorder">${format(f(this.value))}</span> times weaker` }
   IUniversalIn.potionEffects.effect19.content = `Universal Challenger is <span class="boldBlackBorder">×${format(f(IUniversalIn.potionEffects.effect19.value))} times weaker</span>`
 
   //POTION SOURCE
 
   //source1
-  IUniversal.potionSource.item1.value1 = f(IUniversal.potionSource.item1.value1)
-  if (f(IUniversal.potionSource.item1.value1).gt(f(0))) {
-    IUniversalIn.potionSource.item1.value2 = (f(Decimal.log10(f(IUniversal.potionSource.item1.value1).add(f(10)))).minus(f(1))).pow(f(2))
-
-    if (f(IUniversalIn.potionSource.item1.value2).lt(f(1))) {
-      IUniversalIn.potionSource.item1.value2 = f(1)
-    }
-  } else {
-    IUniversalIn.potionSource.item1.value2 = f(1)
-  }
   IUniversalIn.potionSource.item1.content = `          <div class="square height30 width100 centerDiv column">
                                                           <div><span class="boldBlackBorder">${format(IUniversal.potionSource.item1.value1)}</span> Accumulation</div>
                                                           <div><span class="boldBlackBorder">${format(IUniversalIn.potionEffects.effect3.activeValue)}/s</span></div>
@@ -14390,19 +12727,6 @@ function valuesSetter(type) {
                                                           <div>Water/s <span class="boldBlackBorder">×${format(IUniversalIn.potionSource.item1.value2, 2)}</span></div>
                                                        </div>`
   //source2
-
-  IUniversal.potionSource.item2.value1 = f(IUniversal.potionSource.item2.value1)
-  if (f(IUniversal.potionSource.item2.value1).gt(f(0))) {
-
-    IUniversalIn.potionSource.item2.value2 = (f(Decimal.log10(f(IUniversal.potionSource.item2.value1).add(f(10)))).minus(f(1))).pow(f(2))
-
-    if (f(IUniversalIn.potionSource.item2.value2).lt(f(1))) {
-      IUniversalIn.potionSource.item2.value2 = f(1)
-    }
-  } else {
-    IUniversalIn.potionSource.item2.value2 = f(1)
-
-  }
   IUniversalIn.potionSource.item2.content = `          <div class="square height30 width100 centerDiv column">
                                                           <div><span class="boldBlackBorder">${format(IUniversal.potionSource.item2.value1)}</span> Accumulation</div>
                                                           <div><span class="boldBlackBorder">${format(IUniversalIn.potionEffects.effect4.activeValue)}/s</span></div>
@@ -14411,18 +12735,6 @@ function valuesSetter(type) {
                                                           <div>Water Max <span class="boldBlackBorder">×${format(IUniversalIn.potionSource.item2.value2, 2)}</span></div>
                                                        </div>`
   //source3
-
-  IUniversal.potionSource.item3.value1 = f(IUniversal.potionSource.item3.value1)
-  if (f(IUniversal.potionSource.item3.value1).gt(f(0))) {
-    IUniversalIn.potionSource.item3.value2 = ((f(Decimal.log10(f(IUniversal.potionSource.item3.value1).add(f(10)))).minus(f(1))).dividedBy(f(2))).pow(f(2))
-
-    if (f(IUniversalIn.potionSource.item3.value2).lt(f(1))) {
-      IUniversalIn.potionSource.item3.value2 = f(1)
-    }
-  } else {
-    IUniversalIn.potionSource.item3.value2 = f(1)
-
-  }
   IUniversalIn.potionSource.item3.content = `          <div class="square height30 width100 centerDiv column">
                                                           <div><span class="boldBlackBorder">${format(IUniversal.potionSource.item3.value1)}</span> Accumulation</div>
                                                           <div><span class="boldBlackBorder">${format(IUniversalIn.potionEffects.effect5.activeValue)}/s</span></div>
@@ -14430,21 +12742,7 @@ function valuesSetter(type) {
                                                        <div class="square height30 width100 centerDiv" >
                                                           <div>Elixir/s <span class="boldBlackBorder">×${format(IUniversalIn.potionSource.item3.value2, 2)}</span></div>
                                                        </div>`
-
   //source4
-
-  IUniversal.potionSource.item4.value1 = f(IUniversal.potionSource.item4.value1)
-  if (f(IUniversal.potionSource.item4.value1).gt(f(0))) {
-
-    IUniversalIn.potionSource.item4.value2 = ((f(Decimal.log10(f(IUniversal.potionSource.item4.value1).add(f(10)))).minus(f(1))).dividedBy(f(2))).pow(f(2))
-
-    if (f(IUniversalIn.potionSource.item4.value2).lt(f(1))) {
-      IUniversalIn.potionSource.item4.value2 = f(1)
-    }
-  } else {
-    IUniversalIn.potionSource.item4.value2 = f(1)
-
-  }
   IUniversalIn.potionSource.item4.content = `          <div class="square height30 width100 centerDiv column">
                                                           <div><span class="boldBlackBorder">${format(IUniversal.potionSource.item4.value1)}</span> Accumulation</div>
                                                           <div><span class="boldBlackBorder">${format(IUniversalIn.potionEffects.effect6.activeValue)}/s</span></div>
@@ -14452,21 +12750,7 @@ function valuesSetter(type) {
                                                        <div class="square height30 width100 centerDiv" >
                                                           <div>Elixir Max <span class="boldBlackBorder">×${format(IUniversalIn.potionSource.item4.value2, 2)}</span></div>
                                                        </div>`
-
   //source5
-
-  IUniversal.potionSource.item5.value1 = f(IUniversal.potionSource.item5.value1)
-  if (f(IUniversal.potionSource.item5.value1).gt(f(0))) {
-
-    IUniversalIn.potionSource.item5.value2 = ((f(Decimal.log10(f(IUniversal.potionSource.item5.value1).add(f(10)))).minus(f(1))).dividedBy(f(4))).pow(f(2))
-
-    if (f(IUniversalIn.potionSource.item5.value2).lt(f(1))) {
-      IUniversalIn.potionSource.item5.value2 = f(1)
-    }
-  } else {
-    IUniversalIn.potionSource.item5.value2 = f(1)
-
-  }
   IUniversalIn.potionSource.item5.content = `          <div class="square height30 width100 centerDiv column">
                                                           <div><span class="boldBlackBorder">${format(IUniversal.potionSource.item5.value1)}</span> Accumulation</div>
                                                           <div><span class="boldBlackBorder">${format(IUniversalIn.potionEffects.effect7.activeValue)}/s</span></div>
@@ -14474,20 +12758,7 @@ function valuesSetter(type) {
                                                        <div class="square height30 width100 centerDiv" >
                                                           <div>Ambrosia/s <span class="boldBlackBorder">×${format(IUniversalIn.potionSource.item5.value2, 2)}</span></div>
                                                        </div>`
-
   //source6
-
-  IUniversal.potionSource.item6.value1 = f(IUniversal.potionSource.item6.value1)
-  if (f(IUniversal.potionSource.item6.value1).gt(f(0))) {
-
-    IUniversalIn.potionSource.item6.value2 = ((f(Decimal.log10(f(IUniversal.potionSource.item6.value1).add(f(10)))).minus(f(1))).dividedBy(f(4))).pow(f(2))
-
-    if (f(IUniversalIn.potionSource.item6.value2).lt(f(1))) {
-      IUniversalIn.potionSource.item6.value2 = f(1)
-    }
-  } else {
-    IUniversalIn.potionSource.item6.value2 = f(1)
-  }
   IUniversalIn.potionSource.item6.content = `          <div class="square height30 width100 centerDiv column">
                                                           <div><span class="boldBlackBorder">${format(IUniversal.potionSource.item6.value1)}</span> Accumulation</div>
                                                           <div><span class="boldBlackBorder">${format(IUniversalIn.potionEffects.effect8.activeValue)}/s</span></div>
@@ -14495,7 +12766,6 @@ function valuesSetter(type) {
                                                        <div class="square height30 width100 centerDiv" >
                                                           <div>Ambrosia Max <span class="boldBlackBorder">×${format(IUniversalIn.potionSource.item6.value2, 2)}</span></div>
                                                        </div>`
-
 
   //EARTH TREE
 
@@ -14518,30 +12788,10 @@ function valuesSetter(type) {
                 <div class="centerDiv noClick">Earth</div>`
 
 
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(5).add(f(IUniversalIn.treasures.treasure5.effect))
-
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
 
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1).mul(f(sel.level))
-  } else {
-    sel2.effect = f(0)
-  }
-
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.price = f(1).mul(f(10).pow(f(1))).mul(f(2).pow(f(sel.level)))
-  } else {
-    sel2.price = f(0)
-  }
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node1.priceIdentity, IUniversalIn.earthTree.node1.price, "uni")) { return true } }
-  sel2.req = function () { return true }
 
   //NODE 2
   var sel = IUniversal.earthTree.node2
@@ -14560,25 +12810,9 @@ function valuesSetter(type) {
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
                 <div class="centerDiv noClick">Earth</div>`
 
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(5).add(f(IUniversalIn.treasures.treasure5.effect))
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1.5).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-  sel2.price = f(1).mul(f(10).pow(f(2))).mul(f(4).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node2.priceIdentity, IUniversalIn.earthTree.node2.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.earthTree.node1.active) }
 
   //NODE 3
   var sel = IUniversal.earthTree.node3
@@ -14598,26 +12832,9 @@ function valuesSetter(type) {
                 <div class="centerDiv noClick">Earth</div>`
 
 
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(1)
-
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1.5).pow(f(1).add(Decimal.log10(f(IUniversal.golem))));
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = f(1).mul(f(10).pow(f(5))).mul(f(6).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node3.priceIdentity, IUniversalIn.earthTree.node3.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.earthTree.node2.active) }
 
   //NODE 4
   var sel = IUniversal.earthTree.node4
@@ -14636,26 +12853,9 @@ function valuesSetter(type) {
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
                 <div class="centerDiv noClick">Earth</div>`
 
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(5).add(f(IUniversalIn.treasures.treasure5.effect))
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(4).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = f(1).mul(f(10).pow(f(7))).mul(f(50).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node4.priceIdentity, IUniversalIn.earthTree.node4.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.earthTree.node3.active) }
 
   //NODE 5
   var sel = IUniversal.earthTree.node5
@@ -14674,26 +12874,9 @@ function valuesSetter(type) {
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
                 <div class="centerDiv noClick">Earth</div>`
 
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(5).add(f(IUniversalIn.treasures.treasure6.effect))
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(sel.level)
-  } else {
-    sel2.effect = f(0)
-  }
-
-
-  sel2.price = f(1).mul(f(10).pow(f(1))).mul(f(4).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node5.priceIdentity, IUniversalIn.earthTree.node5.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.earthTree.node1.active) }
 
   //NODE 6
   var sel = IUniversal.earthTree.node6
@@ -14712,27 +12895,9 @@ function valuesSetter(type) {
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
                 <div class="centerDiv noClick">Earth</div>`
 
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(5).add(f(IUniversalIn.treasures.treasure6.effect))
-
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = f(1).mul(f(10).pow(f(4))).mul(f(15).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node6.priceIdentity, IUniversalIn.earthTree.node6.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.earthTree.node5.active) }
 
   //NODE 7
   var sel = IUniversal.earthTree.node7
@@ -14751,27 +12916,9 @@ function valuesSetter(type) {
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
                 <div class="centerDiv noClick">Earth</div>`
 
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(1)
-
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1).add(Decimal.log10(f(IUniversal.golem).add(f(10))));
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = f(1).mul(f(10).pow(f(6))).mul(f(7).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node7.priceIdentity, IUniversalIn.earthTree.node7.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.earthTree.node5.active) }
 
   //NODE 8
   var sel = IUniversal.earthTree.node8
@@ -14791,26 +12938,9 @@ function valuesSetter(type) {
                 <div class="centerDiv noClick">Earth</div>`
 
 
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(1)
-
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1).add(Decimal.log10(f(IUniversal.golem).add(f(10))));
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = f(1).mul(f(10).pow(f(6))).mul(f(7).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node8.priceIdentity, IUniversalIn.earthTree.node8.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.earthTree.node6.active) }
 
   //NODE 9
   var sel = IUniversal.earthTree.node9
@@ -14829,28 +12959,9 @@ function valuesSetter(type) {
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
                 <div class="centerDiv noClick">Earth</div>`
 
-
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(5).add(f(IUniversalIn.treasures.treasure4.effect))
-
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(sel.level)
-  } else {
-    sel2.effect = f(0)
-  }
-
-
-  sel2.price = f(0.5).mul(f(10).pow(f(3))).mul(f(4).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node9.priceIdentity, IUniversalIn.earthTree.node9.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.earthTree.node10.active) }
 
   //NODE 10
   var sel = IUniversal.earthTree.node10
@@ -14869,26 +12980,9 @@ function valuesSetter(type) {
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
                 <div class="centerDiv noClick">Earth</div>`
 
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(5).add(f(IUniversalIn.treasures.treasure4.effect))
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(sel.level)
-  } else {
-    sel2.effect = f(0)
-  }
-
-
-  sel2.price = f(0.5).mul(f(10).pow(f(3))).mul(f(4).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node10.priceIdentity, IUniversalIn.earthTree.node10.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.earthTree.node2.active) }
 
   //NODE 11
   var sel = IUniversal.earthTree.node11
@@ -14907,26 +13001,9 @@ function valuesSetter(type) {
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
                 <div class="centerDiv noClick">Earth</div>`
 
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(5).add(f(IUniversalIn.treasures.treasure4.effect))
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = f(1).mul(f(10).pow(f(8))).mul(f(50).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node11.priceIdentity, IUniversalIn.earthTree.node11.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.earthTree.node9.active) }
 
   //NODE 12
   var sel = IUniversal.earthTree.node12
@@ -14945,48 +13022,13 @@ function valuesSetter(type) {
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
                 <div class="centerDiv noClick">Earth</div>`
 
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(5).add(f(IUniversalIn.treasures.treasure4.effect))
-
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
 
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = f(1).mul(f(10).pow(f(8))).mul(f(50).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node12.priceIdentity, IUniversalIn.earthTree.node12.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.earthTree.node10.active) }
-
-
   //FORGE
 
-  //MINE STATS
-
-  var sel = IUniversal.mineStats
-  var selIn = IUniversalIn.mineStats
-
-  //mine power
-
-  var minePower1 = f(IUniversalIn.mine.item1.effect)
-  var minePower2 = f(IUniversalIn.mine.item2.effect)
-
-  selIn.minePower = f(minePower1).mul(minePower2)
-
   //miners
-  var miners1 = f(IUniversalIn.mine.item1.effect)
-
-  selIn.miners = f(miners1)
-
   IUniversalIn.forgeValute1 =
     `<div class="height100 width100 bDefaultStyle transparent column padding2 centerDivTop">
           <div class="height10 width100 column centerDiv backgroundOrange3 roundedEdges">
@@ -15024,31 +13066,9 @@ function valuesSetter(type) {
                 <div class="centerDiv noClick">${text}</div>`
 
 
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(10)
-
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-  if (f(sel.level).gte(f(0))) {
-    sel2.price = f(1).mul(f(10).pow(f(1))).mul(f(5).pow(f(sel.level)))
-  }
-
-  if (f(sel.level).gte(f(10))) {
-    sel2.price = f(5).mul(f(10).pow(f(4))).mul(f(5).pow(f(sel.level)))
-  }
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.forge.item1.priceIdentity, IUniversalIn.forge.item1.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.forge.item1.active) }
 
   //item2
   var sel = IUniversal.forge.item2
@@ -15072,32 +13092,9 @@ function valuesSetter(type) {
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
                 <div class="centerDiv noClick">${text}</div>`
 
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(10)
-
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-  if (f(sel.level).gte(f(0))) {
-    sel2.price = f(1).mul(f(10).pow(f(1))).mul(f(10).pow(f(sel.level)))
-  }
-
-  if (f(sel.level).gte(f(10))) {
-    sel2.price = f(1).mul(f(10).pow(f(4))).mul(f(10).pow(f(sel.level)))
-  }
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.forge.item2.priceIdentity, IUniversalIn.forge.item2.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.forge.item2.active) }
 
   //item3
   var sel = IUniversal.forge.item3
@@ -15116,27 +13113,9 @@ function valuesSetter(type) {
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
                 <div class="centerDiv noClick">Iron</div>`
 
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = Infinity
-
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(4).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = f(5).mul(f(10).pow(f(1))).mul(f(25).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.forge.item3.priceIdentity, IUniversalIn.forge.item3.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.forge.item3.active) }
 
   //item4
   var sel = IUniversal.forge.item4
@@ -15156,31 +13135,13 @@ function valuesSetter(type) {
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
                 <div class="centerDiv noClick">Silver</div>`
 
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = Infinity
-
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
 
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = f(1).mul(f(10).pow(f(0))).mul(f(10).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.forge.item4.priceIdentity, IUniversalIn.forge.item4.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.forge.item4.active) }
-
-
   //mines
 
+  //mineInfo
   IUniversalIn.mineInfo = `
                   <div class="bDefaultStyle transparent centerDivColumns padding2 width100 height100">
                       <div class="centerDiv boldBlackBorder width100">Mine Stats</div>
@@ -15209,25 +13170,10 @@ function valuesSetter(type) {
                 <div class="centerDiv noClick">Earth</div>`
 
 
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(20)
-
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
 
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(sel.level)
-  } else {
-    sel2.effect = f(0)
-  }
-
-  sel2.price = f(1).mul(f(10).pow(f(16))).mul(f(10).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.mine.item1.priceIdentity, IUniversalIn.mine.item1.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.mine.item1.active) }
 
   //item2
   var sel = IUniversal.mine.item2
@@ -15246,29 +13192,12 @@ function valuesSetter(type) {
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
                 <div class="centerDiv noClick">Earth</div>`
 
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(20)
-
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
 
-  if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level))
-  } else {
-    sel2.effect = f(1)
-  }
-
-
-  sel2.price = f(1).mul(f(10).pow(f(17))).mul(f(20).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.mine.item2.priceIdentity, IUniversalIn.mine.item2.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.mine.item2.active) }
-
   //ORES
+
 
   //item1
   var sel = IUniversal.ore.item1
@@ -15293,45 +13222,9 @@ function valuesSetter(type) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">OFF</div>`
   }
 
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(20)
-
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
-
-
-  if (sel.active) {
-    sel2.value = f(1)
-  } else {
-    sel2.value = f(0)
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.life = f(10)
-  } else {
-    sel2.life = f(10)
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.hardness = f(0.5)
-  } else {
-    sel2.hardness = f(0.5)
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.weight = f(1)
-  } else {
-    sel2.weight = f(1)
-  }
-
-  sel2.price = f(1).mul(f(10).pow(f(8))).mul(f(50).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.ore.item1.priceIdentity, IUniversalIn.ore.item1.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.ore.item1.active) }
 
   //item2
   var sel = IUniversal.ore.item2
@@ -15356,44 +13249,9 @@ function valuesSetter(type) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">OFF</div>`
   }
 
-
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(20)
-
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
-
-  if (sel.active) {
-    sel2.value = f(1)
-  } else {
-    sel2.value = f(0)
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.life = f(500)
-  } else {
-    sel2.life = f(500)
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.hardness = f(50)
-  } else {
-    sel2.hardness = f(50)
-  }
-
-  if (f(sel.level).gt(f(0))) {
-    sel2.weight = f(10)
-  } else {
-    sel2.weight = f(10)
-  }
-
-  sel2.price = f(1).mul(f(10).pow(f(8))).mul(f(50).pow(f(sel.level)))
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.ore.time2.priceIdentity, IUniversalIn.ore.time2.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.ore.time2.active) }
 
   //WIND
 
@@ -15423,27 +13281,9 @@ function valuesSetter(type) {
   sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
 
 
-  sel.level = f(exp.level)
-  sel2.maxLevel = f(exp2.maxLevel)
-
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
   }
-
-  if (f(sel.level).gt(f(0))) {
-    //give treasure 1
-  } else {
-    //dont give treasure 1
-  }
-
-
-  sel2.price = f(0)
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node1.priceIdentity, IUniversalIn.windTree.node1.price, "uni")) { return true } }
-  sel2.req = function () { return true }
-
 
   //NODE 2
 
@@ -15472,26 +13312,9 @@ function valuesSetter(type) {
   sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
 
 
-  sel.level = f(exp.level)
-  sel2.maxLevel = f(exp2.maxLevel)
-
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
   }
-
-  if (f(sel.level).gt(f(0))) {
-    //give treasure 1
-  } else {
-    //dont give treasure 1
-  }
-
-
-  sel2.price = f(0)
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node2.priceIdentity, IUniversalIn.windTree.node2.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.windTree.node1.active) }
 
   //NODE 3
 
@@ -15518,27 +13341,9 @@ function valuesSetter(type) {
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">CRUSADE</div>`
   sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
 
-
-  sel.level = f(exp.level)
-  sel2.maxLevel = f(exp2.maxLevel)
-
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
   }
-
-  if (f(sel.level).gt(f(0))) {
-    //give treasure 1
-  } else {
-    //dont give treasure 1
-  }
-
-
-  sel2.price = f(0)
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node3.priceIdentity, IUniversalIn.windTree.node3.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.windTree.node7.active) }
 
   //NODE 4
   var sel = IUniversal.windTree.node4
@@ -15564,27 +13369,9 @@ function valuesSetter(type) {
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">CRUSADE</div>`
   sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
 
-
-  sel.level = f(exp.level)
-  sel2.maxLevel = f(exp2.maxLevel)
-
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
   }
-
-  if (f(sel.level).gt(f(0))) {
-    //give treasure 1
-  } else {
-    //dont give treasure 1
-  }
-
-
-  sel2.price = f(0)
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node4.priceIdentity, IUniversalIn.windTree.node4.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.windTree.node3.active) }
 
   //NODE 5
   var sel = IUniversal.windTree.node5
@@ -15610,27 +13397,9 @@ function valuesSetter(type) {
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">CRUSADE</div>`
   sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
 
-
-  sel.level = f(exp.level)
-  sel2.maxLevel = f(exp2.maxLevel)
-
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
   }
-
-  if (f(sel.level).gt(f(0))) {
-    //give treasure 1
-  } else {
-    //dont give treasure 1
-  }
-
-
-  sel2.price = f(0)
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node5.priceIdentity, IUniversalIn.windTree.node5.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.windTree.node4.active) }
 
   //NODE 6
   var sel = IUniversal.windTree.node6
@@ -15658,27 +13427,9 @@ function valuesSetter(type) {
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">EXPEDITION</div>`
   sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
 
-
-  sel.level = f(exp.level)
-  sel2.maxLevel = f(exp2.maxLevel)
-
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
   }
-
-  if (f(sel.level).gt(f(0))) {
-    //give treasure 1
-  } else {
-    //dont give treasure 1
-  }
-
-
-  sel2.price = f(0)
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node6.priceIdentity, IUniversalIn.windTree.node6.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.windTree.node1.active) }
 
   //NODE 7
   var sel = IUniversal.windTree.node7
@@ -15705,27 +13456,9 @@ function valuesSetter(type) {
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">CRUSADE</div>`
   sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
 
-
-  sel.level = f(exp.level)
-  sel2.maxLevel = f(exp2.maxLevel)
-
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
   }
-
-  if (f(sel.level).gt(f(0))) {
-    //give treasure 1
-  } else {
-    //dont give treasure 1
-  }
-
-
-  sel2.price = f(0)
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node7.priceIdentity, IUniversalIn.windTree.node7.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.windTree.node2.active && IUniversal.windTree.node6.active) }
 
   //NODE 8
   var sel = IUniversal.windTree.node8
@@ -15752,27 +13485,9 @@ function valuesSetter(type) {
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">EXPEDITION</div>`
   sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
 
-
-  sel.level = f(exp.level)
-  sel2.maxLevel = f(exp2.maxLevel)
-
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
   }
-
-  if (f(sel.level).gt(f(0))) {
-    //give treasure 1
-  } else {
-    //dont give treasure 1
-  }
-
-
-  sel2.price = f(0)
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node8.priceIdentity, IUniversalIn.windTree.node8.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.windTree.node6.active) }
 
   //NODE 9
   var sel = IUniversal.windTree.node9
@@ -15799,27 +13514,9 @@ function valuesSetter(type) {
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">EXPEDITION</div>`
   sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
 
-
-  sel.level = f(exp.level)
-  sel2.maxLevel = f(exp2.maxLevel)
-
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
   }
-
-  if (f(sel.level).gt(f(0))) {
-    //give treasure 1
-  } else {
-    //dont give treasure 1
-  }
-
-
-  sel2.price = f(0)
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node9.priceIdentity, IUniversalIn.windTree.node9.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.windTree.node8.active) }
 
   //NODE 10
   var sel = IUniversal.windTree.node10
@@ -15845,28 +13542,9 @@ function valuesSetter(type) {
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">CRUSADE</div>`
   sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
 
-
-  sel.level = f(exp.level)
-  sel2.maxLevel = f(exp2.maxLevel)
-
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
   }
-
-  if (f(sel.level).gt(f(0))) {
-    //give treasure 1
-  } else {
-    //dont give treasure 1
-  }
-
-
-  sel2.price = f(0)
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node10.priceIdentity, IUniversalIn.windTree.node10.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.windTree.node5.active) }
-
 
   //NODE 11
   var sel = IUniversal.windTree.node11
@@ -15894,27 +13572,9 @@ function valuesSetter(type) {
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">EXPEDITION</div>`
   sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
 
-
-  sel.level = f(exp.level)
-  sel2.maxLevel = f(exp2.maxLevel)
-
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
   }
-
-  if (f(sel.level).gt(f(0))) {
-    //give treasure 1
-  } else {
-    //dont give treasure 1
-  }
-
-
-  sel2.price = f(0)
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node11.priceIdentity, IUniversalIn.windTree.node11.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.windTree.node8.active) }
 
 
   //NODE 12
@@ -15942,28 +13602,9 @@ function valuesSetter(type) {
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">EXPEDITION</div>`
   sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
 
-
-  sel.level = f(exp.level)
-  sel2.maxLevel = f(exp2.maxLevel)
-
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
   }
-
-  if (f(sel.level).gt(f(0))) {
-    //give treasure 1
-  } else {
-    //dont give treasure 1
-  }
-
-
-  sel2.price = f(0)
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node12.priceIdentity, IUniversalIn.windTree.node12.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.windTree.node11.active) }
-
 
   //NODE 13
   var sel = IUniversal.windTree.node13
@@ -15989,28 +13630,9 @@ function valuesSetter(type) {
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">CRUSADE</div>`
   sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
 
-
-  sel.level = f(exp.level)
-  sel2.maxLevel = f(exp2.maxLevel)
-
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
   }
-
-  if (f(sel.level).gt(f(0))) {
-    //give treasure 1
-  } else {
-    //dont give treasure 1
-  }
-
-
-  sel2.price = f(0)
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node13.priceIdentity, IUniversalIn.windTree.node13.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.windTree.node10.active) }
-
 
   //NODE 14
   var sel = IUniversal.windTree.node14
@@ -16036,126 +13658,16 @@ function valuesSetter(type) {
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">CRUSADE</div>`
   sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
 
-
-  sel.level = f(exp.level)
-  sel2.maxLevel = f(exp2.maxLevel)
-
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
   }
 
-  if (f(sel.level).gt(f(0))) {
-    //give treasure 1
-  } else {
-    //dont give treasure 1
-  }
-
-
-  sel2.price = f(0)
-
-  if (f(sel.level).gt(f(0))) { sel.active = true }
-  if (sel.active) { sel.unlocked = true }
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node14.priceIdentity, IUniversalIn.windTree.node14.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.windTree.node13.active) }
-
-  //golems
-
-  var golem1 = f(IUniversalIn.earthTree.node5.effect)
-  var golem2 = f(IUniversalIn.earthTree.node6.effect)
-
-
-  IUniversal.golem = f(golem1).mul(golem2)
-
   //GOLEM ARMY
+  //Army Stats
 
-  //army stats
   IUniversalIn.armyEffectContent = `<div class="centerDiv boldBlackBorder">GLOBAL BONUS</div>
                                     <div>Life × Golem Life (<span class="boldBlackBorder">×${format(f(IUniversalIn.armyInfo.default.baseLife))}</span>)</div>
                                     <div>Damage × Golem Damage (<span class="boldBlackBorder">×${format(f(IUniversalIn.armyInfo.default.baseDamage))}</span>)</div>`
-
-  //armyInfo: default
-
-  if (!IFight.youStats.onFight3) {
-    IUniversalIn.armyInfo.default.level = f(IUniversal.golem)
-  }
-
-  IUniversalIn.armyInfo.default.baseLevel = f(IUniversal.golem)
-
-  var life1 = f(IUniversalIn.armyInfo.default.golemTypes.type1.life)
-  var life2 = f(IUniversalIn.armyInfo.default.golemTypes.type2.life)
-  var life3 = f(IUniversalIn.armyInfo.default.golemTypes.type3.life)
-  var life4 = f(IUniversalIn.armyInfo.default.golemTypes.type4.life)
-  var life5 = f(IUniversalIn.armyInfo.default.golemTypes.type5.life)
-  var life7 = f(IUniversalIn.earthTree.node9.effect)
-  var life8 = f(IUniversalIn.earthTree.node11.effect)
-  var life10 = f(IUniversalIn.earthTree.node7.effect)
-  if (getTreasureActive("treasure19")) { var life11 = f(IUniversalIn.treasures.treasure19.effect) } else { life11 = f(1) }
-  var life12 = f(IUniversalIn.forge.item2.effect)
-
-  var baseLife1 = f(IUniversalIn.armyInfo.default.golemTypes.type1.baseLife)
-  var baseLife2 = f(IUniversalIn.armyInfo.default.golemTypes.type2.baseLife)
-  var baseLife3 = f(IUniversalIn.armyInfo.default.golemTypes.type3.baseLife)
-  var baseLife4 = f(IUniversalIn.armyInfo.default.golemTypes.type4.baseLife)
-  var baseLife5 = f(IUniversalIn.armyInfo.default.golemTypes.type5.baseLife)
-  var baseLife7 = f(IUniversalIn.earthTree.node9.effect)
-  var baseLife8 = f(IUniversalIn.earthTree.node11.effect)
-  var baseLife10 = f(IUniversalIn.earthTree.node7.effect)
-  if (getTreasureActive("treasure19")) { var baseLife11 = f(IUniversalIn.treasures.treasure19.effect) } else { baseLife11 = f(1) }
-  var baseLife12 = f(IUniversalIn.forge.item2.effect)
-
-
-  if (getArmyEffectType("lifeBreaker1")) {
-    var life9 = getArmyEffectValue("lifeBreaker1")
-  } else {
-    life9 = 1;
-  }
-
-  if (f(IUniversal.golem).gt(f(0))) {
-    IUniversalIn.armyInfo.default.life = f(f(f(1).add(life7)).mul((life1).add(life2).add(life3).add(life4).add(life5)).mul(life8).mul(life10).mul(life11).mul(life12)).dividedBy(f(life9))
-    IUniversalIn.armyInfo.default.baseLife = f(f(f(1).add(baseLife7)).mul((baseLife1).add(baseLife2).add(baseLife3).add(baseLife4).add(baseLife5)).mul(baseLife8).mul(baseLife10).mul(baseLife11).mul(baseLife12))
-  } else {
-    IUniversalIn.armyInfo.default.life = f(0)
-    IUniversalIn.armyInfo.default.baseLife = f(0)
-  }
-
-  var damage1 = f(IUniversalIn.armyInfo.default.golemTypes.type1.damage)
-  var damage2 = f(IUniversalIn.armyInfo.default.golemTypes.type2.damage)
-  var damage3 = f(IUniversalIn.armyInfo.default.golemTypes.type3.damage)
-  var damage4 = f(IUniversalIn.armyInfo.default.golemTypes.type4.damage)
-  var damage5 = f(IUniversalIn.armyInfo.default.golemTypes.type5.damage)
-  var damage7 = f(IUniversalIn.earthTree.node10.effect)
-  var damage8 = f(IUniversalIn.earthTree.node12.effect)
-  var damage9 = f(IUniversalIn.earthTree.node8.effect)
-  if (getTreasureActive("treasure19")) { var damage10 = f(IUniversalIn.treasures.treasure19.effect) } else { damage10 = f(1) }
-  var damage12 = f(IUniversalIn.forge.item1.effect)
-
-
-
-  var baseDamage1 = f(IUniversalIn.armyInfo.default.golemTypes.type1.baseDamage)
-  var baseDamage2 = f(IUniversalIn.armyInfo.default.golemTypes.type2.baseDamage)
-  var baseDamage3 = f(IUniversalIn.armyInfo.default.golemTypes.type3.baseDamage)
-  var baseDamage4 = f(IUniversalIn.armyInfo.default.golemTypes.type4.baseDamage)
-  var baseDamage5 = f(IUniversalIn.armyInfo.default.golemTypes.type5.baseDamage)
-  var baseDamage7 = f(IUniversalIn.earthTree.node10.effect)
-  var baseDamage8 = f(IUniversalIn.earthTree.node12.effect)
-  var baseDamage9 = f(IUniversalIn.earthTree.node8.effect)
-  if (getTreasureActive("treasure19")) { var baseDamage10 = f(IUniversalIn.treasures.treasure19.effect) } else { baseDamage10 = f(1) }
-  var baseDamage12 = f(IUniversalIn.forge.item1.effect)
-
-
-  if (f(IUniversal.golem).gt(f(0))) {
-    IUniversalIn.armyInfo.default.damage = f(f(1).add(damage7)).mul((damage1).add(damage2).add(damage3).add(damage4).add(damage5)).mul(damage8).mul(damage9).mul(damage10).mul(damage12)
-    IUniversalIn.armyInfo.default.baseDamage = f(f(1).add(baseDamage7)).mul((baseDamage1).add(baseDamage2).add(baseDamage3).add(baseDamage4).add(baseDamage5)).mul(baseDamage8).mul(baseDamage9).mul(baseDamage10).mul(baseDamage12)
-  } else {
-    IUniversalIn.armyInfo.default.damage = f(0)
-    IUniversalIn.armyInfo.default.baseDamage = f(0)
-  }
-
-  if (!IFight.youStats.onFight3) {
-    IUniversal.armyInfo.default.leftLife = f(IUniversalIn.armyInfo.default.life)
-  }
-
-  IUniversalIn.armyInfo.default.baseLeftLife = f(IUniversalIn.armyInfo.default.baseLife)
 
   //images
 
@@ -16255,6 +13767,6416 @@ function valuesSetter(type) {
       <div class="height25 width100 row centerDiv">${finalImage4}</div>
     </div>
   </div>`;
+
+  //Golem Types
+
+
+  IUniversalIn.armyInfo.default.golemTypes.type1.content = `<div>
+                                                <div><span class="boldBlackBorder">WARRIORS</span></div>
+                                                <div class="row spaceEvenly">
+                                                  <div>${format(f(f(IUniversalIn.armyInfo.default.golemTypes.type1.baseLevel)), 0)} Warriors</div>
+                                                  <div>Life +2 (${format(f(f(IUniversalIn.armyInfo.default.golemTypes.type1.baseLife)), 0)})</div>
+                                                  <div>Damage +2 (${format(f(f(IUniversalIn.armyInfo.default.golemTypes.type1.baseDamage)), 0)})</div>
+                                                </div>
+                                          </div>`
+
+  IUniversalIn.armyInfo.default.golemTypes.type2.content = `<div>
+                                                <div><span class="boldBlackBorder">TANKS</span></div>
+                                                <div class="row spaceEvenly">
+                                                  <div>${format(f(f(IUniversalIn.armyInfo.default.golemTypes.type2.baseLevel)), 0)} Tanks</div>
+                                                  <div>Life +6 (${format(f(f(IUniversalIn.armyInfo.default.golemTypes.type2.baseLife)), 0)})</div>
+                                                  <div>Damage +1 (${format(f(f(IUniversalIn.armyInfo.default.golemTypes.type2.baseDamage)), 0)})</div>
+                                                </div>
+                                                </div>`
+
+  IUniversalIn.armyInfo.default.golemTypes.type3.content = `<div>
+                                                <div><span class="boldBlackBorder">ARCHERS</span></div>
+                                                <div class="row spaceEvenly">
+                                                  <div>${format(f(f(IUniversalIn.armyInfo.default.golemTypes.type3.baseLevel)), 0)} Archers</div>
+                                                  <div>Life +1.5 (${format(f(f(IUniversalIn.armyInfo.default.golemTypes.type3.baseLife)), 0)})</div>
+                                                  <div>Damage +5 (${format(f(f(IUniversalIn.armyInfo.default.golemTypes.type3.baseDamage)), 0)})</div>
+                                                </div>
+                                                </div>`
+
+  IUniversalIn.armyInfo.default.golemTypes.type4.content = `<div>
+                                                <div><span class="boldBlackBorder">SUPPORTS</span></div>
+                                                <div class="row spaceEvenly">
+                                                  <div>${f(IUniversalIn.armyInfo.default.golemTypes.type4.baseLevel)} Supports</div>
+                                                  <div>${f(IUniversalIn.armyInfo.default.golemTypes.type4.baseLife)} Life</div>
+                                                  <div>${f(IUniversalIn.armyInfo.default.golemTypes.type4.baseDamage)} Damage</div>
+                                                </div>
+                                                </div>`
+
+  IUniversalIn.armyInfo.default.golemTypes.type5.content = `<div>
+                                                <div><span class="boldBlackBorder">COMMANDER</span></div>
+                                                <div class="row spaceEvenly">
+                                                  <div>${f(IUniversalIn.armyInfo.default.golemTypes.type5.baseLevel)} Commanders</div>
+                                                  <div>${f(IUniversalIn.armyInfo.default.golemTypes.type5.baseLife)} Life</div>
+                                                  <div>${f(IUniversalIn.armyInfo.default.golemTypes.type5.baseDamage)} Damage</div>
+                                                </div>
+                                                </div>`
+
+  //enemy
+
+  if (IUniversal.armyInfo.enemy.selected) {
+    if (f(IUniversal.expeditions[IUniversal.armyInfo.enemy.selected].level).lt(f(IUniversalIn.expeditions[IUniversal.armyInfo.enemy.selected].maxLevel))) {
+      IUniversalIn.armyInfo.enemy.content = visualArmy2(IUniversal.armyInfo.enemy, IUniversalIn.armyInfo.enemy)
+
+    } else {
+      IUniversalIn.armyInfo.enemy.content = `<div class="height100 width100 centerDiv">ENEMY CONQUERED</div>`
+    }
+  }
+
+  //SOUL
+
+
+  IUniversalIn.armyInfo.soul.content = `
+  <div class="column height100 width100 relative">
+    <div class="height100 width100 centerLeft absolute">
+      <div><span class="boldBlackBorder fontSize1_5">Soul</span></div>
+
+      <div class="row spaceEvenly">
+        <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.damage))}</span> Damage</div>
+        <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.life))}</span> Life</div>
+      </div>
+<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinity))}</span> Affinity</div>
+<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity1.value))}</span> Fire Affinity</div>
+<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity2.value))}</span> Water Affinity</div>
+<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity3.value))}</span> Earth Affinity</div>
+<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity4.value))}</span> Wind Affinity</div>
+      <div id="c2_23_C_part1" class="height5 width100 defaultBarPart1 boldBlackBorderObject">
+        <div id="c2_23_C_part2" class="height100 width100 defaultBarPart2 boldBlackBorderObjectLateral">
+        </div>
+        <div id="c2_23_C_part3" class="height100 width100 defaultBarPart3">${format(f(IUniversal.armyInfo.soul.leftLife))}</div>
+      </div>
+    </div>
+
+
+
+  </div>`;
+
+  IUniversalIn.armyInfo.soul.content2 = `
+  <div class="column height100 width100 relative">
+    <div class="height100 width100 centerLeft absolute">
+      <div><span class="boldBlackBorder fontSize1_5">Soul</span></div>
+
+      <div class="row spaceEvenly">
+        <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.baseDamage))}</span> Damage</div>
+        <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.baseLife))}</span> Life</div>
+      </div>
+      <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinity))}</span> Affinity</div>
+<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity1.value))}</span> Fire Affinity</div>
+<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity2.value))}</span> Water Affinity</div>
+<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity3.value))}</span> Earth Affinity</div>
+<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity4.value))}</span> Wind Affinity</div>
+    </div>
+
+  </div>`;
+
+  IUniversalIn.armyInfo.soul.content3 = `
+  <div class="column height100 width100 relative roundedEdges">
+    <div class="height70 width100 centerLeft absolute roundedEdges">
+      <div><span class="boldBlackBorder fontSize1_5">Soul</span></div>
+
+      <div class="row spaceEvenly">
+        <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.baseDamage))}</span> Damage</div>
+        <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.baseLife))}</span> Life</div>
+      </div>
+      <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.baseAffinity))}</span> Affinity</div>
+<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity1.baseValue))}</span> Fire Affinity</div>
+<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity2.baseValue))}</span> Water Affinity</div>
+<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity3.baseValue))}</span> Earth Affinity</div>
+<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity4.baseValue))}</span> Wind Affinity</div>
+    </div>
+
+    
+    <div class="height30 width100 top70 absolute backgroundBlue3 column roundedEdges">
+      <div class="centerDiv boldBlackBorder">GLOBAL BONUS</div>
+      <div>Life × Soul Life (<span class="boldBlackBorder">×${format(f(IUniversalIn.armyInfo.soul.baseLife))}</span>)</div>
+      <div>Damage × Soul Damage (<span class="boldBlackBorder">×${format(f(IUniversalIn.armyInfo.soul.baseDamage))}</span>)</div>
+    </div>
+
+  </div>`;
+
+  //TREASURES
+
+
+  //Treasure 1
+
+  var sel1 = IUniversal.treasures.treasure1
+  var sel2 = IUniversalIn.treasures.treasure1
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Courage Helmet</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv centerDiv height100 width100 fontSize08 columns margin1 overflowY">Warrior Damage and Life  ×1.2 (×${format(f(sel2.effect), 1)})</div>
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel1.num), 0)}/${format(f(sel2.price), 0)} Fragments</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv centerDiv height100 width100 fontSize08 columns margin1 overflowY">Warrior Damage and Life  ×1.2 (×${format(f(sel2.effect), 1)})</div>`
+
+  //Treasure 2
+
+  var sel1 = IUniversal.treasures.treasure2
+  var sel2 = IUniversalIn.treasures.treasure2
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Fear Horns</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Enemy Warrior is 2 Times Weaker (/${format(f(sel2.effect), 0)})</div>
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel1.num), 0)}/${format(f(sel2.price), 0)} Fragments</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Enemy Warrior is 2 Times Weaker (/${format(f(sel2.effect), 0)})</div>`
+
+  //Treasure 3
+
+  var sel1 = IUniversal.treasures.treasure3
+  var sel2 = IUniversalIn.treasures.treasure3
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Unified Shield</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Tank Life × Tank Quantity (×${format(f(sel2.effect), 1)})</div>
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel1.num), 0)}/${format(f(sel2.price), 0)} Fragments</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Tank Life × Tank Quantity (×${format(f(sel2.effect), 1)})</div>`
+
+  //Treasure 4
+
+  var sel1 = IUniversal.treasures.treasure4
+  var sel2 = IUniversalIn.treasures.treasure4
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Obsidian Manequin</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv height100 width100 fontSize08 column margin1 overflowY">
+      <div>Permanent Upgrade, Cant Equip</div>
+      <div>Training Grounds Upgrades max level +5 (+${format(f(sel2.effect), 0)})</div>
+      </div>
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel1.num), 0)}/${format(f(sel2.price), 0)} Fragments</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Training Grounds Upgrades max level +5 (+${format(f(sel2.effect), 0)})</div>`
+
+  //Treasure 5
+
+  var sel1 = IUniversal.treasures.treasure5
+  var sel2 = IUniversalIn.treasures.treasure5
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Dirt Blessing</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv height100 width100 fontSize08 column margin1 overflowY">
+      <div>Permanent Upgrade, Cant Equip</div>
+      <div>Mound Upgrades max level +5 (+${format(f(sel2.effect), 0)})</div>
+      </div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel1.num), 0)}/${format(f(sel2.price), 0)} Fragments</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Mound Upgrades max level +5 (+${format(f(sel2.effect), 0)})</div>`
+
+  //Treasure 6
+
+  var sel1 = IUniversal.treasures.treasure6
+  var sel2 = IUniversalIn.treasures.treasure6
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Amethyst Cove</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      
+      <div class="centerDiv height100 width100 fontSize08 column margin1 overflowY">
+      <div>Permanent Upgrade, Cant Equip</div>
+      <div>Barracks Upgrades max level +5 (+${format(f(sel2.effect), 0)})</div>
+      </div>
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel1.num), 0)}/${format(f(sel2.price), 0)} Fragments</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Barracks Upgrades max level +5 (+${format(f(sel2.effect), 0)})</div>`
+
+  //Treasure 7
+
+  var sel1 = IUniversal.treasures.treasure7
+  var sel2 = IUniversalIn.treasures.treasure7
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Formation: Turtle</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="height100 width100 fontSize08 columns margin1 overflowY">
+        <div>Warriors quantity is 25% of Golems<div>
+        <div>Tanks quantity is 75% of Golems<div>
+      </div>
+      
+    </div>
+  </div>`
+
+  sel2.content3 = `<div class="height100 width100 fontSize08 columns margin1 overflowY">
+        <div>Warriors quantity is 25% of Golems<div>
+        <div>Tanks quantity is 75% of Golems<div>
+      </div>`
+
+  //Treasure 8
+
+  var sel1 = IUniversal.treasures.treasure8
+  var sel2 = IUniversalIn.treasures.treasure8
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Formation: Sparrow</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="height100 width100 fontSize08 columns margin1 overflowY">
+        <div>Warriors quantity is 25% of Golems<div>
+        <div>Tanks quantity is 25% of Golems<div>
+        <div>Archers quantity is 50% of Golems<div>
+      </div>
+    </div>
+  </div>`
+
+  sel2.content3 = `<div class="height100 width100 fontSize08 columns margin1 overflowY">
+        <div>Warriors quantity is 25% of Golems<div>
+        <div>Tanks quantity is 25% of Golems<div>
+        <div>Archers quantity is 50% of Golems<div>
+      </div>`
+
+  //Treasure 9
+
+  var sel1 = IUniversal.treasures.treasure9
+  var sel2 = IUniversalIn.treasures.treasure9
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Formation: Default</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="height100 width100 fontSize08 columns margin1 overflowY">
+        <div>Formation: Default<div>
+        <div>Divide Golems between every Golem Type  (${format(f(sel2.effect), 0)}%)<div>
+      </div>
+    </div>
+    
+  </div>`
+
+  sel2.content3 = `<div class="height100 width100 fontSize08 columns margin1 overflowY">
+        <div>Formation: Default<div>
+        <div>Divide Golems between every Golem Type (${format(f(sel2.effect), 0)}%)<div>
+      </div>`
+
+  //Treasure 10
+
+  var sel1 = IUniversal.treasures.treasure10
+  var sel2 = IUniversalIn.treasures.treasure10
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Formation: Tiger</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="height100 width100 fontSize08 columns margin1 overflowY">
+        <div>Warriors quantity is 75% of Golems<div>
+        <div>Tanks quantity is 25% of Golems<div>
+      </div>
+    </div>
+    
+  </div>`
+
+  sel2.content3 = `<div class="height100 width100 fontSize08 columns margin1 overflowY">
+        <div>Warriors quantity is 75% of Golems<div>
+        <div>Tanks quantity is 25% of Golems<div>
+      </div>`
+
+  //Treasure 11
+
+  var sel1 = IUniversal.treasures.treasure11
+  var sel2 = IUniversalIn.treasures.treasure11
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Iron Core Sword</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Damage +2 (+${format(f(sel2.effect), 0)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Damage +2 (+${format(f(sel2.effect), 0)})</div>`
+
+  //Treasure 12
+
+  var sel1 = IUniversal.treasures.treasure12
+  var sel2 = IUniversalIn.treasures.treasure12
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Ancient Beast Leather</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Life +3 (+${format(f(sel2.effect), 0)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Life +3 (+${format(f(sel2.effect), 0)})</div>`
+
+  //Treasure 13
+
+  var sel1 = IUniversal.treasures.treasure13
+  var sel2 = IUniversalIn.treasures.treasure13
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Magic Brass Ring</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Earth Affinity +1 (+${format(f(sel2.effect), 0)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Earth Affinity +1 (+${format(f(sel2.effect), 0)})</div>`
+
+  //Treasure 14
+
+  var sel1 = IUniversal.treasures.treasure14
+  var sel2 = IUniversalIn.treasures.treasure14
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Rooted Greatsword</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Damage +5, Earth Affinity +2 (+${format(f(sel2.effect), 0)} ,+${format(f(sel2.effect2), 0)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Damage +5, Earth Affinity +2 (+${format(f(sel2.effect), 0)} ,+${format(f(sel2.effect2), 0)})</div>`
+
+  //Treasure 15
+
+  var sel1 = IUniversal.treasures.treasure15
+  var sel2 = IUniversalIn.treasures.treasure15
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Flowing Armor</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Life +10, Water Affinity +1 (+${format(f(sel2.effect), 0)}, +${format(f(sel2.effect2), 0)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Life +10, Water Affinity +1 (+${format(f(sel2.effect), 0)}, +${format(f(sel2.effect2), 0)})</div>`
+
+  //Treasure 16
+
+  var sel1 = IUniversal.treasures.treasure16
+  var sel2 = IUniversalIn.treasures.treasure16
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Dremion's Blessed Ring</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">All affinities x1.1 (×${format(f(sel2.effect), 1)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">All affinities x1.1 (×${format(f(sel2.effect), 1)})</div>`
+
+  //Treasure 17
+
+  var sel1 = IUniversal.treasures.treasure17
+  var sel2 = IUniversalIn.treasures.treasure17
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Soul</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+            <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Damage and Life +1 (+${format(f(sel2.effect), 0)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Damage and Life +1 (+${format(f(sel2.effect), 0)})</div>`
+
+  //Treasure 18
+
+  var sel1 = IUniversal.treasures.treasure18
+  var sel2 = IUniversalIn.treasures.treasure18
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Sun Fragment</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+            <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Fire Affinity +1 (+${format(f(sel2.effect), 0)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Fire Affinity +1 (+${format(f(sel2.effect), 0)})</div>`
+
+  //Treasure 19
+
+  var sel1 = IUniversal.treasures.treasure19
+  var sel2 = IUniversalIn.treasures.treasure19
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Stone Core</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+            <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Golems Life and Damage ×1.5 (×${format(f(sel2.effect), 1)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Golems Life and Damage ×1.5 (×${format(f(sel2.effect), 1)})</div>`
+
+  //Treasure 20
+
+  var sel1 = IUniversal.treasures.treasure20
+  var sel2 = IUniversalIn.treasures.treasure20
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Frantumator Shield</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+            <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Opponent Life /4 (/${format(f(sel2.effect), 0)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel1.num), 0)}/${format(f(sel2.price), 0)} Fragments</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Opponent Life /4 (/${format(f(sel2.effect), 0)})</div>`
+
+  //Treasure 21
+
+  var sel1 = IUniversal.treasures.treasure21
+  var sel2 = IUniversalIn.treasures.treasure21
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Black Iron Arrow</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+            <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Opponent Tanks are /2 Weaker (/${format(f(sel2.effect), 0)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel1.num), 0)}/${format(f(sel2.price), 0)} Fragments</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Opponent Tanks are /2 Weaker (/${format(f(sel2.effect), 0)})</div>`
+
+  //Treasure 22
+
+  var sel1 = IUniversal.treasures.treasure22
+  var sel2 = IUniversalIn.treasures.treasure22
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Winged Arrow</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+            <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Archers damage ×2 (×${format(f(sel2.effect), 0)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel1.num), 0)}/${format(f(sel2.price), 0)} Fragments</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Archers damage ×2 (×${format(f(sel2.effect), 0)})</div>`
+
+  //Treasure 23
+
+  var sel1 = IUniversal.treasures.treasure23
+  var sel2 = IUniversalIn.treasures.treasure23
+
+  sel2.maxLevel = Infinity
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Crimson Knight Sword</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+            <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Damage +25, Fire Affinity +10, Wind Affinity +5 (+${format(f(sel2.effect), 0)} ,+${format(f(sel2.effect2), 0)}, +${format(f(sel2.effect3), 0)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Damage +25, Fire Affinity +10, Wind Affinity +5 (+${format(f(sel2.effect), 0)} ,+${format(f(sel2.effect2), 0)}, +${format(f(sel2.effect3), 0)})</div>`
+
+  //Treasure 24
+
+  var sel1 = IUniversal.treasures.treasure24
+  var sel2 = IUniversalIn.treasures.treasure24
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Magma Slab</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+            <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Life +100, Fire Affinity +5, Earth Affinity +5 (+${format(f(sel2.effect), 0)} ,+${format(f(sel2.effect2), 0)},+${format(f(sel2.effect3), 0)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Life +100, Fire Affinity +5, Earth Affinity +5 (+${format(f(sel2.effect), 0)} ,+${format(f(sel2.effect2), 0)},+${format(f(sel2.effect3), 0)})</div>`
+
+  //Treasure 25
+
+  var sel1 = IUniversal.treasures.treasure25
+  var sel2 = IUniversalIn.treasures.treasure25
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Hell First Ring</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+            <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Fire Affinity ×2 compounding (×${format(f(sel2.effect), 2)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Fire Affinity ×2 compounding (×${format(f(sel2.effect), 2)})</div>`
+
+  //Treasure 26
+
+  var sel1 = IUniversal.treasures.treasure26
+  var sel2 = IUniversalIn.treasures.treasure26
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Unity Fragment</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+            <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">All affinities +1 (+${format(f(sel2.effect), 0)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">All affinities +1 (+${format(f(sel2.effect), 0)})</div>`
+
+  //Expeditions
+
+  //expedition 1
+  var sel = IUniversal.expeditions.exp1
+  var selIn = IUniversalIn.expeditions.exp1
+
+  selIn.name = "Golem Patrol"
+  //expedition 2
+  var sel = IUniversal.expeditions.exp2
+  var selIn = IUniversalIn.expeditions.exp2
+
+  selIn.name = "The Wall"
+  //expedition 3
+  var sel = IUniversal.expeditions.exp3
+  var selIn = IUniversalIn.expeditions.exp3
+
+  selIn.name = "Lesser Fire Elemental"
+  //expedition 4
+  var sel = IUniversal.expeditions.exp4
+  var selIn = IUniversalIn.expeditions.exp4
+
+  selIn.name = "Lesser Wind Elemental"
+  //expedition 5
+  var sel = IUniversal.expeditions.exp5
+  var selIn = IUniversalIn.expeditions.exp5
+
+  selIn.name = "Storm Elemental"
+  //expedition 6
+  var sel = IUniversal.expeditions.exp6
+  var selIn = IUniversalIn.expeditions.exp6
+
+  selIn.name = "Rock Fort"
+  //expedition 7
+  var sel = IUniversal.expeditions.exp7
+  var selIn = IUniversalIn.expeditions.exp7
+
+  selIn.name = "Deep Slate Fortress"
+  //expedition 8
+  var sel = IUniversal.expeditions.exp8
+  var selIn = IUniversalIn.expeditions.exp8
+
+  selIn.name = "Steel Clan"
+  //expedition 9
+  var sel = IUniversal.expeditions.exp9
+  var selIn = IUniversalIn.expeditions.exp9
+
+  selIn.name = "Rolling Stone Legion"
+  //expedition 10
+  var sel = IUniversal.expeditions.exp10
+  var selIn = IUniversalIn.expeditions.exp10
+
+  selIn.name = "Lesser Wind Hegemon"
+  //expedition 11
+  var sel = IUniversal.expeditions.exp11
+  var selIn = IUniversalIn.expeditions.exp11
+
+  selIn.name = "Black Sky Moltitude"
+  //expedition 12
+  var sel = IUniversal.expeditions.exp12
+  var selIn = IUniversalIn.expeditions.exp12
+
+  selIn.name = "Stalagmite King"
+  //expedition 13
+  var sel = IUniversal.expeditions.exp13
+  var selIn = IUniversalIn.expeditions.exp13
+
+  selIn.name = "Magma Elemental"
+  //expedition 14
+  var sel = IUniversal.expeditions.exp14
+  var selIn = IUniversalIn.expeditions.exp14
+
+  selIn.name = "Spirit"
+
+  //spires
+
+  //spire 1
+
+  var sel = IUniversal.spires.spire1
+  var selIn = IUniversalIn.spires.spire1
+
+  selIn.content = `<div>Earth Spire</div>
+                 <div>Earth/s × completed Expeditions (×${format(f(selIn.effect))})</div>`
+
+  //spire2
+
+  var sel = IUniversal.spires.spire2
+  var selIn = IUniversalIn.spires.spire2
+
+  selIn.content = `<div>Steel Spire</div>
+                 <div>Metal/s + completed Crusades (+${format(f(selIn.effect))})</div>`
+
+
+  //visuals content
+
+  //formation
+
+  if (IUniversal.treasureFormation.item1.key) {
+    IUniversalIn.treasureFormation.content = IUniversalIn.treasures[IUniversal.treasureFormation.item1.key].content3
+  } else {
+    IUniversalIn.treasureFormation.content = IUniversalIn.treasures.treasure9.content3
+  }
+
+  //army treasure
+
+  for (let x in IUniversal.treasureArmy) {
+    var sel = IUniversal.treasureArmy[x]
+    var selIn = IUniversalIn.treasureArmy[x]
+
+    if (sel.key) {
+      selIn.content = IUniversalIn.treasures[sel.key].content3
+    } else {
+      selIn.content = ""
+    }
+  }
+
+
+  //treasure equipment
+
+  for (let x in IUniversal.treasureEquipment) {
+    var sel = IUniversal.treasureEquipment[x]
+    var selIn = IUniversalIn.treasureEquipment[x]
+
+    if (sel.key) {
+      selIn.content = IUniversalIn.treasures[sel.key].content3
+    } else {
+      selIn.content = ""
+    }
+  }
+
+  for (let x in IUniversal.treasureAugments) {
+    var sel = IUniversal.treasureAugments[x]
+    var selIn = IUniversalIn.treasureAugments[x]
+
+    if (sel.key) {
+      selIn.content = IUniversalIn.treasures[sel.key].content3
+    } else {
+      selIn.content = ""
+    }
+  }
+}
+
+
+function valuesSetter(type) {
+
+  //Assign Group
+
+  //group1
+  var num = 0;
+
+  if (ITraining.base.base1.active) { num += 1 }
+  if (ITraining.base.base2.active) { num += 1 }
+  if (ITraining.base.base3.active) { num += 1 }
+  if (ITraining.base.base4.active) { num += 1 }
+
+  if (f(num).gt(f(ISelUpgrade.group.group1.maxNum))) { num = ISelUpgrade.group.group1.maxNum }
+
+  ISelUpgrade.group.group1.num = num
+
+  //group2
+  var num = 0;
+
+  if (IUniversal.fireTree.node41.active) { num += 1 }
+  if (IUniversal.fireTree.node42.active) { num += 1 }
+  if (IUniversal.fireTree.node43.active) { num += 1 }
+  if (IUniversal.fireTree.node44.active) { num += 1 }
+
+  if (f(num).gt(f(ISelUpgrade.group.group2.maxNum))) { num = ISelUpgrade.group.group2.maxNum }
+
+  ISelUpgrade.group.group2.num = num
+
+  //group23
+  var num = 0;
+
+  if (IUniversal.ore.item1.active) { num += 1 }
+  if (IUniversal.ore.item2.active) { num += 1 }
+
+  if (f(num).gt(f(ISelUpgrade.group.group3.maxNum))) { num = ISelUpgrade.group.group3.maxNum }
+
+  ISelUpgrade.group.group3.num = num
+
+  //global 
+
+  var global1 = f(IGameData.tickSpeedMult);
+
+  //tickSpeed
+
+  if (!waiting) {
+    IGameData.tickSpeedMult = f(0.05);
+  }
+
+  var tickSpeed2 = f(IGameData.tickSpeedMult);
+
+  IGameData.tickSpeedProd = f(1).mul(f(tickSpeed2))
+
+  IGameData.tickSpeed = f(IGameData.tickSpeedProd)
+
+  //Power bases
+
+  //damage training
+  var base1_2 = IFightIn.challengerRewards.reward1.effect
+
+  if (f(ITraining.base.base3.tot).gte(f(1))) {
+    var base1_3 = ITraining.base.base3.tot;
+  }
+  else {
+    base1_3 = f(1)
+  }
+
+  if (IUniversal.energyUpgrades.upgrade1.active) {
+    var base1_4 = f(IUniversalIn.energyUpgrades.upgrade1.effect);
+  }
+  else {
+    base1_4 = f(0)
+  }
+
+  if (IUniversal.energyUpgrades.upgrade3.active) {
+    var base1_5 = f(IUniversalIn.energyUpgrades.upgrade3.effect);
+  }
+  else {
+    base1_5 = f(1)
+  }
+
+  if (IUniversal.attributes.attributeBonus3.active) {
+    var base1_6 = f(IUniversalIn.attributes.attributeBonus3.effect)
+  } else {
+    var base1_6 = f(1)
+  }
+
+  if (IUniversalIn.potionEffects.effect1.activeValue) {
+    var base1_7 = f(IUniversalIn.potionEffects.effect1.activeValue)
+  } else {
+    var base1_7 = f(1)
+  }
+
+  ITrainingIn.base.base1.prod = (f(0.2).mul(f(base1_2)).add(f(base1_4))).mul(f(base1_3)).mul(f(base1_5)).mul(f(base1_6)).mul(f(base1_7));
+  ITraining.base.base1.level = f(ITraining.base.base1.level);
+
+
+  //life training
+  var base2_2 = IFightIn.challengerRewards.reward1.effect
+
+  if (f(ITraining.base.base3.tot).gte(f(1))) {
+    var base1_4 = ITraining.base.base3.tot;
+  }
+  else {
+    ITraining.base.base3.tot = f(1)
+  }
+
+  if (IUniversal.energyUpgrades.upgrade6.active) {
+    var base1_5 = IUniversalIn.energyUpgrades.upgrade6.effect;
+  }
+  else {
+    base1_5 = f(0)
+  }
+
+  if (IUniversal.energyUpgrades.upgrade7.active) {
+    var lifeTraining6 = IUniversalIn.energyUpgrades.upgrade7.effect;
+  }
+  else {
+    lifeTraining6 = f(1)
+  }
+
+  if (IUniversal.energyUpgrades.upgrade8.active) {
+    var lifeTraining7 = IUniversalIn.energyUpgrades.upgrade8.effect;
+  }
+  else {
+    lifeTraining7 = f(1)
+  }
+
+  if (IUniversal.attributes.attributeBonus3.active) {
+    var lifeTraining8 = f(IUniversalIn.attributes.attributeBonus3.effect)
+  } else {
+    var lifeTraining8 = f(1)
+  }
+
+  if (IUniversalIn.potionEffects.effect2.activeValue) {
+    var lifeTraining9 = f(IUniversalIn.potionEffects.effect2.activeValue)
+  } else {
+    var lifeTraining9 = f(1)
+  }
+
+  ITrainingIn.base.base2.prod = (f(1).mul(f(base2_2)).add(f(base1_5))).mul(f(base1_4)).mul(f(lifeTraining6)).mul(f(lifeTraining7)).mul(f(lifeTraining8)).mul(f(lifeTraining9));
+  ITraining.base.base2.level = f(ITraining.base.base2.level);
+
+
+  //Will training
+
+  var base3_1 = IFightIn.challengerRewards.reward2.effect
+
+  if (IUniversal.attributes.attributeBonus4.active) {
+    var base3_2 = f(IUniversalIn.attributes.attributeBonus4.effect)
+  } else {
+    var base3_2 = f(1)
+  }
+
+  if (IUniversalIn.potionEffects.effect9.activeValue) {
+    var base3_3 = f(IUniversalIn.potionEffects.effect9.activeValue)
+  } else {
+    var base3_3 = f(1)
+  }
+
+
+  ITrainingIn.base.base3.prod = f(0.01).mul(f(base3_1)).mul(f(base3_2)).mul(f(base3_3))
+  ITraining.base.base3.level = f(ITraining.base.base3.level);
+
+  //Insight training
+
+  var base4_1 = IFightIn.challengerRewards.reward2.effect
+
+  if (IUniversal.attributes.attributeBonus4.active) {
+    var base4_2 = f(IUniversalIn.attributes.attributeBonus4.effect)
+  } else {
+    var base4_2 = f(1)
+  }
+
+  if (IUniversalIn.potionEffects.effect10.activeValue) {
+    var base4_3 = f(IUniversalIn.potionEffects.effect10.activeValue)
+  } else {
+    var base4_3 = f(1)
+  }
+
+  ITrainingIn.base.base4.prod = f(0.01).mul((base4_1)).mul(f(base4_2)).mul(f(base4_3));
+  ITraining.base.base4.level = f(ITraining.base.base4.level);
+
+
+  //leftLife
+
+
+  if (!IFight.youStats.onFight1) {
+    IFight.youStats.leftLife = f(IFight.youStats.life)
+    IFight.onFightStats.fightMulti1 = f(1)
+
+  }
+
+  if (!IFight.youStats.onFight2) {
+    IFight.youStats.leftLife2 = f(IFight.youStats.life)
+    IFight.onFightStats.fightMulti2 = f(1)
+
+  }
+
+  //CHALLENGER
+
+  //BASE CHALLENGER
+
+  //name
+
+  //damage
+
+  var cDamage1 = f(IFight.challengers.baseChallenger.level)
+
+  var cDamage2 = cDamage1.dividedBy(5).floor()
+
+  if (IUniversal.energyUpgrades.upgrade16.active) {
+    var cDamage3 = IUniversalIn.energyUpgrades.upgrade16.effect;
+  }
+  else {
+    cDamage3 = f(1)
+  }
+
+  var cDamage4 = cDamage1.dividedBy(10).floor()
+
+  if (IUniversalIn.potionEffects.effect17.activeValue) {
+    var cDamage5 = f(IUniversalIn.potionEffects.effect17.activeValue);
+  }
+  else {
+    cDamage5 = f(1)
+  }
+
+  IFightIn.challengers.baseChallenger.damage = ((f(1).mul(((f(5).add(cDamage2).add(f(cDamage4))).pow((cDamage1).minus(f(1)))))).dividedBy(f(cDamage3).mul(f(cDamage5))))
+
+  //life
+
+  var cLife1 = f(IFight.challengers.baseChallenger.level)
+
+  var cLife3 = cLife1.dividedBy(5).floor()
+
+  if (IUniversal.energyUpgrades.upgrade17.active) {
+    var cLife4 = IUniversalIn.energyUpgrades.upgrade17.effect;
+  }
+  else {
+    cLife4 = f(1)
+  }
+
+  var cLife5 = cLife1.dividedBy(10).floor()
+
+  if (IUniversalIn.potionEffects.effect18.activeValue) {
+    var cLife6 = f(IUniversalIn.potionEffects.effect18.activeValue);
+  }
+  else {
+    cLife6 = f(1)
+  }
+
+  IFightIn.challengers.baseChallenger.life = ((f(10).mul(((((f(5).add(f(cLife3)).add(f(cLife5))).pow(f(cLife1).minus(f(1)))))))).dividedBy(f(cLife4).mul(f(cLife6))))
+
+
+  //leftLife
+
+  if (!IFight.youStats.onFight1) {
+
+    IFight.challengers.baseChallenger.leftLife = f(IFightIn.challengers.baseChallenger.life)
+  }
+
+  //Normal Challenger Max Level
+  IFight.challengers.baseChallenger.level = f(IFight.challengers.baseChallenger.level)
+
+
+  IFightIn.challengers.baseChallenger.maxLevel = f(9).add(f(IUniversal.universe))
+
+  //challenger Rewards
+
+
+  IFight.challengerRewards.reward1.level = f(IFight.challengerRewards.reward1.level)
+  IFight.challengerRewards.reward2.level = f(IFight.challengerRewards.reward2.level)
+
+  if (IFight.normalHuntingRewards.upgrade5.active) {
+    var cReward = f(IFightIn.normalHuntingRewards.upgrade5.effect)
+  } else {
+    cReward = f(1)
+  }
+
+  if (IUniversal.energyUpgrades.upgrade18.active) {
+    var cReward2 = IUniversalIn.energyUpgrades.upgrade18.effect;
+  }
+  else {
+    cReward2 = f(1)
+  }
+
+  IFightIn.challengerRewards.reward1.effect = (f(2).pow((f(IFight.challengerRewards.reward1.level)))).mul(f(cReward)).mul(f(cReward2))
+  IFightIn.challengerRewards.reward2.effect = (f(2).pow((f(IFight.challengerRewards.reward2.level)))).mul(f(cReward)).mul(f(cReward2))
+  //UNIVERSAL CHALLENGER
+
+  //name
+
+
+  //level
+
+
+  if (!IFight.youStats.onFight2) {
+    IUniversalChallenger.challengers.universalChallenger.level = f(1)
+  }
+
+
+  //damage
+
+  if (type == "universalChallengerChallenge2" || IUniversalChallenger.universalChallengerChallenges.c2.active) {
+    var cDamage1 = f(IUniversalChallenger.challengers.universalChallenger.level).add(f(18))
+  } else {
+    cDamage1 = f(IUniversalChallenger.challengers.universalChallenger.level).add(f(10))
+  }
+
+  if (f(IUniversalChallenger.challengers.universalChallenger.level).gte(f(10))) {
+    var cDamage2 = cDamage1.dividedBy(5).floor()
+  } else {
+    cDamage2 = f(1)
+  }
+
+  if (IUniversal.energyUpgrades.upgrade19.active && !(IUniversalChallenger.universalChallengerChallenges.c2.active)) {
+    var cDamage3 = IUniversalIn.energyUpgrades.upgrade19.effect;
+  }
+  else {
+    cDamage3 = f(1)
+  }
+
+  if (IUniversalIn.potionEffects.effect19.activeValue && !(IUniversalChallenger.universalChallengerChallenges.c2.active)) {
+    var cDamage4 = f(IUniversalIn.potionEffects.effect19.activeValue);
+  }
+  else {
+    cDamage4 = f(1)
+  }
+
+
+  IUniversalChallenger.challengers.universalChallenger.damage = ((f(7.2).add(cDamage2)).pow((cDamage1))).mul(f(cDamage3)).dividedBy(f(cDamage4))
+
+  //life
+
+  if (type == "universalChallengerChallenge2" || IUniversalChallenger.universalChallengerChallenges.c2.active) {
+    var cLife1 = f(IUniversalChallenger.challengers.universalChallenger.level).add(f(18))
+  } else {
+    cLife1 = f(IUniversalChallenger.challengers.universalChallenger.level).add(f(10))
+  }
+
+  if (f(IUniversalChallenger.challengers.universalChallenger.level).gte(f(10))) {
+    var cLife2 = cLife1.dividedBy(5).floor()
+  } else {
+    cLife2 = f(1)
+  }
+
+  if (IUniversal.energyUpgrades.upgrade19.active && !(IUniversalChallenger.universalChallengerChallenges.c2.active)) {
+    var cLife3 = IUniversalIn.energyUpgrades.upgrade19.effect;
+  }
+  else {
+    cLife3 = f(1)
+  }
+
+  if (IUniversalIn.potionEffects.effect19.activeValue && !(IUniversalChallenger.universalChallengerChallenges.c2.active)) {
+    var cLife4 = f(IUniversalIn.potionEffects.effect19.activeValue);
+  }
+  else {
+    cLife4 = f(1)
+  }
+
+  IUniversalChallenger.challengers.universalChallenger.life = ((f(7.2).add(cLife2)).pow((cLife1))).mul(f(cLife3)).dividedBy(f(cLife4))
+
+
+  //leftLife
+
+  if (!IFight.youStats.onFight2) {
+
+    IUniversalChallenger.challengers.universalChallenger.leftLife = f(IUniversalChallenger.challengers.universalChallenger.life)
+  }
+
+  //Universal Challenger Max Level 
+
+  //Universal challenger Rewards
+
+  IUniversalChallenger.universalChallengerRewards.reward1.level = f(IUniversalChallenger.challengers.universalChallenger.maxLevel)
+
+  if (IUniversal.energyUpgrades.upgrade20.active) {
+    var reward1 = IUniversalIn.energyUpgrades.upgrade20.effect;
+  }
+  else {
+    reward1 = f(1)
+  }
+
+  IUniversalChallengerIn.universalChallengerRewards.reward1.effect = ((((f(10).pow((f(IUniversalChallenger.universalChallengerRewards.reward1.level)))))).minus(f(1))).mul(f(reward1))
+
+
+  //UNIVERSAL CHALLENGER CHALLENGES
+
+  //c1
+  IUniversalChallenger.universalChallengerChallengesRewards.c1.level = f(IUniversalChallenger.universalChallengerChallengesRewards.c1.level)
+
+  IUniversalChallenger.universalChallengerChallenges.c1.maxLevel = f(IUniversalChallenger.universalChallengerChallenges.c1.maxLevel)
+
+
+  //c2
+  IUniversalChallenger.universalChallengerChallengesRewards.c2.level = f(IUniversalChallenger.universalChallengerChallengesRewards.c2.level)
+
+  IUniversalChallenger.universalChallengerChallenges.c2.maxLevel = f(IUniversalChallenger.universalChallengerChallenges.c2.maxLevel)
+
+
+
+  //UNIVERSAL CHALLENGER CHALLENGES REWARDS
+
+  var sel = IUniversalChallenger.universalChallengerChallengesRewards.c1
+  var sel2 = IUniversalChallengerIn.universalChallengerChallengesRewards.c1
+
+  if (f(IUniversalChallenger.universalChallengerChallengesRewards.c1.level).gte(f(1))) {
+    sel2.effect = ((f(5).pow((f(IUniversalChallenger.universalChallengerChallengesRewards.c1.level)))))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  var sel = IUniversalChallenger.universalChallengerChallengesRewards.c2
+  var sel2 = IUniversalChallengerIn.universalChallengerChallengesRewards.c2
+
+
+  if (f(IUniversalChallenger.universalChallengerChallengesRewards.c2.level).gte(f(1))) {
+    sel2.effect = ((f(10).pow((f(IUniversalChallenger.universalChallengerChallengesRewards.c2.level)))))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  //hunting
+
+  //Hunt 1
+
+  var sel = IFight.normalHunting.hunt1;
+  var sel2 = IFightIn.normalHunting.hunt1;
+
+  sel.level = f(sel.level);
+
+  IFightIn.normalHunting.hunt1.showLevel = f(sel.level)
+
+  if (IUniversal.huntEvolution.b1.active1) {
+    var extraEffect2 = f(IUniversalIn.huntEvolution.b1.effect1);
+  } else {
+    extraEffect2 = f(1);
+  }
+
+  if (IUniversalIn.potionEffects.effect12.activeValue) {
+    var extraEffect3 = f(IUniversalIn.potionEffects.effect12.activeValue);
+  } else {
+    extraEffect3 = f(1);
+  }
+
+
+  if (sel.active) {
+    sel2.effect = (f(sel.level)).mul(f(1.1).mul(f(1).add(f(0.10).mul(f(sel.level))))).mul(f(extraEffect2)).mul(f(extraEffect3));
+  } else {
+    sel2.effect = f(0);
+  }
+
+  if (IUniversal.huntEvolution.b1.active2) {
+    var extraEffect1 = f(IUniversalIn.huntEvolution.b1.effect2);
+  } else {
+    extraEffect1 = f(1);
+  }
+
+  if (IUniversalIn.potionEffects.effect11.activeValue) {
+    var extraEffect2 = f(IUniversalIn.potionEffects.effect11.activeValue);
+  } else {
+    extraEffect2 = f(1);
+  }
+
+  if (f(sel.level).equals(f(0))) {
+    sel2.price = f(0);
+  } else {
+    sel2.price = ((f(10).pow(1)).mul(f(1.2).pow(f(sel.level))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2));
+  }
+
+  sel2.req = function () {
+    if (IFight.youStats.damage != "NaN") {
+      return f(IFight.youStats.damage).gte(f(0))
+    }
+  }
+
+  if (f(sel.level).greaterThan(f(0))) {
+    sel.active = true;
+  }
+
+  if (sel2.req()) {
+    sel.unlocked = true;
+  }
+
+  // Hunt 2
+  var sel = IFight.normalHunting.hunt2;
+  var sel2 = IFightIn.normalHunting.hunt2;
+
+
+  if (IUniversal.energyUpgrades.upgrade15.active) {
+    var extraEffect1 = f(IFight.normalHunting.hunt1.level).mul(IUniversalIn.energyUpgrades.upgrade15.effect);
+  } else {
+    extraEffect1 = f(0);
+  }
+
+  sel2.showLevel = f(sel.level).add(f(extraEffect1))
+
+  if (IUniversal.huntEvolution.b2.active1) {
+    var extraEffect2 = f(IUniversalIn.huntEvolution.b2.effect1);
+  } else {
+    extraEffect2 = f(1);
+  }
+
+  if (IUniversalIn.potionEffects.effect12.activeValue) {
+    var extraEffect3 = f(IUniversalIn.potionEffects.effect12.activeValue);
+  } else {
+    extraEffect3 = f(1);
+  }
+
+  sel.level = f(sel.level);
+
+  if (sel.active) {
+    sel2.effect = f(20).mul(f(sel.level).add(f(extraEffect1))).mul(f(1).add(f(0.15).mul(f(sel.level).add(f(extraEffect1))))).mul(f(extraEffect2)).mul(f(extraEffect3));
+  } else {
+    sel2.effect = f(0);
+  }
+
+  if (IUniversal.huntEvolution.b2.active2) {
+    var extraEffect1 = f(IUniversalIn.huntEvolution.b2.effect2);
+  } else {
+    extraEffect1 = f(1);
+  }
+
+  if (IUniversalIn.potionEffects.effect11.activeValue) {
+    var extraEffect2 = f(IUniversalIn.potionEffects.effect11.activeValue);
+  } else {
+    extraEffect2 = f(1);
+  }
+
+
+  sel2.price = (f(1).mul(f(10).pow(3)).mul(f(1.3).pow(f(1).add(f(sel.level)))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2));
+
+  sel2.req = function () {
+    if (IFight.youStats.damage != "NaN") {
+      return f(IFight.youStats.damage).gte(f(10).pow(f(3)))
+    }
+  }
+
+
+  if (f(sel.level).greaterThan(f(0))) {
+    sel.active = true;
+  }
+
+  if (sel2.req()) {
+    sel.unlocked = true;
+  }
+
+  // Hunt 3
+  var sel = IFight.normalHunting.hunt3;
+  var sel2 = IFightIn.normalHunting.hunt3;
+
+
+  sel.level = f(sel.level);
+
+  if (IUniversal.energyUpgrades.upgrade15.active) {
+    var extraEffect1 = f(IFight.normalHunting.hunt2.level).mul(IUniversalIn.energyUpgrades.upgrade15.effect);
+  } else {
+    extraEffect1 = f(0);
+  }
+
+  sel2.showLevel = f(sel.level).add(f(extraEffect1))
+
+  if (IUniversal.huntEvolution.b3.active1) {
+    var extraEffect2 = f(IUniversalIn.huntEvolution.b3.effect1);
+  } else {
+    extraEffect2 = f(1);
+  }
+
+  if (IUniversalIn.potionEffects.effect12.activeValue) {
+    var extraEffect3 = f(IUniversalIn.potionEffects.effect12.activeValue);
+  } else {
+    extraEffect3 = f(1);
+  }
+
+
+  if (sel.active) {
+    sel2.effect = f(400).mul(f(sel.level).add(f(extraEffect1))).mul(f(1).add(f(0.20).mul(f(sel.level).add(f(extraEffect1))))).mul(f(extraEffect2)).mul(f(extraEffect3));
+  } else {
+    sel2.effect = f(0);
+  }
+
+  if (IUniversal.huntEvolution.b3.active2) {
+    var extraEffect1 = f(IUniversalIn.huntEvolution.b3.effect2);
+  } else {
+    extraEffect1 = f(1);
+  }
+
+  if (IUniversalIn.potionEffects.effect11.activeValue) {
+    var extraEffect2 = f(IUniversalIn.potionEffects.effect11.activeValue);
+  } else {
+    extraEffect2 = f(1);
+  }
+
+
+  sel2.price = (f(2).mul(f(10).pow(4)).mul(f(1.4).pow(f(1).add(f(sel.level)))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2));
+
+  sel2.req = function () {
+    if (IFight.youStats.damage != "NaN") {
+      return f(IFight.youStats.damage).gte(f(10).pow(f(4)))
+    }
+  }
+
+  if (f(sel.level).greaterThan(f(0))) {
+    sel.active = true;
+  }
+
+  if (sel2.req()) {
+    sel.unlocked = true;
+  }
+
+  // Hunt 4
+  var sel = IFight.normalHunting.hunt4;
+  var sel2 = IFightIn.normalHunting.hunt4;
+
+
+  sel.level = f(sel.level);
+
+  if (IUniversal.energyUpgrades.upgrade15.active) {
+    var extraEffect1 = f(IFight.normalHunting.hunt3.level).mul(IUniversalIn.energyUpgrades.upgrade15.effect);
+  } else {
+    extraEffect1 = f(0);
+  }
+
+  sel2.showLevel = f(sel.level).add(f(extraEffect1))
+
+  if (IUniversal.huntEvolution.b4.active1) {
+    var extraEffect2 = f(IUniversalIn.huntEvolution.b4.effect1);
+  } else {
+    extraEffect2 = f(1);
+  }
+
+  if (IUniversalIn.potionEffects.effect12.activeValue) {
+    var extraEffect3 = f(IUniversalIn.potionEffects.effect12.activeValue);
+  } else {
+    extraEffect3 = f(1);
+  }
+
+  if (sel.active) {
+    sel2.effect = f(8000).mul(f(sel.level).add(f(extraEffect1))).mul(f(1).add(f(0.25).mul(f(sel.level).add(f(extraEffect1))))).mul(f(extraEffect2)).mul(f(extraEffect3));
+  } else {
+    sel2.effect = f(0);
+  }
+
+  if (IUniversal.huntEvolution.b4.active2) {
+    var extraEffect1 = f(IUniversalIn.huntEvolution.b4.effect2);
+  } else {
+    extraEffect1 = f(1);
+  }
+
+  if (IUniversalIn.potionEffects.effect11.activeValue) {
+    var extraEffect2 = f(IUniversalIn.potionEffects.effect11.activeValue);
+  } else {
+    extraEffect2 = f(1);
+  }
+
+  sel2.price = (f(1).mul(f(10).pow(7)).mul(f(1.5).pow(f(1).add(f(sel.level)))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2));
+
+  sel2.req = function () {
+    if (IFight.youStats.damage != "NaN") {
+      return f(IFight.youStats.damage).gte(f(10).pow(f(5)))
+    }
+  }
+
+  if (f(sel.level).greaterThan(f(0))) {
+    sel.active = true;
+  }
+
+  if (sel2.req()) {
+    sel.unlocked = true;
+  }
+
+  // Hunt 5
+  var sel = IFight.normalHunting.hunt5;
+  var sel2 = IFightIn.normalHunting.hunt5;
+
+  sel.level = f(sel.level);
+
+  var hunt1;
+  if (IUniversal.energyUpgrades.upgrade13.active) {
+    hunt1 = f(IUniversalIn.energyUpgrades.upgrade13.effect);
+  } else {
+    hunt1 = f(1);
+  }
+
+  if (IUniversal.energyUpgrades.upgrade15.active) {
+    var extraEffect1 = f(IFight.normalHunting.hunt3.level).mul(IUniversalIn.energyUpgrades.upgrade15.effect);
+  } else {
+    extraEffect1 = f(0);
+  }
+
+  sel2.showLevel = f(sel.level).add(f(extraEffect1))
+
+  if (IUniversal.huntEvolution.b5.active1) {
+    var extraEffect2 = f(IUniversalIn.huntEvolution.b5.effect1);
+  } else {
+    extraEffect2 = f(1);
+  }
+
+  if (IUniversalIn.potionEffects.effect12.activeValue) {
+    var extraEffect3 = f(IUniversalIn.potionEffects.effect12.activeValue);
+  } else {
+    extraEffect3 = f(1);
+  }
+
+  if (sel.active) {
+    sel2.effect = f(160000).mul(f(sel.level).add(f(extraEffect1))).mul((f(1).add(f(0.30)).mul(f(sel.level).add(f(extraEffect1))))).mul(f(extraEffect2)).mul(f(hunt1)).mul(f(extraEffect3));
+  } else {
+    sel2.effect = f(0);
+  }
+
+  if (IUniversal.huntEvolution.b5.active2) {
+    var extraEffect1 = f(IUniversalIn.huntEvolution.b5.effect2);
+  } else {
+    extraEffect1 = f(1);
+  }
+
+  if (IUniversalIn.potionEffects.effect11.activeValue) {
+    var extraEffect2 = f(IUniversalIn.potionEffects.effect11.activeValue);
+  } else {
+    extraEffect2 = f(1);
+  }
+
+  sel2.price = (f(5).mul(f(10).pow(8)).mul(f(1.6).pow(f(1).add(f(sel.level)))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2));
+
+  sel2.req = function () {
+
+    if (IFight.youStats.damage != "NaN") {
+      return f(IFight.youStats.damage).gte(f(10).pow(f(6)))
+    }
+  }
+
+
+
+  if (f(sel.level).greaterThan(f(0))) {
+    sel.active = true;
+  }
+
+  if (sel2.req()) {
+    sel.unlocked = true;
+  }
+
+  //huntingRewards
+
+  //HUNT REWARD 1
+
+
+  IFight.normalHuntingRewards.upgrade1.level = f(IFight.normalHuntingRewards.upgrade1.level)
+
+  if (IUniversal.energyUpgrades.upgrade14.active) {
+    var extraLevel1 = f(Decimal.log10(f(IFight.normalHunting.hunt1.level).mul(f(IUniversalIn.energyUpgrades.upgrade14.effect)))).floor()
+    if (f(extraLevel1).lt(f(0))) {
+      extraLevel1 = f(0)
+    }
+  } else {
+    extraLevel1 = f(0)
+  }
+
+  IFightIn.normalHuntingRewards.upgrade1.showLevel = f(IFight.normalHuntingRewards.upgrade1.level).add(f(extraLevel1))
+
+  IFightIn.normalHuntingRewards.upgrade1.effect = f(2).pow(f(IFight.normalHuntingRewards.upgrade1.level).add(f(extraLevel1)))
+
+  if (IUniversal.huntEvolution.b1.active3) {
+    var extraEffect1 = f(IUniversalIn.huntEvolution.b1.effect3);
+  } else {
+    extraEffect1 = f(1);
+  }
+
+  if (IUniversalIn.potionEffects.effect13.activeValue) {
+    var extraEffect2 = f(IUniversalIn.potionEffects.effect13.activeValue);
+  } else {
+    extraEffect2 = f(1);
+  }
+
+  IFightIn.normalHuntingRewards.upgrade1.price = ((f(10).mul(f(10).pow(f(IFight.normalHuntingRewards.upgrade1.level).add(f(1))))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2))
+
+
+  if (f(IFight.normalHuntingRewards.upgrade1.level).greaterThan(f(0))) {
+    IFight.normalHuntingRewards.upgrade1.active = true;
+  }
+
+
+  //HUNT REWARD 2
+
+
+  IFight.normalHuntingRewards.upgrade2.level = f(IFight.normalHuntingRewards.upgrade2.level)
+
+  if (IUniversal.energyUpgrades.upgrade15.active) {
+    var extraEffect1 = f(IFight.normalHunting.hunt1.level).mul(IUniversalIn.energyUpgrades.upgrade15.effect);
+  } else {
+    extraEffect1 = f(0);
+  }
+
+  if (IUniversal.energyUpgrades.upgrade14.active) {
+    var extraLevel1 = f(Decimal.log10((f(IFight.normalHunting.hunt2.level).add(f(extraEffect1))).mul(f(IUniversalIn.energyUpgrades.upgrade14.effect)))).floor()
+    if (f(extraLevel1).lt(f(0))) {
+      extraLevel1 = f(0)
+    }
+  } else {
+    extraLevel1 = f(0)
+  }
+
+  IFightIn.normalHuntingRewards.upgrade2.showLevel = f(IFight.normalHuntingRewards.upgrade2.level).add(f(extraLevel1))
+
+
+  IFightIn.normalHuntingRewards.upgrade2.effect = f(5).pow(f(IFight.normalHuntingRewards.upgrade2.level).add(f(extraLevel1)))
+
+  if (IUniversal.huntEvolution.b2.active3) {
+    var extraEffect1 = f(IUniversalIn.huntEvolution.b2.effect3);
+  } else {
+    extraEffect1 = f(1);
+  }
+
+  if (IUniversalIn.potionEffects.effect13.activeValue) {
+    var extraEffect2 = f(IUniversalIn.potionEffects.effect13.activeValue);
+  } else {
+    extraEffect2 = f(1);
+  }
+
+
+  IFightIn.normalHuntingRewards.upgrade2.price = ((f(200).mul(f(100).pow(f(IFight.normalHuntingRewards.upgrade2.level).add(f(1))))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2))
+
+
+  if (f(IFight.normalHuntingRewards.upgrade2.level).greaterThan(f(0))) {
+    IFight.normalHuntingRewards.upgrade2.active = true;
+  }
+
+  //HUNT REWARD 3
+
+
+  IFight.normalHuntingRewards.upgrade3.level = f(IFight.normalHuntingRewards.upgrade3.level)
+
+  if (IUniversal.energyUpgrades.upgrade15.active) {
+    var extraEffect1 = f(IFight.normalHunting.hunt2.level).mul(IUniversalIn.energyUpgrades.upgrade15.effect);
+  } else {
+    extraEffect1 = f(0);
+  }
+
+  if (IUniversal.energyUpgrades.upgrade14.active) {
+    var extraLevel1 = f(Decimal.log10((f(IFight.normalHunting.hunt3.level).add(f(extraEffect1))).mul(f(IUniversalIn.energyUpgrades.upgrade14.effect)))).floor()
+    if (f(extraLevel1).lt(f(0))) {
+      extraLevel1 = f(0)
+    }
+  } else {
+    extraLevel1 = f(0)
+  }
+
+  IFightIn.normalHuntingRewards.upgrade3.showLevel = f(IFight.normalHuntingRewards.upgrade3.level).add(f(extraLevel1))
+
+
+  IFightIn.normalHuntingRewards.upgrade3.effect = ((f(IFight.normalHuntingRewards.upgrade3.level).add(f(extraLevel1))).mul(f(1.3).pow(f(IFight.normalHunting.hunt1.level).div(f(10)))))
+
+  if (IUniversal.huntEvolution.b3.active3) {
+    var extraEffect1 = f(IUniversalIn.huntEvolution.b3.effect3);
+  } else {
+    extraEffect1 = f(1);
+  }
+
+  if (IUniversalIn.potionEffects.effect13.activeValue) {
+    var extraEffect2 = f(IUniversalIn.potionEffects.effect13.activeValue);
+  } else {
+    extraEffect2 = f(1);
+  }
+
+  IFightIn.normalHuntingRewards.upgrade3.price = ((f(4000).mul(f(1000).pow(f(IFight.normalHuntingRewards.upgrade3.level).add(f(1))))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2))
+
+
+  if (f(IFight.normalHuntingRewards.upgrade3.level).greaterThan(f(0))) {
+    IFight.normalHuntingRewards.upgrade3.active = true;
+  }
+
+  //HUNT REWARD 4
+
+
+  IFight.normalHuntingRewards.upgrade4.level = f(IFight.normalHuntingRewards.upgrade4.level)
+
+  if (IUniversal.energyUpgrades.upgrade15.active) {
+    var extraEffect1 = f(IFight.normalHunting.hunt3.level).mul(IUniversalIn.energyUpgrades.upgrade15.effect);
+  } else {
+    extraEffect1 = f(0);
+  }
+
+  if (IUniversal.energyUpgrades.upgrade14.active) {
+    var extraLevel1 = f(Decimal.log10((f(IFight.normalHunting.hunt4.level).add(f(extraEffect1))).mul(f(IUniversalIn.energyUpgrades.upgrade14.effect)))).floor()
+    if (f(extraLevel1).lt(f(0))) {
+      extraLevel1 = f(0)
+    }
+  } else {
+    extraLevel1 = f(0)
+  }
+
+  IFightIn.normalHuntingRewards.upgrade4.showLevel = f(IFight.normalHuntingRewards.upgrade4.level).add(f(extraLevel1))
+
+
+  IFightIn.normalHuntingRewards.upgrade4.effect = f(IFight.normalHuntingRewards.upgrade4.level).add(f(extraLevel1))
+
+  if (IUniversal.huntEvolution.b4.active4) {
+    var extraEffect1 = f(IUniversalIn.huntEvolution.b4.effect3);
+  } else {
+    extraEffect1 = f(1);
+  }
+
+  if (IUniversalIn.potionEffects.effect13.activeValue) {
+    var extraEffect2 = f(IUniversalIn.potionEffects.effect13.activeValue);
+  } else {
+    extraEffect2 = f(1);
+  }
+
+  IFightIn.normalHuntingRewards.upgrade4.price = ((f(80000).mul(f(10000).pow(f(IFight.normalHuntingRewards.upgrade4.level).add(f(1))))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2))
+
+
+
+  if (f(IFight.normalHuntingRewards.upgrade4.level).greaterThan(f(0))) {
+    IFight.normalHuntingRewards.upgrade4.active = true;
+  }
+
+  //HUNT REWARD 5
+
+
+  IFight.normalHuntingRewards.upgrade5.level = f(IFight.normalHuntingRewards.upgrade5.level)
+
+  if (IUniversal.energyUpgrades.upgrade15.active) {
+    var extraEffect1 = f(IFight.normalHunting.hunt4.level).mul(IUniversalIn.energyUpgrades.upgrade15.effect);
+
+  } else {
+    extraEffect1 = f(0);
+  }
+
+  if (IUniversal.energyUpgrades.upgrade14.active) {
+    var extraLevel1 = f(Decimal.log10((f(IFight.normalHunting.hunt5.level).add(f(extraEffect1))).mul(f(IUniversalIn.energyUpgrades.upgrade14.effect)))).floor()
+    if (f(extraLevel1).lt(f(0))) {
+      extraLevel1 = f(0)
+    }
+  } else {
+    extraLevel1 = f(0)
+  }
+
+  IFightIn.normalHuntingRewards.upgrade5.showLevel = f(IFight.normalHuntingRewards.upgrade5.level).add(f(extraLevel1))
+
+
+  IFightIn.normalHuntingRewards.upgrade5.effect = f(1).add(f(0.1).mul(f(IFight.normalHuntingRewards.upgrade5.level).add(f(extraLevel1))).mul(f(IFight.challengers.baseChallenger.level)))
+
+  if (IUniversal.huntEvolution.b5.active3) {
+    var extraEffect1 = f(IUniversalIn.huntEvolution.b5.effect3);
+  } else {
+    extraEffect1 = f(1);
+  }
+
+  if (IUniversalIn.potionEffects.effect13.activeValue) {
+    var extraEffect2 = f(IUniversalIn.potionEffects.effect13.activeValue);
+  } else {
+    extraEffect2 = f(1);
+  }
+
+
+  IFightIn.normalHuntingRewards.upgrade5.price = ((f(1600000).mul(f(100000).pow(f(IFight.normalHuntingRewards.upgrade5.level).add(f(1))))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2))
+
+
+  if (f(IFight.normalHuntingRewards.upgrade5.level).greaterThan(f(0))) {
+    IFight.normalHuntingRewards.upgrade5.active = true;
+  }
+  //Universe
+
+  IUniversal.universe = f(IUniversal.universe)
+
+  //Milestones
+
+
+  //REQUISITES
+  //Base
+
+
+  //ASCENSION UPGRADES
+
+  if (IUniversal.energyUpgrades.upgrade23.active) {
+    var priceDivider1 = f(IUniversalIn.energyUpgrades.upgrade23.effect)
+  } else {
+    priceDivider1 = f(1)
+  }
+
+  //POTENTIAL
+  var sel = IUniversal.energyUpgrades.upgrade1
+  var sel2 = IUniversalIn.energyUpgrades.upgrade1
+
+
+  sel.level = f(sel.level)
+  if (f(sel.level).gte(f(1))) {
+    sel2.effect = f(10).pow(f(sel.level))
+  } else {
+    sel2.effect = 0;
+  }
+  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
+
+  if (f(sel.level).gt(f(0))) {
+    sel.active = true;
+  } else {
+    sel.active = false;
+  }
+
+  sel.showReq = true
+
+  var sel = IUniversal.energyUpgrades.upgrade2
+  var sel2 = IUniversalIn.energyUpgrades.upgrade2
+
+  sel.level = f(sel.level)
+  sel2.effect = f(2).pow(f(sel.level))
+  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
+
+  if (f(sel.level).gt(f(0))) {
+    sel.active = true;
+  } else {
+    sel.active = false;
+  }
+
+  if (IUniversal.energyUpgrades.upgrade1.active) {
+    sel.showReq = true
+  } else {
+    sel.showReq = false
+  }
+
+  var sel = IUniversal.energyUpgrades.upgrade3
+  var sel2 = IUniversalIn.energyUpgrades.upgrade3
+
+  sel2.effectDesc = `×${format(f(sel2.effect), 0)}`
+  sel.level = f(sel.level)
+  sel2.effect = f(5).pow(f(sel.level))
+  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
+
+  if (f(sel.level).gt(f(0))) {
+    sel.active = true;
+  } else {
+    sel.active = false;
+  }
+
+  if (IUniversal.energyUpgrades.upgrade2.active) {
+    sel.showReq = true
+  } else {
+    sel.showReq = false
+  }
+
+  var sel = IUniversal.energyUpgrades.upgrade4
+  var sel2 = IUniversalIn.energyUpgrades.upgrade4
+
+
+  sel.level = f(sel.level)
+  if (f(IGameData.universeTime).gte(f(3)) && IGameData.universeTime != "NaN" && IGameData.universeTime != undefined) {
+    sel2.effect = f(Decimal.log2(IGameData.universeTime)).mul(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
+
+  if (f(sel.level).gt(f(0))) {
+    sel.active = true;
+  } else {
+    sel.active = false;
+  }
+
+  if (IUniversal.energyUpgrades.upgrade3.active) {
+    sel.showReq = true
+  } else {
+    sel.showReq = false
+  }
+
+  var sel = IUniversal.energyUpgrades.upgrade5
+  var sel2 = IUniversalIn.energyUpgrades.upgrade5
+
+
+  sel.level = f(sel.level)
+  sel2.effect = f(1).add(f(0.02).mul(f(sel.level)))
+  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
+
+  if (f(sel.level).gt(f(0))) {
+    sel.active = true;
+  } else {
+    sel.active = false;
+  }
+
+  if (IUniversal.energyUpgrades.upgrade4.active) {
+    sel.showReq = true
+  } else {
+    sel.showReq = false
+  }
+
+  //WEIGHT
+  var sel = IUniversal.energyUpgrades.upgrade6
+  var sel2 = IUniversalIn.energyUpgrades.upgrade6
+
+  sel.level = f(sel.level)
+  if (f(sel.level).gte(f(1))) {
+    sel2.effect = f(10).pow(f(sel.level))
+  } else {
+    sel2.effect = 0;
+  }
+  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
+
+  if (f(sel.level).gt(f(0))) {
+    sel.active = true;
+  } else {
+    sel.active = false;
+  }
+
+  sel.showReq = true
+
+  var sel = IUniversal.energyUpgrades.upgrade7
+  var sel2 = IUniversalIn.energyUpgrades.upgrade7
+
+  sel.level = f(sel.level)
+  sel2.effect = f(IUniversal.universe).mul(f(sel.level))
+  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
+
+  if (f(sel.level).gt(f(0))) {
+    sel.active = true;
+  } else {
+    sel.active = false;
+  }
+
+  if (IUniversal.energyUpgrades.upgrade6.active) {
+    sel.showReq = true
+  } else {
+    sel.showReq = false
+  }
+
+  var sel = IUniversal.energyUpgrades.upgrade8
+  var sel2 = IUniversalIn.energyUpgrades.upgrade8
+
+
+  sel.level = f(sel.level)
+  sel2.effect = f(2).pow(f(sel.level))
+  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
+
+  if (f(sel.level).gt(f(0))) {
+    sel.active = true;
+  } else {
+    sel.active = false;
+  }
+
+  if (IUniversal.energyUpgrades.upgrade7.active) {
+    sel.showReq = true
+  } else {
+    sel.showReq = false
+  }
+
+  var sel = IUniversal.energyUpgrades.upgrade9
+  var sel2 = IUniversalIn.energyUpgrades.upgrade9
+
+
+  sel.level = f(sel.level)
+  sel2.effect = f(5).pow(f(sel.level))
+  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
+
+  if (f(sel.level).gt(f(0))) {
+    sel.active = true;
+  } else {
+    sel.active = false;
+  }
+
+  if (IUniversal.energyUpgrades.upgrade8.active) {
+    sel.showReq = true
+  } else {
+    sel.showReq = false
+  }
+
+  var sel = IUniversal.energyUpgrades.upgrade10
+  var sel2 = IUniversalIn.energyUpgrades.upgrade10
+
+
+  sel.level = f(sel.level)
+  sel2.effect = f(1).add(f(0.02).mul(f(sel.level)))
+  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
+
+  if (f(sel.level).gt(f(0))) {
+    sel.active = true;
+  } else {
+    sel.active = false;
+  }
+
+  if (IUniversal.energyUpgrades.upgrade9.active) {
+    sel.showReq = true
+  } else {
+    sel.showReq = false
+  }
+
+  //PURITY
+  var sel = IUniversal.energyUpgrades.upgrade11
+  var sel2 = IUniversalIn.energyUpgrades.upgrade11
+
+  sel.level = f(sel.level)
+  sel2.effect = f(5).pow(f(sel.level))
+  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
+
+  if (f(sel.level).gt(f(0))) {
+    sel.active = true;
+  } else {
+    sel.active = false;
+  }
+
+  sel.showReq = true
+
+  var sel = IUniversal.energyUpgrades.upgrade12
+  var sel2 = IUniversalIn.energyUpgrades.upgrade12
+
+
+  sel.level = f(sel.level)
+
+  var tot = f(0)
+  for (let i in IFight.normalHunting) {
+    var s = IFight.normalHunting[i]
+
+    tot = f(tot).add(f(s.level))
+  }
+
+  if (f(tot).gte(f(3))) {
+    sel2.effect = f(Decimal.log2(tot)).mul(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
+
+  if (f(sel.level).gt(f(0))) {
+    sel.active = true;
+  } else {
+    sel.active = false;
+  }
+
+  if (IUniversal.energyUpgrades.upgrade11.active) {
+    sel.showReq = true
+  } else {
+    sel.showReq = false
+  }
+
+  var sel = IUniversal.energyUpgrades.upgrade13
+  var sel2 = IUniversalIn.energyUpgrades.upgrade13
+
+
+  sel.level = f(sel.level)
+  if (f(IFight.normalHunting.hunt3.level).gte(2)) {
+    sel2.effect = f(Decimal.log2(IFight.normalHunting.hunt3.level)).mul(f(sel.level))
+
+  } else {
+    sel2.effect = f(1)
+  }
+  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
+
+  if (f(sel.level).gt(f(0))) {
+    sel.active = true;
+  } else {
+    sel.active = false;
+  }
+
+  if (IUniversal.energyUpgrades.upgrade12.active) {
+    sel.showReq = true
+  } else {
+    sel.showReq = false
+  }
+
+  var sel = IUniversal.energyUpgrades.upgrade14
+  var sel2 = IUniversalIn.energyUpgrades.upgrade14
+
+
+  sel.level = f(sel.level)
+  sel2.effect = f(sel.level)
+  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
+
+  if (f(sel.level).gt(f(0))) {
+    sel.active = true;
+  } else {
+    sel.active = false;
+  }
+
+  if (IUniversal.energyUpgrades.upgrade13.active) {
+    sel.showReq = true
+  } else {
+    sel.showReq = false
+  }
+
+  var sel = IUniversal.energyUpgrades.upgrade15
+  var sel2 = IUniversalIn.energyUpgrades.upgrade15
+
+
+  sel.level = f(sel.level)
+  sel2.effect = f(0.50).mul(f(sel.level))
+  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
+
+  if (f(sel.level).gt(f(0))) {
+    sel.active = true;
+  } else {
+    sel.active = false;
+  }
+
+  if (IUniversal.energyUpgrades.upgrade14.active) {
+    sel.showReq = true
+  } else {
+    sel.showReq = false
+  }
+
+  //ORIGINALITY
+  var sel = IUniversal.energyUpgrades.upgrade16
+  var sel2 = IUniversalIn.energyUpgrades.upgrade16
+
+
+  sel2.effectDesc = `/${format(f(sel2.effect), 0)}`
+  sel.level = f(sel.level)
+  sel2.effect = f(5).pow(f(sel.level))
+  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
+
+  if (f(sel.level).gt(f(0))) {
+    sel.active = true;
+  } else {
+    sel.active = false;
+  }
+
+  sel.showReq = true
+
+  var sel = IUniversal.energyUpgrades.upgrade17
+  var sel2 = IUniversalIn.energyUpgrades.upgrade17
+
+
+
+  sel.level = f(sel.level)
+  sel2.effect = f(5).pow(f(sel.level))
+  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
+
+  if (f(sel.level).gt(f(0))) {
+    sel.active = true;
+  } else {
+    sel.active = false;
+  }
+
+  if (IUniversal.energyUpgrades.upgrade16.active) {
+    sel.showReq = true
+  } else {
+    sel.showReq = false
+  }
+
+  var sel = IUniversal.energyUpgrades.upgrade18
+  var sel2 = IUniversalIn.energyUpgrades.upgrade18
+
+
+  sel.level = f(sel.level)
+  sel2.effect = f(2).pow(f(sel.level))
+  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
+
+  if (f(sel.level).gt(f(0))) {
+    sel.active = true;
+  } else {
+    sel.active = false;
+  }
+
+  if (IUniversal.energyUpgrades.upgrade17.active) {
+    sel.showReq = true
+  } else {
+    sel.showReq = false
+  }
+
+  var sel = IUniversal.energyUpgrades.upgrade19
+  var sel2 = IUniversalIn.energyUpgrades.upgrade19
+
+
+  sel.level = f(sel.level)
+  sel2.effect = f(0.1).pow(f(sel.level))
+  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
+
+  if (f(sel.level).gt(f(0))) {
+    sel.active = true;
+  } else {
+    sel.active = false;
+  }
+
+  if (IUniversal.energyUpgrades.upgrade18.active) {
+    sel.showReq = true
+  } else {
+    sel.showReq = false
+  }
+
+  var sel = IUniversal.energyUpgrades.upgrade20
+  var sel2 = IUniversalIn.energyUpgrades.upgrade20
+
+
+  sel.level = f(sel.level)
+  sel2.effect = f(2).pow(f(sel.level))
+  sel2.price = f(2).pow(f(sel.level)).mul(f(priceDivider1))
+
+  if (f(sel.level).gt(f(0))) {
+    sel.active = true;
+  } else {
+    sel.active = false;
+  }
+
+  if (IUniversal.energyUpgrades.upgrade19.active) {
+    sel.showReq = true
+  } else {
+    sel.showReq = false
+  }
+
+  var sel = IUniversal.energyUpgrades.upgrade21
+  var sel2 = IUniversalIn.energyUpgrades.upgrade21
+
+
+  sel.level = f(sel.level)
+
+  if (f(IGameData.power).gte(f(3))) {
+    sel2.effect = f(Decimal.log2(IGameData.power)).mul(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+  sel2.price = f(5).pow(f(sel.level).add(f(1)))
+
+  if (f(sel.level).gt(f(0))) {
+    sel.active = true;
+  } else {
+    sel.active = false;
+  }
+
+  if (IUniversal.energyUpgrades.upgrade5.active && IUniversal.energyUpgrades.upgrade10.active) {
+    sel.showReq = true
+  } else {
+    sel.showReq = false
+  }
+
+  var sel = IUniversal.energyUpgrades.upgrade22
+  var sel2 = IUniversalIn.energyUpgrades.upgrade22
+
+
+  sel.level = f(sel.level)
+  sel2.effect = f(Decimal.log2(IUniversalChallenger.universalShards)).mul(f(sel.level))
+  sel2.price = f(5).pow(f(sel.level).add(f(1)))
+
+  if (f(sel.level).gt(f(0))) {
+    sel.active = true;
+  } else {
+    sel.active = false;
+  }
+
+  if (IUniversal.energyUpgrades.upgrade15.active && IUniversal.energyUpgrades.upgrade20.active) {
+    sel.showReq = true
+  } else {
+    sel.showReq = false
+  }
+
+  var sel = IUniversal.energyUpgrades.upgrade23
+  var sel2 = IUniversalIn.energyUpgrades.upgrade23
+
+
+  sel.level = f(sel.level)
+  sel2.effect = f(0.5).pow(f(sel.level))
+  sel2.price = f(5).pow(f(sel.level).add(f(1)))
+
+  if (f(sel.level).gt(f(0))) {
+    sel.active = true;
+  } else {
+    sel.active = false;
+  }
+
+  if (IUniversal.energyUpgrades.upgrade10.active && IUniversal.energyUpgrades.upgrade15.active) {
+    sel.showReq = true
+  } else {
+    sel.showReq = false
+  }
+
+  //ASCENSION
+
+  IUniversal.ascensionPointMax = f(IUniversal.universe).minus(f(1))
+
+  //ATTRIBUTES
+
+  if (f(IUniversalIn.attributes.attributeBonus1.effect).gte(f(1))) {
+    IUniversal.attributes.attributeBonus1.active = true;
+  } else {
+    IUniversal.attributes.attributeBonus1.active = false;
+    IUniversalIn.attributes.attributeBonus1.effect = f(1)
+  }
+
+  if (f(IUniversalIn.attributes.attributeBonus2.effect).gte(f(1))) {
+    IUniversal.attributes.attributeBonus2.active = true;
+  } else {
+    IUniversal.attributes.attributeBonus2.active = false;
+    IUniversalIn.attributes.attributeBonus2.effect = f(1)
+  }
+
+  if (f(IUniversalIn.attributes.attributeBonus3.effect).gte(f(1))) {
+    IUniversal.attributes.attributeBonus3.active = true;
+  } else {
+    IUniversal.attributes.attributeBonus3.active = false;
+    IUniversalIn.attributes.attributeBonus3.effect = f(1)
+  }
+
+  if (f(IUniversalIn.attributes.attributeBonus4.effect).gte(f(1))) {
+    IUniversal.attributes.attributeBonus4.active = true;
+  } else {
+    IUniversal.attributes.attributeBonus4.active = false;
+    IUniversalIn.attributes.attributeBonus4.effect = f(1)
+  }
+
+  if (f(IUniversalIn.attributes.attributeBonus5.effect).gte(f(1))) {
+    IUniversal.attributes.attributeBonus5.active = true;
+  } else {
+    IUniversal.attributes.attributeBonus5.active = false;
+    IUniversalIn.attributes.attributeBonus5.effect = f(1)
+  }
+
+  if (f(IUniversalIn.attributes.attributeBonus6.effect).gte(f(1))) {
+    IUniversal.attributes.attributeBonus6.active = true;
+  } else {
+    IUniversal.attributes.attributeBonus6.active = false;
+    IUniversalIn.attributes.attributeBonus6.effect = f(1)
+  }
+
+  //ATTRIBUTES UNLOCK
+
+
+  IUniversalIn.attributes.attributesUnlock1.req = function () {
+    return f(IUniversal.attributes.critPoints).gte(f(50))
+      && f(IUniversal.attributes.regenerationPoints).gte(f(100))
+  }
+
+
+
+  IUniversalIn.attributes.attributesUnlock2.req = function () {
+    return f(IUniversal.attributes.defencePenetrationPoints).gte(f(50))
+      && f(IUniversal.attributes.defencePoints).gte(f(100))
+  }
+
+
+  IUniversalIn.attributes.attributesUnlock3.req = function () {
+    return f(IUniversal.attributes.lifeStealPoints).gte(f(50))
+      && f(IUniversal.attributes.shieldPoints).gte(f(50))
+  }
+
+  //CRIT
+  //Crit Rate
+  IUniversal.attributes.critRate.level = f(IUniversal.attributes.critRate.level)
+
+  IUniversalIn.attributes.critRate.effect = f(0.1).mul(f(IUniversal.attributes.critRate.level))
+  IUniversalIn.attributes.critRate.price = f(10).pow(f(IUniversal.attributes.critRate.level).add(f(2)))
+
+  //Crit Damage
+  IUniversal.attributes.critDamage.level = f(IUniversal.attributes.critDamage.level)
+
+  IUniversalIn.attributes.critDamage.effect = f(1).add(f(0.1).mul(f(IUniversal.attributes.critDamage.level)))
+  IUniversalIn.attributes.critDamage.price = f(25).pow(f(IUniversal.attributes.critDamage.level).add(f(1)))
+
+
+  if (f(IUniversal.attributes.critRate.level).gte(f(1))) {
+    var points1 = f(IUniversal.attributes.critRate.level)
+  } else {
+    points1 = f(1)
+  }
+
+  if (f(IUniversal.attributes.critDamage.level).gte(f(1))) {
+    var points2 = f(IUniversal.attributes.critDamage.level)
+  } else {
+    points2 = f(1)
+  }
+
+  if (IUniversalIn.potionEffects.effect14.activeValue) {
+    var points3 = f(IUniversalIn.potionEffects.effect14.activeValue);
+  } else {
+    points3 = f(1);
+  }
+
+
+  IUniversal.attributes.critPoints = f(points1).mul(f(points2)).mul(f(points3))
+
+
+  //LIFE REGENERATION
+  //life regeneration
+
+
+  IUniversal.attributes.regeneration.level = f(IUniversal.attributes.regeneration.level)
+
+
+  if (f(IUniversal.attributes.regeneration.level).gte(f(10))) {
+    IUniversalIn.attributes.regeneration.effect = f(IUniversal.attributes.regeneration.level)
+  } else {
+    IUniversalIn.attributes.regeneration.effect = f(1)
+  }
+
+  IUniversalIn.attributes.regeneration.price = f(IUniversalIn.attributes.regeneration.price)
+
+  if (f(IUniversal.attributes.maxRegeneration.level).gte(f(1))) {
+    var points2 = f(IUniversal.attributes.maxRegeneration.level)
+  } else {
+    points2 = f(1)
+  }
+
+  if (IUniversalIn.potionEffects.effect14.activeValue) {
+    var points3 = f(IUniversalIn.potionEffects.effect14.activeValue);
+  } else {
+    points3 = f(1);
+  }
+
+
+  IUniversal.attributes.regenerationPoints = f(Decimal.log(IUniversalIn.attributes.regeneration.effect, 10)).mul(f(points2)).mul(f(points3))
+
+  //max life regeneration
+  IUniversal.attributes.maxRegeneration.level = f(IUniversal.attributes.maxRegeneration.level)
+
+  IUniversalIn.attributes.maxRegeneration.effect = f(0.1).mul(f(IUniversal.attributes.maxRegeneration.level))
+  IUniversalIn.attributes.maxRegeneration.price = f(50).pow(f(IUniversal.attributes.maxRegeneration.level).add(f(1)))
+
+  //DEFENCE PENETRATION
+  //Defence Penetration
+  IUniversal.attributes.defencePenetration.level = f(IUniversal.attributes.defencePenetration.level)
+
+  if (f(IUniversal.attributes.defencePenetration.level).gte(f(10))) {
+    IUniversalIn.attributes.defencePenetration.effect = f(IUniversal.attributes.defencePenetration.level)
+  } else {
+    IUniversalIn.attributes.defencePenetration.effect = f(1)
+  }
+
+  IUniversalIn.attributes.defencePenetration.price = f(IUniversalIn.attributes.defencePenetration.price)
+
+  //Max Defence Penetration
+
+  IUniversal.attributes.maxDefencePenetration.level = f(IUniversal.attributes.maxDefencePenetration.level)
+
+  IUniversalIn.attributes.maxDefencePenetration.effect = f(0.1).mul(f(IUniversal.attributes.maxDefencePenetration.level))
+  IUniversalIn.attributes.maxDefencePenetration.price = f(50).pow(f(IUniversal.attributes.maxDefencePenetration.level).add(f(1)))
+
+  if (f(IUniversal.attributes.maxDefencePenetration.level).gte(f(1))) {
+    var points2 = f(IUniversal.attributes.maxDefencePenetration.level)
+  } else {
+    points2 = f(1)
+  }
+
+  if (IUniversalIn.potionEffects.effect15.activeValue) {
+    var points3 = f(IUniversalIn.potionEffects.effect15.activeValue);
+  } else {
+    points3 = f(1);
+  }
+
+  IUniversal.attributes.defencePenetrationPoints = f(Decimal.log(IUniversalIn.attributes.defencePenetration.effect, 10)).mul(f(points2)).mul(f(points3))
+
+  //DEFENCE
+  //Defence
+
+
+  IUniversal.attributes.defence.level = f(IUniversal.attributes.defence.level)
+
+  IUniversalIn.attributes.defence.odds = f(1).div(f(2).pow(f(IUniversal.attributes.defence.level).minus(f(10).times(f(IUniversal.attributes.defence.level).div(f(10)).floor()))));
+
+  IUniversalIn.attributes.defence.price = f(250).mul(f(100).pow(f(IUniversal.attributes.defence.level).div(10).floor())).mul(f(1).dividedBy(f(IUniversalIn.attributes.defence.odds)))
+
+  IUniversalIn.attributes.defence.correctedPrice = f(250).mul(f(100).pow(f(IUniversal.attributes.defence.level).div(10).floor()))
+
+  //Max Defence
+  IUniversal.attributes.maxDefence.level = f(IUniversal.attributes.maxDefence.level)
+
+  IUniversalIn.attributes.maxDefence.effect = f(0.1).mul(f(IUniversal.attributes.maxDefence.level))
+  IUniversalIn.attributes.maxDefence.price = f(25).pow(f(IUniversal.attributes.maxDefence.level).add(f(1)))
+
+  if (f(IUniversal.attributes.defence.level).gte(f(1))) {
+    var points1 = f(IUniversal.attributes.defence.level)
+  } else {
+    points1 = f(1)
+  }
+
+  if (f(IUniversal.attributes.maxDefence.level).gte(f(1))) {
+    var points2 = f(IUniversal.attributes.maxDefence.level)
+  } else {
+    points2 = f(1)
+  }
+
+  if (IUniversalIn.potionEffects.effect15.activeValue) {
+    var points3 = f(IUniversalIn.potionEffects.effect15.activeValue);
+  } else {
+    points3 = f(1);
+  }
+
+
+  IUniversal.attributes.defencePoints = f(points1).mul(f(points2)).mul(f(points3))
+
+
+  //LIFE STEAL
+  //Life Steal
+
+  if (IUniversal.attributes.lifeSteal.active) {
+    IUniversal.attributes.lifeSteal.level = f(IUniversal.attributes.lifeSteal.level).add(f(IUniversalChallenger.universalCoresProd))
+  }
+
+  if (f(IUniversal.attributes.lifeSteal.level).gte(f(10))) {
+    IUniversalIn.attributes.shield.effect = f(Decimal.log(IUniversal.attributes.lifeSteal.level, 10))
+    var points1 = f(Decimal.log(IUniversal.attributes.lifeSteal.level, 10))
+  } else {
+    IUniversalIn.attributes.shield.effect = f(1)
+    points1 = f(1)
+  }
+
+  //Max Life Steal
+  IUniversal.attributes.lifeStealMax.level = f(IUniversal.attributes.lifeStealMax.level)
+
+  IUniversalIn.attributes.lifeStealMax.effect = f(0.1).mul(f(IUniversal.attributes.lifeStealMax.level))
+
+  IUniversalIn.attributes.lifeStealMax.price = f(25).pow(f(IUniversal.attributes.lifeStealMax.level).add(f(1)))
+
+  if (f(IUniversal.attributes.lifeStealMax.level).gte(f(1))) {
+
+    var points2 = f(IUniversal.attributes.lifeStealMax.level)
+  } else {
+    points2 = f(1)
+  }
+
+  if (IUniversalIn.potionEffects.effect16.activeValue) {
+    var points3 = f(IUniversalIn.potionEffects.effect16.activeValue);
+  } else {
+    points3 = f(1);
+  }
+
+
+  IUniversal.attributes.lifeStealPoints = f(points1).mul(f(points2)).mul(f(points3))
+
+  //SHIELD
+
+  //Shield
+  IUniversal.attributes.shield.level = f(IUniversal.attributes.shield.level)
+
+  if (f(IUniversal.attributes.shield.level).gte(f(10))) {
+    IUniversalIn.attributes.shield.effect = f(Decimal.log(IUniversal.attributes.shield.level, 10))
+    var points1 = f(Decimal.log(IUniversal.attributes.shield.level, 10))
+  } else {
+    IUniversalIn.attributes.shield.effect = f(1)
+    points1 = f(1)
+  }
+
+  IUniversalIn.attributes.shield.price = f(IUniversalIn.attributes.shield.price)
+
+  //Max Shield
+
+  IUniversal.attributes.maxShield.level = f(IUniversal.attributes.maxShield.level)
+
+  IUniversalIn.attributes.maxShield.effect = f(0.1).mul(f(IUniversal.attributes.maxShield.level))
+  IUniversalIn.attributes.maxShield.price = f(50).pow(f(IUniversal.attributes.maxShield.level).add(f(1)))
+
+  if (f(IUniversal.attributes.shield.level).gte(f(1))) {
+    var points2 = f(IUniversal.attributes.maxShield.level)
+  } else {
+    points2 = f(1)
+  }
+
+  if (IUniversalIn.potionEffects.effect16.activeValue) {
+    var points3 = f(IUniversalIn.potionEffects.effect16.activeValue);
+  } else {
+    points3 = f(1);
+  }
+
+  IUniversal.attributes.shieldPoints = f(points1).mul(f(points2)).mul(f(points3))
+
+
+  //ATTRIBUTES BONUS
+
+
+  IUniversalIn.attributes.attributeBonus1.effect = f(IUniversal.attributes.critPoints).pow(f(1.5))
+  IUniversalIn.attributes.attributeBonus2.effect = f(IUniversal.attributes.regenerationPoints).pow(f(1.5))
+  IUniversalIn.attributes.attributeBonus3.effect = f(IUniversal.attributes.defencePoints).pow(f(1.5))
+  IUniversalIn.attributes.attributeBonus4.effect = f(IUniversal.attributes.defencePenetrationPoints).pow(f(1.5))
+  IUniversalIn.attributes.attributeBonus5.effect = f(IUniversal.attributes.lifeStealPoints).pow(f(1.5))
+  IUniversalIn.attributes.attributeBonus6.effect = f(IUniversal.attributes.shieldPoints).pow(f(1.5))
+
+
+  //HUNT EVOLUTION
+
+  var globalEffect1 = f(1)
+
+  if (IUniversal.huntEvolution.b1.active4) {
+    globalEffect1 = f(globalEffect1).mul(f(IUniversalIn.huntEvolution.b1.effect4))
+  }
+
+  if (IUniversal.huntEvolution.b2.active4) {
+    globalEffect1 = f(globalEffect1).mul(f(IUniversalIn.huntEvolution.b2.effect4))
+  }
+
+  if (IUniversal.huntEvolution.b3.active4) {
+    globalEffect1 = f(globalEffect1).mul(f(IUniversalIn.huntEvolution.b3.effect4))
+  }
+
+  if (IUniversal.huntEvolution.b4.active4) {
+    globalEffect1 = f(globalEffect1).mul(f(IUniversalIn.huntEvolution.b4.effect4))
+  }
+
+  if (IUniversal.huntEvolution.b5.active4) {
+    globalEffect1 = f(globalEffect1).mul(f(IUniversalIn.huntEvolution.b5.effect4))
+  }
+
+  var sel = IUniversal.huntEvolution.b1
+  var sel2 = IUniversalIn.huntEvolution.b1
+
+
+  if (Math.floor(f(sel.level).add(f(3)) / 4) > 0) {
+    sel.active1 = true
+  } else {
+    sel.active1 = false
+  }
+
+  if (Math.floor(f(sel.level).add(f(2)) / 4) > 0) {
+    sel.active2 = true
+  } else {
+    sel.active2 = false
+  }
+
+  if (Math.floor(f(sel.level).add(f(1)) / 4) > 0) {
+    sel.active3 = true
+  } else {
+    sel.active3 = false
+  }
+
+  if (Math.floor(f(sel.level).add(f(0)) / 4) > 0) {
+    sel.active4 = true
+  } else {
+    sel.active4 = false
+  }
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(40)
+
+  sel2.effect1 = f(5).pow(Math.floor(f(sel.level).add(f(3)) / 4)).mul(f(globalEffect1))
+  sel2.effect2 = f(10).pow(Math.floor(f(sel.level).add(f(2)) / 4)).mul(f(globalEffect1))
+  sel2.effect3 = f(10).pow(Math.floor(f(sel.level).add(f(1)) / 4)).mul(f(globalEffect1))
+  sel2.effect4 = f(2).pow(Math.floor(f(sel.level).add(f(0)) / 4))
+
+  sel2.price = f(f(10).pow(f(14))).mul(f(10).pow(f(sel.level)))
+
+
+  var sel = IUniversal.huntEvolution.b2
+  var sel2 = IUniversalIn.huntEvolution.b2
+
+
+  if (Math.floor(f(sel.level).add(f(3)).dividedBy(f(4))) > 0) {
+
+    sel.active1 = true
+
+  } else {
+    sel.active1 = false
+  }
+
+  if (Math.floor(f(sel.level).add(f(2)).dividedBy(f(4))) > 0) {
+
+    sel.active2 = true
+  } else {
+    sel.active2 = false
+  }
+
+  if (Math.floor(f(sel.level).add(f(1)) / 4) > 0) {
+
+    sel.active3 = true
+  } else {
+    sel.active3 = false
+  }
+
+  if (Math.floor(f(sel.level).add(f(0)) / 4) > 0) {
+
+    sel.active4 = true
+  } else {
+    sel.active4 = false
+  }
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(40)
+
+  sel2.effect1 = f(5).pow(Math.floor(f(sel.level).add(f(3)) / 4)).mul(f(globalEffect1))
+  sel2.effect2 = f(10).pow(Math.floor(f(sel.level).add(f(2)) / 4)).mul(f(globalEffect1))
+  sel2.effect3 = f(10).pow(Math.floor(f(sel.level).add(f(1)) / 4)).mul(f(globalEffect1))
+  sel2.effect4 = f(2).pow(Math.floor(f(sel.level).add(f(0)) / 4))
+
+  sel2.price = f(f(10).pow(f(14))).mul(f(10).pow(f(sel.level)))
+
+
+
+  var sel = IUniversal.huntEvolution.b3
+  var sel2 = IUniversalIn.huntEvolution.b3
+
+
+  if (Math.floor(f(sel.level).add(f(3)) / 4) > 0) {
+    sel.active1 = true
+  } else {
+    sel.active1 = false
+  }
+
+  if (Math.floor(f(sel.level).add(f(2)) / 4) > 0) {
+    sel.active2 = true
+  } else {
+    sel.active2 = false
+  }
+
+  if (Math.floor(f(sel.level).add(f(1)) / 4) > 0) {
+    sel.active3 = true
+  } else {
+    sel.active3 = false
+  }
+
+  if (Math.floor(f(sel.level).add(f(0)) / 4) > 0) {
+    sel.active4 = true
+  } else {
+    sel.active4 = false
+  }
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(40)
+
+  sel2.effect1 = f(5).pow(Math.floor(f(sel.level).add(f(3)) / 4)).mul(f(globalEffect1))
+  sel2.effect2 = f(10).pow(Math.floor(f(sel.level).add(f(2)) / 4)).mul(f(globalEffect1))
+  sel2.effect3 = f(10).pow(Math.floor(f(sel.level).add(f(1)) / 4)).mul(f(globalEffect1))
+  sel2.effect4 = f(2).pow(Math.floor(f(sel.level).add(f(0)) / 4))
+
+  sel2.price = f(f(10).pow(f(7))).mul(f(10).pow(f(sel.level)))
+
+
+
+  var sel = IUniversal.huntEvolution.b4
+  var sel2 = IUniversalIn.huntEvolution.b4
+
+
+  if (Math.floor(f(sel.level).add(f(3)) / 4) > 0) {
+    sel.active1 = true
+  } else {
+    sel.active1 = false
+  }
+
+  if (Math.floor(f(sel.level).add(f(2)) / 4) > 0) {
+    sel.active2 = true
+  } else {
+    sel.active2 = false
+  }
+
+  if (Math.floor(f(sel.level).add(f(1)) / 4) > 0) {
+    sel.active3 = true
+  } else {
+    sel.active3 = false
+  }
+
+  if (Math.floor(f(sel.level).add(f(0)) / 4) > 0) {
+    sel.active4 = true
+  } else {
+    sel.active4 = false
+  }
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(40)
+
+  sel2.effect1 = f(5).pow(Math.floor(f(sel.level).add(f(3)) / 4)).mul(f(globalEffect1))
+  sel2.effect2 = f(10).pow(Math.floor(f(sel.level).add(f(2)) / 4)).mul(f(globalEffect1))
+  sel2.effect3 = f(10).pow(Math.floor(f(sel.level).add(f(1)) / 4)).mul(f(globalEffect1))
+  sel2.effect4 = f(2).pow(Math.floor(f(sel.level).add(f(0)) / 4))
+
+  sel2.price = f(f(10).pow(f(7))).mul(f(10).pow(f(sel.level)))
+
+  var sel = IUniversal.huntEvolution.b5
+  var sel2 = IUniversalIn.huntEvolution.b5
+
+
+  if (Math.floor(f(sel.level).add(f(3)) / 4) > 0) {
+    sel.active1 = true
+  } else {
+    sel.active1 = false
+  }
+
+  if (Math.floor(f(sel.level).add(f(2)) / 4) > 0) {
+    sel.active2 = true
+  } else {
+    sel.active2 = false
+  }
+
+  if (Math.floor(f(sel.level).add(f(1)) / 4) > 0) {
+    sel.active3 = true
+  } else {
+    sel.active3 = false
+  }
+
+  if (Math.floor(f(sel.level).add(f(0)) / 4) > 0) {
+    sel.active4 = true
+  } else {
+    sel.active4 = false
+  }
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(40)
+
+  sel2.effect1 = f(5).pow(Math.floor(f(sel.level).add(f(3)) / 4)).mul(f(globalEffect1))
+  sel2.effect2 = f(10).pow(Math.floor(f(sel.level).add(f(2)) / 4)).mul(f(globalEffect1))
+  sel2.effect3 = f(10).pow(Math.floor(f(sel.level).add(f(1)) / 4)).mul(f(globalEffect1))
+  sel2.effect4 = f(2).pow(Math.floor(f(sel.level).add(f(0)) / 4))
+
+  sel2.price = f(1000).mul(f(10).pow(f(sel.level)))
+
+
+  //AUTOMATION
+  //Automation 1
+
+  IUniversal.automation.automation1.level = f(IUniversal.automation.automation1.level)
+
+
+  IUniversalIn.automation.automation1.maxLevel = f(3)
+
+  ISelUpgrade.group.group1.maxNum = f(IUniversal.automation.automation1.level).add(f(1))
+
+  IUniversalIn.automation.automation1.price = (f(10).pow(5)).pow(f(IUniversal.automation.automation1.level).add(f(1)))
+
+  //AUTOMATION 2
+
+  IUniversalIn.automation.automation2.price = (f(10).pow(f(7)))
+
+  //AUTOMATION 3
+
+  IUniversalIn.automation.automation3.price = (f(10).pow(f(11)))
+
+  //AUTOMATION 4
+
+  IUniversalIn.automation.automation4.price = (f(10).pow(f(15)))
+
+  //AUTOMATION 5
+
+  IUniversalIn.automation.automation5.price = (f(10).pow(f(23)))
+
+  //Automation 6
+
+  IUniversal.automation.automation6.level = f(IUniversal.automation.automation6.level)
+
+  IUniversalIn.automation.automation6.maxLevel = f(3)
+
+  IUniversalIn.automation.automation6.price = (f(10).pow(10)).pow(f(IUniversal.automation.automation6.level).add(f(1)))
+
+  //Automation 7
+
+  IUniversalIn.automation.automation7.price = (f(10).pow(f(40)))
+
+  //Automation 8
+
+  IUniversalIn.automation.automation8.price = (f(10).pow(f(45)))
+
+  //Automation 9
+
+  IUniversalIn.automation.automation9.price = (f(10).pow(f(60)))
+
+  //Automation 10
+
+  IUniversalIn.automation.automation10.price = (f(10).pow(f(65)))
+
+  //Automation 11
+
+  IUniversalIn.automation.automation11.price = (f(10).pow(f(80)))
+
+  //Automation 12
+
+  IUniversalIn.automation.automation12.price = (f(10).pow(f(85)))
+
+  //Automation 13
+
+  IUniversalIn.automation.automation13.price = (f(10).pow(f(70)))
+
+  //Automation 14
+
+  IUniversalIn.automation.automation14.price = (f(10).pow(f(90)))
+
+  //LORE
+
+  //FIRE TREE
+  //
+
+
+  //HEAT TIMER
+
+  if (IUniversal.fireTree.node42.active) {
+    var heat1 = f(IUniversalIn.fireTree.node42.effect)
+  } else {
+    heat1 = f(0)
+  }
+
+  if (IUniversal.fireTree.node51.active) {
+    var heat2 = f(IUniversalIn.fireTree.node51.effect)
+  } else {
+    heat2 = f(0)
+  }
+
+  IUniversal.heatTimer = f(10).add(f(heat1)).add(f(heat2))
+
+
+  //NODE 1
+  var sel = IUniversal.fireTree.node1
+  var sel2 = IUniversalIn.fireTree.node1
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(100)
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level).minus(f(1)))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.price = (f(10).pow(f(15))).mul(f(10).pow(f(5).mul(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 2
+  var sel = IUniversal.fireTree.node2
+  var sel2 = IUniversalIn.fireTree.node2
+
+
+
+
+  var extraLevel1 = f(IUniversalIn.fireTree.node13.effect)
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10).add(f(extraLevel1))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level).minus(f(1)))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  var effect1 = f(IUniversalIn.fireTree.node19.effect)
+
+
+  if (f(sel2.effect).gt(f(0))) {
+    sel2.effect2 = f(2).pow(f(Decimal.log10(f(IUniversal.wood).add(f(10))))).mul(f(effect1))
+  } else {
+    sel2.effect2 = f(1)
+  }
+
+  var price1 = f(IUniversalIn.fireTree.node16.effect)
+
+
+  sel2.price = f(10).mul(f(2).pow(f(sel.level))).dividedBy(f(price1))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 3
+  var sel = IUniversal.fireTree.node3
+  var sel2 = IUniversalIn.fireTree.node3
+
+
+  var extraLevel1 = f(IUniversalIn.fireTree.node14.effect)
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10).add(f(extraLevel1))
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level).minus(f(1)))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  var effect1 = f(IUniversalIn.fireTree.node19.effect)
+
+
+  if (f(sel2.effect).gt(f(0))) {
+    sel2.effect2 = ((f(2).pow(f(Decimal.log10(f(IUniversal.coal).add(f(10)))))).pow(f(1.2))).mul(f(effect1))
+  } else {
+    sel2.effect2 = f(1)
+  }
+
+  var price1 = f(IUniversalIn.fireTree.node17.effect)
+
+  sel2.price = f(f(10).pow(f(4))).mul(f(5).pow(f(sel.level))).dividedBy(f(price1))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 4
+  var sel = IUniversal.fireTree.node4
+  var sel2 = IUniversalIn.fireTree.node4
+
+  var extraLevel1 = f(IUniversalIn.fireTree.node15.effect)
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10).add(f(extraLevel1))
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level).minus(f(1)))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  var effect1 = f(IUniversalIn.fireTree.node19.effect)
+
+  if (f(sel2.effect).gt(f(0))) {
+    sel2.effect2 = ((f(2).pow(f(Decimal.log10(f(IUniversal.magma).add(f(10)))))).pow(f(1.8))).mul(f(effect1))
+  } else {
+    sel2.effect2 = f(1)
+  }
+
+  var price1 = f(IUniversalIn.fireTree.node18.effect)
+
+
+  sel2.price = f(f(10).pow(f(10))).mul(f(15).pow(f(sel.level))).dividedBy(f(price1))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 5
+  var sel = IUniversal.fireTree.node5
+  var sel2 = IUniversalIn.fireTree.node5
+
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.5).pow(f(Decimal.log10(f(sel.level).add(f(10)))))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = (f(10).pow(f(15))).add(f(5).mul(sel.level).mul(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 6
+  var sel = IUniversal.fireTree.node6
+  var sel2 = IUniversalIn.fireTree.node6
+
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.5).pow(f(Decimal.log10(f(sel.level).add(f(10)))))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = (f(10).pow(f(15))).add(f(5).mul(sel.level).mul(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  sel2.checkBuy = function () { return true }
+  sel2.req = function () { return IUniversal.fireTree.node3.active }
+
+  //NODE 7
+  var sel = IUniversal.fireTree.node7
+  var sel2 = IUniversalIn.fireTree.node7
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.5).pow(f(Decimal.log10(f(sel.level).add(f(10)))))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = (f(10).pow(f(15))).add(f(5).mul(sel.level).mul(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 8
+  var sel = IUniversal.fireTree.node8
+  var sel2 = IUniversalIn.fireTree.node8
+
+
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+
+  sel2.effect = f(5).pow(f(sel.level))
+  sel2.price = (f(10).pow(f(15))).add(f(5).mul(sel.level).mul(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 9
+  var sel = IUniversal.fireTree.node9
+  var sel2 = IUniversalIn.fireTree.node9
+
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+
+  sel2.effect = f(5).pow(f(sel.level))
+  sel2.price = (f(10).pow(f(15))).add(f(5).mul(sel.level).mul(f(sel.level)))
+
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 10
+  var sel = IUniversal.fireTree.node10
+  var sel2 = IUniversalIn.fireTree.node10
+
+
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+
+  sel2.effect = f(5).pow(f(sel.level))
+  sel2.price = (f(10).pow(f(15))).add(f(5).mul(sel.level).mul(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 11
+  var sel = IUniversal.fireTree.node11
+  var sel2 = IUniversalIn.fireTree.node11
+
+
+  if (f(IUniversal.fire).gt(f(0))) {
+    var tempEffect = IUniversal.fire
+  } else {
+    tempEffect = f(0)
+  }
+
+  sel.level = f(0)
+  sel2.maxLevel = Infinity
+
+  if (f(tempEffect).gt(f(0))) {
+    sel2.effect = f(2).pow(f(Decimal.ln(f(tempEffect).add(f(2)))).minus(f(1))).minus(f(1)).mul(f(IUniversalIn.fireTree.node38.effect))
+    if (f(sel2.effect).lt(f(0))) {
+      sel2.effect = f(0)
+    }
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.price = (f(10).pow(f(15))).add(f(5).mul(sel.level).mul(f(sel.level)))
+
+  if (f(IUniversal.size).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 12
+  var sel = IUniversal.fireTree.node12
+  var sel2 = IUniversalIn.fireTree.node12
+
+
+
+  var extraLevel1 = f(IUniversalIn.fireTree.node22.effect)
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(100).add(f(extraLevel1))
+
+
+
+  sel2.effect = f(1.2).pow(f(sel.level))
+  sel2.price = f(0.5).mul(f(10).pow(f(1))).mul(f(3).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 13
+  var sel = IUniversal.fireTree.node13
+  var sel2 = IUniversalIn.fireTree.node13
+
+
+  var extraLevel1 = f(IUniversalIn.fireTree.node22.effect)
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(90).add(f(extraLevel1))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(sel.level)
+  } else {
+    sel2.effect = f(0)
+  }
+  sel2.price = (f(5).mul(f(10).pow(f(1))).mul(f(5).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 14
+  var sel = IUniversal.fireTree.node14
+  var sel2 = IUniversalIn.fireTree.node14
+
+
+  if (f(IUniversal.coal).gt(f(0))) {
+    var tempEffect = f(Decimal.log10(f(IUniversal.coal).add(f(10))))
+  } else {
+    tempEffect = f(1)
+  }
+
+
+  var extraLevel1 = f(IUniversalIn.fireTree.node22.effect)
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(90).add(f(extraLevel1))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(sel.level)
+  } else {
+    sel2.effect = f(0)
+  }
+  sel2.price = (f(50).mul(f(10).pow(f(1))).mul(f(8).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 15
+  var sel = IUniversal.fireTree.node15
+  var sel2 = IUniversalIn.fireTree.node15
+
+
+  var extraLevel1 = f(IUniversalIn.fireTree.node22.effect)
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(90).add(f(extraLevel1))
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(sel.level)
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.price = (f(5000).mul(f(10).pow(f(1))).mul(f(30).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 16
+  var sel = IUniversal.fireTree.node16
+  var sel2 = IUniversalIn.fireTree.node16
+
+  var extraLevel1 = f(IUniversalIn.fireTree.node22.effect)
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5).add(f(extraLevel1))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+  sel2.price = (f(5).mul(f(10).pow(f(1))).mul(f(10).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 17
+  var sel = IUniversal.fireTree.node17
+  var sel2 = IUniversalIn.fireTree.node17
+
+  if (f(IUniversal.size).gt(f(0))) {
+    var tempEffect = f(Decimal.log10(f(IUniversal.size).add(f(10))))
+  } else {
+    tempEffect = f(1)
+  }
+
+  
+  var extraLevel1 = f(IUniversalIn.fireTree.node22.effect)
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5).add(f(extraLevel1))
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+  sel2.price = (f(50).mul(f(10).pow(f(1))).mul(f(12).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+
+  //NODE 18
+  var sel = IUniversal.fireTree.node18
+  var sel2 = IUniversalIn.fireTree.node18
+
+  var extraLevel1 = f(IUniversalIn.fireTree.node22.effect)
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5).add(f(extraLevel1))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+  sel2.price = (f(5000).mul(f(10).pow(f(1))).mul(f(30).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+
+  //NODE 19
+  var sel = IUniversal.fireTree.node19
+  var sel2 = IUniversalIn.fireTree.node19
+
+  var extraLevel1 = f(IUniversalIn.fireTree.node22.effect)
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5).add(f(extraLevel1))
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+  sel2.price = (f(5).mul(f(10).pow(f(1))).mul(f(10).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 20
+  var sel = IUniversal.fireTree.node20
+  var sel2 = IUniversalIn.fireTree.node20
+
+  var extraLevel1 = f(IUniversalIn.fireTree.node22.effect)
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5).add(f(extraLevel1))
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+  sel2.price = (f(5000).mul(f(10).pow(f(1))).mul(f(12).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+
+  //NODE 21
+  var sel = IUniversal.fireTree.node21
+  var sel2 = IUniversalIn.fireTree.node21
+
+  var extraLevel1 = f(IUniversalIn.fireTree.node22.effect)
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5).add(f(extraLevel1))
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+  sel2.price = (f(500000).mul(f(10).pow(f(1))).mul(f(30).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 22
+  var sel = IUniversal.fireTree.node22
+  var sel2 = IUniversalIn.fireTree.node22
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(100)
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(sel.level)
+  } else {
+    sel2.effect = f(0)
+  }
+  sel2.price = (f(500000).mul(f(10).pow(f(1))).mul(f(100).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 23
+  var sel = IUniversal.fireTree.node23
+  var sel2 = IUniversalIn.fireTree.node23
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.2).pow(Decimal.log10(f(IUniversal.wood))).mul(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+  sel2.price = (f(5000000000).mul(f(10).pow(f(1))).mul(f(1000000).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 24
+  var sel = IUniversal.fireTree.node24
+  var sel2 = IUniversalIn.fireTree.node24
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5)
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.2).pow(Decimal.log10(f(IUniversal.coal))).mul(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+  sel2.price = (f(50000000000000).mul(f(10).pow(f(1))).mul(f(10000000).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 25
+  var sel = IUniversal.fireTree.node25
+  var sel2 = IUniversalIn.fireTree.node25
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+  sel2.price = f(1).mul(f(10).pow(f(1))).mul(f(10).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 26
+  var sel = IUniversal.fireTree.node26
+  var sel2 = IUniversalIn.fireTree.node26
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+  sel2.price = f(1).mul(f(10).pow(f(1))).mul(f(10).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 27
+  var sel = IUniversal.fireTree.node27
+  var sel2 = IUniversalIn.fireTree.node27
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+
+  if (sel.active) {
+    sel2.effect = f(1.2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  if (sel.active) {
+    sel2.effect2 = f(2).minus(f(IUniversalIn.fireTree.node53.effect))
+  } else {
+    sel2.effect2 = f(1)
+  }
+  sel2.price = f(f(10).pow(f(30)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 28
+  var sel = IUniversal.fireTree.node28
+  var sel2 = IUniversalIn.fireTree.node28
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+
+  sel2.effect = f(1).mul(f(IUniversalIn.fireTree.node48.effect))
+
+  sel2.price = f(0)
+  sel.timer = f(2)
+  sel.currentTimer = f(sel.currentTimer)
+
+
+
+  if (sel2.req()) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 29
+  var sel = IUniversal.fireTree.node29
+  var sel2 = IUniversalIn.fireTree.node29
+
+  sel.level = f(sel.level)
+
+
+
+  var req = f(5).mul(f(2).pow(f(f(sel.level))))
+
+  if (f(IUniversal.heat).gte(f(req))) {
+    sel.level = f(sel.level).add(f(1))
+  }
+
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(5).pow(f(f(sel.level)).minus(f(1)))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  if (sel2.req()) { sel.active = false }
+  if (sel.active) { sel.unlocked = false }
+
+  //NODE 30
+  var sel = IUniversal.fireTree.node30
+  var sel2 = IUniversalIn.fireTree.node30
+
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+
+  if (sel.active) {
+    sel2.effect = f(1).mul(f(IUniversalIn.fireTree.node31.effect)).mul(f(IUniversalIn.fireTree.node33.effect)).mul(f(IUniversalIn.fireTree.node34.effect2)).mul(f(IUniversalIn.fireTree.node41.effect)).mul(f(IUniversalIn.fireTree.node49.effect)).mul(f(IUniversalIn.fireTree.node50.effect2))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.price = f(10)
+  sel.timer = f(10).dividedBy(f(IUniversalIn.fireTree.node32.effect))
+  sel.currentTimer = f(sel.currentTimer)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 31
+  var sel = IUniversal.fireTree.node31
+  var sel2 = IUniversalIn.fireTree.node31
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(3).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(f(10).pow(f(2))).mul(((f(25).pow(f(sel.level)))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 32
+  var sel = IUniversal.fireTree.node32
+  var sel2 = IUniversalIn.fireTree.node32
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(13)
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(f(10).pow(f(3))).mul((f(25).pow(f(sel.level))).mul(f(1.2).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 33
+  var sel = IUniversal.fireTree.node33
+  var sel2 = IUniversalIn.fireTree.node33
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(3)
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1).mul(f(sel.level).add(f(1)))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(f(10).pow(f(4))).mul((f(25).pow(f(sel.level))).mul(f(1.2).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+
+  //NODE 34
+  var sel = IUniversal.fireTree.node34
+  var sel2 = IUniversalIn.fireTree.node34
+
+
+  if (IUniversal.fireTree.node34.activeTimer) {
+    var time2 = format(f(f(sel.timer2).minus(f(sel.currentTimer2))), 1)
+  } else {
+    time2 = f(0)
+  }
+
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+
+  if (IUniversal.fireTree.node44.active) {
+    var bonus1 = f(IUniversalIn.fireTree.node44.effect).mul(f(2))
+  } else {
+    bonus1 = f(1)
+  }
+
+  sel2.effect = f(2).mul(f(IUniversalIn.fireTree.node35.effect)).mul(f(bonus1)).mul(f(IUniversalIn.fireTree.node64.effect))
+
+  if (IUniversal.fireTree.node34.activeTimer) {
+    sel2.effect2 = f(sel2.effect)
+  } else {
+    sel2.effect2 = f(1)
+  }
+
+  sel2.price = f(f(10).pow(f(7)))
+
+  if (IUniversal.fireTree.node44.active) {
+    var timer1 = f(IUniversalIn.fireTree.node44.effect)
+  } else {
+    timer1 = f(1)
+  }
+
+  sel.timer = f(60).dividedBy(f(IUniversalIn.fireTree.node36.effect)).mul(f(timer1))
+  sel.currentTimer = f(sel.currentTimer)
+
+  if (f(sel.timer2).lt(f(sel.timer))) {
+    sel.timer2 = f(10).mul(f(IUniversalIn.fireTree.node37.effect))
+  } else {
+    sel.timer2 = f(sel.timer)
+  }
+  sel.currentTimer2 = f(sel.currentTimer2)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 35
+  var sel = IUniversal.fireTree.node35
+  var sel2 = IUniversalIn.fireTree.node35
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(6)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.5).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(f(10).pow(f(8))).mul((f(50).pow(f(sel.level))).mul(f(2).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 36
+  var sel = IUniversal.fireTree.node36
+  var sel2 = IUniversalIn.fireTree.node36
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.1).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(f(10).pow(f(9))).mul((f(50).pow(f(sel.level))).mul(f(2).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 37
+  var sel = IUniversal.fireTree.node37
+  var sel2 = IUniversalIn.fireTree.node37
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5)
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(f(10).pow(f(10))).mul((f(50).pow(f(sel.level))).mul(f(2).pow(f(sel.level))))
+
+
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 38
+  var sel = IUniversal.fireTree.node38
+  var sel2 = IUniversalIn.fireTree.node38
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(100)
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.5).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(2).mul(f(2).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 39
+  var sel = IUniversal.fireTree.node39
+  var sel2 = IUniversalIn.fireTree.node39
+
+  sel.level = f(sel.level)
+
+  var extraLevel1 = f(IUniversalIn.fireTree.node45.effect)
+  sel2.maxLevel = f(5).add(f(extraLevel1))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(10).pow(f(sel.level).minus(f(1)))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  var effect1 = f(IUniversalIn.fireTree.node47.effect)
+
+  if (f(sel2.effect).gt(f(0))) {
+    sel2.effect2 = ((f(2).pow(f(Decimal.log10(f(IUniversal.light).add(f(10)))))).pow(f(3))).mul(f(effect1))
+  } else {
+    sel2.effect2 = f(1)
+  }
+
+  var price1 = f(IUniversalIn.fireTree.node46.effect)
+
+  sel2.price = (f(f(10).pow(f(40))).mul((f(10).pow(f(10))).pow(f(sel.level)))).dividedBy(f(price1))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 40
+  var sel = IUniversal.fireTree.node40
+  var sel2 = IUniversalIn.fireTree.node40
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(3).pow(f(Decimal.log10(f(sel.level).add(f(10)))))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = (f(10).pow(f(15))).add(f(5).mul(sel.level).mul(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 41
+  var sel = IUniversal.fireTree.node41
+  var sel2 = IUniversalIn.fireTree.node41
+
+
+  sel.level = f(sel.level)
+
+  if (f(sel.level).gt(f(0)) && IUniversal.fireTree.node41.trigger) {
+    sel2.effect = f(5)
+  } else {
+    sel2.effect = f(1)
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect2 = f(0.1).mul(f(sel.level))
+  }
+
+  sel2.price = f(10).pow(f(12)).mul((f(f(10).pow(f(2)))).pow(f(sel.level)))
+
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 42
+  var sel = IUniversal.fireTree.node42
+  var sel2 = IUniversalIn.fireTree.node42
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1).mul(f(sel.level))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.price = f(10).pow(f(18)).mul((f(f(10).pow(f(1)))).pow(f(sel.level)))
+
+
+  if (sel.active) { sel.unlocked = true }
+  //NODE 43
+  var sel = IUniversal.fireTree.node43
+  var sel2 = IUniversalIn.fireTree.node43
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(4)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(10).pow(f(12)).mul((f(f(10).pow(f(4)))).pow(f(sel.level)))
+
+
+  if (sel.active) { sel.unlocked = true }
+  //NODE 44
+  var sel = IUniversal.fireTree.node44
+  var sel2 = IUniversalIn.fireTree.node44
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2)
+  } else {
+    sel2.effect = f(2)
+  }
+
+  sel2.price = f(10).pow(f(18)).mul((f(f(10).pow(f(3)))).pow(f(sel.level)))
+
+
+  if (sel.active) { sel.unlocked = true }
+  //NODE 45
+  var sel = IUniversal.fireTree.node45
+  var sel2 = IUniversalIn.fireTree.node45
+
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(90)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(sel.level)
+  } else {
+    sel2.effect = f(0)
+  }
+  sel2.price = ((f(10)).pow(f(55))).mul((f(10).pow(f(5))).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 46
+  var sel = IUniversal.fireTree.node46
+  var sel2 = IUniversalIn.fireTree.node46
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(20)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = (f(10).pow(f(5))).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+  sel2.price = ((f(10)).pow(f(50))).mul((f(10).pow(f(5))).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 47
+  var sel = IUniversal.fireTree.node47
+  var sel2 = IUniversalIn.fireTree.node47
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(20)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+  sel2.price = ((f(10)).pow(f(55))).mul((f(10).pow(f(5))).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 48
+  var sel = IUniversal.fireTree.node48
+  var sel2 = IUniversalIn.fireTree.node48
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.5).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+  sel2.price = (f(5).mul(f(10).pow(f(1))).mul(f(5).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 49
+  var sel = IUniversal.fireTree.node49
+  var sel2 = IUniversalIn.fireTree.node49
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(3).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(f(10).pow(f(20))).mul(((f(100).pow(f(sel.level)))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 50
+  var sel = IUniversal.fireTree.node50
+  var sel2 = IUniversalIn.fireTree.node50
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+
+  if (sel.active) {
+    sel2.effect = f(1.15).add(f(IUniversalIn.fireTree.node52.effect)).add(f(IUniversalIn.fireTree.node63.effect))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  if (sel.active) {
+    sel2.effect2 = f(sel2.effect).pow(f(sel.currentTimer))
+  } else {
+    sel2.effect2 = f(1)
+  }
+
+  sel2.price = f(f(10).pow(f(28))).mul((f(10).pow(f(3))).pow(f(sel.level)))
+  sel.timer = f(IUniversal.heatTimer)
+  sel.currentTimer = f(sel.currentTimer)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 51
+  var sel = IUniversal.fireTree.node51
+  var sel2 = IUniversalIn.fireTree.node51
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+  if (sel.active) {
+    sel2.effect = f(1).mul(f(sel.level))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.price = f(f(10).pow(f(30))).mul((f(10).pow(f(3))).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 52
+  var sel = IUniversal.fireTree.node52
+  var sel2 = IUniversalIn.fireTree.node52
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+  if (sel.active) {
+    sel2.effect = f(0.03).mul(f(sel.level))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.price = f(f(10).pow(f(30))).mul((f(10).pow(f(3))).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 53
+  var sel = IUniversal.fireTree.node53
+  var sel2 = IUniversalIn.fireTree.node53
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+
+  if (sel.active) {
+    sel2.effect = f(0.05).mul(f(sel.level))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.price = f(f(10).pow(f(32))).mul((f(10).pow(f(3))).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 54
+  var sel = IUniversal.fireTree.node54
+  var sel2 = IUniversalIn.fireTree.node54
+
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (sel.active) {
+    sel2.effect = f(1).mul(f(IUniversalIn.fireTree.node57.effect))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.price = f(f(10).pow(f(34))).mul((f(10).pow(f(3))).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 55
+  var sel = IUniversal.fireTree.node55
+  var sel2 = IUniversalIn.fireTree.node55
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (sel.active) {
+    sel2.effect = f(2).pow(f(Decimal.log2(f(sel.level).add(f(2)))))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(f(10).pow(f(38))).mul((f(10).pow(f(3))).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 56
+  var sel = IUniversal.fireTree.node56
+  var sel2 = IUniversalIn.fireTree.node56
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+
+  if (sel.active) {
+    sel2.effect = f(2).pow(f(Decimal.log2(f(IUniversal.rotation).add(f(2))))).mul(f(2).pow(f(sel.level)))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(f(10).pow(f(38))).mul((f(10).pow(f(3))).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 57
+  var sel = IUniversal.fireTree.node57
+  var sel2 = IUniversalIn.fireTree.node57
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(5).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(f(10).pow(f(42))).mul((f(10).pow(f(3))).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 58
+  var sel = IUniversal.fireTree.node58
+  var sel2 = IUniversalIn.fireTree.node58
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+  if (sel.active) {
+    sel2.effect = f(f(10).pow(f(sel.level).minus(f(1)))).dividedBy(f(100))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.price = f(f(10).pow(f(105))).mul(((f(f(10).pow(f(10))).pow(f(sel.level)))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 59
+  var sel = IUniversal.fireTree.node59
+  var sel2 = IUniversalIn.fireTree.node59
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+  if (sel.active) {
+    sel2.effect = f(f(10).pow(f(sel.level).minus(f(1)))).dividedBy(f(100))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.price = f(f(10).pow(f(110))).mul(((f(f(10).pow(f(10))).pow(f(sel.level)))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 60
+  var sel = IUniversal.fireTree.node60
+  var sel2 = IUniversalIn.fireTree.node60
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+  if (sel.active) {
+    sel2.effect = f(f(10).pow(f(sel.level).minus(f(1)))).dividedBy(f(100))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.price = f(f(10).pow(f(115))).mul(((f(f(10).pow(f(10))).pow(f(sel.level)))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 61
+  var sel = IUniversal.fireTree.node61
+  var sel2 = IUniversalIn.fireTree.node61
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(f(10).pow(f(100))).mul(f(10).pow(f(5)).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 62
+  var sel = IUniversal.fireTree.node62
+  var sel2 = IUniversalIn.fireTree.node62
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(f(10).pow(f(100))).mul(f(10).pow(f(5)).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 63
+  var sel = IUniversal.fireTree.node63
+  var sel2 = IUniversalIn.fireTree.node63
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(100)
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(0.01).mul(f(sel.level))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.price = f(f(10).pow(f(61))).mul(f(10).pow(f(2)).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 64
+  var sel = IUniversal.fireTree.node64
+  var sel2 = IUniversalIn.fireTree.node64
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(100)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.1).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(f(10).pow(f(60))).mul(f(10).pow(f(2)).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //WATER TREE
+
+
+  //NODE 1
+  var sel = IUniversal.waterTree.node1
+  var sel2 = IUniversalIn.waterTree.node1
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(100)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = (f(10).pow(f(40))).mul(f(10).pow(f(5).mul(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 2
+  var sel = IUniversal.waterTree.node2
+  var sel2 = IUniversalIn.waterTree.node2
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.5).pow(f(sel.level))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  if (sel.active) {
+    sel2.price = (f(0.5).mul(f(10).pow(f(1)))).mul(f(2).pow(f(1).mul(f(sel.level))))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 3
+  var sel = IUniversal.waterTree.node3
+  var sel2 = IUniversalIn.waterTree.node3
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(100)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(10).mul(f(sel.level))
+  } else {
+    sel2.effect = f(0)
+  }
+
+
+  sel2.price = (f(10).pow(f(1))).mul(f(2).pow(f(1).mul(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 4
+  var sel = IUniversal.waterTree.node4
+  var sel2 = IUniversalIn.waterTree.node4
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = (f(30).pow(f(1))).mul(f(3).pow(f(1).mul(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 5
+  var sel = IUniversal.waterTree.node5
+  var sel2 = IUniversalIn.waterTree.node5
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(100)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = (f(10).pow(f(3))).mul(f(10).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 6
+  var sel = IUniversal.waterTree.node6
+  var sel2 = IUniversalIn.waterTree.node6
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  sel2.price = f(100)
+
+  if (sel.active) {
+    sel2.effect = f(0.1)
+  } else {
+    sel2.effect = f(0)
+  }
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 7
+  var sel = IUniversal.waterTree.node7
+  var sel2 = IUniversalIn.waterTree.node7
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = (f(1.35).pow(f(sel.level)))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = (f(5).mul(f(10).pow(f(2)))).mul(f(3).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 8
+  var sel = IUniversal.waterTree.node8
+  var sel2 = IUniversalIn.waterTree.node8
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(100)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(10).mul(f(sel.level))
+  } else {
+    sel2.effect = f(0)
+  }
+
+
+  sel2.price = (f(10).pow(f(3))).mul(f(5).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 9
+  var sel = IUniversal.waterTree.node9
+  var sel2 = IUniversalIn.waterTree.node9
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = (f(10).pow(f(4))).mul(f(20).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 10
+  var sel = IUniversal.waterTree.node10
+  var sel2 = IUniversalIn.waterTree.node10
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  sel2.price = f(20)
+
+  if (sel.active) {
+    sel2.effect = f(0.1)
+  } else {
+    sel2.effect = f(0)
+  }
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+
+  //NODE 11
+  var sel = IUniversal.waterTree.node11
+  var sel2 = IUniversalIn.waterTree.node11
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.35).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = (f(10).pow(f(2))).mul(f(2).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 12
+  var sel = IUniversal.waterTree.node12
+  var sel2 = IUniversalIn.waterTree.node12
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(100)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(10).mul(f(sel.level))
+  } else {
+    sel2.effect = f(0)
+  }
+
+
+  sel2.price = (f(2).mul(f(10).pow(f(2)))).mul(f(5).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 13
+  var sel = IUniversal.waterTree.node13
+  var sel2 = IUniversalIn.waterTree.node13
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = (f(4).mul(f(10).pow(f(2)))).mul(f(10).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 14
+  var sel = IUniversal.waterTree.node14
+  var sel2 = IUniversalIn.waterTree.node14
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  sel2.price = f(20)
+
+  if (sel.active) {
+    sel2.effect = f(0.1)
+  } else {
+    sel2.effect = f(0)
+  }
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+
+  //NODE 15
+  var sel = IUniversal.waterTree.node15
+  var sel2 = IUniversalIn.waterTree.node15
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.5).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = (f(10).pow(f(2))).mul(f(2).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 16
+  var sel = IUniversal.waterTree.node16
+  var sel2 = IUniversalIn.waterTree.node16
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(100)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(10).mul(f(sel.level))
+  } else {
+    sel2.effect = f(0)
+  }
+
+
+  sel2.price = (f(2).mul(f(10).pow(f(2)))).mul(f(3).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 17
+  var sel = IUniversal.waterTree.node17
+  var sel2 = IUniversalIn.waterTree.node17
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = (f(4).mul(f(10).pow(f(2)))).mul(f(5).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 18
+  var sel = IUniversal.waterTree.node18
+  var sel2 = IUniversalIn.waterTree.node18
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  sel2.price = f(10).pow(f(4))
+
+  if (sel.active) {
+    sel2.effect = f(0.1)
+  } else {
+    sel2.effect = f(0)
+  }
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 19
+  var sel = IUniversal.waterTree.node19
+  var sel2 = IUniversalIn.waterTree.node19
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = (f(10).pow(f(6))).mul(f(10).pow(f(1).mul(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 20
+  var sel = IUniversal.waterTree.node20
+  var sel2 = IUniversalIn.waterTree.node20
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(100)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(10).mul(f(sel.level))
+  } else {
+    sel2.effect = f(0)
+  }
+
+
+  sel2.price = (f(10).pow(f(5))).mul(f(10).pow(f(1).mul(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 21
+  var sel = IUniversal.waterTree.node21
+  var sel2 = IUniversalIn.waterTree.node21
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = (f(10).pow(f(4))).mul(f(10).pow(f(1).mul(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 22
+  var sel = IUniversal.waterTree.node22
+  var sel2 = IUniversalIn.waterTree.node22
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  var difference = f(IUniversal.water).dividedBy(f(IUniversal.waterMax))
+  var calc = f(f(5).pow(f(Decimal.log10(f(difference)))))
+
+  if (f(sel.level).gt(f(0))) {
+    if (f(IUniversal.water).gte(f(IUniversal.waterMax))) {
+      sel2.effect = f(1).dividedBy(calc)
+    } else {
+      sel2.effect = f(1)
+    }
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+
+  sel2.price = f(10).pow(f(4))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 23
+  var sel = IUniversal.waterTree.node23
+  var sel2 = IUniversalIn.waterTree.node23
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(100)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(10).mul(f(sel.level))
+  } else {
+    sel2.effect = f(0)
+  }
+
+
+  sel2.price = (f(5).mul(f(10).pow(f(5)))).mul(f(2).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 24
+  var sel = IUniversal.waterTree.node24
+  var sel2 = IUniversalIn.waterTree.node24
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = (f(10).pow(f(6))).mul(f(4).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 25
+  var sel = IUniversal.waterTree.node25
+  var sel2 = IUniversalIn.waterTree.node25
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(0.4).mul(f(2.35).pow(f(sel.level)).minus(f(1)))
+  } else {
+    sel2.effect = f(0)
+  }
+
+
+  sel2.price = (f(10).pow(f(5))).mul(f(5).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 26
+  var sel = IUniversal.waterTree.node26
+  var sel2 = IUniversalIn.waterTree.node26
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  var difference = f(IUniversal.elisir).dividedBy(f(IUniversal.elisirMax))
+  var calc = f(f(5).pow(f(Decimal.log10(f(difference)))))
+
+  if (f(sel.level).gt(f(0))) {
+    if (f(IUniversal.elisir).gte(f(IUniversal.elisirMax))) {
+      sel2.effect = f(1).dividedBy(calc)
+    } else {
+      sel2.effect = f(1)
+    }
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(10).pow(f(4))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+
+  //NODE 27
+  var sel = IUniversal.waterTree.node27
+  var sel2 = IUniversalIn.waterTree.node27
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(100)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(10).mul(f(sel.level))
+  } else {
+    sel2.effect = f(0)
+  }
+
+
+  sel2.price = (f(5).mul(f(10).pow(f(5)))).mul(f(3).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+
+  //NODE 28
+  var sel = IUniversal.waterTree.node28
+  var sel2 = IUniversalIn.waterTree.node28
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = (f(10).pow(f(7))).mul(f(4).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 29
+  var sel = IUniversal.waterTree.node29
+  var sel2 = IUniversalIn.waterTree.node29
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(0.1).mul(f(2).pow(f(sel.level)))
+  } else {
+    sel2.effect = f(0)
+  }
+
+
+  sel2.price = (f(10).pow(f(5))).mul(f(5).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 30
+  var sel = IUniversal.waterTree.node30
+  var sel2 = IUniversalIn.waterTree.node30
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(100)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(2).pow(f(sel.level))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 31
+  var sel = IUniversal.waterTree.node31
+  var sel2 = IUniversalIn.waterTree.node31
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(100)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(2).pow(f(sel.level))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 32
+  var sel = IUniversal.waterTree.node32
+  var sel2 = IUniversalIn.waterTree.node32
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(100)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(2).pow(f(sel.level))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 33
+  var sel = IUniversal.waterTree.node33
+  var sel2 = IUniversalIn.waterTree.node33
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(100)
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(2).pow(f(sel.level))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+
+  //NODE 34
+  var sel = IUniversal.waterTree.node34
+  var sel2 = IUniversalIn.waterTree.node34
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(10).pow(f(6))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+
+  //NODE 35
+  var sel = IUniversal.waterTree.node35
+  var sel2 = IUniversalIn.waterTree.node35
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(10).pow(f(6))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+
+  //NODE 36
+  var sel = IUniversal.waterTree.node36
+  var sel2 = IUniversalIn.waterTree.node36
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(10).pow(f(5))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+
+  //NODE 37
+  var sel = IUniversal.waterTree.node37
+  var sel2 = IUniversalIn.waterTree.node37
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(10).pow(f(5))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+
+  //NODE 38
+  var sel = IUniversal.waterTree.node38
+  var sel2 = IUniversalIn.waterTree.node38
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  var difference = f(IUniversal.ambrosia).dividedBy(f(IUniversal.ambrosiaMax))
+  var calc = f(f(5).pow(f(Decimal.log10(f(difference)))))
+
+  if (f(sel.level).gt(f(0))) {
+    if (f(IUniversal.ambrosia).gte(f(IUniversal.ambrosiaMax))) {
+      sel2.effect = f(1).dividedBy(calc)
+    } else {
+      sel2.effect = f(1)
+    }
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(10).pow(f(4))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 39
+
+  var sel = IUniversal.waterTree.node39
+  var sel2 = IUniversalIn.waterTree.node39
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(10).pow(f(6))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //Potions Effects
+
+
+  potionInfoStatic()
+  potionEquipmentStatic()
+
+  //EFFECT 1
+  var potionLevel = getPotionLevel("damage_training", "equipment")
+
+  var effectLevel = getPotionEffectTier("damage_training", "equipment")
+
+  if (potionLevel == null && effectLevel == null) {
+    IUniversalIn.potionEffects.effect1.activeValue = f(1)
+  } else {
+    IUniversalIn.potionEffects.effect1.activeValue = (f(2).add(f(effectLevel).minus(f(1)))).pow(f(potionLevel).add(f(1)))
+  }
+  IUniversalIn.potionEffects.effect1.value = IUniversalIn.potionEffects.effect1.valueFormula()
+
+
+
+  //EFFECT 2
+  var potionLevel = getPotionLevel("life_training", "equipment")
+
+  var effectLevel = getPotionEffectTier("life_training", "equipment")
+
+  if (potionLevel == null && effectLevel == null) {
+    IUniversalIn.potionEffects.effect2.activeValue = f(1)
+  } else {
+    IUniversalIn.potionEffects.effect2.activeValue = (f(2).add(f(effectLevel).minus(f(1)))).pow(f(potionLevel).add(f(1)))
+  }
+  IUniversalIn.potionEffects.effect2.value = IUniversalIn.potionEffects.effect2.valueFormula()
+
+
+
+  //EFFECT 3
+  var potionLevel = getMatchingPotionLevel(IUniversal.potionSource.item1.key, "source", "source")
+
+  var effectLevel = getMatchingEffectTier(IUniversal.potionSource.item1.key, "source", "source")
+
+
+  if (potionLevel == null && effectLevel == null) {
+    IUniversalIn.potionEffects.effect3.activeValue = f(0)
+  } else {
+    IUniversalIn.potionEffects.effect3.activeValue = f(f(5).add(f(f(5).mul(f(effectLevel).minus(f(1)))))).pow(f(potionLevel).add(f(1)))
+  }
+
+  IUniversalIn.potionEffects.effect3.value = IUniversalIn.potionEffects.effect3.valueFormula()
+
+
+
+
+  //EFFECT 4
+  var potionLevel = getMatchingPotionLevel(IUniversal.potionSource.item2.key, "source", "source")
+
+  var effectLevel = getMatchingEffectTier(IUniversal.potionSource.item2.key, "source", "source")
+
+  if (potionLevel == null && effectLevel == null) {
+    IUniversalIn.potionEffects.effect4.activeValue = f(0)
+  } else {
+    IUniversalIn.potionEffects.effect4.activeValue = f(f(5).add(f(f(5).mul(f(effectLevel).minus(f(1)))))).pow(f(potionLevel).add(f(1)))
+  }
+  IUniversalIn.potionEffects.effect4.value = IUniversalIn.potionEffects.effect4.valueFormula()
+
+
+  //EFFECT 5
+  var potionLevel = getMatchingPotionLevel(IUniversal.potionSource.item3.key, "source", "source")
+
+  var effectLevel = getMatchingEffectTier(IUniversal.potionSource.item3.key, "source", "source")
+
+  if (potionLevel == null && effectLevel == null) {
+    IUniversalIn.potionEffects.effect5.activeValue = f(0)
+  } else {
+    IUniversalIn.potionEffects.effect5.activeValue = f(f(5).add(f(f(5).mul(f(effectLevel).minus(f(1)))))).pow(f(potionLevel).add(f(1)))
+  }
+  IUniversalIn.potionEffects.effect5.value = IUniversalIn.potionEffects.effect5.valueFormula()
+
+
+  //EFFECT 6
+  var potionLevel = getMatchingPotionLevel(IUniversal.potionSource.item4.key, "source", "source")
+
+  var effectLevel = getMatchingEffectTier(IUniversal.potionSource.item4.key, "source", "source")
+
+  if (potionLevel == null && effectLevel == null) {
+    IUniversalIn.potionEffects.effect6.activeValue = f(0)
+  } else {
+    IUniversalIn.potionEffects.effect6.activeValue = f(f(5).add(f(f(5).mul(f(effectLevel).minus(f(1)))))).pow(f(potionLevel).add(f(1)))
+  }
+  IUniversalIn.potionEffects.effect6value = IUniversalIn.potionEffects.effect6.valueFormula()
+
+
+  //EFFECT 7
+  var potionLevel = getMatchingPotionLevel(IUniversal.potionSource.item5.key, "source", "source")
+
+  var effectLevel = getMatchingEffectTier(IUniversal.potionSource.item5.key, "source", "source")
+
+  if (potionLevel == null && effectLevel == null) {
+    IUniversalIn.potionEffects.effect7.activeValue = f(0)
+  } else {
+    IUniversalIn.potionEffects.effect7.activeValue = f(f(5).add(f(f(5).mul(f(effectLevel).minus(f(1)))))).pow(f(potionLevel).add(f(1)))
+  }
+  IUniversalIn.potionEffects.effect7.value = IUniversalIn.potionEffects.effect7.valueFormula()
+
+  IUniversalIn.potionEffects.effect7.contentFormula = function () { return `<span class="boldBlackBorder">${format(f(this.value))}</span> Accumulation/s` }
+
+  //EFFECT 8
+  var potionLevel = getMatchingPotionLevel(IUniversal.potionSource.item6.key, "source", "source")
+
+  var effectLevel = getMatchingEffectTier(IUniversal.potionSource.item6.key, "source", "source")
+
+  if (potionLevel == null && effectLevel == null) {
+    IUniversalIn.potionEffects.effect8.activeValue = f(0)
+  } else {
+    IUniversalIn.potionEffects.effect8.activeValue = f(f(5).add(f(f(5).mul(f(effectLevel).minus(f(1)))))).pow(f(potionLevel).add(f(1)))
+  }
+  IUniversalIn.potionEffects.effect8.value = IUniversalIn.potionEffects.effect8.valueFormula()
+
+
+  //EFFECT 9
+  var potionLevel = getPotionLevel("will_training", "equipment")
+
+  var effectLevel = getPotionEffectTier("will_training", "equipment")
+
+  if (potionLevel == null && effectLevel == null) {
+    IUniversalIn.potionEffects.effect9.activeValue = f(1)
+  } else {
+    IUniversalIn.potionEffects.effect9.activeValue = (f(1.5).add(f(0.5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
+  }
+  IUniversalIn.potionEffects.effect9.value = IUniversalIn.potionEffects.effect9.valueFormula()
+
+
+  //EFFECT 10
+  var potionLevel = getPotionLevel("insight_training", "equipment")
+
+  var effectLevel = getPotionEffectTier("insight_training", "equipment")
+
+  if (potionLevel == null && effectLevel == null) {
+    IUniversalIn.potionEffects.effect10.activeValue = f(1)
+  } else {
+    IUniversalIn.potionEffects.effect10.activeValue = (f(1.5).add(f(0.5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
+  }
+  IUniversalIn.potionEffects.effect10.value = IUniversalIn.potionEffects.effect10.valueFormula()
+
+
+  //EFFECT 11
+  var potionLevel = getPotionLevel("huntPrice_hunting", "equipment")
+
+  var effectLevel = getPotionEffectTier("huntPrice_hunting", "equipment")
+
+  if (potionLevel == null && effectLevel == null) {
+    IUniversalIn.potionEffects.effect11.activeValue = f(1)
+  } else {
+    IUniversalIn.potionEffects.effect11.activeValue = (f(3).add(f(3).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
+  }
+  IUniversalIn.potionEffects.effect11.value = IUniversalIn.potionEffects.effect11.valueFormula()
+
+
+  //EFFECT 12
+  var potionLevel = getPotionLevel("huntEssence_hunting", "equipment")
+
+  var effectLevel = getPotionEffectTier("huntEssence_hunting", "equipment")
+
+  if (potionLevel == null && effectLevel == null) {
+    IUniversalIn.potionEffects.effect12.activeValue = f(1)
+  } else {
+    IUniversalIn.potionEffects.effect12.activeValue = (f(3).add(f(3).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
+  }
+  IUniversalIn.potionEffects.effect12.value = IUniversalIn.potionEffects.effect12.valueFormula()
+
+
+  //EFFECT 13
+  var potionLevel = getPotionLevel("huntUpgradePrice_hunting", "equipment")
+
+  var effectLevel = getPotionEffectTier("huntUpgradePrice_hunting", "equipment")
+
+  if (potionLevel == null && effectLevel == null) {
+    IUniversalIn.potionEffects.effect13.activeValue = f(1)
+  } else {
+    IUniversalIn.potionEffects.effect13.activeValue = (f(5).add(f(5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
+  }
+  IUniversalIn.potionEffects.effect13.value = IUniversalIn.potionEffects.effect13.valueFormula()
+
+
+  //EFFECT 14
+  var potionLevel = getPotionLevel("criticalRegeneration_attributes", "equipment")
+
+  var effectLevel = getPotionEffectTier("criticalRegeneration_attributes", "equipment")
+
+  if (potionLevel == null && effectLevel == null) {
+    IUniversalIn.potionEffects.effect14.activeValue = f(1)
+  } else {
+    IUniversalIn.potionEffects.effect14.activeValue = (f(4).add(f(4).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
+  }
+  IUniversalIn.potionEffects.effect14.value = IUniversalIn.potionEffects.effect14.valueFormula()
+
+
+
+  //EFFECT 15
+  var potionLevel = getPotionLevel("defencePenDefence_attributes", "equipment")
+
+  var effectLevel = getPotionEffectTier("defencePenDefence_attributes", "equipment")
+
+  if (potionLevel == null && effectLevel == null) {
+    IUniversalIn.potionEffects.effect15.activeValue = f(1)
+  } else {
+    IUniversalIn.potionEffects.effect15.activeValue = (f(4).add(f(4).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
+  }
+  IUniversalIn.potionEffects.effect15.value = IUniversalIn.potionEffects.effect15.valueFormula()
+
+
+
+  //EFFECT 16
+  var potionLevel = getPotionLevel("lifestealShield_attributes", "equipment")
+
+  var effectLevel = getPotionEffectTier("lifestealShield_attributes", "equipment")
+
+  if (potionLevel == null && effectLevel == null) {
+    IUniversalIn.potionEffects.effect16.activeValue = f(1)
+  } else {
+    IUniversalIn.potionEffects.effect16.activeValue = (f(4).add(f(4).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
+  }
+  IUniversalIn.potionEffects.effect16.value = IUniversalIn.potionEffects.effect16.valueFormula()
+
+
+  //EFFECT 17
+  var potionLevel = getPotionLevel("challengerDamage_challenger", "equipment")
+
+  var effectLevel = getPotionEffectTier("challengerDamage_challenger", "equipment")
+
+  if (potionLevel == null && effectLevel == null) {
+    IUniversalIn.potionEffects.effect17.activeValue = f(1)
+  } else {
+    IUniversalIn.potionEffects.effect17.activeValue = (f(5).add(f(5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
+  }
+
+  IUniversalIn.potionEffects.effect17.value = IUniversalIn.potionEffects.effect17.valueFormula()
+
+
+  //EFFECT 18
+  var potionLevel = getPotionLevel("challengerLife_challenger", "equipment")
+
+  var effectLevel = getPotionEffectTier("challengerLife_challenger", "equipment")
+
+  if (potionLevel == null && effectLevel == null) {
+    IUniversalIn.potionEffects.effect18.activeValue = f(1)
+  } else {
+    IUniversalIn.potionEffects.effect18.activeValue = (f(5).add(f(5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
+  }
+  IUniversalIn.potionEffects.effect18.value = IUniversalIn.potionEffects.effect18.valueFormula()
+
+
+  //EFFECT 19
+  var potionLevel = getPotionLevel("universalChallenger_challenger", "equipment")
+
+  var effectLevel = getPotionEffectTier("universalChallenger_challenger", "equipment")
+
+  if (potionLevel == null && effectLevel == null) {
+    IUniversalIn.potionEffects.effect19.activeValue = f(1)
+  } else {
+    IUniversalIn.potionEffects.effect19.activeValue = (f(5).add(f(5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1)))
+  }
+  IUniversalIn.potionEffects.effect19.value = IUniversalIn.potionEffects.effect19.valueFormula()
+
+
+  //POTION SOURCE
+
+  //source1
+  IUniversal.potionSource.item1.value1 = f(IUniversal.potionSource.item1.value1)
+  if (f(IUniversal.potionSource.item1.value1).gt(f(0))) {
+    IUniversalIn.potionSource.item1.value2 = (f(Decimal.log10(f(IUniversal.potionSource.item1.value1).add(f(10)))).minus(f(1))).pow(f(2))
+
+    if (f(IUniversalIn.potionSource.item1.value2).lt(f(1))) {
+      IUniversalIn.potionSource.item1.value2 = f(1)
+    }
+  } else {
+    IUniversalIn.potionSource.item1.value2 = f(1)
+  }
+
+  //source2
+
+  IUniversal.potionSource.item2.value1 = f(IUniversal.potionSource.item2.value1)
+  if (f(IUniversal.potionSource.item2.value1).gt(f(0))) {
+
+    IUniversalIn.potionSource.item2.value2 = (f(Decimal.log10(f(IUniversal.potionSource.item2.value1).add(f(10)))).minus(f(1))).pow(f(2))
+
+    if (f(IUniversalIn.potionSource.item2.value2).lt(f(1))) {
+      IUniversalIn.potionSource.item2.value2 = f(1)
+    }
+  } else {
+    IUniversalIn.potionSource.item2.value2 = f(1)
+
+  }
+  //source3
+
+  IUniversal.potionSource.item3.value1 = f(IUniversal.potionSource.item3.value1)
+  if (f(IUniversal.potionSource.item3.value1).gt(f(0))) {
+    IUniversalIn.potionSource.item3.value2 = ((f(Decimal.log10(f(IUniversal.potionSource.item3.value1).add(f(10)))).minus(f(1))).dividedBy(f(2))).pow(f(2))
+
+    if (f(IUniversalIn.potionSource.item3.value2).lt(f(1))) {
+      IUniversalIn.potionSource.item3.value2 = f(1)
+    }
+  } else {
+    IUniversalIn.potionSource.item3.value2 = f(1)
+
+  }
+
+  //source4
+
+  IUniversal.potionSource.item4.value1 = f(IUniversal.potionSource.item4.value1)
+  if (f(IUniversal.potionSource.item4.value1).gt(f(0))) {
+
+    IUniversalIn.potionSource.item4.value2 = ((f(Decimal.log10(f(IUniversal.potionSource.item4.value1).add(f(10)))).minus(f(1))).dividedBy(f(2))).pow(f(2))
+
+    if (f(IUniversalIn.potionSource.item4.value2).lt(f(1))) {
+      IUniversalIn.potionSource.item4.value2 = f(1)
+    }
+  } else {
+    IUniversalIn.potionSource.item4.value2 = f(1)
+
+  }
+
+  //source5
+
+  IUniversal.potionSource.item5.value1 = f(IUniversal.potionSource.item5.value1)
+  if (f(IUniversal.potionSource.item5.value1).gt(f(0))) {
+
+    IUniversalIn.potionSource.item5.value2 = ((f(Decimal.log10(f(IUniversal.potionSource.item5.value1).add(f(10)))).minus(f(1))).dividedBy(f(4))).pow(f(2))
+
+    if (f(IUniversalIn.potionSource.item5.value2).lt(f(1))) {
+      IUniversalIn.potionSource.item5.value2 = f(1)
+    }
+  } else {
+    IUniversalIn.potionSource.item5.value2 = f(1)
+
+  }
+
+  //source6
+
+  IUniversal.potionSource.item6.value1 = f(IUniversal.potionSource.item6.value1)
+  if (f(IUniversal.potionSource.item6.value1).gt(f(0))) {
+
+    IUniversalIn.potionSource.item6.value2 = ((f(Decimal.log10(f(IUniversal.potionSource.item6.value1).add(f(10)))).minus(f(1))).dividedBy(f(4))).pow(f(2))
+
+    if (f(IUniversalIn.potionSource.item6.value2).lt(f(1))) {
+      IUniversalIn.potionSource.item6.value2 = f(1)
+    }
+  } else {
+    IUniversalIn.potionSource.item6.value2 = f(1)
+  }
+
+
+  //EARTH TREE
+
+
+  //NODE 1
+  var sel = IUniversal.earthTree.node1
+  var sel2 = IUniversalIn.earthTree.node1
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5).add(f(IUniversalIn.treasures.treasure5.effect))
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1).mul(f(sel.level))
+  } else {
+    sel2.effect = f(0)
+  }
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.price = f(1).mul(f(10).pow(f(1))).mul(f(2).pow(f(sel.level)))
+  } else {
+    sel2.price = f(0)
+  }
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 2
+  var sel = IUniversal.earthTree.node2
+  var sel2 = IUniversalIn.earthTree.node2
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5).add(f(IUniversalIn.treasures.treasure5.effect))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.5).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(2))).mul(f(4).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 3
+  var sel = IUniversal.earthTree.node3
+  var sel2 = IUniversalIn.earthTree.node3
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.5).pow(f(1).add(Decimal.log10(f(IUniversal.golem))));
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(1).mul(f(10).pow(f(5))).mul(f(6).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 4
+  var sel = IUniversal.earthTree.node4
+  var sel2 = IUniversalIn.earthTree.node4
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5).add(f(IUniversalIn.treasures.treasure5.effect))
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(4).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(1).mul(f(10).pow(f(7))).mul(f(50).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 5
+  var sel = IUniversal.earthTree.node5
+  var sel2 = IUniversalIn.earthTree.node5
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5).add(f(IUniversalIn.treasures.treasure6.effect))
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(sel.level)
+  } else {
+    sel2.effect = f(0)
+  }
+
+
+  sel2.price = f(1).mul(f(10).pow(f(1))).mul(f(4).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 6
+  var sel = IUniversal.earthTree.node6
+  var sel2 = IUniversalIn.earthTree.node6
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5).add(f(IUniversalIn.treasures.treasure6.effect))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(1).mul(f(10).pow(f(4))).mul(f(15).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 7
+  var sel = IUniversal.earthTree.node7
+  var sel2 = IUniversalIn.earthTree.node7
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1).add(Decimal.log10(f(IUniversal.golem).add(f(10))));
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(1).mul(f(10).pow(f(6))).mul(f(7).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 8
+  var sel = IUniversal.earthTree.node8
+  var sel2 = IUniversalIn.earthTree.node8
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1).add(Decimal.log10(f(IUniversal.golem).add(f(10))));
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(1).mul(f(10).pow(f(6))).mul(f(7).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 9
+  var sel = IUniversal.earthTree.node9
+  var sel2 = IUniversalIn.earthTree.node9
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5).add(f(IUniversalIn.treasures.treasure4.effect))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(sel.level)
+  } else {
+    sel2.effect = f(0)
+  }
+
+
+  sel2.price = f(0.5).mul(f(10).pow(f(3))).mul(f(4).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 10
+  var sel = IUniversal.earthTree.node10
+  var sel2 = IUniversalIn.earthTree.node10
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5).add(f(IUniversalIn.treasures.treasure4.effect))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(sel.level)
+  } else {
+    sel2.effect = f(0)
+  }
+
+
+  sel2.price = f(0.5).mul(f(10).pow(f(3))).mul(f(4).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 11
+  var sel = IUniversal.earthTree.node11
+  var sel2 = IUniversalIn.earthTree.node11
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5).add(f(IUniversalIn.treasures.treasure4.effect))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(1).mul(f(10).pow(f(8))).mul(f(50).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 12
+  var sel = IUniversal.earthTree.node12
+  var sel2 = IUniversalIn.earthTree.node12
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5).add(f(IUniversalIn.treasures.treasure4.effect))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(1).mul(f(10).pow(f(8))).mul(f(50).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+
+  //FORGE
+
+  //MINE STATS
+
+  var sel = IUniversal.mineStats
+  var selIn = IUniversalIn.mineStats
+
+  //mine power
+
+  var minePower1 = f(IUniversalIn.mine.item1.effect)
+  var minePower2 = f(IUniversalIn.mine.item2.effect)
+
+  selIn.minePower = f(minePower1).mul(minePower2)
+
+  //miners
+  var miners1 = f(IUniversalIn.mine.item1.effect)
+
+  selIn.miners = f(miners1)
+
+
+
+  //item1
+  var sel = IUniversal.forge.item1
+  var sel2 = IUniversalIn.forge.item1
+
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  if (f(sel.level).gte(f(0))) {
+    sel2.price = f(1).mul(f(10).pow(f(1))).mul(f(5).pow(f(sel.level)))
+  }
+
+  if (f(sel.level).gte(f(10))) {
+    sel2.price = f(5).mul(f(10).pow(f(4))).mul(f(5).pow(f(sel.level)))
+  }
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //item2
+  var sel = IUniversal.forge.item2
+  var sel2 = IUniversalIn.forge.item2
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  if (f(sel.level).gte(f(0))) {
+    sel2.price = f(1).mul(f(10).pow(f(1))).mul(f(10).pow(f(sel.level)))
+  }
+
+  if (f(sel.level).gte(f(10))) {
+    sel2.price = f(1).mul(f(10).pow(f(4))).mul(f(10).pow(f(sel.level)))
+  }
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //item3
+  var sel = IUniversal.forge.item3
+  var sel2 = IUniversalIn.forge.item3
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(4).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(5).mul(f(10).pow(f(1))).mul(f(25).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //item4
+  var sel = IUniversal.forge.item4
+  var sel2 = IUniversalIn.forge.item4
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(1).mul(f(10).pow(f(0))).mul(f(10).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+
+  //mines
+
+
+  //item1
+  var sel = IUniversal.mine.item1
+  var sel2 = IUniversalIn.mine.item1
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(20)
+
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(sel.level)
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(16))).mul(f(10).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //item2
+  var sel = IUniversal.mine.item2
+  var sel2 = IUniversalIn.mine.item2
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(20)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(1).mul(f(10).pow(f(17))).mul(f(20).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //ORES
+
+  //item1
+  var sel = IUniversal.ore.item1
+  var sel2 = IUniversalIn.ore.item1
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(20)
+
+
+  if (sel.active) {
+    sel2.value = f(1)
+  } else {
+    sel2.value = f(0)
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.life = f(10)
+  } else {
+    sel2.life = f(10)
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.hardness = f(0.5)
+  } else {
+    sel2.hardness = f(0.5)
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.weight = f(1)
+  } else {
+    sel2.weight = f(1)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(8))).mul(f(50).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //item2
+  var sel = IUniversal.ore.item2
+  var sel2 = IUniversalIn.ore.item2
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(20)
+
+  if (sel.active) {
+    sel2.value = f(1)
+  } else {
+    sel2.value = f(0)
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.life = f(500)
+  } else {
+    sel2.life = f(500)
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.hardness = f(50)
+  } else {
+    sel2.hardness = f(50)
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.weight = f(10)
+  } else {
+    sel2.weight = f(10)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(8))).mul(f(50).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //WIND
+
+  //NODE 1
+  var sel = IUniversal.windTree.node1
+  var sel2 = IUniversalIn.windTree.node1
+  var exp = IUniversal.expeditions.exp1
+  var exp2 = IUniversalIn.expeditions.exp1
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 2
+
+  var sel = IUniversal.windTree.node2
+  var sel2 = IUniversalIn.windTree.node2
+  var exp = IUniversal.expeditions.exp2
+  var exp2 = IUniversalIn.expeditions.exp2
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 3
+
+  var sel = IUniversal.windTree.node3
+  var sel2 = IUniversalIn.windTree.node3
+  var exp = IUniversal.expeditions.exp3
+  var exp2 = IUniversalIn.expeditions.exp3
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 4
+  var sel = IUniversal.windTree.node4
+  var sel2 = IUniversalIn.windTree.node4
+  var exp = IUniversal.expeditions.exp4
+  var exp2 = IUniversalIn.expeditions.exp4
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 5
+  var sel = IUniversal.windTree.node5
+  var sel2 = IUniversalIn.windTree.node5
+  var exp = IUniversal.expeditions.exp5
+  var exp2 = IUniversalIn.expeditions.exp5
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 6
+  var sel = IUniversal.windTree.node6
+  var sel2 = IUniversalIn.windTree.node6
+  var exp = IUniversal.expeditions.exp6
+  var exp2 = IUniversalIn.expeditions.exp6
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 7
+  var sel = IUniversal.windTree.node7
+  var sel2 = IUniversalIn.windTree.node7
+  var exp = IUniversal.expeditions.exp7
+  var exp2 = IUniversalIn.expeditions.exp7
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  //NODE 8
+  var sel = IUniversal.windTree.node8
+  var sel2 = IUniversalIn.windTree.node8
+  var exp = IUniversal.expeditions.exp8
+  var exp2 = IUniversalIn.expeditions.exp8
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 9
+  var sel = IUniversal.windTree.node9
+  var sel2 = IUniversalIn.windTree.node9
+  var exp = IUniversal.expeditions.exp9
+  var exp2 = IUniversalIn.expeditions.exp9
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 10
+  var sel = IUniversal.windTree.node10
+  var sel2 = IUniversalIn.windTree.node10
+  var exp = IUniversal.expeditions.exp10
+  var exp2 = IUniversalIn.expeditions.exp10
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+
+  //NODE 11
+  var sel = IUniversal.windTree.node11
+  var sel2 = IUniversalIn.windTree.node11
+  var exp = IUniversal.expeditions.exp11
+  var exp2 = IUniversalIn.expeditions.exp11
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+
+  //NODE 12
+  var sel = IUniversal.windTree.node12
+  var sel2 = IUniversalIn.windTree.node12
+  var exp = IUniversal.expeditions.exp12
+  var exp2 = IUniversalIn.expeditions.exp12
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+
+  //NODE 13
+  var sel = IUniversal.windTree.node13
+  var sel2 = IUniversalIn.windTree.node13
+  var exp = IUniversal.expeditions.exp13
+  var exp2 = IUniversalIn.expeditions.exp13
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+
+  //NODE 14
+  var sel = IUniversal.windTree.node14
+  var sel2 = IUniversalIn.windTree.node14
+  var exp = IUniversal.expeditions.exp14
+  var exp2 = IUniversalIn.expeditions.exp14
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //golems
+
+  var golem1 = f(IUniversalIn.earthTree.node5.effect)
+  var golem2 = f(IUniversalIn.earthTree.node6.effect)
+
+
+  IUniversal.golem = f(golem1).mul(golem2)
+
+  //GOLEM ARMY
+
+  //army stats
+
+  //armyInfo: default
+
+  if (!IFight.youStats.onFight3) {
+    IUniversalIn.armyInfo.default.level = f(IUniversal.golem)
+  }
+
+  IUniversalIn.armyInfo.default.baseLevel = f(IUniversal.golem)
+
+  var life1 = f(IUniversalIn.armyInfo.default.golemTypes.type1.life)
+  var life2 = f(IUniversalIn.armyInfo.default.golemTypes.type2.life)
+  var life3 = f(IUniversalIn.armyInfo.default.golemTypes.type3.life)
+  var life4 = f(IUniversalIn.armyInfo.default.golemTypes.type4.life)
+  var life5 = f(IUniversalIn.armyInfo.default.golemTypes.type5.life)
+  var life7 = f(IUniversalIn.earthTree.node9.effect)
+  var life8 = f(IUniversalIn.earthTree.node11.effect)
+  var life10 = f(IUniversalIn.earthTree.node7.effect)
+  if (getTreasureActive("treasure19")) { var life11 = f(IUniversalIn.treasures.treasure19.effect) } else { life11 = f(1) }
+  var life12 = f(IUniversalIn.forge.item2.effect)
+
+  var baseLife1 = f(IUniversalIn.armyInfo.default.golemTypes.type1.baseLife)
+  var baseLife2 = f(IUniversalIn.armyInfo.default.golemTypes.type2.baseLife)
+  var baseLife3 = f(IUniversalIn.armyInfo.default.golemTypes.type3.baseLife)
+  var baseLife4 = f(IUniversalIn.armyInfo.default.golemTypes.type4.baseLife)
+  var baseLife5 = f(IUniversalIn.armyInfo.default.golemTypes.type5.baseLife)
+  var baseLife7 = f(IUniversalIn.earthTree.node9.effect)
+  var baseLife8 = f(IUniversalIn.earthTree.node11.effect)
+  var baseLife10 = f(IUniversalIn.earthTree.node7.effect)
+  if (getTreasureActive("treasure19")) { var baseLife11 = f(IUniversalIn.treasures.treasure19.effect) } else { baseLife11 = f(1) }
+  var baseLife12 = f(IUniversalIn.forge.item2.effect)
+
+
+  if (getArmyEffectType("lifeBreaker1")) {
+    var life9 = getArmyEffectValue("lifeBreaker1")
+  } else {
+    life9 = 1;
+  }
+
+  if (f(IUniversal.golem).gt(f(0))) {
+    IUniversalIn.armyInfo.default.life = f(f(f(1).add(life7)).mul((life1).add(life2).add(life3).add(life4).add(life5)).mul(life8).mul(life10).mul(life11).mul(life12)).dividedBy(f(life9))
+    IUniversalIn.armyInfo.default.baseLife = f(f(f(1).add(baseLife7)).mul((baseLife1).add(baseLife2).add(baseLife3).add(baseLife4).add(baseLife5)).mul(baseLife8).mul(baseLife10).mul(baseLife11).mul(baseLife12))
+  } else {
+    IUniversalIn.armyInfo.default.life = f(0)
+    IUniversalIn.armyInfo.default.baseLife = f(0)
+  }
+
+  var damage1 = f(IUniversalIn.armyInfo.default.golemTypes.type1.damage)
+  var damage2 = f(IUniversalIn.armyInfo.default.golemTypes.type2.damage)
+  var damage3 = f(IUniversalIn.armyInfo.default.golemTypes.type3.damage)
+  var damage4 = f(IUniversalIn.armyInfo.default.golemTypes.type4.damage)
+  var damage5 = f(IUniversalIn.armyInfo.default.golemTypes.type5.damage)
+  var damage7 = f(IUniversalIn.earthTree.node10.effect)
+  var damage8 = f(IUniversalIn.earthTree.node12.effect)
+  var damage9 = f(IUniversalIn.earthTree.node8.effect)
+  if (getTreasureActive("treasure19")) { var damage10 = f(IUniversalIn.treasures.treasure19.effect) } else { damage10 = f(1) }
+  var damage12 = f(IUniversalIn.forge.item1.effect)
+
+
+
+  var baseDamage1 = f(IUniversalIn.armyInfo.default.golemTypes.type1.baseDamage)
+  var baseDamage2 = f(IUniversalIn.armyInfo.default.golemTypes.type2.baseDamage)
+  var baseDamage3 = f(IUniversalIn.armyInfo.default.golemTypes.type3.baseDamage)
+  var baseDamage4 = f(IUniversalIn.armyInfo.default.golemTypes.type4.baseDamage)
+  var baseDamage5 = f(IUniversalIn.armyInfo.default.golemTypes.type5.baseDamage)
+  var baseDamage7 = f(IUniversalIn.earthTree.node10.effect)
+  var baseDamage8 = f(IUniversalIn.earthTree.node12.effect)
+  var baseDamage9 = f(IUniversalIn.earthTree.node8.effect)
+  if (getTreasureActive("treasure19")) { var baseDamage10 = f(IUniversalIn.treasures.treasure19.effect) } else { baseDamage10 = f(1) }
+  var baseDamage12 = f(IUniversalIn.forge.item1.effect)
+
+
+  if (f(IUniversal.golem).gt(f(0))) {
+    IUniversalIn.armyInfo.default.damage = f(f(1).add(damage7)).mul((damage1).add(damage2).add(damage3).add(damage4).add(damage5)).mul(damage8).mul(damage9).mul(damage10).mul(damage12)
+    IUniversalIn.armyInfo.default.baseDamage = f(f(1).add(baseDamage7)).mul((baseDamage1).add(baseDamage2).add(baseDamage3).add(baseDamage4).add(baseDamage5)).mul(baseDamage8).mul(baseDamage9).mul(baseDamage10).mul(baseDamage12)
+  } else {
+    IUniversalIn.armyInfo.default.damage = f(0)
+    IUniversalIn.armyInfo.default.baseDamage = f(0)
+  }
+
+  if (!IFight.youStats.onFight3) {
+    IUniversal.armyInfo.default.leftLife = f(IUniversalIn.armyInfo.default.life)
+  }
+
+  IUniversalIn.armyInfo.default.baseLeftLife = f(IUniversalIn.armyInfo.default.baseLife)
+
 
   if (IUniversalIn.treasures[IUniversal.treasureFormation.item1.key]) {
     var eff1 = f(IUniversalIn.treasures[IUniversal.treasureFormation.item1.key].effect[0]).dividedBy(f(100))
@@ -16424,61 +20346,6 @@ function valuesSetter(type) {
 
   }
 
-  IUniversalIn.armyInfo.default.golemTypes.type1.content = `<div>
-                                                <div><span class="boldBlackBorder">WARRIORS</span></div>
-                                                <div class="row spaceEvenly">
-                                                  <div>${format(f(f(IUniversalIn.armyInfo.default.golemTypes.type1.baseLevel)), 0)} Warriors</div>
-                                                  <div>Life +2 (${format(f(f(IUniversalIn.armyInfo.default.golemTypes.type1.baseLife)), 0)})</div>
-                                                  <div>Damage +2 (${format(f(f(IUniversalIn.armyInfo.default.golemTypes.type1.baseDamage)), 0)})</div>
-                                                </div>
-                                          </div>`
-
-  IUniversalIn.armyInfo.default.golemTypes.type2.content = `<div>
-                                                <div><span class="boldBlackBorder">TANKS</span></div>
-                                                <div class="row spaceEvenly">
-                                                  <div>${format(f(f(IUniversalIn.armyInfo.default.golemTypes.type2.baseLevel)), 0)} Tanks</div>
-                                                  <div>Life +6 (${format(f(f(IUniversalIn.armyInfo.default.golemTypes.type2.baseLife)), 0)})</div>
-                                                  <div>Damage +1 (${format(f(f(IUniversalIn.armyInfo.default.golemTypes.type2.baseDamage)), 0)})</div>
-                                                </div>
-                                                </div>`
-
-  IUniversalIn.armyInfo.default.golemTypes.type3.content = `<div>
-                                                <div><span class="boldBlackBorder">ARCHERS</span></div>
-                                                <div class="row spaceEvenly">
-                                                  <div>${format(f(f(IUniversalIn.armyInfo.default.golemTypes.type3.baseLevel)), 0)} Archers</div>
-                                                  <div>Life +1.5 (${format(f(f(IUniversalIn.armyInfo.default.golemTypes.type3.baseLife)), 0)})</div>
-                                                  <div>Damage +5 (${format(f(f(IUniversalIn.armyInfo.default.golemTypes.type3.baseDamage)), 0)})</div>
-                                                </div>
-                                                </div>`
-
-  IUniversalIn.armyInfo.default.golemTypes.type4.content = `<div>
-                                                <div><span class="boldBlackBorder">SUPPORTS</span></div>
-                                                <div class="row spaceEvenly">
-                                                  <div>${f(IUniversalIn.armyInfo.default.golemTypes.type4.baseLevel)} Supports</div>
-                                                  <div>${f(IUniversalIn.armyInfo.default.golemTypes.type4.baseLife)} Life</div>
-                                                  <div>${f(IUniversalIn.armyInfo.default.golemTypes.type4.baseDamage)} Damage</div>
-                                                </div>
-                                                </div>`
-
-  IUniversalIn.armyInfo.default.golemTypes.type5.content = `<div>
-                                                <div><span class="boldBlackBorder">COMMANDER</span></div>
-                                                <div class="row spaceEvenly">
-                                                  <div>${f(IUniversalIn.armyInfo.default.golemTypes.type5.baseLevel)} Commanders</div>
-                                                  <div>${f(IUniversalIn.armyInfo.default.golemTypes.type5.baseLife)} Life</div>
-                                                  <div>${f(IUniversalIn.armyInfo.default.golemTypes.type5.baseDamage)} Damage</div>
-                                                </div>
-                                                </div>`
-
-  //enemy
-
-  if (IUniversal.armyInfo.enemy.selected) {
-    if (f(IUniversal.expeditions[IUniversal.armyInfo.enemy.selected].level).lt(f(IUniversalIn.expeditions[IUniversal.armyInfo.enemy.selected].maxLevel))) {
-      IUniversalIn.armyInfo.enemy.content = visualArmy2(IUniversal.armyInfo.enemy, IUniversalIn.armyInfo.enemy)
-
-    } else {
-      IUniversalIn.armyInfo.enemy.content = `<div class="height100 width100 centerDiv">ENEMY CONQUERED</div>`
-    }
-  }
 
   //GOLEM ARMY
 
@@ -16802,74 +20669,6 @@ function valuesSetter(type) {
 
   IUniversalIn.armyInfo.soul.baseAffinity = f(baseAff1).mul(baseAff2).mul(baseAff3).mul(baseAff4)
 
-  IUniversalIn.armyInfo.soul.content = `
-  <div class="column height100 width100 relative">
-    <div class="height100 width100 centerLeft absolute">
-      <div><span class="boldBlackBorder fontSize1_5">Soul</span></div>
-
-      <div class="row spaceEvenly">
-        <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.damage))}</span> Damage</div>
-        <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.life))}</span> Life</div>
-      </div>
-<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinity))}</span> Affinity</div>
-<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity1.value))}</span> Fire Affinity</div>
-<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity2.value))}</span> Water Affinity</div>
-<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity3.value))}</span> Earth Affinity</div>
-<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity4.value))}</span> Wind Affinity</div>
-      <div id="c2_23_C_part1" class="height5 width100 defaultBarPart1 boldBlackBorderObject">
-        <div id="c2_23_C_part2" class="height100 width100 defaultBarPart2 boldBlackBorderObjectLateral">
-        </div>
-        <div id="c2_23_C_part3" class="height100 width100 defaultBarPart3">${format(f(IUniversal.armyInfo.soul.leftLife))}</div>
-      </div>
-    </div>
-
-
-
-  </div>`;
-
-  IUniversalIn.armyInfo.soul.content2 = `
-  <div class="column height100 width100 relative">
-    <div class="height100 width100 centerLeft absolute">
-      <div><span class="boldBlackBorder fontSize1_5">Soul</span></div>
-
-      <div class="row spaceEvenly">
-        <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.baseDamage))}</span> Damage</div>
-        <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.baseLife))}</span> Life</div>
-      </div>
-      <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinity))}</span> Affinity</div>
-<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity1.value))}</span> Fire Affinity</div>
-<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity2.value))}</span> Water Affinity</div>
-<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity3.value))}</span> Earth Affinity</div>
-<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity4.value))}</span> Wind Affinity</div>
-    </div>
-
-  </div>`;
-
-  IUniversalIn.armyInfo.soul.content3 = `
-  <div class="column height100 width100 relative roundedEdges">
-    <div class="height70 width100 centerLeft absolute roundedEdges">
-      <div><span class="boldBlackBorder fontSize1_5">Soul</span></div>
-
-      <div class="row spaceEvenly">
-        <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.baseDamage))}</span> Damage</div>
-        <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.baseLife))}</span> Life</div>
-      </div>
-      <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.baseAffinity))}</span> Affinity</div>
-<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity1.baseValue))}</span> Fire Affinity</div>
-<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity2.baseValue))}</span> Water Affinity</div>
-<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity3.baseValue))}</span> Earth Affinity</div>
-<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity4.baseValue))}</span> Wind Affinity</div>
-    </div>
-
-    
-    <div class="height30 width100 top70 absolute backgroundBlue3 column roundedEdges">
-      <div class="centerDiv boldBlackBorder">GLOBAL BONUS</div>
-      <div>Life × Soul Life (<span class="boldBlackBorder">×${format(f(IUniversalIn.armyInfo.soul.baseLife))}</span>)</div>
-      <div>Damage × Soul Damage (<span class="boldBlackBorder">×${format(f(IUniversalIn.armyInfo.soul.baseDamage))}</span>)</div>
-    </div>
-
-  </div>`;
-
   //ENEMY CRUSADE
 
   var selected = IUniversal.expeditions[IUniversal.armyInfo.elemental.selected]
@@ -16944,27 +20743,6 @@ function valuesSetter(type) {
 
   sel2.maxLevel = Infinity
 
-  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
-                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
-                    </div>`
-
-  sel2.content2 =
-    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
-    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
-      <div class=" absolute padding2 center fontSize09 width100">Courage Helmet</div>
-      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
-    </div>
-    <div class="height50 width100 row ">
-      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
-      </div>
-      <div class="centerDiv centerDiv height100 width100 fontSize08 columns margin1 overflowY">Warrior Damage and Life  ×1.2 (×${format(f(sel2.effect), 1)})</div>
-    </div>
-    
-    <div class="height30 width100 column roundedEdges">${format(f(sel1.num), 0)}/${format(f(sel2.price), 0)} Fragments</div>
-  </div>`
-
-  sel2.content3 = `<div class="centerDiv centerDiv height100 width100 fontSize08 columns margin1 overflowY">Warrior Damage and Life  ×1.2 (×${format(f(sel2.effect), 1)})</div>`
-
   sel1.fused = f(sel1.fused)
   sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
 
@@ -16989,27 +20767,6 @@ function valuesSetter(type) {
 
   sel2.maxLevel = Infinity
 
-  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
-                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
-                    </div>`
-
-  sel2.content2 =
-    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
-    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
-      <div class=" absolute padding2 center fontSize09 width100">Fear Horns</div>
-      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
-    </div>
-    <div class="height50 width100 row ">
-      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
-      </div>
-      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Enemy Warrior is 2 Times Weaker (/${format(f(sel2.effect), 0)})</div>
-    </div>
-    
-    <div class="height30 width100 column roundedEdges">${format(f(sel1.num), 0)}/${format(f(sel2.price), 0)} Fragments</div>
-  </div>`
-
-  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Enemy Warrior is 2 Times Weaker (/${format(f(sel2.effect), 0)})</div>`
-
   sel1.fused = f(sel1.fused)
   sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
 
@@ -17033,27 +20790,6 @@ function valuesSetter(type) {
   var sel2 = IUniversalIn.treasures.treasure3
 
   sel2.maxLevel = Infinity
-
-  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
-                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
-                    </div>`
-
-  sel2.content2 =
-    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
-    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
-      <div class=" absolute padding2 center fontSize09 width100">Unified Shield</div>
-      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
-    </div>
-    <div class="height50 width100 row ">
-      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
-      </div>
-      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Tank Life × Tank Quantity (×${format(f(sel2.effect), 1)})</div>
-    </div>
-    
-    <div class="height30 width100 column roundedEdges">${format(f(sel1.num), 0)}/${format(f(sel2.price), 0)} Fragments</div>
-  </div>`
-
-  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Tank Life × Tank Quantity (×${format(f(sel2.effect), 1)})</div>`
 
   sel1.fused = f(sel1.fused)
   sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
@@ -17080,30 +20816,6 @@ function valuesSetter(type) {
 
   sel2.maxLevel = Infinity
 
-  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
-                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
-                    </div>`
-
-  sel2.content2 =
-    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
-    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
-      <div class=" absolute padding2 center fontSize09 width100">Obsidian Manequin</div>
-      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
-    </div>
-    <div class="height50 width100 row ">
-      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
-      </div>
-      <div class="centerDiv height100 width100 fontSize08 column margin1 overflowY">
-      <div>Permanent Upgrade, Cant Equip</div>
-      <div>Training Grounds Upgrades max level +5 (+${format(f(sel2.effect), 0)})</div>
-      </div>
-    </div>
-    
-    <div class="height30 width100 column roundedEdges">${format(f(sel1.num), 0)}/${format(f(sel2.price), 0)} Fragments</div>
-  </div>`
-
-  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Training Grounds Upgrades max level +5 (+${format(f(sel2.effect), 0)})</div>`
-
   sel1.fused = f(sel1.fused)
   sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
 
@@ -17123,31 +20835,6 @@ function valuesSetter(type) {
   var sel2 = IUniversalIn.treasures.treasure5
 
   sel2.maxLevel = Infinity
-
-  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
-                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
-                    </div>`
-
-  sel2.content2 =
-    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
-    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
-      <div class=" absolute padding2 center fontSize09 width100">Dirt Blessing</div>
-      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
-    </div>
-    <div class="height50 width100 row ">
-      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
-      </div>
-      <div class="centerDiv height100 width100 fontSize08 column margin1 overflowY">
-      <div>Permanent Upgrade, Cant Equip</div>
-      <div>Mound Upgrades max level +5 (+${format(f(sel2.effect), 0)})</div>
-      </div>
-
-    </div>
-    
-    <div class="height30 width100 column roundedEdges">${format(f(sel1.num), 0)}/${format(f(sel2.price), 0)} Fragments</div>
-  </div>`
-
-  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Mound Upgrades max level +5 (+${format(f(sel2.effect), 0)})</div>`
 
   sel1.fused = f(sel1.fused)
   sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
@@ -17169,31 +20856,6 @@ function valuesSetter(type) {
 
   sel2.maxLevel = Infinity
 
-  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
-                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
-                    </div>`
-
-  sel2.content2 =
-    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
-    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
-      <div class=" absolute padding2 center fontSize09 width100">Amethyst Cove</div>
-      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
-    </div>
-    <div class="height50 width100 row ">
-      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
-      </div>
-      
-      <div class="centerDiv height100 width100 fontSize08 column margin1 overflowY">
-      <div>Permanent Upgrade, Cant Equip</div>
-      <div>Barracks Upgrades max level +5 (+${format(f(sel2.effect), 0)})</div>
-      </div>
-    </div>
-    
-    <div class="height30 width100 column roundedEdges">${format(f(sel1.num), 0)}/${format(f(sel2.price), 0)} Fragments</div>
-  </div>`
-
-  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Barracks Upgrades max level +5 (+${format(f(sel2.effect), 0)})</div>`
-
   sel1.fused = f(sel1.fused)
   sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
 
@@ -17213,30 +20875,6 @@ function valuesSetter(type) {
   var sel2 = IUniversalIn.treasures.treasure7
 
   sel2.maxLevel = f(0)
-
-  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
-                    </div>`
-
-  sel2.content2 =
-    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
-    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
-      <div class=" absolute padding2 center fontSize09 width100">Formation: Turtle</div>
-    </div>
-    <div class="height50 width100 row ">
-      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
-      </div>
-      <div class="height100 width100 fontSize08 columns margin1 overflowY">
-        <div>Warriors quantity is 25% of Golems<div>
-        <div>Tanks quantity is 75% of Golems<div>
-      </div>
-      
-    </div>
-  </div>`
-
-  sel2.content3 = `<div class="height100 width100 fontSize08 columns margin1 overflowY">
-        <div>Warriors quantity is 25% of Golems<div>
-        <div>Tanks quantity is 75% of Golems<div>
-      </div>`
 
   sel1.fused = f(sel1.fused)
   sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
@@ -17267,31 +20905,6 @@ function valuesSetter(type) {
 
   sel2.maxLevel = f(0)
 
-  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
-                    </div>`
-
-  sel2.content2 =
-    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
-    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
-      <div class=" absolute padding2 center fontSize09 width100">Formation: Sparrow</div>
-    </div>
-    <div class="height50 width100 row ">
-      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
-      </div>
-      <div class="height100 width100 fontSize08 columns margin1 overflowY">
-        <div>Warriors quantity is 25% of Golems<div>
-        <div>Tanks quantity is 25% of Golems<div>
-        <div>Archers quantity is 50% of Golems<div>
-      </div>
-    </div>
-  </div>`
-
-  sel2.content3 = `<div class="height100 width100 fontSize08 columns margin1 overflowY">
-        <div>Warriors quantity is 25% of Golems<div>
-        <div>Tanks quantity is 25% of Golems<div>
-        <div>Archers quantity is 50% of Golems<div>
-      </div>`
-
   sel1.fused = f(sel1.fused)
   sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
 
@@ -17313,36 +20926,13 @@ function valuesSetter(type) {
   } else {
     sel1.active = false;
   }
+
   //Treasure 9
 
   var sel1 = IUniversal.treasures.treasure9
   var sel2 = IUniversalIn.treasures.treasure9
 
   sel2.maxLevel = f(0)
-
-  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
-                    </div>`
-
-  sel2.content2 =
-    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
-    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
-      <div class=" absolute padding2 center fontSize09 width100">Formation: Default</div>
-    </div>
-    <div class="height50 width100 row ">
-      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
-      </div>
-      <div class="height100 width100 fontSize08 columns margin1 overflowY">
-        <div>Formation: Default<div>
-        <div>Divide Golems between every Golem Type  (${format(f(sel2.effect), 0)}%)<div>
-      </div>
-    </div>
-    
-  </div>`
-
-  sel2.content3 = `<div class="height100 width100 fontSize08 columns margin1 overflowY">
-        <div>Formation: Default<div>
-        <div>Divide Golems between every Golem Type (${format(f(sel2.effect), 0)}%)<div>
-      </div>`
 
   sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
 
@@ -17376,36 +20966,13 @@ function valuesSetter(type) {
   } else {
     sel1.active = false;
   }
+
   //Treasure 10
 
   var sel1 = IUniversal.treasures.treasure10
   var sel2 = IUniversalIn.treasures.treasure10
 
   sel2.maxLevel = f(0)
-
-  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
-                    </div>`
-
-  sel2.content2 =
-    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
-    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
-      <div class=" absolute padding2 center fontSize09 width100">Formation: Tiger</div>
-    </div>
-    <div class="height50 width100 row ">
-      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
-      </div>
-      <div class="height100 width100 fontSize08 columns margin1 overflowY">
-        <div>Warriors quantity is 75% of Golems<div>
-        <div>Tanks quantity is 25% of Golems<div>
-      </div>
-    </div>
-    
-  </div>`
-
-  sel2.content3 = `<div class="height100 width100 fontSize08 columns margin1 overflowY">
-        <div>Warriors quantity is 75% of Golems<div>
-        <div>Tanks quantity is 25% of Golems<div>
-      </div>`
 
   if (sel1.equip) {
     sel2.effect = [75, 25, 0, 0]
@@ -17436,28 +21003,6 @@ function valuesSetter(type) {
 
   sel2.maxLevel = Infinity
 
-  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
-                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
-                    </div>`
-
-  sel2.content2 =
-    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
-    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
-      <div class=" absolute padding2 center fontSize09 width100">Iron Core Sword</div>
-      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
-    </div>
-    <div class="height50 width100 row ">
-      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
-      </div>
-      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Damage +2 (+${format(f(sel2.effect), 0)})</div>
-
-    </div>
-    
-    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
-  </div>`
-
-  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Damage +2 (+${format(f(sel2.effect), 0)})</div>`
-
   sel2.price = f(f(10).pow(f(3))).mul(f(5).pow(f(sel1.level).minus(f(1))))
 
 
@@ -17482,28 +21027,6 @@ function valuesSetter(type) {
   var sel2 = IUniversalIn.treasures.treasure12
 
   sel2.maxLevel = Infinity
-
-  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
-                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
-                    </div>`
-
-  sel2.content2 =
-    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
-    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
-      <div class=" absolute padding2 center fontSize09 width100">Ancient Beast Leather</div>
-      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
-    </div>
-    <div class="height50 width100 row ">
-      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
-      </div>
-      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Life +3 (+${format(f(sel2.effect), 0)})</div>
-
-    </div>
-    
-    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
-  </div>`
-
-  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Life +3 (+${format(f(sel2.effect), 0)})</div>`
 
   sel2.price = f(f(10).pow(f(5))).mul(f(5).pow(f(sel1.level).minus(f(1))))
 
@@ -17531,28 +21054,6 @@ function valuesSetter(type) {
 
   sel2.maxLevel = Infinity
 
-  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
-                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
-                    </div>`
-
-  sel2.content2 =
-    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
-    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
-      <div class=" absolute padding2 center fontSize09 width100">Magic Brass Ring</div>
-      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
-    </div>
-    <div class="height50 width100 row ">
-      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
-      </div>
-      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Earth Affinity +1 (+${format(f(sel2.effect), 0)})</div>
-
-    </div>
-    
-    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
-  </div>`
-
-  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Earth Affinity +1 (+${format(f(sel2.effect), 0)})</div>`
-
   sel2.price = f(f(10).pow(f(7))).mul(f(5).pow(f(sel1.level).minus(f(1))))
 
 
@@ -17577,28 +21078,6 @@ function valuesSetter(type) {
   var sel2 = IUniversalIn.treasures.treasure14
 
   sel2.maxLevel = Infinity
-
-  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
-                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
-                    </div>`
-
-  sel2.content2 =
-    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
-    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
-      <div class=" absolute padding2 center fontSize09 width100">Rooted Greatsword</div>
-      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
-    </div>
-    <div class="height50 width100 row ">
-      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
-      </div>
-      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Damage +5, Earth Affinity +2 (+${format(f(sel2.effect), 0)} ,+${format(f(sel2.effect2), 0)})</div>
-
-    </div>
-    
-    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
-  </div>`
-
-  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Damage +5, Earth Affinity +2 (+${format(f(sel2.effect), 0)} ,+${format(f(sel2.effect2), 0)})</div>`
 
   sel2.price = f(f(10).pow(f(9))).mul(f(10).pow(f(sel1.level).minus(f(1))))
 
@@ -17626,28 +21105,6 @@ function valuesSetter(type) {
 
   sel2.maxLevel = Infinity
 
-  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
-                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
-                    </div>`
-
-  sel2.content2 =
-    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
-    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
-      <div class=" absolute padding2 center fontSize09 width100">Flowing Armor</div>
-      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
-    </div>
-    <div class="height50 width100 row ">
-      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
-      </div>
-      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Life +10, Water Affinity +1 (+${format(f(sel2.effect), 0)}, +${format(f(sel2.effect2), 0)})</div>
-
-    </div>
-    
-    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
-  </div>`
-
-  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Life +10, Water Affinity +1 (+${format(f(sel2.effect), 0)}, +${format(f(sel2.effect2), 0)})</div>`
-
   sel2.price = f(f(10).pow(f(11))).mul(f(10).pow(f(sel1.level).minus(f(1))))
 
 
@@ -17674,28 +21131,6 @@ function valuesSetter(type) {
 
   sel2.maxLevel = Infinity
 
-  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
-                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
-                    </div>`
-
-  sel2.content2 =
-    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
-    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
-      <div class=" absolute padding2 center fontSize09 width100">Dremion's Blessed Ring</div>
-      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
-    </div>
-    <div class="height50 width100 row ">
-      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
-      </div>
-      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">All affinities x1.1 (×${format(f(sel2.effect), 1)})</div>
-
-    </div>
-    
-    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
-  </div>`
-
-  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">All affinities x1.1 (×${format(f(sel2.effect), 1)})</div>`
-
   sel2.price = f(f(10).pow(f(14))).mul(f(10).pow(f(sel1.level).minus(f(1))))
 
   sel2.effect = f(1).add(f(0.1).mul(f(sel1.level)))
@@ -17712,34 +21147,13 @@ function valuesSetter(type) {
   } else {
     sel1.active = false;
   }
+
   //Treasure 17
 
   var sel1 = IUniversal.treasures.treasure17
   var sel2 = IUniversalIn.treasures.treasure17
 
   sel2.maxLevel = Infinity
-
-  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
-                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
-                    </div>`
-
-  sel2.content2 =
-    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
-    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
-      <div class=" absolute padding2 center fontSize09 width100">Soul</div>
-      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
-    </div>
-    <div class="height50 width100 row ">
-      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
-      </div>
-            <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Damage and Life +1 (+${format(f(sel2.effect), 0)})</div>
-
-    </div>
-    
-    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
-  </div>`
-
-  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Damage and Life +1 (+${format(f(sel2.effect), 0)})</div>`
 
   sel2.price = f(f(10).pow(f(2))).mul(f(5).pow(f(sel1.level).minus(f(1))))
 
@@ -17765,28 +21179,6 @@ function valuesSetter(type) {
 
   sel2.maxLevel = Infinity
 
-  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
-                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
-                    </div>`
-
-  sel2.content2 =
-    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
-    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
-      <div class=" absolute padding2 center fontSize09 width100">Sun Fragment</div>
-      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
-    </div>
-    <div class="height50 width100 row ">
-      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
-      </div>
-            <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Fire Affinity +1 (+${format(f(sel2.effect), 0)})</div>
-
-    </div>
-    
-    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
-  </div>`
-
-  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Fire Affinity +1 (+${format(f(sel2.effect), 0)})</div>`
-
   sel2.price = f(f(10).pow(f(7))).mul(f(10).pow(f(sel1.level).minus(f(1))))
 
   sel2.effect = f(1).mul(f(sel1.level))
@@ -17810,28 +21202,6 @@ function valuesSetter(type) {
   var sel2 = IUniversalIn.treasures.treasure19
 
   sel2.maxLevel = Infinity
-
-  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
-                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
-                    </div>`
-
-  sel2.content2 =
-    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
-    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
-      <div class=" absolute padding2 center fontSize09 width100">Stone Core</div>
-      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
-    </div>
-    <div class="height50 width100 row ">
-      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
-      </div>
-            <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Golems Life and Damage ×1.5 (×${format(f(sel2.effect), 1)})</div>
-
-    </div>
-    
-    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
-  </div>`
-
-  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Golems Life and Damage ×1.5 (×${format(f(sel2.effect), 1)})</div>`
 
   sel2.price = f(f(10).pow(f(18))).mul(f(10).pow(f(sel1.level).minus(f(1))))
 
@@ -17858,28 +21228,6 @@ function valuesSetter(type) {
 
   sel2.maxLevel = Infinity
 
-  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
-                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
-                    </div>`
-
-  sel2.content2 =
-    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
-    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
-      <div class=" absolute padding2 center fontSize09 width100">Frantumator Shield</div>
-      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
-    </div>
-    <div class="height50 width100 row ">
-      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
-      </div>
-            <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Opponent Life /4 (/${format(f(sel2.effect), 0)})</div>
-
-    </div>
-    
-    <div class="height30 width100 column roundedEdges">${format(f(sel1.num), 0)}/${format(f(sel2.price), 0)} Fragments</div>
-  </div>`
-
-  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Opponent Life /4 (/${format(f(sel2.effect), 0)})</div>`
-
   sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
 
   sel2.effect = f(2).pow(f(sel1.level))
@@ -17903,28 +21251,6 @@ function valuesSetter(type) {
   var sel2 = IUniversalIn.treasures.treasure21
 
   sel2.maxLevel = Infinity
-
-  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
-                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
-                    </div>`
-
-  sel2.content2 =
-    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
-    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
-      <div class=" absolute padding2 center fontSize09 width100">Black Iron Arrow</div>
-      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
-    </div>
-    <div class="height50 width100 row ">
-      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
-      </div>
-            <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Opponent Tanks are /2 Weaker (/${format(f(sel2.effect), 0)})</div>
-
-    </div>
-    
-    <div class="height30 width100 column roundedEdges">${format(f(sel1.num), 0)}/${format(f(sel2.price), 0)} Fragments</div>
-  </div>`
-
-  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Opponent Tanks are /2 Weaker (/${format(f(sel2.effect), 0)})</div>`
 
   sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
 
@@ -17950,28 +21276,6 @@ function valuesSetter(type) {
 
   sel2.maxLevel = Infinity
 
-  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
-                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
-                    </div>`
-
-  sel2.content2 =
-    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
-    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
-      <div class=" absolute padding2 center fontSize09 width100">Winged Arrow</div>
-      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
-    </div>
-    <div class="height50 width100 row ">
-      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
-      </div>
-            <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Archers damage ×2 (×${format(f(sel2.effect), 0)})</div>
-
-    </div>
-    
-    <div class="height30 width100 column roundedEdges">${format(f(sel1.num), 0)}/${format(f(sel2.price), 0)} Fragments</div>
-  </div>`
-
-  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Archers damage ×2 (×${format(f(sel2.effect), 0)})</div>`
-
   sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
 
   sel2.effect = f(2).pow(f(sel1.level))
@@ -17995,28 +21299,6 @@ function valuesSetter(type) {
   var sel2 = IUniversalIn.treasures.treasure23
 
   sel2.maxLevel = Infinity
-
-  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
-                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
-                    </div>`
-
-  sel2.content2 =
-    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
-    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
-      <div class=" absolute padding2 center fontSize09 width100">Crimson Knight Sword</div>
-      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
-    </div>
-    <div class="height50 width100 row ">
-      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
-      </div>
-            <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Damage +25, Fire Affinity +10, Wind Affinity +5 (+${format(f(sel2.effect), 0)} ,+${format(f(sel2.effect2), 0)}, +${format(f(sel2.effect3), 0)})</div>
-
-    </div>
-    
-    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
-  </div>`
-
-  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Damage +25, Fire Affinity +10, Wind Affinity +5 (+${format(f(sel2.effect), 0)} ,+${format(f(sel2.effect2), 0)}, +${format(f(sel2.effect3), 0)})</div>`
 
   sel2.price = f(f(10).pow(f(24))).mul(f(50).pow(f(sel1.level).minus(f(1))))
 
@@ -18044,28 +21326,6 @@ function valuesSetter(type) {
 
   sel2.maxLevel = Infinity
 
-  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
-                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
-                    </div>`
-
-  sel2.content2 =
-    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
-    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
-      <div class=" absolute padding2 center fontSize09 width100">Magma Slab</div>
-      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
-    </div>
-    <div class="height50 width100 row ">
-      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
-      </div>
-            <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Life +100, Fire Affinity +5, Earth Affinity +5 (+${format(f(sel2.effect), 0)} ,+${format(f(sel2.effect2), 0)},+${format(f(sel2.effect3), 0)})</div>
-
-    </div>
-    
-    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
-  </div>`
-
-  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Life +100, Fire Affinity +5, Earth Affinity +5 (+${format(f(sel2.effect), 0)} ,+${format(f(sel2.effect2), 0)},+${format(f(sel2.effect3), 0)})</div>`
-
   sel2.price = f(f(10).pow(f(26))).mul(f(50).pow(f(sel1.level).minus(f(1))))
 
   sel2.effect = f(100).mul(f(sel1.level))
@@ -18092,28 +21352,6 @@ function valuesSetter(type) {
 
   sel2.maxLevel = Infinity
 
-  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
-                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
-                    </div>`
-
-  sel2.content2 =
-    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
-    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
-      <div class=" absolute padding2 center fontSize09 width100">Hell First Ring</div>
-      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
-    </div>
-    <div class="height50 width100 row ">
-      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
-      </div>
-            <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Fire Affinity ×2 compounding (×${format(f(sel2.effect), 2)})</div>
-
-    </div>
-    
-    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
-  </div>`
-
-  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Fire Affinity ×2 compounding (×${format(f(sel2.effect), 2)})</div>`
-
   sel2.price = f(f(10).pow(f(28))).mul(f(50).pow(f(sel1.level).minus(f(1))))
 
   sel2.effect = f(2).pow(f(sel1.level))
@@ -18138,28 +21376,6 @@ function valuesSetter(type) {
 
   sel2.maxLevel = Infinity
 
-  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
-                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
-                    </div>`
-
-  sel2.content2 =
-    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
-    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
-      <div class=" absolute padding2 center fontSize09 width100">Unity Fragment</div>
-      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
-    </div>
-    <div class="height50 width100 row ">
-      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
-      </div>
-            <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">All affinities +1 (+${format(f(sel2.effect), 0)})</div>
-
-    </div>
-    
-    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
-  </div>`
-
-  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">All affinities +1 (+${format(f(sel2.effect), 0)})</div>`
-
   sel2.price = f(f(10).pow(f(30))).mul(f(10).pow(f(sel1.level).minus(f(1))))
 
   sel2.effect = f(1).mul(f(sel1.level))
@@ -18183,7 +21399,6 @@ function valuesSetter(type) {
   var sel = IUniversal.expeditions.exp1
   var selIn = IUniversalIn.expeditions.exp1
 
-  selIn.name = "Golem Patrol"
   selIn.maxLevel = f(6)
 
   selIn.damage = f(1).mul(f(getGolemArmyStats("damage", selIn.golemTypes)))
@@ -18215,97 +21430,6 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(300)
 
-  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
-    var sel = ["treasure4", "treasure5", "treasure6"];
-
-    for (let item of sel) {
-      setExpectedReward(selT, item);
-    }
-
-    if (f(exp.level).eq(f(0))) {
-      selT.expectedRewards.treasure4.level = f(selT.expectedRewards.treasure4.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(1))) {
-      selT.expectedRewards.treasure5.level = f(selT.expectedRewards.treasure5.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(2))) {
-      selT.expectedRewards.treasure6.level = f(selT.expectedRewards.treasure6.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(3))) {
-      selT.expectedRewards.treasure4.level = f(selT.expectedRewards.treasure4.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(4))) {
-      selT.expectedRewards.treasure5.level = f(selT.expectedRewards.treasure5.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(5))) {
-      selT.expectedRewards.treasure6.level = f(selT.expectedRewards.treasure6.level).add(f(1));
-      return
-    }
-
-    if (f(number).lt(f(sel.length))) {
-      const pick = Math.floor(Math.random() * sel.length);
-      const key = sel[pick];
-
-      if (!selT.expectedRewards) {
-        selT.expectedRewards = {};
-      }
-
-      if (!selT.expectedRewards[key]) {
-        selT.expectedRewards[key] = { num: f(0) };
-      }
-
-      selT.expectedRewards[key].num =
-        f(selT.expectedRewards[key].num).add(f(1));
-      return;
-    }
-
-    for (let x in sel) {
-      var sel2 = sel[x];
-      var level = f(number).dividedBy(f(sel.length));
-
-      if (!selT.expectedRewards) {
-        selT.expectedRewards = {};
-      }
-
-      if (!selT.expectedRewards[sel2]) {
-        selT.expectedRewards[sel2] = { num: f(0) };
-      }
-
-      selT.expectedRewards[sel2].num =
-        f(selT.expectedRewards[sel2].num).add(f(level));
-    }
-  };
-
-  selIn.effectContent = function (sel, selIn) {
-    var string = "";
-
-    for (let x in sel.expectedRewards) {
-      var sel2 = sel.expectedRewards[x];
-
-      if (!f(sel2.level).lte(f(0))) {
-        string += `
-      <div class="column height100 width10 flexShrinkZero">
-        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
-      </div>`;
-      }
-
-      if (!f(sel2.num).lte(f(0))) {
-        string += `
-      <div class="column height100 width10 flexShrinkZero">
-        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
-      </div>`;
-      }
-    }
-
-    return string;
-  }
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
     sel.active = true
@@ -18317,7 +21441,6 @@ function valuesSetter(type) {
   var sel = IUniversal.expeditions.exp2
   var selIn = IUniversalIn.expeditions.exp2
 
-  selIn.name = "The Wall"
   selIn.maxLevel = f(5)
 
   selIn.damage = f(1).mul(f(getGolemArmyStats("damage", selIn.golemTypes)))
@@ -18352,94 +21475,6 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(600)
 
-  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
-    var sel = ["treasure1"];
-
-    for (let x in sel) {
-      setExpectedReward(selT, sel[x])
-    }
-
-
-    if (f(exp.level).eq(f(0))) {
-      selT.expectedRewards.treasure1.level = f(selT.expectedRewards.treasure1.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(1))) {
-      selT.expectedRewards.treasure1.level = f(selT.expectedRewards.treasure1.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(2))) {
-      selT.expectedRewards.treasure1.level = f(selT.expectedRewards.treasure1.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(3))) {
-      selT.expectedRewards.treasure1.level = f(selT.expectedRewards.treasure1.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(4))) {
-      selT.expectedRewards.treasure1.level = f(selT.expectedRewards.treasure1.level).add(f(1));
-      return
-    }
-
-    if (f(number).lt(f(sel.length))) {
-      const pick = Math.floor(Math.random() * sel.length);
-      const key = sel[pick];
-
-      if (!selT.expectedRewards) {
-        selT.expectedRewards = {};
-      }
-
-      if (!selT.expectedRewards[key]) {
-        selT.expectedRewards[key] = { num: f(0) };
-      }
-
-      selT.expectedRewards[key].num =
-        f(selT.expectedRewards[key].num).add(f(1));
-      return;
-    }
-
-    for (let x in sel) {
-      var sel2 = sel[x];
-      var level = f(number).dividedBy(f(sel.length));
-
-      if (!selT.expectedRewards) {
-        selT.expectedRewards = {};
-      }
-
-      if (!selT.expectedRewards[sel2]) {
-        selT.expectedRewards[sel2] = { num: f(0) };
-      }
-
-      selT.expectedRewards[sel2].num =
-        f(selT.expectedRewards[sel2].num).add(f(level));
-    }
-  };
-
-  selIn.effectContent = function (sel, selIn) {
-    var string = "";
-
-    for (let x in sel.expectedRewards) {
-      var sel2 = sel.expectedRewards[x];
-
-      if (!f(sel2.level).lte(f(0))) {
-        string += `
-      <div class="column height100 width10 flexShrinkZero">
-        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
-      </div>`;
-      }
-
-      if (!f(sel2.num).lte(f(0))) {
-        string += `
-      <div class="column height100 width10 flexShrinkZero">
-        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
-      </div>`;
-      }
-    }
-
-    return string;
-  }
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
     sel.active = true
@@ -18451,7 +21486,6 @@ function valuesSetter(type) {
   var sel = IUniversal.expeditions.exp3
   var selIn = IUniversalIn.expeditions.exp3
 
-  selIn.name = "Lesser Fire Elemental"
   selIn.maxLevel = f(9)
 
   selIn.damage = f(selIn.affinity)
@@ -18475,53 +21509,6 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(1200)
 
-  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
-    var sel = ["treasure11", "treasure12", "treasure13"];
-
-    for (let x in sel) {
-      setExpectedReward(selT, sel[x])
-    }
-
-
-    if (f(exp.level).eq(f(0))) {
-      selT.expectedRewards.treasure11.level = f(selT.expectedRewards.treasure11.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(1))) {
-      selT.expectedRewards.treasure12.level = f(selT.expectedRewards.treasure12.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(2))) {
-      selT.expectedRewards.treasure13.level = f(selT.expectedRewards.treasure13.level).add(f(1));
-      return
-    }
-  };
-
-  selIn.effectContent = function (sel, selIn) {
-    var string = "";
-
-    for (let x in sel.expectedRewards) {
-      var sel2 = sel.expectedRewards[x];
-
-      if (!f(sel2.level).lte(f(0))) {
-        string += `
-      <div class="column height100 width10 flexShrinkZero">
-        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
-      </div>`;
-      }
-
-      if (!f(sel2.num).lte(f(0))) {
-        string += `
-      <div class="column height100 width10 flexShrinkZero">
-        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
-      </div>`;
-      }
-    }
-
-    return string;
-  }
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
     sel.active = true
@@ -18533,7 +21520,6 @@ function valuesSetter(type) {
   var sel = IUniversal.expeditions.exp4
   var selIn = IUniversalIn.expeditions.exp4
 
-  selIn.name = "Lesser Wind Elemental"
   selIn.maxLevel = f(6)
 
   selIn.damage = f(selIn.affinity)
@@ -18564,50 +21550,6 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(1500)
 
-  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number, precise = "") {
-    var sel = ["treasure18", "treasure14"];
-
-
-    for (let x in sel) {
-      setExpectedReward(selT, sel[x])
-    }
-
-
-    if (f(exp.level).eq(f(0))) {
-      selT.expectedRewards.treasure18.level = f(selT.expectedRewards.treasure18.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(1))) {
-      selT.expectedRewards.treasure14.level = f(selT.expectedRewards.treasure14.level).add(f(1));
-      return
-    }
-  };
-
-  selIn.effectContent = function (sel, selIn) {
-    var string = "";
-
-    for (let x in sel.expectedRewards) {
-      var sel2 = sel.expectedRewards[x];
-
-      if (!f(sel2.level).lte(f(0))) {
-        string += `
-      <div class="column height100 width10 flexShrinkZero">
-        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
-      </div>`;
-      }
-
-      if (!f(sel2.num).lte(f(0))) {
-        string += `
-      <div class="column height100 width10 flexShrinkZero">
-        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
-      </div>`;
-      }
-    }
-
-    return string;
-  }
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
     sel.active = true
@@ -18618,7 +21560,6 @@ function valuesSetter(type) {
   var sel = IUniversal.expeditions.exp5
   var selIn = IUniversalIn.expeditions.exp5
 
-  selIn.name = "Storm Elemental"
   selIn.maxLevel = f(6)
 
   selIn.damage = f(selIn.affinity)
@@ -18654,50 +21595,6 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(1800)
 
-  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
-    var sel = ["treasure15", "treasure19"];
-
-    for (let x in sel) {
-      setExpectedReward(selT, sel[x])
-    }
-
-
-    if (f(exp.level).eq(f(0))) {
-      selT.expectedRewards.treasure15.level = f(selT.expectedRewards.treasure15.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(1))) {
-      selT.expectedRewards.treasure19.level = f(selT.expectedRewards.treasure19.level).add(f(1));
-      return
-    }
-  };
-
-  selIn.effectContent = function (sel, selIn) {
-    var string = "";
-
-    for (let x in sel.expectedRewards) {
-      var sel2 = sel.expectedRewards[x];
-
-      if (!f(sel2.level).lte(f(0))) {
-        string += `
-      <div class="column height100 width10 flexShrinkZero">
-        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
-      </div>`;
-      }
-
-      if (!f(sel2.num).lte(f(0))) {
-        string += `
-      <div class="column height100 width10 flexShrinkZero">
-        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
-      </div>`;
-      }
-    }
-
-    return string;
-  }
-
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
     sel.active = true
   } else {
@@ -18708,7 +21605,6 @@ function valuesSetter(type) {
   var sel = IUniversal.expeditions.exp6
   var selIn = IUniversalIn.expeditions.exp6
 
-  selIn.name = "Rock Fort"
   selIn.maxLevel = f(5)
 
   selIn.damage = f(1).mul(f(getGolemArmyStats("damage", selIn.golemTypes)))
@@ -18738,97 +21634,6 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(600)
 
-  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
-    var sel = ["treasure2"];
-    var sel2 = ["treasure2", "treasure7"];
-
-
-    for (let x in sel2) {
-      setExpectedReward(selT, sel2[x])
-    }
-
-
-    if (f(exp.level).eq(f(0))) {
-      selT.expectedRewards.treasure7.level = f(selT.expectedRewards.treasure7.level).add(f(1));
-      selT.expectedRewards.treasure2.level = f(selT.expectedRewards.treasure2.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(1))) {
-      selT.expectedRewards.treasure2.level = f(selT.expectedRewards.treasure2.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(2))) {
-      selT.expectedRewards.treasure2.level = f(selT.expectedRewards.treasure2.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(3))) {
-      selT.expectedRewards.treasure2.level = f(selT.expectedRewards.treasure2.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(4))) {
-      selT.expectedRewards.treasure2.level = f(selT.expectedRewards.treasure2.level).add(f(1));
-      return
-    }
-
-    if (f(number).lt(f(sel.length))) {
-      const pick = Math.floor(Math.random() * sel.length);
-      const key = sel[pick];
-
-      if (!selT.expectedRewards) {
-        selT.expectedRewards = {};
-      }
-
-      if (!selT.expectedRewards[key]) {
-        selT.expectedRewards[key] = { num: f(0) };
-      }
-
-      selT.expectedRewards[key].num =
-        f(selT.expectedRewards[key].num).add(f(1));
-      return;
-    }
-
-    for (let x in sel) {
-      var sel2 = sel[x];
-      var level = f(number).dividedBy(f(sel.length));
-
-      if (!selT.expectedRewards) {
-        selT.expectedRewards = {};
-      }
-
-      if (!selT.expectedRewards[sel2]) {
-        selT.expectedRewards[sel2] = { num: f(0) };
-      }
-
-      selT.expectedRewards[sel2].num =
-        f(selT.expectedRewards[sel2].num).add(f(level));
-    }
-  };
-
-  selIn.effectContent = function (sel, selIn) {
-    var string = "";
-
-    for (let x in sel.expectedRewards) {
-      var sel2 = sel.expectedRewards[x];
-
-      if (!f(sel2.level).lte(f(0))) {
-        string += `
-      <div class="column height100 width10 flexShrinkZero">
-        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
-      </div>`;
-      }
-
-      if (!f(sel2.num).lte(f(0))) {
-        string += `
-      <div class="column height100 width10 flexShrinkZero">
-        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
-      </div>`;
-      }
-    }
-
-    return string;
-  }
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
     sel.active = true
@@ -18840,7 +21645,6 @@ function valuesSetter(type) {
   var sel = IUniversal.expeditions.exp7
   var selIn = IUniversalIn.expeditions.exp7
 
-  selIn.name = "Deep Slate Fortress"
   selIn.maxLevel = f(10)
 
   selIn.damage = f(1).mul(f(getGolemArmyStats("damage", selIn.golemTypes)))
@@ -18876,45 +21680,6 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(900)
 
-  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
-    var sel = ["treasure17"];
-
-    for (let x in sel) {
-      setExpectedReward(selT, sel[x])
-    }
-
-
-    if (f(exp.level).eq(f(0))) {
-      selT.expectedRewards.treasure17.level = f(selT.expectedRewards.treasure17.level).add(f(1));
-      return
-    }
-  };
-
-  selIn.effectContent = function (sel, selIn) {
-    var string = "";
-
-    for (let x in sel.expectedRewards) {
-      var sel2 = sel.expectedRewards[x];
-
-      if (!f(sel2.level).lte(f(0))) {
-        string += `
-      <div class="column height100 width10 flexShrinkZero">
-        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
-      </div>`;
-      }
-
-      if (!f(sel2.num).lte(f(0))) {
-        string += `
-      <div class="column height100 width10 flexShrinkZero">
-        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
-      </div>`;
-      }
-    }
-
-    return string;
-  }
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
     sel.active = true
@@ -18926,7 +21691,6 @@ function valuesSetter(type) {
   var sel = IUniversal.expeditions.exp8
   var selIn = IUniversalIn.expeditions.exp8
 
-  selIn.name = "Steel Clan"
   selIn.maxLevel = f(5)
 
   selIn.damage = f(1).mul(f(getGolemArmyStats("damage", selIn.golemTypes)))
@@ -18961,96 +21725,6 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(900)
 
-  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
-    var sel = ["treasure3"];
-    var sel2 = ["treasure3", "treasure10"];
-
-    for (let x in sel2) {
-      setExpectedReward(selT, sel2[x])
-    }
-
-
-    if (f(exp.level).eq(f(0))) {
-      selT.expectedRewards.treasure10.level = f(selT.expectedRewards.treasure10.level).add(f(1));
-      selT.expectedRewards.treasure3.level = f(selT.expectedRewards.treasure3.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(1))) {
-      selT.expectedRewards.treasure3.level = f(selT.expectedRewards.treasure3.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(2))) {
-      selT.expectedRewards.treasure3.level = f(selT.expectedRewards.treasure3.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(3))) {
-      selT.expectedRewards.treasure3.level = f(selT.expectedRewards.treasure3.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(4))) {
-      selT.expectedRewards.treasure3.level = f(selT.expectedRewards.treasure3.level).add(f(1));
-      return
-    }
-
-    if (f(number).lt(f(sel.length))) {
-      const pick = Math.floor(Math.random() * sel.length);
-      const key = sel[pick];
-
-      if (!selT.expectedRewards) {
-        selT.expectedRewards = {};
-      }
-
-      if (!selT.expectedRewards[key]) {
-        selT.expectedRewards[key] = { num: f(0) };
-      }
-
-      selT.expectedRewards[key].num =
-        f(selT.expectedRewards[key].num).add(f(1));
-      return;
-    }
-
-    for (let x in sel) {
-      var sel2 = sel[x];
-      var level = f(number).dividedBy(f(sel.length));
-
-      if (!selT.expectedRewards) {
-        selT.expectedRewards = {};
-      }
-
-      if (!selT.expectedRewards[sel2]) {
-        selT.expectedRewards[sel2] = { num: f(0) };
-      }
-
-      selT.expectedRewards[sel2].num =
-        f(selT.expectedRewards[sel2].num).add(f(level));
-    }
-  };
-
-  selIn.effectContent = function (sel, selIn) {
-    var string = "";
-
-    for (let x in sel.expectedRewards) {
-      var sel2 = sel.expectedRewards[x];
-
-      if (!f(sel2.level).lte(f(0))) {
-        string += `
-      <div class="column height100 width10 flexShrinkZero">
-        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
-      </div>`;
-      }
-
-      if (!f(sel2.num).lte(f(0))) {
-        string += `
-      <div class="column height100 width10 flexShrinkZero">
-        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
-      </div>`;
-      }
-    }
-
-    return string;
-  }
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
     sel.active = true
@@ -19062,7 +21736,6 @@ function valuesSetter(type) {
   var sel = IUniversal.expeditions.exp9
   var selIn = IUniversalIn.expeditions.exp9
 
-  selIn.name = "Rolling Stone Legion"
   selIn.maxLevel = f(5)
 
   selIn.damage = f(1).mul(f(getGolemArmyStats("damage", selIn.golemTypes)))
@@ -19097,94 +21770,6 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(1200)
 
-  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
-    var sel = ["treasure20"];
-
-    for (let x in sel) {
-      setExpectedReward(selT, sel[x])
-    }
-
-
-    if (f(exp.level).eq(f(0))) {
-      selT.expectedRewards.treasure20.level = f(selT.expectedRewards.treasure20.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(1))) {
-      selT.expectedRewards.treasure20.level = f(selT.expectedRewards.treasure20.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(2))) {
-      selT.expectedRewards.treasure20.level = f(selT.expectedRewards.treasure20.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(3))) {
-      selT.expectedRewards.treasure20.level = f(selT.expectedRewards.treasure20.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(4))) {
-      selT.expectedRewards.treasure20.level = f(selT.expectedRewards.treasure20.level).add(f(1));
-      return
-    }
-
-    if (f(number).lt(f(sel.length))) {
-      const pick = Math.floor(Math.random() * sel.length);
-      const key = sel[pick];
-
-      if (!selT.expectedRewards) {
-        selT.expectedRewards = {};
-      }
-
-      if (!selT.expectedRewards[key]) {
-        selT.expectedRewards[key] = { num: f(0) };
-      }
-
-      selT.expectedRewards[key].num =
-        f(selT.expectedRewards[key].num).add(f(1));
-      return;
-    }
-
-    for (let x in sel) {
-      var sel2 = sel[x];
-      var level = f(number).dividedBy(f(sel.length));
-
-      if (!selT.expectedRewards) {
-        selT.expectedRewards = {};
-      }
-
-      if (!selT.expectedRewards[sel2]) {
-        selT.expectedRewards[sel2] = { num: f(0) };
-      }
-
-      selT.expectedRewards[sel2].num =
-        f(selT.expectedRewards[sel2].num).add(f(level));
-    }
-  };
-
-  selIn.effectContent = function (sel, selIn) {
-    var string = "";
-
-    for (let x in sel.expectedRewards) {
-      var sel2 = sel.expectedRewards[x];
-
-      if (!f(sel2.level).lte(f(0))) {
-        string += `
-      <div class="column height100 width10 flexShrinkZero">
-        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
-      </div>`;
-      }
-
-      if (!f(sel2.num).lte(f(0))) {
-        string += `
-      <div class="column height100 width10 flexShrinkZero">
-        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
-      </div>`;
-      }
-    }
-
-    return string;
-  }
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
     sel.active = true
@@ -19196,7 +21781,6 @@ function valuesSetter(type) {
   var sel = IUniversal.expeditions.exp10
   var selIn = IUniversalIn.expeditions.exp10
 
-  selIn.name = "Lesser Wind Hegemon"
   selIn.maxLevel = f(6)
 
   selIn.damage = f(selIn.affinity)
@@ -19226,44 +21810,6 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(2100)
 
-  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
-    var sel = ["treasure16"];
-
-    for (let x in sel) {
-      setExpectedReward(selT, sel[x])
-    }
-
-    if (f(exp.level).eq(f(0))) {
-      selT.expectedRewards.treasure16.level = f(selT.expectedRewards.treasure16.level).add(f(1));
-      return
-    }
-  };
-
-  selIn.effectContent = function (sel, selIn) {
-    var string = "";
-
-    for (let x in sel.expectedRewards) {
-      var sel2 = sel.expectedRewards[x];
-
-      if (!f(sel2.level).lte(f(0))) {
-        string += `
-      <div class="column height100 width10 flexShrinkZero">
-        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
-      </div>`;
-      }
-
-      if (!f(sel2.num).lte(f(0))) {
-        string += `
-      <div class="column height100 width10 flexShrinkZero">
-        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
-      </div>`;
-      }
-    }
-
-    return string;
-  }
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
     sel.active = true
@@ -19275,7 +21821,6 @@ function valuesSetter(type) {
   var sel = IUniversal.expeditions.exp11
   var selIn = IUniversalIn.expeditions.exp11
 
-  selIn.name = "Black Sky Moltitude"
   selIn.maxLevel = f(5)
 
   selIn.damage = f(1).mul(f(getGolemArmyStats("damage", selIn.golemTypes)))
@@ -19304,96 +21849,6 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(1500)
 
-  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
-    var sel = ["treasure21"];
-    var sel2 = ["treasure21", "treasure8"];
-
-    for (let x in sel2) {
-      setExpectedReward(selT, sel2[x])
-    }
-
-
-    if (f(exp.level).eq(f(0))) {
-      selT.expectedRewards.treasure8.level = f(selT.expectedRewards.treasure8.level).add(f(1));
-      selT.expectedRewards.treasure21.level = f(selT.expectedRewards.treasure21.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(1))) {
-      selT.expectedRewards.treasure21.level = f(selT.expectedRewards.treasure21.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(2))) {
-      selT.expectedRewards.treasure21.level = f(selT.expectedRewards.treasure21.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(3))) {
-      selT.expectedRewards.treasure21.level = f(selT.expectedRewards.treasure21.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(4))) {
-      selT.expectedRewards.treasure21.level = f(selT.expectedRewards.treasure21.level).add(f(1));
-      return
-    }
-
-    if (f(number).lt(f(sel.length))) {
-      const pick = Math.floor(Math.random() * sel.length);
-      const key = sel[pick];
-
-      if (!selT.expectedRewards) {
-        selT.expectedRewards = {};
-      }
-
-      if (!selT.expectedRewards[key]) {
-        selT.expectedRewards[key] = { num: f(0) };
-      }
-
-      selT.expectedRewards[key].num =
-        f(selT.expectedRewards[key].num).add(f(1));
-      return;
-    }
-
-    for (let x in sel) {
-      var sel2 = sel[x];
-      var level = f(number).dividedBy(f(sel.length));
-
-      if (!selT.expectedRewards) {
-        selT.expectedRewards = {};
-      }
-
-      if (!selT.expectedRewards[sel2]) {
-        selT.expectedRewards[sel2] = { num: f(0) };
-      }
-
-      selT.expectedRewards[sel2].num =
-        f(selT.expectedRewards[sel2].num).add(f(level));
-    }
-  };
-
-  selIn.effectContent = function (sel, selIn) {
-    var string = "";
-
-    for (let x in sel.expectedRewards) {
-      var sel2 = sel.expectedRewards[x];
-
-      if (!f(sel2.level).lte(f(0))) {
-        string += `
-      <div class="column height100 width10 flexShrinkZero">
-        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
-      </div>`;
-      }
-
-      if (!f(sel2.num).lte(f(0))) {
-        string += `
-      <div class="column height100 width10 flexShrinkZero">
-        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
-      </div>`;
-      }
-    }
-
-    return string;
-  }
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
     sel.active = true
@@ -19405,7 +21860,6 @@ function valuesSetter(type) {
   var sel = IUniversal.expeditions.exp12
   var selIn = IUniversalIn.expeditions.exp12
 
-  selIn.name = "Stalagmite King"
   selIn.maxLevel = f(5)
 
   selIn.damage = f(1).mul(f(getGolemArmyStats("damage", selIn.golemTypes)))
@@ -19440,94 +21894,6 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(1800)
 
-  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
-    var sel = ["treasure22"];
-
-    for (let x in sel) {
-      setExpectedReward(selT, sel[x])
-    }
-
-
-    if (f(exp.level).eq(f(0))) {
-      selT.expectedRewards.treasure22.level = f(selT.expectedRewards.treasure22.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(1))) {
-      selT.expectedRewards.treasure22.level = f(selT.expectedRewards.treasure22.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(2))) {
-      selT.expectedRewards.treasure22.level = f(selT.expectedRewards.treasure22.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(3))) {
-      selT.expectedRewards.treasure22.level = f(selT.expectedRewards.treasure22.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(4))) {
-      selT.expectedRewards.treasure22.level = f(selT.expectedRewards.treasure22.level).add(f(1));
-      return
-    }
-
-    if (f(number).lt(f(sel.length))) {
-      const pick = Math.floor(Math.random() * sel.length);
-      const key = sel[pick];
-
-      if (!selT.expectedRewards) {
-        selT.expectedRewards = {};
-      }
-
-      if (!selT.expectedRewards[key]) {
-        selT.expectedRewards[key] = { num: f(0) };
-      }
-
-      selT.expectedRewards[key].num =
-        f(selT.expectedRewards[key].num).add(f(1));
-      return;
-    }
-
-    for (let x in sel) {
-      var sel2 = sel[x];
-      var level = f(number).dividedBy(f(sel.length));
-
-      if (!selT.expectedRewards) {
-        selT.expectedRewards = {};
-      }
-
-      if (!selT.expectedRewards[sel2]) {
-        selT.expectedRewards[sel2] = { num: f(0) };
-      }
-
-      selT.expectedRewards[sel2].num =
-        f(selT.expectedRewards[sel2].num).add(f(level));
-    }
-  };
-
-  selIn.effectContent = function (sel, selIn) {
-    var string = "";
-
-    for (let x in sel.expectedRewards) {
-      var sel2 = sel.expectedRewards[x];
-
-      if (!f(sel2.level).lte(f(0))) {
-        string += `
-      <div class="column height100 width10 flexShrinkZero">
-        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
-      </div>`;
-      }
-
-      if (!f(sel2.num).lte(f(0))) {
-        string += `
-      <div class="column height100 width10 flexShrinkZero">
-        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
-      </div>`;
-      }
-    }
-
-    return string;
-  }
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
     sel.active = true
@@ -19540,7 +21906,6 @@ function valuesSetter(type) {
   var sel = IUniversal.expeditions.exp13
   var selIn = IUniversalIn.expeditions.exp13
 
-  selIn.name = "Magma Elemental"
   selIn.maxLevel = f(6)
 
   selIn.damage = f(selIn.affinity)
@@ -19576,54 +21941,6 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(2100)
 
-  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
-    var sel = ["treasure23", "treasure24", "treasure25"];
-
-    for (let x in sel) {
-      setExpectedReward(selT, sel[x])
-    }
-
-    if (f(exp.level).eq(f(0))) {
-      selT.expectedRewards.treasure23.level = f(selT.expectedRewards.treasure23.level).add(f(1));
-      return
-    }
-
-    if (f(exp.level).eq(f(1))) {
-      selT.expectedRewards.treasure24.level = f(selT.expectedRewards.treasure24.level).add(f(1));
-      return
-    }
-
-    if (f(exp.level).eq(f(2))) {
-      selT.expectedRewards.treasure25.level = f(selT.expectedRewards.treasure25.level).add(f(1));
-      return
-    }
-  };
-
-  selIn.effectContent = function (sel, selIn) {
-    var string = "";
-
-    for (let x in sel.expectedRewards) {
-      var sel2 = sel.expectedRewards[x];
-
-      if (!f(sel2.level).lte(f(0))) {
-        string += `
-      <div class="column height100 width10 flexShrinkZero">
-        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
-      </div>`;
-      }
-
-      if (!f(sel2.num).lte(f(0))) {
-        string += `
-      <div class="column height100 width10 flexShrinkZero">
-        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
-      </div>`;
-      }
-    }
-
-    return string;
-  }
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
     sel.active = true
@@ -19636,7 +21953,6 @@ function valuesSetter(type) {
   var sel = IUniversal.expeditions.exp14
   var selIn = IUniversalIn.expeditions.exp14
 
-  selIn.name = "Spirit"
   selIn.maxLevel = f(6)
 
   selIn.damage = f(selIn.affinity)
@@ -19667,44 +21983,6 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(2100)
 
-  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
-    var sel = ["treasure26"];
-
-    for (let x in sel) {
-      setExpectedReward(selT, sel[x])
-    }
-
-    if (f(exp.level).eq(f(0))) {
-      selT.expectedRewards.treasure26.level = f(selT.expectedRewards.treasure26.level).add(f(1));
-      return
-    }
-  };
-
-  selIn.effectContent = function (sel, selIn) {
-    var string = "";
-
-    for (let x in sel.expectedRewards) {
-      var sel2 = sel.expectedRewards[x];
-
-      if (!f(sel2.level).lte(f(0))) {
-        string += `
-      <div class="column height100 width10 flexShrinkZero">
-        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
-      </div>`;
-      }
-
-      if (!f(sel2.num).lte(f(0))) {
-        string += `
-      <div class="column height100 width10 flexShrinkZero">
-        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
-        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
-      </div>`;
-      }
-    }
-
-    return string;
-  }
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
     sel.active = true
@@ -19717,10 +21995,6 @@ function valuesSetter(type) {
 
   var sel = IUniversal.spires.spire1
   var selIn = IUniversalIn.spires.spire1
-
-  selIn.content = `<div>Earth Spire</div>
-                 <div>Earth/s × completed Expeditions (×${format(f(selIn.effect))})</div>`
-
 
   var value = 0;
   for (let x in IUniversal.expeditions) {
@@ -19739,10 +22013,6 @@ function valuesSetter(type) {
 
   var sel = IUniversal.spires.spire2
   var selIn = IUniversalIn.spires.spire2
-
-  selIn.content = `<div>Steel Spire</div>
-                 <div>Metal/s + completed Crusades (+${format(f(selIn.effect))})</div>`
-
 
   var value = 0;
   for (let x in IUniversal.expeditions) {
@@ -19764,49 +22034,10 @@ function valuesSetter(type) {
 
   //formation
 
-  if (IUniversal.treasureFormation.item1.key) {
-    IUniversalIn.treasureFormation.content = IUniversalIn.treasures[IUniversal.treasureFormation.item1.key].content3
-  } else {
-    IUniversalIn.treasureFormation.content = IUniversalIn.treasures.treasure9.content3
-  }
-
   //army treasure
-
-  for (let x in IUniversal.treasureArmy) {
-    var sel = IUniversal.treasureArmy[x]
-    var selIn = IUniversalIn.treasureArmy[x]
-
-    if (sel.key) {
-      selIn.content = IUniversalIn.treasures[sel.key].content3
-    } else {
-      selIn.content = ""
-    }
-  }
-
 
   //treasure equipment
 
-  for (let x in IUniversal.treasureEquipment) {
-    var sel = IUniversal.treasureEquipment[x]
-    var selIn = IUniversalIn.treasureEquipment[x]
-
-    if (sel.key) {
-      selIn.content = IUniversalIn.treasures[sel.key].content3
-    } else {
-      selIn.content = ""
-    }
-  }
-
-  for (let x in IUniversal.treasureAugments) {
-    var sel = IUniversal.treasureAugments[x]
-    var selIn = IUniversalIn.treasureAugments[x]
-
-    if (sel.key) {
-      selIn.content = IUniversalIn.treasures[sel.key].content3
-    } else {
-      selIn.content = ""
-    }
-  }
 }
 
 function getGolemArmyStats(stat, army) {
@@ -23987,7 +26218,7 @@ async function offProgress(time) {
 
     await challengerOff(time);
 
-    fullSetter("off")
+    fullSetter1("off")
 
     waiting = false;
 
@@ -24051,97 +26282,173 @@ async function challengerOff(time) {
 }
 
 //FUNCTIONAL FUNCTIONS
+var spheresCache = {};
 
-function spheres(targetId, numSpheres, radiusXPercent, radiusYPercent, colorSelected, offSetX, offSetY, sideRate, behindActive, frontActive, startAngle) {
+function getSphereCache(targetId) {
+  if (!spheresCache[targetId]) {
+    spheresCache[targetId] = {
+      target: null,
+      behindSvg: null,
+      frontSvg: null,
+      lastUpdate: 0,
+      lastCircleData: null,
+      cx: 0,
+      cy: 0,
+      sphereRadius: 0,
+      lastDimensions: { width: 0, height: 0 }
+    };
+  }
+  return spheresCache[targetId];
+}
 
-  /*targetId = target a cui gira attorno
-  numSpheres = numero di sphere
-  radiusXPercent = quanto e' schiacciato
-  radiusYPercent = quanto e' schiacciato sulla linea verticale
-  colorSelected = colore delle sfere
-  offSetX = quanto lo si sposta sull' asse X
-  offSetY = quanto lo si sposta sull' asse Y
-  sideRate = quanto tempo e' front, e quanto tempo e' behind, di base e' 1/2
-  behindActive = e' attivato il behind?
-  frontActive = e' attivato il front?
-  startAngle = parte di base da pi, input valido: Math.PI / n
-  */
+var SPHERE_UPDATE_INTERVAL = 50; // max 20fps
 
+function spheres(
+  targetId,
+  numSpheres,
+  radiusXPercent,
+  radiusYPercent,
+  colorSelected,
+  offSetX,
+  offSetY,
+  sideRate,
+  behindActive,
+  frontActive,
+  startAngle
+) {
 
+  var cache = getSphereCache(targetId);
+  var now = Date.now();
 
-  const target = document.getElementById(targetId);
-  if (!target) return;
+  // throttle
+  if (now - cache.lastUpdate < SPHERE_UPDATE_INTERVAL) return;
+  cache.lastUpdate = now;
 
-  // SVG dietro
-  let behindSvg = target.querySelector('.behindSvg');
-  if (!behindSvg) {
-    behindSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    behindSvg.classList.add('behindSvg');
-    behindSvg.style.position = 'absolute';
-    behindSvg.style.top = `${offSetY}%`;
-    behindSvg.style.left = `${offSetX}%`;
-    behindSvg.style.width = '100%';
-    behindSvg.style.height = '100%';
-    behindSvg.style.zIndex = '1'; // dietro immagine
-    target.appendChild(behindSvg);
-    behindSvg.style.pointerEvents = "none"
+  // target
+  if (!cache.target) {
+    cache.target = document.getElementById(targetId);
+    if (!cache.target) return;
+  }
+  var target = cache.target;
+
+  var width = target.offsetWidth;
+  var height = target.offsetHeight;
+  var dimensionsChanged =
+    width !== cache.lastDimensions.width ||
+    height !== cache.lastDimensions.height;
+
+  // SVG behind
+  if (!cache.behindSvg) {
+    cache.behindSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    cache.behindSvg.classList.add('behindSvg');
+    cache.behindSvg.style.cssText =
+      'position:absolute;width:100%;height:100%;pointer-events:none;z-index:1;' +
+      'top:' + offSetY + '%;left:' + offSetX + '%';
+    target.appendChild(cache.behindSvg);
   }
 
-  // SVG davanti
-  let frontSvg = target.querySelector('.frontSvg');
-  if (!frontSvg) {
-    frontSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    frontSvg.classList.add('frontSvg');
-    frontSvg.style.position = 'absolute';
-    frontSvg.style.top = `${offSetY}%`;
-    frontSvg.style.left = `${offSetX}%`;
-    frontSvg.style.width = '100%';
-    frontSvg.style.height = '100%';
-    frontSvg.style.zIndex = '-1'; // davanti immagine
-    target.appendChild(frontSvg);
-    behindSvg.style.pointerEvents = "none"
+  // SVG front
+  if (!cache.frontSvg) {
+    cache.frontSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    cache.frontSvg.classList.add('frontSvg');
+    cache.frontSvg.style.cssText =
+      'position:absolute;width:100%;height:100%;pointer-events:none;z-index:-1;' +
+      'top:' + offSetY + '%;left:' + offSetX + '%';
+    target.appendChild(cache.frontSvg);
   }
 
-  const cx = target.offsetWidth / 2;
-  const cy = target.offsetHeight / 2;
+  // geometry update
+  if (dimensionsChanged || !cache.cx) {
+    cache.cx = width / 2;
+    cache.cy = height / 2;
+    cache.sphereRadius = Math.min(width, height) * 0.04;
+    cache.lastDimensions.width = width;
+    cache.lastDimensions.height = height;
+  }
 
-  const colorScale = [
-    '#000000', '#0a0a3c', '#1e1a78', '#4b0082', '#8b00ff',
-    '#ff0040', '#ff6600', '#ffaa00', '#ffe066', '#ffffff'
-  ];
+  var cx = cache.cx;
+  var cy = cache.cy;
+  var sphereRadius = cache.sphereRadius;
+  var strokeWidth = sphereRadius * 0.1;
 
-  const behind = [];
-  const front = [];
-  const t = Date.now() / 1000;
+  var behind = [];
+  var front = [];
 
-  // Raggio della sfera proporzionale al lato minore
-  const sphereRadius = Math.min(target.offsetWidth, target.offsetHeight) * 0.04;
+  var t = now / 1000;
+  var baseAngle = t * 0.8; // 🚫 startAngle NON qui
+  var angleStep = (2 * Math.PI) / numSpheres;
 
+  var radiusX = width * (radiusXPercent / 300);
+  var radiusY = height * (radiusYPercent / 400);
+  var rate = (2 * Math.PI) * sideRate;
 
-  for (let i = 0; i < numSpheres; i++) {
-    const angle = t * 0.8 + (i / numSpheres) * 2 * Math.PI
-    const x = cx + Math.cos(angle + startAngle) * target.offsetWidth * (radiusXPercent / 300);
-    const y = cy + Math.sin(angle + startAngle) * target.offsetHeight * (radiusYPercent / 400);
+  var behindCircles = 0;
+  var frontCircles = 0;
 
-    const color = colorSelected;
-    const circle = `<circle cx="${x}" cy="${y}" r="${sphereRadius}" fill="${color}" stroke="black" stroke-width="${sphereRadius * 0.1}"/>`;
+  for (var i = 0; i < numSpheres; i++) {
+    var angle = baseAngle + i * angleStep;
 
-    const normalizedAngle = ((angle) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI); // sempre tra 0 e 2π
-    const rate = (2 * Math.PI) * (sideRate);
+    // ✅ startAngle SOLO sulla posizione
+    var x = cx + Math.cos(angle + startAngle) * radiusX;
+    var y = cy + Math.sin(angle + startAngle) * radiusY;
+
+    var circle =
+      '<circle cx="' + x.toFixed(2) +
+      '" cy="' + y.toFixed(2) +
+      '" r="' + sphereRadius +
+      '" fill="' + colorSelected +
+      '" stroke="black" stroke-width="' + strokeWidth + '"/>';
+
+    // 🚫 startAngle NON incluso
+    var normalizedAngle =
+      ((angle % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
 
     if (normalizedAngle < rate) {
       if (frontActive) {
         behind.push(circle);
+        behindCircles++;
       }
     } else {
       if (behindActive) {
         front.push(circle);
+        frontCircles++;
       }
     }
   }
 
-  behindSvg.innerHTML = behind.join('\n');
-  frontSvg.innerHTML = front.join('\n');
+  var circleSignature =
+    behindCircles + '_' + frontCircles + '_' + baseAngle.toFixed(2);
+
+  if (cache.lastCircleData !== circleSignature) {
+    cache.behindSvg.innerHTML = behind.join('');
+    cache.frontSvg.innerHTML = front.join('');
+    cache.lastCircleData = circleSignature;
+  }
+}
+
+// Funzione helper per chiamate multiple (da usare nel tuo codice)
+function updateAllSpheres(tot1, tot2, tot3, tot4) {
+  // Energy
+  spheres('content2_7_grid_svg1', tot1, 100, 40, "#ff0040", 0, -20, 1 / 2, true, true, null);
+  spheres('content2_7_grid_svg2', tot2, 110, 44, "#00ff80", 0, -5, 1 / 2, true, true, null);
+  spheres('content2_7_grid_svg3', tot3, 120, 48, "#0066ff", 0, 10, 1 / 2, true, true, null);
+  spheres('content2_7_grid_svg4', tot4, 130, 52, "#ffd700", 0, 25, 1 / 2, true, true, null);
+
+  //menu
+  var angleRad = -135 * Math.PI / 180;
+  spheres('fp2_content2_7_svg1', tot1, 80, 48, "#ff0040", -2, -20, 2.25 / 3, false, true, -45 * Math.PI / 180);
+  spheres('fp2_content2_7_svg2', tot2, 90, 54, "#00ff80", -2, 0, 2.25 / 3, false, true, -45 * Math.PI / 180);
+  spheres('fp2_content2_7_svg3', tot3, 100, 60, "#0066ff", -2, 20, 2.25 / 3, false, true, -45 * Math.PI / 180);
+  spheres('fp2_content2_7_svg4', tot4, 110, 66, "#ffd700", -2, 40, 2.25 / 3, false, true, -45 * Math.PI / 180);
+}
+
+// Reset cache quando necessario (es. dopo resize window)
+function resetSpheresCache(targetId) {
+  if (targetId) {
+    delete spheresCache[targetId];
+  } else {
+    spheresCache = {};
+  }
 }
 
 function svgFire(value) {
@@ -24595,7 +26902,13 @@ function visualMenu() {
     var sel = IUniversal.energyUpgrades
     var tot4 = f(sel.upgrade16.level).add(sel.upgrade17.level).add(sel.upgrade18.level).add(sel.upgrade19.level).add(sel.upgrade20.level)
 
+    
+  if(checkShow("fp2_content2")){
+    updateAllSpheres(tot1, tot2, tot3, tot4);
+  }
+    
     //energy
+    /*
     spheres('content2_7_grid_svg1', tot1, 100, 40, "#ff0040", 0, -20, 1 / 2, true, true, null);
 
     spheres('content2_7_grid_svg2', tot2, 110, 44, "#00ff80", 0, -5, 1 / 2, true, true, null);
@@ -24613,6 +26926,7 @@ function visualMenu() {
     spheres('fp2_content2_7_svg3', tot3, 100, 60, "#0066ff", -2, 20, 2.25 / 3, false, true, -45 * Math.PI / 180);
 
     spheres('fp2_content2_7_svg4', tot4, 110, 66, "#ffd700", -2, 40, 2.25 / 3, false, true, -45 * Math.PI / 180);
+    */
   }
 
   if (checkShow("fp2_content3") || true) {
@@ -25301,236 +27615,415 @@ function buyTrium(number) {
   }
 }
 
+// Cache per elementi DOM e stati precedenti
+var visualTreeCache = {
+  elements: {},
+  lastValues: {},
+  lastStates: {},
+  initialized: false
+};
+
 function visualTree() {
-
-  //valutes
-
-  if (f(IUniversal.fire).gt(f(0)) || checkShow("content2_17_valutes_valute1")) {
-    unlockShow("content2_17_valutes_valute1", true)
-    update("content2_17_valutes_valute1", `<div class="noClick"><div class="noClick">Fire</div><div class="boldBlackBorder noClick">${format(IUniversal.fire)}</div><div class="boldBlackBorder noClick">${format(sec(IUniversal.fireProd))}/s</div></div>`)
+  var IU = IUniversal;
+  var IUI = IUniversalIn;
+  var cache = visualTreeCache;
+  
+  // === VALUTES (ottimizzato) ===
+  var valutes = [
+    ['content2_17_valutes_valute1', 'Fire', IU.fire, IU.fireProd],
+    ['content2_17_valutes_valute2', 'Size', IU.size, IU.sizeProd],
+    ['content2_17_valutes_valute3', 'Heat', IU.heat, IU.heatProd],
+    ['content2_17_valutes_valute4', 'Fire Shards', IU.fireShards, IU.fireShardsProd]
+  ];
+  
+  for (var i = 0; i < valutes.length; i++) {
+    var v = valutes[i];
+    var id = v[0];
+    var name = v[1];
+    var value = v[2];
+    var prod = v[3];
+    
+    // Controlla visibilità solo se necessario
+    if (value > 0 || checkShow(id)) {
+      unlockShow(id, true);
+      
+      // Cache per evitare update inutili
+      var cacheKey = id + '_val';
+      var newValue = value + '_' + prod;
+      
+      if (cache.lastValues[cacheKey] !== newValue) {
+        update(id, '<div class="noClick"><div class="noClick">' + name + 
+               '</div><div class="boldBlackBorder noClick">' + format(value) + 
+               '</div><div class="boldBlackBorder noClick">' + format(sec(prod)) + 
+               '/s</div></div>');
+        cache.lastValues[cacheKey] = newValue;
+      }
+    }
   }
-  if (f(IUniversal.size).gt(f(0)) || checkShow("content2_17_valutes_valute2")) {
-    unlockShow("content2_17_valutes_valute2", true)
-    update("content2_17_valutes_valute2", `<div class="noClick"><div class="noClick">Size</div><div class="boldBlackBorder noClick">${format(f(IUniversal.size))}</div><div class="boldBlackBorder noClick">${format(sec(IUniversal.sizeProd))}/s</div></div>`)
+
+  // === SIZE (cache elemento) ===
+  var sizeEl = cache.elements.size;
+  if (!sizeEl) {
+    sizeEl = document.getElementById("content2_17_size");
+    cache.elements.size = sizeEl;
   }
-  if (f(IUniversal.heat).gt(f(0)) || checkShow("content2_17_valutes_valute3")) {
-    unlockShow("content2_17_valutes_valute3", true)
-    update("content2_17_valutes_valute3", `<div class="noClick"><div class="noClick">Heat</div><div class="boldBlackBorder noClick">${format(f(IUniversal.heat))}</div><div class="boldBlackBorder noClick">${format(sec(IUniversal.heatProd))}/s</div></div>`)
-  }
-  if (f(IUniversal.fireShards).gt(f(0)) || checkShow("content2_17_valutes_valute4")) {
-    unlockShow("content2_17_valutes_valute4", true)
-    update("content2_17_valutes_valute4", `<div class="noClick"><div class="noClick">Fire Shards</div><div class="boldBlackBorder noClick">${format(f(IUniversal.fireShards))}</div><div class="boldBlackBorder noClick">${format(sec(IUniversal.fireShardsProd))}/s</div></div>`)
+  
+  if (sizeEl && cache.lastValues.size !== IU.fireTreeSize) {
+    sizeEl.style.transform = 'scale(' + IU.fireTreeSize + ')';
+    cache.lastValues.size = IU.fireTreeSize;
   }
 
-  //size
+  // === BUY MAX ===
+  var buyMax = buyTrium(IU.buyFireTree);
+  if (cache.lastValues.buyMax !== buyMax) {
+    update("content2_17_buy", '<div class="noClick">' + buyMax + '</div>');
+    cache.lastValues.buyMax = buyMax;
+  }
 
-  var sel = document.getElementById("content2_17_size")
-
-  sel.style.transform = `scale(${IUniversal.fireTreeSize})`
-
-  //buttons
-
-  var buyMax = buyTrium(IUniversal.buyFireTree)
-
-  update("content2_17_buy", `<div class="noClick">${buyMax}</div>`)
-
-  for (let x in IUniversal.fireTree) {
-    let sel = IUniversal.fireTree[x]
-    let sel2 = IUniversalIn.fireTree[x]
-
-    if (document.getElementById(`content2_17_${x}_content`) != null) {
-      update(`content2_17_${x}_content`, sel2.content);
+  // === FIRE TREE BUTTONS (massima ottimizzazione) ===
+  for (var x in IU.fireTree) {
+    var sel = IU.fireTree[x];
+    var sel2 = IUI.fireTree[x];
+    var baseId = 'content2_17_' + x;
+    
+    // Content
+    var contentId = baseId + '_content';
+    var contentEl = cache.elements[contentId];
+    if (!contentEl) {
+      contentEl = document.getElementById(contentId);
+      if (contentEl) cache.elements[contentId] = contentEl;
+    }
+    
+    if (contentEl && cache.lastValues[contentId] !== sel2.content) {
+      update(contentId, sel2.content);
+      cache.lastValues[contentId] = sel2.content;
     }
 
-    if (document.getElementById(`content2_17_${x}_button`) != null) {
-      update(`content2_17_${x}_button`, sel2.button);
+    // Button
+    var buttonId = baseId + '_button';
+    var buttonEl = cache.elements[buttonId];
+    if (!buttonEl) {
+      buttonEl = document.getElementById(buttonId);
+      if (buttonEl) cache.elements[buttonId] = buttonEl;
+    }
+    
+    if (buttonEl) {
+      if (cache.lastValues[buttonId] !== sel2.button) {
+        update(buttonId, sel2.button);
+        cache.lastValues[buttonId] = sel2.button;
+      }
 
-      if (sel2.checkBuy()) {
-        document.getElementById(`content2_17_${x}_button`).style.backgroundColor = "#004526"
-
+      // Determina colore
+      var color;
+      if (sel2.maxLevel != Infinity && sel2.maxLevel != null && f(sel.level).gte(f(sel2.maxLevel))) {
+        color = '#36454f';
+      } else if (sel2.checkBuy()) {
+        color = '#004526';
       } else {
-        document.getElementById(`content2_17_${x}_button`).style.backgroundColor = "#660000"
+        color = '#660000';
       }
-      if (sel2.maxLevel != Infinity || sel2.maxLevel != null) {
-
-        if (f(sel.level).gte(f(sel2.maxLevel))) {
-          document.getElementById(`content2_17_${x}_button`).style.backgroundColor = "#36454f"
-        }
-      }
-    }
-
-    if (document.getElementById(`content2_17_${x}_button2`) != null) {
-      update(`content2_17_${x}_button2`, sel2.button2);
-      if (sel.active) {
-        document.getElementById(`content2_17_${x}_button2`).style.backgroundColor = "#004526"
-
-      } else {
-        document.getElementById(`content2_17_${x}_button2`).style.backgroundColor = "#660000"
+      
+      if (cache.lastStates[buttonId] !== color) {
+        buttonEl.style.backgroundColor = color;
+        cache.lastStates[buttonId] = color;
       }
     }
 
-  }
+    // Button2
+    var button2Id = baseId + '_button2';
+    var button2El = cache.elements[button2Id];
+    if (!button2El) {
+      button2El = document.getElementById(button2Id);
+      if (button2El) cache.elements[button2Id] = button2El;
+    }
+    
+    if (button2El) {
+      if (cache.lastValues[button2Id] !== sel2.button2) {
+        update(button2Id, sel2.button2);
+        cache.lastValues[button2Id] = sel2.button2;
+      }
 
-  //node 29 milestones
-
-  for (let x in IUniversal.fireMilestones) {
-    var sel = IUniversal.fireMilestones[x]
-    var sel2 = IUniversalIn.fireMilestones[x]
-
-    if (sel2.mCheck()) {
-
-      unlockShow(`content1_17_node29_${x}`, true)
-
-      document.getElementById(`content1_17_node29_${x}`).style.backgroundColor = "#004526"
-
-      update(`content1_17_node29_${x}`, `<div>${sel2.mReqDesc}</div>
-                 <div>${sel2.mDesc}</div>`)
-    } else {
-      document.getElementById(`content1_17_node29_${x}`).style.backgroundColor = "#660000"
-      unlockShow(`content1_17_node29_${x}`, true)
-
-      update(`content1_17_node29_${x}`, `<div>${sel2.mReqDesc}</div>
-                   <div>${sel2.mDesc}</div>`)
+      var color2 = sel.active ? '#004526' : '#660000';
+      if (cache.lastStates[button2Id] !== color2) {
+        button2El.style.backgroundColor = color2;
+        cache.lastStates[button2Id] = color2;
+      }
     }
   }
+
+  // === FIRE MILESTONES ===
+  for (var x in IU.fireMilestones) {
+    var sel = IU.fireMilestones[x];
+    var sel2 = IUI.fireMilestones[x];
+    var id = 'content1_17_node29_' + x;
+    
+    var el = cache.elements[id];
+    if (!el) {
+      el = document.getElementById(id);
+      if (el) cache.elements[id] = el;
+    }
+    
+    if (el) {
+      unlockShow(id, true);
+      
+      var checked = sel2.mCheck();
+      var color = checked ? '#004526' : '#660000';
+      var content = '<div>' + sel2.mReqDesc + '</div><div>' + sel2.mDesc + '</div>';
+      
+      var stateKey = id + '_state';
+      if (cache.lastStates[stateKey] !== color) {
+        el.style.backgroundColor = color;
+        cache.lastStates[stateKey] = color;
+      }
+      
+      if (cache.lastValues[id] !== content) {
+        update(id, content);
+        cache.lastValues[id] = content;
+      }
+    }
+  }
+  
+  cache.initialized = true;
 }
 
+// Funzione per invalidare cache quando necessario
+function resetVisualTreeCache() {
+  visualTreeCache.lastValues = {};
+  visualTreeCache.lastStates = {};
+}
+
+// Cache globale per visualWaterTree
+var visualWaterTreeCache = {
+  elements: {},
+  lastValues: {},
+  lastStates: {},
+  initialized: false
+};
+
 function visualWaterTree() {
+  var IU = IUniversal;
+  var IUI = IUniversalIn;
+  var cache = visualWaterTreeCache;
 
-  //size
-  var sel = document.getElementById("content2_19_size")
-
-  sel.style.transform = `scale(${IUniversal.WaterTreeSize})`
-
-
-  //valutes
-
-  if (f(IUniversal.water).gt(f(0)) || checkShow("content2_19_valutes_valute1")) {
-    unlockShow("content2_19_valutes_valute1", true)
-    update("content2_19_valutes_valute1", `<div class="noClick"><div class="noClick">Water</div><div class="boldBlackBorder noClick fontSize09">${format(IUniversal.water, 0)}/${format(IUniversal.waterMax, 0)}</div><div class="boldBlackBorder noClick">${format(sec(IUniversal.waterProd))}/s</div></div>`)
+  // === SIZE (cache elemento) ===
+  var sizeEl = cache.elements.size;
+  if (!sizeEl) {
+    sizeEl = document.getElementById("content2_19_size");
+    cache.elements.size = sizeEl;
   }
-  if (f(IUniversal.elisir).gt(f(0)) || checkShow("content2_19_valutes_valute2")) {
-    unlockShow("content2_19_valutes_valute2", true)
-    update("content2_19_valutes_valute2", `<div class="noClick"><div class="noClick">Elixir</div><div class="boldBlackBorder noClick fontSize09">${format(IUniversal.elisir, 0)}/${format(IUniversal.elisirMax, 0)}</div><div class="boldBlackBorder noClick">${format(sec(IUniversal.elisirProd))}/s</div></div>`)
-  }
-  if (f(IUniversal.ambrosia).gt(f(0)) || checkShow("content2_19_valutes_valute3")) {
-    unlockShow("content2_19_valutes_valute3", true)
-    update("content2_19_valutes_valute3", `<div class="noClick"><div class="noClick">Ambrosia</div><div class="boldBlackBorder noClick fontSize09">${format(IUniversal.ambrosia, 0)}/${format(IUniversal.ambrosiaMax, 0)}</div><div class="boldBlackBorder noClick">${format(sec(IUniversal.ambrosiaProd))}/s</div></div>`)
-  }
-  if (f(IUniversal.erbs).gt(f(0)) || checkShow("content2_19_valutes_valute4")) {
-    unlockShow("content2_19_valutes_valute4", true)
-    update("content2_19_valutes_valute4", `<div class="noClick"><div class="noClick">Erbs</div><div class="boldBlackBorder noClick fontSize09">${format(IUniversal.erbs, 0)}/${format(IUniversal.erbsMax, 0)}</div><div class="boldBlackBorder noClick">${format(sec(IUniversal.erbsProd))}/s</div></div>`)
-  }
-  if (f(IUniversal.fluidFire).gt(f(0)) || checkShow("content2_19_valutes_valute5")) {
-    unlockShow("content2_19_valutes_valute5", true)
-    update("content2_19_valutes_valute5", `<div class="noClick"><div class="noClick">Fluid Fire</div><div class="boldBlackBorder noClick fontSize09">${format(IUniversal.fluidFire, 0)}/${format(IUniversal.fluidFireMax, 0)}</div><div class="boldBlackBorder noClick">${format(sec(IUniversal.fluidFireProd))}/s</div></div>`)
-  }
-  if (f(IUniversal.waterGem).gt(f(0)) || checkShow("content2_19_valutes_valute6")) {
-    unlockShow("content2_19_valutes_valute6", true)
-    update("content2_19_valutes_valute6", `<div class="noClick"><div class="noClick">Water Gem</div><div class="boldBlackBorder noClick fontSize09">${format(IUniversal.waterGem, 0)}/${format(IUniversal.waterGemMax, 0)}</div><div class="boldBlackBorder noClick">${format(sec(IUniversal.waterGemProd))}/s</div></div>`)
-  }
-  if (f(IUniversal.pyroFrost).gt(f(0)) || checkShow("content2_19_valutes_valute7")) {
-    unlockShow("content2_19_valutes_valute7", true)
-    update("content2_19_valutes_valute7", `<div class="noClick"><div class="noClick">Pyrofrost</div><div class="boldBlackBorder noClick fontSize09">${format(IUniversal.pyroFrost, 0)}/${format(IUniversal.pyroFrostMax, 0)}</div><div class="boldBlackBorder noClick">${format(sec(IUniversal.pyroFrostProd))}/s</div></div>`)
+  
+  if (sizeEl && cache.lastValues.size !== IU.WaterTreeSize) {
+    sizeEl.style.transform = 'scale(' + IU.WaterTreeSize + ')';
+    cache.lastValues.size = IU.WaterTreeSize;
   }
 
+  // === VALUTES (ottimizzato con array) ===
+  var valutes = [
+    ['content2_19_valutes_valute1', 'Water', IU.water, IU.waterMax, IU.waterProd],
+    ['content2_19_valutes_valute2', 'Elixir', IU.elisir, IU.elisirMax, IU.elisirProd],
+    ['content2_19_valutes_valute3', 'Ambrosia', IU.ambrosia, IU.ambrosiaMax, IU.ambrosiaProd],
+    ['content2_19_valutes_valute4', 'Erbs', IU.erbs, IU.erbsMax, IU.erbsProd],
+    ['content2_19_valutes_valute5', 'Fluid Fire', IU.fluidFire, IU.fluidFireMax, IU.fluidFireProd],
+    ['content2_19_valutes_valute6', 'Water Gem', IU.waterGem, IU.waterGemMax, IU.waterGemProd],
+    ['content2_19_valutes_valute7', 'Pyrofrost', IU.pyroFrost, IU.pyroFrostMax, IU.pyroFrostProd]
+  ];
+  
+  for (var i = 0; i < valutes.length; i++) {
+    var v = valutes[i];
+    var id = v[0];
+    var name = v[1];
+    var value = v[2];
+    var max = v[3];
+    var prod = v[4];
+    
+    if (value > 0 || checkShow(id)) {
+      unlockShow(id, true);
+      
+      var cacheKey = id + '_val';
+      var newValue = value + '_' + max + '_' + prod;
+      
+      if (cache.lastValues[cacheKey] !== newValue) {
+        update(id, '<div class="noClick"><div class="noClick">' + name + 
+               '</div><div class="boldBlackBorder noClick fontSize09">' + 
+               format(value, 0) + '/' + format(max, 0) + 
+               '</div><div class="boldBlackBorder noClick">' + 
+               format(sec(prod)) + '/s</div></div>');
+        cache.lastValues[cacheKey] = newValue;
+      }
+    }
+  }
 
-  //Pools
+  // === POOLS (ottimizzato) ===
+  var pools = [
+    ['content2_19_circle1_fill', IU.water, IU.waterMax, '#2ee3ff', '#14656b'],
+    ['content2_19_circle2_fill', IU.elisir, IU.elisirMax, '#bd2effff', '#4b146bff'],
+    ['content2_19_circle3_fill', IU.ambrosia, IU.ambrosiaMax, '#ffce2eff', '#6b5414ff']
+  ];
+  
+  for (var i = 0; i < pools.length; i++) {
+    var p = pools[i];
+    var id = p[0];
+    var value = p[1];
+    var max = p[2];
+    var color1 = p[3];
+    var color2 = p[4];
+    
+    var el = cache.elements[id];
+    if (!el) {
+      el = document.getElementById(id);
+      cache.elements[id] = el;
+    }
+    
+    if (el) {
+      var fill = Math.min(100, (value / max) * 100);
+      var fillKey = id + '_fill';
+      
+      if (cache.lastValues[fillKey] !== fill) {
+        var gradient = 'linear-gradient(to top, ' + color1 + ' ' + fill + 
+                      '%, ' + color2 + ' ' + (fill - 10) + '%)';
+        el.style.background = gradient;
+        cache.lastValues[fillKey] = fill;
+      }
+    }
+  }
 
-  //Water
-  var sel = document.getElementById("content2_19_circle1_fill");
+  // === BUY MAX ===
+  var buyMax = buyTrium(IU.buyWaterTree);
+  if (cache.lastValues.buyMax !== buyMax) {
+    update("content2_19_buy", '<div class="noClick">' + buyMax + '</div>');
+    cache.lastValues.buyMax = buyMax;
+  }
 
-  var fill = f(IUniversal.water).dividedBy(f(IUniversal.waterMax)).mul(f(100));
-
-  sel.style.background = `linear-gradient(to top, #2ee3ff ${fill}%, #14656b ${fill - 10}%)`;
-
-  //Elisir
-  var sel = document.getElementById("content2_19_circle2_fill");
-
-  var fill = f(IUniversal.elisir).dividedBy(f(IUniversal.elisirMax)).mul(f(100));
-
-  sel.style.background = `linear-gradient(to top, #bd2effff ${fill}%, #4b146bff ${fill - 10}%)`;
-
-  //ambrosia
-
-  var sel = document.getElementById("content2_19_circle3_fill");
-
-  var fill = f(IUniversal.ambrosia).dividedBy(f(IUniversal.ambrosiaMax)).mul(f(100));
-
-  sel.style.background = `linear-gradient(to top, #ffce2eff ${fill}%, #6b5414ff ${fill - 10}%)`;
-
-  //buttons
-
-  var buyMax = buyTrium(IUniversal.buyWaterTree)
-
-  update("content2_19_buy", `<div class="noClick">${buyMax}</div>`)
-
-  for (let x in IUniversal.waterTree) {
-    let sel = IUniversal.waterTree[x]
-    let sel2 = IUniversalIn.waterTree[x]
-
-    if (document.getElementById(`content2_19_${x}_content`) != null) {
-      update(`content2_19_${x}_content`, sel2.content);
+  // === WATER TREE BUTTONS (massima ottimizzazione) ===
+  for (var x in IU.waterTree) {
+    var sel = IU.waterTree[x];
+    var sel2 = IUI.waterTree[x];
+    var baseId = 'content2_19_' + x;
+    
+    // Content
+    var contentId = baseId + '_content';
+    var contentEl = cache.elements[contentId];
+    if (!contentEl) {
+      contentEl = document.getElementById(contentId);
+      if (contentEl) cache.elements[contentId] = contentEl;
+    }
+    
+    if (contentEl && cache.lastValues[contentId] !== sel2.content) {
+      update(contentId, sel2.content);
+      cache.lastValues[contentId] = sel2.content;
     }
 
-    if (document.getElementById(`content2_19_${x}_button`) != null) {
-      update(`content2_19_${x}_button`, sel2.button);
-      if (sel2.checkBuy()) {
-        document.getElementById(`content2_19_${x}_button`).style.backgroundColor = "#004526"
+    // Button
+    var buttonId = baseId + '_button';
+    var buttonEl = cache.elements[buttonId];
+    if (!buttonEl) {
+      buttonEl = document.getElementById(buttonId);
+      if (buttonEl) cache.elements[buttonId] = buttonEl;
+    }
+    
+    if (buttonEl) {
+      if (cache.lastValues[buttonId] !== sel2.button) {
+        update(buttonId, sel2.button);
+        cache.lastValues[buttonId] = sel2.button;
+      }
 
+      var color;
+      if (sel2.maxLevel != Infinity && sel2.maxLevel != null && f(sel.level).gte(f(sel2.maxLevel))) {
+        color = '#36454f';
+      } else if (sel2.checkBuy()) {
+        color = '#004526';
       } else {
-        document.getElementById(`content2_19_${x}_button`).style.backgroundColor = "#660000"
+        color = '#660000';
       }
-      if (sel2.maxLevel != Infinity || sel2.maxLevel != null) {
-
-        if (f(sel.level).gte(f(sel2.maxLevel))) {
-          document.getElementById(`content2_19_${x}_button`).style.backgroundColor = "#36454f"
-        }
-      }
-    }
-
-    if (document.getElementById(`content2_19_${x}_button2`) != null) {
-      update(`content2_19_${x}_button2`, sel2.button2);
-      if (sel.active) {
-        document.getElementById(`content2_19_${x}_button2`).style.backgroundColor = "#004526"
-
-      } else {
-        document.getElementById(`content2_19_${x}_button2`).style.backgroundColor = "#660000"
+      
+      if (cache.lastStates[buttonId] !== color) {
+        buttonEl.style.backgroundColor = color;
+        cache.lastStates[buttonId] = color;
       }
     }
 
+    // Button2
+    var button2Id = baseId + '_button2';
+    var button2El = cache.elements[button2Id];
+    if (!button2El) {
+      button2El = document.getElementById(button2Id);
+      if (button2El) cache.elements[button2Id] = button2El;
+    }
+    
+    if (button2El) {
+      if (cache.lastValues[button2Id] !== sel2.button2) {
+        update(button2Id, sel2.button2);
+        cache.lastValues[button2Id] = sel2.button2;
+      }
+
+      var color2 = sel.active ? '#004526' : '#660000';
+      if (cache.lastStates[button2Id] !== color2) {
+        button2El.style.backgroundColor = color2;
+        cache.lastStates[button2Id] = color2;
+      }
+    }
   }
 
-  //potion Upgrade
-
-  if (IUniversalIn.inventoryStorage[IUniversal.potionUpgrade.item1.key]) {
-    IUniversalIn.potionUpgradeVisual1 = IUniversalIn.inventoryStorage[IUniversal.potionUpgrade.item1.key].content2
-  } else {
-    IUniversalIn.potionUpgradeVisual1 = ""
+  // === POTION UPGRADE ===
+  var potionUpgradeKey = IU.potionUpgrade.item1.key;
+  var potionUpgradeVisual = '';
+  
+  if (IUI.inventoryStorage[potionUpgradeKey]) {
+    potionUpgradeVisual = IUI.inventoryStorage[potionUpgradeKey].content2;
+  }
+  
+  if (cache.lastValues.potionUpgrade !== potionUpgradeVisual) {
+    IUI.potionUpgradeVisual1 = potionUpgradeVisual;
+    cache.lastValues.potionUpgrade = potionUpgradeVisual;
   }
 
-  //potion fusion
-
-
-  if (IUniversalIn.inventoryStorage[IUniversal.potionFusion.item1.key]) {
-    IUniversalIn.potionFusionVisual1 = IUniversalIn.inventoryStorage[IUniversal.potionFusion.item1.key].content2
-  } else {
-    IUniversalIn.potionFusionVisual1 = ""
+  // === POTION FUSION ===
+  var fusionItem1Key = IU.potionFusion.item1.key;
+  var fusionVisual1 = '';
+  
+  if (IUI.inventoryStorage[fusionItem1Key]) {
+    fusionVisual1 = IUI.inventoryStorage[fusionItem1Key].content2;
+  }
+  
+  if (cache.lastValues.fusionVisual1 !== fusionVisual1) {
+    IUI.potionFusionVisual1 = fusionVisual1;
+    cache.lastValues.fusionVisual1 = fusionVisual1;
   }
 
-  var { newPotion, newPotionIn } = potionFusion();
-
-  if (newPotion && newPotionIn) {
-    IUniversalIn.potionFusionVisual2 = potionVisual(newPotion, newPotionIn);
-  } else {
-    IUniversalIn.potionFusionVisual2 = ""
+  // Calcola fusion solo se necessario
+  var fusionCacheKey = fusionItem1Key + '_' + IU.potionFusion.item2.key;
+  if (cache.lastValues.fusionCacheKey !== fusionCacheKey) {
+    var fusionResult = potionFusion();
+    var fusionVisual2 = '';
+    
+    if (fusionResult.newPotion && fusionResult.newPotionIn) {
+      fusionVisual2 = potionVisual(fusionResult.newPotion, fusionResult.newPotionIn);
+    }
+    
+    IUI.potionFusionVisual2 = fusionVisual2;
+    cache.lastValues.fusionCacheKey = fusionCacheKey;
+    cache.lastValues.fusionVisual2 = fusionVisual2;
   }
 
-  if (IUniversalIn.inventoryStorage[IUniversal.potionFusion.item2.key]) {
-    IUniversalIn.potionFusionVisual3 = IUniversalIn.inventoryStorage[IUniversal.potionFusion.item2.key].content2
-  } else {
-    IUniversalIn.potionFusionVisual3 = ""
+  var fusionItem2Key = IU.potionFusion.item2.key;
+  var fusionVisual3 = '';
+  
+  if (IUI.inventoryStorage[fusionItem2Key]) {
+    fusionVisual3 = IUI.inventoryStorage[fusionItem2Key].content2;
   }
+  
+  if (cache.lastValues.fusionVisual3 !== fusionVisual3) {
+    IUI.potionFusionVisual3 = fusionVisual3;
+    cache.lastValues.fusionVisual3 = fusionVisual3;
+  }
+
+  cache.initialized = true;
+}
+
+// Funzione per resettare cache
+function resetVisualWaterTreeCache() {
+  visualWaterTreeCache.lastValues = {};
+  visualWaterTreeCache.lastStates = {};
 }
 
 function visualInventoryWater() {
@@ -28380,1698 +30873,681 @@ function unlockShowAll(visibility) {
 }
 
 function checkShow(show) {
-  let showableItem = IShowableClass.showable;
-  for (let a in showableItem) {
-    if (a === show) {
-      return showableItem[a];
+  var value = IShowableClass.showable[show];
+  return value !== undefined ? value : false;
+}
+
+// Cache globale per loopShow
+var loopShowCache = {
+  elements: {},
+  lastStates: {},
+  lastContent: {},
+  initialized: false
+};
+
+// Helper per ottenere/cachare elemento
+function getCachedElement(id) {
+  if (!loopShowCache.elements[id]) {
+    loopShowCache.elements[id] = document.getElementById(id);
+  }
+  return loopShowCache.elements[id];
+}
+
+// Helper per setare style con cache
+function setStyleCached(id, prop, value) {
+  var key = id + '_' + prop;
+  if (loopShowCache.lastStates[key] !== value) {
+    var el = getCachedElement(id);
+    if (el) {
+      el.style[prop] = value;
+      loopShowCache.lastStates[key] = value;
     }
   }
-  return false;
+}
+
+// Helper per update con cache
+function updateCached(id, content) {
+  if (loopShowCache.lastContent[id] !== content) {
+    update(id, content);
+    loopShowCache.lastContent[id] = content;
+  }
 }
 
 function loopShow() {
-  let showableItem = IShowableClass.showable
-  for (let a in showableItem) {
-    const value = showableItem[a];
-    if (value == false) {
-      if (document.getElementById(a) == null) {
-      } else {
-        document.getElementById(a).style.display = "none";
-      }
-    }
-    if (value == true) {
-      document.getElementById(a).style.display = "";
+  var showable = IShowableClass.showable;
+  var IU = IUniversal;
+  var IUI = IUniversalIn;
+  var IPI = IProgressIn;
+  var IFI = IFightIn;
+  var IUC = IUniversalChallenger;
+  var ITI = ITrainingIn;
+  
+  // === LOOP PRINCIPALE SHOWABLE ===
+  for (var a in showable) {
+    var value = showable[a];
+    var el = getCachedElement(a);
+    if (!el) continue;
+    
+    var newDisplay = value ? "" : "none";
+    if (loopShowCache.lastStates[a] !== newDisplay) {
+      el.style.display = newDisplay;
+      loopShowCache.lastStates[a] = newDisplay;
     }
   }
 
-  //initial
-
+  // === INITIAL (solo prima volta) ===
   if (IShowableClass.init) {
-
     unlockShow("mainMenu", true);
     unlockShow("fp2_content2_5", true);
     unlockShow("fp2_achievements", false);
-
     unlockShow("power", true);
     unlockShow("universeValute", true);
     unlockShow("essenceValute", false);
-
     unlockShow("universalShardsBase", false);
     unlockShow("universalNodesBase", false);
     unlockShow("universalCoresBase", false);
 
-    enableDragScroll("content2_17_scroll")
-    enableDragScroll("content2_19_scroll")
-    enableDragScroll("content2_21_scroll")
-    enableDragScroll("content2_23_scroll")
-    enableDragScroll("content2_25_scroll")
-
-    //test
-
+    enableDragScroll("content2_17_scroll");
+    enableDragScroll("content2_19_scroll");
+    enableDragScroll("content2_21_scroll");
+    enableDragScroll("content2_23_scroll");
+    enableDragScroll("content2_25_scroll");
 
     unlockShow("fireValute", false);
-
     IShowableClass.init = false;
-
-  }
-  //Valutes
-  if (IProgressIn.progress.p2Check() || f(IUniversal.universe).gte(2)) {
-    unlockShow("essenceValute", true)
   }
 
-  if (f(IUniversalChallenger.universalShards).gt(f(0))) {
-    unlockShow("universalShardsBase", true)
-  }
-  if (f(IUniversalChallenger.universalNodes).gt(f(0))) {
-    unlockShow("universalNodesBase", true)
+  // === VALUTES ===
+  if (IPI.progress.p2Check() || f(IU.universe).gte(f(2))) {
+    unlockShow("essenceValute", true);
   }
 
-  if (f(IUniversalChallenger.universalCores).gt(f(0))) {
-    unlockShow("universalCoresBase", true)
-  }
+  if (IUC.universalShards > 0) unlockShow("universalShardsBase", true);
+  if (IUC.universalNodes > 0) unlockShow("universalNodesBase", true);
+  if (IUC.universalCores > 0) unlockShow("universalCoresBase", true);
 
-  //TABS MOUNTAIN
+  // === TABS MOUNTAIN ===
+  unlockShow("fp2_content2_1_container", true);
+  unlockShow("fp2_content2_12_container", true);
+  unlockShow("fp2_content2_pageSel", true);
 
-  unlockShow("fp2_content2_1_container", true)
-  unlockShow("fp2_content2_12_container", true)
+  var p1 = IPI.progress.p1Check() || f(IU.universe).gte(f(2))
+  var p2 = IPI.progress.p2Check() || f(IU.universe).gte(f(2))
+  var p3 = IPI.progress.p3Check() || f(IU.universe).gte(f(2))
 
-  unlockShow("fp2_content2_pageSel", true)
-
-  if (IProgressIn.progress.p1Check() || f(IUniversal.universe).gte(f(2))) {
-    unlockShow("fp2_content2_4_container", true)
-    document.getElementById("fp2_content2_4_image").style.opacity = "1";  // attivo 1, disattivo 0.5
-    update("fp2_content2_4", "Challenger")
-    document.getElementById("fp2_content2_4").style.pointerEvents = "auto";
-
-    unlockShow("fp2_content2_13_container", true)
-    document.getElementById("fp2_content2_13_image").style.opacity = "1";  // attivo 1, disattivo 0.5
-    document.getElementById("fp2_content2_13").style.pointerEvents = "auto";
+  // Content 4 & 13
+  if (p1) {
+    unlockShow("fp2_content2_4_container", true);
+    setStyleCached("fp2_content2_4_image", "opacity", "1");
+    setStyleCached("fp2_content2_4", "pointerEvents", "auto");
+    updateCached("fp2_content2_4", "Challenger");
+    
+    unlockShow("fp2_content2_13_container", true);
+    setStyleCached("fp2_content2_13_image", "opacity", "1");
+    setStyleCached("fp2_content2_13", "pointerEvents", "auto");
   } else {
-    unlockShow("fp2_content2_4_container", true)
-    document.getElementById("fp2_content2_4_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
-    update("fp2_content2_4", "Reach 10 Life")
-    document.getElementById("fp2_content2_4").style.pointerEvents = "none";
-
-    unlockShow("fp2_content2_13_container", true)
-    document.getElementById("fp2_content2_13_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
-    document.getElementById("fp2_content2_13").style.pointerEvents = "none";
+    unlockShow("fp2_content2_4_container", true);
+    setStyleCached("fp2_content2_4_image", "opacity", "0.5");
+    setStyleCached("fp2_content2_4", "pointerEvents", "none");
+    updateCached("fp2_content2_4", "Reach 10 Life");
+    
+    unlockShow("fp2_content2_13_container", true);
+    setStyleCached("fp2_content2_13_image", "opacity", "0.5");
+    setStyleCached("fp2_content2_13", "pointerEvents", "none");
   }
 
-  if (IProgressIn.progress.p1Check() == true || f(IUniversal.universe).gte(f(2))) {
-    if (IProgressIn.progress.p2Check() == true || f(IUniversal.universe).gte(f(2))) {
-      unlockShow("fp2_content2_6_container", true)
-      document.getElementById("fp2_content2_6_image").style.opacity = "1";  // attivo 1, disattivo 0.5
-      update("fp2_content2_6", "Hunting")
-      document.getElementById("fp2_content2_6").style.pointerEvents = "auto";
+  // Content 6 & 14
+  if (p1 && p2) {
+    unlockShow("fp2_content2_6_container", true);
+    setStyleCached("fp2_content2_6_image", "opacity", "1");
+    setStyleCached("fp2_content2_6", "pointerEvents", "auto");
+    updateCached("fp2_content2_6", "Hunting");
+    
+    unlockShow("fp2_content2_14_container", true);
+    setStyleCached("fp2_content2_14_image", "opacity", "1");
+    setStyleCached("fp2_content2_14", "pointerEvents", "auto");
+  } else if (p1) {
+    unlockShow("fp2_content2_6_container", true);
+    setStyleCached("fp2_content2_6_image", "opacity", "0.5");
+    setStyleCached("fp2_content2_6", "pointerEvents", "none");
+    updateCached("fp2_content2_6", "Defeat Challenger 3");
+    
+    unlockShow("fp2_content2_14_container", true);
+    setStyleCached("fp2_content2_14_image", "opacity", "0.5");
+    setStyleCached("fp2_content2_14", "pointerEvents", "none");
+  } else {
+    unlockShow("fp2_content2_6_container", false);
+    unlockShow("fp2_content2_14_container", false);
+  }
 
-      unlockShow("fp2_content2_14_container", true)
-      document.getElementById("fp2_content2_14_image").style.opacity = "1";  // attivo 1, disattivo 0.5
-      document.getElementById("fp2_content2_14").style.pointerEvents = "auto";
+  // Content 8 & 15
+  if (p2 && p3) {
+    unlockShow("fp2_content2_8_container", true);
+    setStyleCached("fp2_content2_8_image", "opacity", "1");
+    setStyleCached("fp2_content2_8", "pointerEvents", "auto");
+    updateCached("fp2_content2_8", "Ascension");
+    
+    unlockShow("fp2_content2_15_container", true);
+    setStyleCached("fp2_content2_15_image", "opacity", "1");
+    setStyleCached("fp2_content2_15", "pointerEvents", "auto");
+  } else if (p2) {
+    unlockShow("fp2_content2_8_container", true);
+    setStyleCached("fp2_content2_8_image", "opacity", "0.5");
+    setStyleCached("fp2_content2_8", "pointerEvents", "none");
+    updateCached("fp2_content2_8", "Defeat Challenger 10");
+    
+    unlockShow("fp2_content2_15_container", true);
+    setStyleCached("fp2_content2_15_image", "opacity", "0.5");
+    setStyleCached("fp2_content2_15", "pointerEvents", "none");
+  } else {
+    unlockShow("fp2_content2_8_container", false);
+    unlockShow("fp2_content2_15_container", false);
+  }
+
+  // Content 7
+  var m1 = IUI.milestones.m1.mCheck();
+  var m2 = IUI.milestones.m2.mCheck();
+  var m3 = IUI.milestones.m3.mCheck();
+
+  if (p3) {
+    if (m1) {
+      unlockShow("fp2_content2_7_container", true);
+      setStyleCached("fp2_content2_7_image", "opacity", "1");
+      setStyleCached("fp2_content2_7", "pointerEvents", "auto");
+      updateCached("fp2_content2_7", "Energy");
     } else {
-      unlockShow("fp2_content2_6_container", true)
-      document.getElementById("fp2_content2_6_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
-      update("fp2_content2_6", "Defeat Challenger 3")
-      document.getElementById("fp2_content2_6").style.pointerEvents = "none";
-
-      unlockShow("fp2_content2_14_container", true)
-      document.getElementById("fp2_content2_14_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
-      document.getElementById("fp2_content2_14").style.pointerEvents = "none";
+      unlockShow("fp2_content2_7_container", true);
+      setStyleCached("fp2_content2_7_image", "opacity", "0.5");
+      setStyleCached("fp2_content2_7", "pointerEvents", "none");
+      updateCached("fp2_content2_7", "Reach Universe 2");
     }
   } else {
-    unlockShow("fp2_content2_6_container", false)
-    unlockShow("fp2_content2_14_container", false)
+    unlockShow("fp2_content2_7_container", false);
   }
 
-  if (IProgressIn.progress.p2Check() == true || f(IUniversal.universe).gte(f(2))) {
-    if (IProgressIn.progress.p3Check() == true || f(IUniversal.universe).gte(f(2))) {
-      unlockShow("fp2_content2_8_container", true)
-      document.getElementById("fp2_content2_8_image").style.opacity = "1";  // attivo 1, disattivo 0.5
-      update("fp2_content2_8", "Ascension")
-      document.getElementById("fp2_content2_8").style.pointerEvents = "auto";
-
-      unlockShow("fp2_content2_15_container", true)
-      document.getElementById("fp2_content2_15_image").style.opacity = "1";  // attivo 1, disattivo 0.5
-      document.getElementById("fp2_content2_15").style.pointerEvents = "auto";
-    } else {
-      unlockShow("fp2_content2_8_container", true)
-      document.getElementById("fp2_content2_8_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
-      update("fp2_content2_8", "Defeat Challenger 10")
-      document.getElementById("fp2_content2_8").style.pointerEvents = "none";
-
-      unlockShow("fp2_content2_15_container", true)
-      document.getElementById("fp2_content2_15_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
-      document.getElementById("fp2_content2_15").style.pointerEvents = "none";
-    }
-  } else {
-    unlockShow("fp2_content2_8_container", false)
-    unlockShow("fp2_content2_15_container", false)
-  }
-
-  if (IProgressIn.progress.p3Check() == true || f(IUniversal.universe).gte(f(2))) {
-    if (IUniversalIn.milestones.m1.mCheck()) {
-      unlockShow("fp2_content2_7_container", true)
-      document.getElementById("fp2_content2_7_image").style.opacity = "1";  // attivo 1, disattivo 0.5
-      update("fp2_content2_7", "Energy")
-      document.getElementById("fp2_content2_7").style.pointerEvents = "auto";
-    } else {
-      unlockShow("fp2_content2_7_container", true)
-      document.getElementById("fp2_content2_7_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
-      update("fp2_content2_7", "Reach Universe 2")
-      document.getElementById("fp2_content2_7").style.pointerEvents = "none";
-    }
-  } else {
-    unlockShow("fp2_content2_7_container", false)
-  }
-
-  if (IUniversalIn.milestones.m1.mCheck()) {
-    if (IUniversalIn.milestones.m2.mCheck()) {
-      if (IUniversalIn.milestones.m3.mCheck()) {
-        unlockShow("fp2_content3_pageSel", true)
-        document.getElementById("fp2_content3_pageSel").style.opacity = "1";  // attivo 1, disattivo 0.5
-        update("fp2_content3_pageSel", "Sky")
-        document.getElementById("fp2_content3_pageSel").style.pointerEvents = "auto";
+  // Content 10, 11, 16 & Sky
+  if (m1) {
+    if (m2) {
+      if (m3) {
+        unlockShow("fp2_content3_pageSel", true);
+        setStyleCached("fp2_content3_pageSel", "opacity", "1");
+        setStyleCached("fp2_content3_pageSel", "pointerEvents", "auto");
+        updateCached("fp2_content3_pageSel", "Sky");
       } else {
-        unlockShow("fp2_content3_pageSel", true)
-        document.getElementById("fp2_content3_pageSel").style.opacity = "0.5";  // attivo 1, disattivo 0.5
-        update("fp2_content3_pageSel", "Reach Universe 40")
-        document.getElementById("fp2_content3_pageSel").style.pointerEvents = "none";
+        unlockShow("fp2_content3_pageSel", true);
+        setStyleCached("fp2_content3_pageSel", "opacity", "0.5");
+        setStyleCached("fp2_content3_pageSel", "pointerEvents", "none");
+        updateCached("fp2_content3_pageSel", "Reach Universe 40");
       }
-      unlockShow("fp2_content2_10_container", true)
-      document.getElementById("fp2_content2_10_image").style.opacity = "1";  // attivo 1, disattivo 0.5
-      update("fp2_content2_10", "Universal Challenger")
-      document.getElementById("fp2_content2_10").style.pointerEvents = "auto";
-
-      unlockShow("fp2_content2_11_container", true)
-      document.getElementById("fp2_content2_11_image").style.opacity = "1";  // attivo 1, disattivo 0.5
-      update("fp2_content2_11", "Attributes")
-      document.getElementById("fp2_content2_11").style.pointerEvents = "auto";
-
-      unlockShow("fp2_content1_8", true)
-
-      unlockShow("fp2_content2_16_container", true)
-      document.getElementById("fp2_content2_16_image").style.opacity = "1";  // attivo 1, disattivo 0.5
-      document.getElementById("fp2_content2_16").style.pointerEvents = "auto";
+      
+      unlockShow("fp2_content2_10_container", true);
+      setStyleCached("fp2_content2_10_image", "opacity", "1");
+      setStyleCached("fp2_content2_10", "pointerEvents", "auto");
+      updateCached("fp2_content2_10", "Universal Challenger");
+      
+      unlockShow("fp2_content2_11_container", true);
+      setStyleCached("fp2_content2_11_image", "opacity", "1");
+      setStyleCached("fp2_content2_11", "pointerEvents", "auto");
+      updateCached("fp2_content2_11", "Attributes");
+      
+      unlockShow("fp2_content1_8", true);
+      unlockShow("fp2_content2_16_container", true);
+      setStyleCached("fp2_content2_16_image", "opacity", "1");
+      setStyleCached("fp2_content2_16", "pointerEvents", "auto");
     } else {
-      unlockShow("fp2_content2_10_container", true)
-      document.getElementById("fp2_content2_10_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
-      update("fp2_content2_10", "Reach Universe 5")
-      document.getElementById("fp2_content2_10").style.pointerEvents = "none";
-
-      unlockShow("fp2_content2_11_container", true)
-      document.getElementById("fp2_content2_11_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
-      update("fp2_content2_11", "Reach Universe 5")
-      document.getElementById("fp2_content2_11").style.pointerEvents = "none";
-
-      unlockShow("fp2_content2_16_container", true)
-      document.getElementById("fp2_content2_16_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
-      document.getElementById("fp2_content2_16").style.pointerEvents = "none";
+      unlockShow("fp2_content2_10_container", true);
+      setStyleCached("fp2_content2_10_image", "opacity", "0.5");
+      setStyleCached("fp2_content2_10", "pointerEvents", "none");
+      updateCached("fp2_content2_10", "Reach Universe 5");
+      
+      unlockShow("fp2_content2_11_container", true);
+      setStyleCached("fp2_content2_11_image", "opacity", "0.5");
+      setStyleCached("fp2_content2_11", "pointerEvents", "none");
+      updateCached("fp2_content2_11", "Reach Universe 5");
+      
+      unlockShow("fp2_content2_16_container", true);
+      setStyleCached("fp2_content2_16_image", "opacity", "0.5");
+      setStyleCached("fp2_content2_16", "pointerEvents", "none");
     }
   } else {
-    unlockShow("fp2_content2_10_container", false)
-    unlockShow("fp2_content2_11_container", false)
-    unlockShow("fp2_content1_8", false)
-    unlockShow("fp2_content2_16_container", false)
-    unlockShow("fp2_content3_pageSel", false)
-
-
+    unlockShow("fp2_content2_10_container", false);
+    unlockShow("fp2_content2_11_container", false);
+    unlockShow("fp2_content1_8", false);
+    unlockShow("fp2_content2_16_container", false);
+    unlockShow("fp2_content3_pageSel", false);
   }
 
-  //TABS SKY
-  unlockShow("fp2_content2_17_container", true)
-  unlockShow("fp2_content2_18_container", true)
+  // === TABS SKY ===
+  unlockShow("fp2_content2_17_container", true);
+  unlockShow("fp2_content2_18_container", true);
 
-  if (IUniversalIn.fireMilestones.m6.mCheck()) {
-    document.getElementById("fp2_content2_19_image").style.opacity = "1";  // attivo 1, disattivo 0.5
-    document.getElementById("fp2_content2_19").style.pointerEvents = "auto";
-
-    document.getElementById("fp2_content2_20_image").style.opacity = "1";  // attivo 1, disattivo 0.5
-    document.getElementById("fp2_content2_20").style.pointerEvents = "auto";
-    unlockShow("fp2_content2_19_container", true)
-    unlockShow("fp2_content2_20_container", true)
-    update("fp2_content2_19", "Water")
+  var fm6 = IUI.fireMilestones.m6.mCheck();
+  
+  // Water
+  if (fm6) {
+    setStyleCached("fp2_content2_19_image", "opacity", "1");
+    setStyleCached("fp2_content2_19", "pointerEvents", "auto");
+    setStyleCached("fp2_content2_20_image", "opacity", "1");
+    setStyleCached("fp2_content2_20", "pointerEvents", "auto");
+    unlockShow("fp2_content2_19_container", true);
+    unlockShow("fp2_content2_20_container", true);
+    updateCached("fp2_content2_19", "Water");
   } else {
-
-    document.getElementById("fp2_content2_19_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
-    document.getElementById("fp2_content2_19").style.pointerEvents = "none";
-
-    document.getElementById("fp2_content2_20_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
-    document.getElementById("fp2_content2_20").style.pointerEvents = "none";
-    unlockShow("fp2_content2_19_container", true)
-    unlockShow("fp2_content2_20_container", true)
-    update("fp2_content2_19", "Reach Burnt Universe 50")
+    setStyleCached("fp2_content2_19_image", "opacity", "0.5");
+    setStyleCached("fp2_content2_19", "pointerEvents", "none");
+    setStyleCached("fp2_content2_20_image", "opacity", "0.5");
+    setStyleCached("fp2_content2_20", "pointerEvents", "none");
+    unlockShow("fp2_content2_19_container", true);
+    unlockShow("fp2_content2_20_container", true);
+    updateCached("fp2_content2_19", "Reach Burnt Universe 50");
   }
 
-
-  if (IUniversal.waterTree.node39.active) {
-    document.getElementById("fp2_content2_21_image").style.opacity = "1";  // attivo 1, disattivo 0.5
-    document.getElementById("fp2_content2_21").style.pointerEvents = "auto";
-
-    document.getElementById("fp2_content2_22_image").style.opacity = "1";  // attivo 1, disattivo 0.5
-    document.getElementById("fp2_content2_22").style.pointerEvents = "auto";
-    unlockShow("fp2_content2_21_container", true)
-    unlockShow("fp2_content2_22_container", true)
-    update("fp2_content2_21", "Earth")
+  // Earth
+  var wn39 = IU.waterTree.node39.active;
+  if (wn39) {
+    setStyleCached("fp2_content2_21_image", "opacity", "1");
+    setStyleCached("fp2_content2_21", "pointerEvents", "auto");
+    setStyleCached("fp2_content2_22_image", "opacity", "1");
+    setStyleCached("fp2_content2_22", "pointerEvents", "auto");
+    unlockShow("fp2_content2_21_container", true);
+    unlockShow("fp2_content2_22_container", true);
+    updateCached("fp2_content2_21", "Earth");
+  } else if (fm6) {
+    setStyleCached("fp2_content2_21_image", "opacity", "0.5");
+    setStyleCached("fp2_content2_21", "pointerEvents", "none");
+    setStyleCached("fp2_content2_22_image", "opacity", "0.5");
+    setStyleCached("fp2_content2_22", "pointerEvents", "none");
+    unlockShow("fp2_content2_21_container", true);
+    unlockShow("fp2_content2_22_container", true);
+    updateCached("fp2_content2_21", "Buy Life Inscriber in Water");
   } else {
+    unlockShow("fp2_content2_21_container", false);
+    unlockShow("fp2_content2_22_container", false);
+  }
 
-    if (IUniversalIn.fireMilestones.m6.mCheck()) {
-      document.getElementById("fp2_content2_21_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
-      document.getElementById("fp2_content2_21").style.pointerEvents = "none";
+  // Wind
+  var en5 = IU.earthTree.node5.active;
+  if (en5) {
+    setStyleCached("fp2_content2_23_image", "opacity", "1");
+    setStyleCached("fp2_content2_23", "pointerEvents", "auto");
+    setStyleCached("fp2_content2_24_image", "opacity", "1");
+    setStyleCached("fp2_content2_24", "pointerEvents", "auto");
+    unlockShow("fp2_content2_23_container", true);
+    unlockShow("fp2_content2_24_container", true);
+    updateCached("fp2_content2_23", "Wind");
+  } else if (wn39) {
+    setStyleCached("fp2_content2_23_image", "opacity", "0.5");
+    setStyleCached("fp2_content2_23", "pointerEvents", "none");
+    setStyleCached("fp2_content2_24_image", "opacity", "0.5");
+    setStyleCached("fp2_content2_24", "pointerEvents", "none");
+    unlockShow("fp2_content2_23_container", true);
+    unlockShow("fp2_content2_24_container", true);
+    updateCached("fp2_content2_23", "Have at least 1 Golem");
+  } else {
+    unlockShow("fp2_content2_23_container", false);
+    unlockShow("fp2_content2_24_container", false);
+  }
 
-      document.getElementById("fp2_content2_22_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
-      document.getElementById("fp2_content2_22").style.pointerEvents = "none";
-      unlockShow("fp2_content2_21_container", true)
-      unlockShow("fp2_content2_22_container", true)
-      update("fp2_content2_21", "Buy Life Inscriber in Water")
-    } else {
-      unlockShow("fp2_content2_21_container", false)
-      unlockShow("fp2_content2_22_container", false)
+  // Metal
+  var exp1Max = f(IU.expeditions.exp1.level).gte(f(IUI.expeditions.exp1.maxLevel))
+  if (exp1Max) {
+    setStyleCached("fp2_content2_25_image", "opacity", "1");
+    setStyleCached("fp2_content2_25", "pointerEvents", "auto");
+    unlockShow("fp2_content2_25_container", true);
+    updateCached("fp2_content2_25", "Metal");
+  } else if (en5) {
+    setStyleCached("fp2_content2_25_image", "opacity", "0.5");
+    setStyleCached("fp2_content2_25", "pointerEvents", "none");
+    unlockShow("fp2_content2_25_container", true);
+    updateCached("fp2_content2_25", "Conquer Golem Patrol");
+  } else {
+    unlockShow("fp2_content2_25_container", false);
+  }
+
+  // === BASES ===
+  unlockShow("base1", true);
+  unlockShow("base2", true);
+  if (ITI.base.base3.req()) unlockShow("base3", true);
+  if (ITI.base.base4.req()) unlockShow("base4", true);
+
+  // === HUNTING ===
+  var hunts = ["hunt1", "hunt2", "hunt3", "hunt4", "hunt5"];
+  for (var i = 0; i < hunts.length; i++) {
+    var h = hunts[i];
+    var prev = i > 0 ? hunts[i - 1] : null;
+    if (IFI.normalHunting[h].req() || (prev && IFI.normalHunting[prev].req())) {
+      unlockShow("content2_6_" + h, true);
     }
   }
 
+  unlockShow("content2_6_huntEvolution", IU.attributes.attributesUnlock2.active);
 
-
-  if (IUniversal.earthTree.node5.active) {
-    document.getElementById("fp2_content2_23_image").style.opacity = "1";  // attivo 1, disattivo 0.5
-    document.getElementById("fp2_content2_23").style.pointerEvents = "auto";
-
-    document.getElementById("fp2_content2_24_image").style.opacity = "1";  // attivo 1, disattivo 0.5
-    document.getElementById("fp2_content2_24").style.pointerEvents = "auto";
-    unlockShow("fp2_content2_23_container", true)
-    unlockShow("fp2_content2_24_container", true)
-    update("fp2_content2_23", "Wind")
-  } else {
-
-    document.getElementById("fp2_content2_23_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
-    document.getElementById("fp2_content2_23").style.pointerEvents = "none";
-
-    if (IUniversal.waterTree.node39.active) {
-      document.getElementById("fp2_content2_24_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
-      document.getElementById("fp2_content2_24").style.pointerEvents = "none";
-      unlockShow("fp2_content2_23_container", true)
-      unlockShow("fp2_content2_24_container", true)
-      update("fp2_content2_23", "Have at least 1 Golem")
-    } else {
-      unlockShow("fp2_content2_23_container", false)
-      unlockShow("fp2_content2_24_container", false)
+  // Hunting rewards
+  unlockShow("content2_6_upgrade1", true);
+  var upgrades = ["upgrade1", "upgrade2", "upgrade3", "upgrade4"];
+  for (var i = 0; i < upgrades.length; i++) {
+    if (IFI.normalHuntingRewards[upgrades[i]].req()) {
+      unlockShow("content2_6_" + upgrades[i + 1], true);
     }
   }
 
-
-
-  if (f(IUniversal.expeditions.exp1.level).gte(f(IUniversalIn.expeditions.exp1.maxLevel))) {
-    document.getElementById("fp2_content2_25_image").style.opacity = "1";  // attivo 1, disattivo 0.5
-    document.getElementById("fp2_content2_25").style.pointerEvents = "auto";
-
-    unlockShow("fp2_content2_25_container", true)
-    update("fp2_content2_25", "Metal")
-  } else {
-
-    if (IUniversal.earthTree.node5.active) {
-      document.getElementById("fp2_content2_25_image").style.opacity = "0.5";  // attivo 1, disattivo 0.5
-      document.getElementById("fp2_content2_25").style.pointerEvents = "none";
-
-      unlockShow("fp2_content2_25_container", true)
-      update("fp2_content2_25", "Conquer Golem Patrol")
-    } else {
-      unlockShow("fp2_content2_25_container", false)
+  // === ENERGY UPGRADES (loop ottimizzato) ===
+  var energyUpgrades = IU.energyUpgrades;
+  for (var i = 1; i <= 20; i++) {
+    var u = energyUpgrades["upgrade" + i];
+    if (u.showReq || u.unlocked) {
+      unlockShow("content2_7_upgrade" + i + "_b1", true);
+      u.unlocked = true;
     }
   }
 
-  //PROGRESS BARS
-  //CHALLENGER
-
-  //Bases
-
-  unlockShow("base1", true)
-  unlockShow("base2", true)
-
-  if (ITrainingIn.base.base3.req()) {
-    unlockShow("base3", true)
+  var attr3 = IU.attributes.attributesUnlock3.active;
+  if (attr3) {
+    unlockShow("content2_7_upgrade21_b1", true);
+    unlockShow("content2_7_upgrade22_b1", true);
+    unlockShow("content2_7_upgrade23_b1", true);
   }
 
-  if (ITrainingIn.base.base4.req()) {
-    unlockShow("base4", true)
-  }
+  // === ATTRIBUTES ===
+  var attr1 = IU.attributes.attributesUnlock1.active;
+  var attr2 = IU.attributes.attributesUnlock2.active;
 
-  //hunting
+  unlockShow("content2_11_grid_b1", true);
+  unlockShow("content2_11_grid_b2", true);
+  unlockShow("content2_11_grid_b3", true);
+  unlockShow("content2_11_grid_c1", true);
+  unlockShow("content2_11_grid_c2", true);
 
-  unlockShow("content2_6_upgrade2", false)
-  unlockShow("content2_6_upgrade3", false)
-  unlockShow("content2_6_upgrade4", false)
-  unlockShow("content2_6_upgrade5", false)
-
-
-  if (IFightIn.normalHunting.hunt1.req() == true) {
-    unlockShow("content2_6_hunt1", true)
-  }
-
-  if (IFightIn.normalHunting.hunt2.req() == true || IFightIn.normalHunting.hunt1.req() == true) {
-    unlockShow("content2_6_hunt2", true)
-  }
-
-  if (IFightIn.normalHunting.hunt3.req() == true || IFightIn.normalHunting.hunt2.req() == true) {
-    unlockShow("content2_6_hunt3", true)
-  }
-
-  if (IFightIn.normalHunting.hunt4.req() == true || IFightIn.normalHunting.hunt3.req() == true) {
-    unlockShow("content2_6_hunt4", true)
-  }
-
-  if (IFightIn.normalHunting.hunt5.req() == true || IFightIn.normalHunting.hunt4.req() == true) {
-    unlockShow("content2_6_hunt5", true)
-  }
-
-  if (IUniversal.attributes.attributesUnlock2.active) {
-    unlockShow("content2_6_huntEvolution", true)
+  if (attr1) {
+    unlockShow("c2_10_challenges", true);
+    unlockShow("content2_11_grid_b4", true);
+    unlockShow("content2_11_grid_b5", true);
+    unlockShow("content2_11_grid_c4", true);
+    unlockShow("content2_11_grid_c5", true);
+    unlockShow("content2_11_grid_b6", true);
   } else {
-    unlockShow("content2_6_huntEvolution", false)
+    unlockShow("c2_10_challenges", false);
+    unlockShow("content2_11_grid_b4", false);
+    unlockShow("content2_11_grid_b5", false);
+    unlockShow("content2_11_grid_c4", false);
+    unlockShow("content2_11_grid_c5", false);
+    unlockShow("content2_11_grid_b6", false);
   }
 
-  //huntingRewards
-
-  unlockShow("content2_6_upgrade1", true)
-
-  if (IFightIn.normalHuntingRewards.upgrade1.req() == true) {
-    unlockShow("content2_6_upgrade2", true)
-  }
-
-  if (IFightIn.normalHuntingRewards.upgrade2.req() == true) {
-    unlockShow("content2_6_upgrade3", true)
-  }
-
-  if (IFightIn.normalHuntingRewards.upgrade3.req() == true) {
-    unlockShow("content2_6_upgrade4", true)
-  }
-
-  if (IFightIn.normalHuntingRewards.upgrade4.req() == true) {
-    unlockShow("content2_6_upgrade5", true)
-  }
-
-  //energy
-
-  if (IUniversal.energyUpgrades.upgrade1.showReq || IUniversal.energyUpgrades.upgrade1.unlocked) {
-    unlockShow("content2_7_upgrade1_b1", true)
-    IUniversal.energyUpgrades.upgrade1.unlocked = true
+  if (attr2) {
+    unlockShow("content2_11_grid_b7", true);
+    unlockShow("content2_11_grid_b8", true);
+    unlockShow("content2_11_grid_c7", true);
+    unlockShow("content2_11_grid_c8", true);
+    unlockShow("content2_11_grid_b9", true);
   } else {
-
+    unlockShow("content2_11_grid_b7", false);
+    unlockShow("content2_11_grid_b8", false);
+    unlockShow("content2_11_grid_c7", false);
+    unlockShow("content2_11_grid_c8", false);
+    unlockShow("content2_11_grid_b9", false);
   }
 
-  if (IUniversal.energyUpgrades.upgrade2.showReq || IUniversal.energyUpgrades.upgrade2.unlocked) {
-    unlockShow("content2_7_upgrade2_b1", true)
-    IUniversal.energyUpgrades.upgrade2.unlocked = true
-  } else {
-
+  // === AUTOMATION ===
+  var autoIds = ["auto1", "auto2", "auto3", "auto4", "auto5", "auto6", "auto7", "auto8"];
+  for (var i = 0; i < autoIds.length; i++) {
+    unlockShow("fp3_content1_8_" + autoIds[i], true);
   }
 
-  if (IUniversal.energyUpgrades.upgrade3.showReq || IUniversal.energyUpgrades.upgrade3.unlocked) {
-    unlockShow("content2_7_upgrade3_b1", true)
-    IUniversal.energyUpgrades.upgrade3.unlocked = true
-  } else {
-
+  if (attr1) {
+    unlockShow("fp3_content1_8_auto9", true);
+    unlockShow("fp3_content1_8_auto10", true);
   }
 
-  if (IUniversal.energyUpgrades.upgrade4.showReq || IUniversal.energyUpgrades.upgrade4.unlocked) {
-    unlockShow("content2_7_upgrade4_b1", true)
-    IUniversal.energyUpgrades.upgrade4.unlocked = true
-  } else {
-
-  }
-  if (IUniversal.energyUpgrades.upgrade5.showReq || IUniversal.energyUpgrades.upgrade5.unlocked) {
-    unlockShow("content2_7_upgrade5_b1", true)
-    IUniversal.energyUpgrades.upgrade5.unlocked = true
-  } else {
-
-  }
-
-  if (IUniversal.energyUpgrades.upgrade6.showReq || IUniversal.energyUpgrades.upgrade6.unlocked) {
-    unlockShow("content2_7_upgrade6_b1", true)
-    IUniversal.energyUpgrades.upgrade6.unlocked = true
-  } else {
-
-  }
-
-  if (IUniversal.energyUpgrades.upgrade7.showReq || IUniversal.energyUpgrades.upgrade7.unlocked) {
-    unlockShow("content2_7_upgrade7_b1", true)
-    IUniversal.energyUpgrades.upgrade7.unlocked = true
-  } else {
-
-  }
-
-  if (IUniversal.energyUpgrades.upgrade8.showReq || IUniversal.energyUpgrades.upgrade8.unlocked) {
-    unlockShow("content2_7_upgrade8_b1", true)
-    IUniversal.energyUpgrades.upgrade8.unlocked = true
-  } else {
-
-  }
-
-  if (IUniversal.energyUpgrades.upgrade9.showReq || IUniversal.energyUpgrades.upgrade9.unlocked) {
-    unlockShow("content2_7_upgrade9_b1", true)
-    IUniversal.energyUpgrades.upgrade9.unlocked = true
-  } else {
-
-  }
-
-  if (IUniversal.energyUpgrades.upgrade10.showReq || IUniversal.energyUpgrades.upgrade10.unlocked) {
-    unlockShow("content2_7_upgrade10_b1", true)
-    IUniversal.energyUpgrades.upgrade10.unlocked = true
-  } else {
-
-  }
-
-  if (IUniversal.energyUpgrades.upgrade11.showReq || IUniversal.energyUpgrades.upgrade11.unlocked) {
-    unlockShow("content2_7_upgrade11_b1", true)
-    IUniversal.energyUpgrades.upgrade11.unlocked = true
-  } else {
-
-  }
-
-
-  if (IUniversal.energyUpgrades.upgrade12.showReq || IUniversal.energyUpgrades.upgrade12.unlocked) {
-    unlockShow("content2_7_upgrade12_b1", true)
-    IUniversal.energyUpgrades.upgrade12.unlocked = true
-  } else {
-
-  }
-
-  if (IUniversal.energyUpgrades.upgrade13.showReq || IUniversal.energyUpgrades.upgrade13.unlocked) {
-    unlockShow("content2_7_upgrade13_b1", true)
-    IUniversal.energyUpgrades.upgrade13.unlocked = true
-  } else {
-
-  }
-
-  if (IUniversal.energyUpgrades.upgrade14.showReq || IUniversal.energyUpgrades.upgrade14.unlocked) {
-    unlockShow("content2_7_upgrade14_b1", true)
-    IUniversal.energyUpgrades.upgrade14.unlocked = true
-  } else {
-
-  }
-
-  if (IUniversal.energyUpgrades.upgrade15.showReq || IUniversal.energyUpgrades.upgrade15.unlocked) {
-    unlockShow("content2_7_upgrade15_b1", true)
-    IUniversal.energyUpgrades.upgrade15.unlocked = true
-  } else {
-
-  }
-
-  if (IUniversal.energyUpgrades.upgrade16.showReq || IUniversal.energyUpgrades.upgrade16.unlocked) {
-    unlockShow("content2_7_upgrade16_b1", true)
-    IUniversal.energyUpgrades.upgrade16.unlocked = true
-  } else {
-
-  }
-
-  if (IUniversal.energyUpgrades.upgrade17.showReq || IUniversal.energyUpgrades.upgrade17.unlocked) {
-    unlockShow("content2_7_upgrade17_b1", true)
-    IUniversal.energyUpgrades.upgrade17.unlocked = true
-  } else {
-
-  }
-
-  if (IUniversal.energyUpgrades.upgrade18.showReq || IUniversal.energyUpgrades.upgrade18.unlocked) {
-    unlockShow("content2_7_upgrade18_b1", true)
-    IUniversal.energyUpgrades.upgrade18.unlocked = true
-  } else {
-
-  }
-
-  if (IUniversal.energyUpgrades.upgrade19.showReq || IUniversal.energyUpgrades.upgrade19.unlocked) {
-    unlockShow("content2_7_upgrade19_b1", true)
-    IUniversal.energyUpgrades.upgrade19.unlocked = true
-  } else {
-
-  }
-
-  if (IUniversal.energyUpgrades.upgrade20.showReq || IUniversal.energyUpgrades.upgrade20.unlocked) {
-    unlockShow("content2_7_upgrade20_b1", true)
-    IUniversal.energyUpgrades.upgrade20.unlocked = true
-  } else {
-
-  }
-
-  if (IUniversal.attributes.attributesUnlock3.active) {
-    unlockShow("content2_7_upgrade21_b1", true)
-  }
-
-  if (IUniversal.attributes.attributesUnlock3.active) {
-    unlockShow("content2_7_upgrade22_b1", true)
-  }
-
-  if (IUniversal.attributes.attributesUnlock3.active) {
-    unlockShow("content2_7_upgrade23_b1", true)
-  }
-
-
-  //ATTRIBUTES
-
-  unlockShow("content2_11_grid_b1", true)
-  unlockShow("content2_11_grid_b2", true)
-  unlockShow("content2_11_grid_b3", true)
-
-  unlockShow("content2_11_grid_c1", true)
-  unlockShow("content2_11_grid_c2", true)
-
-  if (IUniversal.attributes.attributesUnlock1.active) {
-
-    unlockShow("c2_10_challenges", true)
-
-    unlockShow("content2_11_grid_b4", true)
-    unlockShow("content2_11_grid_b5", true)
-    unlockShow("content2_11_grid_c4", true)
-    unlockShow("content2_11_grid_c5", true)
-
-    unlockShow("content2_11_grid_b6", true)
-  } else {
-    unlockShow("c2_10_challenges", false)
-
-    unlockShow("content2_11_grid_b4", false)
-    unlockShow("content2_11_grid_b5", false)
-    unlockShow("content2_11_grid_c4", false)
-    unlockShow("content2_11_grid_c5", false)
-
-    unlockShow("content2_11_grid_b6", false)
-  }
-
-  if (IUniversal.attributes.attributesUnlock2.active) {
-    unlockShow("content2_11_grid_b7", true)
-    unlockShow("content2_11_grid_b8", true)
-    unlockShow("content2_11_grid_c7", true)
-    unlockShow("content2_11_grid_c8", true)
-
-    unlockShow("content2_11_grid_b9", true)
-  } else {
-    unlockShow("content2_11_grid_b7", false)
-    unlockShow("content2_11_grid_b8", false)
-    unlockShow("content2_11_grid_c7", false)
-    unlockShow("content2_11_grid_c8", false)
-
-    unlockShow("content2_11_grid_b9", false)
-  }
-
-  //automation
-
-  unlockShow("fp3_content1_8_auto1", true)
-  unlockShow("fp3_content1_8_auto2", true)
-
-  unlockShow("fp3_content1_8_auto3", true)
-
-  unlockShow("fp3_content1_8_auto4", true)
-  unlockShow("fp3_content1_8_auto5", true)
-  unlockShow("fp3_content1_8_auto6", true)
-
-  unlockShow("fp3_content1_8_auto7", true)
-  unlockShow("fp3_content1_8_auto8", true)
-
-  if (IUniversal.attributes.attributesUnlock1.active) {
-    unlockShow("fp3_content1_8_auto9", true)
-    unlockShow("fp3_content1_8_auto10", true)
-  }
-
-  if (IUniversal.attributes.attributesUnlock2.active) {
-    unlockShow("fp3_content1_8_auto11", true)
-    unlockShow("fp3_content1_8_auto12", true)
+  if (attr2) {
+    unlockShow("fp3_content1_8_auto11", true);
+    unlockShow("fp3_content1_8_auto12", true);
   }
 
   if (checkShow("content2_6_huntEvolution")) {
-    unlockShow("fp3_content1_8_auto13", true)
+    unlockShow("fp3_content1_8_auto13", true);
   }
 
-  if (IUniversal.fireTree.node11.unlocked) {
-    unlockShow("fp3_content1_8_auto14", true)
+  if (IU.fireTree.node11.unlocked) {
+    unlockShow("fp3_content1_8_auto14", true);
   }
 
-  //Fire tree
-  if (IUniversal.fireTree.node2.unlocked) {
-    unlockShow("content2_17_zone1", true)
-  } else {
-    unlockShow("content2_17_zone1", false)
-  }
-
-  if (IUniversal.fireTree.node11.unlocked) {
-    unlockShow("content2_17_zone2", true)
-  } else {
-    unlockShow("content2_17_zone2", false)
-  }
-
-
-  if (IUniversal.fireTree.node27.unlocked) {
-    unlockShow("content2_17_zone3", true)
-  } else {
-    unlockShow("content2_17_zone3", false)
-  }
-
-
-
-  if (IUniversalIn.fireTree.node1.req() || IUniversal.fireTree.node1.unlocked) {
-    unlockShow("content2_17_node1", true)
-  } else {
-    unlockShow("content2_17_node1", false)
-  }
-
-  if (IUniversalIn.fireTree.node2.req() || IUniversal.fireTree.node2.unlocked) {
-    unlockShow("content2_17_node2", true)
-  } else {
-    unlockShow("content2_17_node2", false)
-  }
-
-  if (IUniversalIn.fireTree.node3.req() || IUniversal.fireTree.node3.unlocked) {
-    unlockShow("content2_17_node3", true)
-  } else {
-    unlockShow("content2_17_node3", false)
-  }
-
-  if (IUniversalIn.fireTree.node4.req() || IUniversal.fireTree.node4.unlocked) {
-    unlockShow("content2_17_node4", true)
-  } else {
-    unlockShow("content2_17_node4", false)
-  }
-
-  if (IUniversalIn.fireTree.node5.req() || IUniversal.fireTree.node5.unlocked) {
-    unlockShow("content2_17_node5", true)
-  } else {
-    unlockShow("content2_17_node5", false)
-  }
-
-  if (IUniversalIn.fireTree.node6.req() || IUniversal.fireTree.node6.unlocked) {
-    unlockShow("content2_17_node6", true)
-  } else {
-    unlockShow("content2_17_node6", false)
-  }
-
-  if (IUniversalIn.fireTree.node7.req() || IUniversal.fireTree.node7.unlocked) {
-    unlockShow("content2_17_node7", true)
-  } else {
-    unlockShow("content2_17_node7", false)
-  }
-
-  if (IUniversalIn.fireTree.node8.req() || IUniversal.fireTree.node8.unlocked) {
-    unlockShow("content2_17_node8", true)
-  } else {
-    unlockShow("content2_17_node8", false)
-  }
-
-  if (IUniversalIn.fireTree.node9.req() || IUniversal.fireTree.node9.unlocked) {
-    unlockShow("content2_17_node9", true)
-  } else {
-    unlockShow("content2_17_node9", false)
-  }
-
-  if (IUniversalIn.fireTree.node10.req() || IUniversal.fireTree.node10.unlocked) {
-    unlockShow("content2_17_node10", true)
-  } else {
-    unlockShow("content2_17_node10", false)
-  }
-
-  if (IUniversalIn.fireTree.node11.req() || IUniversal.fireTree.node11.unlocked) {
-    unlockShow("content2_17_node11", true)
-  } else {
-    unlockShow("content2_17_node11", false)
-  }
-
-  if (IUniversalIn.fireTree.node12.req() || IUniversal.fireTree.node12.unlocked) {
-    unlockShow("content2_17_node12", true)
-  } else {
-    unlockShow("content2_17_node12", false)
-  }
-
-  if (IUniversalIn.fireTree.node13.req() || IUniversal.fireTree.node13.unlocked) {
-    unlockShow("content2_17_node13", true)
-  } else {
-    unlockShow("content2_17_node13", false)
-  }
-
-  if (IUniversalIn.fireTree.node14.req() || IUniversal.fireTree.node14.unlocked) {
-    unlockShow("content2_17_node14", true)
-  } else {
-    unlockShow("content2_17_node14", false)
-  }
-
-  if (IUniversalIn.fireTree.node15.req() || IUniversal.fireTree.node15.unlocked) {
-    unlockShow("content2_17_node15", true)
-  } else {
-    unlockShow("content2_17_node15", false)
-  }
-
-  if (IUniversalIn.fireTree.node16.req() || IUniversal.fireTree.node16.unlocked) {
-    unlockShow("content2_17_node16", true)
-  } else {
-    unlockShow("content2_17_node16", false)
-  }
-
-  if (IUniversalIn.fireTree.node17.req() || IUniversal.fireTree.node17.unlocked) {
-    unlockShow("content2_17_node17", true)
-  } else {
-    unlockShow("content2_17_node17", false)
-  }
-
-  if (IUniversalIn.fireTree.node18.req() || IUniversal.fireTree.node18.unlocked) {
-    unlockShow("content2_17_node18", true)
-  } else {
-    unlockShow("content2_17_node18", false)
-  }
-
-  if (IUniversalIn.fireTree.node19.req() || IUniversal.fireTree.node19.unlocked) {
-    unlockShow("content2_17_node19", true)
-  } else {
-    unlockShow("content2_17_node19", false)
-  }
-
-  if (IUniversalIn.fireTree.node20.req() || IUniversal.fireTree.node20.unlocked) {
-    unlockShow("content2_17_node20", true)
-  } else {
-    unlockShow("content2_17_node20", false)
-  }
-
-  if (IUniversalIn.fireTree.node21.req() || IUniversal.fireTree.node21.unlocked) {
-    unlockShow("content2_17_node21", true)
-  } else {
-    unlockShow("content2_17_node21", false)
-  }
-
-  if (IUniversalIn.fireTree.node22.req() || IUniversal.fireTree.node22.unlocked) {
-    unlockShow("content2_17_node22", true)
-  } else {
-    unlockShow("content2_17_node22", false)
-  }
-
-
-  if (IUniversalIn.fireTree.node23.req() || IUniversal.fireTree.node23.unlocked) {
-    unlockShow("content2_17_node23", true)
-  } else {
-    unlockShow("content2_17_node23", false)
-  }
-
-  if (IUniversalIn.fireTree.node24.req() || IUniversal.fireTree.node24.unlocked) {
-    unlockShow("content2_17_node24", true)
-  } else {
-    unlockShow("content2_17_node24", false)
-  }
-
-  if (IUniversalIn.fireTree.node25.req() || IUniversal.fireTree.node25.unlocked) {
-    unlockShow("content2_17_node25", true)
-  } else {
-    unlockShow("content2_17_node25", false)
-  }
-
-  if (IUniversalIn.fireTree.node26.req() || IUniversal.fireTree.node26.unlocked) {
-    unlockShow("content2_17_node26", true)
-  } else {
-    unlockShow("content2_17_node26", false)
-  }
-
-  if (IUniversalIn.fireTree.node27.req() || IUniversal.fireTree.node27.unlocked) {
-    unlockShow("content2_17_node27", true)
-  } else {
-    unlockShow("content2_17_node27", false)
-  }
-
-  if (IUniversalIn.fireTree.node28.req() || IUniversal.fireTree.node28.unlocked) {
-    unlockShow("content2_17_node28", true)
-  } else {
-    unlockShow("content2_17_node28", false)
-  }
-
-  if (IUniversalIn.fireTree.node29.req() || IUniversal.fireTree.node29.active) {
-    unlockShow("content2_17_node29", true)
-  } else {
-    unlockShow("content2_17_node29", false)
-  }
-
-  if (IUniversalIn.fireTree.node30.req() || IUniversal.fireTree.node30.active) {
-    unlockShow("content2_17_node30", true)
-  } else {
-    unlockShow("content2_17_node30", false)
-  }
-
-
-  if (IUniversalIn.fireTree.node31.req() || IUniversal.fireTree.node31.active) {
-    unlockShow("content2_17_node31", true)
-  } else {
-    unlockShow("content2_17_node31", false)
-  }
-
-
-  if (IUniversalIn.fireTree.node32.req() || IUniversal.fireTree.node32.active) {
-    unlockShow("content2_17_node32", true)
-  } else {
-    unlockShow("content2_17_node32", false)
-  }
-
-
-  if (IUniversalIn.fireTree.node33.req() || IUniversal.fireTree.node33.active) {
-    unlockShow("content2_17_node33", true)
-  } else {
-    unlockShow("content2_17_node33", false)
-  }
-
-  if (IUniversalIn.fireTree.node34.req() || IUniversal.fireTree.node34.active) {
-    unlockShow("content2_17_node34", true)
-  } else {
-    unlockShow("content2_17_node34", false)
-  }
-
-  if (IUniversalIn.fireTree.node35.req() || IUniversal.fireTree.node35.active) {
-    unlockShow("content2_17_node35", true)
-  } else {
-    unlockShow("content2_17_node35", false)
-  }
-
-  if (IUniversalIn.fireTree.node36.req() || IUniversal.fireTree.node36.active) {
-    unlockShow("content2_17_node36", true)
-  } else {
-    unlockShow("content2_17_node36", false)
-  }
-
-  if (IUniversalIn.fireTree.node37.req() || IUniversal.fireTree.node37.active) {
-    unlockShow("content2_17_node37", true)
-  } else {
-    unlockShow("content2_17_node37", false)
-  }
-
-  if (IUniversalIn.fireTree.node38.req() || IUniversal.fireTree.node38.active) {
-    unlockShow("content2_17_node38", true)
-  } else {
-    unlockShow("content2_17_node38", false)
-  }
-
-  if (IUniversalIn.fireTree.node39.req() || IUniversal.fireTree.node39.active) {
-    unlockShow("content2_17_node39", true)
-  } else {
-    unlockShow("content2_17_node39", false)
-  }
-
-  if (IUniversalIn.fireTree.node40.req() || IUniversal.fireTree.node40.active) {
-    unlockShow("content2_17_node40", true)
-  } else {
-    unlockShow("content2_17_node40", false)
-  }
-
-  if (IUniversalIn.fireTree.node41.req() || IUniversal.fireTree.node41.active) {
-    unlockShow("content2_17_node41", true)
-  } else {
-    unlockShow("content2_17_node41", false)
-  }
-
-  if (IUniversalIn.fireTree.node42.req() || IUniversal.fireTree.node42.active) {
-    unlockShow("content2_17_node42", true)
-  } else {
-    unlockShow("content2_17_node42", false)
-  }
-
-  if (IUniversalIn.fireTree.node43.req() || IUniversal.fireTree.node43.active) {
-    unlockShow("content2_17_node43", true)
-  } else {
-    unlockShow("content2_17_node43", false)
-  }
-
-  if (IUniversalIn.fireTree.node44.req() || IUniversal.fireTree.node44.active) {
-    unlockShow("content2_17_node44", true)
-  } else {
-    unlockShow("content2_17_node44", false)
-  }
-
-  if (IUniversalIn.fireTree.node45.req() || IUniversal.fireTree.node45.active) {
-    unlockShow("content2_17_node45", true)
-  } else {
-    unlockShow("content2_17_node45", false)
-  }
-
-  if (IUniversalIn.fireTree.node46.req() || IUniversal.fireTree.node46.active) {
-    unlockShow("content2_17_node46", true)
-  } else {
-    unlockShow("content2_17_node46", false)
-  }
-
-  if (IUniversalIn.fireTree.node47.req() || IUniversal.fireTree.node47.active) {
-    unlockShow("content2_17_node47", true)
-  } else {
-    unlockShow("content2_17_node47", false)
-  }
-
-  if (IUniversalIn.fireTree.node48.req() || IUniversal.fireTree.node48.active) {
-    unlockShow("content2_17_node48", true)
-  } else {
-    unlockShow("content2_17_node48", false)
-  }
-
-  if (IUniversalIn.fireTree.node49.req() || IUniversal.fireTree.node49.active) {
-    unlockShow("content2_17_node49", true)
-  } else {
-    unlockShow("content2_17_node49", false)
-  }
-
-  if (IUniversalIn.fireTree.node50.req() || IUniversal.fireTree.node50.active) {
-    unlockShow("content2_17_node50", true)
-  } else {
-    unlockShow("content2_17_node50", false)
-  }
-
-  if (IUniversalIn.fireTree.node51.req() || IUniversal.fireTree.node51.active) {
-    unlockShow("content2_17_node51", true)
-  } else {
-    unlockShow("content2_17_node51", false)
-  }
-
-  if (IUniversalIn.fireTree.node52.req() || IUniversal.fireTree.node52.active) {
-    unlockShow("content2_17_node52", true)
-  } else {
-    unlockShow("content2_17_node52", false)
-  }
-
-  if (IUniversalIn.fireTree.node53.req() || IUniversal.fireTree.node53.active) {
-    unlockShow("content2_17_node53", true)
-  } else {
-    unlockShow("content2_17_node53", false)
-  }
-
-  if (IUniversalIn.fireTree.node54.req() || IUniversal.fireTree.node54.active) {
-    unlockShow("content2_17_node54", true)
-  } else {
-    unlockShow("content2_17_node54", false)
-  }
-
-  if (IUniversalIn.fireTree.node55.req() || IUniversal.fireTree.node55.active) {
-    unlockShow("content2_17_node55", true)
-  } else {
-    unlockShow("content2_17_node55", false)
-  }
-
-  if (IUniversalIn.fireTree.node56.req() || IUniversal.fireTree.node56.active) {
-    unlockShow("content2_17_node56", true)
-  } else {
-    unlockShow("content2_17_node56", false)
-  }
-
-  if (IUniversalIn.fireTree.node57.req() || IUniversal.fireTree.node57.active) {
-    unlockShow("content2_17_node57", true)
-  } else {
-    unlockShow("content2_17_node57", false)
-  }
-
-  if (IUniversalIn.fireTree.node58.req() || IUniversal.fireTree.node58.active) {
-    unlockShow("content2_17_node58", true)
-  } else {
-    unlockShow("content2_17_node58", false)
-  }
-
-  if (IUniversalIn.fireTree.node59.req() || IUniversal.fireTree.node59.active) {
-    unlockShow("content2_17_node59", true)
-  } else {
-    unlockShow("content2_17_node59", false)
-  }
-
-  if (IUniversalIn.fireTree.node60.req() || IUniversal.fireTree.node60.active) {
-    unlockShow("content2_17_node60", true)
-  } else {
-    unlockShow("content2_17_node60", false)
-  }
-
-  if (IUniversalIn.fireTree.node61.req() || IUniversal.fireTree.node61.active) {
-    unlockShow("content2_17_node61", true)
-  } else {
-    unlockShow("content2_17_node61", false)
-  }
-
-  if (IUniversalIn.fireTree.node62.req() || IUniversal.fireTree.node62.active) {
-    unlockShow("content2_17_node62", true)
-  } else {
-    unlockShow("content2_17_node62", false)
-  }
-
-  if (IUniversalIn.fireTree.node63.req() || IUniversal.fireTree.node63.active) {
-    unlockShow("content2_17_node63", true)
-  } else {
-    unlockShow("content2_17_node63", false)
-  }
-
-  if (IUniversalIn.fireTree.node64.req() || IUniversal.fireTree.node64.active) {
-    unlockShow("content2_17_node64", true)
-  } else {
-    unlockShow("content2_17_node64", false)
-  }
-
-  //WATER
-
-  if (IUniversal.waterTree.node2.unlocked) {
-    unlockShow("content2_19_zone1", true)
-  } else {
-    unlockShow("content2_19_zone1", false)
-  }
-
-  if (IUniversal.waterTree.node6.unlocked) {
-    unlockShow("content2_19_zone2", true)
-  } else {
-    unlockShow("content2_19_zone2", false)
-  }
-
-
-  if (IUniversal.waterTree.node6.unlocked) {
-    unlockShow("content2_19_zone3", true)
-  } else {
-    unlockShow("content2_19_zone3", false)
-  }
-
-
-  if (IUniversalIn.waterTree.node1.req() || IUniversal.waterTree.node1.unlocked) {
-    unlockShow("content2_19_node1", true)
-  } else {
-    unlockShow("content2_19_node1", false)
-  }
-
-  if (IUniversalIn.waterTree.node2.req() || IUniversal.waterTree.node2.unlocked) {
-    unlockShow("content2_19_node2", true)
-    unlockShow("content2_19_circle1", true)
-  } else {
-    unlockShow("content2_19_node2", false)
-    unlockShow("content2_19_circle1", false)
-
-  }
-
-  if (IUniversalIn.waterTree.node3.req() || IUniversal.waterTree.node3.unlocked) {
-    unlockShow("content2_19_node3", true)
-  } else {
-    unlockShow("content2_19_node3", false)
-  }
-
-  if (IUniversalIn.waterTree.node4.req() || IUniversal.waterTree.node4.unlocked) {
-    unlockShow("content2_19_node4", true)
-  } else {
-    unlockShow("content2_19_node4", false)
-  }
-
-  if (IUniversalIn.waterTree.node5.req() || IUniversal.waterTree.node5.unlocked) {
-    unlockShow("content2_19_node5", true)
-  } else {
-    unlockShow("content2_19_node5", false)
-  }
-
-  if (IUniversalIn.waterTree.node6.req() || IUniversal.waterTree.node6.unlocked) {
-    unlockShow("content2_19_node6", true)
-  } else {
-    unlockShow("content2_19_node6", false)
-  }
-
-  if (IUniversalIn.waterTree.node7.req() || IUniversal.waterTree.node7.unlocked) {
-    unlockShow("content2_19_node7", true)
-  } else {
-    unlockShow("content2_19_node7", false)
-  }
-
-  if (IUniversalIn.waterTree.node8.req() || IUniversal.waterTree.node8.unlocked) {
-    unlockShow("content2_19_node8", true)
-  } else {
-    unlockShow("content2_19_node8", false)
-  }
-
-  if (IUniversalIn.waterTree.node9.req() || IUniversal.waterTree.node9.unlocked) {
-    unlockShow("content2_19_node9", true)
-  } else {
-    unlockShow("content2_19_node9", false)
-  }
+  // === FIRE TREE (loop ottimizzato) ===
+  var fireZones = {
+    "content2_17_zone1": IU.fireTree.node2.unlocked,
+    "content2_17_zone2": IU.fireTree.node11.unlocked,
+    "content2_17_zone3": IU.fireTree.node27.unlocked
+  };
 
-  if (IUniversalIn.waterTree.node10.req() || IUniversal.waterTree.node10.unlocked) {
-    unlockShow("content2_19_node10", true)
-  } else {
-    unlockShow("content2_19_node10", false)
-  }
-
-  if (IUniversalIn.waterTree.node11.req() || IUniversal.waterTree.node11.unlocked) {
-    unlockShow("content2_19_node11", true)
-  } else {
-    unlockShow("content2_19_node11", false)
-  }
-
-  if (IUniversalIn.waterTree.node12.req() || IUniversal.waterTree.node12.unlocked) {
-    unlockShow("content2_19_node12", true)
-  } else {
-    unlockShow("content2_19_node12", false)
-  }
-
-  if (IUniversalIn.waterTree.node13.req() || IUniversal.waterTree.node13.unlocked) {
-    unlockShow("content2_19_node13", true)
-  } else {
-    unlockShow("content2_19_node13", false)
-  }
-
-  if (IUniversalIn.waterTree.node14.req() || IUniversal.waterTree.node14.unlocked) {
-    unlockShow("content2_19_node14", true)
-  } else {
-    unlockShow("content2_19_node14", false)
-  }
-
-  if (IUniversalIn.waterTree.node15.req() || IUniversal.waterTree.node15.unlocked) {
-    unlockShow("content2_19_node15", true)
-  } else {
-    unlockShow("content2_19_node15", false)
-  }
-
-  if (IUniversalIn.waterTree.node16.req() || IUniversal.waterTree.node16.unlocked) {
-    unlockShow("content2_19_node16", true)
-  } else {
-    unlockShow("content2_19_node16", false)
-  }
-
-  if (IUniversalIn.waterTree.node17.req() || IUniversal.waterTree.node17.unlocked) {
-    unlockShow("content2_19_node17", true)
-  } else {
-    unlockShow("content2_19_node17", false)
-  }
-
-  if (IUniversalIn.waterTree.node18.req() || IUniversal.waterTree.node18.unlocked) {
-    unlockShow("content2_19_node18", true)
-  } else {
-    unlockShow("content2_19_node18", false)
-  }
-
-  if (IUniversalIn.waterTree.node19.req() || IUniversal.waterTree.node19.unlocked) {
-    unlockShow("content2_19_node19", true)
-  } else {
-    unlockShow("content2_19_node19", false)
-  }
-
-  if (IUniversalIn.waterTree.node20.req() || IUniversal.waterTree.node20.unlocked) {
-    unlockShow("content2_19_node20", true)
-  } else {
-    unlockShow("content2_19_node20", false)
-  }
-
-  if (IUniversalIn.waterTree.node21.req() || IUniversal.waterTree.node21.unlocked) {
-    unlockShow("content2_19_node21", true)
-  } else {
-    unlockShow("content2_19_node21", false)
-  }
-
-  if (IUniversalIn.waterTree.node22.req() || IUniversal.waterTree.node22.unlocked) {
-    unlockShow("content2_19_node22", true)
-  } else {
-    unlockShow("content2_19_node22", false)
-  }
-
-  if (IUniversalIn.waterTree.node23.req() || IUniversal.waterTree.node23.unlocked) {
-    unlockShow("content2_19_node23", true)
-  } else {
-    unlockShow("content2_19_node23", false)
-  }
-
-  if (IUniversalIn.waterTree.node24.req() || IUniversal.waterTree.node24.unlocked) {
-    unlockShow("content2_19_node24", true)
-  } else {
-    unlockShow("content2_19_node24", false)
-  }
-
-  if (IUniversalIn.waterTree.node25.req() || IUniversal.waterTree.node25.unlocked) {
-    unlockShow("content2_19_node25", true)
-    unlockShow("content2_19_circle2", true)
-
-  } else {
-    unlockShow("content2_19_node25", false)
-    unlockShow("content2_19_circle2", false)
-
-  }
-
-  if (IUniversalIn.waterTree.node26.req() || IUniversal.waterTree.node26.unlocked) {
-    unlockShow("content2_19_node26", true)
-  } else {
-    unlockShow("content2_19_node26", false)
-  }
-
-  if (IUniversalIn.waterTree.node27.req() || IUniversal.waterTree.node27.unlocked) {
-    unlockShow("content2_19_node27", true)
-  } else {
-    unlockShow("content2_19_node27", false)
-  }
-
-  if (IUniversalIn.waterTree.node28.req() || IUniversal.waterTree.node28.unlocked) {
-    unlockShow("content2_19_node28", true)
-  } else {
-    unlockShow("content2_19_node28", false)
-  }
-
-  if (IUniversalIn.waterTree.node29.req() || IUniversal.waterTree.node29.unlocked) {
-    unlockShow("content2_19_node29", true)
-    unlockShow("content2_19_circle3", true)
-
-  } else {
-    unlockShow("content2_19_node29", false)
-    unlockShow("content2_19_circle3", false)
-
-  }
-
-  if (IUniversalIn.waterTree.node30.req() || IUniversal.waterTree.node30.unlocked) {
-    unlockShow("content2_19_node30", true)
-
-  } else {
-    unlockShow("content2_19_node30", false)
-
-  }
-
-  if (IUniversalIn.waterTree.node31.req() || IUniversal.waterTree.node31.unlocked) {
-    unlockShow("content2_19_node31", true)
-  } else {
-    unlockShow("content2_19_node31", false)
-  }
-
-  if (IUniversalIn.waterTree.node32.req() || IUniversal.waterTree.node32.unlocked) {
-    unlockShow("content2_19_node32", true)
-  } else {
-    unlockShow("content2_19_node32", false)
-  }
-
-  if (IUniversalIn.waterTree.node33.req() || IUniversal.waterTree.node33.unlocked) {
-    unlockShow("content2_19_node33", true)
-  } else {
-    unlockShow("content2_19_node33", false)
-  }
-
-
-  if (IUniversalIn.waterTree.node34.req() || IUniversal.waterTree.node34.unlocked) {
-    unlockShow("content2_19_node34", true)
-  } else {
-    unlockShow("content2_19_node34", false)
-  }
-
-  if (IUniversalIn.waterTree.node35.req() || IUniversal.waterTree.node35.unlocked) {
-    unlockShow("content2_19_node35", true)
-  } else {
-    unlockShow("content2_19_node35", false)
-  }
-
-  if (IUniversalIn.waterTree.node36.req() || IUniversal.waterTree.node36.unlocked) {
-    unlockShow("content2_19_node36", true)
-  } else {
-    unlockShow("content2_19_node36", false)
-  }
-
-  if (IUniversalIn.waterTree.node37.req() || IUniversal.waterTree.node37.unlocked) {
-    unlockShow("content2_19_node37", true)
-  } else {
-    unlockShow("content2_19_node37", false)
-  }
-
-  if (IUniversalIn.waterTree.node38.req() || IUniversal.waterTree.node38.unlocked) {
-    unlockShow("content2_19_node38", true)
-  } else {
-    unlockShow("content2_19_node38", false)
-  }
-
-  if (IUniversalIn.waterTree.node39.req() || IUniversal.waterTree.node39.unlocked) {
-    unlockShow("content2_19_node39", true)
-  } else {
-    unlockShow("content2_19_node39", false)
-  }
-
-
-  //potionMenu
-
-  //IUniversal.waterTutorial = f(0)
-
-  if (IUniversal.waterTree.node6.unlocked) {
-    unlockShow("content2_19_potionSel", true)
-    unlockShow("content2_19_tutorial", true)
-  } else {
-    unlockShow("content2_19_potionSel", false)
-    unlockShow("content2_19_tutorial", false)
-  }
-
-  if (f(IUniversal.waterTutorial).gte(f(1))) {
-    unlockShow("content2_19_potionEquip", true)
-    unlockShow("content2_19_grid1", true)
-    unlockShow("content2_19_potionDelete", true)
-  } else {
-    unlockShow("content2_19_potionEquip", false)
-    unlockShow("content2_19_grid1", false)
-    unlockShow("content2_19_potionDelete", false)
-  }
-
-  if (f(IUniversal.waterTutorial).gte(f(2))) {
-    unlockShow("content2_19_potionUpgrade", true)
-  } else {
-    unlockShow("content2_19_potionUpgrade", false)
-  }
-
-  //potion menu options
-
-
-  unlockShow("content2_19_potionUpgrade_selector_button1", true)
-
-  if (IUniversal.waterTree.node34.unlocked) {
-    unlockShow("content2_19_potionUpgrade_selector_button2", true)
-    unlockShow("content2_19_potions_potion3", true)
-
-    unlockShow("content2_19_content2_source1", true)
-    unlockShow("content2_19_content2_source2", true)
-  } else {
-    unlockShow("content2_19_potionUpgrade_selector_button2", false)
-    unlockShow("content2_19_potions_potion3", false)
-
-    unlockShow("content2_19_content2_source1", false)
-    unlockShow("content2_19_content2_source2", false)
-  }
-
-  if (IUniversal.waterTree.node35.unlocked) {
-    unlockShow("content2_19_potionUpgrade_selector_button3", true)
-  } else {
-    unlockShow("content2_19_potionUpgrade_selector_button3", false)
-  }
-
-  if (IUniversal.waterTree.node36.unlocked) {
-    unlockShow("content2_19_content2_source3", true)
-    unlockShow("content2_19_content2_source4", true)
-  } else {
-    unlockShow("content2_19_content2_source3", false)
-    unlockShow("content2_19_content2_source4", false)
-  }
-
-  if (IUniversal.waterTree.node37.unlocked) {
-    unlockShow("content2_19_content2_source5", true)
-    unlockShow("content2_19_content2_source6", true)
-  } else {
-    unlockShow("content2_19_content2_source5", false)
-    unlockShow("content2_19_content2_source6", false)
-  }
-
-  //potions
-
-  if (IUniversal.waterTree.node6.unlocked) {
-    unlockShow("content2_19_potions_potion1", true)
-    unlockShow("content2_19_potions_potion2", true)
-    unlockShow("content2_19_potions_potion4", true)
-    unlockShow("content2_19_potions_potion5", true)
-    unlockShow("content2_19_potionEquip_1", true)
-  } else {
-    unlockShow("content2_19_potions_potion1", false)
-    unlockShow("content2_19_potions_potion2", false)
-    unlockShow("content2_19_potions_potion4", false)
-    unlockShow("content2_19_potions_potion5", false)
-    unlockShow("content2_19_potionEquip_1", false)
-
-  }
-
-
-  if (IUniversal.waterTree.node10.unlocked) {
-    unlockShow("content2_19_potions_potion6", true)
-    unlockShow("content2_19_potions_potion7", true)
-    unlockShow("content2_19_potions_potion8", true)
-    unlockShow("content2_19_potionEquip_2", true)
-
-  } else {
-    unlockShow("content2_19_potions_potion6", false)
-    unlockShow("content2_19_potions_potion7", false)
-    unlockShow("content2_19_potions_potion8", false)
-    unlockShow("content2_19_potionEquip_2", false)
-
-  }
-
-  if (IUniversal.waterTree.node18.unlocked) {
-    unlockShow("content2_19_potions_potion12", true)
-    unlockShow("content2_19_potions_potion13", true)
-    unlockShow("content2_19_potions_potion14", true)
-    unlockShow("content2_19_potionEquip_4", true)
-
-  } else {
-    unlockShow("content2_19_potions_potion12", false)
-    unlockShow("content2_19_potions_potion13", false)
-    unlockShow("content2_19_potions_potion14", false)
-    unlockShow("content2_19_potionEquip_4", false)
-
-  }
-
-
-  if (IUniversal.waterTree.node14.unlocked) {
-    unlockShow("content2_19_potions_potion9", true)
-    unlockShow("content2_19_potions_potion10", true)
-    unlockShow("content2_19_potions_potion11", true)
-    unlockShow("content2_19_potionEquip_3", true)
-
-  } else {
-    unlockShow("content2_19_potions_potion9", false)
-    unlockShow("content2_19_potions_potion10", false)
-    unlockShow("content2_19_potions_potion11", false)
-    unlockShow("content2_19_potionEquip_3", false)
-
-  }
-
-  //army
-
-  if (IUniversal.earthTree.node5.active) {
-    unlockShow("content2_21_army2_army1", true)
-    unlockShow("content2_21_armyTreasures_1", true)
-    IUniversal.armyInfo.default.golemTypes.type1.active = true
-  } else {
-    IUniversal.armyInfo.default.golemTypes.type1.active = false
-  }
-
-  if (f(IUniversal.expeditions.exp6.level).gt(f(0))) {
-    unlockShow("content2_21_army2_army2", true)
-    unlockShow("content2_21_armyTreasures_2", true)
-    IUniversal.armyInfo.default.golemTypes.type2.active = true
-  } else {
-    IUniversal.armyInfo.default.golemTypes.type2.active = false
-  }
-
-  if (f(IUniversal.expeditions.exp11.level).gt(f(0))) {
-    unlockShow("content2_21_army2_army3", true)
-    unlockShow("content2_21_armyTreasures_3", true)
-    IUniversal.armyInfo.default.golemTypes.type3.active = true
-  } else {
-    IUniversal.armyInfo.default.golemTypes.type3.active = false
-  }
-
-  if (false) {
-    unlockShow("content2_21_army2_army4", true)
-    unlockShow("content2_21_armyTreasures_4", true)
-    IUniversal.armyInfo.default.golemTypes.type4.active = true
-  } else {
-    IUniversal.armyInfo.default.golemTypes.type4.active = false
-  }
-
-  if (false) {
-    unlockShow("content2_21_army2_army5", true)
-    unlockShow("content2_21_armyTreasures_5", true)
-    IUniversal.armyInfo.default.golemTypes.type5.active = true
-  } else {
-    IUniversal.armyInfo.default.golemTypes.type5.active = false
-  }
-
-
-  if (f(IUniversal.expeditions.exp10.level).gte(f(1))) {
-    unlockShow("content2_21_under1_1", true)
-    unlockShow("content2_21_under1_2", true)
-    unlockShow("content2_21_under1_3", true)
-    unlockShow("content2_21_under1_4", true)
-  } else {
-    unlockShow("content2_21_under1_1", false)
-    unlockShow("content2_21_under1_2", false)
-    unlockShow("content2_21_under1_3", false)
-    unlockShow("content2_21_under1_4", false)
-  }
-
-
-
-  if (IUniversalIn.earthTree.node1.req() || IUniversal.earthTree.node1.unlocked) {
-    unlockShow("content2_21_node1", true)
-  } else {
-    unlockShow("content2_21_node1", false)
-  }
-
-  if (IUniversalIn.earthTree.node2.req() || IUniversal.earthTree.node2.unlocked) {
-    unlockShow("content2_21_node2", true)
-  } else {
-    unlockShow("content2_21_node2", false)
-  }
-
-  if (IUniversalIn.earthTree.node3.req() || IUniversal.earthTree.node3.unlocked) {
-    unlockShow("content2_21_node3", true)
-  } else {
-    unlockShow("content2_21_node3", false)
-  }
-
-  if (IUniversalIn.earthTree.node4.req() || IUniversal.earthTree.node4.unlocked) {
-    unlockShow("content2_21_node4", true)
-  } else {
-    unlockShow("content2_21_node4", false)
-  }
-
-  if (IUniversalIn.earthTree.node5.req() || IUniversal.earthTree.node5.unlocked) {
-    unlockShow("content2_21_node5", true)
-  } else {
-    unlockShow("content2_21_node5", false)
-  }
-
-  if (IUniversalIn.earthTree.node6.req() || IUniversal.earthTree.node6.unlocked) {
-    unlockShow("content2_21_node6", true)
-  } else {
-    unlockShow("content2_21_node6", false)
-  }
-
-  if (IUniversalIn.earthTree.node7.req() || IUniversal.earthTree.node7.unlocked) {
-    unlockShow("content2_21_node7", true)
-  } else {
-    unlockShow("content2_21_node7", false)
-  }
-
-  if (IUniversalIn.earthTree.node8.req() || IUniversal.earthTree.node8.unlocked) {
-    unlockShow("content2_21_node8", true)
-  } else {
-    unlockShow("content2_21_node8", false)
-  }
-
-  if (IUniversalIn.earthTree.node9.req() || IUniversal.earthTree.node9.unlocked) {
-    unlockShow("content2_21_node9", true)
-  } else {
-    unlockShow("content2_21_node9", false)
-  }
-
-  if (IUniversalIn.earthTree.node10.req() || IUniversal.earthTree.node10.unlocked) {
-    unlockShow("content2_21_node10", true)
-  } else {
-    unlockShow("content2_21_node10", false)
-  }
-
-  if (IUniversalIn.earthTree.node11.req() || IUniversal.earthTree.node11.unlocked) {
-    unlockShow("content2_21_node11", true)
-  } else {
-    unlockShow("content2_21_node11", false)
-  }
-
-  if (IUniversalIn.earthTree.node12.req() || IUniversal.earthTree.node12.unlocked) {
-    unlockShow("content2_21_node12", true)
-  } else {
-    unlockShow("content2_21_node12", false)
-  }
-
-  //WIND
-
-  if (IUniversalIn.windTree.node1.req() || IUniversal.windTree.node1.unlocked) {
-    unlockShow("content2_23_node1", true)
-    unlockShow("content2_23_spire1", true)
-    unlockShow("content2_23_spire1Image", true)
-
-  } else {
-    unlockShow("content2_23_node1", false)
-    unlockShow("content2_23_spire1", false)
-    unlockShow("content2_23_spire1Image", false)
-
-  }
-
-  if (IUniversalIn.windTree.node2.req() || IUniversal.windTree.node2.unlocked) {
-    unlockShow("content2_23_node2", true)
-  } else {
-    unlockShow("content2_23_node2", false)
-  }
-
-  if (IUniversalIn.windTree.node3.req() || IUniversal.windTree.node3.unlocked) {
-    unlockShow("content2_23_node3", true)
-  } else {
-    unlockShow("content2_23_node3", false)
-  }
-
-  if (IUniversalIn.windTree.node4.req() || IUniversal.windTree.node4.unlocked) {
-    unlockShow("content2_23_node4", true)
-  } else {
-    unlockShow("content2_23_node4", false)
+  for (var z in fireZones) {
+    unlockShow(z, fireZones[z]);
   }
 
-  if (IUniversalIn.windTree.node5.req() || IUniversal.windTree.node5.unlocked) {
-    unlockShow("content2_23_node5", true)
-  } else {
-    unlockShow("content2_23_node5", false)
-  }
-
-  if (IUniversalIn.windTree.node6.req() || IUniversal.windTree.node6.unlocked) {
-    unlockShow("content2_23_node6", true)
-  } else {
-    unlockShow("content2_23_node6", false)
-  }
-
-  if (IUniversalIn.windTree.node7.req() || IUniversal.windTree.node7.unlocked) {
-    unlockShow("content2_23_node7", true)
-    unlockShow("content2_23_spire2", true)
-    unlockShow("content2_23_spire2Image", true)
-  } else {
-    unlockShow("content2_23_node7", false)
-    unlockShow("content2_23_spire2", false)
-    unlockShow("content2_23_spire2Image", false)
-  }
-
-  if (IUniversalIn.windTree.node8.req() || IUniversal.windTree.node8.unlocked) {
-    unlockShow("content2_23_node8", true)
-  } else {
-    unlockShow("content2_23_node8", false)
-  }
-
-  if (IUniversalIn.windTree.node9.req() || IUniversal.windTree.node9.unlocked) {
-    unlockShow("content2_23_node9", true)
-  } else {
-    unlockShow("content2_23_node9", false)
-  }
-
-  if (IUniversalIn.windTree.node10.req() || IUniversal.windTree.node10.unlocked) {
-    unlockShow("content2_23_node10", true)
-  } else {
-    unlockShow("content2_23_node10", false)
-  }
-
-  if (IUniversalIn.windTree.node11.req() || IUniversal.windTree.node11.unlocked) {
-    unlockShow("content2_23_node11", true)
-  } else {
-    unlockShow("content2_23_node11", false)
+  for (var i = 1; i <= 64; i++) {
+    var node = "node" + i;
+    if (IUI.fireTree[node].req() || IU.fireTree[node].unlocked || IU.fireTree[node].active) {
+      unlockShow("content2_17_" + node, true);
+    } else {
+      unlockShow("content2_17_" + node, false);
+    }
   }
 
-  if (IUniversalIn.windTree.node12.req() || IUniversal.windTree.node12.unlocked) {
-    unlockShow("content2_23_node12", true)
-  } else {
-    unlockShow("content2_23_node12", false)
-  }
-
-  if (IUniversalIn.windTree.node13.req() || IUniversal.windTree.node13.unlocked) {
-    unlockShow("content2_23_node13", true)
-  } else {
-    unlockShow("content2_23_node13", false)
-  }
+  // === WATER TREE ===
+  var waterZones = {
+    "content2_19_zone1": IU.waterTree.node2.unlocked,
+    "content2_19_zone2": IU.waterTree.node6.unlocked,
+    "content2_19_zone3": IU.waterTree.node6.unlocked
+  };
 
-  if (IUniversalIn.windTree.node14.req() || IUniversal.windTree.node14.unlocked) {
-    unlockShow("content2_23_node14", true)
-  } else {
-    unlockShow("content2_23_node14", false)
+  for (var z in waterZones) {
+    unlockShow(z, waterZones[z]);
   }
-
-  //METAL
-
-  unlockShow("content2_25_treasureUpgrade", true)
-
-  if (f(IUniversal.expeditions.exp7.level).gt(f(0))) {
-    unlockShow("content2_25_treasureEquipment", true)
-    unlockShow("content2_25_treasureAugment", true)
-  } else {
-    unlockShow("content2_25_treasureEquipment", false)
-    unlockShow("content2_25_treasureAugment", false)
+
+  for (var i = 1; i <= 39; i++) {
+    var node = "node" + i;
+    if (IUI.waterTree[node].req() || IU.waterTree[node].unlocked) {
+      unlockShow("content2_19_" + node, true);
+      
+      // Special circles
+      if (i === 2) unlockShow("content2_19_circle1", true);
+      if (i === 25) unlockShow("content2_19_circle2", true);
+      if (i === 29) unlockShow("content2_19_circle3", true);
+    } else {
+      unlockShow("content2_19_" + node, false);
+      
+      if (i === 2) unlockShow("content2_19_circle1", false);
+      if (i === 25) unlockShow("content2_19_circle2", false);
+      if (i === 29) unlockShow("content2_19_circle3", false);
+    }
   }
 
-  unlockShow("content2_25_treasureAugment_1", true)
+  // === POTION MENU ===
+  var wn6 = IU.waterTree.node6.unlocked;
+  unlockShow("content2_19_potionSel", wn6);
+  unlockShow("content2_19_tutorial", wn6);
 
-  if (f(IUniversal.expeditions.exp13.level).gt(f(0))) {
-    unlockShow("content2_25_treasureAugment_2", true)
-  } else {
-    unlockShow("content2_25_treasureAugment_2", false)
-    update("content2_25_treasureAugment_2", `<div class="boldBlackBorder centerDiv">Defeat Magma Elemental to unlock</div>`)
-  }
+  var wt = IU.waterTutorial;
+  if (wt >= 1) {
+    unlockShow("content2_19_potionEquip", true);
+    unlockShow("content2_19_grid1", true);
+    unlockShow("content2_19_potionDelete", true);
+  } else {
+    unlockShow("content2_19_potionEquip", false);
+    unlockShow("content2_19_grid1", false);
+    unlockShow("content2_19_potionDelete", false);
+  }
+
+  if (wt >= 2) {
+    unlockShow("content2_19_potionUpgrade", true);
+  } else {
+    unlockShow("content2_19_potionUpgrade", false);
+  }
+
+  // Potion upgrade selectors
+  unlockShow("content2_19_potionUpgrade_selector_button1", true);
+
+  var wn34 = IU.waterTree.node34.unlocked;
+  var wn35 = IU.waterTree.node35.unlocked;
+  var wn36 = IU.waterTree.node36.unlocked;
+  var wn37 = IU.waterTree.node37.unlocked;
+
+  unlockShow("content2_19_potionUpgrade_selector_button2", wn34);
+  unlockShow("content2_19_potions_potion3", wn34);
+  unlockShow("content2_19_content2_source1", wn34);
+  unlockShow("content2_19_content2_source2", wn34);
+
+  unlockShow("content2_19_potionUpgrade_selector_button3", wn35);
+
+  unlockShow("content2_19_content2_source3", wn36);
+  unlockShow("content2_19_content2_source4", wn36);
+
+  unlockShow("content2_19_content2_source5", wn37);
+  unlockShow("content2_19_content2_source6", wn37);
+
+  // Potions
+  if (wn6) {
+    unlockShow("content2_19_potions_potion1", true);
+    unlockShow("content2_19_potions_potion2", true);
+    unlockShow("content2_19_potions_potion4", true);
+    unlockShow("content2_19_potions_potion5", true);
+    unlockShow("content2_19_potionEquip_1", true);
+  } else {
+    unlockShow("content2_19_potions_potion1", false);
+    unlockShow("content2_19_potions_potion2", false);
+    unlockShow("content2_19_potions_potion4", false);
+    unlockShow("content2_19_potions_potion5", false);
+    unlockShow("content2_19_potionEquip_1", false);
+  }
+
+  var wn10 = IU.waterTree.node10.unlocked;
+  var wn14 = IU.waterTree.node14.unlocked;
+  var wn18 = IU.waterTree.node18.unlocked;
+
+  unlockShow("content2_19_potions_potion6", wn10);
+  unlockShow("content2_19_potions_potion7", wn10);
+  unlockShow("content2_19_potions_potion8", wn10);
+  unlockShow("content2_19_potionEquip_2", wn10);
+
+  unlockShow("content2_19_potions_potion12", wn18);
+  unlockShow("content2_19_potions_potion13", wn18);
+  unlockShow("content2_19_potions_potion14", wn18);
+  unlockShow("content2_19_potionEquip_4", wn18);
+
+  unlockShow("content2_19_potions_potion9", wn14);
+  unlockShow("content2_19_potions_potion10", wn14);
+  unlockShow("content2_19_potions_potion11", wn14);
+  unlockShow("content2_19_potionEquip_3", wn14);
+
+  // === ARMY ===
+  IU.armyInfo.default.golemTypes.type1.active = en5;
+  unlockShow("content2_21_army2_army1", en5);
+  unlockShow("content2_21_armyTreasures_1", en5);
+
+  var exp6 = IU.expeditions.exp6.level > 0;
+  var exp11 = IU.expeditions.exp11.level > 0;
+
+  IU.armyInfo.default.golemTypes.type2.active = exp6;
+  unlockShow("content2_21_army2_army2", exp6);
+  unlockShow("content2_21_armyTreasures_2", exp6);
+
+  IU.armyInfo.default.golemTypes.type3.active = exp11;
+  unlockShow("content2_21_army2_army3", exp11);
+  unlockShow("content2_21_armyTreasures_3", exp11);
+
+  IU.armyInfo.default.golemTypes.type4.active = false;
+  IU.armyInfo.default.golemTypes.type5.active = false;
+
+  var exp10 = f(IU.expeditions.exp10.level).gte(f(1));
+  unlockShow("content2_21_under1_1", exp10);
+  unlockShow("content2_21_under1_2", exp10);
+  unlockShow("content2_21_under1_3", exp10);
+  unlockShow("content2_21_under1_4", exp10);
+
+  // === EARTH TREE ===
+  for (var i = 1; i <= 12; i++) {
+    var node = "node" + i;
+    if (IUI.earthTree[node].req() || IU.earthTree[node].unlocked) {
+      unlockShow("content2_21_" + node, true);
+    } else {
+      unlockShow("content2_21_" + node, false);
+    }
+  }
+
+  // === WIND TREE ===
+  for (var i = 1; i <= 14; i++) {
+    var node = "node" + i;
+    if (IUI.windTree[node].req() || IU.windTree[node].unlocked) {
+      unlockShow("content2_23_" + node, true);
+      
+      // Special spires
+      if (i === 1) {
+        unlockShow("content2_23_spire1", true);
+        unlockShow("content2_23_spire1Image", true);
+      }
+      if (i === 7) {
+        unlockShow("content2_23_spire2", true);
+        unlockShow("content2_23_spire2Image", true);
+      }
+    } else {
+      unlockShow("content2_23_" + node, false);
+      
+      if (i === 1) {
+        unlockShow("content2_23_spire1", false);
+        unlockShow("content2_23_spire1Image", false);
+      }
+      if (i === 7) {
+        unlockShow("content2_23_spire2", false);
+        unlockShow("content2_23_spire2Image", false);
+      }
+    }
+  }
+
+  // === METAL ===
+  unlockShow("content2_25_treasureUpgrade", true);
+
+  var exp7 = IU.expeditions.exp7.level > 0;
+  unlockShow("content2_25_treasureEquipment", exp7);
+  unlockShow("content2_25_treasureAugment", exp7);
+
+  unlockShow("content2_25_treasureAugment_1", true);
+
+  var exp13 = IU.expeditions.exp13.level > 0;
+  if (exp13) {
+    unlockShow("content2_25_treasureAugment_2", true);
+  } else {
+    unlockShow("content2_25_treasureAugment_2", false);
+    updateCached("content2_25_treasureAugment_2", '<div class="boldBlackBorder centerDiv">Defeat Magma Elemental to unlock</div>');
+  }
+
+  loopShowCache.initialized = true;
+}
+
+// Reset cache quando necessario
+function resetLoopShowCache() {
+  loopShowCache.lastStates = {};
+  loopShowCache.lastContent = {};
 }
 
 var lineCache = new Map();
 
-// Crea la linea se non esiste
 function initLine(id, divAId, divBId, svg, color = "#ff1313ff", width = 6) {
   if (lineCache.has(id)) return;
+
   var line = document.createElementNS("http://www.w3.org/2000/svg", "line");
   line.setAttribute("stroke", color);
   line.setAttribute("stroke-width", width);
   line.setAttribute("pointer-events", "none");
+
   svg.appendChild(line);
-  lineCache.set(id, { line, divAId, divBId });
+
+  lineCache.set(id, {
+    line,
+    divAId,
+    divBId,
+    visible: false
+  });
 }
 
-// Aggiorna la posizione della linea
 function updateLine(id, rects) {
   var entry = lineCache.get(id);
   if (!entry) return;
@@ -30084,24 +31560,20 @@ function updateLine(id, rects) {
   var x2 = rectB.left + rectB.width / 2;
   var y2 = rectB.top + rectB.height / 2;
 
-  entry.line.setAttribute("x1", x1);
-  entry.line.setAttribute("y1", y1);
-  entry.line.setAttribute("x2", x2);
-  entry.line.setAttribute("y2", y2);
+  var line = entry.line;
+  line.setAttribute("x1", x1);
+  line.setAttribute("y1", y1);
+  line.setAttribute("x2", x2);
+  line.setAttribute("y2", y2);
 }
 
-// Cache per visibilità e posizioni
 var nodeVisibilityCache = {};
-var previousRects = {};
 
-// Controlla visibilità
 function isNodeVisible(id) {
-  if (nodeVisibilityCache[id] !== undefined) {
+  var cached = nodeVisibilityCache[id];
+  if (cached !== undefined) {
     var visible = checkShow(id);
-
-    if (nodeVisibilityCache[id] == visible) {
-      return nodeVisibilityCache[id];
-    }
+    if (cached === visible) return cached;
   }
 
   var visible = checkShow(id);
@@ -30109,67 +31581,208 @@ function isNodeVisible(id) {
   return visible;
 }
 
-// Resetta la cache della visibilità
 function resetNodeVisibility(id) {
   nodeVisibilityCache[id] = undefined;
 }
 
-// Funzione generica per disegnare linee
+// Cache globale per ogni istanza di drawLines (per svgId)
+var drawLinesCache = {};
+
+function getDrawLinesCache(svgId) {
+  if (!drawLinesCache[svgId]) {
+    drawLinesCache[svgId] = {
+      lastVisibilitySignature: "",
+      lastLayoutSignature: "",
+      cachedScrollLeft: 0,
+      cachedScrollTop: 0,
+      cachedRects: {},
+      linesInitialized: false,
+      cachedParentRect: null,
+      cachedScale: { x: 1, y: 1 },
+      lastParentCheck: 0,
+      scrollListenerAttached: false,
+      scrollDirty: false,
+      layoutDirty: false,
+      resizeObserver: null
+    };
+  }
+  return drawLinesCache[svgId];
+}
+
+var PARENT_CHECK_INTERVAL = 200;
+
 function drawLines(svgId, nodePrefix, connections, defaultColor) {
-  const svg = document.getElementById(svgId);
+  var svg = document.getElementById(svgId);
   if (!svg) return;
+  var parent = svg.parentElement;
+  
+  // Ottieni cache specifica per questo svgId
+  var cache = getDrawLinesCache(svgId);
 
-  const parent = svg.parentElement;
-  const parentRect = parent.getBoundingClientRect();
-  const scrollLeft = parent.scrollLeft || 0;
-  const scrollTop = parent.scrollTop || 0;
+  // Setup scroll listener (una volta per svgId)
+  if (!cache.scrollListenerAttached) {
+    parent.addEventListener('scroll', function() {
+      cache.scrollDirty = true;
+    }, { passive: true });
+    cache.scrollListenerAttached = true;
+    
+    // Setup ResizeObserver per parent
+    cache.resizeObserver = new ResizeObserver(function() {
+      cache.layoutDirty = true;
+    });
+    cache.resizeObserver.observe(parent);
+  }
 
-  const style = window.getComputedStyle(parent);
-  let scaleX = 1, scaleY = 1;
-  if (style.transform && style.transform !== 'none') {
-    const match = style.transform.match(/matrix\(([^)]+)\)/);
-    if (match) {
-      const [m11, , , m22] = match[1].split(',').map(Number);
-      scaleX = m11;
-      scaleY = m22;
+  /* =========================
+     1️⃣ VISIBILITY SIGNATURE (ottimizzata)
+  ========================= */
+  var visibilitySignature = "";
+  var visibleNodes = [];
+  var len = connections.length;
+  
+  for (var i = 0; i < len; i++) {
+    var conn = connections[i];
+    var a = conn[1];
+    var b = conn[2];
+    var aVisible = checkShow(a);
+    var bVisible = checkShow(b);
+    
+    visibilitySignature += aVisible ? "1" : "0";
+    visibilitySignature += bVisible ? "1" : "0";
+    
+    if (aVisible) visibleNodes.push(a);
+    if (bVisible) visibleNodes.push(b);
+  }
+
+  /* =========================
+     2️⃣ EARLY EXIT VELOCISSIMO
+  ========================= */
+  var visibilityChanged = visibilitySignature !== cache.lastVisibilitySignature;
+  
+  if (cache.linesInitialized && !visibilityChanged && !cache.layoutDirty && !cache.scrollDirty) {
+    return; // 🚀 Exit con 3 confronti boolean
+  }
+
+  /* =========================
+     3️⃣ PARENT RECT (solo se serve)
+  ========================= */
+  var now = Date.now();
+  var shouldRecalcParent = cache.layoutDirty || !cache.cachedParentRect || (now - cache.lastParentCheck) > PARENT_CHECK_INTERVAL;
+
+  if (shouldRecalcParent) {
+    cache.cachedParentRect = parent.getBoundingClientRect();
+    cache.lastParentCheck = now;
+    cache.layoutDirty = false;
+    
+    var style = window.getComputedStyle(parent);
+    var transform = style.transform;
+    if (transform && transform !== 'none') {
+      var match = transform.match(/matrix\(([^)]+)\)/);
+      if (match) {
+        var values = match[1].split(',');
+        cache.cachedScale.x = +values[0];
+        cache.cachedScale.y = +values[3];
+      }
+    } else {
+      cache.cachedScale.x = 1;
+      cache.cachedScale.y = 1;
     }
   }
 
-  // Otteniamo tutti i nodi
-  const allNodes = document.querySelectorAll(`[id^="${nodePrefix}"]`);
+  var parentRect = cache.cachedParentRect;
+  var scaleX = cache.cachedScale.x;
+  var scaleY = cache.cachedScale.y;
+  var layoutSignature = parentRect.width + "," + parentRect.height + "," + scaleX + "," + scaleY;
+  var layoutChanged = layoutSignature !== cache.lastLayoutSignature;
 
-  const rects = {};
+  // Scroll update
+  if (cache.scrollDirty) {
+    cache.cachedScrollLeft = parent.scrollLeft;
+    cache.cachedScrollTop = parent.scrollTop;
+    cache.scrollDirty = false;
+  }
 
-  allNodes.forEach(el => {
-    if (isNodeVisible(el.id)) {
-      const r = el.getBoundingClientRect();
-      const rect = {
-        top: (r.top - parentRect.top + scrollTop) / scaleY,
-        left: (r.left - parentRect.left + scrollLeft) / scaleX,
-        width: r.width / scaleX,
-        height: r.height / scaleY
-      };
-      const prev = previousRects[el.id];
-      if (!prev || prev.top !== rect.top || prev.left !== rect.left ||
-        prev.width !== rect.width || prev.height !== rect.height) {
-        previousRects[el.id] = rect;
-      }
-      rects[el.id] = rect;
-    } else {
-      rects[el.id] = null;
+  cache.lastVisibilitySignature = visibilitySignature;
+  cache.lastLayoutSignature = layoutSignature;
+
+  /* =========================
+     4️⃣ CALCOLO RECT (ottimizzato)
+  ========================= */
+  var rects = {};
+  var parentTop = parentRect.top;
+  var parentLeft = parentRect.left;
+  var scrollTop = cache.cachedScrollTop;
+  var scrollLeft = cache.cachedScrollLeft;
+  
+  // Elimina duplicati da visibleNodes
+  var uniqueNodes = {};
+  for (var i = 0; i < visibleNodes.length; i++) {
+    uniqueNodes[visibleNodes[i]] = true;
+  }
+
+  for (var nodeId in uniqueNodes) {
+    var el = document.getElementById(nodeId);
+    if (!el) {
+      rects[nodeId] = null;
+      continue;
     }
-  });
 
-  Object.assign(svg.style, { position: 'absolute', top: '0', left: '0' });
+    // Usa cache se possibile
+    if (!layoutChanged && cache.cachedRects[nodeId]) {
+      rects[nodeId] = cache.cachedRects[nodeId];
+      continue;
+    }
+
+    // Ricalcola
+    var r = el.getBoundingClientRect();
+    var rect = {
+      top: (r.top - parentTop + scrollTop) / scaleY,
+      left: (r.left - parentLeft + scrollLeft) / scaleX,
+      width: r.width / scaleX,
+      height: r.height / scaleY
+    };
+    
+    rects[nodeId] = rect;
+    cache.cachedRects[nodeId] = rect;
+  }
+
+  // Invalida cache nodi invisibili (solo se visibilità cambiata)
+  if (visibilityChanged) {
+    for (var id in cache.cachedRects) {
+      if (!uniqueNodes[id]) {
+        cache.cachedRects[id] = null;
+      }
+    }
+  }
+
+  /* =========================
+     5️⃣ SVG SETUP (minimizzato)
+  ========================= */
+  if (!cache.linesInitialized) {
+    svg.style.position = 'absolute';
+    svg.style.top = '0';
+    svg.style.left = '0';
+  }
   svg.setAttribute("width", parent.scrollWidth);
   svg.setAttribute("height", parent.scrollHeight);
 
-  connections.forEach(([id, a, b, color]) => {
-    if (rects[a] && rects[b]) {
-      initLine(id, a, b, svg, color || defaultColor);
-      updateLine(id, rects);
-    }
-  });
+  /* =========================
+     6️⃣ UPDATE LINEE (ottimizzato)
+  ========================= */
+  for (var i = 0; i < len; i++) {
+    var conn = connections[i];
+    var id = conn[0];
+    var a = conn[1];
+    var b = conn[2];
+    var color = conn[3];
+    
+    if (!rects[a] || !rects[b]) continue;
+    
+    initLine(id, a, b, svg, color || defaultColor);
+    updateLine(id, rects);
+  }
+
+  cache.linesInitialized = true;
 }
 
 // Funzioni specifiche per ogni elemento
@@ -30243,7 +31856,6 @@ function fireLines() {
   drawLines("content2_17_lineLayer", "content2_17_node", connections, "#ff1313ff");
 }
 
-// Analogamente per acqua, terra, vento
 function waterLines() {
   var connections = [
     ["waterLine1", "content2_19_node1", "content2_19_node2"],
@@ -30295,7 +31907,6 @@ function waterLines() {
   drawLines("content2_19_lineLayer", "content2_19_node", connections, "#1313ffff");
 }
 
-// Stessa logica per earthLines e windLines
 function earthLines() {
   var connections = [
     ["earthLine1", "content2_21_node1", "content2_21_node2"],
@@ -30328,7 +31939,7 @@ function windLines() {
     ["windLine11", "content2_23_node8", "content2_23_node11"],
     ["windLine12", "content2_23_node11", "content2_23_node12"],
     ["windLine13", "content2_23_node10", "content2_23_node13"],
-    ["windLine14", "content2_23_node13", "content2_23_node14"],
+    ["windLine14", "content2_23_node13", "content2_23_node14"]
   ];
   drawLines("content2_23_lineLayer", "content2_23_node", connections, "#07c4b4ff");
 }
@@ -30421,18 +32032,18 @@ async function visualLoopFunction() {
 
   if (checkShow("content2_4") || checkShow("content2_10")) {
     visualChallenger()
-    menuDirectionArrow("content2_4")
+    //menuDirectionArrow("content2_4")
   }
 
   if (checkShow("content2_6")) {
     visualHunting()
-    menuDirectionArrow("content2_6")
+    //menuDirectionArrow("content2_6")
   }
 
   if (checkShow("content2_11")) {
     visualAttributes()
 
-    menuDirectionArrow("content2_11_cont")
+    //menuDirectionArrow("content2_11_cont")
   }
 
   if (waiting == false) {
@@ -30442,7 +32053,7 @@ async function visualLoopFunction() {
 
   if (checkShow("content2_1")) {
     visualTraining()
-    menuDirectionArrow("content2_1")
+    //menuDirectionArrow("content2_1")
   }
 
   if (checkShow("content2_8")) {
@@ -30452,7 +32063,7 @@ async function visualLoopFunction() {
 
   if (checkShow("content2_7")) {
     visualEnergy()
-    menuDirectionArrow("content2_7")
+    //menuDirectionArrow("content2_7")
   }
 
   if (checkShow("options")) {
@@ -30462,55 +32073,54 @@ async function visualLoopFunction() {
   visualMenu()
 
   if (checkShow("content2_10")) {
-    menuDirectionArrow("content2_10")
+    //menuDirectionArrow("content2_10")
   }
 
   if (checkShow("fp3_content1_8")) {
     visualAutomation()
-    menuDirectionArrow("fp3_content1_8")
+    //menuDirectionArrow("fp3_content1_8")
   }
 
   if (checkShow("content2_17")) {
     visualTree()
     fireLines()
-    menuDirectionArrow("content2_17_scroll")
+    update("content2_17_svg1", svgFire(f(IUniversal.fire)))
+    //menuDirectionArrow("content2_17_scroll")
   }
 
   if (checkShow("content2_19")) {
     visualWaterTree()
     visualInventoryWater()
     waterLines()
-    menuDirectionArrow("content2_19_scroll")
+    //menuDirectionArrow("content2_19_scroll")
   }
 
   if (checkShow("content2_21")) {
     visualEarthTree()
     visualInventoryEarth()
     earthLines()
-    menuDirectionArrow("content2_21_scroll")
+    //menuDirectionArrow("content2_21_scroll")
   }
 
   if (checkShow("content2_23")) {
     visualWindTree()
     visualInventoryWind()
     windLines()
-    menuDirectionArrow("content2_23_scroll")
+    //menuDirectionArrow("content2_23_scroll")
   }
 
   if (checkShow("content2_25")) {
     visualMetalTree()
     visualInventoryMetal()
-    menuDirectionArrow("content2_25_scroll")
+    //menuDirectionArrow("content2_25_scroll")
   }
 
   if (checkShow("content2_21") || checkShow("content2_23") || checkShow("content2_25")) {
     visualTreasures()
   }
 
-  update("content2_17_svg1", svgFire(f(IUniversal.fire)))
   visualLore()
 
-  //visualProgress()
 
 }
 
@@ -30743,16 +32353,14 @@ var SaveGameLoop = window.setInterval(function () {
 }, 500);
 
 function mainGameLoop() {
+  fullSetter4()
   visualLoopFunction()
 
   if (freeTick) {
     document.getElementById("gameCurtain").style.display = "none"
-  }
-
-  if (!freeTick) {
+  } else {
     document.getElementById("gameCurtain").style.display = ""
   }
-
 
   requestAnimationFrame(mainGameLoop)
 }
@@ -30761,7 +32369,7 @@ function mainGameLoop() {
 var noSincLoop = window.setInterval(function () {
 
   idleTimeChecker()
-  fullSetter()
+  fullSetter1()
   svgLoad();      // aggiorna il menu
 
   if (freeTick) {
@@ -30773,6 +32381,10 @@ var noSincLoop = window.setInterval(function () {
   IGameData.universeTime = f(IGameData.universeTime).add(0.050)
 
 }, 50)
+
+var noSincLoop3 = window.setInterval(function () {
+  fullSetter3()
+}, 500)
 
 
 function idleTimeChecker() {
@@ -31479,6 +33091,20 @@ function potionEquipmentStatic() {
   }
 }
 
+function potionSetterInit() {
+  for (let x in IUniversal.inventoryStorage) {
+
+    var equipStatus = returnPotionEquipStatus(x)
+
+    sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${sel.level}/${sel2.maxLevel}</div>
+                      <div class="topRight absolute padding2 grey">T${sel.merges}</div>
+                      ${equipStatus}
+                    </div>`;
+
+  }
+}
+
 function potionSetter() {
   for (let x in IUniversal.inventoryStorage) {
 
@@ -31501,11 +33127,7 @@ function potionSetter() {
 
     var sel2 = IUniversalIn.inventoryStorage[x];
 
-
-
     sel2.maxLevel = f(10).add(f(sel.merges).mul(f(5)))
-
-    var selName = selIn.name;
 
     //price
     if (sel2) {
@@ -32647,34 +34269,53 @@ function automation() {
   }
 }
 
+var arrowCache = null;
+var dimensionsCache = {};
+var lastDimensionsCheck = 0;
+var DIMENSIONS_CACHE_TIME = 250; // Cache per 250ms
+
 function menuDirectionArrow(page) {
-
-  var element = document.getElementById(page)
-
-  if (element.scrollHeight > element.clientHeight) {
-
-    var margin = f(element.clientHeight).minus(f(element.scrollTop))
-    var totalPage = f(element.scrollHeight).minus(f(element.clientHeight))
-
-    unlockShow("mainMenuDirectionArrow1", false)
-
-    //clientHeight - scrollTop = clientHeight
-    if ((f(element.clientHeight).minus(f(element.scrollTop))).equals(f(element.clientHeight))) {
-      unlockShow("mainMenuDirectionArrow1", true)
-      document.getElementById("mainMenuDirectionArrow1").style.transform = 'rotate(0deg)';
-    }
-
-    //scrollTop != 0 && scrollTop != totalPage - 1
-    if (!(f(element.scrollTop).equals(f(0))) && !(f(element.scrollTop).equals(f(totalPage)))) {
-      unlockShow("mainMenuDirectionArrow1", true)
-      document.getElementById("mainMenuDirectionArrow1").style.transform = 'rotate(0deg)';
-    }
-
-    //scrollTop = totalPage - 1
-    if (f(element.scrollTop).equals(f(totalPage))) {
-      unlockShow("mainMenuDirectionArrow1", true)
-      document.getElementById("mainMenuDirectionArrow1").style.transform = 'rotate(180deg)';
-    }
+  var element = document.getElementById(page);
+  var now = Date.now();
+  
+  // Usa cache per scrollHeight/clientHeight (costosi!)
+  var cached = dimensionsCache[page];
+  if (!cached || (now - lastDimensionsCheck) > DIMENSIONS_CACHE_TIME) {
+    cached = {
+      scrollHeight: element.scrollHeight,
+      clientHeight: element.clientHeight
+    };
+    dimensionsCache[page] = cached;
+    lastDimensionsCheck = now;
+  }
+  
+  var scrollHeight = cached.scrollHeight;
+  var clientHeight = cached.clientHeight;
+  
+  // Early exit se non c'è scroll
+  if (scrollHeight <= clientHeight) return;
+  
+  var scrollTop = element.scrollTop;
+  var totalPage = scrollHeight - clientHeight;
+  
+  // Cache dell'elemento arrow
+  if (!arrowCache) {
+    arrowCache = document.getElementById("mainMenuDirectionArrow1");
+  }
+  
+  // Determina stato in un solo blocco
+  var isAtTop = scrollTop === 0;
+  var isAtBottom = scrollTop >= totalPage - 1;
+  
+  if (isAtTop) {
+    unlockShow("mainMenuDirectionArrow1", true);
+    arrowCache.style.transform = 'rotate(0deg)';
+  } else if (isAtBottom) {
+    unlockShow("mainMenuDirectionArrow1", true);
+    arrowCache.style.transform = 'rotate(180deg)';
+  } else {
+    unlockShow("mainMenuDirectionArrow1", true);
+    arrowCache.style.transform = 'rotate(0deg)';
   }
 }
 
@@ -32803,60 +34444,28 @@ function enableDragScroll(containerId, enabled = true) {
 }
 
 function getTreasureActive(key) {
+  const treasureIn = IUniversalIn.treasures[key];
+  if (!treasureIn) return false;
 
-  var treasure = IUniversal.treasures[key]
-  var treasureIn = IUniversalIn.treasures[key]
+  const groups = [
+    [IUniversal.treasureFormation, IUniversalIn.treasureFormation],
+    [IUniversal.treasureArmy, IUniversalIn.treasureArmy],
+    [IUniversal.treasureEquipment, IUniversalIn.treasureEquipment],
+    [IUniversal.treasureAugments, IUniversalIn.treasureAugments]
+  ];
 
-  for (let x in IUniversal.treasureFormation) {
-    var sel = IUniversal.treasureFormation[x]
-    var selIn = IUniversalIn.treasureFormation[x]
+  for (const [group, groupIn] of groups) {
+    for (const x in group) {
+      const sel = group[x];
+      const selIn = groupIn[x];
 
-    if (treasureIn.type == selIn.type) {
-      if (sel.key == key) {
-        return true
-      } else {
-        return false
+      if (selIn?.type === treasureIn.type) {
+        return sel.key === key;
       }
     }
   }
 
-  for (let x in IUniversal.treasureArmy) {
-    var sel = IUniversal.treasureArmy[x]
-    var selIn = IUniversalIn.treasureArmy[x]
-
-    if (treasureIn.type == selIn.type) {
-      if (sel.key == key) {
-        return true
-      } else {
-        return false
-      }
-    }
-  }
-
-  for (let x in IUniversal.treasureEquipment) {
-    var sel = IUniversal.treasureEquipment[x]
-    var selIn = IUniversalIn.treasureEquipment[x]
-
-    if (treasureIn.type == selIn.type) {
-      if (sel.key == key) {
-        return true
-      } else {
-        return false
-      }
-    }
-  }
-
-  for (let x in IUniversal.treasureAugments) {
-    var sel = IUniversal.treasureAugments[x]
-    var selIn = IUniversalIn.treasureAugments[x]
-
-    if (treasureIn.type == selIn.type) {
-      if (sel.key == key) {
-        return true
-      }
-    }
-  }
-  return false
+  return false;
 }
 
 function toClock(seconds) {
@@ -32905,3 +34514,12 @@ function claimAllTreasures() {
   update("content2_23_treasureClaim_d1", `<div class="height20 width100 row overflowX flex zHigh">${text}</div>`)
   changePage("expedition", "content2_23_treasureClaim")
 }
+
+
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    valuesSetterCycle();
+  });
+});
