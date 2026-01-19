@@ -12767,6 +12767,8 @@ function valuesSetterCycle(type) {
                                                           <div>Ambrosia Max <span class="boldBlackBorder">×${format(IUniversalIn.potionSource.item6.value2, 2)}</span></div>
                                                        </div>`
 
+  potionSetterInit()
+
   //EARTH TREE
 
 
@@ -17227,7 +17229,7 @@ function valuesSetter(type) {
     tempEffect = f(1)
   }
 
-  
+
   var extraLevel1 = f(IUniversalIn.fireTree.node22.effect)
 
   sel.level = f(sel.level)
@@ -18180,7 +18182,6 @@ function valuesSetter(type) {
   if (sel.active) { sel.unlocked = true }
 
   //WATER TREE
-
 
   //NODE 1
   var sel = IUniversal.waterTree.node1
@@ -26902,11 +26903,11 @@ function visualMenu() {
     var sel = IUniversal.energyUpgrades
     var tot4 = f(sel.upgrade16.level).add(sel.upgrade17.level).add(sel.upgrade18.level).add(sel.upgrade19.level).add(sel.upgrade20.level)
 
-    
-  if(checkShow("fp2_content2")){
-    updateAllSpheres(tot1, tot2, tot3, tot4);
-  }
-    
+
+    if (checkShow("fp2_content2")) {
+      updateAllSpheres(tot1, tot2, tot3, tot4);
+    }
+
     //energy
     /*
     spheres('content2_7_grid_svg1', tot1, 100, 40, "#ff0040", 0, -20, 1 / 2, true, true, null);
@@ -27627,7 +27628,7 @@ function visualTree() {
   var IU = IUniversal;
   var IUI = IUniversalIn;
   var cache = visualTreeCache;
-  
+
   // === VALUTES (ottimizzato) ===
   var valutes = [
     ['content2_17_valutes_valute1', 'Fire', IU.fire, IU.fireProd],
@@ -27635,27 +27636,27 @@ function visualTree() {
     ['content2_17_valutes_valute3', 'Heat', IU.heat, IU.heatProd],
     ['content2_17_valutes_valute4', 'Fire Shards', IU.fireShards, IU.fireShardsProd]
   ];
-  
+
   for (var i = 0; i < valutes.length; i++) {
     var v = valutes[i];
     var id = v[0];
     var name = v[1];
     var value = v[2];
     var prod = v[3];
-    
+
     // Controlla visibilità solo se necessario
     if (value > 0 || checkShow(id)) {
       unlockShow(id, true);
-      
+
       // Cache per evitare update inutili
       var cacheKey = id + '_val';
       var newValue = value + '_' + prod;
-      
+
       if (cache.lastValues[cacheKey] !== newValue) {
-        update(id, '<div class="noClick"><div class="noClick">' + name + 
-               '</div><div class="boldBlackBorder noClick">' + format(value) + 
-               '</div><div class="boldBlackBorder noClick">' + format(sec(prod)) + 
-               '/s</div></div>');
+        update(id, '<div class="noClick"><div class="noClick">' + name +
+          '</div><div class="boldBlackBorder noClick">' + format(value) +
+          '</div><div class="boldBlackBorder noClick">' + format(sec(prod)) +
+          '/s</div></div>');
         cache.lastValues[cacheKey] = newValue;
       }
     }
@@ -27667,7 +27668,7 @@ function visualTree() {
     sizeEl = document.getElementById("content2_17_size");
     cache.elements.size = sizeEl;
   }
-  
+
   if (sizeEl && cache.lastValues.size !== IU.fireTreeSize) {
     sizeEl.style.transform = 'scale(' + IU.fireTreeSize + ')';
     cache.lastValues.size = IU.fireTreeSize;
@@ -27685,7 +27686,7 @@ function visualTree() {
     var sel = IU.fireTree[x];
     var sel2 = IUI.fireTree[x];
     var baseId = 'content2_17_' + x;
-    
+
     // Content
     var contentId = baseId + '_content';
     var contentEl = cache.elements[contentId];
@@ -27693,7 +27694,7 @@ function visualTree() {
       contentEl = document.getElementById(contentId);
       if (contentEl) cache.elements[contentId] = contentEl;
     }
-    
+
     if (contentEl && cache.lastValues[contentId] !== sel2.content) {
       update(contentId, sel2.content);
       cache.lastValues[contentId] = sel2.content;
@@ -27706,7 +27707,7 @@ function visualTree() {
       buttonEl = document.getElementById(buttonId);
       if (buttonEl) cache.elements[buttonId] = buttonEl;
     }
-    
+
     if (buttonEl) {
       if (cache.lastValues[buttonId] !== sel2.button) {
         update(buttonId, sel2.button);
@@ -27722,7 +27723,7 @@ function visualTree() {
       } else {
         color = '#660000';
       }
-      
+
       if (cache.lastStates[buttonId] !== color) {
         buttonEl.style.backgroundColor = color;
         cache.lastStates[buttonId] = color;
@@ -27736,7 +27737,7 @@ function visualTree() {
       button2El = document.getElementById(button2Id);
       if (button2El) cache.elements[button2Id] = button2El;
     }
-    
+
     if (button2El) {
       if (cache.lastValues[button2Id] !== sel2.button2) {
         update(button2Id, sel2.button2);
@@ -27756,33 +27757,33 @@ function visualTree() {
     var sel = IU.fireMilestones[x];
     var sel2 = IUI.fireMilestones[x];
     var id = 'content1_17_node29_' + x;
-    
+
     var el = cache.elements[id];
     if (!el) {
       el = document.getElementById(id);
       if (el) cache.elements[id] = el;
     }
-    
+
     if (el) {
       unlockShow(id, true);
-      
+
       var checked = sel2.mCheck();
       var color = checked ? '#004526' : '#660000';
       var content = '<div>' + sel2.mReqDesc + '</div><div>' + sel2.mDesc + '</div>';
-      
+
       var stateKey = id + '_state';
       if (cache.lastStates[stateKey] !== color) {
         el.style.backgroundColor = color;
         cache.lastStates[stateKey] = color;
       }
-      
+
       if (cache.lastValues[id] !== content) {
         update(id, content);
         cache.lastValues[id] = content;
       }
     }
   }
-  
+
   cache.initialized = true;
 }
 
@@ -27811,7 +27812,7 @@ function visualWaterTree() {
     sizeEl = document.getElementById("content2_19_size");
     cache.elements.size = sizeEl;
   }
-  
+
   if (sizeEl && cache.lastValues.size !== IU.WaterTreeSize) {
     sizeEl.style.transform = 'scale(' + IU.WaterTreeSize + ')';
     cache.lastValues.size = IU.WaterTreeSize;
@@ -27827,7 +27828,7 @@ function visualWaterTree() {
     ['content2_19_valutes_valute6', 'Water Gem', IU.waterGem, IU.waterGemMax, IU.waterGemProd],
     ['content2_19_valutes_valute7', 'Pyrofrost', IU.pyroFrost, IU.pyroFrostMax, IU.pyroFrostProd]
   ];
-  
+
   for (var i = 0; i < valutes.length; i++) {
     var v = valutes[i];
     var id = v[0];
@@ -27835,19 +27836,19 @@ function visualWaterTree() {
     var value = v[2];
     var max = v[3];
     var prod = v[4];
-    
+
     if (value > 0 || checkShow(id)) {
       unlockShow(id, true);
-      
+
       var cacheKey = id + '_val';
       var newValue = value + '_' + max + '_' + prod;
-      
+
       if (cache.lastValues[cacheKey] !== newValue) {
-        update(id, '<div class="noClick"><div class="noClick">' + name + 
-               '</div><div class="boldBlackBorder noClick fontSize09">' + 
-               format(value, 0) + '/' + format(max, 0) + 
-               '</div><div class="boldBlackBorder noClick">' + 
-               format(sec(prod)) + '/s</div></div>');
+        update(id, '<div class="noClick"><div class="noClick">' + name +
+          '</div><div class="boldBlackBorder noClick fontSize09">' +
+          format(value, 0) + '/' + format(max, 0) +
+          '</div><div class="boldBlackBorder noClick">' +
+          format(sec(prod)) + '/s</div></div>');
         cache.lastValues[cacheKey] = newValue;
       }
     }
@@ -27859,7 +27860,7 @@ function visualWaterTree() {
     ['content2_19_circle2_fill', IU.elisir, IU.elisirMax, '#bd2effff', '#4b146bff'],
     ['content2_19_circle3_fill', IU.ambrosia, IU.ambrosiaMax, '#ffce2eff', '#6b5414ff']
   ];
-  
+
   for (var i = 0; i < pools.length; i++) {
     var p = pools[i];
     var id = p[0];
@@ -27867,20 +27868,20 @@ function visualWaterTree() {
     var max = p[2];
     var color1 = p[3];
     var color2 = p[4];
-    
+
     var el = cache.elements[id];
     if (!el) {
       el = document.getElementById(id);
       cache.elements[id] = el;
     }
-    
+
     if (el) {
       var fill = Math.min(100, (value / max) * 100);
       var fillKey = id + '_fill';
-      
+
       if (cache.lastValues[fillKey] !== fill) {
-        var gradient = 'linear-gradient(to top, ' + color1 + ' ' + fill + 
-                      '%, ' + color2 + ' ' + (fill - 10) + '%)';
+        var gradient = 'linear-gradient(to top, ' + color1 + ' ' + fill +
+          '%, ' + color2 + ' ' + (fill - 10) + '%)';
         el.style.background = gradient;
         cache.lastValues[fillKey] = fill;
       }
@@ -27899,7 +27900,7 @@ function visualWaterTree() {
     var sel = IU.waterTree[x];
     var sel2 = IUI.waterTree[x];
     var baseId = 'content2_19_' + x;
-    
+
     // Content
     var contentId = baseId + '_content';
     var contentEl = cache.elements[contentId];
@@ -27907,7 +27908,7 @@ function visualWaterTree() {
       contentEl = document.getElementById(contentId);
       if (contentEl) cache.elements[contentId] = contentEl;
     }
-    
+
     if (contentEl && cache.lastValues[contentId] !== sel2.content) {
       update(contentId, sel2.content);
       cache.lastValues[contentId] = sel2.content;
@@ -27920,7 +27921,7 @@ function visualWaterTree() {
       buttonEl = document.getElementById(buttonId);
       if (buttonEl) cache.elements[buttonId] = buttonEl;
     }
-    
+
     if (buttonEl) {
       if (cache.lastValues[buttonId] !== sel2.button) {
         update(buttonId, sel2.button);
@@ -27935,7 +27936,7 @@ function visualWaterTree() {
       } else {
         color = '#660000';
       }
-      
+
       if (cache.lastStates[buttonId] !== color) {
         buttonEl.style.backgroundColor = color;
         cache.lastStates[buttonId] = color;
@@ -27949,7 +27950,7 @@ function visualWaterTree() {
       button2El = document.getElementById(button2Id);
       if (button2El) cache.elements[button2Id] = button2El;
     }
-    
+
     if (button2El) {
       if (cache.lastValues[button2Id] !== sel2.button2) {
         update(button2Id, sel2.button2);
@@ -27967,11 +27968,11 @@ function visualWaterTree() {
   // === POTION UPGRADE ===
   var potionUpgradeKey = IU.potionUpgrade.item1.key;
   var potionUpgradeVisual = '';
-  
+
   if (IUI.inventoryStorage[potionUpgradeKey]) {
     potionUpgradeVisual = IUI.inventoryStorage[potionUpgradeKey].content2;
   }
-  
+
   if (cache.lastValues.potionUpgrade !== potionUpgradeVisual) {
     IUI.potionUpgradeVisual1 = potionUpgradeVisual;
     cache.lastValues.potionUpgrade = potionUpgradeVisual;
@@ -27980,11 +27981,11 @@ function visualWaterTree() {
   // === POTION FUSION ===
   var fusionItem1Key = IU.potionFusion.item1.key;
   var fusionVisual1 = '';
-  
+
   if (IUI.inventoryStorage[fusionItem1Key]) {
     fusionVisual1 = IUI.inventoryStorage[fusionItem1Key].content2;
   }
-  
+
   if (cache.lastValues.fusionVisual1 !== fusionVisual1) {
     IUI.potionFusionVisual1 = fusionVisual1;
     cache.lastValues.fusionVisual1 = fusionVisual1;
@@ -27995,11 +27996,11 @@ function visualWaterTree() {
   if (cache.lastValues.fusionCacheKey !== fusionCacheKey) {
     var fusionResult = potionFusion();
     var fusionVisual2 = '';
-    
+
     if (fusionResult.newPotion && fusionResult.newPotionIn) {
       fusionVisual2 = potionVisual(fusionResult.newPotion, fusionResult.newPotionIn);
     }
-    
+
     IUI.potionFusionVisual2 = fusionVisual2;
     cache.lastValues.fusionCacheKey = fusionCacheKey;
     cache.lastValues.fusionVisual2 = fusionVisual2;
@@ -28007,11 +28008,11 @@ function visualWaterTree() {
 
   var fusionItem2Key = IU.potionFusion.item2.key;
   var fusionVisual3 = '';
-  
+
   if (IUI.inventoryStorage[fusionItem2Key]) {
     fusionVisual3 = IUI.inventoryStorage[fusionItem2Key].content2;
   }
-  
+
   if (cache.lastValues.fusionVisual3 !== fusionVisual3) {
     IUI.potionFusionVisual3 = fusionVisual3;
     cache.lastValues.fusionVisual3 = fusionVisual3;
@@ -30921,13 +30922,13 @@ function loopShow() {
   var IFI = IFightIn;
   var IUC = IUniversalChallenger;
   var ITI = ITrainingIn;
-  
+
   // === LOOP PRINCIPALE SHOWABLE ===
   for (var a in showable) {
     var value = showable[a];
     var el = getCachedElement(a);
     if (!el) continue;
-    
+
     var newDisplay = value ? "" : "none";
     if (loopShowCache.lastStates[a] !== newDisplay) {
       el.style.display = newDisplay;
@@ -30981,7 +30982,7 @@ function loopShow() {
     setStyleCached("fp2_content2_4_image", "opacity", "1");
     setStyleCached("fp2_content2_4", "pointerEvents", "auto");
     updateCached("fp2_content2_4", "Challenger");
-    
+
     unlockShow("fp2_content2_13_container", true);
     setStyleCached("fp2_content2_13_image", "opacity", "1");
     setStyleCached("fp2_content2_13", "pointerEvents", "auto");
@@ -30990,7 +30991,7 @@ function loopShow() {
     setStyleCached("fp2_content2_4_image", "opacity", "0.5");
     setStyleCached("fp2_content2_4", "pointerEvents", "none");
     updateCached("fp2_content2_4", "Reach 10 Life");
-    
+
     unlockShow("fp2_content2_13_container", true);
     setStyleCached("fp2_content2_13_image", "opacity", "0.5");
     setStyleCached("fp2_content2_13", "pointerEvents", "none");
@@ -31002,7 +31003,7 @@ function loopShow() {
     setStyleCached("fp2_content2_6_image", "opacity", "1");
     setStyleCached("fp2_content2_6", "pointerEvents", "auto");
     updateCached("fp2_content2_6", "Hunting");
-    
+
     unlockShow("fp2_content2_14_container", true);
     setStyleCached("fp2_content2_14_image", "opacity", "1");
     setStyleCached("fp2_content2_14", "pointerEvents", "auto");
@@ -31011,7 +31012,7 @@ function loopShow() {
     setStyleCached("fp2_content2_6_image", "opacity", "0.5");
     setStyleCached("fp2_content2_6", "pointerEvents", "none");
     updateCached("fp2_content2_6", "Defeat Challenger 3");
-    
+
     unlockShow("fp2_content2_14_container", true);
     setStyleCached("fp2_content2_14_image", "opacity", "0.5");
     setStyleCached("fp2_content2_14", "pointerEvents", "none");
@@ -31026,7 +31027,7 @@ function loopShow() {
     setStyleCached("fp2_content2_8_image", "opacity", "1");
     setStyleCached("fp2_content2_8", "pointerEvents", "auto");
     updateCached("fp2_content2_8", "Ascension");
-    
+
     unlockShow("fp2_content2_15_container", true);
     setStyleCached("fp2_content2_15_image", "opacity", "1");
     setStyleCached("fp2_content2_15", "pointerEvents", "auto");
@@ -31035,7 +31036,7 @@ function loopShow() {
     setStyleCached("fp2_content2_8_image", "opacity", "0.5");
     setStyleCached("fp2_content2_8", "pointerEvents", "none");
     updateCached("fp2_content2_8", "Defeat Challenger 10");
-    
+
     unlockShow("fp2_content2_15_container", true);
     setStyleCached("fp2_content2_15_image", "opacity", "0.5");
     setStyleCached("fp2_content2_15", "pointerEvents", "none");
@@ -31079,17 +31080,17 @@ function loopShow() {
         setStyleCached("fp2_content3_pageSel", "pointerEvents", "none");
         updateCached("fp2_content3_pageSel", "Reach Universe 40");
       }
-      
+
       unlockShow("fp2_content2_10_container", true);
       setStyleCached("fp2_content2_10_image", "opacity", "1");
       setStyleCached("fp2_content2_10", "pointerEvents", "auto");
       updateCached("fp2_content2_10", "Universal Challenger");
-      
+
       unlockShow("fp2_content2_11_container", true);
       setStyleCached("fp2_content2_11_image", "opacity", "1");
       setStyleCached("fp2_content2_11", "pointerEvents", "auto");
       updateCached("fp2_content2_11", "Attributes");
-      
+
       unlockShow("fp2_content1_8", true);
       unlockShow("fp2_content2_16_container", true);
       setStyleCached("fp2_content2_16_image", "opacity", "1");
@@ -31099,12 +31100,12 @@ function loopShow() {
       setStyleCached("fp2_content2_10_image", "opacity", "0.5");
       setStyleCached("fp2_content2_10", "pointerEvents", "none");
       updateCached("fp2_content2_10", "Reach Universe 5");
-      
+
       unlockShow("fp2_content2_11_container", true);
       setStyleCached("fp2_content2_11_image", "opacity", "0.5");
       setStyleCached("fp2_content2_11", "pointerEvents", "none");
       updateCached("fp2_content2_11", "Reach Universe 5");
-      
+
       unlockShow("fp2_content2_16_container", true);
       setStyleCached("fp2_content2_16_image", "opacity", "0.5");
       setStyleCached("fp2_content2_16", "pointerEvents", "none");
@@ -31122,7 +31123,7 @@ function loopShow() {
   unlockShow("fp2_content2_18_container", true);
 
   var fm6 = IUI.fireMilestones.m6.mCheck();
-  
+
   // Water
   if (fm6) {
     setStyleCached("fp2_content2_19_image", "opacity", "1");
@@ -31347,14 +31348,14 @@ function loopShow() {
     var node = "node" + i;
     if (IUI.waterTree[node].req() || IU.waterTree[node].unlocked) {
       unlockShow("content2_19_" + node, true);
-      
+
       // Special circles
       if (i === 2) unlockShow("content2_19_circle1", true);
       if (i === 25) unlockShow("content2_19_circle2", true);
       if (i === 29) unlockShow("content2_19_circle3", true);
     } else {
       unlockShow("content2_19_" + node, false);
-      
+
       if (i === 2) unlockShow("content2_19_circle1", false);
       if (i === 25) unlockShow("content2_19_circle2", false);
       if (i === 29) unlockShow("content2_19_circle3", false);
@@ -31478,7 +31479,7 @@ function loopShow() {
     var node = "node" + i;
     if (IUI.windTree[node].req() || IU.windTree[node].unlocked) {
       unlockShow("content2_23_" + node, true);
-      
+
       // Special spires
       if (i === 1) {
         unlockShow("content2_23_spire1", true);
@@ -31490,7 +31491,7 @@ function loopShow() {
       }
     } else {
       unlockShow("content2_23_" + node, false);
-      
+
       if (i === 1) {
         unlockShow("content2_23_spire1", false);
         unlockShow("content2_23_spire1Image", false);
@@ -31615,19 +31616,19 @@ function drawLines(svgId, nodePrefix, connections, defaultColor) {
   var svg = document.getElementById(svgId);
   if (!svg) return;
   var parent = svg.parentElement;
-  
+
   // Ottieni cache specifica per questo svgId
   var cache = getDrawLinesCache(svgId);
 
   // Setup scroll listener (una volta per svgId)
   if (!cache.scrollListenerAttached) {
-    parent.addEventListener('scroll', function() {
+    parent.addEventListener('scroll', function () {
       cache.scrollDirty = true;
     }, { passive: true });
     cache.scrollListenerAttached = true;
-    
+
     // Setup ResizeObserver per parent
-    cache.resizeObserver = new ResizeObserver(function() {
+    cache.resizeObserver = new ResizeObserver(function () {
       cache.layoutDirty = true;
     });
     cache.resizeObserver.observe(parent);
@@ -31639,17 +31640,17 @@ function drawLines(svgId, nodePrefix, connections, defaultColor) {
   var visibilitySignature = "";
   var visibleNodes = [];
   var len = connections.length;
-  
+
   for (var i = 0; i < len; i++) {
     var conn = connections[i];
     var a = conn[1];
     var b = conn[2];
     var aVisible = checkShow(a);
     var bVisible = checkShow(b);
-    
+
     visibilitySignature += aVisible ? "1" : "0";
     visibilitySignature += bVisible ? "1" : "0";
-    
+
     if (aVisible) visibleNodes.push(a);
     if (bVisible) visibleNodes.push(b);
   }
@@ -31658,7 +31659,7 @@ function drawLines(svgId, nodePrefix, connections, defaultColor) {
      2️⃣ EARLY EXIT VELOCISSIMO
   ========================= */
   var visibilityChanged = visibilitySignature !== cache.lastVisibilitySignature;
-  
+
   if (cache.linesInitialized && !visibilityChanged && !cache.layoutDirty && !cache.scrollDirty) {
     return; // 🚀 Exit con 3 confronti boolean
   }
@@ -31673,7 +31674,7 @@ function drawLines(svgId, nodePrefix, connections, defaultColor) {
     cache.cachedParentRect = parent.getBoundingClientRect();
     cache.lastParentCheck = now;
     cache.layoutDirty = false;
-    
+
     var style = window.getComputedStyle(parent);
     var transform = style.transform;
     if (transform && transform !== 'none') {
@@ -31713,7 +31714,7 @@ function drawLines(svgId, nodePrefix, connections, defaultColor) {
   var parentLeft = parentRect.left;
   var scrollTop = cache.cachedScrollTop;
   var scrollLeft = cache.cachedScrollLeft;
-  
+
   // Elimina duplicati da visibleNodes
   var uniqueNodes = {};
   for (var i = 0; i < visibleNodes.length; i++) {
@@ -31741,7 +31742,7 @@ function drawLines(svgId, nodePrefix, connections, defaultColor) {
       width: r.width / scaleX,
       height: r.height / scaleY
     };
-    
+
     rects[nodeId] = rect;
     cache.cachedRects[nodeId] = rect;
   }
@@ -31775,9 +31776,9 @@ function drawLines(svgId, nodePrefix, connections, defaultColor) {
     var a = conn[1];
     var b = conn[2];
     var color = conn[3];
-    
+
     if (!rects[a] || !rects[b]) continue;
-    
+
     initLine(id, a, b, svg, color || defaultColor);
     updateLine(id, rects);
   }
@@ -33094,6 +33095,10 @@ function potionEquipmentStatic() {
 function potionSetterInit() {
   for (let x in IUniversal.inventoryStorage) {
 
+    var sel = IUniversal.inventoryStorage[x];
+    var sel2 = IUniversalIn.inventoryStorage[x];
+
+
     var equipStatus = returnPotionEquipStatus(x)
 
     sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
@@ -33101,6 +33106,85 @@ function potionSetterInit() {
                       <div class="topRight absolute padding2 grey">T${sel.merges}</div>
                       ${equipStatus}
                     </div>`;
+
+
+
+    //priceText
+    var priceText = "";
+
+    var priceText = "<div class='price-grid'>"; // Avvia la griglia
+
+    if (sel2) {
+      if (sel2.prices) {
+        for (let Obj in sel2.prices) {
+          var selPrice = sel2.prices[Obj];
+          if (sel.prices) {
+            var selPrice2 = sel.prices[Obj]
+          } else {
+            selPrice2 = selPrice
+          }
+
+
+          var priceValue = selPrice.priceFormula(selPrice2.tier, sel.level, sel.merges);
+          var priceIdentity = selPrice.priceIdentity;
+
+          var c = checkBuy(selPrice.priceIdentity, selPrice.priceFormula(selPrice2.tier, sel.level, sel.merges), selPrice.type) ? "green" : "red";
+
+          var priId = ""
+          if (priceIdentity == "erbs") { priId = "Erbs" }
+          if (priceIdentity == "fluidFire") { priId = "Fluid Fire" }
+          if (priceIdentity == "waterGem") { priId = "Water Gem" }
+          if (priceIdentity == "pyroFrost") { priId = "Pyrofrost" }
+
+          // Aggiungi ogni prezzo come un "item" nella griglia
+          if (f(priceValue).gt(f(0))) {
+            priceText += `<div class="${c} price-item roundedEdges"><span class="boldBlackBorder">${format(f(priceValue), 0)}</span> ${priId}</div>`;
+          }
+        }
+      }
+    }
+
+    var effectText = "";
+
+    //potion effects
+    for (let Obj in sel.effects) {
+      var sel4 = sel.effects[Obj]
+      var type = sel4.type;
+
+      let found = null;
+
+      for (let key in IUniversalIn.potionEffects) {
+        if (IUniversalIn.potionEffects[key].type == type) {
+          sel4.value = IUniversalIn.potionEffects[key].valueFormula(sel.level, sel4.level)
+          sel4.contentFormula = IUniversalIn.potionEffects[key].contentFormula
+
+          found = IUniversalIn.potionEffects[key];
+          break;
+        }
+      }
+
+      if (found) {
+        effectText += `<div>Tier ${sel4.level}/${sel4.maxLevel}</div>
+      <div>${sel4.contentFormula()}</div>`;
+      }
+    }
+
+    sel2.content2 = `
+  <div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center">${sel2.name}</div>
+      <div class=" left absolute padding2 grey centerTop">${sel.level}/${sel2.maxLevel}</div>
+      <div class=" right absolute padding2 grey centerTop">T${sel.merges}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url('${sel2.image}');">
+      </div>
+      <div class="height100 width100 fontSize08 columns margin1 overflowY">${effectText}</div>
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${priceText}</div>
+  </div>
+`;
 
   }
 }
@@ -34277,7 +34361,7 @@ var DIMENSIONS_CACHE_TIME = 250; // Cache per 250ms
 function menuDirectionArrow(page) {
   var element = document.getElementById(page);
   var now = Date.now();
-  
+
   // Usa cache per scrollHeight/clientHeight (costosi!)
   var cached = dimensionsCache[page];
   if (!cached || (now - lastDimensionsCheck) > DIMENSIONS_CACHE_TIME) {
@@ -34288,25 +34372,25 @@ function menuDirectionArrow(page) {
     dimensionsCache[page] = cached;
     lastDimensionsCheck = now;
   }
-  
+
   var scrollHeight = cached.scrollHeight;
   var clientHeight = cached.clientHeight;
-  
+
   // Early exit se non c'è scroll
   if (scrollHeight <= clientHeight) return;
-  
+
   var scrollTop = element.scrollTop;
   var totalPage = scrollHeight - clientHeight;
-  
+
   // Cache dell'elemento arrow
   if (!arrowCache) {
     arrowCache = document.getElementById("mainMenuDirectionArrow1");
   }
-  
+
   // Determina stato in un solo blocco
   var isAtTop = scrollTop === 0;
   var isAtBottom = scrollTop >= totalPage - 1;
-  
+
   if (isAtTop) {
     unlockShow("mainMenuDirectionArrow1", true);
     arrowCache.style.transform = 'rotate(0deg)';
