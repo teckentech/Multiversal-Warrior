@@ -12746,7 +12746,7 @@ function valuesSetterCycle(type) {
                  </div>`
   }
 
-  if (sel.active) {
+  if (IUniversal.windTree.node15.active) {
     unlockShow("content2_17_node83_button", true)
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
                 <div class="centerDiv noClick">Heat</div>`
