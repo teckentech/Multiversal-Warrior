@@ -8173,7 +8173,7 @@ function valuesSetterInit(type) {
   var sel2 = IUniversalIn.fireTree.node85
 
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node85.priceIdentity, IUniversalIn.fireTree.node85.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.fireTree.node83.active) }
+  sel2.req = function () { return (IUniversal.windTree.node15.active) }
 
   //HELL
 
