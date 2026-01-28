@@ -19504,7 +19504,7 @@ function valuesSetter(type) {
   if (f(sel.level).gt(f(0))) {
     sel2.effect = (f(2).pow(f(Decimal.log(f(IUniversal.heat).dividedBy(f(f(10).pow(f(15)))), 2)))).pow(f(1).add((f(sel.level).minus(f(1))).mul(f(0.05))))
 
-    if (sel2.effect == undefined) {
+    if (sel2.effect == undefined || f(sel2.effect).lt(f(1))) {
       sel2.effect = f(1)
     }
   } else {
@@ -19562,7 +19562,7 @@ function valuesSetter(type) {
   if (f(sel.level).gt(f(0))) {
     sel2.effect = (f(2).pow(f(Decimal.log(f(IUniversal.fire).dividedBy(f(f(10).pow(f(270)))), f(f(10).pow(f(10))))))).pow(f(1).add((f(sel.level).minus(f(1))).mul(f(0.05))))
 
-    if (sel2.effect == undefined) {
+    if (sel2.effect == undefined || f(sel2.effect).lt(f(1))) {
       sel2.effect = f(1)
     }
   } else {
@@ -19602,7 +19602,7 @@ function valuesSetter(type) {
   if (f(sel.level).gt(f(0))) {
     sel2.effect = (f(10).pow(f(Decimal.log(f(IUniversal.size).dividedBy(f(f(10).pow(f(190)))), f(f(10).pow(f(10))))))).pow(f(1).add((f(sel.level).minus(f(1))).mul(f(0.05))))
 
-    if (sel2.effect == undefined) {
+    if (sel2.effect == undefined || f(sel2.effect).lt(f(1))) {
       sel2.effect = f(1)
     }
   } else {
@@ -19641,7 +19641,7 @@ function valuesSetter(type) {
 
   if (f(sel.level).gt(f(0))) {
     sel2.effect = (f(f(IUniversal.heatTimer).minus(f(20)).dividedBy(f(2)))).pow(f(1).add((f(sel.level).minus(f(1))).mul(f(0.05))))
-    if (f(sel2.effect).lt(f(1))) {
+    if (f(sel2.effect).lt(f(1))|| f(sel2.effect).lt(f(1))) {
       sel2.effect = f(1)
     }
   } else {
