@@ -15975,6 +15975,7 @@ function valuesSetterCycle(type) {
   IUniversalIn.hellDescription1 = `<div>
                                 <div class="width100 padding1 height10 boldBlackBorder centerDiv">LORD</div>
                                 <div class="line"></div>
+                                <div class="width100 padding1 height10 boldBlackBorder centerDiv">HELL TERRITORY</div>
                                                                 <div class="width100 padding1 height10 centerDiv">Get Hell Territory from Heat (Starting from ${format(f(f(10).pow(f(15))), 0)} Heat) (×${format(f(Decimal.log(IUniversal.heat.dividedBy(f(10).pow(f(15))), 2)).pow(f(2)))})</div>
 
                                 <div class="width100 padding1 height10 centerDiv">${format(f(IUniversal.hellTerritory))} Hell Territory</div>
@@ -15982,13 +15983,13 @@ function valuesSetterCycle(type) {
 
 
                                 <div class="line"></div>
-                                
+                                <div class="width100 padding1 height10 boldBlackBorder centerDiv">HELL ENERGY</div>
                                 <div class="width100 padding1 height10 centerDiv">Get Hell Energy from Hell Territory</div>
                                 
                                 <div class="width100 height10 centerDiv gray">${format(f(IUniversal.hellEnergy))} Hell Energy </div>
                                 <div class="width100 padding1 height10 centerDiv gray">Soul Damage and Life × Hell Energy (×${format(f(IUniversal.hellEnergy))}) </div>
                                 <div class="line"></div>
-                                
+                                <div class="width100 padding1 height10 boldBlackBorder centerDiv">FAME</div>
                                 <div class="width100 padding1 height10 centerDiv">Obtain 1 Fame at ${format(f(IUniversal.fameReq))} Hell Territory</div>
                                 <div class="width100 padding1 height10 centerDiv">${format(f(IUniversal.fame), 0)}/${format(f(IUniversal.maxFame), 0)} Fame</div>
                                 </div>`
