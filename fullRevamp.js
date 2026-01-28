@@ -10900,19 +10900,19 @@ function valuesSetterCycle(type) {
   //FIRE TREE
 
   //ZONES
-  if(IUniversal.fireTree.node1.active){
-  unlockShow("content2_17_zone1", true)
+  if (IUniversal.fireTree.node1.active) {
+    unlockShow("content2_17_zone1", true)
   }
-  if(IUniversal.fireTree.node11.active){
-  unlockShow("content2_17_zone2", true)
-  }
-
-  if(IUniversal.fireTree.node27.active){
-  unlockShow("content2_17_zone3", true)
+  if (IUniversal.fireTree.node11.active) {
+    unlockShow("content2_17_zone2", true)
   }
 
-  if(IUniversal.fireTree.node83.active){
-  unlockShow("content2_17_zone4", true)
+  if (IUniversal.fireTree.node27.active) {
+    unlockShow("content2_17_zone3", true)
+  }
+
+  if (IUniversal.fireTree.node83.active) {
+    unlockShow("content2_17_zone4", true)
   }
 
 
@@ -33443,17 +33443,17 @@ function loopShow() {
 
   unlockShow("content2_25_treasureUpgrade", true);
 
-  var exp7 = IU.expeditions.exp7.level > 0;
-  unlockShow("content2_25_treasureEquipment", exp7);
-  unlockShow("content2_25_treasureAugment", exp7);
+  if (f(IU.expeditions.exp7.level).gt(f(0))) {
+    unlockShow("content2_25_treasureEquipment", true);
+    unlockShow("content2_25_treasureAugment", true);
+  }
 
   unlockShow("content2_25_treasureAugment_1", true);
 
-  var exp13 = IU.expeditions.exp13.level > 0;
-  if (exp13) {
+  if (f(IU.expeditions.exp13.level).gt(f(0))) {
     unlockShow("content2_25_treasureAugment_2", true);
   } else {
-    unlockShow("content2_25_treasureAugment_2", false);
+    unlockShow("content2_25_treasureAugment_2", true);
     updateCached("content2_25_treasureAugment_2", '<div class="boldBlackBorder centerDiv">Defeat Magma Elemental to unlock</div>');
   }
 
