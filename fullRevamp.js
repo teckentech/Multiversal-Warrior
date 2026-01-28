@@ -5908,7 +5908,7 @@ class ShowableClass {
       content2_17_node80: false,
       content2_17_node81: false,
       content2_17_node82: false,
-      content2_17_node83: false,
+      content2_17_node83: false, content2_17_node83_button: false,
       content2_17_node84: false,
       content2_17_node85: false,
 
@@ -8159,7 +8159,7 @@ function valuesSetterInit(type) {
   var sel2 = IUniversalIn.fireTree.node83
 
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node83.priceIdentity, IUniversalIn.fireTree.node83.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.windTree.node15.active) }
+  sel2.req = function () { return (IUniversal.fireTree.node11.active) }
 
   //NODE 84
   var sel = IUniversal.fireTree.node84
@@ -8176,14 +8176,6 @@ function valuesSetterInit(type) {
   sel2.req = function () { return (IUniversal.fireTree.node83.active) }
 
   //HELL
-
-  if ((IUniversal.windTree.node15.active)) {
-    unlockShow("hellInfo1", true)
-    unlockShow("hellPowers1", true)
-  } else {
-    unlockShow("hellInfo1", false)
-    unlockShow("hellPowers1", false)
-  }
 
   //WATER TREE
 
@@ -12738,15 +12730,30 @@ function valuesSetterCycle(type) {
   var sel = IUniversal.fireTree.node83
   var sel2 = IUniversalIn.fireTree.node83
 
-  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+  if (sel.active) {
+    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
                  <div class="centerDiv boldBlackBorder">Hell Gate</div>
                  <div class="topRight absolute padding2 grey">83</div>
                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
                  <div class="centerDiv padding1 column fontSize09"><div><span class="boldBlackBorder">${format(f(sel2.effect), 1)}</span> Hell Territory/s</div>
                  </div>`
+  } else {
+    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Hell Gate</div>
+                 <div class="topRight absolute padding2 grey">83</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09">Defeat Hell Lord in Wind</div>
+                 </div>`
+  }
 
-  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+  if (sel.active) {
+    unlockShow("content2_17_node83_button", true)
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
                 <div class="centerDiv noClick">Heat</div>`
+  } else {
+
+    unlockShow("content2_17_node83_button", false)
+  }
 
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
@@ -19642,7 +19649,7 @@ function valuesSetter(type) {
 
   if (f(sel.level).gt(f(0))) {
     sel2.effect = (f(f(IUniversal.heatTimer).minus(f(20)).dividedBy(f(2)))).pow(f(1).add((f(sel.level).minus(f(1))).mul(f(0.05))))
-    if (f(sel2.effect).lt(f(1))|| f(sel2.effect).lt(f(1))) {
+    if (f(sel2.effect).lt(f(1)) || f(sel2.effect).lt(f(1))) {
       sel2.effect = f(1)
     }
   } else {
@@ -29790,6 +29797,14 @@ function visualTree() {
         cache.lastValues[id] = content;
       }
     }
+  }
+
+  if ((IUniversal.windTree.node15.active)) {
+    unlockShow("hellInfo1", true)
+    unlockShow("hellPowers1", true)
+  } else {
+    unlockShow("hellInfo1", false)
+    unlockShow("hellPowers1", false)
   }
 
   if (cache.lastValues["hellInfo1"] !== IUniversalIn.hellDescription1) {
