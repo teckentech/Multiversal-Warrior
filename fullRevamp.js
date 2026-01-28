@@ -864,6 +864,111 @@ class Universal {
         level: 0,
         click: false,
       },
+      node65: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node66: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node67: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node68: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node69: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node70: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node71: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node72: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node73: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node74: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node75: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node76: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node77: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node78: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node79: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node80: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node81: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node82: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node83: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node84: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node85: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
     }
 
     this.fireMilestones = options.fireMilestones || {
@@ -1581,6 +1686,16 @@ class Universal {
         level: 0,
         click: false,
       },
+      node15: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node16: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
     };
 
     this.showTreasure = options.hiddenTreasure || false;
@@ -1662,6 +1777,9 @@ class Universal {
         num: 0, fused: 0, level: 0, active: false, equip: false,
       },
       treasure26: {
+        num: 0, fused: 0, level: 0, active: false, equip: false,
+      },
+      treasure27: {
         num: 0, fused: 0, level: 0, active: false, equip: false,
       },
     };
@@ -1829,6 +1947,28 @@ class Universal {
             expectedRewardsR: 0,
           }
         },
+
+        exp15: {
+          level: 0, leftLife: 0, active: false,
+
+          rewards: {
+            timer: 0,
+
+            expectedRewards: {},
+            expectedRewardsR: 0,
+          }
+        },
+
+        exp16: {
+          level: 0, leftLife: 0, active: false,
+
+          rewards: {
+            timer: 0,
+
+            expectedRewards: {},
+            expectedRewardsR: 0,
+          }
+        },
       };
 
     this.treasureFormation = options.treasureFormation || {
@@ -1871,67 +2011,82 @@ class Universal {
       item1: { key: null, drag: "equipment" },
     };
 
-    this.automation = {
-      automation1: {
-        unlocked: false,
-        active: false,
-        level: 0,
-      },
-      automation2: {
-        unlocked: false,
-        active: false,
-      },
-      automation3: {
-        unlocked: false,
-        active: false,
-      },
-      automation4: {
-        unlocked: false,
-        active: false,
-      },
-      automation5: {
-        unlocked: false,
-        active: false,
-      },
-      automation6: {
-        unlocked: false,
-        active: false,
-        level: 0, selOption: 0,
-      },
-      automation7: {
-        unlocked: false,
-        active: false,
-        level: 0,
-      },
-      automation8: {
-        unlocked: false,
-        active: false,
-      },
-      automation9: {
-        unlocked: false,
-        active: false,
-      },
-      automation10: {
-        unlocked: false,
-        active: false,
-      },
-      automation11: {
-        unlocked: false,
-        active: false,
-      },
-      automation12: {
-        unlocked: false,
-        active: false,
-      },
-      automation13: {
-        unlocked: false,
-        active: false,
-      },
-      automation14: {
-        unlocked: false,
-        active: false,
-      },
-    }
+    //HELL
+
+    this.hellTerritory = options.hellTerritory || 0,
+      this.hellTerritoryProd = options.hellTerritoryProd || 0,
+
+
+      this.hellEnergy = options.hellEnergy || 0,
+
+      this.fame = options.fame || 0,
+      this.maxFame = options.fame || 0,
+      this.fameReq = options.fameReq || 0,
+
+      this.hellPowers1Points = options.hellPowers1Points || 0,
+      this.hellPowers1PointsMax = options.hellPowers1PointsMax || 0,
+
+      this.automation = {
+        automation1: {
+          unlocked: false,
+          active: false,
+          level: 0,
+        },
+        automation2: {
+          unlocked: false,
+          active: false,
+        },
+        automation3: {
+          unlocked: false,
+          active: false,
+        },
+        automation4: {
+          unlocked: false,
+          active: false,
+        },
+        automation5: {
+          unlocked: false,
+          active: false,
+        },
+        automation6: {
+          unlocked: false,
+          active: false,
+          level: 0, selOption: 0,
+        },
+        automation7: {
+          unlocked: false,
+          active: false,
+          level: 0,
+        },
+        automation8: {
+          unlocked: false,
+          active: false,
+        },
+        automation9: {
+          unlocked: false,
+          active: false,
+        },
+        automation10: {
+          unlocked: false,
+          active: false,
+        },
+        automation11: {
+          unlocked: false,
+          active: false,
+        },
+        automation12: {
+          unlocked: false,
+          active: false,
+        },
+        automation13: {
+          unlocked: false,
+          active: false,
+        },
+        automation14: {
+          unlocked: false,
+          active: false,
+        },
+      }
 
     this.lore = options.lore || {
       lore1: {
@@ -2860,6 +3015,157 @@ class UniversalIn {
         effect: 0,
         req: function () { return false }, checkBuy: function () { return true },
         price: 0, priceIdentity: "fireShards",
+        maxLevel: 0,
+      },
+      node65: {
+        content: "", button: "",
+        effect: 0,
+        effect2: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "fame",
+        maxLevel: 0,
+      },
+      node66: {
+        content: "", button: "",
+        effect: 0,
+        effect2: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "fame",
+        maxLevel: 0,
+      },
+      node67: {
+        content: "", button: "",
+        effect: 0,
+        effect2: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "fame",
+        maxLevel: 0,
+      },
+      node68: {
+        content: "", button: "",
+        effect: 0,
+        effect2: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "fame",
+        maxLevel: 0,
+      },
+      node69: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "hellTerritory",
+        maxLevel: 0,
+      },
+      node70: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "hellTerritory",
+        maxLevel: 0,
+      },
+      node71: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "hellTerritory",
+        maxLevel: 0,
+      },
+      node72: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "hellTerritory",
+        maxLevel: 0,
+      },
+      node73: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "hellTerritory",
+        maxLevel: 0,
+      },
+      node74: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "hellTerritory",
+        maxLevel: 0,
+      },
+      node75: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "hellTerritory",
+        maxLevel: 0,
+      },
+      node76: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "hellTerritory",
+        maxLevel: 0,
+      },
+      node77: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "hellPowers1Points",
+        maxLevel: 0,
+      },
+      node78: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "hellPowers1Points",
+        maxLevel: 0,
+      },
+      node79: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "hellPowers1Points",
+        maxLevel: 0,
+      },
+      node80: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "hellPowers1Points",
+        maxLevel: 0,
+      },
+      node81: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "hellPowers1Points",
+        maxLevel: 0,
+      },
+      node82: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "hellPowers1Points",
+        maxLevel: 0,
+      },
+      node83: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "heat",
+        maxLevel: 0,
+      },
+      node84: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "fire",
+        maxLevel: 0,
+      },
+      node85: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "fire",
         maxLevel: 0,
       },
     }
@@ -3913,6 +4219,20 @@ class UniversalIn {
         price: 0, priceIdentity: "null",
         maxLevel: 0,
       },
+      node15: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "null",
+        maxLevel: 0,
+      },
+      node16: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "null",
+        maxLevel: 0,
+      },
     };
 
     this.treasures = options.treasures || {
@@ -4206,6 +4526,18 @@ class UniversalIn {
         content2: "",
         content3: "",
         image: "images/augment_4_v1.png",
+        maxLevel: 0,
+        price: 0,
+        priceIdentity: "metal",
+      },
+      treasure27: {
+        type: "soul",
+        effect1: 0,
+        effect2: 0,
+        content: "",
+        content2: "",
+        content3: "",
+        image: "images/soul_2_v1.png",
         maxLevel: 0,
         price: 0,
         priceIdentity: "metal",
@@ -4843,6 +5175,75 @@ class UniversalIn {
           }
         },
       },
+
+      exp15: {
+        damage: 0, life: 0, type: "elemental", content: "",
+        affinity: 0, maxLevel: 0,
+
+        affinities: {
+          affinity1: {
+            value: 0, content: "", active: false,
+          },
+          affinity2: {
+            value: 0, content: "", active: false,
+          },
+          affinity3: {
+            value: 0, content: "", active: false,
+          },
+          affinity4: {
+            value: 0, content: "", active: false,
+          },
+        },
+
+        rewards: {
+          timerPrice: 0,
+          effect: function () { return },
+          effectContent: function () { return },
+          content: "",
+        },
+
+        effects: {
+          effect1: {
+            type: "", content: "", effect: 0,
+          },
+        },
+      },
+
+      exp16: {
+        damage: 0, life: 0, type: "elemental", content: "",
+        affinity: 0, maxLevel: 0,
+
+        affinities: {
+          affinity1: {
+            value: 0, content: "", active: false,
+          },
+          affinity2: {
+            value: 0, content: "", active: false,
+          },
+          affinity3: {
+            value: 0, content: "", active: false,
+          },
+          affinity4: {
+            value: 0, content: "", active: false,
+          },
+        },
+
+        rewards: {
+          timerPrice: 0,
+          effect: function () { return },
+          effectContent: function () { return },
+          content: "",
+        },
+
+        effects: {
+          effect1: {
+            type: "", content: "", effect: 0,
+          },
+          effect2: {
+            type: "", content: "", effect: 0,
+          }
+        },
+      },
     };
 
 
@@ -4874,53 +5275,57 @@ class UniversalIn {
       item1: {},
     };
 
-    this.automation = {
-      automation1: {
-        price: 0, priceIdentity: "universalShards",
-        maxLevel: 0
-      },
-      automation2: {
-        price: 0, priceIdentity: "universalShards",
-      },
-      automation3: {
-        price: 0, priceIdentity: "universalShards",
-      },
-      automation4: {
-        price: 0, priceIdentity: "universalShards",
-      },
-      automation5: {
-        price: 0, priceIdentity: "universalShards",
-      },
-      automation6: {
-        price: 0, priceIdentity: "universalShards",
-        maxLevel: 0, option0: "", option1: "", option2: "", option3: "",
-      },
-      automation7: {
-        price: 0, priceIdentity: "universalShards",
-        level: 0,
-      },
-      automation8: {
-        price: 0, priceIdentity: "universalShards",
-      },
-      automation9: {
-        price: 0, priceIdentity: "universalShards",
-      },
-      automation10: {
-        price: 0, priceIdentity: "universalShards",
-      },
-      automation11: {
-        price: 0, priceIdentity: "universalShards",
-      },
-      automation12: {
-        price: 0, priceIdentity: "universalShards",
-      },
-      automation13: {
-        price: 0, priceIdentity: "universalShards",
-      },
-      automation14: {
-        price: 0, priceIdentity: "universalShards",
-      },
-    }
+    this.hellDescription1 = options.hellDescription1 || "",
+
+      this.hellPowers1 = options.hellPowers1 || "",
+
+      this.automation = {
+        automation1: {
+          price: 0, priceIdentity: "universalShards",
+          maxLevel: 0
+        },
+        automation2: {
+          price: 0, priceIdentity: "universalShards",
+        },
+        automation3: {
+          price: 0, priceIdentity: "universalShards",
+        },
+        automation4: {
+          price: 0, priceIdentity: "universalShards",
+        },
+        automation5: {
+          price: 0, priceIdentity: "universalShards",
+        },
+        automation6: {
+          price: 0, priceIdentity: "universalShards",
+          maxLevel: 0, option0: "", option1: "", option2: "", option3: "",
+        },
+        automation7: {
+          price: 0, priceIdentity: "universalShards",
+          level: 0,
+        },
+        automation8: {
+          price: 0, priceIdentity: "universalShards",
+        },
+        automation9: {
+          price: 0, priceIdentity: "universalShards",
+        },
+        automation10: {
+          price: 0, priceIdentity: "universalShards",
+        },
+        automation11: {
+          price: 0, priceIdentity: "universalShards",
+        },
+        automation12: {
+          price: 0, priceIdentity: "universalShards",
+        },
+        automation13: {
+          price: 0, priceIdentity: "universalShards",
+        },
+        automation14: {
+          price: 0, priceIdentity: "universalShards",
+        },
+      }
 
     this.lore = options.lore || {
       lore1: {
@@ -5384,10 +5789,12 @@ class ShowableClass {
       content2_17_valutes_valute2: false,
       content2_17_valutes_valute3: false,
       content2_17_valutes_valute4: false,
+      content2_17_valutes_valute5: false,
 
       content2_17_zone1: false,
       content2_17_zone2: false,
       content2_17_zone3: false,
+      content2_17_zone4: false,
 
       content2_17_node1: false,
       content2_17_node2: false,
@@ -5477,6 +5884,33 @@ class ShowableClass {
       content2_17_node62: false,
       content2_17_node63: false,
       content2_17_node64: false,
+
+      //hell
+
+      hellInfo1: false,
+      hellPowers1: false,
+
+      content2_17_node65: false,
+      content2_17_node66: false,
+      content2_17_node67: false,
+      content2_17_node68: false,
+      content2_17_node69: false,
+      content2_17_node70: false,
+      content2_17_node71: false,
+      content2_17_node72: false,
+      content2_17_node73: false,
+      content2_17_node74: false,
+      content2_17_node75: false,
+      content2_17_node76: false,
+      content2_17_node77: false,
+      content2_17_node78: false,
+      content2_17_node79: false,
+      content2_17_node80: false,
+      content2_17_node81: false,
+      content2_17_node82: false,
+      content2_17_node83: false,
+      content2_17_node84: false,
+      content2_17_node85: false,
 
 
       //WATER
@@ -5607,6 +6041,8 @@ class ShowableClass {
 
       content2_21_valutes_content: true,
       content2_21_valutes_valute1: false,
+      content2_21_valutes_valute2: false,
+      content2_21_valutes_valute3: false,
 
       content2_21_under1_1: false,
       content2_21_under1_2: false,
@@ -5674,6 +6110,8 @@ class ShowableClass {
       content2_23_node12: false,
       content2_23_node13: false,
       content2_23_node14: false,
+      content2_23_node15: false,
+      content2_23_node16: false,
 
       //METAL
       content2_25_valutes_content: true,
@@ -6019,18 +6457,14 @@ function decryptData(data, key) {
 }
 
 function exportSaveToFile() {
-  saveGameData(); // make sure saveData is up-to-date
+  saveGameData();
 
-  // get the JSON save
   const exportSaveData = localStorage.getItem("GameSave");
 
-  // compress with LZString UTF16 for smaller size
   const compressedData = LZString.compressToUTF16(exportSaveData);
 
-  // encrypt
   const encryptedData = CryptoJS.AES.encrypt(compressedData, secretKey).toString();
 
-  // create a Blob and trigger file download
   const blob = new Blob([encryptedData], { type: "text/plain;charset=utf-8" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
@@ -6043,24 +6477,19 @@ function exportSaveToFile() {
 }
 
 function exportSave() {
-  saveGameData(); // make sure saveData is updated
+  saveGameData();
 
-  // get the JSON save
   var exportSaveData = localStorage.getItem("GameSave");
 
-  // compress the JSON to Base64 (smallest human-safe string)
   var compressedData = LZString.compressToBase64(exportSaveData);
 
-  // encrypt the compressed string
   var encryptedData = CryptoJS.AES.encrypt(compressedData, secretKey).toString();
 
-  // put it in the textarea
   var inputElement = document.getElementById("Save");
   inputElement.value = encryptedData;
 
-  // copy to clipboard
   inputElement.select();
-  inputElement.setSelectionRange(0, inputElement.value.length); // mobile devices
+  inputElement.setSelectionRange(0, inputElement.value.length);
   navigator.clipboard.writeText(inputElement.value);
 
   alert("Copied the save! Paste it somewhere safe to import it later.");
@@ -6079,21 +6508,18 @@ function importSaveFromFile(file) {
 
     let decryptedData = inputData;
 
-    // Try decrypting
     try {
       const bytes = CryptoJS.AES.decrypt(inputData, secretKey);
       decryptedData = bytes.toString(CryptoJS.enc.Utf8) || inputData;
     } catch (e) {
-      decryptedData = inputData; // fallback to raw JSON
+      decryptedData = inputData;
     }
 
     let parsedData;
 
-    // Check if decryptedData is valid JSON
     try {
       parsedData = JSON.parse(decryptedData);
     } catch (e) {
-      // Not valid JSON → try decompressing
       const decompressed = LZString.decompressFromUTF16(decryptedData);
       if (!decompressed) {
         console.error("Save format not recognized!");
@@ -6107,7 +6533,6 @@ function importSaveFromFile(file) {
       }
     }
 
-    // Merge into saveData
     for (let key in parsedData) {
       if (saveData[key]) deepMerge(saveData[key], parsedData[key]);
     }
@@ -6129,21 +6554,18 @@ function importSave() {
 
   let decryptedData = inputData;
 
-  // Try decrypting (for new encrypted saves)
   try {
     const bytes = CryptoJS.AES.decrypt(inputData, secretKey);
     decryptedData = bytes.toString(CryptoJS.enc.Utf8) || inputData;
   } catch (e) {
-    decryptedData = inputData; // fallback to old JSON
+    decryptedData = inputData;
   }
 
   let parsedData;
 
-  // Check if decryptedData is already valid JSON
   try {
     parsedData = JSON.parse(decryptedData);
   } catch (e) {
-    // Not valid JSON → try decompressing as LZString
     const decompressed = LZString.decompressFromBase64(decryptedData);
     if (!decompressed) {
       console.error("Save format not recognized!");
@@ -6158,7 +6580,6 @@ function importSave() {
     }
   }
 
-  // Merge into saveData
   for (let key in parsedData) {
     if (saveData[key]) deepMerge(saveData[key], parsedData[key]);
   }
@@ -6208,11 +6629,9 @@ function passiveImport() {
 
 document.addEventListener('visibilitychange', function () {
   if (document.hidden) {
-    // Salva i dati solo quando l'utente lascia la pagina
     offSaveGameData()
     freeTick = false
   } else {
-    // Importa i dati quando l'utente ritorna alla pagina
     if (localStorage.getItem("GameSaveOff") !== null) {
       offImportSave();
     }
@@ -6220,7 +6639,6 @@ document.addEventListener('visibilitychange', function () {
   }
 });
 
-//COSE DA FARE/AGGIUNTE
 
 const elementCache = Object.create(null);
 
@@ -6229,11 +6647,9 @@ function update(id, html) {
   let el = elementCache[id] || (elementCache[id] = document.getElementById(id));
   if (!el) return;
 
-  // Se html è null o undefined, considera stringa vuota
   if (html == null) html = "";
 
   if (el.innerHTML !== html) {
-    // Usa DocumentFragment per evitare reflow pesanti
     const template = document.createElement('template');
     template.innerHTML = html;
     el.replaceChildren(...template.content.childNodes);
@@ -6247,7 +6663,6 @@ function updateClass(cla, html) {
 
   for (const el of list) {
 
-    // Evita di ricostruire se HTML identico (come update)
     if (el.innerHTML !== html) {
       const template = document.createElement('template');
       template.innerHTML = html;
@@ -6339,17 +6754,15 @@ function buy(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, typ
 
   if (type == "uni") {
     if (f(IUniversal[priceId]).gte(f(pri))) {
-      // Modifica il valore della proprietà specificata in base al tipo di effetto
 
       if (typeof effect == "boolean") {
-        objectToUpdate[propertyToUpdate] = effect ? 1 : 0;  // Aggiorna la proprietà con un valore booleano
+        objectToUpdate[propertyToUpdate] = effect ? 1 : 0;
       } else {
         if (f(effect) instanceof Decimal) {
-          objectToUpdate[propertyToUpdate] = f(objectToUpdate[propertyToUpdate]).add(f(effect));  // Aggiorna la proprietà specificata (ad esempio: 'level', 'count', ecc.)
+          objectToUpdate[propertyToUpdate] = f(objectToUpdate[propertyToUpdate]).add(f(effect));
         }
       }
 
-      // Dopo l'acquisto, riduci le risorse del giocatore
       IUniversal[priceId] = f(IUniversal[priceId]).minus(f(pri));
       valuesSetter();
       return true;
@@ -6362,16 +6775,14 @@ function buy(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, typ
 
     if (f(IUniversalChallenger[priceId]).gte(f(pri))) {
 
-      // Modifica il valore della proprietà specificata in base al tipo di effetto
       if (typeof effect == "boolean") {
-        objectToUpdate[propertyToUpdate] = effect ? 1 : 0;  // Aggiorna la proprietà con un valore booleano
+        objectToUpdate[propertyToUpdate] = effect ? 1 : 0;
       } else {
         if (f(effect) instanceof Decimal) {
-          objectToUpdate[propertyToUpdate] = f(objectToUpdate[propertyToUpdate]).add(f(effect));  // Aggiorna la proprietà specificata (ad esempio: 'level', 'count', ecc.)
+          objectToUpdate[propertyToUpdate] = f(objectToUpdate[propertyToUpdate]).add(f(effect));
         }
       }
 
-      // Dopo l'acquisto, riduci le risorse del giocatore
       IUniversalChallenger[priceId] = f(IUniversalChallenger[priceId]).minus(f(pri));
       valuesSetter();
       return true;
@@ -6382,13 +6793,12 @@ function buy(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, typ
 
   if (type == "uniFree") {
     if (f(IUniversal[priceId]).gte(f(pri))) {
-      // Modifica il valore della proprietà specificata in base al tipo di effetto
 
       if (typeof effect == "boolean") {
-        objectToUpdate[propertyToUpdate] = effect ? 1 : 0;  // Aggiorna la proprietà con un valore booleano
+        objectToUpdate[propertyToUpdate] = effect ? 1 : 0;
       } else {
         if (f(effect) instanceof Decimal) {
-          objectToUpdate[propertyToUpdate] = f(objectToUpdate[propertyToUpdate]).add(f(effect));  // Aggiorna la proprietà specificata (ad esempio: 'level', 'count', ecc.)
+          objectToUpdate[propertyToUpdate] = f(objectToUpdate[propertyToUpdate]).add(f(effect));
         }
       }
       valuesSetter();
@@ -6402,12 +6812,11 @@ function buy(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, typ
 
     if (f(IUniversalChallenger[priceId]).gte(f(pri))) {
 
-      // Modifica il valore della proprietà specificata in base al tipo di effetto
       if (typeof effect == "boolean") {
-        objectToUpdate[propertyToUpdate] = effect ? 1 : 0;  // Aggiorna la proprietà con un valore booleano
+        objectToUpdate[propertyToUpdate] = effect ? 1 : 0;
       } else {
         if (f(effect) instanceof Decimal) {
-          objectToUpdate[propertyToUpdate] = f(objectToUpdate[propertyToUpdate]).add(f(effect));  // Aggiorna la proprietà specificata (ad esempio: 'level', 'count', ecc.)
+          objectToUpdate[propertyToUpdate] = f(objectToUpdate[propertyToUpdate]).add(f(effect));
         }
       }
 
@@ -6420,13 +6829,12 @@ function buy(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, typ
 
   if (type == "free") {
     if (f(IGameData[priceId]).gte(f(pri))) {
-      // Modifica il valore della proprietà specificata in base al tipo di effetto
       if (f(effect) instanceof Decimal) {
-        objectToUpdate[propertyToUpdate] = f(objectToUpdate[propertyToUpdate]).add(f(effect));  // Aggiorna la proprietà specificata (ad esempio: 'level', 'count', ecc.)
+        objectToUpdate[propertyToUpdate] = f(objectToUpdate[propertyToUpdate]).add(f(effect));
       }
 
       if (typeof effect == "boolean") {
-        objectToUpdate[propertyToUpdate] = effect ? 1 : 0;  // Aggiorna la proprietà con un valore booleano
+        objectToUpdate[propertyToUpdate] = effect ? 1 : 0;
       }
 
       valuesSetter();
@@ -6452,7 +6860,7 @@ function buy(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, typ
       valuesSetter();
 
       if (f(effect) instanceof Decimal) {
-        objectToUpdate[propertyToUpdate] = f(objectToUpdate[propertyToUpdate]).add(f(effect));  // Aggiorna la proprietà specificata (ad esempio: 'level', 'count', ecc.)
+        objectToUpdate[propertyToUpdate] = f(objectToUpdate[propertyToUpdate]).add(f(effect));
       }
       return true;
     } else {
@@ -6461,16 +6869,14 @@ function buy(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, typ
   }
 
   if (f(IGameData[priceId]).gte(f(pri))) {
-    // Modifica il valore della proprietà specificata in base al tipo di effetto
     if (f(effect) instanceof Decimal) {
-      objectToUpdate[propertyToUpdate] = f(objectToUpdate[propertyToUpdate]).add(f(effect));  // Aggiorna la proprietà specificata (ad esempio: 'level', 'count', ecc.)
+      objectToUpdate[propertyToUpdate] = f(objectToUpdate[propertyToUpdate]).add(f(effect));
     }
 
     if (typeof effect == "boolean") {
-      objectToUpdate[propertyToUpdate] = effect ? 1 : 0;  // Aggiorna la proprietà con un valore booleano
+      objectToUpdate[propertyToUpdate] = effect ? 1 : 0;
     }
 
-    // Dopo l'acquisto, riduci le risorse del giocatore
     IGameData[priceId] = f(IGameData[priceId]).minus(f(pri));
     valuesSetter();
     return true;
@@ -7148,6 +7554,9 @@ function valuesSetterInit(type) {
 
   //FIRE TREE
 
+  //ZONES
+
+
   //NODE 1
   var sel = IUniversal.fireTree.node1
   var sel2 = IUniversalIn.fireTree.node1
@@ -7622,6 +8031,159 @@ function valuesSetterInit(type) {
 
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node64.priceIdentity, IUniversalIn.fireTree.node64.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node35.active) && IUniversalIn.fireMilestones.m7.mCheck() }
+
+  //NODE 65
+  var sel = IUniversal.fireTree.node65
+  var sel2 = IUniversalIn.fireTree.node65
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node65.priceIdentity, IUniversalIn.fireTree.node65.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node83.active) }
+
+  //NODE 66
+  var sel = IUniversal.fireTree.node66
+  var sel2 = IUniversalIn.fireTree.node66
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node66.priceIdentity, IUniversalIn.fireTree.node66.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node65.active) }
+
+  //NODE 67
+  var sel = IUniversal.fireTree.node67
+  var sel2 = IUniversalIn.fireTree.node67
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node67.priceIdentity, IUniversalIn.fireTree.node67.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node66.active) }
+
+  //NODE 68
+  var sel = IUniversal.fireTree.node68
+  var sel2 = IUniversalIn.fireTree.node68
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node68.priceIdentity, IUniversalIn.fireTree.node68.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node68.active) }
+
+  //NODE 69
+  var sel = IUniversal.fireTree.node69
+  var sel2 = IUniversalIn.fireTree.node69
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node69.priceIdentity, IUniversalIn.fireTree.node69.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node70.active) }
+
+  //NODE 70
+  var sel = IUniversal.fireTree.node70
+  var sel2 = IUniversalIn.fireTree.node70
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node70.priceIdentity, IUniversalIn.fireTree.node70.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node65.active) }
+
+  //NODE 71
+  var sel = IUniversal.fireTree.node71
+  var sel2 = IUniversalIn.fireTree.node71
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node71.priceIdentity, IUniversalIn.fireTree.node71.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node66.active) }
+
+  //NODE 72
+  var sel = IUniversal.fireTree.node72
+  var sel2 = IUniversalIn.fireTree.node72
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node72.priceIdentity, IUniversalIn.fireTree.node72.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node71.active) }
+
+  //NODE 73
+  var sel = IUniversal.fireTree.node73
+  var sel2 = IUniversalIn.fireTree.node73
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node73.priceIdentity, IUniversalIn.fireTree.node73.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node67.active) }
+
+  //NODE 74
+  var sel = IUniversal.fireTree.node74
+  var sel2 = IUniversalIn.fireTree.node74
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node74.priceIdentity, IUniversalIn.fireTree.node74.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node73.active) }
+
+  //NODE 75
+  var sel = IUniversal.fireTree.node75
+  var sel2 = IUniversalIn.fireTree.node75
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node75.priceIdentity, IUniversalIn.fireTree.node75.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node68.active) }
+
+  //NODE 76
+  var sel = IUniversal.fireTree.node76
+  var sel2 = IUniversalIn.fireTree.node76
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node76.priceIdentity, IUniversalIn.fireTree.node76.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node75.active) }
+
+
+  //NODE 77
+  var sel = IUniversal.fireTree.node77
+  var sel2 = IUniversalIn.fireTree.node77
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node77.priceIdentity, IUniversalIn.fireTree.node77.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node15.active) }
+  //NODE 78
+  var sel = IUniversal.fireTree.node78
+  var sel2 = IUniversalIn.fireTree.node78
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node78.priceIdentity, IUniversalIn.fireTree.node78.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node15.active) }
+
+  //NODE 79
+  var sel = IUniversal.fireTree.node79
+  var sel2 = IUniversalIn.fireTree.node79
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node79.priceIdentity, IUniversalIn.fireTree.node79.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node15.active) }
+  //NODE 80
+  var sel = IUniversal.fireTree.node80
+  var sel2 = IUniversalIn.fireTree.node80
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node80.priceIdentity, IUniversalIn.fireTree.node80.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node15.active) }
+  //NODE 81
+  var sel = IUniversal.fireTree.node81
+  var sel2 = IUniversalIn.fireTree.node81
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node81.priceIdentity, IUniversalIn.fireTree.node81.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node15.active) }
+  //NODE 82
+  var sel = IUniversal.fireTree.node82
+  var sel2 = IUniversalIn.fireTree.node82
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node82.priceIdentity, IUniversalIn.fireTree.node82.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node15.active) }
+  //NODE 83
+  var sel = IUniversal.fireTree.node83
+  var sel2 = IUniversalIn.fireTree.node83
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node83.priceIdentity, IUniversalIn.fireTree.node83.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node15.active) }
+
+  //NODE 84
+  var sel = IUniversal.fireTree.node84
+  var sel2 = IUniversalIn.fireTree.node84
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node84.priceIdentity, IUniversalIn.fireTree.node84.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node83.active) }
+
+  //NODE 85
+  var sel = IUniversal.fireTree.node85
+  var sel2 = IUniversalIn.fireTree.node85
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node85.priceIdentity, IUniversalIn.fireTree.node85.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node83.active) }
+
+  //HELL
+
+  if ((IUniversal.windTree.node15.active)) {
+    unlockShow("hellInfo1", true)
+    unlockShow("hellPowers1", true)
+  } else {
+    unlockShow("hellInfo1", false)
+    unlockShow("hellPowers1", false)
+  }
 
   //WATER TREE
 
@@ -8462,6 +9024,24 @@ function valuesSetterInit(type) {
 
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node14.priceIdentity, IUniversalIn.windTree.node14.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.windTree.node13.active) }
+
+  //NODE 15
+  var sel = IUniversal.windTree.node15
+  var sel2 = IUniversalIn.windTree.node15
+  var exp = IUniversal.expeditions.exp15
+  var exp2 = IUniversalIn.expeditions.exp15
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node15.priceIdentity, IUniversalIn.windTree.node15.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node13.active) }
+
+  //NODE 16
+  var sel = IUniversal.windTree.node16
+  var sel2 = IUniversalIn.windTree.node16
+  var exp = IUniversal.expeditions.exp16
+  var exp2 = IUniversalIn.expeditions.exp16
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node16.priceIdentity, IUniversalIn.windTree.node16.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node15.active) }
 
   //Expeditions
   //expedition 1
@@ -9469,6 +10049,92 @@ function valuesSetterInit(type) {
 
     return string;
   }
+
+  //expedition 15
+  var sel = IUniversal.expeditions.exp15
+  var selIn = IUniversalIn.expeditions.exp15
+
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
+    var sel = [];
+
+    for (let x in sel) {
+      setExpectedReward(selT, sel[x])
+    }
+
+    IUniversal.hellPowers1PointsMax = f(IUniversal.hellPowers1PointsMax).add(f(1))
+    IUniversal.hellPowers1Points = f(IUniversal.hellPowers1Points).add(f(1))
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
+      </div>`;
+      }
+    }
+
+    return string;
+  }
+
+  //expedition 16
+  var sel = IUniversal.expeditions.exp16
+  var selIn = IUniversalIn.expeditions.exp16
+
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
+    var sel = ["treasure27"];
+
+    for (let x in sel) {
+      setExpectedReward(selT, sel[x])
+    }
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure27.level = f(selT.expectedRewards.treasure27.level).add(f(1));
+      return
+    }
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
+      </div>`;
+      }
+    }
+
+    return string;
+  }
 }
 
 function valuesSetterCycle(type) {
@@ -10233,6 +10899,23 @@ function valuesSetterCycle(type) {
 
   //FIRE TREE
 
+  //ZONES
+  if(IUniversal.fireTree.node1.active){
+  unlockShow("content2_17_zone1", true)
+  }
+  if(IUniversal.fireTree.node11.active){
+  unlockShow("content2_17_zone2", true)
+  }
+
+  if(IUniversal.fireTree.node27.active){
+  unlockShow("content2_17_zone3", true)
+  }
+
+  if(IUniversal.fireTree.node83.active){
+  unlockShow("content2_17_zone4", true)
+  }
+
+
   //NODE 1
   var sel = IUniversal.fireTree.node1
   var sel2 = IUniversalIn.fireTree.node1
@@ -10886,7 +11569,7 @@ function valuesSetterCycle(type) {
 
   if (IUniversal.fireTree.node30.animation == false) {
     const container = document.querySelector("#svgAnimationContainer");
-    container.innerHTML = ""; // svuota container
+    container.innerHTML = "";
 
     if (f(IUniversal.fireTree.node30.level).gt(0)) {
       container.appendChild(pressSvg(90, 80, 10, 10, 0, IUniversal.fireTree.node30.timer * 1000, "images/press.png"));
@@ -11712,6 +12395,394 @@ function valuesSetterCycle(type) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
 
+  //NODE 65
+  var sel = IUniversal.fireTree.node65
+  var sel2 = IUniversalIn.fireTree.node65
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Firestone Plains</div>
+                 <div class="topRight absolute padding2 grey">65</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Fire/s ×10 <span class="boldBlackBorder">(×${format(f(sel2.effect), 0)})</span></div>
+                 <div>Hell Territory/s ×2 <span class="boldBlackBorder">(×${format(f(sel2.effect2), 0)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fame</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 66
+  var sel = IUniversal.fireTree.node66
+  var sel2 = IUniversalIn.fireTree.node66
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Balgura's Hollow</div>
+                 <div class="topRight absolute padding2 grey">66</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Heat/s ×4 <span class="boldBlackBorder">(×${format(f(sel2.effect), 0)})</span></div>
+                 <div>Hell Territory/s ×4 <span class="boldBlackBorder">(×${format(f(sel2.effect2), 0)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fame</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 67
+  var sel = IUniversal.fireTree.node67
+  var sel2 = IUniversalIn.fireTree.node67
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Soul Highlands</div>
+                 <div class="topRight absolute padding2 grey">67</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Fire Shards/s ×10 <span class="boldBlackBorder">(×${format(f(sel2.effect), 0)})</span></div>
+                 <div>Hell Territory/s ×8 <span class="boldBlackBorder">(×${format(f(sel2.effect2), 0)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fame</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 68
+  var sel = IUniversal.fireTree.node68
+  var sel2 = IUniversalIn.fireTree.node68
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Sinner's Wheel</div>
+                 <div class="topRight absolute padding2 grey">68</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Rotations ×10 <span class="boldBlackBorder">(×${format(f(sel2.effect), 0)})</span></div>
+                 <div>Hell Territory/s ×16 <span class="boldBlackBorder">(×${format(f(sel2.effect2), 0)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fame</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 69
+  var sel = IUniversal.fireTree.node69
+  var sel2 = IUniversalIn.fireTree.node69
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Pit Church</div>
+                 <div class="topRight absolute padding2 grey">69</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Fire/s × Heat <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Territory</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 70
+  var sel = IUniversal.fireTree.node70
+  var sel2 = IUniversalIn.fireTree.node70
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Imp Village</div>
+                 <div class="topRight absolute padding2 grey">70</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Fire/s ×10 <span class="boldBlackBorder">(×${format(f(sel2.effect), 0)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Territory</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 71
+  var sel = IUniversal.fireTree.node71
+  var sel2 = IUniversalIn.fireTree.node71
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">HellIce Cleansing</div>
+                 <div class="topRight absolute padding2 grey">71</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Heat reduction delay +2 <span class="boldBlackBorder">(+${format(f(sel2.effect), 0)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Territory</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 72
+  var sel = IUniversal.fireTree.node72
+  var sel2 = IUniversalIn.fireTree.node72
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Feedback Loop</div>
+                 <div class="topRight absolute padding2 grey">72</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Heat × Fire <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Territory</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 73
+  var sel = IUniversal.fireTree.node73
+  var sel2 = IUniversalIn.fireTree.node73
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Soul's Pact</div>
+                 <div class="topRight absolute padding2 grey">73</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Fire Shards/s ×10 <span class="boldBlackBorder">(×${format(f(sel2.effect), 0)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Territory</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 74
+  var sel = IUniversal.fireTree.node74
+  var sel2 = IUniversalIn.fireTree.node74
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Eternal Flame</div>
+                 <div class="topRight absolute padding2 grey">74</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Fire Shards/s × Size <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Territory</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 75
+  var sel = IUniversal.fireTree.node75
+  var sel2 = IUniversalIn.fireTree.node75
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Sinner Redemption</div>
+                 <div class="topRight absolute padding2 grey">75</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Rotation ×10 <span class="boldBlackBorder">(×${format(f(sel2.effect), 0)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Territory</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 76
+  var sel = IUniversal.fireTree.node76
+  var sel2 = IUniversalIn.fireTree.node76
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Hell Wheel Turbine</div>
+                 <div class="topRight absolute padding2 grey">76</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Rotation × Heat reduction delay <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Territory</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 77
+  var sel = IUniversal.fireTree.node77
+  var sel2 = IUniversalIn.fireTree.node77
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Flame Manipulation</div>
+                 <div class="topRight absolute padding2 grey">77</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Fire/s × Lord Power <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Lord Power</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 78
+  var sel = IUniversal.fireTree.node78
+  var sel2 = IUniversalIn.fireTree.node78
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Ash Domain</div>
+                 <div class="topRight absolute padding2 grey">78</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Heat × Lord Power <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Lord Power</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 79
+  var sel = IUniversal.fireTree.node79
+  var sel2 = IUniversalIn.fireTree.node79
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Abyssal Flame</div>
+                 <div class="topRight absolute padding2 grey">79</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Water/s × Lord Power <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Lord Power</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 80
+  var sel = IUniversal.fireTree.node80
+  var sel2 = IUniversalIn.fireTree.node80
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Obsidian Lord</div>
+                 <div class="topRight absolute padding2 grey">80</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Earth/s × Lord Power <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Lord Power</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 81
+  var sel = IUniversal.fireTree.node81
+  var sel2 = IUniversalIn.fireTree.node81
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Berith Student</div>
+                 <div class="topRight absolute padding2 grey">81</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Metal/s × Lord Power <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Lord Power</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 82
+  var sel = IUniversal.fireTree.node82
+  var sel2 = IUniversalIn.fireTree.node82
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Monster Demonization</div>
+                 <div class="topRight absolute padding2 grey">82</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Essence/s × Lord Power <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Lord Power</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 83
+  var sel = IUniversal.fireTree.node83
+  var sel2 = IUniversalIn.fireTree.node83
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Hell Gate</div>
+                 <div class="topRight absolute padding2 grey">83</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div><span class="boldBlackBorder">${format(f(sel2.effect), 1)}</span> Hell Territory/s</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Heat</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 84
+  var sel = IUniversal.fireTree.node84
+  var sel2 = IUniversalIn.fireTree.node84
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Reset Fame</div>
+                 <div class="topRight absolute padding2 grey">84</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Reset Fame assignment, Resets Lord Upgrades</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick">RESET</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 85
+  var sel = IUniversal.fireTree.node85
+  var sel2 = IUniversalIn.fireTree.node85
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Reset Lord Powers</div>
+                 <div class="topRight absolute padding2 grey">85</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Reset Lord Power assignment, Resets Lord Powers</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick">RESET</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
 
   //WATER TREE
 
@@ -12768,7 +13839,6 @@ function valuesSetterCycle(type) {
                                                        </div>`
 
   potionSetterInit()
-
   //EARTH TREE
 
 
@@ -13563,7 +14633,7 @@ function valuesSetterCycle(type) {
   sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
                   <div class="centerDiv boldBlackBorder">Black Sky Moltitude</div>
                   <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">9</div>
+                  <div class="topRight absolute padding2 grey">11</div>
                   <div class="column width100 height50 top20 absolute">
                     <div class="width100 height30 boldBlackBorder">Unlock Golem Archers</div>
                     <div class="width100 height30">${autom}</div>
@@ -13594,7 +14664,7 @@ function valuesSetterCycle(type) {
   sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
                   <div class="centerDiv boldBlackBorder">Stalagmite King</div>
                   <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                  <div class="topRight absolute padding2 grey">9</div>
+                  <div class="topRight absolute padding2 grey">12</div>
                   <div class="column width100 height50 top20 absolute">
                     <div class="width100 height30">${autom}</div>
                     <div class="width100 height70 centerDiv">Claim ${getExpectedTreasures("single", IUniversal.expeditions.exp12.rewards.expectedRewards)} Treasures</div>
@@ -13655,6 +14725,65 @@ function valuesSetterCycle(type) {
                   <div class="column width100 height50 top20 absolute">
                     <div class="width100 height30">Elementals cant be automated</div>
                     <div class="width100 height70 centerDiv">Claim ${getExpectedTreasures("single", IUniversal.expeditions.exp14.rewards.expectedRewards)} Treasures</div>                     </div>
+                  </div>
+                 </div>`
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">CRUSADE</div>`
+  sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
+  }
+
+  //NODE 15
+  var sel = IUniversal.windTree.node15
+  var sel2 = IUniversalIn.windTree.node15
+  var exp = IUniversal.expeditions.exp15
+  var exp2 = IUniversalIn.expeditions.exp15
+
+  if (!f(sel.level).gte(f(sel2.maxLevel))) {
+    var autom = `Elementals cant be automated`
+  } else {
+    autom = `${toClock(f(exp2.rewards.timerPrice).minus(f(exp.rewards.timer)))}`
+  }
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Hell Lord</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">15</div>
+                  
+                  <div class="column width100 height50 top20 absolute">
+                    <div class="width100 boldBlackBorder height20">Unlock HELL in FIRE</div>
+                  
+                    <div class="width100 height30">Elementals cant be automated</div>
+                    <div class="width100 height30 centerDiv">Claim ${getExpectedTreasures("single", IUniversal.expeditions.exp15.rewards.expectedRewards)} Treasures</div>                     </div>
+                  </div>
+                 </div>`
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">CRUSADE</div>`
+  sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
+  }
+
+  //NODE 16
+  var sel = IUniversal.windTree.node16
+  var sel2 = IUniversalIn.windTree.node16
+  var exp = IUniversal.expeditions.exp16
+  var exp2 = IUniversalIn.expeditions.exp16
+
+  if (!f(sel.level).gte(f(sel2.maxLevel))) {
+    var autom = `Elementals cant be automated`
+  } else {
+    autom = `${toClock(f(exp2.rewards.timerPrice).minus(f(exp.rewards.timer)))}`
+  }
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Hell Knight</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">16</div>
+                  <div class="column width100 height50 top20 absolute">
+                    <div class="width100 height30">Elementals cant be automated</div>
+                    <div class="width100 height70 centerDiv">Claim ${getExpectedTreasures("single", IUniversal.expeditions.exp16.rewards.expectedRewards)} Treasures</div>                     </div>
                   </div>
                  </div>`
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">CRUSADE</div>`
@@ -13831,6 +14960,13 @@ function valuesSetterCycle(type) {
 
   //SOUL
 
+  if (f(IUniversal.hellEnergy).gt(f(1))) {
+    var hellEnergy = `
+        <div class="boldBlackBorder">Hell Energy</div>
+        <div>Damage and Life ×${format(f(IUniversal.hellEnergy), 1)}</div>`
+  } else {
+    hellEnergy = ""
+  }
 
   IUniversalIn.armyInfo.soul.content = `
   <div class="column height100 width100 relative">
@@ -13838,23 +14974,32 @@ function valuesSetterCycle(type) {
       <div><span class="boldBlackBorder fontSize1_5">Soul</span></div>
 
       <div class="row spaceEvenly">
-        <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.damage))}</span> Damage</div>
-        <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.life))}</span> Life</div>
-      </div>
-<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinity))}</span> Affinity</div>
-<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity1.value))}</span> Fire Affinity</div>
-<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity2.value))}</span> Water Affinity</div>
-<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity3.value))}</span> Earth Affinity</div>
-<div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity4.value))}</span> Wind Affinity</div>
-      <div id="c2_23_C_part1" class="height5 width100 defaultBarPart1 boldBlackBorderObject">
-        <div id="c2_23_C_part2" class="height100 width100 defaultBarPart2 boldBlackBorderObjectLateral">
+        <div>
+          <span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.damage))}</span> Damage
         </div>
-        <div id="c2_23_C_part3" class="height100 width100 defaultBarPart3">${format(f(IUniversal.armyInfo.soul.leftLife))}</div>
+        <div>
+          <span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.life))}</span> Life
+        </div>
       </div>
+
+      <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinity))}</span> Affinity</div>
+      <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity1.value))}</span> Fire Affinity</div>
+      <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity2.value))}</span> Water Affinity</div>
+      <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity3.value))}</span> Earth Affinity</div>
+      <div><span class="boldBlackBorder">${format(f(IUniversalIn.armyInfo.soul.affinities.affinity4.value))}</span> Wind Affinity</div>
+
+      <div id="c2_23_C_part1" class="height5 width100 defaultBarPart1 boldBlackBorderObject">
+        <div id="c2_23_C_part2" class="height100 width100 defaultBarPart2 boldBlackBorderObjectLateral"></div>
+        <div id="c2_23_C_part3" class="height100 width100 defaultBarPart3">
+          ${format(f(IUniversal.armyInfo.soul.leftLife))}
+        </div>
+      </div>
+
+      <div>
+      ${hellEnergy}
+      </div>
+
     </div>
-
-
-
   </div>`;
 
   IUniversalIn.armyInfo.soul.content2 = `
@@ -14643,6 +15788,37 @@ function valuesSetterCycle(type) {
 
   sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">All affinities +1 (+${format(f(sel2.effect), 0)})</div>`
 
+  //Treasure 27
+
+  var sel1 = IUniversal.treasures.treasure27
+  var sel2 = IUniversalIn.treasures.treasure27
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Hell Soul</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Damage and Life +10, Soul Damage and Life ×1.1 (+${format(f(sel2.effect1), 0)}, ×${format(f(sel2.effect2), 1)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
+  </div>`
+
+  sel2.content3 = `
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Damage and Life +10, Soul Damage and Life ×1.1 (+${format(f(sel2.effect1), 0)}, ×${format(f(sel2.effect2), 1)})</div>
+  `
+
+
   //Expeditions
 
   //expedition 1
@@ -14715,6 +15891,16 @@ function valuesSetterCycle(type) {
   var selIn = IUniversalIn.expeditions.exp14
 
   selIn.name = "Spirit"
+  //expedition 15
+  var sel = IUniversal.expeditions.exp15
+  var selIn = IUniversalIn.expeditions.exp15
+
+  selIn.name = "Hell Lord"
+  //expedition 16
+  var sel = IUniversal.expeditions.exp16
+  var selIn = IUniversalIn.expeditions.exp16
+
+  selIn.name = "Hell Knight"
 
   //spires
 
@@ -14782,6 +15968,38 @@ function valuesSetterCycle(type) {
       selIn.content = ""
     }
   }
+
+
+  //HELL
+
+  IUniversalIn.hellDescription1 = `<div>
+                                <div class="width100 padding1 height10 boldBlackBorder centerDiv">LORD</div>
+                                <div class="line"></div>
+                                                                <div class="width100 padding1 height10 centerDiv">Get Hell Territory from Heat (Starting from ${format(f(f(10).pow(f(15))), 0)} Heat) (×${format(f(Decimal.log(IUniversal.heat.dividedBy(f(10).pow(f(15))), 2)).pow(f(2)))})</div>
+
+                                <div class="width100 padding1 height10 centerDiv">${format(f(IUniversal.hellTerritory))} Hell Territory</div>
+                                                                <div class="width100 padding1 height10 centerDiv">+${format(f(IUniversal.hellTerritoryProd))}/s</div>
+
+
+                                <div class="line"></div>
+                                
+                                <div class="width100 padding1 height10 centerDiv">Get Hell Energy from Hell Territory</div>
+                                
+                                <div class="width100 height10 centerDiv gray">${format(f(IUniversal.hellEnergy))} Hell Energy </div>
+                                <div class="width100 padding1 height10 centerDiv gray">Soul Damage and Life × Hell Energy (×${format(f(IUniversal.hellEnergy))}) </div>
+                                <div class="line"></div>
+                                
+                                <div class="width100 padding1 height10 centerDiv">Obtain 1 Fame at ${format(f(IUniversal.fameReq))} Hell Territory</div>
+                                <div class="width100 padding1 height10 centerDiv">${format(f(IUniversal.fame), 0)}/${format(f(IUniversal.maxFame), 0)} Fame</div>
+                                </div>`
+
+  IUniversalIn.hellPowers1 = `<div class="height100">
+                                <div class="width100 height30 boldBlackBorder centerDiv">LORD POWERS</div>
+                                <div class="line"></div>
+                                  <div class="width100 height30 centerDiv">Get 1 Lord Power every time you defeat Lord in Wind</div>
+                                  <div class="width100 height30 centerDiv">${format(f(IUniversal.hellPowers1Points), 0)} / ${format(f(IUniversal.hellPowers1PointsMax), 0)} Lord Power</div>
+
+                                </div>`
 }
 
 
@@ -16857,7 +18075,9 @@ function valuesSetter(type) {
     heat2 = f(0)
   }
 
-  IUniversal.heatTimer = f(10).add(f(heat1)).add(f(heat2))
+  var heat3 = f(IUniversalIn.fireTree.node71.effect)
+
+  IUniversal.heatTimer = f(10).add(f(heat1)).add(f(heat2)).add(heat3)
 
 
   //NODE 1
@@ -17497,7 +18717,19 @@ function valuesSetter(type) {
 
 
   if (sel.active) {
-    sel2.effect = f(1).mul(f(IUniversalIn.fireTree.node31.effect)).mul(f(IUniversalIn.fireTree.node33.effect)).mul(f(IUniversalIn.fireTree.node34.effect2)).mul(f(IUniversalIn.fireTree.node41.effect)).mul(f(IUniversalIn.fireTree.node49.effect)).mul(f(IUniversalIn.fireTree.node50.effect2))
+
+
+    var heat1 = f(IUniversalIn.fireTree.node31.effect)
+    var heat2 = f(IUniversalIn.fireTree.node33.effect)
+    var heat3 = f(IUniversalIn.fireTree.node34.effect2)
+    var heat4 = f(IUniversalIn.fireTree.node41.effect)
+    var heat5 = f(IUniversalIn.fireTree.node49.effect)
+    var heat6 = f(IUniversalIn.fireTree.node50.effect2)
+    var heat7 = f(IUniversalIn.fireTree.node66.effect)
+    var heat8 = f(IUniversalIn.fireTree.node72.effect)
+    var heat9 = f(IUniversalIn.fireTree.node78.effect)
+
+    sel2.effect = f(1).mul(heat1).mul(heat2).mul(heat3).mul(heat4).mul(heat5).mul(heat6).mul(heat7).mul(heat8).mul(heat9)
   } else {
     sel2.effect = f(0)
   }
@@ -18163,6 +19395,7 @@ function valuesSetter(type) {
 
   if (f(sel.level).gt(f(0))) { sel.active = true }
   if (sel.active) { sel.unlocked = true }
+
   //NODE 64
   var sel = IUniversal.fireTree.node64
   var sel2 = IUniversalIn.fireTree.node64
@@ -18181,7 +19414,410 @@ function valuesSetter(type) {
   if (f(sel.level).gt(f(0))) { sel.active = true }
   if (sel.active) { sel.unlocked = true }
 
+  //NODE 65
+  var sel = IUniversal.fireTree.node65
+  var sel2 = IUniversalIn.fireTree.node65
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(10).pow(f(sel.level))
+    sel2.effect2 = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+    sel2.effect2 = f(1)
+  }
+
+  sel2.price = f(1)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 66
+  var sel = IUniversal.fireTree.node66
+  var sel2 = IUniversalIn.fireTree.node66
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(4).pow(f(sel.level))
+    sel2.effect2 = f(4).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+    sel2.effect2 = f(1)
+  }
+
+  sel2.price = f(1)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 67
+  var sel = IUniversal.fireTree.node67
+  var sel2 = IUniversalIn.fireTree.node67
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(10).pow(f(sel.level))
+    sel2.effect2 = f(8).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+    sel2.effect2 = f(1)
+  }
+
+  sel2.price = f(1)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 68
+  var sel = IUniversal.fireTree.node68
+  var sel2 = IUniversalIn.fireTree.node68
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(10).pow(f(sel.level))
+    sel2.effect2 = f(16).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+    sel2.effect2 = f(1)
+  }
+
+  sel2.price = f(1)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 69
+  var sel = IUniversal.fireTree.node69
+  var sel2 = IUniversalIn.fireTree.node69
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = (f(2).pow(f(Decimal.log(f(IUniversal.heat).dividedBy(f(f(10).pow(f(15)))), 2)))).pow(f(1).add((f(sel.level).minus(f(1))).mul(f(0.05))))
+
+    if (sel2.effect == undefined) {
+      sel2.effect = f(1)
+    }
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(f(10).pow(f(4))).mul(f(100).pow(f(1)).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 70
+  var sel = IUniversal.fireTree.node70
+  var sel2 = IUniversalIn.fireTree.node70
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(10).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(f(10).pow(f(3))).mul(f(5).pow(f(1)).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 71
+  var sel = IUniversal.fireTree.node71
+  var sel2 = IUniversalIn.fireTree.node71
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).mul(f(sel.level))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.price = f(f(10).pow(f(6))).mul(f(10).pow(f(1)).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 72
+  var sel = IUniversal.fireTree.node72
+  var sel2 = IUniversalIn.fireTree.node72
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = (f(2).pow(f(Decimal.log(f(IUniversal.fire).dividedBy(f(f(10).pow(f(270)))), f(f(10).pow(f(10))))))).pow(f(1).add((f(sel.level).minus(f(1))).mul(f(0.05))))
+
+    if (sel2.effect == undefined) {
+      sel2.effect = f(1)
+    }
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(f(10).pow(f(8))).mul(f(10).pow(f(2)).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 73
+  var sel = IUniversal.fireTree.node73
+  var sel2 = IUniversalIn.fireTree.node73
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(10).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(f(10).pow(f(10))).mul(f(20).pow(f(1)).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 74
+  var sel = IUniversal.fireTree.node74
+  var sel2 = IUniversalIn.fireTree.node74
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = (f(10).pow(f(Decimal.log(f(IUniversal.size).dividedBy(f(f(10).pow(f(190)))), f(f(10).pow(f(10))))))).pow(f(1).add((f(sel.level).minus(f(1))).mul(f(0.05))))
+
+    if (sel2.effect == undefined) {
+      sel2.effect = f(1)
+    }
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(f(10).pow(f(12))).mul(f(10).pow(f(1)).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 75
+  var sel = IUniversal.fireTree.node75
+  var sel2 = IUniversalIn.fireTree.node75
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(10).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(f(10).pow(f(13))).mul(f(20).pow(f(1)).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 76
+  var sel = IUniversal.fireTree.node76
+  var sel2 = IUniversalIn.fireTree.node76
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = (f(f(IUniversal.heatTimer).minus(f(20)).dividedBy(f(2)))).pow(f(1).add((f(sel.level).minus(f(1))).mul(f(0.05))))
+    if (f(sel2.effect).lt(f(1))) {
+      sel2.effect = f(1)
+    }
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(f(10).pow(f(15))).mul(f(10).pow(f(2)).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 77
+  var sel = IUniversal.fireTree.node77
+  var sel2 = IUniversalIn.fireTree.node77
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(100).pow(f(2).pow(f(IUniversal.hellPowers1PointsMax).minus(f(1))))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 78
+  var sel = IUniversal.fireTree.node78
+  var sel2 = IUniversalIn.fireTree.node78
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(10).pow(f(IUniversal.hellPowers1PointsMax))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 79
+  var sel = IUniversal.fireTree.node79
+  var sel2 = IUniversalIn.fireTree.node79
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(10).pow(f(2).pow(f(IUniversal.hellPowers1PointsMax).minus(f(1))))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 80
+  var sel = IUniversal.fireTree.node80
+  var sel2 = IUniversalIn.fireTree.node80
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(10).pow(f(IUniversal.hellPowers1PointsMax))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 81
+  var sel = IUniversal.fireTree.node81
+  var sel2 = IUniversalIn.fireTree.node81
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(10).pow(f(IUniversal.hellPowers1PointsMax))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 82
+  var sel = IUniversal.fireTree.node82
+  var sel2 = IUniversalIn.fireTree.node82
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(100).pow(f(2).pow(f(IUniversal.hellPowers1PointsMax).minus(f(1))))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+
+  //NODE 83
+  var sel = IUniversal.fireTree.node83
+  var sel2 = IUniversalIn.fireTree.node83
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(100)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.5).pow(f(sel.level))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.price = f(f(10).pow(f(15))).mul(f(10).pow(f(1)).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 84
+  var sel = IUniversal.fireTree.node84
+  var sel2 = IUniversalIn.fireTree.node84
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(sel.level)
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 85
+  var sel = IUniversal.fireTree.node85
+  var sel2 = IUniversalIn.fireTree.node85
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(sel.level)
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
   //WATER TREE
+
 
   //NODE 1
   var sel = IUniversal.waterTree.node1
@@ -20082,6 +21718,52 @@ function valuesSetter(type) {
   if (f(sel.level).gt(f(0))) { sel.active = true }
   if (sel.active) { sel.unlocked = true }
 
+
+  //NODE 15
+  var sel = IUniversal.windTree.node15
+  var sel2 = IUniversalIn.windTree.node15
+  var exp = IUniversal.expeditions.exp15
+  var exp2 = IUniversalIn.expeditions.exp15
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+
+  //NODE 16
+  var sel = IUniversal.windTree.node16
+  var sel2 = IUniversalIn.windTree.node16
+  var exp = IUniversal.expeditions.exp16
+  var exp2 = IUniversalIn.expeditions.exp16
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
   //golems
 
   var golem1 = f(IUniversalIn.earthTree.node5.effect)
@@ -20482,12 +22164,20 @@ function valuesSetter(type) {
   if (getTreasureActive("treasure17")) { var life3 = f(IUniversalIn.treasures.treasure17.effect) } else { life3 = f(0) }
   if (getTreasureActive("treasure15")) { var life4 = f(IUniversalIn.treasures.treasure15.effect) } else { life4 = f(0) }
   if (getTreasureActive("treasure24")) { var life5 = f(IUniversalIn.treasures.treasure24.effect) } else { life5 = f(0) }
+  if (getTreasureActive("treasure27")) { var life6 = f(IUniversalIn.treasures.treasure27.effect1) } else { life6 = f(0) }
+  if (getTreasureActive("treasure27")) { var life7 = f(IUniversalIn.treasures.treasure27.effect2) } else { life6 = f(1) }
+
+  if (f(IUniversal.hellEnergy).gt(f(1))) {
+    var life8 = f(IUniversal.hellEnergy)
+  } else {
+    life8 = f(1)
+  }
 
   var baseLife1 = f(IUniversalIn.armyInfo.soul.baseAffinity)
 
   if (f(IUniversalIn.armyInfo.soul.affinity).gt(f(0))) {
-    IUniversalIn.armyInfo.soul.life = f(f(1).add(life2).add(life3).add(life4).add(life5)).mul(life1)
-    IUniversalIn.armyInfo.soul.baseLife = f(f(1).add(life2).add(life3).add(life4).add(life5)).mul(baseLife1)
+    IUniversalIn.armyInfo.soul.life = f(f(1).add(life2).add(life3).add(life4).add(life5).add(life6)).mul(life1).mul(life7).mul(life8)
+    IUniversalIn.armyInfo.soul.baseLife = f(f(1).add(life2).add(life3).add(life4).add(life5).add(life6)).mul(baseLife1).mul(life7).mul(life8)
   } else {
     IUniversalIn.armyInfo.soul.life = f(0)
     IUniversalIn.armyInfo.soul.baseLife = f(0)
@@ -20499,12 +22189,20 @@ function valuesSetter(type) {
   if (getTreasureActive("treasure17")) { var damage3 = f(IUniversalIn.treasures.treasure17.effect) } else { damage3 = f(0) }
   if (getTreasureActive("treasure14")) { var damage4 = f(IUniversalIn.treasures.treasure14.effect) } else { damage4 = f(0) }
   if (getTreasureActive("treasure23")) { var damage5 = f(IUniversalIn.treasures.treasure23.effect) } else { damage5 = f(0) }
+  if (getTreasureActive("treasure27")) { var damage6 = f(IUniversalIn.treasures.treasure27.effect1) } else { damage6 = f(0) }
+  if (getTreasureActive("treasure27")) { var damage7 = f(IUniversalIn.treasures.treasure27.effect2) } else { damage6 = f(1) }
+
+  if (f(IUniversal.hellEnergy).gt(f(1))) {
+    var damage8 = f(IUniversal.hellEnergy)
+  } else {
+    damage8 = f(1)
+  }
 
   var baseDamage1 = f(IUniversalIn.armyInfo.soul.baseAffinity)
 
   if (f(IUniversalIn.armyInfo.soul.affinity).gt(f(0))) {
-    IUniversalIn.armyInfo.soul.damage = f(f(1).add(damage2).add(damage3).add(damage4).add(damage5)).mul(damage1)
-    IUniversalIn.armyInfo.soul.baseDamage = f(f(1).add(damage2).add(damage3).add(damage4).add(damage5)).mul(baseDamage1)
+    IUniversalIn.armyInfo.soul.damage = f(f(1).add(damage2).add(damage3).add(damage4).add(damage5).add(damage6)).mul(damage1).mul(damage7).mul(damage8)
+    IUniversalIn.armyInfo.soul.baseDamage = f(f(1).add(damage2).add(damage3).add(damage4).add(damage5)).mul(baseDamage1).mul(damage6).mul(damage7).mul(damage8)
   } else {
     IUniversalIn.armyInfo.soul.damage = f(0)
     IUniversalIn.armyInfo.soul.baseDamage = f(0)
@@ -20547,7 +22245,7 @@ function valuesSetter(type) {
 
   IUniversalIn.armyInfo.soul.affinities.affinity1.baseValue = ((f(1).add(aff2).add(aff4).add(aff5).add(aff6)).mul(aff3).mul(aff8))
 
-  if (f(IUniversalIn.armyInfo.soul.affinities.affinity1.value).lt(f(0))) {
+  if (f(IUniversalIn.armyInfo.soul.affinities.affinity1.value).lt(f(1))) {
     IUniversalIn.armyInfo.soul.affinities.affinity1.value = f(1)
   }
 
@@ -20581,7 +22279,7 @@ function valuesSetter(type) {
 
   IUniversalIn.armyInfo.soul.affinities.affinity2.baseValue = (f(1).add(aff1).add(aff4).add(aff7)).mul(aff2)
 
-  if (f(IUniversalIn.armyInfo.soul.affinities.affinity2.value).lt(f(0))) {
+  if (f(IUniversalIn.armyInfo.soul.affinities.affinity2.value).lt(f(1))) {
     IUniversalIn.armyInfo.soul.affinities.affinity2.value = f(1)
   }
 
@@ -20617,7 +22315,7 @@ function valuesSetter(type) {
 
   IUniversalIn.armyInfo.soul.affinities.affinity3.baseValue = ((f(1).add(aff1).add(aff2).add(aff6).add(aff4).add(aff7)).mul(aff4))
 
-  if (f(IUniversalIn.armyInfo.soul.affinities.affinity3.value).lt(f(0))) {
+  if (f(IUniversalIn.armyInfo.soul.affinities.affinity3.value).lt(f(1))) {
     IUniversalIn.armyInfo.soul.affinities.affinity3.value = f(1)
   }
 
@@ -20649,7 +22347,7 @@ function valuesSetter(type) {
 
   IUniversalIn.armyInfo.soul.affinities.affinity4.baseValue = (f(1).add(aff4).add(aff7)).mul(aff2)
 
-  if (f(IUniversalIn.armyInfo.soul.affinities.affinity4.value).lt(f(0))) {
+  if (f(IUniversalIn.armyInfo.soul.affinities.affinity4.value).lt(f(1))) {
     IUniversalIn.armyInfo.soul.affinities.affinity4.value = f(1)
   }
 
@@ -20692,23 +22390,48 @@ function valuesSetter(type) {
     }
     var life1 = f(IUniversalIn.armyInfo.elemental.affinity)
 
+    if (getArmyEffectType("hellEnergy")) {
+      var boost1 = f(1)
+
+      if (getArmyEffectType("honor") && getArmyEffectValue("hellEnergy").gt(f(IUniversal.hellEnergy))) {
+        boost1 = getArmyEffectValue("honor")
+      }
+
+      var life2 = getArmyEffectValue("hellEnergy").mul(f(boost1))
+    } else {
+      life2 = f(1);
+    }
+
     if (f(IUniversalIn.armyInfo.elemental.affinity).gt(f(0))) {
-      IUniversalIn.armyInfo.elemental.life = f(f(1)).mul(life1)
+      IUniversalIn.armyInfo.elemental.life = f(f(1)).mul(life1).mul(life2)
     } else {
       IUniversalIn.armyInfo.elemental.life = f(0)
     }
 
     var damage1 = f(IUniversalIn.armyInfo.elemental.affinity)
 
+    if (getArmyEffectType("hellEnergy")) {
+      var boost1 = f(1)
+
+      if (getArmyEffectType("honor") && getArmyEffectValue("hellEnergy").gt(f(IUniversal.hellEnergy))) {
+        boost1 = getArmyEffectValue("honor")
+      }
+
+      var damage2 = getArmyEffectValue("hellEnergy").mul(f(boost1))
+    } else {
+      damage2 = f(1);
+    }
+
     if (f(IUniversalIn.armyInfo.elemental.affinity).gt(f(0))) {
-      IUniversalIn.armyInfo.elemental.damage = f(f(0.2)).mul(damage1)
+      IUniversalIn.armyInfo.elemental.damage = f(f(0.2)).mul(damage1).mul(damage2)
     } else {
       IUniversalIn.armyInfo.elemental.damage = f(0)
     }
 
     if (!IFight.youStats.onFight3) {
-      IUniversal.armyInfo.elemental.leftLife = f(selectedIn.life)
+      IUniversal.armyInfo.elemental.leftLife = f(IUniversalIn.armyInfo.elemental.life)
     }
+
 
     //affinity1
 
@@ -21394,6 +23117,29 @@ function valuesSetter(type) {
     sel1.active = false;
   }
 
+  //Treasure 27
+
+  var sel1 = IUniversal.treasures.treasure27
+  var sel2 = IUniversalIn.treasures.treasure27
+
+  sel2.maxLevel = Infinity
+
+  sel2.price = f(f(10).pow(f(42))).mul(f(10).pow(f(sel1.level).minus(f(1))))
+
+  sel2.effect1 = f(10).mul(f(sel1.level))
+  sel2.effect2 = f(1).add(f(0.1).mul(f(sel1.level)))
+
+  if (getTreasureActive("treasure27")) {
+    sel1.equip = true;
+  } else {
+    sel1.equip = false;
+  }
+
+  if (f(sel1.level).gt(f(0))) {
+    sel1.active = true;
+  } else {
+    sel1.active = false;
+  }
   //Expeditions
 
   //expedition 1
@@ -21990,6 +23736,91 @@ function valuesSetter(type) {
   } else {
     sel.active = false
   }
+
+
+  //expedition 15
+  var sel = IUniversal.expeditions.exp15
+  var selIn = IUniversalIn.expeditions.exp15
+
+  selIn.maxLevel = f(6)
+
+  selIn.damage = f(selIn.affinity)
+  selIn.life = f(selIn.affinity)
+
+  if (!IFight.youStats.onFight3) {
+    sel.leftLife = f(selIn.life)
+  }
+
+  selIn.affinities.affinity1.value = f(f(10).pow(f(10)).mul(f(f(f(10).pow(f(3))).pow(f(sel.level)))))
+  selIn.affinities.affinity2.value = f(1)
+  selIn.affinities.affinity3.value = f(1)
+  selIn.affinities.affinity4.value = f(1)
+
+  var aff1 = f(selIn.affinities.affinity1.value)
+  var aff2 = f(selIn.affinities.affinity2.value)
+  var aff3 = f(selIn.affinities.affinity3.value)
+  var aff4 = f(selIn.affinities.affinity4.value)
+
+  selIn.affinity = f(aff1).mul(aff2).mul(aff3).mul(aff4)
+
+  selIn.effects.effect1.type = "hellEnergy"
+  selIn.effects.effect1.content = `<div class="boldBlackBorder">Hell Energy</div>
+                                   <div>Damage and Life ×${format(f(selIn.effects.effect1.effect), 0)}</div>`
+
+  selIn.effects.effect1.effect = f(10).mul(f(sel.level).add(f(1)))
+
+  if ((f(sel.level).gte(f(selIn.maxLevel)))) {
+    sel.active = true
+  } else {
+    sel.active = false
+  }
+
+
+  //expedition 16
+  var sel = IUniversal.expeditions.exp16
+  var selIn = IUniversalIn.expeditions.exp16
+
+  selIn.maxLevel = f(6)
+
+  selIn.damage = f(selIn.affinity)
+  selIn.life = f(selIn.affinity)
+
+  if (!IFight.youStats.onFight3) {
+    sel.leftLife = f(selIn.life)
+  }
+
+  selIn.affinities.affinity1.value = f(f(10).pow(f(13)).mul(f(f(f(10).pow(f(3))).pow(f(sel.level)))))
+  selIn.affinities.affinity2.value = f(1)
+  selIn.affinities.affinity3.value = f(1)
+  selIn.affinities.affinity4.value = f(1)
+
+  var aff1 = f(selIn.affinities.affinity1.value)
+  var aff2 = f(selIn.affinities.affinity2.value)
+  var aff3 = f(selIn.affinities.affinity3.value)
+  var aff4 = f(selIn.affinities.affinity4.value)
+
+  selIn.affinity = f(aff1).mul(aff2).mul(aff3).mul(aff4)
+
+  selIn.effects.effect1.type = "hellEnergy"
+  selIn.effects.effect1.content = `<div class="boldBlackBorder">Hell Energy</div>
+                                   <div>Damage and Life ×${format(f(selIn.effects.effect1.effect), 0)}</div>`
+
+  selIn.effects.effect1.effect = f(50).mul(f(sel.level).add(f(1)))
+
+  selIn.effects.effect2.type = "honor"
+  selIn.effects.effect2.content = `<div class="boldBlackBorder">Honor</div>
+                                   <div>Hell Energy ×${format(f(selIn.effects.effect2.effect), 0)} if greater than opponent's Hell Energy</div>`
+
+  selIn.effects.effect2.effect = f(10).mul(f(sel.level).add(f(1)))
+
+  selIn.rewards.timerPrice = f(2100)
+
+
+  if ((f(sel.level).gte(f(selIn.maxLevel)))) {
+    sel.active = true
+  } else {
+    sel.active = false
+  }
   //spires
 
   //spire 1
@@ -22534,7 +24365,9 @@ function valuesSetterDinamic(type) {
     var essence8 = f(1)
   }
 
-  IGameData.essenceProd = (essence1.add(essence2).add(essence3).add(essence4).add(essence5)).mul(f(IGameData.tickSpeed)).mul(f(essenceA)).mul(f(essenceB)).mul(f(essence6)).mul(f(essence7)).mul(f(essence8))
+  var essence9 = f(IUniversalIn.fireTree.node82.effect)
+
+  IGameData.essenceProd = (essence1.add(essence2).add(essence3).add(essence4).add(essence5)).mul(f(IGameData.tickSpeed)).mul(f(essenceA)).mul(f(essenceB)).mul(f(essence6)).mul(f(essence7)).mul(f(essence8)).mul(essence9)
   IGameData.essence = f(IGameData.essence).add(IGameData.essenceProd)
 
   if (f(IGameData.essence).lt(f(0))) {
@@ -22635,9 +24468,13 @@ function valuesSetterDinamic(type) {
   var fire5 = f(IUniversalIn.fireTree.node12.effect)
   var fire6 = f(IUniversalIn.fireTree.node39.effect2)
   var fire7 = f(IUniversalIn.fireTree.node55.effect)
+  var fire8 = f(IUniversalIn.fireTree.node65.effect)
+  var fire9 = f(IUniversalIn.fireTree.node69.effect)
+  var fire10 = f(IUniversalIn.fireTree.node70.effect)
+  var fire11 = f(IUniversalIn.fireTree.node77.effect)
 
 
-  IUniversal.fireProdBase = f(fire1).mul(f(fire2)).mul(f(fire3)).mul(f(fire4)).mul(f(fire5)).mul(f(fire6)).mul(f(fire7))
+  IUniversal.fireProdBase = f(fire1).mul(f(fire2)).mul(f(fire3)).mul(f(fire4)).mul(f(fire5)).mul(f(fire6)).mul(f(fire7)).mul(fire8).mul(fire9).mul(fire10).mul(fire11)
   IUniversal.fireProd = f(IUniversal.fireProdBase).mul(f(IGameData.tickSpeed))
 
   if (!f(IUniversal.fire).lt(f(0))) {
@@ -22711,6 +24548,7 @@ function valuesSetterDinamic(type) {
 
   var heat1 = f(IUniversalIn.fireTree.node30.effect).mul(f(1).dividedBy(f(IUniversal.fireTree.node30.timer)))
 
+
   IUniversal.heatProd = f(heat1).mul(f(IGameData.baseTickSpeed))
   IUniversal.heat = f(IUniversal.heat)
 
@@ -22730,8 +24568,11 @@ function valuesSetterDinamic(type) {
   }
 
   var fireShard4 = f(IUniversalIn.fireTree.node56.effect)
+  var fireShard5 = f(IUniversalIn.fireTree.node67.effect)
+  var fireShard6 = f(IUniversalIn.fireTree.node73.effect)
+  var fireShard7 = f(IUniversalIn.fireTree.node74.effect)
 
-  IUniversal.fireShardsProd = f(fireShard1).mul(f(fireShard2)).mul(f(fireShard3)).mul(f(fireShard4)).mul(f(IGameData.tickSpeed))
+  IUniversal.fireShardsProd = f(fireShard1).mul(f(fireShard2)).mul(f(fireShard3)).mul(f(fireShard4)).mul(fireShard5).mul(fireShard6).mul(fireShard7).mul(f(IGameData.tickSpeed))
   IUniversal.fireShards = f(IUniversal.fireShards).add(f(IUniversal.fireShardsProd))
 
   if (f(IUniversal.fireShards).lt(f(0))) {
@@ -22741,9 +24582,12 @@ function valuesSetterDinamic(type) {
   //rotations
 
   var rotation1 = f(IUniversalIn.fireTree.node54.effect)
+  var rotation2 = f(IUniversalIn.fireTree.node68.effect)
+  var rotation3 = f(IUniversalIn.fireTree.node75.effect)
+  var rotation4 = f(IUniversalIn.fireTree.node76.effect)
 
   if (type == "off") {
-    IUniversal.rotationProd = (f(rotation1).mul(f(IGameData.tickSpeed))).dividedBy(f(IUniversal.fireTree.node50.timer))
+    IUniversal.rotationProd = (f(rotation1).mul(rotation2).mul(rotation3).mul(rotation4).mul(f(IGameData.tickSpeed))).dividedBy(f(IUniversal.fireTree.node50.timer))
   } else {
     IUniversal.rotationProd = f(0)
   }
@@ -22799,7 +24643,13 @@ function valuesSetterDinamic(type) {
     IUniversal.fireTree.node50.currentTimer = f(0)
 
     if (IUniversal.fireTree.node54.active) {
-      IUniversal.rotation = f(IUniversal.rotation).add(f(IUniversalIn.fireTree.node54.effect))
+
+      var rotation1 = f(IUniversalIn.fireTree.node54.effect)
+      var rotation2 = f(IUniversalIn.fireTree.node68.effect)
+      var rotation3 = f(IUniversalIn.fireTree.node75.effect)
+      var rotation4 = f(IUniversalIn.fireTree.node76.effect)
+
+      IUniversal.rotation = f(IUniversal.rotation).add(rotation1.mul(rotation2).mul(rotation3).mul(rotation4))
     }
   }
 
@@ -22851,6 +24701,44 @@ function valuesSetterDinamic(type) {
     IUniversal.fireTree.node7.level = f(0)
   }
 
+  //Hell Territory
+
+  var hellTerritory1 = f(IUniversalIn.fireTree.node83.effect)
+
+  var hellTerritory2 = f(Decimal.log(IUniversal.heat.dividedBy(f(10).pow(f(15))), 2)).pow(f(2))
+
+  if (hellTerritory2 == undefined || hellTerritory2.lt(f(1))) {
+    var hellTerritory2 = f(1)
+  }
+
+
+  var hellTerritory3 = f(IUniversalIn.fireTree.node65.effect2)
+  var hellTerritory4 = f(IUniversalIn.fireTree.node66.effect2)
+  var hellTerritory5 = f(IUniversalIn.fireTree.node67.effect2)
+  var hellTerritory6 = f(IUniversalIn.fireTree.node68.effect2)
+
+  IUniversal.hellTerritoryProd = hellTerritory1.mul(f(hellTerritory2)).mul(hellTerritory3).mul(hellTerritory4).mul(hellTerritory5).mul(hellTerritory6)
+  IUniversal.hellTerritory = f(IUniversal.hellTerritory).add(IUniversal.hellTerritoryProd.mul(f(IGameData.tickSpeed)))
+
+  //Hell Energy
+
+  var hellEnergy1 = f(Decimal.log(f(IUniversal.hellTerritory).dividedBy(f(10).pow(f(2))), 2)).pow(f(1.2))
+
+  if (f(hellEnergy1).lt(f(1)) || hellEnergy1 == undefined) {
+    hellEnergy1 = f(1)
+  }
+
+  IUniversal.hellEnergy = hellEnergy1
+
+  //Fame
+
+  IUniversal.fameReq = f(f(10).pow(f(3))).mul(f(10).pow(f(2)).pow(f(IUniversal.maxFame)))
+
+  if (f(IUniversal.hellTerritory).gte(f(IUniversal.fameReq))) {
+    IUniversal.maxFame = f(IUniversal.maxFame).add(f(1))
+    IUniversal.fame = f(IUniversal.fame).add(f(1))
+  }
+
   //WATER
 
   IUniversal.waterTreeSize = f(IUniversal.waterTreeSize)
@@ -22874,8 +24762,9 @@ function valuesSetterDinamic(type) {
   var water4 = f(IUniversalIn.waterTree.node22.effect)
   var water5 = f(IUniversalIn.waterTree.node1.effect)
   var water6 = f(IUniversalIn.potionSource.item1.value2)
+  var water7 = f(IUniversalIn.fireTree.node79.effect)
 
-  IUniversal.waterProdBase = ((f(water2))).mul(f(water3)).mul(f(water4)).mul(f(water6)).mul(f(water5)).mul(f(IGameData.baseTickSpeed))
+  IUniversal.waterProdBase = ((f(water2))).mul(f(water3)).mul(f(water4)).mul(f(water6)).mul(f(water5)).mul(water7).mul(f(IGameData.baseTickSpeed))
   IUniversal.waterProd = ((f(water2))).mul(f(water3)).mul(f(water4)).mul(f(water6)).mul(f(water5)).mul(f(IGameData.tickSpeed))
 
   //water
@@ -22892,7 +24781,7 @@ function valuesSetterDinamic(type) {
         var tempWaterProdWithTime = f(tempWaterProd).mul(f(IGameData.tickSpeed))
         IUniversal.water = f(IUniversal.water).add(f(tempWaterProdWithTime))
       } else {
-        IUniversal.waterProd = ((f(water2))).mul(f(water3)).mul(f(water4)).mul(f(water6)).mul(f(water5)).mul(f(IGameData.tickSpeed))
+        IUniversal.waterProd = ((f(water2))).mul(f(water3)).mul(f(water4)).mul(f(water6)).mul(f(water5)).mul(water7).mul(f(IGameData.tickSpeed))
         IUniversal.water = f(IUniversal.water).add(f(IUniversal.waterProd))
       }
     } else {
@@ -23161,9 +25050,10 @@ function valuesSetterDinamic(type) {
   var earth4 = f(IUniversalIn.earthTree.node4.effect)
   var earth5 = f(IUniversalIn.spires.spire1.effect)
   var earth6 = f(IUniversalIn.forge.item4.effect)
+  var earth7 = f(IUniversalIn.fireTree.node80.effect)
 
-  IUniversal.earthProdBase = (f(earth1).mul(earth2).mul(earth3).mul(earth4).mul(earth5).mul(earth6)).mul(f(IGameData.baseTickSpeed))
-  IUniversal.earthProd = (f(earth1).mul(earth2).mul(earth3).mul(earth4).mul(earth5).mul(earth6)).mul(f(IGameData.tickSpeed))
+  IUniversal.earthProdBase = (f(earth1).mul(earth2).mul(earth3).mul(earth4).mul(earth5).mul(earth6).mul(earth7)).mul(f(IGameData.baseTickSpeed))
+  IUniversal.earthProd = (f(earth1).mul(earth2).mul(earth3).mul(earth4).mul(earth5).mul(earth6).mul(earth7)).mul(f(IGameData.tickSpeed))
 
   if (!f(IUniversal.earth).lt(f(0))) {
     IUniversal.earth = f(IUniversal.earth).add(f(IUniversal.earthProd))
@@ -23494,15 +25384,56 @@ function valuesSetterDinamic(type) {
     }
   }
 
+  //exp15
+
+  var sel = IUniversal.expeditions.exp15
+  var selIn = IUniversalIn.expeditions.exp15
+
+  if (f(sel.rewards.timer).gte(f(selIn.rewards.timerPrice)) && false) {
+    var number = f(sel.rewards.timer).dividedBy(f(selIn.rewards.timerPrice)).floor();
+
+    selIn.rewards.effect(sel, selIn, sel.rewards, selIn.rewards, number)
+
+    sel.rewards.timer = f(0)
+  }
+
+  if (IUniversal.expeditions.exp14.active) {
+    IUniversal.expeditions.exp14.rewards.timer = f(IUniversal.expeditions.exp14.rewards.timer).add(f(IGameData.tickSpeed))
+    if (f(IUniversal.expeditions.exp14.timer).lt(f(0))) {
+      IUniversal.expeditions.exp14.timer = f(0)
+    }
+  }
+
+  //exp16
+
+  var sel = IUniversal.expeditions.exp16
+  var selIn = IUniversalIn.expeditions.exp16
+
+  if (f(sel.rewards.timer).gte(f(selIn.rewards.timerPrice)) && false) {
+    var number = f(sel.rewards.timer).dividedBy(f(selIn.rewards.timerPrice)).floor();
+
+    selIn.rewards.effect(sel, selIn, sel.rewards, selIn.rewards, number)
+
+    sel.rewards.timer = f(0)
+  }
+
+  if (IUniversal.expeditions.exp14.active) {
+    IUniversal.expeditions.exp14.rewards.timer = f(IUniversal.expeditions.exp14.rewards.timer).add(f(IGameData.tickSpeed))
+    if (f(IUniversal.expeditions.exp14.timer).lt(f(0))) {
+      IUniversal.expeditions.exp14.timer = f(0)
+    }
+  }
+
   //METAL
 
   //metal prod
 
   var metal1 = f(IUniversalIn.spires.spire2.effect)
   var metal2 = f(IUniversalIn.forge.item3.effect)
+  var metal3 = f(IUniversalIn.fireTree.node81.effect)
 
-  IUniversal.metalProdBase = f(metal1).mul(metal2).mul(f(IGameData.baseTickSpeed))
-  IUniversal.metalProd = f(metal1).mul(metal2).mul(f(IGameData.tickSpeed))
+  IUniversal.metalProdBase = f(metal1).mul(metal2).mul(metal3).mul(f(IGameData.baseTickSpeed))
+  IUniversal.metalProd = f(metal1).mul(metal2).mul(metal3).mul(f(IGameData.tickSpeed))
 
   if (!f(IUniversal.metal).lt(f(0))) {
     IUniversal.metal = f(IUniversal.metal).add(f(IUniversal.metalProd))
@@ -23659,8 +25590,8 @@ document.getElementById("fp2_content2_23").onclick = function () {
 
   var element = document.getElementById("content2_23_scroll")
 
-  element.scrollTop = element.scrollHeight / 5
-  element.scrollLeft = element.scrollWidth / 3.2
+  element.scrollTop = element.scrollHeight / 2.1
+  element.scrollLeft = element.scrollWidth / 6
 }
 
 //Metal
@@ -24058,72 +25989,61 @@ document.getElementById("c2_4_VS").onclick = async function () {
 
   if (!(f(IFight.challengers.baseChallenger.level).gt(IFightIn.challengers.baseChallenger.maxLevel))) {
     try {
-      // Se c'è già un combattimento, fermalo
       if (IFight.youStats.fightController1 && typeof IFight.youStats.fightController1.abort === "function") {
         IFight.youStats.fightController1.abort();
         IFight.youStats.fightController1 = null;
-        return; // Esce se il combattimento è stato interrotto
+        return;
       }
 
-      // Inizia un nuovo combattimento
       IFight.youStats.fightController1 = new AbortController();
       const signal = IFight.youStats.fightController1.signal;
-      // Aspetta che il combattimento finisca
       if (f(IFight.youStats.life).gt(f(0)) && f(IFight.youStats.damage).gt(f(0))) {
         await fight("baseChallenger", IFight.challengers.baseChallenger, IFightIn.challengers.baseChallenger, signal);
       }
 
-      // Resetta il controller solo se il combattimento è completato senza interruzione
       if (!signal.aborted) {
         IFight.youStats.fightController1 = null;
       }
 
     } catch (error) {
       console.error("Errore durante il combattimento:", error);
-      // Gestione errori in caso di problemi con la funzione
-      IFight.youStats.fightController1 = null; // Assicurati che il controller venga resettato
+      IFight.youStats.fightController1 = null;
     }
   }
 };
 
 document.getElementById("c2_10_VS").onclick = async function () {
   try {
-    // Se c'è già un combattimento, fermalo
     if (IFight.youStats.fightController2 && typeof IFight.youStats.fightController2.abort === "function") {
       IFight.youStats.fightController2.abort();
       IFight.youStats.fightController2 = null;
-      return; // Esce se il combattimento è stato interrotto
+      return;
     }
 
-    // Inizia un nuovo combattimento
     IFight.youStats.fightController2 = new AbortController();
     const signal = IFight.youStats.fightController2.signal;
 
-    // Aspetta che il combattimento finisca
 
     if (f(IFight.youStats.life).gt(f(0)) && f(IFight.youStats.damage).gt(f(0))) {
       await fight("universalChallenger", IUniversalChallenger.challengers.universalChallenger, IUniversalChallengerIn.challengers.universalChallenger, signal);
     }
 
-    // Resetta il controller solo se il combattimento è completato senza interruzione
     if (!signal.aborted) {
       IFight.youStats.fightController2 = null;
     }
 
   } catch (error) {
     console.error("Errore durante il combattimento:", error);
-    // Gestione errori in caso di problemi con la funzione `fight`
-    IFight.youStats.fightController2 = null; // Assicurati che il controller venga resettato
+    IFight.youStats.fightController2 = null;
   }
 };
 
 document.getElementById("c2_10_challenges_c1_p2").onclick = async function () {
   try {
-    // Se c'è già un combattimento, fermalo
     if (IFight.youStats.fightController2 && typeof IFight.youStats.fightController2.abort === "function") {
       IFight.youStats.fightController2.abort();
       IFight.youStats.fightController2 = null;
-      return; // Esce se il combattimento è stato interrotto
+      return;
     }
 
     if (!(IFight.youStats.onFight2)) {
@@ -24132,35 +26052,30 @@ document.getElementById("c2_10_challenges_c1_p2").onclick = async function () {
       IUniversalChallenger.universalChallengerChallenges.c1.active = true
     }
 
-    // Inizia un nuovo combattimento
     IFight.youStats.fightController2 = new AbortController();
     const signal = IFight.youStats.fightController2.signal;
 
-    // Aspetta che il combattimento finisca
 
     if (f(IFight.youStats.life).gt(f(0)) && f(IFight.youStats.damage).gt(f(0))) {
       await fight("universalChallengerChallenge1", IUniversalChallenger.challengers.universalChallenger, IUniversalChallengerIn.challengers.universalChallenger, signal);
     }
 
-    // Resetta il controller solo se il combattimento è completato senza interruzione
     if (!signal.aborted) {
       IFight.youStats.fightController2 = null;
     }
 
   } catch (error) {
     console.error("Errore durante il combattimento:", error);
-    // Gestione errori in caso di problemi con la funzione `fight`
-    IFight.youStats.fightController2 = null; // Assicurati che il controller venga resettato
+    IFight.youStats.fightController2 = null;
   }
 }
 
 document.getElementById("c2_10_challenges_c2_p2").onclick = async function () {
   try {
-    // Se c'è già un combattimento, fermalo
     if (IFight.youStats.fightController2 && typeof IFight.youStats.fightController2.abort === "function") {
       IFight.youStats.fightController2.abort();
       IFight.youStats.fightController2 = null;
-      return; // Esce se il combattimento è stato interrotto
+      return;
     }
 
     if (!(IFight.youStats.onFight2)) {
@@ -24169,25 +26084,21 @@ document.getElementById("c2_10_challenges_c2_p2").onclick = async function () {
       IUniversalChallenger.universalChallengerChallenges.c2.active = true
     }
 
-    // Inizia un nuovo combattimento
     IFight.youStats.fightController2 = new AbortController();
     const signal = IFight.youStats.fightController2.signal;
 
-    // Aspetta che il combattimento finisca
 
     if (f(IFight.youStats.life).gt(f(0)) && f(IFight.youStats.damage).gt(f(0))) {
       await fight("universalChallengerChallenge2", IUniversalChallenger.challengers.universalChallenger, IUniversalChallengerIn.challengers.universalChallenger, signal);
     }
 
-    // Resetta il controller solo se il combattimento è completato senza interruzione
     if (!signal.aborted) {
       IFight.youStats.fightController2 = null;
     }
 
   } catch (error) {
     console.error("Errore durante il combattimento:", error);
-    // Gestione errori in caso di problemi con la funzione `fight`
-    IFight.youStats.fightController2 = null; // Assicurati che il controller venga resettato
+    IFight.youStats.fightController2 = null;
   }
 }
 
@@ -24203,32 +26114,27 @@ async function expeditionExecute() {
   if (!(f(IUniversal.expeditions[IUniversal.armyInfo.enemy.selected].level).gte(IUniversalIn.expeditions[IUniversal.armyInfo.enemy.selected].maxLevel))) {
 
     try {
-      // Se c'è già un combattimento, fermalo
       if (IFight.youStats.fightController3 && typeof IFight.youStats.fightController3.abort === "function") {
         IFight.youStats.fightController3.abort();
         IFight.youStats.fightController3 = null;
-        return; // Esce se il combattimento è stato interrotto
+        return;
       }
 
-      // Inizia un nuovo combattimento
       IFight.youStats.fightController3 = new AbortController();
       const signal = IFight.youStats.fightController3.signal;
 
-      // Aspetta che il combattimento finisca
 
       if (f(IFight.youStats.life).gt(f(0)) && f(IFight.youStats.damage).gt(f(0))) {
         await fight("expedition", IUniversal.armyInfo.enemy, IUniversalIn.armyInfo.enemy, signal);
       }
 
-      // Resetta il controller solo se il combattimento è completato senza interruzione
       if (!signal.aborted) {
         IFight.youStats.fightController3 = null;
       }
 
     } catch (error) {
       console.error("Errore durante il combattimento:", error);
-      // Gestione errori in caso di problemi con la funzione `fight`
-      IFight.youStats.fightController3 = null; // Assicurati che il controller venga resettato
+      IFight.youStats.fightController3 = null;
     }
   }
 }
@@ -24236,33 +26142,28 @@ async function expeditionExecute() {
 async function crusadeExecute() {
   if (!(f(IUniversal.expeditions[IUniversal.armyInfo.elemental.selected].level).gte(IUniversalIn.expeditions[IUniversal.armyInfo.elemental.selected].maxLevel))) {
     try {
-      // Se c'è già un combattimento, fermalo
       if (IFight.youStats.fightController3 && typeof IFight.youStats.fightController3.abort === "function") {
         IFight.youStats.fightController3.abort();
         IFight.youStats.fightController3 = null;
-        return; // Esce se il combattimento è stato interrotto
+        return;
       }
 
-      // Inizia un nuovo combattimento
       IFight.youStats.fightController3 = new AbortController();
       const signal = IFight.youStats.fightController3.signal;
 
-      // Aspetta che il combattimento finisca
 
 
       if (f(IFight.youStats.life).gt(f(0)) && f(IFight.youStats.damage).gt(f(0))) {
         await fight("crusade", IUniversal.armyInfo.elemental, IUniversalIn.armyInfo.elemental, signal);
       }
 
-      // Resetta il controller solo se il combattimento è completato senza interruzione
       if (!signal.aborted) {
         IFight.youStats.fightController3 = null;
       }
 
     } catch (error) {
       console.error("Errore durante il combattimento:", error);
-      // Gestione errori in caso di problemi con la funzione `fight`
-      IFight.youStats.fightController3 = null; // Assicurati che il controller venga resettato
+      IFight.youStats.fightController3 = null;
     }
   }
 }
@@ -24399,7 +26300,6 @@ document.getElementById("content1_7_ascension_button").onclick = function () {
 
     if (f(IFight.challengers.baseChallenger.level)
       .gt(f(IFightIn.challengers.baseChallenger.maxLevel))) {
-      //keep training active-temporary
       var training1Status1 = ITraining.base.base1.active
       var training1Status2 = ITraining.base.base2.active
 
@@ -25116,6 +27016,130 @@ document.getElementById("content2_17_node64_button").onclick = function () {
     buyMultiple(IUniversalIn.fireTree.node64, IUniversalIn.fireTree.node64, IUniversal.fireTree.node64, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node64, IUniversalIn.fireTree.node64);
 }
 
+document.getElementById("content2_17_node65_button").onclick = function () {
+  if (f(IUniversal.fireTree.node65.level).lt(f(IUniversalIn.fireTree.node65.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node65, IUniversalIn.fireTree.node65, IUniversal.fireTree.node65, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node65, IUniversalIn.fireTree.node65);
+}
+
+document.getElementById("content2_17_node66_button").onclick = function () {
+  if (f(IUniversal.fireTree.node66.level).lt(f(IUniversalIn.fireTree.node66.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node66, IUniversalIn.fireTree.node66, IUniversal.fireTree.node66, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node66, IUniversalIn.fireTree.node66);
+}
+
+document.getElementById("content2_17_node67_button").onclick = function () {
+  if (f(IUniversal.fireTree.node67.level).lt(f(IUniversalIn.fireTree.node67.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node67, IUniversalIn.fireTree.node67, IUniversal.fireTree.node67, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node67, IUniversalIn.fireTree.node67);
+}
+
+document.getElementById("content2_17_node68_button").onclick = function () {
+  if (f(IUniversal.fireTree.node68.level).lt(f(IUniversalIn.fireTree.node68.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node68, IUniversalIn.fireTree.node68, IUniversal.fireTree.node68, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node68, IUniversalIn.fireTree.node68);
+}
+
+document.getElementById("content2_17_node69_button").onclick = function () {
+  if (f(IUniversal.fireTree.node69.level).lt(f(IUniversalIn.fireTree.node69.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node69, IUniversalIn.fireTree.node69, IUniversal.fireTree.node69, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node69, IUniversalIn.fireTree.node69);
+}
+
+document.getElementById("content2_17_node70_button").onclick = function () {
+  if (f(IUniversal.fireTree.node70.level).lt(f(IUniversalIn.fireTree.node70.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node70, IUniversalIn.fireTree.node70, IUniversal.fireTree.node70, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node70, IUniversalIn.fireTree.node70);
+}
+
+document.getElementById("content2_17_node71_button").onclick = function () {
+  if (f(IUniversal.fireTree.node71.level).lt(f(IUniversalIn.fireTree.node71.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node71, IUniversalIn.fireTree.node71, IUniversal.fireTree.node71, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node71, IUniversalIn.fireTree.node71);
+}
+
+document.getElementById("content2_17_node72_button").onclick = function () {
+  if (f(IUniversal.fireTree.node72.level).lt(f(IUniversalIn.fireTree.node72.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node72, IUniversalIn.fireTree.node72, IUniversal.fireTree.node72, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node72, IUniversalIn.fireTree.node72);
+}
+
+document.getElementById("content2_17_node73_button").onclick = function () {
+  if (f(IUniversal.fireTree.node73.level).lt(f(IUniversalIn.fireTree.node73.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node73, IUniversalIn.fireTree.node73, IUniversal.fireTree.node73, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node73, IUniversalIn.fireTree.node73);
+}
+
+document.getElementById("content2_17_node74_button").onclick = function () {
+  if (f(IUniversal.fireTree.node74.level).lt(f(IUniversalIn.fireTree.node74.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node74, IUniversalIn.fireTree.node74, IUniversal.fireTree.node74, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node74, IUniversalIn.fireTree.node74);
+}
+
+document.getElementById("content2_17_node75_button").onclick = function () {
+  if (f(IUniversal.fireTree.node75.level).lt(f(IUniversalIn.fireTree.node75.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node75, IUniversalIn.fireTree.node75, IUniversal.fireTree.node75, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node75, IUniversalIn.fireTree.node75);
+}
+
+document.getElementById("content2_17_node76_button").onclick = function () {
+  if (f(IUniversal.fireTree.node76.level).lt(f(IUniversalIn.fireTree.node76.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node76, IUniversalIn.fireTree.node76, IUniversal.fireTree.node76, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node76, IUniversalIn.fireTree.node76);
+}
+
+document.getElementById("content2_17_node77_button").onclick = function () {
+  if (f(IUniversal.fireTree.node77.level).lt(f(IUniversalIn.fireTree.node77.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node77, IUniversalIn.fireTree.node77, IUniversal.fireTree.node77, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node77, IUniversalIn.fireTree.node77);
+}
+
+document.getElementById("content2_17_node78_button").onclick = function () {
+  if (f(IUniversal.fireTree.node78.level).lt(f(IUniversalIn.fireTree.node78.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node78, IUniversalIn.fireTree.node78, IUniversal.fireTree.node78, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node78, IUniversalIn.fireTree.node78);
+}
+
+document.getElementById("content2_17_node79_button").onclick = function () {
+  if (f(IUniversal.fireTree.node79.level).lt(f(IUniversalIn.fireTree.node79.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node79, IUniversalIn.fireTree.node79, IUniversal.fireTree.node79, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node79, IUniversalIn.fireTree.node79);
+}
+
+document.getElementById("content2_17_node80_button").onclick = function () {
+  if (f(IUniversal.fireTree.node80.level).lt(f(IUniversalIn.fireTree.node80.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node80, IUniversalIn.fireTree.node80, IUniversal.fireTree.node80, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node80, IUniversalIn.fireTree.node80);
+}
+
+document.getElementById("content2_17_node81_button").onclick = function () {
+  if (f(IUniversal.fireTree.node81.level).lt(f(IUniversalIn.fireTree.node81.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node81, IUniversalIn.fireTree.node81, IUniversal.fireTree.node81, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node81, IUniversalIn.fireTree.node81);
+}
+
+document.getElementById("content2_17_node82_button").onclick = function () {
+  if (f(IUniversal.fireTree.node82.level).lt(f(IUniversalIn.fireTree.node82.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node82, IUniversalIn.fireTree.node82, IUniversal.fireTree.node82, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node82, IUniversalIn.fireTree.node82);
+}
+
+document.getElementById("content2_17_node83_button").onclick = function () {
+  if (f(IUniversal.fireTree.node83.level).lt(f(IUniversalIn.fireTree.node83.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node83, IUniversalIn.fireTree.node83, IUniversal.fireTree.node83, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node83, IUniversalIn.fireTree.node83);
+}
+
+document.getElementById("content2_17_node84_button").onclick = function () {
+  IUniversal.fireTree.node65.level = f(0)
+  IUniversal.fireTree.node66.level = f(0)
+  IUniversal.fireTree.node67.level = f(0)
+  IUniversal.fireTree.node68.level = f(0)
+  IUniversal.fireTree.node69.level = f(0)
+  IUniversal.fireTree.node70.level = f(0)
+  IUniversal.fireTree.node71.level = f(0)
+  IUniversal.fireTree.node72.level = f(0)
+  IUniversal.fireTree.node73.level = f(0)
+  IUniversal.fireTree.node74.level = f(0)
+  IUniversal.fireTree.node75.level = f(0)
+  IUniversal.fireTree.node76.level = f(0)
+
+  IUniversal.fame = IUniversal.maxFame
+}
+
+document.getElementById("content2_17_node85_button").onclick = function () {
+  IUniversal.fireTree.node77.level = f(0)
+  IUniversal.fireTree.node78.level = f(0)
+  IUniversal.fireTree.node79.level = f(0)
+  IUniversal.fireTree.node80.level = f(0)
+  IUniversal.fireTree.node81.level = f(0)
+  IUniversal.fireTree.node82.level = f(0)
+
+  IUniversal.hellPowers1Points = IUniversal.hellPowers1PointsMax
+}
+
+
 document.getElementById("content2_17_node41_button2").onclick = function () {
   if (f(IUniversal.fireTree.node41.level).gt(f(0))) {
     assignGroup(IUniversalIn.fireTree, IUniversal.fireTree, "node41")
@@ -25533,7 +27557,6 @@ document.getElementById("content2_19_potionUpgrade_upgradeButton").onclick = fun
 
 document.getElementById("content2_19_potionUpgrade_content3_button1").onclick = function () {
 
-  //put cost of fusion
 
   const { newPotion, newPotionIn } = potionFusion();
 
@@ -25900,6 +27923,18 @@ document.getElementById("content2_23_node14_button").onclick = function () {
   changePage("expedition", "content2_23_crusadePage")
 }
 
+document.getElementById("content2_23_node15_button").onclick = function () {
+
+  IUniversal.armyInfo.elemental.selected = "exp15"
+  changePage("expedition", "content2_23_crusadePage")
+}
+
+document.getElementById("content2_23_node16_button").onclick = function () {
+
+  IUniversal.armyInfo.elemental.selected = "exp16"
+  changePage("expedition", "content2_23_crusadePage")
+}
+
 document.getElementById("content2_23_node1_button2").onclick = function () {
   for (let x in IUniversal.expeditions.exp1.rewards.expectedRewards) {
     var sel = IUniversal.expeditions.exp1.rewards.expectedRewards[x]
@@ -26082,6 +28117,32 @@ document.getElementById("content2_23_node14_button2").onclick = function () {
 
 }
 
+document.getElementById("content2_23_node15_button2").onclick = function () {
+  for (let x in IUniversal.expeditions.exp15.rewards.expectedRewards) {
+    var sel = IUniversal.expeditions.exp15.rewards.expectedRewards[x]
+
+    IUniversal.treasures[x].level = f(IUniversal.treasures[x].level).add(f(sel.level))
+    IUniversal.treasures[x].num = f(IUniversal.treasures[x].num).add(f(sel.num))
+    update("content2_23_treasureClaim_d1", `<div class="height20 width100 row overflowX flex zHigh">${IUniversalIn.expeditions.exp15.effectContent(IUniversal.expeditions.exp15.rewards, IUniversalIn.expeditions.exp15.rewards)}</div>`)
+    changePage("expedition", "content2_23_treasureClaim")
+  }
+  IUniversal.expeditions.exp15.rewards.expectedRewards = null
+
+}
+
+document.getElementById("content2_23_node16_button2").onclick = function () {
+  for (let x in IUniversal.expeditions.exp16.rewards.expectedRewards) {
+    var sel = IUniversal.expeditions.exp16.rewards.expectedRewards[x]
+
+    IUniversal.treasures[x].level = f(IUniversal.treasures[x].level).add(f(sel.level))
+    IUniversal.treasures[x].num = f(IUniversal.treasures[x].num).add(f(sel.num))
+    update("content2_23_treasureClaim_d1", `<div class="height20 width100 row overflowX flex zHigh">${IUniversalIn.expeditions.exp16.effectContent(IUniversal.expeditions.exp16.rewards, IUniversalIn.expeditions.exp16.rewards)}</div>`)
+    changePage("expedition", "content2_23_treasureClaim")
+  }
+  IUniversal.expeditions.exp16.rewards.expectedRewards = null
+
+}
+
 
 document.getElementById("content2_23_curtain").onclick = function () {
   changePage("expedition", "out")
@@ -26229,25 +28290,6 @@ async function offProgress(time) {
 }
 
 async function challengerOff(time) {
-
-  //prendi quanto tempo devi recuperare
-
-  //prendi la vita e il danno di YOU
-  //prendi la vita e il danno di Challenger
-
-  //moltiplica il danno di YOU fino a portare a 0 la vita di Challenger, segna il tempo passato.
-  //moltiplica il danno di Challenger fino a portare a 0 la vita di YOU, segna il tempo passato.
-
-  //se il primo risultato e' maggiore del secondo, allora vince YOU seno' vince Challenger.
-  //sottrai il tempo passato uguale al minore dei risultati
-
-  //Assegna i premi
-
-
-  //------------
-  //ripeti se ce l' automazione.
-  //------------
-
   var leftTime = time;
 
 
@@ -26302,7 +28344,7 @@ function getSphereCache(targetId) {
   return spheresCache[targetId];
 }
 
-var SPHERE_UPDATE_INTERVAL = 50; // max 20fps
+var SPHERE_UPDATE_INTERVAL = 50;
 
 function spheres(
   targetId,
@@ -26376,7 +28418,7 @@ function spheres(
   var front = [];
 
   var t = now / 1000;
-  var baseAngle = t * 0.8; // 🚫 startAngle NON qui
+  var baseAngle = t * 0.8;
   var angleStep = (2 * Math.PI) / numSpheres;
 
   var radiusX = width * (radiusXPercent / 300);
@@ -26389,7 +28431,6 @@ function spheres(
   for (var i = 0; i < numSpheres; i++) {
     var angle = baseAngle + i * angleStep;
 
-    // ✅ startAngle SOLO sulla posizione
     var x = cx + Math.cos(angle + startAngle) * radiusX;
     var y = cy + Math.sin(angle + startAngle) * radiusY;
 
@@ -26400,7 +28441,6 @@ function spheres(
       '" fill="' + colorSelected +
       '" stroke="black" stroke-width="' + strokeWidth + '"/>';
 
-    // 🚫 startAngle NON incluso
     var normalizedAngle =
       ((angle % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
 
@@ -26427,7 +28467,6 @@ function spheres(
   }
 }
 
-// Funzione helper per chiamate multiple (da usare nel tuo codice)
 function updateAllSpheres(tot1, tot2, tot3, tot4) {
   // Energy
   spheres('content2_7_grid_svg1', tot1, 100, 40, "#ff0040", 0, -20, 1 / 2, true, true, null);
@@ -26443,7 +28482,6 @@ function updateAllSpheres(tot1, tot2, tot3, tot4) {
   spheres('fp2_content2_7_svg4', tot4, 110, 66, "#ffd700", -2, 40, 2.25 / 3, false, true, -45 * Math.PI / 180);
 }
 
-// Reset cache quando necessario (es. dopo resize window)
 function resetSpheresCache(targetId) {
   if (targetId) {
     delete spheresCache[targetId];
@@ -26453,7 +28491,6 @@ function resetSpheresCache(targetId) {
 }
 
 function svgFire(value) {
-  // Usa Decimal.js per calcolare la dimensione
   if (f(Decimal.log10(f(value))).gt(f(90))) {
     var size1 = f(100)
   } else {
@@ -26465,7 +28502,6 @@ function svgFire(value) {
     }
   }
 
-  // SVG a forma di stella a 4 punte (verticali più lunghe)
   const flame1 = `
 <svg width="${size1}%" height="${size1}%" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet"
      style="position:absolute; bottom:0%; left:50%; transform: translate(-50%) rotate(-45deg); z-index:1;">
@@ -26547,17 +28583,14 @@ function visualSvg(value) {
   let isPowerOf10000 = f(value).gt(f(0)) && log10000.floor().eq(log10000);
   var scaleFactor = 0.8;
 
-  // ---- Colore base ----
-  let colorIndex = f(log10).div(2).floor().toNumber(); // log base 100 = log10 / 2
+  let colorIndex = f(log10).div(2).floor().toNumber();
 
   if (colorIndex < 0) {
     colorIndex = 0;
   } else {
     if (f(value).lt(f(10).pow(f(2000)))) {
-      // loop finché sotto 1e2000
       colorIndex = colorIndex % colorScale.length;
     } else {
-      // sopra 1e2000 resta fisso all'ultimo colore
       if (colorIndex >= colorScale.length) {
         colorIndex = colorScale.length - 1;
       }
@@ -26771,7 +28804,7 @@ function ascensionRings(div, valore, spacingFactor = 1, padding = 0, startPercen
       position: 'absolute',
       top: 0,
       left: 0,
-      zIndex: -1   // ⬅️ sempre dietro
+      zIndex: -1
     });
     el.style.position = 'relative';
     el.appendChild(svg);
@@ -26799,7 +28832,7 @@ function ascensionRings(div, valore, spacingFactor = 1, padding = 0, startPercen
     circle.setAttribute('cx', cx);
     circle.setAttribute('cy', cy);
     circle.setAttribute('r', r);
-    circle.setAttribute('data-original-r', r / scaleFactor); // salva raggio originale
+    circle.setAttribute('data-original-r', r / scaleFactor);
     circle.setAttribute('fill', 'none');
     circle.setAttribute('stroke', '#8ab4ff');
     circle.setAttribute('stroke-width', '2');
@@ -26807,18 +28840,15 @@ function ascensionRings(div, valore, spacingFactor = 1, padding = 0, startPercen
     svg.appendChild(circle);
   }
 
-  svg.dataset.scale = scaleFactor; // salva fattore corrente
+  svg.dataset.scale = scaleFactor;
 }
 
-// funzione per scalare i cerchi
 function scaleAscensionRings(factor) {
   IShowableClass.svg.ascensionCirclesScale = IShowableClass.svg.ascensionCirclesScale * factor
 }
 
 document.getElementById('scale-up').addEventListener('click', () => scaleAscensionRings(1.1));
 document.getElementById('scale-down').addEventListener('click', () => scaleAscensionRings(0.9));
-
-// Chiama la funzion
 
 
 function visualMenu() {
@@ -26843,18 +28873,15 @@ function visualMenu() {
     let hunt4 = f(IFight.normalHunting.hunt4.level).gt(f(0)) ? `url("images/demon stand.png")` : "";
     let hunt5 = f(IFight.normalHunting.hunt5.level).gt(f(0)) ? `url("images/wyvern stand.png")` : "";
 
-    // Array con tutti i background
     let backgrounds = [
-      // sempre presente
       hunt1,
       hunt2,
       hunt3,
       hunt4,
       hunt5,
       `url("images/hunting board.png")`
-    ].filter(b => b !== ""); // rimuove quelli vuoti
+    ].filter(b => b !== "");
 
-    // Assegna a backgroundImage
     document.getElementById("fp2_content2_6_image").style.backgroundImage = backgrounds.join(", ");
 
     document.getElementById("fp2_content2_7_image").style.backgroundImage = `url("images/energy.png")`
@@ -27365,12 +29392,6 @@ function visualChallenger(type) {
 
 function visualHunting() {
 
-  //funzione che mostra le cose di content2_6_hunt
-
-  //se non e' stato sbloccato cambia tutto il div in un testo con il requisito.
-
-  //se e' stato sbloccato mostra le informazioni
-
   for (let x in IFight.normalHunting) {
     var sel = IFight.normalHunting[x]
     var sel2 = IFightIn.normalHunting[x]
@@ -27394,7 +29415,6 @@ function visualHunting() {
 
       update("content2_6_" + x + "_name", `<span class="boldBlackBorder">${format(sel.level, 0)} ${showL}</span><div>${sel2.name}</div>`)
       update("content2_6_" + x + "_effect", `<span class="boldBlackBorder column">${format(sel2.effect)}</span> Essence/s`)
-      //applica pointer events:  pointer-events: none;
 
       if (IFight.huntingMulti) {
         var multiText = `Buy Max`
@@ -27412,7 +29432,6 @@ function visualHunting() {
       update("content2_6_" + x + "_name", ``)
       update("content2_6_" + x + "_req", `<div>${sel2.reqDescription}</div>`)
       update(`content2_6_` + x + `_effect`, "")
-      //applica pointer events:  pointer-events: none;
       update(`content2_6_` + x + `_upgrade`, "")
     }
   }
@@ -27457,7 +29476,6 @@ function visualHunting() {
 
       update("content2_6_" + x + "_name", ``)
       update("content2_6_" + x + "_req", `<div>${sel2.reqDescription}</div>`)
-      //applica pointer events:  pointer-events: none;
       update(`content2_6_` + x + `_upgrade`, "")
     }
   }
@@ -27616,7 +29634,6 @@ function buyTrium(number) {
   }
 }
 
-// Cache per elementi DOM e stati precedenti
 var visualTreeCache = {
   elements: {},
   lastValues: {},
@@ -27629,12 +29646,12 @@ function visualTree() {
   var IUI = IUniversalIn;
   var cache = visualTreeCache;
 
-  // === VALUTES (ottimizzato) ===
   var valutes = [
     ['content2_17_valutes_valute1', 'Fire', IU.fire, IU.fireProd],
     ['content2_17_valutes_valute2', 'Size', IU.size, IU.sizeProd],
     ['content2_17_valutes_valute3', 'Heat', IU.heat, IU.heatProd],
-    ['content2_17_valutes_valute4', 'Fire Shards', IU.fireShards, IU.fireShardsProd]
+    ['content2_17_valutes_valute4', 'Fire Shards', IU.fireShards, IU.fireShardsProd],
+    ['content2_17_valutes_valute5', 'Hell Territory', IU.hellTerritory, IU.hellTerritoryProd],
   ];
 
   for (var i = 0; i < valutes.length; i++) {
@@ -27644,11 +29661,9 @@ function visualTree() {
     var value = v[2];
     var prod = v[3];
 
-    // Controlla visibilità solo se necessario
     if (value > 0 || checkShow(id)) {
       unlockShow(id, true);
 
-      // Cache per evitare update inutili
       var cacheKey = id + '_val';
       var newValue = value + '_' + prod;
 
@@ -27662,7 +29677,6 @@ function visualTree() {
     }
   }
 
-  // === SIZE (cache elemento) ===
   var sizeEl = cache.elements.size;
   if (!sizeEl) {
     sizeEl = document.getElementById("content2_17_size");
@@ -27674,20 +29688,17 @@ function visualTree() {
     cache.lastValues.size = IU.fireTreeSize;
   }
 
-  // === BUY MAX ===
   var buyMax = buyTrium(IU.buyFireTree);
   if (cache.lastValues.buyMax !== buyMax) {
     update("content2_17_buy", '<div class="noClick">' + buyMax + '</div>');
     cache.lastValues.buyMax = buyMax;
   }
 
-  // === FIRE TREE BUTTONS (massima ottimizzazione) ===
   for (var x in IU.fireTree) {
     var sel = IU.fireTree[x];
     var sel2 = IUI.fireTree[x];
     var baseId = 'content2_17_' + x;
 
-    // Content
     var contentId = baseId + '_content';
     var contentEl = cache.elements[contentId];
     if (!contentEl) {
@@ -27700,7 +29711,6 @@ function visualTree() {
       cache.lastValues[contentId] = sel2.content;
     }
 
-    // Button
     var buttonId = baseId + '_button';
     var buttonEl = cache.elements[buttonId];
     if (!buttonEl) {
@@ -27714,7 +29724,6 @@ function visualTree() {
         cache.lastValues[buttonId] = sel2.button;
       }
 
-      // Determina colore
       var color;
       if (sel2.maxLevel != Infinity && sel2.maxLevel != null && f(sel.level).gte(f(sel2.maxLevel))) {
         color = '#36454f';
@@ -27730,7 +29739,6 @@ function visualTree() {
       }
     }
 
-    // Button2
     var button2Id = baseId + '_button2';
     var button2El = cache.elements[button2Id];
     if (!button2El) {
@@ -27752,7 +29760,6 @@ function visualTree() {
     }
   }
 
-  // === FIRE MILESTONES ===
   for (var x in IU.fireMilestones) {
     var sel = IU.fireMilestones[x];
     var sel2 = IUI.fireMilestones[x];
@@ -27784,16 +29791,24 @@ function visualTree() {
     }
   }
 
+  if (cache.lastValues["hellInfo1"] !== IUniversalIn.hellDescription1) {
+    update("hellInfo1", IUniversalIn.hellDescription1);
+    cache.lastValues["hellInfo1"] = IUniversalIn.hellDescription1;
+  }
+
+  if (cache.lastValues["hellPowers1"] !== IUniversalIn.hellPowers1) {
+    update("hellPowers1", IUniversalIn.hellPowers1);
+    cache.lastValues["hellPowers1"] = IUniversalIn.hellPowers1;
+  }
+
   cache.initialized = true;
 }
 
-// Funzione per invalidare cache quando necessario
 function resetVisualTreeCache() {
   visualTreeCache.lastValues = {};
   visualTreeCache.lastStates = {};
 }
 
-// Cache globale per visualWaterTree
 var visualWaterTreeCache = {
   elements: {},
   lastValues: {},
@@ -27806,7 +29821,6 @@ function visualWaterTree() {
   var IUI = IUniversalIn;
   var cache = visualWaterTreeCache;
 
-  // === SIZE (cache elemento) ===
   var sizeEl = cache.elements.size;
   if (!sizeEl) {
     sizeEl = document.getElementById("content2_19_size");
@@ -27818,7 +29832,6 @@ function visualWaterTree() {
     cache.lastValues.size = IU.WaterTreeSize;
   }
 
-  // === VALUTES (ottimizzato con array) ===
   var valutes = [
     ['content2_19_valutes_valute1', 'Water', IU.water, IU.waterMax, IU.waterProd],
     ['content2_19_valutes_valute2', 'Elixir', IU.elisir, IU.elisirMax, IU.elisirProd],
@@ -27854,7 +29867,6 @@ function visualWaterTree() {
     }
   }
 
-  // === POOLS (ottimizzato) ===
   var pools = [
     ['content2_19_circle1_fill', IU.water, IU.waterMax, '#2ee3ff', '#14656b'],
     ['content2_19_circle2_fill', IU.elisir, IU.elisirMax, '#bd2effff', '#4b146bff'],
@@ -27888,20 +29900,17 @@ function visualWaterTree() {
     }
   }
 
-  // === BUY MAX ===
   var buyMax = buyTrium(IU.buyWaterTree);
   if (cache.lastValues.buyMax !== buyMax) {
     update("content2_19_buy", '<div class="noClick">' + buyMax + '</div>');
     cache.lastValues.buyMax = buyMax;
   }
 
-  // === WATER TREE BUTTONS (massima ottimizzazione) ===
   for (var x in IU.waterTree) {
     var sel = IU.waterTree[x];
     var sel2 = IUI.waterTree[x];
     var baseId = 'content2_19_' + x;
 
-    // Content
     var contentId = baseId + '_content';
     var contentEl = cache.elements[contentId];
     if (!contentEl) {
@@ -27914,7 +29923,6 @@ function visualWaterTree() {
       cache.lastValues[contentId] = sel2.content;
     }
 
-    // Button
     var buttonId = baseId + '_button';
     var buttonEl = cache.elements[buttonId];
     if (!buttonEl) {
@@ -27943,7 +29951,6 @@ function visualWaterTree() {
       }
     }
 
-    // Button2
     var button2Id = baseId + '_button2';
     var button2El = cache.elements[button2Id];
     if (!button2El) {
@@ -27965,7 +29972,6 @@ function visualWaterTree() {
     }
   }
 
-  // === POTION UPGRADE ===
   var potionUpgradeKey = IU.potionUpgrade.item1.key;
   var potionUpgradeVisual = '';
 
@@ -27978,7 +29984,6 @@ function visualWaterTree() {
     cache.lastValues.potionUpgrade = potionUpgradeVisual;
   }
 
-  // === POTION FUSION ===
   var fusionItem1Key = IU.potionFusion.item1.key;
   var fusionVisual1 = '';
 
@@ -27991,7 +29996,6 @@ function visualWaterTree() {
     cache.lastValues.fusionVisual1 = fusionVisual1;
   }
 
-  // Calcola fusion solo se necessario
   var fusionCacheKey = fusionItem1Key + '_' + IU.potionFusion.item2.key;
   if (cache.lastValues.fusionCacheKey !== fusionCacheKey) {
     var fusionResult = potionFusion();
@@ -28021,7 +30025,6 @@ function visualWaterTree() {
   cache.initialized = true;
 }
 
-// Funzione per resettare cache
 function resetVisualWaterTreeCache() {
   visualWaterTreeCache.lastValues = {};
   visualWaterTreeCache.lastStates = {};
@@ -28285,11 +30288,10 @@ function addObjectToSpace(row, col, key, space) {
     div.style.gridColumnStart = col;
     div.style.gridRowStart = row;
 
-    // Wrap the text in a span and disable pointer events
     const label = document.createElement('span');
 
     label.textContent = ""
-    label.style.pointerEvents = 'none';  // 👈 Makes the text not interfere with drag/drop
+    label.style.pointerEvents = 'none';
     div.appendChild(label);
 
     var stringKey = `'${key}'`
@@ -28427,11 +30429,10 @@ function addObjectToSpace(row, col, key, space) {
     div.style.gridColumnStart = col;
     div.style.gridRowStart = row;
 
-    // Wrap the text in a span and disable pointer events
     const label = document.createElement('span');
 
     label.textContent = ""
-    label.style.pointerEvents = 'none';  // 👈 Makes the text not interfere with drag/drop
+    label.style.pointerEvents = 'none';
     div.appendChild(label);
 
     var stringKey = `'${key}'`
@@ -28481,11 +30482,10 @@ function addObjectToSpace(row, col, key, space) {
       div.style.gridColumnStart = col;
       div.style.gridRowStart = row;
 
-      // Wrap the text in a span and disable pointer events
       const label = document.createElement('span');
 
       label.textContent = ""
-      label.style.pointerEvents = 'none';  // 👈 Makes the text not interfere with drag/drop
+      label.style.pointerEvents = 'none';
       div.appendChild(label);
 
       var stringKey = `'${key}'`
@@ -28597,11 +30597,10 @@ function addObjectToSpace(row, col, key, space) {
     div.style.gridColumnStart = col;
     div.style.gridRowStart = row;
 
-    // Wrap the text in a span and disable pointer events
     const label = document.createElement('span');
 
     label.textContent = ""
-    label.style.pointerEvents = 'none';  // 👈 Makes the text not interfere with drag/drop
+    label.style.pointerEvents = 'none';
     div.appendChild(label);
 
     var stringKey = `'${key}'`
@@ -28649,11 +30648,10 @@ function addObjectToSpace(row, col, key, space) {
     div.style.gridColumnStart = col;
     div.style.gridRowStart = row;
 
-    // Wrap the text in a span and disable pointer events
     const label = document.createElement('span');
 
     label.textContent = ""
-    label.style.pointerEvents = 'none';  // 👈 Makes the text not interfere with drag/drop
+    label.style.pointerEvents = 'none';
     div.appendChild(label);
 
     var stringKey = `'${key}'`
@@ -28701,11 +30699,10 @@ function addObjectToSpace(row, col, key, space) {
     div.style.gridColumnStart = col;
     div.style.gridRowStart = row;
 
-    // Wrap the text in a span and disable pointer events
     const label = document.createElement('span');
 
     label.textContent = ""
-    label.style.pointerEvents = 'none';  // 👈 Makes the text not interfere with drag/drop
+    label.style.pointerEvents = 'none';
     div.appendChild(label);
 
     var stringKey = `'${key}'`
@@ -28756,11 +30753,10 @@ function addObjectToSpace(row, col, key, space) {
     div.style.gridColumnStart = col;
     div.style.gridRowStart = row;
 
-    // Wrap the text in a span and disable pointer events
     const label = document.createElement('span');
 
     label.textContent = ""
-    label.style.pointerEvents = 'none';  // 👈 Makes the text not interfere with drag/drop
+    label.style.pointerEvents = 'none';
     div.appendChild(label);
 
     var stringKey = `'${key}'`
@@ -28809,11 +30805,10 @@ function addObjectToSpace(row, col, key, space) {
     div.style.gridColumnStart = col;
     div.style.gridRowStart = row;
 
-    // Wrap the text in a span and disable pointer events
     const label = document.createElement('span');
 
     label.textContent = ""
-    label.style.pointerEvents = 'none';  // 👈 Makes the text not interfere with drag/drop
+    label.style.pointerEvents = 'none';
     div.appendChild(label);
 
     var stringKey = `'${key}'`
@@ -28863,11 +30858,10 @@ function addObjectToSpace(row, col, key, space) {
     div.style.gridColumnStart = col;
     div.style.gridRowStart = row;
 
-    // Wrap the text in a span and disable pointer events
     const label = document.createElement('span');
 
     label.textContent = ""
-    label.style.pointerEvents = 'none';  // 👈 Makes the text not interfere with drag/drop
+    label.style.pointerEvents = 'none';
     div.appendChild(label);
 
     var stringKey = `'${key}'`
@@ -28917,11 +30911,10 @@ function addObjectToSpace(row, col, key, space) {
     div.style.gridColumnStart = col;
     div.style.gridRowStart = row;
 
-    // Wrap the text in a span and disable pointer events
     const label = document.createElement('span');
 
     label.textContent = ""
-    label.style.pointerEvents = 'none';  // 👈 Makes the text not interfere with drag/drop
+    label.style.pointerEvents = 'none';
     div.appendChild(label);
 
     var stringKey = `'${key}'`
@@ -28993,6 +30986,14 @@ function visualEarthTree() {
   if (f(IUniversal.earth).gt(f(0)) || checkShow("content2_21_valutes_valute1")) {
     unlockShow("content2_21_valutes_valute1", true)
     update("content2_21_valutes_valute1", `<div class="noClick"><div class="noClick">Earth</div><div class="boldBlackBorder noClick fontSize09">${format(IUniversal.earth, 0)}</div><div class="boldBlackBorder noClick">${format(sec(IUniversal.earthProd))}/s</div></div>`)
+  }
+  if (f(IUniversal.iron).gt(f(0)) || checkShow("content2_21_valutes_valute2")) {
+    unlockShow("content2_21_valutes_valute2", true)
+    update("content2_21_valutes_valute2", `<div class="noClick"><div class="noClick">Iron</div><div class="boldBlackBorder noClick fontSize09">${format(IUniversal.iron, 0)}</div><div class="boldBlackBorder noClick">${format(sec(IUniversal.ironProd))}/s</div></div>`)
+  }
+  if (f(IUniversal.silver).gt(f(0)) || checkShow("content2_21_valutes_valute3")) {
+    unlockShow("content2_21_valutes_valute3", true)
+    update("content2_21_valutes_valute3", `<div class="noClick"><div class="noClick">Silver</div><div class="boldBlackBorder noClick fontSize09">${format(IUniversal.silver, 0)}</div><div class="boldBlackBorder noClick">${format(sec(IUniversal.silverProd))}/s</div></div>`)
   }
 
   //armyloadout
@@ -29296,9 +31297,7 @@ function visualArmy(army, armyIn) {
         <div><span class="boldBlackBorder">${format(f(armyIn.life))}</span> Life</div>
       </div>
 
-              <div><span class="boldBlackBorder">${format(f(army.leftLife))}</span> LeftLife</div>
-
-
+      <div><span class="boldBlackBorder">${format(f(army.leftLife))}</span> LeftLife</div>
     </div>
 
     <div class="height50 width100 top50 absolute backgroundBlue3"></div>
@@ -29425,6 +31424,7 @@ function getArmyEffectsContent(army, armyIn) {
     var sel = armyIn[x]
 
     text += sel.content
+
   }
 
   return text
@@ -29904,9 +31904,7 @@ function setUniversalChallengerLevelAutomation(type) {
 async function fight(type, enemy, enemyIn = "", signal) {
   var tickSpeed = IGameData.tickSpeed;
 
-  // Se il segnale è già stato abortito, interrompi subito
 
-  //controlla se hai battuto il challenger
   if (type == "baseChallengerPass") {
     IFight.youStats.onFight1 = false;
 
@@ -29929,7 +31927,6 @@ async function fight(type, enemy, enemyIn = "", signal) {
     return;
   }
 
-  //quanto tempo passa per ogni attacco in ms
   var delay = 500
 
   if (type == "baseChallenger") {
@@ -29941,7 +31938,6 @@ async function fight(type, enemy, enemyIn = "", signal) {
     IFight.onFightStats.fightMulti1 = f(1)
 
     var abortHandler1 = () => { }
-    // Ascoltatore per l'abort che ferma il combattimento immediatamente
     if (type == "baseChallenger") {
       var abortHandler1 = () => {
         IFight.youStats.onFight1 = false;
@@ -29962,7 +31958,6 @@ async function fight(type, enemy, enemyIn = "", signal) {
       while (IFight.youStats.onFight1) {
         await sleep(delay);
 
-        // Controllo ad ogni iterazione se il segnale è stato abortito
         if (signal?.aborted) {
           break;
         }
@@ -29976,14 +31971,14 @@ async function fight(type, enemy, enemyIn = "", signal) {
 
         IFight.youStats.leftLife = IFight.onFightStats.leftLife;
 
-        //danno tuo
+        //your damage
         var playerDamage = f(IFight.onFightStats.damage).mul(f(tickSpeed)).mul(f(delay).dividedBy(f(50))).mul(f(IFight.onFightStats.fightMulti1));
-        //danno nemico
+        //enemy damage
         var enemyDamage = f(IFightIn.challengers.baseChallenger.damage).mul(f(tickSpeed)).mul(f(delay).dividedBy(f(50))).mul(f(IFight.onFightStats.fightMulti1));
 
-        //attacco tuo
+        //your attack
         IFight.challengers.baseChallenger.leftLife = f(IFight.challengers.baseChallenger.leftLife).minus(f(playerDamage));
-        //attacco nemico
+        //enemy attack
         IFight.onFightStats.leftLife = f(IFight.onFightStats.leftLife).minus(f(enemyDamage));
 
 
@@ -30050,7 +32045,6 @@ async function fight(type, enemy, enemyIn = "", signal) {
         }
       }
     } finally {
-      // Rimuovi il listener per evitare memory leak
       signal?.removeEventListener("abort", abortHandler1);
     }
   }
@@ -30120,7 +32114,7 @@ async function fight(type, enemy, enemyIn = "", signal) {
                 visualChallenger();
                 flashFight("universalChallengerW")
                 await sleep(1000);
-                break; // Passa al round successivo
+                break;
               } else {
 
                 rewardSet("lostUniversalBase");
@@ -30141,7 +32135,7 @@ async function fight(type, enemy, enemyIn = "", signal) {
               flashFight("universalChallengerW")
               await sleep(1000);
               flashFight("universalChallengerR")
-              break; // Passa al round successivo
+              break;
             }
 
             if (f(IFight.onFightStats.leftLife2).lessThanOrEqualTo(0)) {
@@ -30191,7 +32185,6 @@ async function fight(type, enemy, enemyIn = "", signal) {
 
     try {
       while (IFight.youStats.onFight2) {
-        // Resetta le vite per un nuovo round
 
         valuesSetterDinamic("universalChallengerChallenge1")
         IFight.onFightStats.life = IFight.youStats.life;
@@ -30239,7 +32232,7 @@ async function fight(type, enemy, enemyIn = "", signal) {
                 flashFight("universalChallengerW")
                 await sleep(1000);
                 flashFight("universalChallengerR")
-                break; // Passa al round successivo
+                break;
               } else {
                 rewardSet("universalChallenge1Lost");
 
@@ -30261,7 +32254,7 @@ async function fight(type, enemy, enemyIn = "", signal) {
               flashFight("universalChallengerW")
               await sleep(1000);
               flashFight("universalChallengerR")
-              break; // Passa al round successivo
+              break;
             }
 
             if (f(IFight.onFightStats.leftLife2).lessThanOrEqualTo(0)) {
@@ -30315,7 +32308,6 @@ async function fight(type, enemy, enemyIn = "", signal) {
 
     try {
       while (IFight.youStats.onFight2) {
-        // Resetta le vite per un nuovo round
         valuesSetterDinamic("universalChallengerChallenge2")
 
         IFight.onFightStats.life = IFight.youStats.life;
@@ -30366,7 +32358,7 @@ async function fight(type, enemy, enemyIn = "", signal) {
                 flashFight("universalChallengerW")
                 await sleep(1000);
                 flashFight("universalChallengerR")
-                break; // Passa al round successivo
+                break;
               } else {
                 rewardSet("universalChallenge2Lost");
                 IFight.youStats.onFight2 = false;
@@ -30387,7 +32379,7 @@ async function fight(type, enemy, enemyIn = "", signal) {
               flashFight("universalChallengerW")
               await sleep(1000);
               flashFight("universalChallengerR")
-              break; // Passa al round successivo
+              break;
             }
 
             if (f(IFight.onFightStats.leftLife2).lessThanOrEqualTo(0)) {
@@ -30424,7 +32416,6 @@ async function fight(type, enemy, enemyIn = "", signal) {
     IFight.onFightStats.fightMulti3 = f(1)
 
     var abortHandler1 = () => { }
-    // Ascoltatore per l'abort che ferma il combattimento immediatamente
     if (type == "expedition") {
       var abortHandler1 = () => {
         IFight.youStats.onFight3 = false;
@@ -30444,7 +32435,6 @@ async function fight(type, enemy, enemyIn = "", signal) {
       while (IFight.youStats.onFight3) {
         await sleep(delay);
 
-        // Controllo ad ogni iterazione se il segnale è stato abortito
         if (signal?.aborted) {
           break;
         }
@@ -30517,7 +32507,6 @@ async function fight(type, enemy, enemyIn = "", signal) {
         }
       }
     } finally {
-      // Rimuovi il listener per evitare memory leak
       signal?.removeEventListener("abort", abortHandler1);
     }
   }
@@ -30533,7 +32522,6 @@ async function fight(type, enemy, enemyIn = "", signal) {
     IFight.onFightStats.fightMulti3 = f(1)
 
     var abortHandler1 = () => { }
-    // Ascoltatore per l'abort che ferma il combattimento immediatamente
     if (type == "crusade") {
       var abortHandler1 = () => {
         IFight.youStats.onFight3 = false;
@@ -30553,7 +32541,6 @@ async function fight(type, enemy, enemyIn = "", signal) {
       while (IFight.youStats.onFight3) {
         await sleep(delay);
 
-        // Controllo ad ogni iterazione se il segnale è stato abortito
         if (signal?.aborted) {
           break;
         }
@@ -30614,7 +32601,6 @@ async function fight(type, enemy, enemyIn = "", signal) {
         }
       }
     } finally {
-      // Rimuovi il listener per evitare memory leak
       signal?.removeEventListener("abort", abortHandler1);
     }
   }
@@ -30706,7 +32692,6 @@ async function sleep(ms) {
 
 function format(number, type, formatType = IPermanentIn.notation["notation" + IPermanent.notationCont]) {
   if (number != null) {
-    // Se il formato richiesto è "scientific" (notazione scientifica)
     if (formatType === 'Scientific') {
       if (typeof number === 'object' && number.exponent != undefined) {
         if (number.exponent < 3) {
@@ -30725,13 +32710,11 @@ function format(number, type, formatType = IPermanentIn.notation["notation" + IP
 
         return number.toNumber().toFixed(1);
       } else {
-        // Gestione di numeri primitivi (es: 12345)
         return Number(number).toExponential(type || 1);
 
       }
     }
 
-    // Se il formato richiesto è "letters" (notazione con lettere)
     if (formatType === 'Letters') {
 
       if (typeof number === 'object' && number.exponent != undefined) {
@@ -30748,16 +32731,12 @@ function format(number, type, formatType = IPermanentIn.notation["notation" + IP
           const hundreds = ["", "Ce", "Dn", "Tc", "Qe", "Qu", "Sc", "Si", "Oe", "Ne"];
           const smallUnits = ["k", "M", "B", "T", "Qa", "Qi", "Sx", "Sp", "Oc", "No"];
 
-          // numero reale
           let realNumber = number.toNumber();
 
-          // esponente base 10
           let exp = Math.floor(Math.log10(realNumber));
 
-          // numeri piccoli < 1e36
           let conv = Math.floor(exp / 3) - 1;
 
-          // calcola num come frazione della potenza di 1000 corretta
           let num = realNumber / Math.pow(10, (conv + 1) * 3);
 
           let formatted = "";
@@ -30765,7 +32744,6 @@ function format(number, type, formatType = IPermanentIn.notation["notation" + IP
           if (conv < 10) {
             formatted = `${num.toFixed(1)}${smallUnits[conv]}`;
           } else {
-            // numeri grandi, usa centinaia/decine/unità
             let h = Math.floor(conv / 100);
             let t = Math.floor((conv % 100) / 10);
             let u = conv % 10;
@@ -30798,7 +32776,6 @@ function format(number, type, formatType = IPermanentIn.notation["notation" + IP
           const tens = ["", "Dc", "Vg", "Tg", "Qd", "Qi", "Sg", "St", "Og", "Nn"];
           const hundreds = ["", "Ce", "Dn", "Tc", "Qe", "Qu", "Sc", "Si", "Oe", "Ne"];
 
-          // Scala per numeri sotto 1e10 (K, M, B, T, ...)
           const smallUnits = ["k", "M", "B", "T", "Qa", "Qi", "Sx", "Sp", "Oc", "No"];
 
           let exp = Math.floor(Math.log10(number.toNumber()));
@@ -30808,10 +32785,8 @@ function format(number, type, formatType = IPermanentIn.notation["notation" + IP
 
           if (conv < 10) {
 
-            // Se il numero è minore di 1000, usa il numero normale
             if (exp < 3) return number.toNumber().toFixed(type || 1);
 
-            // Calcola il numero da mostrare dividendo per la potenza di 1000 corretta
             let num = number.toNumber() / Math.pow(10, (conv + 1) * 3);
 
             formatted = `${num.toFixed(1)}${smallUnits[conv]}`;
@@ -30845,7 +32820,7 @@ function sec(number) {
     throw new Error('Il valore passato non è un numero valido.');
   }
 
-  return new Decimal(number).mul(f(20));  // Converte in un oggetto Decimal
+  return new Decimal(number).mul(f(20));
 }
 
 
@@ -30878,7 +32853,6 @@ function checkShow(show) {
   return value !== undefined ? value : false;
 }
 
-// Cache globale per loopShow
 var loopShowCache = {
   elements: {},
   lastStates: {},
@@ -30886,7 +32860,6 @@ var loopShowCache = {
   initialized: false
 };
 
-// Helper per ottenere/cachare elemento
 function getCachedElement(id) {
   if (!loopShowCache.elements[id]) {
     loopShowCache.elements[id] = document.getElementById(id);
@@ -30894,7 +32867,6 @@ function getCachedElement(id) {
   return loopShowCache.elements[id];
 }
 
-// Helper per setare style con cache
 function setStyleCached(id, prop, value) {
   var key = id + '_' + prop;
   if (loopShowCache.lastStates[key] !== value) {
@@ -30906,7 +32878,6 @@ function setStyleCached(id, prop, value) {
   }
 }
 
-// Helper per update con cache
 function updateCached(id, content) {
   if (loopShowCache.lastContent[id] !== content) {
     update(id, content);
@@ -30923,7 +32894,6 @@ function loopShow() {
   var IUC = IUniversalChallenger;
   var ITI = ITrainingIn;
 
-  // === LOOP PRINCIPALE SHOWABLE ===
   for (var a in showable) {
     var value = showable[a];
     var el = getCachedElement(a);
@@ -30936,7 +32906,6 @@ function loopShow() {
     }
   }
 
-  // === INITIAL (solo prima volta) ===
   if (IShowableClass.init) {
     unlockShow("mainMenu", true);
     unlockShow("fp2_content2_5", true);
@@ -30958,7 +32927,6 @@ function loopShow() {
     IShowableClass.init = false;
   }
 
-  // === VALUTES ===
   if (IPI.progress.p2Check() || f(IU.universe).gte(f(2))) {
     unlockShow("essenceValute", true);
   }
@@ -30967,7 +32935,6 @@ function loopShow() {
   if (IUC.universalNodes > 0) unlockShow("universalNodesBase", true);
   if (IUC.universalCores > 0) unlockShow("universalCoresBase", true);
 
-  // === TABS MOUNTAIN ===
   unlockShow("fp2_content2_1_container", true);
   unlockShow("fp2_content2_12_container", true);
   unlockShow("fp2_content2_pageSel", true);
@@ -30976,7 +32943,6 @@ function loopShow() {
   var p2 = IPI.progress.p2Check() || f(IU.universe).gte(f(2))
   var p3 = IPI.progress.p3Check() || f(IU.universe).gte(f(2))
 
-  // Content 4 & 13
   if (p1) {
     unlockShow("fp2_content2_4_container", true);
     setStyleCached("fp2_content2_4_image", "opacity", "1");
@@ -30997,7 +32963,6 @@ function loopShow() {
     setStyleCached("fp2_content2_13", "pointerEvents", "none");
   }
 
-  // Content 6 & 14
   if (p1 && p2) {
     unlockShow("fp2_content2_6_container", true);
     setStyleCached("fp2_content2_6_image", "opacity", "1");
@@ -31021,7 +32986,6 @@ function loopShow() {
     unlockShow("fp2_content2_14_container", false);
   }
 
-  // Content 8 & 15
   if (p2 && p3) {
     unlockShow("fp2_content2_8_container", true);
     setStyleCached("fp2_content2_8_image", "opacity", "1");
@@ -31045,7 +33009,6 @@ function loopShow() {
     unlockShow("fp2_content2_15_container", false);
   }
 
-  // Content 7
   var m1 = IUI.milestones.m1.mCheck();
   var m2 = IUI.milestones.m2.mCheck();
   var m3 = IUI.milestones.m3.mCheck();
@@ -31066,7 +33029,6 @@ function loopShow() {
     unlockShow("fp2_content2_7_container", false);
   }
 
-  // Content 10, 11, 16 & Sky
   if (m1) {
     if (m2) {
       if (m3) {
@@ -31118,7 +33080,6 @@ function loopShow() {
     unlockShow("fp2_content3_pageSel", false);
   }
 
-  // === TABS SKY ===
   unlockShow("fp2_content2_17_container", true);
   unlockShow("fp2_content2_18_container", true);
 
@@ -31205,13 +33166,11 @@ function loopShow() {
     unlockShow("fp2_content2_25_container", false);
   }
 
-  // === BASES ===
   unlockShow("base1", true);
   unlockShow("base2", true);
   if (ITI.base.base3.req()) unlockShow("base3", true);
   if (ITI.base.base4.req()) unlockShow("base4", true);
 
-  // === HUNTING ===
   var hunts = ["hunt1", "hunt2", "hunt3", "hunt4", "hunt5"];
   for (var i = 0; i < hunts.length; i++) {
     var h = hunts[i];
@@ -31232,7 +33191,6 @@ function loopShow() {
     }
   }
 
-  // === ENERGY UPGRADES (loop ottimizzato) ===
   var energyUpgrades = IU.energyUpgrades;
   for (var i = 1; i <= 20; i++) {
     var u = energyUpgrades["upgrade" + i];
@@ -31249,7 +33207,6 @@ function loopShow() {
     unlockShow("content2_7_upgrade23_b1", true);
   }
 
-  // === ATTRIBUTES ===
   var attr1 = IU.attributes.attributesUnlock1.active;
   var attr2 = IU.attributes.attributesUnlock2.active;
 
@@ -31289,7 +33246,6 @@ function loopShow() {
     unlockShow("content2_11_grid_b9", false);
   }
 
-  // === AUTOMATION ===
   var autoIds = ["auto1", "auto2", "auto3", "auto4", "auto5", "auto6", "auto7", "auto8"];
   for (var i = 0; i < autoIds.length; i++) {
     unlockShow("fp3_content1_8_" + autoIds[i], true);
@@ -31313,18 +33269,7 @@ function loopShow() {
     unlockShow("fp3_content1_8_auto14", true);
   }
 
-  // === FIRE TREE (loop ottimizzato) ===
-  var fireZones = {
-    "content2_17_zone1": IU.fireTree.node2.unlocked,
-    "content2_17_zone2": IU.fireTree.node11.unlocked,
-    "content2_17_zone3": IU.fireTree.node27.unlocked
-  };
-
-  for (var z in fireZones) {
-    unlockShow(z, fireZones[z]);
-  }
-
-  for (var i = 1; i <= 64; i++) {
+  for (var i = 1; i <= Object.keys(IUniversal.fireTree).length; i++) {
     var node = "node" + i;
     if (IUI.fireTree[node].req() || IU.fireTree[node].unlocked || IU.fireTree[node].active) {
       unlockShow("content2_17_" + node, true);
@@ -31333,7 +33278,6 @@ function loopShow() {
     }
   }
 
-  // === WATER TREE ===
   var waterZones = {
     "content2_19_zone1": IU.waterTree.node2.unlocked,
     "content2_19_zone2": IU.waterTree.node6.unlocked,
@@ -31344,12 +33288,11 @@ function loopShow() {
     unlockShow(z, waterZones[z]);
   }
 
-  for (var i = 1; i <= 39; i++) {
+  for (var i = 1; i <= Object.keys(IUniversal.waterTree).length; i++) {
     var node = "node" + i;
     if (IUI.waterTree[node].req() || IU.waterTree[node].unlocked) {
       unlockShow("content2_19_" + node, true);
 
-      // Special circles
       if (i === 2) unlockShow("content2_19_circle1", true);
       if (i === 25) unlockShow("content2_19_circle2", true);
       if (i === 29) unlockShow("content2_19_circle3", true);
@@ -31362,7 +33305,6 @@ function loopShow() {
     }
   }
 
-  // === POTION MENU ===
   var wn6 = IU.waterTree.node6.unlocked;
   unlockShow("content2_19_potionSel", wn6);
   unlockShow("content2_19_tutorial", wn6);
@@ -31439,7 +33381,6 @@ function loopShow() {
   unlockShow("content2_19_potions_potion11", wn14);
   unlockShow("content2_19_potionEquip_3", wn14);
 
-  // === ARMY ===
   IU.armyInfo.default.golemTypes.type1.active = en5;
   unlockShow("content2_21_army2_army1", en5);
   unlockShow("content2_21_armyTreasures_1", en5);
@@ -31464,8 +33405,7 @@ function loopShow() {
   unlockShow("content2_21_under1_3", exp10);
   unlockShow("content2_21_under1_4", exp10);
 
-  // === EARTH TREE ===
-  for (var i = 1; i <= 12; i++) {
+  for (var i = 1; i <= Object.keys(IUniversal.earthTree).length; i++) {
     var node = "node" + i;
     if (IUI.earthTree[node].req() || IU.earthTree[node].unlocked) {
       unlockShow("content2_21_" + node, true);
@@ -31474,13 +33414,11 @@ function loopShow() {
     }
   }
 
-  // === WIND TREE ===
-  for (var i = 1; i <= 14; i++) {
+  for (var i = 1; i <= Object.keys(IUniversal.windTree).length; i++) {
     var node = "node" + i;
     if (IUI.windTree[node].req() || IU.windTree[node].unlocked) {
       unlockShow("content2_23_" + node, true);
 
-      // Special spires
       if (i === 1) {
         unlockShow("content2_23_spire1", true);
         unlockShow("content2_23_spire1Image", true);
@@ -31503,7 +33441,6 @@ function loopShow() {
     }
   }
 
-  // === METAL ===
   unlockShow("content2_25_treasureUpgrade", true);
 
   var exp7 = IU.expeditions.exp7.level > 0;
@@ -31523,7 +33460,6 @@ function loopShow() {
   loopShowCache.initialized = true;
 }
 
-// Reset cache quando necessario
 function resetLoopShowCache() {
   loopShowCache.lastStates = {};
   loopShowCache.lastContent = {};
@@ -31586,7 +33522,6 @@ function resetNodeVisibility(id) {
   nodeVisibilityCache[id] = undefined;
 }
 
-// Cache globale per ogni istanza di drawLines (per svgId)
 var drawLinesCache = {};
 
 function getDrawLinesCache(svgId) {
@@ -31617,26 +33552,20 @@ function drawLines(svgId, nodePrefix, connections, defaultColor) {
   if (!svg) return;
   var parent = svg.parentElement;
 
-  // Ottieni cache specifica per questo svgId
   var cache = getDrawLinesCache(svgId);
 
-  // Setup scroll listener (una volta per svgId)
   if (!cache.scrollListenerAttached) {
     parent.addEventListener('scroll', function () {
       cache.scrollDirty = true;
     }, { passive: true });
     cache.scrollListenerAttached = true;
 
-    // Setup ResizeObserver per parent
     cache.resizeObserver = new ResizeObserver(function () {
       cache.layoutDirty = true;
     });
     cache.resizeObserver.observe(parent);
   }
 
-  /* =========================
-     1️⃣ VISIBILITY SIGNATURE (ottimizzata)
-  ========================= */
   var visibilitySignature = "";
   var visibleNodes = [];
   var len = connections.length;
@@ -31655,18 +33584,13 @@ function drawLines(svgId, nodePrefix, connections, defaultColor) {
     if (bVisible) visibleNodes.push(b);
   }
 
-  /* =========================
-     2️⃣ EARLY EXIT VELOCISSIMO
-  ========================= */
+
   var visibilityChanged = visibilitySignature !== cache.lastVisibilitySignature;
 
   if (cache.linesInitialized && !visibilityChanged && !cache.layoutDirty && !cache.scrollDirty) {
-    return; // 🚀 Exit con 3 confronti boolean
+    return;
   }
 
-  /* =========================
-     3️⃣ PARENT RECT (solo se serve)
-  ========================= */
   var now = Date.now();
   var shouldRecalcParent = cache.layoutDirty || !cache.cachedParentRect || (now - cache.lastParentCheck) > PARENT_CHECK_INTERVAL;
 
@@ -31696,7 +33620,6 @@ function drawLines(svgId, nodePrefix, connections, defaultColor) {
   var layoutSignature = parentRect.width + "," + parentRect.height + "," + scaleX + "," + scaleY;
   var layoutChanged = layoutSignature !== cache.lastLayoutSignature;
 
-  // Scroll update
   if (cache.scrollDirty) {
     cache.cachedScrollLeft = parent.scrollLeft;
     cache.cachedScrollTop = parent.scrollTop;
@@ -31706,16 +33629,13 @@ function drawLines(svgId, nodePrefix, connections, defaultColor) {
   cache.lastVisibilitySignature = visibilitySignature;
   cache.lastLayoutSignature = layoutSignature;
 
-  /* =========================
-     4️⃣ CALCOLO RECT (ottimizzato)
-  ========================= */
+
   var rects = {};
   var parentTop = parentRect.top;
   var parentLeft = parentRect.left;
   var scrollTop = cache.cachedScrollTop;
   var scrollLeft = cache.cachedScrollLeft;
 
-  // Elimina duplicati da visibleNodes
   var uniqueNodes = {};
   for (var i = 0; i < visibleNodes.length; i++) {
     uniqueNodes[visibleNodes[i]] = true;
@@ -31728,13 +33648,11 @@ function drawLines(svgId, nodePrefix, connections, defaultColor) {
       continue;
     }
 
-    // Usa cache se possibile
     if (!layoutChanged && cache.cachedRects[nodeId]) {
       rects[nodeId] = cache.cachedRects[nodeId];
       continue;
     }
 
-    // Ricalcola
     var r = el.getBoundingClientRect();
     var rect = {
       top: (r.top - parentTop + scrollTop) / scaleY,
@@ -31747,7 +33665,6 @@ function drawLines(svgId, nodePrefix, connections, defaultColor) {
     cache.cachedRects[nodeId] = rect;
   }
 
-  // Invalida cache nodi invisibili (solo se visibilità cambiata)
   if (visibilityChanged) {
     for (var id in cache.cachedRects) {
       if (!uniqueNodes[id]) {
@@ -31756,9 +33673,6 @@ function drawLines(svgId, nodePrefix, connections, defaultColor) {
     }
   }
 
-  /* =========================
-     5️⃣ SVG SETUP (minimizzato)
-  ========================= */
   if (!cache.linesInitialized) {
     svg.style.position = 'absolute';
     svg.style.top = '0';
@@ -31767,9 +33681,6 @@ function drawLines(svgId, nodePrefix, connections, defaultColor) {
   svg.setAttribute("width", parent.scrollWidth);
   svg.setAttribute("height", parent.scrollHeight);
 
-  /* =========================
-     6️⃣ UPDATE LINEE (ottimizzato)
-  ========================= */
   for (var i = 0; i < len; i++) {
     var conn = connections[i];
     var id = conn[0];
@@ -31786,7 +33697,6 @@ function drawLines(svgId, nodePrefix, connections, defaultColor) {
   cache.linesInitialized = true;
 }
 
-// Funzioni specifiche per ogni elemento
 function fireLines() {
   var connections = [
     ["fireLine1", "content2_17_node1", "content2_17_node2"],
@@ -31851,7 +33761,19 @@ function fireLines() {
     ["fireLine60", "content2_17_node11", "content2_17_node61", "#1313ffff"],
     ["fireLine61", "content2_17_node11", "content2_17_node62", "#1313ffff"],
     ["fireLine62", "content2_17_node56", "content2_17_node63"],
-    ["fireLine63", "content2_17_node35", "content2_17_node64"]
+    ["fireLine63", "content2_17_node35", "content2_17_node64"],
+    ["fireLine64", "content2_17_node11", "content2_17_node83"],
+    ["fireLine65", "content2_17_node65", "content2_17_node70"],
+    ["fireLine66", "content2_17_node70", "content2_17_node69"],
+    ["fireLine67", "content2_17_node65", "content2_17_node66"],
+    ["fireLine68", "content2_17_node66", "content2_17_node71"],
+    ["fireLine69", "content2_17_node71", "content2_17_node72"],
+    ["fireLine70", "content2_17_node66", "content2_17_node67"],
+    ["fireLine71", "content2_17_node67", "content2_17_node73"],
+    ["fireLine72", "content2_17_node73", "content2_17_node74"],
+    ["fireLine73", "content2_17_node67", "content2_17_node68"],
+    ["fireLine74", "content2_17_node68", "content2_17_node75"],
+    ["fireLine75", "content2_17_node75", "content2_17_node76"],
   ];
 
   drawLines("content2_17_lineLayer", "content2_17_node", connections, "#ff1313ff");
@@ -31940,7 +33862,9 @@ function windLines() {
     ["windLine11", "content2_23_node8", "content2_23_node11"],
     ["windLine12", "content2_23_node11", "content2_23_node12"],
     ["windLine13", "content2_23_node10", "content2_23_node13"],
-    ["windLine14", "content2_23_node13", "content2_23_node14"]
+    ["windLine14", "content2_23_node13", "content2_23_node14"],
+    ["windLine15", "content2_23_node13", "content2_23_node15"],
+    ["windLine16", "content2_23_node15", "content2_23_node16"],
   ];
   drawLines("content2_23_lineLayer", "content2_23_node", connections, "#07c4b4ff");
 }
@@ -31951,7 +33875,6 @@ function changePage(type, page) {
   const showElements = (ids) => ids.forEach(id => unlockShow(id, true));
 
   if (type === "mainMenu") {
-    // Nasconde tutto
     hideElements([
       "content2_1", "content2_2", "fcontent2_3", "content2_4", "content2_5", "content2_6", "content2_7", "content2_8", "content2_10", "content2_11", "content2_12", "content2_13", "content2_14", "content2_15", "content2_16", "content2_17", "content2_18", "content2_19", "content2_20", "content2_21", "content2_22", "content2_23", "content2_24", "content2_25",
       "options", "achievements", "fp3_content1_7", "fp3_content1_8", "fp3_content1_12", "fp3_content1_13", "fp3_content1_14", "fp3_content1_15", "fp3_content1_16"
@@ -31993,7 +33916,6 @@ function changePage(type, page) {
   }
 
   if (type === "potionUpgrades") {
-    // Nasconde tutto
     hideElements([
       "content2_19_potionUpgrade_selector_content1", "content2_19_potionUpgrade_selector_content2", "content2_19_potionUpgrade_selector_content3",
     ]);
@@ -32002,7 +33924,6 @@ function changePage(type, page) {
   }
 
   if (type === "expedition") {
-    // Nasconde tutto
     hideElements([
       "content2_23_expeditionPage", "content2_23_treasureClaim", "content2_23_crusadePage"
     ]);
@@ -32017,7 +33938,6 @@ function changePage(type, page) {
   }
 
   if (type === "page") {
-    // Nasconde tutto
     hideElements([
       "fp2_content2", "fp2_content3",
     ]);
@@ -32033,18 +33953,15 @@ async function visualLoopFunction() {
 
   if (checkShow("content2_4") || checkShow("content2_10")) {
     visualChallenger()
-    //menuDirectionArrow("content2_4")
   }
 
   if (checkShow("content2_6")) {
     visualHunting()
-    //menuDirectionArrow("content2_6")
   }
 
   if (checkShow("content2_11")) {
     visualAttributes()
 
-    //menuDirectionArrow("content2_11_cont")
   }
 
   if (waiting == false) {
@@ -32054,7 +33971,6 @@ async function visualLoopFunction() {
 
   if (checkShow("content2_1")) {
     visualTraining()
-    //menuDirectionArrow("content2_1")
   }
 
   if (checkShow("content2_8")) {
@@ -32064,7 +33980,6 @@ async function visualLoopFunction() {
 
   if (checkShow("content2_7")) {
     visualEnergy()
-    //menuDirectionArrow("content2_7")
   }
 
   if (checkShow("options")) {
@@ -32074,46 +33989,39 @@ async function visualLoopFunction() {
   visualMenu()
 
   if (checkShow("content2_10")) {
-    //menuDirectionArrow("content2_10")
   }
 
   if (checkShow("fp3_content1_8")) {
     visualAutomation()
-    //menuDirectionArrow("fp3_content1_8")
   }
 
   if (checkShow("content2_17")) {
     visualTree()
     fireLines()
     update("content2_17_svg1", svgFire(f(IUniversal.fire)))
-    //menuDirectionArrow("content2_17_scroll")
   }
 
   if (checkShow("content2_19")) {
     visualWaterTree()
     visualInventoryWater()
     waterLines()
-    //menuDirectionArrow("content2_19_scroll")
   }
 
   if (checkShow("content2_21")) {
     visualEarthTree()
     visualInventoryEarth()
     earthLines()
-    //menuDirectionArrow("content2_21_scroll")
   }
 
   if (checkShow("content2_23")) {
     visualWindTree()
     visualInventoryWind()
     windLines()
-    //menuDirectionArrow("content2_23_scroll")
   }
 
   if (checkShow("content2_25")) {
     visualMetalTree()
     visualInventoryMetal()
-    //menuDirectionArrow("content2_25_scroll")
   }
 
   if (checkShow("content2_21") || checkShow("content2_23") || checkShow("content2_25")) {
@@ -32138,7 +34046,6 @@ function svgLoad() {
 
   IAnimation.powerSphere.sphere3 = visualSvg(f(IUniversalChallenger.challengers.universalChallenger.damage).mul(f(IUniversalChallenger.challengers.universalChallenger.life)));
 
-  //spheres
 }
 
 function svgConcentricBitNode(value, viewSize = 100) {
@@ -32198,7 +34105,6 @@ function svgConcentricBitNode(value, viewSize = 100) {
     }
   }
 
-  // Ecco la modifica: serializzo l'SVG in stringa per innerHTML
   return new XMLSerializer().serializeToString(svg);
 }
 
@@ -32213,19 +34119,17 @@ function createSquareSvg(color = "#6cf", strokeWidth = 4, viewSize = 100) {
 
   const size = viewSize - strokeWidth * 2;
 
-  // Quadrato esterno con angoli smussati
   const rectOuter = document.createElementNS(SVG_NS, "rect");
   rectOuter.setAttribute("x", strokeWidth);
   rectOuter.setAttribute("y", strokeWidth);
   rectOuter.setAttribute("width", size);
   rectOuter.setAttribute("height", size);
-  rectOuter.setAttribute("rx", strokeWidth * 1.2); // angoli smussati
+  rectOuter.setAttribute("rx", strokeWidth * 1.2);
   rectOuter.setAttribute("ry", strokeWidth * 1.2);
   rectOuter.setAttribute("fill", "none");
   rectOuter.setAttribute("stroke", color);
   rectOuter.setAttribute("stroke-width", strokeWidth);
 
-  // Bordo interno più sottile → effetto “doppio bordo”
   const rectInner = document.createElementNS(SVG_NS, "rect");
   rectInner.setAttribute("x", strokeWidth * 2);
   rectInner.setAttribute("y", strokeWidth * 2);
@@ -32267,7 +34171,6 @@ function pressSvg(startX, finishX, startY, finishY, rotation = 0, delay = 1000, 
   svg.style.left = "0";
   svg.style.zIndex = -1;
 
-  // sfondo trasparente
   const background = document.createElementNS(SVG_NS, "rect");
   background.setAttribute("x", 0);
   background.setAttribute("y", 0);
@@ -32307,7 +34210,7 @@ function pressSvg(startX, finishX, startY, finishY, rotation = 0, delay = 1000, 
     fill: "forwards"
   });
 
-  return svg; // ritorna nodo SVG
+  return svg;
 }
 
 function gearDivString(duration = 1000, image = "images/gear4.png", type) {
@@ -32371,7 +34274,7 @@ var noSincLoop = window.setInterval(function () {
 
   idleTimeChecker()
   fullSetter1()
-  svgLoad();      // aggiorna il menu
+  svgLoad();
 
   if (freeTick) {
     automation()
@@ -32491,7 +34394,6 @@ function progressBar(value, limit, id, type) {
     return confronter >= 1;
   }
 
-  // --- QUI ASSERTA CHE L'ELEMENTO ESISTA ---
   waitForElement(function (sel) {
     let confronter;
 
@@ -32530,13 +34432,10 @@ function progressBarInfo(value, limit, id) {
 }
 
 function getIntegerPart(number) {
-  const decimalValue = f(number);  // Converte il numero in un'istanza Decimal
+  const decimalValue = f(number);
 
-  // Se il numero contiene "e" nella sua rappresentazione stringa, manteniamo la notazione scientifica
   if (decimalValue.toString().includes('e')) {
-    // Ottieni la notazione scientifica
     const notazioneScientifica = number.toExponential();
-    // Estrai il primo intero e l'esponente
     const [primoIntero, esponente] = notazioneScientifica.split('e');
 
     const prim = number.toString()[0]
@@ -32544,8 +34443,7 @@ function getIntegerPart(number) {
     return prim + esponente;
   }
 
-  // Altrimenti, restituisce la parte intera come stringa
-  return decimalValue.floor().toString();  // Restituisce la parte intera
+  return decimalValue.floor().toString();
 }
 
 function removeElement(key) {
@@ -32570,7 +34468,6 @@ function addElement(type, key) {
     for (let y = 1; y <= numRows; y++) {
       for (let x = 1; x <= numColumns; x++) {
 
-        // Controlla se la cella è occupata
         var occupied = true;
         const cellKey = `c${y}r${x}`
 
@@ -32579,7 +34476,6 @@ function addElement(type, key) {
         }
 
         if (!occupied) {
-          // Aggiunge all'inventario
           const cellKey = `c${y}r${x}`;
           IUniversal.inventory[cellKey] = {
             key: null,
@@ -32597,12 +34493,11 @@ function addElement(type, key) {
 
   if (type == "potion") {
 
-    // Controlla se l'oggetto è già nell'inventario
     for (let pos in IUniversal.inventory) {
       const item = IUniversal.inventory[pos];
 
       if (item.key === key) {
-        return false; // Oggetto già presente
+        return false;
       }
     }
 
@@ -32618,7 +34513,6 @@ function addElement(type, key) {
       for (let x = 1; x <= numColumns; x++) {
 
 
-        // Controlla se la cella è occupata
         var occupied = true;
         const cellKey = `c${y}r${x}`
 
@@ -32629,7 +34523,6 @@ function addElement(type, key) {
 
 
         if (!occupied) {
-          // Aggiunge all'inventario
           const cellKey = `c${y}r${x}`;
           IUniversal.inventory[cellKey] = {
             key: key,
@@ -32657,7 +34550,6 @@ function addElement(type, key) {
     for (let y = 1; y <= numRows; y++) {
       for (let x = 1; x <= numColumns; x++) {
 
-        // Controlla se la cella è occupata
         var occupied = true;
         const cellKey = `c${y}r${x}`
 
@@ -32666,7 +34558,6 @@ function addElement(type, key) {
         }
 
         if (!occupied) {
-          // Aggiunge all'inventario
           const cellKey = `c${y}r${x}`;
           IUniversal.treasureInventory[cellKey] = {
             key: null,
@@ -32694,7 +34585,6 @@ function addElement(type, key) {
     for (let y = 1; y <= numRows; y++) {
       for (let x = 1; x <= numColumns; x++) {
 
-        // Controlla se la cella è occupata
         var occupied = true;
         const cellKey = `c${y}r${x}`
 
@@ -32703,7 +34593,6 @@ function addElement(type, key) {
         }
 
         if (!occupied) {
-          // Aggiunge all'inventario
           const cellKey = `c${y}r${x}`;
           IUniversal.treasureInventory[cellKey] = {
             key: null,
@@ -32731,7 +34620,6 @@ function addElement(type, key) {
     for (let y = 1; y <= numRows; y++) {
       for (let x = 1; x <= numColumns; x++) {
 
-        // Controlla se la cella è occupata
         var occupied = true;
         const cellKey = `c${y}r${x}`
 
@@ -32740,7 +34628,6 @@ function addElement(type, key) {
         }
 
         if (!occupied) {
-          // Aggiunge all'inventario
           const cellKey = `c${y}r${x}`;
           IUniversal.treasureInventory[cellKey] = {
             key: null,
@@ -32758,12 +34645,11 @@ function addElement(type, key) {
 
   if (type == "treasure") {
 
-    // Controlla se l'oggetto è già nell'inventario
     for (let pos in IUniversal.treasureInventory) {
       const item = IUniversal.treasureInventory[pos];
 
       if (item.key === key) {
-        return false; // Oggetto già presente
+        return false;
       }
     }
 
@@ -32780,7 +34666,6 @@ function addElement(type, key) {
       for (let x = 1; x <= numColumns; x++) {
 
 
-        // Controlla se la cella è occupata
         var occupied = true;
         const cellKey = `c${y}r${x}`
 
@@ -32790,7 +34675,6 @@ function addElement(type, key) {
 
 
         if (!occupied) {
-          // Aggiunge all'inventario
           const cellKey = `c${y}r${x}`;
           IUniversal.treasureInventory[cellKey] = {
             key: key,
@@ -32808,12 +34692,11 @@ function addElement(type, key) {
 
   if (type == "treasure2") {
 
-    // Controlla se l'oggetto è già nell'inventario
     for (let pos in IUniversal.treasureInventory) {
       const item = IUniversal.treasureInventory[pos];
 
       if (item.key === key) {
-        return false; // Oggetto già presente
+        return false;
       }
     }
 
@@ -32830,7 +34713,6 @@ function addElement(type, key) {
       for (let x = 1; x <= numColumns; x++) {
 
 
-        // Controlla se la cella è occupata
         var occupied = true;
         const cellKey = `c${y}r${x}`
 
@@ -32840,7 +34722,6 @@ function addElement(type, key) {
 
 
         if (!occupied) {
-          // Aggiunge all'inventario
           const cellKey = `c${y}r${x}`;
           IUniversal.treasureInventory[cellKey] = {
             key: key,
@@ -32858,12 +34739,11 @@ function addElement(type, key) {
 
   if (type == "treasure3") {
 
-    // Controlla se l'oggetto è già nell'inventario
     for (let pos in IUniversal.treasureInventory) {
       const item = IUniversal.treasureInventory[pos];
 
       if (item.key === key) {
-        return false; // Oggetto già presente
+        return false;
       }
     }
 
@@ -32880,7 +34760,6 @@ function addElement(type, key) {
       for (let x = 1; x <= numColumns; x++) {
 
 
-        // Controlla se la cella è occupata
         var occupied = true;
         const cellKey = `c${y}r${x}`
 
@@ -32890,7 +34769,6 @@ function addElement(type, key) {
 
 
         if (!occupied) {
-          // Aggiunge all'inventario
           const cellKey = `c${y}r${x}`;
           IUniversal.treasureInventory[cellKey] = {
             key: key,
@@ -32922,7 +34800,6 @@ function craft(type, object) {
 
     var sel = IUniversalIn.potionInfo[object]
 
-    // Trova una chiave libera nell'inventario
     let i = 1;
     let keyName;
     do {
@@ -32934,7 +34811,6 @@ function craft(type, object) {
       return
     }
 
-    // Assegnazione dell'oggetto craftato all'inventario
     IUniversal.inventoryStorage[keyName] = {
       id: sel.id,
       merges: sel.merges,
@@ -32983,7 +34859,7 @@ function potionInfoStatic() {
     //priceText
     var priceText = "";
 
-    var priceText = "<div class='price-grid'>"; // Avvia la griglia
+    var priceText = "<div class='price-grid'>";
 
     for (let Obj in sel.prices) {
       var selPrice = sel.prices[Obj];
@@ -32999,13 +34875,12 @@ function potionInfoStatic() {
       if (priceIdentity == "pyroFrost") { priId = "Pyrofrost" }
 
 
-      // Aggiungi ogni prezzo come un "item" nella griglia
       if (f(priceValue).gt(f(0))) {
         priceText += `<div class="${c} price-item roundedEdges"><span class="boldBlackBorder">${format(f(priceValue), 0)}</span> ${priId}</div>`;
       }
     }
 
-    priceText += "</div>"; // Chiudi la griglia
+    priceText += "</div>";
 
     var effectText = "";
     //effectsText
@@ -33112,7 +34987,7 @@ function potionSetterInit() {
     //priceText
     var priceText = "";
 
-    var priceText = "<div class='price-grid'>"; // Avvia la griglia
+    var priceText = "<div class='price-grid'>";
 
     if (sel2) {
       if (sel2.prices) {
@@ -33136,7 +35011,6 @@ function potionSetterInit() {
           if (priceIdentity == "waterGem") { priId = "Water Gem" }
           if (priceIdentity == "pyroFrost") { priId = "Pyrofrost" }
 
-          // Aggiungi ogni prezzo come un "item" nella griglia
           if (f(priceValue).gt(f(0))) {
             priceText += `<div class="${c} price-item roundedEdges"><span class="boldBlackBorder">${format(f(priceValue), 0)}</span> ${priId}</div>`;
           }
@@ -33233,7 +35107,7 @@ function potionSetter() {
     //priceText
     var priceText = "";
 
-    var priceText = "<div class='price-grid'>"; // Avvia la griglia
+    var priceText = "<div class='price-grid'>";
 
     if (sel2) {
       if (sel2.prices) {
@@ -33257,7 +35131,6 @@ function potionSetter() {
           if (priceIdentity == "waterGem") { priId = "Water Gem" }
           if (priceIdentity == "pyroFrost") { priId = "Pyrofrost" }
 
-          // Aggiungi ogni prezzo come un "item" nella griglia
           if (f(priceValue).gt(f(0))) {
             priceText += `<div class="${c} price-item roundedEdges"><span class="boldBlackBorder">${format(f(priceValue), 0)}</span> ${priId}</div>`;
           }
@@ -33322,7 +35195,7 @@ function potionSetter() {
 function deepClone(obj, hash = new WeakMap()) {
   if (obj === null || typeof obj !== "object") return obj;
   if (typeof obj === "function") return obj;
-  if (hash.has(obj)) return hash.get(obj); // previene riferimenti circolari
+  if (hash.has(obj)) return hash.get(obj);
 
   let clone = Array.isArray(obj) ? [] : Object.create(Object.getPrototypeOf(obj));
   hash.set(obj, clone);
@@ -33539,7 +35412,6 @@ function potionVisual(element, elementIn) {
     if (priceIdentity == "waterGem") { priId = "Water Gem" }
     if (priceIdentity == "pyroFrost") { priId = "Pyrofrost" }
 
-    // Aggiungi ogni prezzo come un "item" nella griglia
     if (f(selPrice2.price).gt(f(0))) {
       priceText += `<div class="${c} price-item roundedEdges"><span class="boldBlackBorder">${format(f(selPrice2.price), 0)}</span> ${priId}</div>`;
     }
@@ -33617,7 +35489,7 @@ function draggableSet(item, key, keyIn, type, archetype) {
     item.setAttribute("draggable", "true");
 
     item.addEventListener("dragstart", function (e) {
-      e.dataTransfer.setData("text/plain", key); // salva la chiave trascinata
+      e.dataTransfer.setData("text/plain", key);
       e.dataTransfer.effectAllowed = "move";
     });
 
@@ -33942,7 +35814,7 @@ function draggableSet(item, key, keyIn, type, archetype) {
     item.setAttribute("draggable", "true");
 
     item.addEventListener("dragstart", function (e) {
-      e.dataTransfer.setData("text/plain", key); // salva la chiave trascinata
+      e.dataTransfer.setData("text/plain", key);
       e.dataTransfer.effectAllowed = "move";
 
     });
@@ -34356,13 +36228,12 @@ function automation() {
 var arrowCache = null;
 var dimensionsCache = {};
 var lastDimensionsCheck = 0;
-var DIMENSIONS_CACHE_TIME = 250; // Cache per 250ms
+var DIMENSIONS_CACHE_TIME = 250;
 
 function menuDirectionArrow(page) {
   var element = document.getElementById(page);
   var now = Date.now();
 
-  // Usa cache per scrollHeight/clientHeight (costosi!)
   var cached = dimensionsCache[page];
   if (!cached || (now - lastDimensionsCheck) > DIMENSIONS_CACHE_TIME) {
     cached = {
@@ -34376,18 +36247,15 @@ function menuDirectionArrow(page) {
   var scrollHeight = cached.scrollHeight;
   var clientHeight = cached.clientHeight;
 
-  // Early exit se non c'è scroll
   if (scrollHeight <= clientHeight) return;
 
   var scrollTop = element.scrollTop;
   var totalPage = scrollHeight - clientHeight;
 
-  // Cache dell'elemento arrow
   if (!arrowCache) {
     arrowCache = document.getElementById("mainMenuDirectionArrow1");
   }
 
-  // Determina stato in un solo blocco
   var isAtTop = scrollTop === 0;
   var isAtBottom = scrollTop >= totalPage - 1;
 
@@ -34461,7 +36329,6 @@ function enableDragScroll(containerId, enabled = true) {
     return;
   }
 
-  // --- Se disabilitato ---
   if (!enabled) {
     container.style.cursor = 'default';
     if (container._dragEnabled) {
@@ -34474,7 +36341,6 @@ function enableDragScroll(containerId, enabled = true) {
     return;
   }
 
-  // --- Se già abilitato, non fare nulla ---
   if (container._dragEnabled) return;
 
   let isDown = false;
@@ -34483,7 +36349,6 @@ function enableDragScroll(containerId, enabled = true) {
 
   container.style.cursor = 'grab';
 
-  // definisci e salva i listener (per poterli rimuovere dopo)
   container._dragMouseDown = (e) => {
     const isDraggable = e.target.hasAttribute('draggable') && e.target.getAttribute('draggable') === 'true';
     if (isDraggable) return;
@@ -34518,7 +36383,6 @@ function enableDragScroll(containerId, enabled = true) {
     container.scrollTop = scrollTop - walkY;
   };
 
-  // aggiungi listener
   container.addEventListener('mousedown', container._dragMouseDown);
   container.addEventListener('mouseleave', container._dragMouseLeave);
   container.addEventListener('mouseup', container._dragMouseUp);
@@ -34528,6 +36392,7 @@ function enableDragScroll(containerId, enabled = true) {
 }
 
 function getTreasureActive(key) {
+  var check = false;
   const treasureIn = IUniversalIn.treasures[key];
   if (!treasureIn) return false;
 
@@ -34544,7 +36409,10 @@ function getTreasureActive(key) {
       const selIn = groupIn[x];
 
       if (selIn?.type === treasureIn.type) {
-        return sel.key === key;
+
+        if (sel.key === key) {
+          return true;
+        }
       }
     }
   }
