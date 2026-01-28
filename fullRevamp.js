@@ -15807,7 +15807,7 @@ function valuesSetterCycle(type) {
     <div class="height50 width100 row ">
       <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
       </div>
-      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Damage and Life +10, Soul Damage and Life ×1.1 (+${format(f(sel2.effect1), 0)}, ×${format(f(sel2.effect2), 1)})</div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Damage and Life +10, Soul Damage and Life ×1.2 (+${format(f(sel2.effect1), 0)}, ×${format(f(sel2.effect2), 1)})</div>
 
     </div>
     
@@ -15815,7 +15815,7 @@ function valuesSetterCycle(type) {
   </div>`
 
   sel2.content3 = `
-      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Damage and Life +10, Soul Damage and Life ×1.1 (+${format(f(sel2.effect1), 0)}, ×${format(f(sel2.effect2), 1)})</div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Damage and Life +10, Soul Damage and Life ×1.2 (+${format(f(sel2.effect1), 0)}, ×${format(f(sel2.effect2), 1)})</div>
   `
 
 
@@ -22165,7 +22165,7 @@ function valuesSetter(type) {
   if (getTreasureActive("treasure15")) { var life4 = f(IUniversalIn.treasures.treasure15.effect) } else { life4 = f(0) }
   if (getTreasureActive("treasure24")) { var life5 = f(IUniversalIn.treasures.treasure24.effect) } else { life5 = f(0) }
   if (getTreasureActive("treasure27")) { var life6 = f(IUniversalIn.treasures.treasure27.effect1) } else { life6 = f(0) }
-  if (getTreasureActive("treasure27")) { var life7 = f(IUniversalIn.treasures.treasure27.effect2) } else { life6 = f(1) }
+  if (getTreasureActive("treasure27")) { var life7 = f(IUniversalIn.treasures.treasure27.effect2) } else { life7 = f(1) }
 
   if (f(IUniversal.hellEnergy).gt(f(1))) {
     var life8 = f(IUniversal.hellEnergy)
@@ -22190,7 +22190,7 @@ function valuesSetter(type) {
   if (getTreasureActive("treasure14")) { var damage4 = f(IUniversalIn.treasures.treasure14.effect) } else { damage4 = f(0) }
   if (getTreasureActive("treasure23")) { var damage5 = f(IUniversalIn.treasures.treasure23.effect) } else { damage5 = f(0) }
   if (getTreasureActive("treasure27")) { var damage6 = f(IUniversalIn.treasures.treasure27.effect1) } else { damage6 = f(0) }
-  if (getTreasureActive("treasure27")) { var damage7 = f(IUniversalIn.treasures.treasure27.effect2) } else { damage6 = f(1) }
+  if (getTreasureActive("treasure27")) { var damage7 = f(IUniversalIn.treasures.treasure27.effect2) } else { damage7 = f(1) }
 
   if (f(IUniversal.hellEnergy).gt(f(1))) {
     var damage8 = f(IUniversal.hellEnergy)
@@ -22202,7 +22202,7 @@ function valuesSetter(type) {
 
   if (f(IUniversalIn.armyInfo.soul.affinity).gt(f(0))) {
     IUniversalIn.armyInfo.soul.damage = f(f(1).add(damage2).add(damage3).add(damage4).add(damage5).add(damage6)).mul(damage1).mul(damage7).mul(damage8)
-    IUniversalIn.armyInfo.soul.baseDamage = f(f(1).add(damage2).add(damage3).add(damage4).add(damage5)).mul(baseDamage1).mul(damage6).mul(damage7).mul(damage8)
+    IUniversalIn.armyInfo.soul.baseDamage = f(f(1).add(damage2).add(damage3).add(damage4).add(damage5).add(damage6)).mul(baseDamage1).mul(damage7).mul(damage8)
   } else {
     IUniversalIn.armyInfo.soul.damage = f(0)
     IUniversalIn.armyInfo.soul.baseDamage = f(0)
@@ -23127,7 +23127,7 @@ function valuesSetter(type) {
   sel2.price = f(f(10).pow(f(42))).mul(f(10).pow(f(sel1.level).minus(f(1))))
 
   sel2.effect1 = f(10).mul(f(sel1.level))
-  sel2.effect2 = f(1).add(f(0.1).mul(f(sel1.level)))
+  sel2.effect2 = f(1).add(f(0.2).mul(f(sel1.level)))
 
   if (getTreasureActive("treasure27")) {
     sel1.equip = true;
