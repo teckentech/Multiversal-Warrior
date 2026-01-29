@@ -8058,7 +8058,7 @@ function valuesSetterInit(type) {
   var sel2 = IUniversalIn.fireTree.node68
 
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node68.priceIdentity, IUniversalIn.fireTree.node68.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.fireTree.node68.active) }
+  sel2.req = function () { return (IUniversal.fireTree.node67.active) }
 
   //NODE 69
   var sel = IUniversal.fireTree.node69
