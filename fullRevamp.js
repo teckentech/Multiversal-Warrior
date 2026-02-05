@@ -15986,7 +15986,7 @@ function valuesSetterCycle(type) {
                                                                 <div class="width100 padding1 height10 centerDiv">Get Hell Territory from Heat (Starting from ${format(f(f(10).pow(f(15))), 0)} Heat) (×${format(f(Decimal.log(IUniversal.heat.dividedBy(f(10).pow(f(15))), 2)).pow(f(2)))})</div>
 
                                 <div class="width100 padding1 height10 centerDiv">${format(f(IUniversal.hellTerritory))} Hell Territory</div>
-                                                                <div class="width100 padding1 height10 centerDiv">+${format(f(IUniversal.hellTerritoryProd))}/s</div>
+                                                                <div class="width100 padding1 height10 centerDiv">+${format(sec(f(IUniversal.hellTerritoryProd)))}/s</div>
 
 
                                 <div class="line"></div>
@@ -24725,8 +24725,8 @@ function valuesSetterDinamic(type) {
   var hellTerritory5 = f(IUniversalIn.fireTree.node67.effect2)
   var hellTerritory6 = f(IUniversalIn.fireTree.node68.effect2)
 
-  IUniversal.hellTerritoryProd = hellTerritory1.mul(f(hellTerritory2)).mul(hellTerritory3).mul(hellTerritory4).mul(hellTerritory5).mul(hellTerritory6)
-  IUniversal.hellTerritory = f(IUniversal.hellTerritory).add(IUniversal.hellTerritoryProd.mul(f(IGameData.tickSpeed)))
+  IUniversal.hellTerritoryProd = hellTerritory1.mul(f(hellTerritory2)).mul(hellTerritory3).mul(hellTerritory4).mul(hellTerritory5).mul(hellTerritory6).mul(f(IGameData.tickSpeed))
+  IUniversal.hellTerritory = f(IUniversal.hellTerritory).add(IUniversal.hellTerritoryProd)
 
   //Hell Energy
 
