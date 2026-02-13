@@ -11435,41 +11435,8 @@ function valuesSetterCycle(type) {
   }
 
   //NODE 27
-  var sel = IUniversal.fireTree.node27
-  var sel2 = IUniversalIn.fireTree.node27
-
-
-  if (sel.active) {
-    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Universe Furnace</div>
-                 <div class="topRight absolute padding2 grey">27</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Burn empty universes with Heat</div>
-                                                        <div>Produce Fire Shards</div>
-                                                        <div class="line"></div>
-                                                        <div>Heat /${format(f(sel2.effect2), 2)} every ${format(f(IUniversal.heatTimer))} seconds</div>
-                                                        <div class="centerDiv noClick boldBlackBorder">${format(f(f(IUniversal.heatTimer).minus(f(IUniversal.heatCurrentTimer))), 1)}s</div>
-                                                        <div><span class="boldBlackBorder">${format(f(IUniversal.heat), 1)}</span> Heat</div>
-                                                        <div></div>
-                 </div>`
-  } else {
-    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Universe Furnace</div>
-                 <div class="topRight absolute padding2 grey">27</div>
-                 <div class="centerDiv padding1 column"><div>Burn empty universes with Heat</div>
-                 </div>`
-  }
-  if (sel.active) {
-    unlockShow("content2_17_node27_button", false)
-    sel2.button = ``
-  } else {
-    unlockShow("content2_17_node27_button", true)
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Size</div>`
-  }
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
+  
+  //it is in valuesSetter now.
 
   //NODE 28
   var sel = IUniversal.fireTree.node28
@@ -12063,42 +12030,9 @@ function valuesSetterCycle(type) {
   }
 
   //NODE 50
-  var sel = IUniversal.fireTree.node50
-  var sel2 = IUniversalIn.fireTree.node50
 
-
-  if (sel.active) {
-    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Gear</div>
-                 <div class="topRight absolute padding2 grey">50</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Heat <span class="boldBlackBorder">×${format(f(sel2.effect), 2)}</span> every second</span></div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Resets when Universe Furnace reduces Heat (<span class="boldBlackBorder">${IUniversal.heatTimer}s</span>)</div>
-                                                        <div class="line"></div>
-                                                        <div class=""><span class="boldBlackBorder">${format(f(f(sel.timer).minus(f(sel.currentTimer))), 1)}s</span> remaining</div>
-                                                        <div">Heat <span class="boldBlackBorder">×${format(f(f(sel2.effect2)), 1)}</span></div>
-                                                        <div></div>
-                 </div>`
-  } else {
-    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Gear</div>
-                 <div class="topRight absolute padding2 grey">50</div>
-                 <div class="centerDiv padding1 column"><div>Multiply Heat automatically</div>
-                 </div>`
-  }
-
-  if (sel.active) {
-    unlockShow("content2_17_node50_button", false)
-    sel2.button = ``
-  } else {
-    unlockShow("content2_17_node50_button", true)
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
-                <div class="centerDiv noClick">Fire Shards</div>`
-  }
-
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
-
+  //it is in valueSetter now.
+  
   //NODE 51
   var sel = IUniversal.fireTree.node51
   var sel2 = IUniversalIn.fireTree.node51
@@ -18649,6 +18583,39 @@ function valuesSetter(type) {
   var sel2 = IUniversalIn.fireTree.node27
 
 
+
+  if (sel.active) {
+    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Universe Furnace</div>
+                 <div class="topRight absolute padding2 grey">27</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Burn empty universes with Heat</div>
+                                                        <div>Produce Fire Shards</div>
+                                                        <div class="line"></div>
+                                                        <div>Heat /${format(f(sel2.effect2), 2)} every ${format(f(IUniversal.heatTimer))} seconds</div>
+                                                        <div class="centerDiv noClick boldBlackBorder">${format(f(f(IUniversal.heatTimer).minus(f(IUniversal.heatCurrentTimer))), 1)}s</div>
+                                                        <div><span class="boldBlackBorder">${format(f(IUniversal.heat), 1)}</span> Heat</div>
+                                                        <div></div>
+                 </div>`
+  } else {
+    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Universe Furnace</div>
+                 <div class="topRight absolute padding2 grey">27</div>
+                 <div class="centerDiv padding1 column"><div>Burn empty universes with Heat</div>
+                 </div>`
+  }
+  if (sel.active) {
+    unlockShow("content2_17_node27_button", false)
+    sel2.button = ``
+  } else {
+    unlockShow("content2_17_node27_button", true)
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Size</div>`
+  }
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
   sel.level = f(sel.level)
   sel2.maxLevel = f(1)
 
@@ -18741,7 +18708,7 @@ function valuesSetter(type) {
   } else {
     sel2.effect = f(0)
   }
-
+  
   sel2.price = f(10)
   sel.timer = f(10).dividedBy(f(IUniversalIn.fireTree.node32.effect))
   sel.currentTimer = f(sel.currentTimer)
@@ -19152,6 +19119,38 @@ function valuesSetter(type) {
 
   sel.level = f(sel.level)
   sel2.maxLevel = f(1)
+
+  if (sel.active) {
+    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Gear</div>
+                 <div class="topRight absolute padding2 grey">50</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Heat <span class="boldBlackBorder">×${format(f(sel2.effect), 2)}</span> every second</span></div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Resets when Universe Furnace reduces Heat (<span class="boldBlackBorder">${IUniversal.heatTimer}s</span>)</div>
+                                                        <div class="line"></div>
+                                                        <div class=""><span class="boldBlackBorder">${format(f(f(sel.timer).minus(f(sel.currentTimer))), 1)}s</span> remaining</div>
+                                                        <div">Heat <span class="boldBlackBorder">×${format(f(f(sel2.effect2)), 1)}</span></div>
+                                                        <div></div>
+                 </div>`
+  } else {
+    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Gear</div>
+                 <div class="topRight absolute padding2 grey">50</div>
+                 <div class="centerDiv padding1 column"><div>Multiply Heat automatically</div>
+                 </div>`
+  }
+
+  if (sel.active) {
+    unlockShow("content2_17_node50_button", false)
+    sel2.button = ``
+  } else {
+    unlockShow("content2_17_node50_button", true)
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Fire Shards</div>`
+  }
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
 
 
   if (sel.active) {
@@ -24555,7 +24554,6 @@ function valuesSetterDinamic(type) {
   }
 
   var heat1 = f(IUniversalIn.fireTree.node30.effect).mul(f(1).dividedBy(f(IUniversal.fireTree.node30.timer)))
-
 
   IUniversal.heatProd = f(heat1).mul(f(IGameData.baseTickSpeed))
   IUniversal.heat = f(IUniversal.heat)
