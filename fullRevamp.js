@@ -21975,7 +21975,7 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node84
   var sel2 = IUniversalIn.fireTree.node84
 
-  sel.level = f(sel.level)
+  sel.level = f(0)
   sel2.maxLevel = f(1)
 
   if (f(sel.level).gt(f(0))) {
@@ -21993,7 +21993,7 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node85
   var sel2 = IUniversalIn.fireTree.node85
 
-  sel.level = f(sel.level)
+  sel.level = f(0)
   sel2.maxLevel = f(1)
 
   if (f(sel.level).gt(f(0))) {
@@ -22369,7 +22369,7 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node105
   var sel2 = IUniversalIn.fireTree.node105
 
-  sel.level = f(sel.level)
+  sel.level = f(0)
   sel2.maxLevel = f(1)
 
   if (f(sel.level).gt(f(0))) {
@@ -22387,7 +22387,7 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node106
   var sel2 = IUniversalIn.fireTree.node106
 
-  sel.level = f(sel.level)
+  sel.level = f(0)
   sel2.maxLevel = f(1)
 
   if (f(sel.level).gt(f(0))) {
