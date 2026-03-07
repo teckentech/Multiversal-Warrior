@@ -26182,7 +26182,7 @@ function valuesSetter(type) {
 
   sel2.price = f(f(10).pow(f(42))).mul(f(10).pow(f(sel1.level).minus(f(1))))
 
-  sel2.effect = f(0.01).mul(f(sel1.level)).mul(f(IUniversalIn.armyInfo.soul.affinities.affinity1.value))
+  sel2.effect = f(0.01).mul(f(sel1.level)).mul(f(IUniversalIn.armyInfo.soul.affinities.affinity2.value))
 
   if (sel2.effect.lt(f(1)) || !sel2.effect == undefined) {
     sel2.effect = f(1)
