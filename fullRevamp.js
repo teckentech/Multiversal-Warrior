@@ -25095,13 +25095,11 @@ function valuesSetter(type) {
 
   if (getTreasureActive("treasure29")) { var aff10 = f(IUniversalIn.treasures.treasure29.effect) } else { aff10 = f(0) }
 
-  if (getTreasureActive("treasure30")) { var aff11 = f(IUniversalIn.treasures.treasure30.effect) } else { aff11 = f(1) }
-
         if (getTreasureActive("treasure32")) { var aff12 = f(IUniversalIn.treasures.treasure32.effect2) } else { aff12 = f(0) }
 
 
 
-  IUniversalIn.armyInfo.soul.affinities.affinity1.value = ((f(1).add(aff2).add(aff4).add(aff5).add(aff6).minus(aff7).add(aff10).add(aff11).add(aff12)).mul(aff3).mul(aff8).mul(aff9)).dividedBy(f(aff1))
+  IUniversalIn.armyInfo.soul.affinities.affinity1.value = ((f(1).add(aff2).add(aff4).add(aff5).add(aff6).minus(aff7).add(aff10).add(aff12)).mul(aff3).mul(aff8).mul(aff9)).dividedBy(f(aff1))
 
   if (getArmyEffectType("hegemony") && f(IUniversalIn.armyInfo.soul.affinities.affinity1.value).lt(f(getArmyEffectValue("hegemony")))) {
     IUniversalIn.armyInfo.soul.affinities.affinity1.value = f(1)
@@ -25111,7 +25109,7 @@ function valuesSetter(type) {
     IUniversalIn.armyInfo.soul.affinities.affinity1.value = f(1)
   }
 
-  IUniversalIn.armyInfo.soul.affinities.affinity1.baseValue = ((f(1).add(aff2).add(aff4).add(aff5).add(aff6).add(aff10).add(aff11).add(aff12)).mul(aff3).mul(aff8))
+  IUniversalIn.armyInfo.soul.affinities.affinity1.baseValue = ((f(1).add(aff2).add(aff4).add(aff5).add(aff6).add(aff10).add(aff12)).mul(aff3).mul(aff8))
 
   if (f(IUniversalIn.armyInfo.soul.affinities.affinity1.value).lt(f(1))) {
     IUniversalIn.armyInfo.soul.affinities.affinity1.value = f(1)
@@ -25165,15 +25163,18 @@ function valuesSetter(type) {
 
       if (getTreasureActive("treasure32")) { var aff10 = f(IUniversalIn.treasures.treasure32.effect2) } else { aff10 = f(0) }
 
+        if (getTreasureActive("treasure30")) { var aff11 = f(IUniversalIn.treasures.treasure30.effect) } else { aff11 = f(1) }
 
 
-  IUniversalIn.armyInfo.soul.affinities.affinity2.value = ((f(1).add(aff1).add(aff4).add(aff7).minus(aff6).add(aff9).add(aff10)).mul(aff2).mul(aff8)).dividedBy(f(aff5))
+
+
+  IUniversalIn.armyInfo.soul.affinities.affinity2.value = ((f(1).add(aff1).add(aff4).add(aff7).minus(aff6).add(aff9).add(aff10).add(aff11)).mul(aff2).mul(aff8)).dividedBy(f(aff5))
 
   if (getArmyEffectType("hegemony") && f(IUniversalIn.armyInfo.soul.affinities.affinity2.value).lt(f(getArmyEffectValue("hegemony")))) {
     IUniversalIn.armyInfo.soul.affinities.affinity2.value = f(1)
   }
 
-  IUniversalIn.armyInfo.soul.affinities.affinity2.baseValue = (f(1).add(aff1).add(aff4).add(aff7).add(aff9).add(aff10)).mul(aff2)
+  IUniversalIn.armyInfo.soul.affinities.affinity2.baseValue = (f(1).add(aff1).add(aff4).add(aff7).add(aff9).add(aff10).add(aff11)).mul(aff2)
 
   if (f(IUniversalIn.armyInfo.soul.affinities.affinity2.value).lt(f(1))) {
     IUniversalIn.armyInfo.soul.affinities.affinity2.value = f(1)
@@ -26194,7 +26195,7 @@ function valuesSetter(type) {
 
   sel2.price = f(f(10).pow(f(42))).mul(f(10).pow(f(sel1.level).minus(f(1))))
 
-  sel2.effect = f(0.01).mul(f(sel1.level)).mul(f(IUniversalIn.armyInfo.soul.affinities.affinity2.value))
+  sel2.effect = f(0.01).mul(f(sel1.level)).mul(f(IUniversalIn.armyInfo.soul.affinities.affinity1.value))
 
   if (sel2.effect.lt(f(1)) || !sel2.effect == undefined) {
     sel2.effect = f(1)
