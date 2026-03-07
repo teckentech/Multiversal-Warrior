@@ -30661,16 +30661,6 @@ document.getElementById("content2_17_node87_button").onclick = function () {
     buyMultiple(IUniversalIn.fireTree.node87, IUniversalIn.fireTree.node87, IUniversal.fireTree.node87, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node87, IUniversalIn.fireTree.node87);
 }
 
-document.getElementById("content2_17_node83_button").onclick = function () {
-  if (f(IUniversal.fireTree.node83.level).lt(f(IUniversalIn.fireTree.node83.maxLevel)))
-    buyMultiple(IUniversalIn.fireTree.node83, IUniversalIn.fireTree.node83, IUniversal.fireTree.node83, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node83, IUniversalIn.fireTree.node83);
-}
-
-document.getElementById("content2_17_node85_button").onclick = function () {
-  if (f(IUniversal.fireTree.node85.level).lt(f(IUniversalIn.fireTree.node85.maxLevel)))
-    buyMultiple(IUniversalIn.fireTree.node85, IUniversalIn.fireTree.node85, IUniversal.fireTree.node85, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node85, IUniversalIn.fireTree.node85);
-}
-
 document.getElementById("content2_17_node88_button").onclick = function () {
   if (f(IUniversal.fireTree.node88.level).lt(f(IUniversalIn.fireTree.node88.maxLevel)))
     buyMultiple(IUniversalIn.fireTree.node88, IUniversalIn.fireTree.node88, IUniversal.fireTree.node88, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node88, IUniversalIn.fireTree.node88);
