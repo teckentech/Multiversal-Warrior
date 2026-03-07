@@ -17855,7 +17855,7 @@ function valuesSetterCycle(type) {
       <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
       </div>
       <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Decrease Enemy affinity by 50%</div>
-      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Every Affinity +2 (+${format(f(sel2.effect2), 0)})</div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">All Affinities +2 (+${format(f(sel2.effect2), 0)})</div>
 
     </div>
     
