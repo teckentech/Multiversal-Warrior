@@ -26979,7 +26979,7 @@ function valuesSetter(type) {
     sel.leftLife = f(selIn.life)
   }
 
-  selIn.affinities.affinity1.value = f(f(10).pow(f(14)).mul(f(f(f(10).pow(f(1))).pow(f(sel.level)))))
+  selIn.affinities.affinity1.value = f(f(10).pow(f(14)).mul(f(f(f(10).pow(f(2))).pow(f(sel.level)))))
   selIn.affinities.affinity2.value = f(1)
   selIn.affinities.affinity3.value = f(1)
   selIn.affinities.affinity4.value = f(1)
