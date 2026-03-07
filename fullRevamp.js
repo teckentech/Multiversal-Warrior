@@ -969,6 +969,126 @@ class Universal {
         level: 0,
         click: false,
       },
+      node86: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node87: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node88: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node89: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node90: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node91: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node92: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node93: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node94: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node95: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node96: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node97: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node98: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node99: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node100: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node101: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node102: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node103: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node104: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node105: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node106: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node107: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node108: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node109: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
     }
 
     this.fireMilestones = options.fireMilestones || {
@@ -1551,6 +1671,10 @@ class Universal {
     this.silverProd = options.silverProd || 0;
     this.silverProdBase = options.silverProdBase || 0;
 
+    this.obsidian = options.obsidian || 0;
+    this.obsidianProd = options.obsidianProd || 0;
+    this.obsidianProdBase = options.obsidianProdBase || 0;
+
     this.forge = options.forge || {
       item1: {
         active: false, unlocked: false,
@@ -1568,6 +1692,16 @@ class Universal {
         click: false,
       },
       item4: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      item5: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      item6: {
         active: false, unlocked: false,
         level: 0,
         click: false,
@@ -1591,6 +1725,11 @@ class Universal {
         level: 0,
         click: false,
       },
+      item4: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
     };
 
     this.ore = options.ore || {
@@ -1600,6 +1739,11 @@ class Universal {
         click: false,
       },
       item2: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      item3: {
         active: false, unlocked: false,
         level: 0,
         click: false,
@@ -1696,6 +1840,26 @@ class Universal {
         level: 0,
         click: false,
       },
+      node17: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node18: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node19: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node20: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
     };
 
     this.showTreasure = options.hiddenTreasure || false;
@@ -1780,6 +1944,24 @@ class Universal {
         num: 0, fused: 0, level: 0, active: false, equip: false,
       },
       treasure27: {
+        num: 0, fused: 0, level: 0, active: false, equip: false,
+      },
+      treasure28: {
+        num: 0, fused: 0, level: 0, active: false, equip: false,
+      },
+      treasure29: {
+        num: 0, fused: 0, level: 0, active: false, equip: false,
+      },
+      treasure30: {
+        num: 0, fused: 0, level: 0, active: false, equip: false,
+      },
+      treasure31: {
+        num: 0, fused: 0, level: 0, active: false, equip: false,
+      },
+      treasure32: {
+        num: 0, fused: 0, level: 0, active: false, equip: false,
+      },
+      treasure33: {
         num: 0, fused: 0, level: 0, active: false, equip: false,
       },
     };
@@ -1969,6 +2151,50 @@ class Universal {
             expectedRewardsR: 0,
           }
         },
+
+        exp17: {
+          level: 0, leftLife: 0, active: false,
+
+          rewards: {
+            timer: 0,
+
+            expectedRewards: {},
+            expectedRewardsR: 0,
+          }
+        },
+
+        exp18: {
+          level: 0, leftLife: 0, active: false,
+
+          rewards: {
+            timer: 0,
+
+            expectedRewards: {},
+            expectedRewardsR: 0,
+          }
+        },
+
+        exp19: {
+          level: 0, leftLife: 0, active: false,
+
+          rewards: {
+            timer: 0,
+
+            expectedRewards: {},
+            expectedRewardsR: 0,
+          }
+        },
+
+        exp20: {
+          level: 0, leftLife: 0, active: false,
+
+          rewards: {
+            timer: 0,
+
+            expectedRewards: {},
+            expectedRewardsR: 0,
+          }
+        },
       };
 
     this.treasureFormation = options.treasureFormation || {
@@ -2016,15 +2242,25 @@ class Universal {
     this.hellTerritory = options.hellTerritory || 0,
       this.hellTerritoryProd = options.hellTerritoryProd || 0,
 
+      this.soul = options.soul || 0,
+      this.soulProd = options.soulProd || 0,
 
       this.hellEnergy = options.hellEnergy || 0,
+      this.soulEnergy = options.soulEnergy || 0,
 
       this.fame = options.fame || 0,
       this.maxFame = options.fame || 0,
       this.fameReq = options.fameReq || 0,
 
+      this.hope = options.hope || 0,
+      this.maxHope = options.maxHope || 0,
+      this.hopeReq = options.hopeReq || 0,
+
       this.hellPowers1Points = options.hellPowers1Points || 0,
       this.hellPowers1PointsMax = options.hellPowers1PointsMax || 0,
+
+      this.hellPowers2Points = options.hellPowers2Points || 0,
+      this.hellPowers2PointsMax = options.hellPowers2PointsMax || 0,
 
       this.automation = {
         automation1: {
@@ -2084,6 +2320,18 @@ class Universal {
         },
         automation14: {
           unlocked: false,
+          active: false,
+        },
+        automation15: {
+          unlocked: true,
+          active: false,
+        },
+        automation16: {
+          unlocked: true,
+          active: false,
+        },
+        automation17: {
+          unlocked: true,
           active: false,
         },
       }
@@ -3168,6 +3416,182 @@ class UniversalIn {
         price: 0, priceIdentity: "fire",
         maxLevel: 0,
       },
+      node86: {
+        content: "", button: "",
+        effect: 0,
+        effect2: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "soul",
+        maxLevel: 0,
+      },
+      node87: {
+        content: "", button: "",
+        effect: 0,
+        effect2: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "soul",
+        maxLevel: 0,
+      },
+      node88: {
+        content: "", button: "",
+        effect: 0,
+        effect2: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "soul",
+        maxLevel: 0,
+      },
+      node89: {
+        content: "", button: "",
+        effect: 0,
+        effect2: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "soul",
+        maxLevel: 0,
+      },
+      node90: {
+        content: "", button: "",
+        effect: 0,
+        effect2: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "hope",
+        maxLevel: 0,
+      },
+      node91: {
+        content: "", button: "",
+        effect: 0,
+        effect2: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "hope",
+        maxLevel: 0,
+      },
+      node92: {
+        content: "", button: "",
+        effect: 0,
+        effect2: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "hope",
+        maxLevel: 0,
+      },
+      node93: {
+        content: "", button: "",
+        effect: 0,
+        effect2: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "hope",
+        maxLevel: 0,
+      },
+      node94: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "soul",
+        maxLevel: 0,
+      },
+      node95: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "soul",
+        maxLevel: 0,
+      },
+      node96: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "soul",
+        maxLevel: 0,
+      },
+      node97: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "soul",
+        maxLevel: 0,
+      },
+      node98: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "hellPowers2Points",
+        maxLevel: 0,
+      },
+      node99: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "hellPowers2Points",
+        maxLevel: 0,
+      },
+      node100: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "hellPowers2Points",
+        maxLevel: 0,
+      },
+      node101: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "hellPowers2Points",
+        maxLevel: 0,
+      },
+      node102: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "hellPowers2Points",
+        maxLevel: 0,
+      },
+      node103: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "hellPowers2Points",
+        maxLevel: 0,
+      },
+      node104: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "hellPowers2Points",
+        maxLevel: 0,
+      },
+      node105: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "soul",
+        maxLevel: 0,
+      },
+      node106: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "soul",
+        maxLevel: 0,
+      },
+      node107: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "soul",
+        maxLevel: 0,
+      },
+      node108: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "soul",
+        maxLevel: 0,
+      },
+      node109: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "soul",
+        maxLevel: 0,
+      },
     }
 
     this.fireMilestones = options.fireMilestones || {
@@ -4083,6 +4507,20 @@ class UniversalIn {
           price: 0, priceIdentity: "silver",
           maxLevel: 0,
         },
+        item5: {
+          content: "", button: "",
+          effect: 0,
+          req: function () { return false }, checkBuy: function () { return true },
+          price: 0, priceIdentity: "obsidian",
+          maxLevel: 0,
+        },
+        item6: {
+          content: "", button: "",
+          effect: 0,
+          req: function () { return false }, checkBuy: function () { return true },
+          price: 0, priceIdentity: "obsidian",
+          maxLevel: 0,
+        },
       };
 
 
@@ -4107,6 +4545,20 @@ class UniversalIn {
         price: 0, priceIdentity: "earth",
         maxLevel: 0,
       },
+      item3: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "obsidian",
+        maxLevel: 0,
+      },
+      item4: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "obsidian",
+        maxLevel: 0,
+      },
     };
 
     this.ore = options.ore || {
@@ -4115,6 +4567,10 @@ class UniversalIn {
         group: "group3",
       },
       item2: {
+        content: "", value: 0, life: 0, hardness: 0, weight: 0,
+        group: "group3",
+      },
+      item3: {
         content: "", value: 0, life: 0, hardness: 0, weight: 0,
         group: "group3",
       },
@@ -4227,6 +4683,34 @@ class UniversalIn {
         maxLevel: 0,
       },
       node16: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "null",
+        maxLevel: 0,
+      },
+      node17: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "null",
+        maxLevel: 0,
+      },
+      node18: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "null",
+        maxLevel: 0,
+      },
+      node19: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "null",
+        maxLevel: 0,
+      },
+      node20: {
         content: "", button: "",
         effect: 0,
         req: function () { return false }, checkBuy: function () { return true },
@@ -4538,6 +5022,74 @@ class UniversalIn {
         content2: "",
         content3: "",
         image: "images/soul_2_v1.png",
+        maxLevel: 0,
+        price: 0,
+        priceIdentity: "metal",
+      },
+      treasure28: {
+        type: "warrior",
+        effect1: 0,
+        content: "",
+        content2: "",
+        content3: "",
+        image: "images/warrior_t28_v1.png",
+        maxLevel: 0,
+        price: 0,
+        priceIdentity: "num",
+      },
+      treasure29: {
+        type: "weapon",
+        effect: 0,
+        content: "",
+        content2: "",
+        content3: "",
+        image: "images/weapon_t29_v1.png",
+        maxLevel: 0,
+        price: 0,
+        priceIdentity: "metal",
+      },
+      treasure30: {
+        type: "armor",
+        effect: 0,
+        content: "",
+        content2: "",
+        content3: "",
+        image: "images/armor_t30_v1.png",
+        maxLevel: 0,
+        price: 0,
+        priceIdentity: "metal",
+      },
+      treasure31: {
+        type: "augment",
+        effect1: 0,
+        content: "",
+        content2: "",
+        content3: "",
+        image: "images/augment_t31_v1.png",
+        maxLevel: 0,
+        price: 0,
+        priceIdentity: "metal",
+      },
+      treasure32: {
+        type: "augment",
+        effect1: 0,
+        effect2: 0,
+        content: "",
+        content2: "",
+        content3: "",
+        image: "images/augment_t32_v1.png",
+        maxLevel: 0,
+        price: 0,
+        priceIdentity: "metal",
+      },
+      treasure33: {
+        type: "augment",
+        effect1: 0,
+        effect2: 0,
+        content: "",
+        content2: "",
+        content3: "",
+        image: "images/augment_t33_v1.png",
         maxLevel: 0,
         price: 0,
         priceIdentity: "metal",
@@ -5244,6 +5796,144 @@ class UniversalIn {
           }
         },
       },
+
+      exp17: {
+        damage: 0, life: 0, type: "elemental", content: "",
+        affinity: 0, maxLevel: 0,
+
+        affinities: {
+          affinity1: {
+            value: 0, content: "", active: false,
+          },
+          affinity2: {
+            value: 0, content: "", active: false,
+          },
+          affinity3: {
+            value: 0, content: "", active: false,
+          },
+          affinity4: {
+            value: 0, content: "", active: false,
+          },
+        },
+
+        rewards: {
+          timerPrice: 0,
+          effect: function () { return },
+          effectContent: function () { return },
+          content: "",
+        },
+
+        effects: {
+          effect1: {
+            type: "", content: "", effect: 0,
+          },
+          effect2: {
+            type: "", content: "", effect: 0,
+          }
+        },
+      },
+
+      exp18: {
+        damage: 0, life: 0, type: "elemental", content: "",
+        affinity: 0, maxLevel: 0,
+
+        affinities: {
+          affinity1: {
+            value: 0, content: "", active: false,
+          },
+          affinity2: {
+            value: 0, content: "", active: false,
+          },
+          affinity3: {
+            value: 0, content: "", active: false,
+          },
+          affinity4: {
+            value: 0, content: "", active: false,
+          },
+        },
+
+        rewards: {
+          timerPrice: 0,
+          effect: function () { return },
+          effectContent: function () { return },
+          content: "",
+        },
+
+        effects: {
+          effect1: {
+            type: "", content: "", effect: 0,
+          },
+        },
+      },
+
+      exp19: {
+        damage: 0, life: 0, type: "elemental", content: "",
+        affinity: 0, maxLevel: 0,
+
+        affinities: {
+          affinity1: {
+            value: 0, content: "", active: false,
+          },
+          affinity2: {
+            value: 0, content: "", active: false,
+          },
+          affinity3: {
+            value: 0, content: "", active: false,
+          },
+          affinity4: {
+            value: 0, content: "", active: false,
+          },
+        },
+
+        rewards: {
+          timerPrice: 0,
+          effect: function () { return },
+          effectContent: function () { return },
+          content: "",
+        },
+
+        effects: {
+          effect1: {
+            type: "", content: "", effect: 0,
+          },
+        },
+      },
+
+      exp20: {
+        name: "", type: "golem", maxLevel: 0,
+        damage: 0, life: 0, number: 0,
+
+        golemTypes: {
+          type1: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type2: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type3: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type4: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type5: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+        },
+
+        rewards: {
+          timerPrice: 0,
+          effect: function () { return },
+          effectContent: function () { return },
+          content: "",
+        },
+
+        effects: {
+          effect1: {
+            type: "", content: "", effect: 0,
+          }
+        },
+      },
     };
 
 
@@ -5276,8 +5966,10 @@ class UniversalIn {
     };
 
     this.hellDescription1 = options.hellDescription1 || "",
+      this.hellDescription2 = options.hellDescription2 || "",
 
       this.hellPowers1 = options.hellPowers1 || "",
+      this.hellPowers2 = options.hellPowers2 || "",
 
       this.automation = {
         automation1: {
@@ -5323,6 +6015,15 @@ class UniversalIn {
           price: 0, priceIdentity: "universalShards",
         },
         automation14: {
+          price: 0, priceIdentity: "universalShards",
+        },
+        automation15: {
+          price: 0, priceIdentity: "universalShards",
+        },
+        automation16: {
+          price: 0, priceIdentity: "universalShards",
+        },
+        automation17: {
           price: 0, priceIdentity: "universalShards",
         },
       }
@@ -5720,6 +6421,9 @@ class ShowableClass {
       fp3_content1_8_auto12: false,
       fp3_content1_8_auto13: false,
       fp3_content1_8_auto14: false,
+      fp3_content1_8_auto15: false,
+      fp3_content1_8_auto16: false,
+      fp3_content1_8_auto17: false,
 
 
       //energyButtons
@@ -5790,6 +6494,7 @@ class ShowableClass {
       content2_17_valutes_valute3: false,
       content2_17_valutes_valute4: false,
       content2_17_valutes_valute5: false,
+      content2_17_valutes_valute6: false,
 
       content2_17_zone1: false,
       content2_17_zone2: false,
@@ -5889,6 +6594,8 @@ class ShowableClass {
 
       hellInfo1: false,
       hellPowers1: false,
+      hellInfo2: true,
+      hellPowers2: true,
 
       content2_17_node65: false,
       content2_17_node66: false,
@@ -5911,6 +6618,30 @@ class ShowableClass {
       content2_17_node83: false, content2_17_node83_button: false,
       content2_17_node84: false,
       content2_17_node85: false,
+      content2_17_node86: false,
+      content2_17_node87: false,
+      content2_17_node88: false,
+      content2_17_node89: false,
+      content2_17_node90: false,
+      content2_17_node91: false,
+      content2_17_node92: false,
+      content2_17_node93: false,
+      content2_17_node94: false,
+      content2_17_node95: false,
+      content2_17_node96: false,
+      content2_17_node97: false,
+      content2_17_node98: false,
+      content2_17_node99: false,
+      content2_17_node100: false,
+      content2_17_node101: false,
+      content2_17_node102: false,
+      content2_17_node103: false,
+      content2_17_node104: false, content2_17_node104_button: false,
+      content2_17_node105: false,
+      content2_17_node106: false,
+      content2_17_node107: false,
+      content2_17_node108: false,
+      content2_17_node109: false,
 
 
       //WATER
@@ -6043,11 +6774,28 @@ class ShowableClass {
       content2_21_valutes_valute1: false,
       content2_21_valutes_valute2: false,
       content2_21_valutes_valute3: false,
+      content2_21_valutes_valute4: false,
 
       content2_21_under1_1: false,
       content2_21_under1_2: false,
       content2_21_under1_3: false,
       content2_21_under1_4: false,
+
+      content2_21_under1_1_item1: false,
+      content2_21_under1_1_item2: false,
+      content2_21_under1_1_item3: false,
+      content2_21_under1_1_item4: false,
+      content2_21_under1_1_item5: false,
+      content2_21_under1_1_item6: false,
+
+      content2_21_under1_2_item1: false,
+      content2_21_under1_2_item2: false,
+      content2_21_under1_2_item3: false,
+      content2_21_under1_2_item4: false,
+      
+      content2_21_under1_3_item1: false,
+      content2_21_under1_3_item2: false,
+      content2_21_under1_3_item3: false,
 
       content2_21_node1: false,
       content2_21_node2: false,
@@ -6112,6 +6860,10 @@ class ShowableClass {
       content2_23_node14: false,
       content2_23_node15: false,
       content2_23_node16: false,
+      content2_23_node17: false,
+      content2_23_node18: false,
+      content2_23_node19: false,
+      content2_23_node20: false,
 
       //METAL
       content2_25_valutes_content: true,
@@ -6396,14 +7148,12 @@ function saveGameData() {
   createSaveData()
   const stringifiedData = JSON.stringify(saveData);
   localStorage.setItem("GameSave", stringifiedData);
-
 }
 
 function offSaveGameData() {
   createSaveData()
   const stringifiedData = JSON.stringify(saveData);
   localStorage.setItem("GameSaveOff", stringifiedData);
-
 }
 
 function resetSave() {
@@ -6632,6 +7382,7 @@ document.addEventListener('visibilitychange', function () {
     offSaveGameData()
     freeTick = false
   } else {
+
     if (localStorage.getItem("GameSaveOff") !== null) {
       offImportSave();
     }
@@ -6674,6 +7425,7 @@ function updateClass(cla, html) {
 //VISUAL ALL LAYERS
 
 function visualValute() {
+
   unlockShow("powerValute", false)
   unlockShow("universeValute", false)
   unlockShow("essenceValute", false)
@@ -7357,6 +8109,69 @@ function visualAutomation() {
       document.getElementById(`fp3_content1_8_auto14_b1`).style.backgroundColor = "#004526"
     } else {
       document.getElementById(`fp3_content1_8_auto14_b1`).style.backgroundColor = "#660000"
+    }
+  }
+
+  update("fp3_content1_8_auto15_1", `Autobuy Fire upgrades automatically without cost`)
+
+  if (IUniversal.automation.automation15.unlocked) {
+    if (IUniversal.automation.automation15.active) {
+      document.getElementById(`fp3_content1_8_auto15_b1`).style.backgroundColor = "#004526"
+      update("fp3_content1_8_auto15_b1", `<div class="noClick">ON</div>`)
+    } else {
+      document.getElementById(`fp3_content1_8_auto15_b1`).style.backgroundColor = "#660000"
+      update("fp3_content1_8_auto15_b1", `<div class="noClick">OFF</div>`)
+    }
+  } else {
+    update("fp3_content1_8_auto15_b1", `<div class="noClick">UPGRADE<div>
+                                     <div class="noClick">Universal Shards: ${format(f(IUniversalIn.automation.automation15.price))}</div>`)
+
+    if (checkBuy(IUniversalIn.automation.automation15.priceIdentity, IUniversalIn.automation.automation15.price, "uniChallenger")) {
+      document.getElementById(`fp3_content1_8_auto15_b1`).style.backgroundColor = "#004526"
+    } else {
+      document.getElementById(`fp3_content1_8_auto15_b1`).style.backgroundColor = "#660000"
+    }
+  }
+
+  update("fp3_content1_8_auto16_1", `Autobuy Size upgrades automatically without cost`)
+
+  if (IUniversal.automation.automation16.unlocked) {
+    if (IUniversal.automation.automation16.active) {
+      document.getElementById(`fp3_content1_8_auto16_b1`).style.backgroundColor = "#004526"
+      update("fp3_content1_8_auto16_b1", `<div class="noClick">ON</div>`)
+    } else {
+      document.getElementById(`fp3_content1_8_auto16_b1`).style.backgroundColor = "#660000"
+      update("fp3_content1_8_auto16_b1", `<div class="noClick">OFF</div>`)
+    }
+  } else {
+    update("fp3_content1_8_auto16_b1", `<div class="noClick">UPGRADE<div>
+                                     <div class="noClick">Universal Shards: ${format(f(IUniversalIn.automation.automation16.price))}</div>`)
+
+    if (checkBuy(IUniversalIn.automation.automation16.priceIdentity, IUniversalIn.automation.automation16.price, "uniChallenger")) {
+      document.getElementById(`fp3_content1_8_auto16_b1`).style.backgroundColor = "#004526"
+    } else {
+      document.getElementById(`fp3_content1_8_auto16_b1`).style.backgroundColor = "#660000"
+    }
+  }
+
+  update("fp3_content1_8_auto17_1", `Get Souls automatically`)
+
+  if (IUniversal.automation.automation17.unlocked) {
+    if (IUniversal.automation.automation17.active) {
+      document.getElementById(`fp3_content1_8_auto17_b1`).style.backgroundColor = "#004526"
+      update("fp3_content1_8_auto17_b1", `<div class="noClick">ON</div>`)
+    } else {
+      document.getElementById(`fp3_content1_8_auto17_b1`).style.backgroundColor = "#660000"
+      update("fp3_content1_8_auto17_b1", `<div class="noClick">OFF</div>`)
+    }
+  } else {
+    update("fp3_content1_8_auto17_b1", `<div class="noClick">UPGRADE<div>
+                                     <div class="noClick">Universal Shards: ${format(f(IUniversalIn.automation.automation17.price))}</div>`)
+
+    if (checkBuy(IUniversalIn.automation.automation17.priceIdentity, IUniversalIn.automation.automation17.price, "uniChallenger")) {
+      document.getElementById(`fp3_content1_8_auto17_b1`).style.backgroundColor = "#004526"
+    } else {
+      document.getElementById(`fp3_content1_8_auto17_b1`).style.backgroundColor = "#660000"
     }
   }
 }
@@ -8175,6 +8990,174 @@ function valuesSetterInit(type) {
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node85.priceIdentity, IUniversalIn.fireTree.node85.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.windTree.node15.active) }
 
+  //NODE 86
+  var sel = IUniversal.fireTree.node86
+  var sel2 = IUniversalIn.fireTree.node86
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node86.priceIdentity, IUniversalIn.fireTree.node86.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node109.active) }
+
+  //NODE 87
+  var sel = IUniversal.fireTree.node87
+  var sel2 = IUniversalIn.fireTree.node87
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node87.priceIdentity, IUniversalIn.fireTree.node87.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node86.active) }
+
+  //NODE 88
+  var sel = IUniversal.fireTree.node88
+  var sel2 = IUniversalIn.fireTree.node88
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node88.priceIdentity, IUniversalIn.fireTree.node88.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node87.active) }
+
+  //NODE 89
+  var sel = IUniversal.fireTree.node89
+  var sel2 = IUniversalIn.fireTree.node89
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node89.priceIdentity, IUniversalIn.fireTree.node89.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node88.active) }
+
+  //NODE 90
+  var sel = IUniversal.fireTree.node90
+  var sel2 = IUniversalIn.fireTree.node90
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node90.priceIdentity, IUniversalIn.fireTree.node90.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node94.active) }
+
+  //NODE 91
+  var sel = IUniversal.fireTree.node91
+  var sel2 = IUniversalIn.fireTree.node91
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node91.priceIdentity, IUniversalIn.fireTree.node91.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node95.active) }
+
+  //NODE 92
+  var sel = IUniversal.fireTree.node92
+  var sel2 = IUniversalIn.fireTree.node92
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node92.priceIdentity, IUniversalIn.fireTree.node92.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node96.active) }
+
+  //NODE 93
+  var sel = IUniversal.fireTree.node93
+  var sel2 = IUniversalIn.fireTree.node93
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node93.priceIdentity, IUniversalIn.fireTree.node93.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node97.active) }
+
+  //NODE 94
+  var sel = IUniversal.fireTree.node94
+  var sel2 = IUniversalIn.fireTree.node94
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node94.priceIdentity, IUniversalIn.fireTree.node94.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node104.active) }
+
+  //NODE 95
+  var sel = IUniversal.fireTree.node95
+  var sel2 = IUniversalIn.fireTree.node95
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node95.priceIdentity, IUniversalIn.fireTree.node95.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node104.active) }
+
+  //NODE 96
+  var sel = IUniversal.fireTree.node96
+  var sel2 = IUniversalIn.fireTree.node96
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node96.priceIdentity, IUniversalIn.fireTree.node96.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node104.active) }
+
+  //NODE 97
+  var sel = IUniversal.fireTree.node97
+  var sel2 = IUniversalIn.fireTree.node97
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node97.priceIdentity, IUniversalIn.fireTree.node97.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node104.active) }
+
+  //NODE 98
+  var sel = IUniversal.fireTree.node98
+  var sel2 = IUniversalIn.fireTree.node98
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node98.priceIdentity, IUniversalIn.fireTree.node98.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node16.active) }
+
+  //NODE 99
+  var sel = IUniversal.fireTree.node99
+  var sel2 = IUniversalIn.fireTree.node99
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node99.priceIdentity, IUniversalIn.fireTree.node99.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node16.active) }
+
+  //NODE 100
+  var sel = IUniversal.fireTree.node100
+  var sel2 = IUniversalIn.fireTree.node100
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node100.priceIdentity, IUniversalIn.fireTree.node100.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node16.active) }
+
+  //NODE 101
+  var sel = IUniversal.fireTree.node101
+  var sel2 = IUniversalIn.fireTree.node101
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node101.priceIdentity, IUniversalIn.fireTree.node101.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node16.active) }
+
+  //NODE 102
+  var sel = IUniversal.fireTree.node102
+  var sel2 = IUniversalIn.fireTree.node102
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node102.priceIdentity, IUniversalIn.fireTree.node102.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node16.active) }
+
+  //NODE 103
+  var sel = IUniversal.fireTree.node103
+  var sel2 = IUniversalIn.fireTree.node103
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node103.priceIdentity, IUniversalIn.fireTree.node103.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node16.active) }
+
+  //NODE 104
+  var sel = IUniversal.fireTree.node104
+  var sel2 = IUniversalIn.fireTree.node104
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node104.priceIdentity, IUniversalIn.fireTree.node104.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node83.active) }
+
+  //NODE 105
+  var sel = IUniversal.fireTree.node105
+  var sel2 = IUniversalIn.fireTree.node105
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node105.priceIdentity, IUniversalIn.fireTree.node105.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node104.active) }
+
+  //NODE 106
+  var sel = IUniversal.fireTree.node106
+  var sel2 = IUniversalIn.fireTree.node106
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node106.priceIdentity, IUniversalIn.fireTree.node106.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node16.active) }
+
+  //NODE 107
+  var sel = IUniversal.fireTree.node107
+  var sel2 = IUniversalIn.fireTree.node107
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node107.priceIdentity, IUniversalIn.fireTree.node107.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node104.active) }
+
+  //NODE 108
+  var sel = IUniversal.fireTree.node108
+  var sel2 = IUniversalIn.fireTree.node108
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node108.priceIdentity, IUniversalIn.fireTree.node108.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node104.active) }
+
+  //NODE 109
+  var sel = IUniversal.fireTree.node109
+  var sel2 = IUniversalIn.fireTree.node109
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node109.priceIdentity, IUniversalIn.fireTree.node109.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node104.active) }
+
   //HELL
 
   //WATER TREE
@@ -8855,6 +9838,20 @@ function valuesSetterInit(type) {
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.forge.item4.priceIdentity, IUniversalIn.forge.item4.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.forge.item4.active) }
 
+  //item5
+  var sel = IUniversal.forge.item5
+  var sel2 = IUniversalIn.forge.item5
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.forge.item5.priceIdentity, IUniversalIn.forge.item5.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node18.active) }
+
+  //item6
+  var sel = IUniversal.forge.item6
+  var sel2 = IUniversalIn.forge.item6
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.forge.item6.priceIdentity, IUniversalIn.forge.item6.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node18.active) }
+
 
   //mines
   //item1
@@ -8871,6 +9868,20 @@ function valuesSetterInit(type) {
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.mine.item2.priceIdentity, IUniversalIn.mine.item2.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.mine.item2.active) }
 
+  //item3
+  var sel = IUniversal.mine.item3
+  var sel2 = IUniversalIn.mine.item3
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.mine.item3.priceIdentity, IUniversalIn.mine.item3.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node18.active) }
+
+  //item4
+  var sel = IUniversal.mine.item4
+  var sel2 = IUniversalIn.mine.item4
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.mine.item4.priceIdentity, IUniversalIn.mine.item4.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node18.active) }
+
   //ORES
 
   //item1
@@ -8884,8 +9895,15 @@ function valuesSetterInit(type) {
   var sel = IUniversal.ore.item2
   var sel2 = IUniversalIn.ore.item2
 
-  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.ore.time2.priceIdentity, IUniversalIn.ore.time2.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.ore.time2.active) }
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.ore.item2.priceIdentity, IUniversalIn.ore.item2.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.ore.item2.active) }
+
+  //item3
+  var sel = IUniversal.ore.item3
+  var sel2 = IUniversalIn.ore.item3
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.ore.item3.priceIdentity, IUniversalIn.ore.item3.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node18.active) }
 
   //WIND
 
@@ -9034,6 +10052,42 @@ function valuesSetterInit(type) {
 
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node16.priceIdentity, IUniversalIn.windTree.node16.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.windTree.node15.active) }
+
+  //NODE 17
+  var sel = IUniversal.windTree.node17
+  var sel2 = IUniversalIn.windTree.node17
+  var exp = IUniversal.expeditions.exp17
+  var exp2 = IUniversalIn.expeditions.exp17
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node17.priceIdentity, IUniversalIn.windTree.node17.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node16.active) }
+
+  //NODE 18
+  var sel = IUniversal.windTree.node18
+  var sel2 = IUniversalIn.windTree.node18
+  var exp = IUniversal.expeditions.exp18
+  var exp2 = IUniversalIn.expeditions.exp18
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node18.priceIdentity, IUniversalIn.windTree.node18.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node17.active) }
+
+  //NODE 19
+  var sel = IUniversal.windTree.node19
+  var sel2 = IUniversalIn.windTree.node19
+  var exp = IUniversal.expeditions.exp19
+  var exp2 = IUniversalIn.expeditions.exp19
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node19.priceIdentity, IUniversalIn.windTree.node19.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node14.active) }
+
+  //NODE 20
+  var sel = IUniversal.windTree.node20
+  var sel2 = IUniversalIn.windTree.node20
+  var exp = IUniversal.expeditions.exp20
+  var exp2 = IUniversalIn.expeditions.exp20
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node20.priceIdentity, IUniversalIn.windTree.node20.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node12.active) }
 
   //Expeditions
   //expedition 1
@@ -10127,6 +11181,251 @@ function valuesSetterInit(type) {
 
     return string;
   }
+
+  //expedition 17
+  var sel = IUniversal.expeditions.exp17
+  var selIn = IUniversalIn.expeditions.exp17
+
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
+    var sel = ["treasure30", "treasure29"];
+
+    for (let x in sel) {
+      setExpectedReward(selT, sel[x])
+    }
+
+    IUniversal.hellPowers2PointsMax = f(IUniversal.hellPowers2PointsMax).add(f(1))
+    IUniversal.hellPowers2Points = f(IUniversal.hellPowers2Points).add(f(1))
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure30.level = f(selT.expectedRewards.treasure30.level).add(f(1));
+      return
+    }
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure29.level = f(selT.expectedRewards.treasure29.level).add(f(1));
+      return
+    }
+
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
+      </div>`;
+      }
+    }
+
+    return string;
+  }
+
+  //expedition 18
+  var sel = IUniversal.expeditions.exp18
+  var selIn = IUniversalIn.expeditions.exp18
+
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
+    var sel = ["treasure32", "treasure31"];
+
+    for (let x in sel) {
+      setExpectedReward(selT, sel[x])
+    }
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure32.level = f(selT.expectedRewards.treasure32.level).add(f(1));
+      return
+    }
+
+    if (f(exp.level).eq(f(1))) {
+      selT.expectedRewards.treasure31.level = f(selT.expectedRewards.treasure31.level).add(f(1));
+      return
+    }
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
+      </div>`;
+      }
+    }
+
+    return string;
+  }
+
+  //expedition 19
+  var sel = IUniversal.expeditions.exp19
+  var selIn = IUniversalIn.expeditions.exp19
+
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
+    var sel = ["treasure33"];
+
+    for (let x in sel) {
+      setExpectedReward(selT, sel[x])
+    }
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure33.level = f(selT.expectedRewards.treasure33.level).add(f(1));
+      return
+    }
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
+      </div>`;
+      }
+    }
+
+    return string;
+  }
+
+  //expedition 20
+  var sel = IUniversal.expeditions.exp20
+  var selIn = IUniversalIn.expeditions.exp20
+
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
+    var sel = ["treasure28"];
+
+    for (let x in sel) {
+      setExpectedReward(selT, sel[x])
+    }
+
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure28.level = f(selT.expectedRewards.treasure28.level).add(f(1));
+      return
+    }
+
+    if (f(exp.level).eq(f(1))) {
+      selT.expectedRewards.treasure28.level = f(selT.expectedRewards.treasure28.level).add(f(1));
+      return
+    }
+
+    if (f(exp.level).eq(f(2))) {
+      selT.expectedRewards.treasure28.level = f(selT.expectedRewards.treasure28.level).add(f(1));
+      return
+    }
+
+    if (f(exp.level).eq(f(3))) {
+      selT.expectedRewards.treasure28.level = f(selT.expectedRewards.treasure28.level).add(f(1));
+      return
+    }
+
+    if (f(exp.level).eq(f(4))) {
+      selT.expectedRewards.treasure28.level = f(selT.expectedRewards.treasure28.level).add(f(1));
+      return
+    }
+
+
+    if (f(number).lt(f(sel.length))) {
+      const pick = Math.floor(Math.random() * sel.length);
+      const key = sel[pick];
+
+      if (!selT.expectedRewards) {
+        selT.expectedRewards = {};
+      }
+
+      if (!selT.expectedRewards[key]) {
+        selT.expectedRewards[key] = { num: f(0) };
+      }
+
+      selT.expectedRewards[key].num =
+        f(selT.expectedRewards[key].num).add(f(1));
+      return;
+    }
+
+    for (let x in sel) {
+      var sel2 = sel[x];
+      var level = f(number).dividedBy(f(sel.length));
+
+      if (!selT.expectedRewards) {
+        selT.expectedRewards = {};
+      }
+
+      if (!selT.expectedRewards[sel2]) {
+        selT.expectedRewards[sel2] = { num: f(0) };
+      }
+
+      selT.expectedRewards[sel2].num =
+        f(selT.expectedRewards[sel2].num).add(f(level));
+    }
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
+      </div>`;
+      }
+    }
+
+    return string;
+  }
 }
 
 function valuesSetterCycle(type) {
@@ -10905,6 +12204,7 @@ function valuesSetterCycle(type) {
 
   if (IUniversal.fireTree.node83.active) {
     unlockShow("content2_17_zone4", true)
+
   }
 
 
@@ -11435,7 +12735,7 @@ function valuesSetterCycle(type) {
   }
 
   //NODE 27
-  
+
   //it is in valuesSetter now.
 
   //NODE 28
@@ -12031,8 +13331,8 @@ function valuesSetterCycle(type) {
 
   //NODE 50
 
-  //it is in valueSetter now.
-  
+  //it is in valuesSetter now.
+
   //NODE 51
   var sel = IUniversal.fireTree.node51
   var sel2 = IUniversalIn.fireTree.node51
@@ -12411,6 +13711,7 @@ function valuesSetterCycle(type) {
                  <div class="topRight absolute padding2 grey">69</div>
                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
                  <div class="centerDiv padding1 column fontSize09"><div>Fire/s × Heat <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
+                 <div class="centerDiv padding1 column fontSize09"><div>After ${format(f("1e15"))} Heat</div>
                  </div>`
 
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
@@ -12468,6 +13769,7 @@ function valuesSetterCycle(type) {
                  <div class="topRight absolute padding2 grey">72</div>
                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
                  <div class="centerDiv padding1 column fontSize09"><div>Heat × Fire <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
+                 <div class="centerDiv padding1 column fontSize09"><div>After ${format(f("1e270"))} Fire</div>
                  </div>`
 
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
@@ -12506,6 +13808,7 @@ function valuesSetterCycle(type) {
                  <div class="topRight absolute padding2 grey">74</div>
                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
                  <div class="centerDiv padding1 column fontSize09"><div>Fire Shards/s × Size <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
+                 <div class="centerDiv padding1 column fontSize09"><div>After ${format(f("1e190"))} Size</div>
                  </div>`
 
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
@@ -12721,6 +14024,435 @@ function valuesSetterCycle(type) {
 
   sel2.button = `<div class="centerDiv noClick">RESET</div>`
 
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 86
+  var sel = IUniversal.fireTree.node86
+  var sel2 = IUniversalIn.fireTree.node86
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Fractals</div>
+                 <div class="topRight absolute padding2 grey">86</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Fire Shards/s ^1.01 (^<span class="boldBlackBorder">${format(f(sel2.effect), 2)}</span>)</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Upg. 94 max level +3 (+<span class="boldBlackBorder">${format(f(sel2.effect), 0)}</span>)</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Soul</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 87
+  var sel = IUniversal.fireTree.node87
+  var sel2 = IUniversalIn.fireTree.node87
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Rizoma</div>
+                 <div class="topRight absolute padding2 grey">87</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Size/s ^1.01 (^<span class="boldBlackBorder">${format(f(sel2.effect), 2)}</span>)</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Upg. 95 max level +3 (+<span class="boldBlackBorder">${format(f(sel2.effect), 0)}</span>)</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Soul</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 88
+  var sel = IUniversal.fireTree.node88
+  var sel2 = IUniversalIn.fireTree.node88
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Ouroboros</div>
+                 <div class="topRight absolute padding2 grey">88</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Fire/s ^1.01 (^<span class="boldBlackBorder">${format(f(sel2.effect), 2)}</span>)</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Upg. 96 max level +3 (+<span class="boldBlackBorder">${format(f(sel2.effect), 0)}</span>)</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Soul</div>`
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 89
+  var sel = IUniversal.fireTree.node89
+  var sel2 = IUniversalIn.fireTree.node89
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Conflagration</div>
+                 <div class="topRight absolute padding2 grey">89</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Heat/s ^1.01 (^<span class="boldBlackBorder">${format(f(sel2.effect), 2)}</span>)</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Upg. 97 max level +3 (+<span class="boldBlackBorder">${format(f(sel2.effect), 0)}</span>)</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Soul</div>`
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 90
+  var sel = IUniversal.fireTree.node90
+  var sel2 = IUniversalIn.fireTree.node90
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Kami</div>
+                 <div class="topRight absolute padding2 grey">90</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09">
+                    <div>Upg. 65 ×2 (×<span class="boldBlackBorder">${format(f(sel2.effect), 0)}</span>)</div>
+                    <div>Upg. 65,70,69 max lvl +1  (+<span class="boldBlackBorder">${format(f(sel2.effect2), 0)}</span>)</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Hope</div>`
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 91
+  var sel = IUniversal.fireTree.node91
+  var sel2 = IUniversalIn.fireTree.node91
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Banshee</div>
+                 <div class="topRight absolute padding2 grey">91</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09">
+                    <div>Upg. 66 ×2 (×<span class="boldBlackBorder">${format(f(sel2.effect), 0)}</span>)</div>
+                    <div>Upg. 66,71,72 max lvl +1  (+<span class="boldBlackBorder">${format(f(sel2.effect2), 0)}</span>)</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Hope</div>`
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 92
+  var sel = IUniversal.fireTree.node92
+  var sel2 = IUniversalIn.fireTree.node92
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Tengu</div>
+                 <div class="topRight absolute padding2 grey">92</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09">
+                    <div>Upg. 67 ×2 (×<span class="boldBlackBorder">${format(f(sel2.effect), 0)}</span>)</div>
+                    <div>Upg. 67,73,74 max lvl +1  (+<span class="boldBlackBorder">${format(f(sel2.effect2), 0)}</span>)</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Hope</div>`
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 93
+  var sel = IUniversal.fireTree.node93
+  var sel2 = IUniversalIn.fireTree.node93
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Oni</div>
+                 <div class="topRight absolute padding2 grey">93</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09">
+                    <div>Upg. 68 ×2 (×<span class="boldBlackBorder">${format(f(sel2.effect), 0)}</span>)</div>
+                    <div>Upg. 68,75,76 max lvl +1  (+<span class="boldBlackBorder">${format(f(sel2.effect2), 0)}</span>)</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Hope</div>`
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 94
+  var sel = IUniversal.fireTree.node94
+  var sel2 = IUniversalIn.fireTree.node94
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">General Soul</div>
+                 <div class="topRight absolute padding2 grey">94</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Territory/s ×10 (×<span class="boldBlackBorder">${format(f(sel2.effect), 0)}</span>)</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Soul</div>`
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 95
+  var sel = IUniversal.fireTree.node95
+  var sel2 = IUniversalIn.fireTree.node95
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Freedom's Fervor</div>
+                 <div class="topRight absolute padding2 grey">95</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Fire/s ×${format(f(f(10).pow(f(10))))} (×<span class="boldBlackBorder">${format(f(sel2.effect), 0)}</span>)</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Soul</div>`
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 96
+  var sel = IUniversal.fireTree.node96
+  var sel2 = IUniversalIn.fireTree.node96
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Soul's Ambition</div>
+                 <div class="topRight absolute padding2 grey">96</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Size/s ×${format(f(f(10).pow(f(5))))} (×<span class="boldBlackBorder">${format(f(sel2.effect), 0)}</span>)</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Soul</div>`
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 97
+  var sel = IUniversal.fireTree.node97
+  var sel2 = IUniversalIn.fireTree.node97
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Devoted Souls</div>
+                 <div class="topRight absolute padding2 grey">97</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Hell Energy ×2 (×<span class="boldBlackBorder">${format(f(sel2.effect), 0)}</span>)</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Soul</div>`
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 98
+  var sel = IUniversal.fireTree.node98
+  var sel2 = IUniversalIn.fireTree.node98
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Cinders Manipulation</div>
+                 <div class="topRight absolute padding2 grey">98</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Fire/s × Baron Power <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Baron Power</div>`
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 99
+  var sel = IUniversal.fireTree.node99
+  var sel2 = IUniversalIn.fireTree.node99
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Void Domain</div>
+                 <div class="topRight absolute padding2 grey">99</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Size/s × Baron Power <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Baron Power</div>`
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 100
+  var sel = IUniversal.fireTree.node100
+  var sel2 = IUniversalIn.fireTree.node100
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Berith Disciple</div>
+                 <div class="topRight absolute padding2 grey">100</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Iron/s × Baron Power <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Baron Power</div>`
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 101
+  var sel = IUniversal.fireTree.node101
+  var sel2 = IUniversalIn.fireTree.node101
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Broken Hell</div>
+                 <div class="topRight absolute padding2 grey">101</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Uni. Shards × Baron Power <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Baron Power</div>`
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 102
+  var sel = IUniversal.fireTree.node102
+  var sel2 = IUniversalIn.fireTree.node102
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Wounded Hell</div>
+                 <div class="topRight absolute padding2 grey">102</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Uni. Nodes/s × Baron Power <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Baron Power</div>`
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 103
+  var sel = IUniversal.fireTree.node103
+  var sel2 = IUniversalIn.fireTree.node103
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Nascent Hell</div>
+                 <div class="topRight absolute padding2 grey">103</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Uni. Cores/s × Baron Power <span class="boldBlackBorder">(×${format(f(sel2.effect), 1)})</span></div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Baron Power</div>`
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 104
+  var sel = IUniversal.fireTree.node104
+  var sel2 = IUniversalIn.fireTree.node104
+
+  if (f(IUniversal.fire).gt(f(0))) {
+    var tempEffect = IUniversal.hellTerritory
+  } else {
+    tempEffect = f(0)
+  }
+
+  if ((f(sel2.effect)).gt(f(0)) || checkShow("content2_17_node104_button")) {
+    unlockShow("content2_17_node104_button", true)
+
+    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Soul Liberation</div>
+                 <div class="topRight absolute padding2 grey">104</div>
+                 <div class="centerDiv padding1 column fontSize09">
+                <div><span class="boldBlackBorder fontSize09">${format(f(tempEffect), 0)}</span>&nbsp;Hell Territory ⇒ <span class="boldBlackBorder">${format(f(IUniversal.soul), 1)} (+${format(f(sel2.effect))})</span>&nbsp;Soul </div>
+                 </div>`
+
+    sel2.button = `<div class="centerDiv noClick"><span class="boldBlackBorder">Sacrifice Hell Territory, Fame and 65-76</span></div>`
+
+  } else {
+    unlockShow("content2_17_node104_button", false)
+
+    sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Soul Liberation</div>
+                 <div class="topRight absolute padding2 grey">104</div>
+                 <div class="centerDiv padding1 column fontSize09">
+                <div><span class="boldBlackBorder fontSize09">Unlock Souls at ${format(f("1e15"))} Hell Territory</div>
+                 </div>`
+
+    sel2.button = ``
+  }
+
+
+  //NODE 105
+  var sel = IUniversal.fireTree.node105
+  var sel2 = IUniversalIn.fireTree.node105
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Reset Hope</div>
+                 <div class="topRight absolute padding2 grey">105</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Reset Hope assignment, Resets Hope Upgrades and 65-76</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick">RESET</div>`
+
+  //NODE 106
+  var sel = IUniversal.fireTree.node106
+  var sel2 = IUniversalIn.fireTree.node106
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Reset Baron Powers</div>
+                 <div class="topRight absolute padding2 grey">106</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Reset Baron Power assignment, Resets Baron Upgrades</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick">RESET</div>`
+
+  //NODE 107
+  var sel = IUniversal.fireTree.node107
+  var sel2 = IUniversalIn.fireTree.node107
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Soul Rights</div>
+                 <div class="topRight absolute padding2 grey">107</div>
+                 <div class="centerDiv padding1 column fontSize09">Unlock Fire upgrades Automation</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Soul</div>`
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 108
+  var sel = IUniversal.fireTree.node108
+  var sel2 = IUniversalIn.fireTree.node108
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Soul Housing</div>
+                 <div class="topRight absolute padding2 grey">108</div>
+                 <div class="centerDiv padding1 column fontSize09">Unlock Size upgrades Automation</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Soul</div>`
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 109
+  var sel = IUniversal.fireTree.node109
+  var sel2 = IUniversalIn.fireTree.node109
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                 <div class="centerDiv boldBlackBorder">Soul Council</div>
+                 <div class="topRight absolute padding2 grey">109</div>
+                 <div class="centerDiv column fontSize09">Unlock Soul Automation</div>
+                 <div class="centerDiv column fontSize09">Unlock new upgrades</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Soul</div>`
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
@@ -14052,6 +15784,10 @@ function valuesSetterCycle(type) {
             <div><span class="boldBlackBorder">${format(f(IUniversal.silver), 2)}</span> Silver</div>
             <div><span class="boldBlackBorder">${format(sec(IUniversal.silverProd), 2)}/s</span></div>
           </div>
+          <div class="height10 width100 column centerDiv backgroundOrange3 roundedEdges">
+            <div><span class="boldBlackBorder">${format(f(IUniversal.obsidian), 2)}</span> Obsidian</div>
+            <div><span class="boldBlackBorder">${format(sec(IUniversal.obsidianProd), 2)}/s</span></div>
+          </div>
         </div>`
 
 
@@ -14152,6 +15888,50 @@ function valuesSetterCycle(type) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
 
+  //item5
+  var sel = IUniversal.forge.item5
+  var sel2 = IUniversalIn.forge.item5
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2 width100 height100">
+                    <div class="height100 width100 column relative">
+                      <div class="topLeft absolute">${format(f(sel.level), 0)}</div>
+                      <div class="centerDiv boldBlackBorder">Magma Universe Forge</div>
+                      <div class="centerDiv">Heat ×1.5 (<span class="boldBlackBorder">×${format(f(sel2.effect), 2)}</span>)</div>
+                    </div>
+                  </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Obsidian</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //item6
+  var sel = IUniversal.forge.item6
+  var sel2 = IUniversalIn.forge.item6
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2 width100 height100">
+                    <div class="height100 width100 column relative">
+                      <div class="topLeft absolute">${format(f(sel.level), 0)}</div>
+                      <div class="centerDiv boldBlackBorder">Magic Refinery</div>
+                      <div class="centerDiv">Soul Damage and Life ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 2)}</span>)</div>
+                    </div>
+                  </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Obsidian</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
   //mines
 
   //mineInfo
@@ -14209,6 +15989,49 @@ function valuesSetterCycle(type) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
 
+
+  //item3
+  var sel = IUniversal.mine.item3
+  var sel2 = IUniversalIn.mine.item3
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                    <div class="height100 column">
+                      <div class="centerDiv boldBlackBorder">Obsidian Drill</div>
+                      <div class="centerDiv">Mine Power ×1.5 (<span class="boldBlackBorder">×${format(f(sel2.effect), 2)}</span>)</div>
+                    </div>
+                  </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Obsidian</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+
+  //item4
+  var sel = IUniversal.mine.item4
+  var sel2 = IUniversalIn.mine.item4
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                    <div class="height100 column">
+                      <div class="centerDiv boldBlackBorder">Iron Alchemy</div>
+                      <div class="centerDiv">Get 10% of Iron/s (<span class="boldBlackBorder">${format(f(sel2.effect), 0)}%</span>)</div>
+                    </div>
+                  </div>`
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Obsidian</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
   //ORES
 
 
@@ -14222,7 +16045,6 @@ function valuesSetterCycle(type) {
                       <div class="centerDiv boldBlackBorder">Iron</div>
                       <div class="centerDiv">${format(f(sel2.life), 0)} Life</div>
                       <div class="centerDiv">${format(f(sel2.hardness))} Hardness</div>
-                      <div class="centerDiv">${format(f(sel2.weight), 0)} Weight</div>
                     </div>
                   </div>`
 
@@ -14249,7 +16071,32 @@ function valuesSetterCycle(type) {
                       <div class="centerDiv boldBlackBorder">Silver</div>
                       <div class="centerDiv">${format(f(sel2.life), 0)} Life</div>
                       <div class="centerDiv">${format(f(sel2.hardness))} Hardness</div>
-                      <div class="centerDiv">${format(f(sel2.weight), 0)} Weight</div>
+                    </div>
+                  </div>`
+
+
+
+  if (sel.active) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">ON</div>`
+  }
+  else {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">OFF</div>`
+  }
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //item3
+  var sel = IUniversal.ore.item3
+  var sel2 = IUniversalIn.ore.item3
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                    <div class="height100 column">
+                      <div class="centerDiv boldBlackBorder">Obsidian</div>
+                      <div class="centerDiv">${format(f(sel2.life), 0)} Life</div>
+                      <div class="centerDiv">${format(f(sel2.hardness))} Hardness</div>
                     </div>
                   </div>`
 
@@ -14728,6 +16575,120 @@ function valuesSetterCycle(type) {
                   </div>
                  </div>`
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">CRUSADE</div>`
+  sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
+  }
+
+  //NODE 17
+  var sel = IUniversal.windTree.node17
+  var sel2 = IUniversalIn.windTree.node17
+  var exp = IUniversal.expeditions.exp17
+  var exp2 = IUniversalIn.expeditions.exp17
+
+  if (!f(sel.level).gte(f(sel2.maxLevel))) {
+    var autom = `Elementals cant be automated`
+  } else {
+    autom = `${toClock(f(exp2.rewards.timerPrice).minus(f(exp.rewards.timer)))}`
+  }
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Hell Baron</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">17</div>
+                  <div class="column width100 height50 top20 absolute">
+                    <div class="width100 height30">Elementals cant be automated</div>
+                    <div class="width100 height70 centerDiv">Claim ${getExpectedTreasures("single", IUniversal.expeditions.exp17.rewards.expectedRewards)} Treasures</div>                     </div>
+                  </div>
+                 </div>`
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">CRUSADE</div>`
+  sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
+  }
+
+  //NODE 18
+  var sel = IUniversal.windTree.node18
+  var sel2 = IUniversalIn.windTree.node18
+  var exp = IUniversal.expeditions.exp18
+  var exp2 = IUniversalIn.expeditions.exp18
+
+  if (!f(sel.level).gte(f(sel2.maxLevel))) {
+    var autom = `Elementals cant be automated`
+  } else {
+    autom = `${toClock(f(exp2.rewards.timerPrice).minus(f(exp.rewards.timer)))}`
+  }
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Hell Viscount</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">18</div>
+                  <div class="column width100 height50 top20 absolute">
+                    <div class="width100 boldBlackBorder height20">Unlock OBSIDIAN in MINES</div>
+                    <div class="width100 height30">Elementals cant be automated</div>
+                    <div class="width100 height70 centerDiv">Claim ${getExpectedTreasures("single", IUniversal.expeditions.exp18.rewards.expectedRewards)} Treasures</div>                     </div>
+                  </div>
+                 </div>`
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">CRUSADE</div>`
+  sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
+  }
+
+  //NODE 19
+  var sel = IUniversal.windTree.node19
+  var sel2 = IUniversalIn.windTree.node19
+  var exp = IUniversal.expeditions.exp19
+  var exp2 = IUniversalIn.expeditions.exp19
+
+  if (!f(sel.level).gte(f(sel2.maxLevel))) {
+    var autom = `Elementals cant be automated`
+  } else {
+    autom = `${toClock(f(exp2.rewards.timerPrice).minus(f(exp.rewards.timer)))}`
+  }
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Miasma</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">19</div>
+                  <div class="column width100 height50 top20 absolute">
+                    <div class="width100 height30">Elementals cant be automated</div>
+                    <div class="width100 height70 centerDiv">Claim ${getExpectedTreasures("single", IUniversal.expeditions.exp19.rewards.expectedRewards)} Treasures</div>                     </div>
+                  </div>
+                 </div>`
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">CRUSADE</div>`
+  sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
+  }
+
+  //NODE 20
+  var sel = IUniversal.windTree.node20
+  var sel2 = IUniversalIn.windTree.node20
+  var exp = IUniversal.expeditions.exp20
+  var exp2 = IUniversalIn.expeditions.exp20
+
+  if (!f(sel.level).gte(f(sel2.maxLevel))) {
+    var autom = `Reach max level to unlock automation`
+  } else {
+    autom = `${toClock(f(exp2.rewards.timerPrice).minus(f(exp.rewards.timer)))}`
+  }
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Glacials</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">20</div>
+                  <div class="column width100 height50 top20 absolute">
+                    <div class="width100 height30">${autom}</div>
+                    <div class="width100 height70 centerDiv">Claim ${getExpectedTreasures("single", IUniversal.expeditions.exp20.rewards.expectedRewards)} Treasures</div>
+                  </div>
+                  </div>
+                 </div>`
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">EXPEDITION</div>`
   sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
 
   if (f(sel.level).gte(f(sel2.maxLevel))) {
@@ -15760,6 +17721,186 @@ function valuesSetterCycle(type) {
   `
 
 
+  //Treasure 28
+
+  var sel1 = IUniversal.treasures.treasure28
+  var sel2 = IUniversalIn.treasures.treasure28
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Bedrock Cap</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Mine Power ×2 (×${format(f(sel2.effect), 1)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel1.num), 0)}/${format(f(sel2.price), 0)} Fragments</div>
+  </div>`
+
+  sel2.content3 = `
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Mine Power ×2 (×${format(f(sel2.effect), 1)})</div>
+  `
+
+  //Treasure 29
+
+  var sel1 = IUniversal.treasures.treasure29
+  var sel2 = IUniversalIn.treasures.treasure29
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Pyrofrost Sword</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Fire and Water affinity +25 (+${format(f(sel2.effect), 0)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
+  </div>`
+
+  sel2.content3 = `
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Fire and Water affinity +25 (+${format(f(sel2.effect), 0)})</div>
+  `
+
+  //Treasure 30
+
+  var sel1 = IUniversal.treasures.treasure30
+  var sel2 = IUniversalIn.treasures.treasure30
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Half Duality</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Water affinity +1% Fire Affinity (${format(f(sel1.level), 0)}%, +${format(f(sel2.effect), 1)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
+  </div>`
+
+  sel2.content3 = `
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Water affinity +1% Fire Affinity (${format(f(sel1.level), 0)}%, +${format(f(sel2.effect), 1)})</div>
+  `
+
+  //Treasure 31
+
+  var sel1 = IUniversal.treasures.treasure31
+  var sel2 = IUniversalIn.treasures.treasure31
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Hell Wind</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Opponent's Affinities -10 (-${format(f(sel2.effect), 0)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
+  </div>`
+
+  sel2.content3 = `
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Opponent Affinity -10 (-${format(f(sel2.effect), 0)})</div>
+  `
+
+  //Treasure 32
+
+  var sel1 = IUniversal.treasures.treasure32
+  var sel2 = IUniversalIn.treasures.treasure32
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Dominion</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Decrease Enemy affinity by 50%</div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Every Affinity +2 (+${format(f(sel2.effect2), 0)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Decrease Enemy affinity by 50%</div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Every Affinity +2 (+${format(f(sel2.effect2), 0)})</div>`
+
+  //Treasure 33
+
+  var sel1 = IUniversal.treasures.treasure33
+  var sel2 = IUniversalIn.treasures.treasure33
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Karma Shard</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Lowest Affinity ×1.5(×${format(f(sel2.effect1), 2)})</div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Highest Affinity ×1.2(×${format(f(sel2.effect2), 2)})</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Metal</div>
+  </div>`
+
+  sel2.content3 = `<div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Lowest Affinity ×1.5(×${format(f(sel2.effect1), 2)})</div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Highest Affinity ×1.2(×${format(f(sel2.effect2), 2)})</div>`
+
   //Expeditions
 
   //expedition 1
@@ -15842,6 +17983,26 @@ function valuesSetterCycle(type) {
   var selIn = IUniversalIn.expeditions.exp16
 
   selIn.name = "Hell Knight"
+  //expedition 17
+  var sel = IUniversal.expeditions.exp17
+  var selIn = IUniversalIn.expeditions.exp17
+
+  selIn.name = "Hell Baron"
+  //expedition 18
+  var sel = IUniversal.expeditions.exp18
+  var selIn = IUniversalIn.expeditions.exp18
+
+  selIn.name = "Hell Viscount"
+  //expedition 19
+  var sel = IUniversal.expeditions.exp19
+  var selIn = IUniversalIn.expeditions.exp19
+
+  selIn.name = "Miasma"
+  //expedition 20
+  var sel = IUniversal.expeditions.exp20
+  var selIn = IUniversalIn.expeditions.exp20
+
+  selIn.name = "Glacials"
 
   //spires
 
@@ -15942,6 +18103,36 @@ function valuesSetterCycle(type) {
                                   <div class="width100 height30 centerDiv">${format(f(IUniversal.hellPowers1Points), 0)} / ${format(f(IUniversal.hellPowers1PointsMax), 0)} Lord Power</div>
 
                                 </div>`
+
+  IUniversalIn.hellDescription2 = `<div>
+                                <div class="width100 padding1 height10 boldBlackBorder centerDiv">BARON</div>
+                                <div class="line"></div>
+                                <div class="width100 padding1 height10 boldBlackBorder centerDiv">SOULS</div>
+
+                                <div class="width100 padding1 height10 centerDiv">${format(f(IUniversal.soul))} Souls</div>
+                                                                <div class="width100 padding1 height10 centerDiv">+${format(sec(f(IUniversal.soulProd)))}/s</div>
+
+
+                                <div class="line"></div>
+                                <div class="width100 padding1 height10 boldBlackBorder centerDiv">SOUL ENERGY</div>
+                                <div class="width100 padding1 height10 centerDiv">Get Soul Energy from Soul</div>
+                                
+                                <div class="width100 height10 centerDiv gray">${format(f(IUniversal.soulEnergy))} Soul Energy </div>
+                                <div class="width100 padding1 height10 centerDiv gray">Territory/s × Soul Energy (×${format(f(IUniversal.soulEnergy))}) </div>
+                                <div class="width100 padding1 height10 centerDiv gray">Hell Energy × Soul Energy (×${format(f(IUniversal.soulEnergy))}) </div>
+                                <div class="line"></div>
+                                <div class="width100 padding1 height10 boldBlackBorder centerDiv">HOPE</div>
+                                <div class="width100 padding1 height10 centerDiv">Obtain 1 Hope at ${format(f(IUniversal.hopeReq))} Soul</div>
+                                <div class="width100 padding1 height10 centerDiv">${format(f(IUniversal.hope), 0)}/${format(f(IUniversal.maxHope), 0)} Hope</div>
+                                </div>`
+
+  IUniversalIn.hellPowers2 = `<div class="height100">
+                                <div class="width100 height30 boldBlackBorder centerDiv">BARON POWERS</div>
+                                <div class="line"></div>
+                                  <div class="width100 height30 centerDiv">Get 1 Baron Power every time you defeat Baron in Wind</div>
+                                  <div class="width100 height30 centerDiv">${format(f(IUniversal.hellPowers2Points), 0)} / ${format(f(IUniversal.hellPowers2PointsMax), 0)} Baron Power</div>
+
+                                </div>`
 }
 
 
@@ -15973,11 +18164,12 @@ function valuesSetter(type) {
 
   ISelUpgrade.group.group2.num = num
 
-  //group23
+  //group3
   var num = 0;
 
   if (IUniversal.ore.item1.active) { num += 1 }
   if (IUniversal.ore.item2.active) { num += 1 }
+  if (IUniversal.ore.item3.active) { num += 1 }
 
   if (f(num).gt(f(ISelUpgrade.group.group3.maxNum))) { num = ISelUpgrade.group.group3.maxNum }
 
@@ -18582,8 +20774,6 @@ function valuesSetter(type) {
   var sel = IUniversal.fireTree.node27
   var sel2 = IUniversalIn.fireTree.node27
 
-
-
   if (sel.active) {
     sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
                  <div class="centerDiv boldBlackBorder">Universe Furnace</div>
@@ -18708,7 +20898,7 @@ function valuesSetter(type) {
   } else {
     sel2.effect = f(0)
   }
-  
+
   sel2.price = f(10)
   sel.timer = f(10).dividedBy(f(IUniversalIn.fireTree.node32.effect))
   sel.currentTimer = f(sel.currentTimer)
@@ -19117,9 +21307,6 @@ function valuesSetter(type) {
   var sel2 = IUniversalIn.fireTree.node50
 
 
-  sel.level = f(sel.level)
-  sel2.maxLevel = f(1)
-
   if (sel.active) {
     sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
                  <div class="centerDiv boldBlackBorder">Gear</div>
@@ -19151,6 +21338,9 @@ function valuesSetter(type) {
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
 
 
   if (sel.active) {
@@ -19426,11 +21616,11 @@ function valuesSetter(type) {
   var sel2 = IUniversalIn.fireTree.node65
 
   sel.level = f(sel.level)
-  sel2.maxLevel = f(5)
+  sel2.maxLevel = f(5).add(f(IUniversalIn.fireTree.node90.effect2))
 
   if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(10).pow(f(sel.level))
-    sel2.effect2 = f(2).pow(f(sel.level))
+    sel2.effect = (f(10).pow(f(sel.level))).mul(IUniversalIn.fireTree.node90.effect)
+    sel2.effect2 = (f(2).pow(f(sel.level))).mul(IUniversalIn.fireTree.node90.effect)
   } else {
     sel2.effect = f(1)
     sel2.effect2 = f(1)
@@ -19446,11 +21636,11 @@ function valuesSetter(type) {
   var sel2 = IUniversalIn.fireTree.node66
 
   sel.level = f(sel.level)
-  sel2.maxLevel = f(5)
+  sel2.maxLevel = f(5).add(f(IUniversalIn.fireTree.node91.effect2))
 
   if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(4).pow(f(sel.level))
-    sel2.effect2 = f(4).pow(f(sel.level))
+    sel2.effect = (f(4).pow(f(sel.level))).mul(IUniversalIn.fireTree.node91.effect)
+    sel2.effect2 = (f(4).pow(f(sel.level))).mul(IUniversalIn.fireTree.node91.effect)
   } else {
     sel2.effect = f(1)
     sel2.effect2 = f(1)
@@ -19466,11 +21656,11 @@ function valuesSetter(type) {
   var sel2 = IUniversalIn.fireTree.node67
 
   sel.level = f(sel.level)
-  sel2.maxLevel = f(5)
+  sel2.maxLevel = f(5).add(f(IUniversalIn.fireTree.node92.effect2))
 
   if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(10).pow(f(sel.level))
-    sel2.effect2 = f(8).pow(f(sel.level))
+    sel2.effect = (f(10).pow(f(sel.level))).mul(IUniversalIn.fireTree.node92.effect)
+    sel2.effect2 = (f(8).pow(f(sel.level))).mul(IUniversalIn.fireTree.node92.effect)
   } else {
     sel2.effect = f(1)
     sel2.effect2 = f(1)
@@ -19486,11 +21676,11 @@ function valuesSetter(type) {
   var sel2 = IUniversalIn.fireTree.node68
 
   sel.level = f(sel.level)
-  sel2.maxLevel = f(5)
+  sel2.maxLevel = f(5).add(f(IUniversalIn.fireTree.node93.effect2))
 
   if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(10).pow(f(sel.level))
-    sel2.effect2 = f(16).pow(f(sel.level))
+    sel2.effect = (f(10).pow(f(sel.level))).mul(IUniversalIn.fireTree.node93.effect)
+    sel2.effect2 = (f(16).pow(f(sel.level))).mul(IUniversalIn.fireTree.node93.effect)
   } else {
     sel2.effect = f(1)
     sel2.effect2 = f(1)
@@ -19506,7 +21696,7 @@ function valuesSetter(type) {
   var sel2 = IUniversalIn.fireTree.node69
 
   sel.level = f(sel.level)
-  sel2.maxLevel = f(10)
+  sel2.maxLevel = f(10).add(f(IUniversalIn.fireTree.node90.effect2))
 
   if (f(sel.level).gt(f(0))) {
     sel2.effect = (f(2).pow(f(Decimal.log(f(IUniversal.heat).dividedBy(f(f(10).pow(f(15)))), 2)))).pow(f(1).add((f(sel.level).minus(f(1))).mul(f(0.05))))
@@ -19528,7 +21718,7 @@ function valuesSetter(type) {
   var sel2 = IUniversalIn.fireTree.node70
 
   sel.level = f(sel.level)
-  sel2.maxLevel = f(10)
+  sel2.maxLevel = f(10).add(f(IUniversalIn.fireTree.node90.effect2))
 
   if (f(sel.level).gt(f(0))) {
     sel2.effect = f(10).pow(f(sel.level))
@@ -19546,7 +21736,7 @@ function valuesSetter(type) {
   var sel2 = IUniversalIn.fireTree.node71
 
   sel.level = f(sel.level)
-  sel2.maxLevel = f(10)
+  sel2.maxLevel = f(10).add(f(IUniversalIn.fireTree.node91.effect2))
 
   if (f(sel.level).gt(f(0))) {
     sel2.effect = f(2).mul(f(sel.level))
@@ -19564,7 +21754,7 @@ function valuesSetter(type) {
   var sel2 = IUniversalIn.fireTree.node72
 
   sel.level = f(sel.level)
-  sel2.maxLevel = f(10)
+  sel2.maxLevel = f(10).add(f(IUniversalIn.fireTree.node91.effect2))
 
   if (f(sel.level).gt(f(0))) {
     sel2.effect = (f(2).pow(f(Decimal.log(f(IUniversal.fire).dividedBy(f(f(10).pow(f(270)))), f(f(10).pow(f(10))))))).pow(f(1).add((f(sel.level).minus(f(1))).mul(f(0.05))))
@@ -19586,7 +21776,7 @@ function valuesSetter(type) {
   var sel2 = IUniversalIn.fireTree.node73
 
   sel.level = f(sel.level)
-  sel2.maxLevel = f(10)
+  sel2.maxLevel = f(10).add(f(IUniversalIn.fireTree.node92.effect2))
 
   if (f(sel.level).gt(f(0))) {
     sel2.effect = f(10).pow(f(sel.level))
@@ -19604,7 +21794,7 @@ function valuesSetter(type) {
   var sel2 = IUniversalIn.fireTree.node74
 
   sel.level = f(sel.level)
-  sel2.maxLevel = f(10)
+  sel2.maxLevel = f(10).add(f(IUniversalIn.fireTree.node92.effect2))
 
   if (f(sel.level).gt(f(0))) {
     sel2.effect = (f(10).pow(f(Decimal.log(f(IUniversal.size).dividedBy(f(f(10).pow(f(190)))), f(f(10).pow(f(10))))))).pow(f(1).add((f(sel.level).minus(f(1))).mul(f(0.05))))
@@ -19626,7 +21816,7 @@ function valuesSetter(type) {
   var sel2 = IUniversalIn.fireTree.node75
 
   sel.level = f(sel.level)
-  sel2.maxLevel = f(10)
+  sel2.maxLevel = f(10).add(f(IUniversalIn.fireTree.node93.effect2))
 
   if (f(sel.level).gt(f(0))) {
     sel2.effect = f(10).pow(f(sel.level))
@@ -19644,7 +21834,7 @@ function valuesSetter(type) {
   var sel2 = IUniversalIn.fireTree.node76
 
   sel.level = f(sel.level)
-  sel2.maxLevel = f(10)
+  sel2.maxLevel = f(10).add(f(IUniversalIn.fireTree.node93.effect2))
 
   if (f(sel.level).gt(f(0))) {
     sel2.effect = (f(f(IUniversal.heatTimer).minus(f(20)).dividedBy(f(2)))).pow(f(1).add((f(sel.level).minus(f(1))).mul(f(0.05))))
@@ -19819,6 +22009,455 @@ function valuesSetter(type) {
   }
 
   sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 86
+  var sel = IUniversal.fireTree.node86
+  var sel2 = IUniversalIn.fireTree.node86
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1).add(f(0.01).mul(f(sel.level)))
+    sel2.effect2 = f(3).mul(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+    sel2.effect2 = f(0)
+  }
+
+  sel2.price = f("1e7").mul(f("1e1").pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 87
+  var sel = IUniversal.fireTree.node87
+  var sel2 = IUniversalIn.fireTree.node87
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1).add(f(0.01).mul(f(sel.level)))
+    sel2.effect2 = f(3).mul(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+    sel2.effect2 = f(0)
+  }
+
+  sel2.price = f("1e8").mul(f("2e1").pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 88
+  var sel = IUniversal.fireTree.node88
+  var sel2 = IUniversalIn.fireTree.node88
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1).add(f(0.01).mul(f(sel.level)))
+    sel2.effect2 = f(3).mul(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+    sel2.effect2 = f(0)
+  }
+
+  sel2.price = f("1e9").mul(f("4e1").pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 89
+  var sel = IUniversal.fireTree.node89
+  var sel2 = IUniversalIn.fireTree.node89
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1).add(f(0.01).mul(f(sel.level)))
+    sel2.effect2 = f(3).mul(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+    sel2.effect2 = f(0)
+  }
+
+  sel2.price = f("1e10").mul(f("8e1").pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 90
+  var sel = IUniversal.fireTree.node90
+  var sel2 = IUniversalIn.fireTree.node90
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+    sel2.effect2 = f(sel.level)
+  } else {
+    sel2.effect = f(1)
+    sel2.effect2 = f(0)
+  }
+
+  sel2.price = f(1)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 91
+  var sel = IUniversal.fireTree.node91
+  var sel2 = IUniversalIn.fireTree.node91
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+    sel2.effect2 = f(sel.level)
+  } else {
+    sel2.effect = f(1)
+    sel2.effect2 = f(0)
+  }
+
+  sel2.price = f(1)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 92
+  var sel = IUniversal.fireTree.node92
+  var sel2 = IUniversalIn.fireTree.node92
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+    sel2.effect2 = f(sel.level)
+  } else {
+    sel2.effect = f(1)
+    sel2.effect2 = f(0)
+  }
+
+  sel2.price = f(1)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 93
+  var sel = IUniversal.fireTree.node93
+  var sel2 = IUniversalIn.fireTree.node93
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+    sel2.effect2 = f(sel.level)
+  } else {
+    sel2.effect = f(1)
+    sel2.effect2 = f(0)
+  }
+
+  sel2.price = f(1)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 94
+  var sel = IUniversal.fireTree.node94
+  var sel2 = IUniversalIn.fireTree.node94
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10).add(f(IUniversalIn.fireTree.node86.effect2))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(10).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(5).pow(f(sel.level))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 95
+  var sel = IUniversal.fireTree.node95
+  var sel2 = IUniversalIn.fireTree.node95
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10).add(f(IUniversalIn.fireTree.node87.effect2))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f("1e10").pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(5).pow(f(sel.level))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 96
+  var sel = IUniversal.fireTree.node96
+  var sel2 = IUniversalIn.fireTree.node96
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10).add(f(IUniversalIn.fireTree.node88.effect2))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f("1e5").pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(5).pow(f(sel.level))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 97
+  var sel = IUniversal.fireTree.node97
+  var sel2 = IUniversalIn.fireTree.node97
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10).add(f(IUniversalIn.fireTree.node89.effect2))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(5).pow(f(sel.level))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 98
+  var sel = IUniversal.fireTree.node98
+  var sel2 = IUniversalIn.fireTree.node98
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1000).pow(f(2).pow(f(IUniversal.hellPowers1PointsMax).minus(f(1))))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 99
+  var sel = IUniversal.fireTree.node99
+  var sel2 = IUniversalIn.fireTree.node99
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(500).pow(f(2).pow(f(IUniversal.hellPowers1PointsMax).minus(f(1))))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 100
+  var sel = IUniversal.fireTree.node100
+  var sel2 = IUniversalIn.fireTree.node100
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(2).pow(f(IUniversal.hellPowers1PointsMax).minus(f(1))))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 101
+  var sel = IUniversal.fireTree.node101
+  var sel2 = IUniversalIn.fireTree.node101
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(10).pow(f(2).pow(f(IUniversal.hellPowers1PointsMax).minus(f(1))))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 102
+  var sel = IUniversal.fireTree.node102
+  var sel2 = IUniversalIn.fireTree.node102
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(10).pow(f(2).pow(f(IUniversal.hellPowers1PointsMax).minus(f(1))))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 103
+  var sel = IUniversal.fireTree.node103
+  var sel2 = IUniversalIn.fireTree.node103
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(10).pow(f(2).pow(f(IUniversal.hellPowers1PointsMax).minus(f(1))))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 104
+  var sel = IUniversal.fireTree.node104
+  var sel2 = IUniversalIn.fireTree.node104
+
+  sel.level = f(0)
+  sel2.maxLevel = f(1)
+
+  if (f(IUniversal.hellTerritory).dividedBy(f("1e15")).gt(f(1))) {
+    sel2.effect = f(2.5).pow(f(IUniversal.hellTerritory).dividedBy("1e15").log(100));
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.price = f(0)
+
+  if (checkShow("content2_17_node104_button")) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 105
+  var sel = IUniversal.fireTree.node105
+  var sel2 = IUniversalIn.fireTree.node105
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(sel.level)
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 106
+  var sel = IUniversal.fireTree.node106
+  var sel2 = IUniversalIn.fireTree.node106
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(sel.level)
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 107
+  var sel = IUniversal.fireTree.node107
+  var sel2 = IUniversalIn.fireTree.node107
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(sel.level)
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.price = f("5e7")
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 108
+  var sel = IUniversal.fireTree.node108
+  var sel2 = IUniversalIn.fireTree.node108
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(sel.level)
+  } else {
+    sel2.effect = f(0)
+  }
+
+
+  sel2.price = f("2e8")
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 109
+  var sel = IUniversal.fireTree.node109
+  var sel2 = IUniversalIn.fireTree.node109
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(sel.level)
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.price = f("4e4")
 
   if (f(sel.level).gt(f(0))) { sel.active = true }
   if (sel.active) { sel.unlocked = true }
@@ -21206,8 +23845,12 @@ function valuesSetter(type) {
 
   var minePower1 = f(IUniversalIn.mine.item1.effect)
   var minePower2 = f(IUniversalIn.mine.item2.effect)
+  var minePower3 = f(IUniversalIn.mine.item3.effect)
 
-  selIn.minePower = f(minePower1).mul(minePower2)
+  if (getTreasureActive("treasure28")) { var minePower4 = f(IUniversalIn.treasures.treasure28.effect) } else { minePower4 = f(1) }
+
+
+  selIn.minePower = f(minePower1).mul(minePower2).mul(minePower3).mul(minePower4)
 
   //miners
   var miners1 = f(IUniversalIn.mine.item1.effect)
@@ -21303,6 +23946,43 @@ function valuesSetter(type) {
   if (f(sel.level).gt(f(0))) { sel.active = true }
   if (sel.active) { sel.unlocked = true }
 
+  //item5
+  var sel = IUniversal.forge.item5
+  var sel2 = IUniversalIn.forge.item5
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.5).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(1).mul(f(10).pow(f(1))).mul(f(50).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //item6
+  var sel = IUniversal.forge.item6
+  var sel2 = IUniversalIn.forge.item6
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(4))).mul(f(10).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
 
   //mines
 
@@ -21312,7 +23992,7 @@ function valuesSetter(type) {
   var sel2 = IUniversalIn.mine.item1
 
   sel.level = f(sel.level)
-  sel2.maxLevel = f(20)
+  sel2.maxLevel = Infinity
 
 
   if (f(sel.level).gt(f(0))) {
@@ -21331,7 +24011,7 @@ function valuesSetter(type) {
   var sel2 = IUniversalIn.mine.item2
 
   sel.level = f(sel.level)
-  sel2.maxLevel = f(20)
+  sel2.maxLevel = Infinity
 
   if (f(sel.level).gt(f(0))) {
     sel2.effect = f(2).pow(f(sel.level))
@@ -21341,6 +24021,44 @@ function valuesSetter(type) {
 
 
   sel2.price = f(1).mul(f(10).pow(f(17))).mul(f(20).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //item3
+  var sel = IUniversal.mine.item3
+  var sel2 = IUniversalIn.mine.item3
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.5).pow(sel.level)
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(1).mul(f(10).pow(f(0))).mul(f(10).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //item4
+  var sel = IUniversal.mine.item4
+  var sel2 = IUniversalIn.mine.item4
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(10).mul(sel.level)
+  } else {
+    sel2.effect = f(0)
+  }
+
+
+  sel2.price = f(1).mul(f(10).pow(f(2))).mul(f(100).pow(f(sel.level)))
 
   if (f(sel.level).gt(f(0))) { sel.active = true }
   if (sel.active) { sel.unlocked = true }
@@ -21407,6 +24125,42 @@ function valuesSetter(type) {
     sel2.hardness = f(50)
   } else {
     sel2.hardness = f(50)
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.weight = f(10)
+  } else {
+    sel2.weight = f(10)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(8))).mul(f(50).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //item3
+  var sel = IUniversal.ore.item3
+  var sel2 = IUniversalIn.ore.item3
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(20)
+
+  if (sel.active) {
+    sel2.value = f(1)
+  } else {
+    sel2.value = f(0)
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.life = f(25000)
+  } else {
+    sel2.life = f(25000)
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.hardness = f(50000)
+  } else {
+    sel2.hardness = f(50000)
   }
 
   if (f(sel.level).gt(f(0))) {
@@ -21771,6 +24525,98 @@ function valuesSetter(type) {
   if (f(sel.level).gt(f(0))) { sel.active = true }
   if (sel.active) { sel.unlocked = true }
 
+
+  //NODE 17
+  var sel = IUniversal.windTree.node17
+  var sel2 = IUniversalIn.windTree.node17
+  var exp = IUniversal.expeditions.exp17
+  var exp2 = IUniversalIn.expeditions.exp17
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+
+  //NODE 18
+  var sel = IUniversal.windTree.node18
+  var sel2 = IUniversalIn.windTree.node18
+  var exp = IUniversal.expeditions.exp18
+  var exp2 = IUniversalIn.expeditions.exp18
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+
+  //NODE 19
+  var sel = IUniversal.windTree.node19
+  var sel2 = IUniversalIn.windTree.node19
+  var exp = IUniversal.expeditions.exp19
+  var exp2 = IUniversalIn.expeditions.exp19
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+
+  //NODE 20
+  var sel = IUniversal.windTree.node20
+  var sel2 = IUniversalIn.windTree.node20
+  var exp = IUniversal.expeditions.exp20
+  var exp2 = IUniversalIn.expeditions.exp20
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
   //golems
 
   var golem1 = f(IUniversalIn.earthTree.node5.effect)
@@ -21893,6 +24739,7 @@ function valuesSetter(type) {
     tank1 = 1;
   }
 
+
   if (IUniversal.armyInfo.default.golemTypes.type2.active) {
     IUniversalIn.armyInfo.default.golemTypes.type2.level = f(eff2).mul(f(f(IUniversalIn.armyInfo.default.level))).mul(f(tank1))
     IUniversalIn.armyInfo.default.golemTypes.type2.baseLevel = f(eff2).mul(f(f(IUniversalIn.armyInfo.default.level)))
@@ -21932,7 +24779,7 @@ function valuesSetter(type) {
 
   if (f(IUniversalIn.armyInfo.default.golemTypes.type1.level).gt(f(0))) {
     IUniversalIn.armyInfo.default.golemTypes.type1.life = f(2).mul(f(IUniversalIn.armyInfo.default.golemTypes.type1.level)).mul(f(boost1)).dividedBy(f(life1))
-    IUniversalIn.armyInfo.default.golemTypes.type1.baseLife = f(2).mul(f(IUniversalIn.armyInfo.default.golemTypes.type1.level)).mul(f(boost1))
+    IUniversalIn.armyInfo.default.golemTypes.type1.baseLife = f(2).mul(f(IUniversalIn.armyInfo.default.golemTypes.type1.baseLevel)).mul(f(boost1))
   } else {
     IUniversalIn.armyInfo.default.golemTypes.type1.life = f(0)
     IUniversalIn.armyInfo.default.golemTypes.type1.baseLife = f(0)
@@ -21940,10 +24787,9 @@ function valuesSetter(type) {
 
   if (getTreasureActive("treasure3")) { var boost1 = f(IUniversalIn.treasures.treasure3.effect) } else { boost1 = f(1) }
 
-
   if (f(IUniversalIn.armyInfo.default.golemTypes.type2.level).gt(f(0))) {
     IUniversalIn.armyInfo.default.golemTypes.type2.life = f(6).mul(f(IUniversalIn.armyInfo.default.golemTypes.type2.level)).mul(f(boost1))
-    IUniversalIn.armyInfo.default.golemTypes.type2.baseLife = f(6).mul(f(IUniversalIn.armyInfo.default.golemTypes.type2.level)).mul(f(boost1))
+    IUniversalIn.armyInfo.default.golemTypes.type2.baseLife = f(6).mul(f(IUniversalIn.armyInfo.default.golemTypes.type2.baseLevel)).mul(f(boost1))
 
   } else {
     IUniversalIn.armyInfo.default.golemTypes.type2.life = f(0)
@@ -21952,7 +24798,7 @@ function valuesSetter(type) {
 
   if (f(IUniversalIn.armyInfo.default.golemTypes.type3.level).gt(f(0))) {
     IUniversalIn.armyInfo.default.golemTypes.type3.life = f(1.5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type3.level))
-    IUniversalIn.armyInfo.default.golemTypes.type3.baseLife = f(1.5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type3.level))
+    IUniversalIn.armyInfo.default.golemTypes.type3.baseLife = f(1.5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type3.baseLevel))
 
   } else {
     IUniversalIn.armyInfo.default.golemTypes.type3.life = f(0)
@@ -21962,7 +24808,7 @@ function valuesSetter(type) {
 
   if (f(IUniversalIn.armyInfo.default.golemTypes.type4.level).gt(f(0))) {
     IUniversalIn.armyInfo.default.golemTypes.type4.life = f(1.5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type4.level))
-    IUniversalIn.armyInfo.default.golemTypes.type4.baseLife = f(1.5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type4.level))
+    IUniversalIn.armyInfo.default.golemTypes.type4.baseLife = f(1.5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type4.baseLevel))
 
   } else {
     IUniversalIn.armyInfo.default.golemTypes.type4.life = f(0)
@@ -21972,7 +24818,7 @@ function valuesSetter(type) {
 
   if (f(IUniversalIn.armyInfo.default.golemTypes.type5.level).gt(f(0))) {
     IUniversalIn.armyInfo.default.golemTypes.type5.life = f(1.5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type5.level))
-    IUniversalIn.armyInfo.default.golemTypes.type5.baseLife = f(1.5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type5.level))
+    IUniversalIn.armyInfo.default.golemTypes.type5.baseLife = f(1.5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type5.baseLevel))
 
   } else {
     IUniversalIn.armyInfo.default.golemTypes.type5.life = f(0)
@@ -21985,7 +24831,7 @@ function valuesSetter(type) {
 
   if (f(IUniversalIn.armyInfo.default.golemTypes.type1.level).gt(f(0))) {
     IUniversalIn.armyInfo.default.golemTypes.type1.damage = f(2).mul(f(IUniversalIn.armyInfo.default.golemTypes.type1.level)).mul(boost1)
-    IUniversalIn.armyInfo.default.golemTypes.type1.baseDamage = f(2).mul(f(IUniversalIn.armyInfo.default.golemTypes.type1.level)).mul(boost1)
+    IUniversalIn.armyInfo.default.golemTypes.type1.baseDamage = f(2).mul(f(IUniversalIn.armyInfo.default.golemTypes.type1.baseLevel)).mul(boost1)
 
   } else {
     IUniversalIn.armyInfo.default.golemTypes.type1.damage = f(0)
@@ -21995,7 +24841,7 @@ function valuesSetter(type) {
 
   if (f(IUniversalIn.armyInfo.default.golemTypes.type2.level).gt(f(0))) {
     IUniversalIn.armyInfo.default.golemTypes.type2.damage = f(1).mul(f(IUniversalIn.armyInfo.default.golemTypes.type2.level))
-    IUniversalIn.armyInfo.default.golemTypes.type2.baseDamage = f(1).mul(f(IUniversalIn.armyInfo.default.golemTypes.type2.level))
+    IUniversalIn.armyInfo.default.golemTypes.type2.baseDamage = f(1).mul(f(IUniversalIn.armyInfo.default.golemTypes.type2.baseLevel))
 
   } else {
     IUniversalIn.armyInfo.default.golemTypes.type2.damage = f(0)
@@ -22008,7 +24854,7 @@ function valuesSetter(type) {
 
   if (f(IUniversalIn.armyInfo.default.golemTypes.type3.level).gt(f(0))) {
     IUniversalIn.armyInfo.default.golemTypes.type3.damage = f(5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type3.level)).mul(bonus1)
-    IUniversalIn.armyInfo.default.golemTypes.type3.baseDamage = f(5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type3.level)).mul(bonus1)
+    IUniversalIn.armyInfo.default.golemTypes.type3.baseDamage = f(5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type3.baseLevel)).mul(bonus1)
 
   } else {
     IUniversalIn.armyInfo.default.golemTypes.type3.damage = f(0)
@@ -22018,7 +24864,7 @@ function valuesSetter(type) {
 
   if (f(IUniversalIn.armyInfo.default.golemTypes.type4.level).gt(f(0))) {
     IUniversalIn.armyInfo.default.golemTypes.type4.damage = f(1.5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type4.level))
-    IUniversalIn.armyInfo.default.golemTypes.type4.baseDamage = f(1.5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type4.level))
+    IUniversalIn.armyInfo.default.golemTypes.type4.baseDamage = f(1.5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type4.baseLevel))
 
   } else {
     IUniversalIn.armyInfo.default.golemTypes.type4.damage = f(0)
@@ -22028,7 +24874,7 @@ function valuesSetter(type) {
 
   if (f(IUniversalIn.armyInfo.default.golemTypes.type5.level).gt(f(0))) {
     IUniversalIn.armyInfo.default.golemTypes.type5.damage = f(1.5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type5.level))
-    IUniversalIn.armyInfo.default.golemTypes.type5.baseDamage = f(1.5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type5.level))
+    IUniversalIn.armyInfo.default.golemTypes.type5.baseDamage = f(1.5).mul(f(IUniversalIn.armyInfo.default.golemTypes.type5.baseLevel))
 
   } else {
     IUniversalIn.armyInfo.default.golemTypes.type5.damage = f(0)
@@ -22180,11 +25026,13 @@ function valuesSetter(type) {
     life8 = f(1)
   }
 
+  var life9 = f(IUniversalIn.forge.item6.effect)
+
   var baseLife1 = f(IUniversalIn.armyInfo.soul.baseAffinity)
 
   if (f(IUniversalIn.armyInfo.soul.affinity).gt(f(0))) {
-    IUniversalIn.armyInfo.soul.life = f(f(1).add(life2).add(life3).add(life4).add(life5).add(life6)).mul(life1).mul(life7).mul(life8)
-    IUniversalIn.armyInfo.soul.baseLife = f(f(1).add(life2).add(life3).add(life4).add(life5).add(life6)).mul(baseLife1).mul(life7).mul(life8)
+    IUniversalIn.armyInfo.soul.life = f(f(1).add(life2).add(life3).add(life4).add(life5).add(life6)).mul(life1).mul(life7).mul(life8).mul(life9)
+    IUniversalIn.armyInfo.soul.baseLife = f(f(1).add(life2).add(life3).add(life4).add(life5).add(life6)).mul(baseLife1).mul(life7).mul(life8).mul(life9)
   } else {
     IUniversalIn.armyInfo.soul.life = f(0)
     IUniversalIn.armyInfo.soul.baseLife = f(0)
@@ -22205,11 +25053,13 @@ function valuesSetter(type) {
     damage8 = f(1)
   }
 
+  var damage9 = f(IUniversalIn.forge.item6.effect)
+
   var baseDamage1 = f(IUniversalIn.armyInfo.soul.baseAffinity)
 
   if (f(IUniversalIn.armyInfo.soul.affinity).gt(f(0))) {
-    IUniversalIn.armyInfo.soul.damage = f(f(1).add(damage2).add(damage3).add(damage4).add(damage5).add(damage6)).mul(damage1).mul(damage7).mul(damage8)
-    IUniversalIn.armyInfo.soul.baseDamage = f(f(1).add(damage2).add(damage3).add(damage4).add(damage5).add(damage6)).mul(baseDamage1).mul(damage7).mul(damage8)
+    IUniversalIn.armyInfo.soul.damage = f(f(1).add(damage2).add(damage3).add(damage4).add(damage5).add(damage6)).mul(damage1).mul(damage7).mul(damage8).mul(damage9)
+    IUniversalIn.armyInfo.soul.baseDamage = f(f(1).add(damage2).add(damage3).add(damage4).add(damage5).add(damage6)).mul(baseDamage1).mul(damage7).mul(damage8).mul(damage9)
   } else {
     IUniversalIn.armyInfo.soul.damage = f(0)
     IUniversalIn.armyInfo.soul.baseDamage = f(0)
@@ -22243,17 +25093,42 @@ function valuesSetter(type) {
 
   if (getTreasureActive("treasure25")) { var aff8 = f(IUniversalIn.treasures.treasure25.effect) } else { aff8 = f(1) }
 
+  if (getArmyEffectType("flux") && f(IUniversalIn.armyInfo.soul.affinities.affinity1.value).gt(f(IUniversalIn.armyInfo.elemental.affinities.affinity1.value))) {
+    var aff9 = getArmyEffectValue("flux")
+  } else {
+    aff9 = 1
+  }
 
-  IUniversalIn.armyInfo.soul.affinities.affinity1.value = ((f(1).add(aff2).add(aff4).add(aff5).add(aff6).minus(aff7)).mul(aff3).mul(aff8)).dividedBy(f(aff1))
+  if (getTreasureActive("treasure29")) { var aff10 = f(IUniversalIn.treasures.treasure29.effect) } else { aff10 = f(0) }
+
+  if (getTreasureActive("treasure30")) { var aff11 = f(IUniversalIn.treasures.treasure30.effect) } else { aff11 = f(1) }
+
+
+  IUniversalIn.armyInfo.soul.affinities.affinity1.value = ((f(1).add(aff2).add(aff4).add(aff5).add(aff6).minus(aff7).add(aff10).add(aff11)).mul(aff3).mul(aff8).mul(aff9)).dividedBy(f(aff1))
 
   if (getArmyEffectType("hegemony") && f(IUniversalIn.armyInfo.soul.affinities.affinity1.value).lt(f(getArmyEffectValue("hegemony")))) {
     IUniversalIn.armyInfo.soul.affinities.affinity1.value = f(1)
   }
 
-  IUniversalIn.armyInfo.soul.affinities.affinity1.baseValue = ((f(1).add(aff2).add(aff4).add(aff5).add(aff6)).mul(aff3).mul(aff8))
+  if (getArmyEffectType("fireImmunity")) {
+    IUniversalIn.armyInfo.soul.affinities.affinity1.value = f(1)
+  }
+
+  IUniversalIn.armyInfo.soul.affinities.affinity1.baseValue = ((f(1).add(aff2).add(aff4).add(aff5).add(aff6).add(aff10).add(aff11)).mul(aff3).mul(aff8))
 
   if (f(IUniversalIn.armyInfo.soul.affinities.affinity1.value).lt(f(1))) {
     IUniversalIn.armyInfo.soul.affinities.affinity1.value = f(1)
+  }
+
+  var aff1 = f(IUniversalIn.armyInfo.soul.affinities.affinity1.value)
+  var aff2 = f(IUniversalIn.armyInfo.soul.affinities.affinity2.value)
+  var aff3 = f(IUniversalIn.armyInfo.soul.affinities.affinity3.value)
+  var aff4 = f(IUniversalIn.armyInfo.soul.affinities.affinity4.value)
+
+  if (getTreasureActive("treasure33")) { var aff = f(IUniversalIn.treasures.treasure33.effect) } else { aff = f(1) }
+
+  if (aff1.gt(aff2) && aff1.gt(aff3) && aff1.gt(aff4)) {
+    IUniversalIn.armyInfo.soul.affinities.affinity1.value = f(IUniversalIn.armyInfo.soul.affinities.affinity1.value).mul(aff)
   }
 
   //water affinity
@@ -22277,17 +25152,36 @@ function valuesSetter(type) {
 
   if (getTreasureActive("treasure15")) { var aff7 = f(IUniversalIn.treasures.treasure15.effect2) } else { aff7 = f(0) }
 
+  if (getArmyEffectType("flux") && f(IUniversalIn.armyInfo.soul.affinities.affinity2.value).gt(f(IUniversalIn.armyInfo.elemental.affinities.affinity2.value))) {
+    aff8 = getArmyEffectValue("flux")
+  } else {
+    aff8 = 1
+  }
 
-  IUniversalIn.armyInfo.soul.affinities.affinity2.value = ((f(1).add(aff1).add(aff4).add(aff7).minus(aff6)).mul(aff2)).dividedBy(f(aff5))
+  if (getTreasureActive("treasure29")) { var aff9 = f(IUniversalIn.treasures.treasure29.effect) } else { aff9 = f(0) }
+
+
+  IUniversalIn.armyInfo.soul.affinities.affinity2.value = ((f(1).add(aff1).add(aff4).add(aff7).minus(aff6).add(aff9)).mul(aff2).mul(aff8)).dividedBy(f(aff5))
 
   if (getArmyEffectType("hegemony") && f(IUniversalIn.armyInfo.soul.affinities.affinity2.value).lt(f(getArmyEffectValue("hegemony")))) {
     IUniversalIn.armyInfo.soul.affinities.affinity2.value = f(1)
   }
 
-  IUniversalIn.armyInfo.soul.affinities.affinity2.baseValue = (f(1).add(aff1).add(aff4).add(aff7)).mul(aff2)
+  IUniversalIn.armyInfo.soul.affinities.affinity2.baseValue = (f(1).add(aff1).add(aff4).add(aff7).add(aff9)).mul(aff2)
 
   if (f(IUniversalIn.armyInfo.soul.affinities.affinity2.value).lt(f(1))) {
     IUniversalIn.armyInfo.soul.affinities.affinity2.value = f(1)
+  }
+
+  var aff1 = f(IUniversalIn.armyInfo.soul.affinities.affinity1.value)
+  var aff2 = f(IUniversalIn.armyInfo.soul.affinities.affinity2.value)
+  var aff3 = f(IUniversalIn.armyInfo.soul.affinities.affinity3.value)
+  var aff4 = f(IUniversalIn.armyInfo.soul.affinities.affinity4.value)
+
+  if (getTreasureActive("treasure33")) { var aff = f(IUniversalIn.treasures.treasure33.effect) } else { aff = f(1) }
+
+  if (aff2.gt(aff1) && aff2.gt(aff3) && aff2.gt(aff4)) {
+    IUniversalIn.armyInfo.soul.affinities.affinity2.value = f(IUniversalIn.armyInfo.soul.affinities.affinity2.value).mul(aff)
   }
 
   //earth affinity
@@ -22313,8 +25207,13 @@ function valuesSetter(type) {
 
   if (getTreasureActive("treasure24")) { var aff7 = f(IUniversalIn.treasures.treasure24.effect3) } else { aff7 = f(0) }
 
+  if (getArmyEffectType("flux") && f(IUniversalIn.armyInfo.soul.affinities.affinity3.value).gt(f(IUniversalIn.armyInfo.elemental.affinities.affinity3.value))) {
+    aff8 = getArmyEffectValue("flux")
+  } else {
+    aff8 = 1
+  }
 
-  IUniversalIn.armyInfo.soul.affinities.affinity3.value = ((f(1).add(aff1).add(aff2).add(aff6).add(aff7).minus(aff5)).mul(aff4)).dividedBy(f(aff3))
+  IUniversalIn.armyInfo.soul.affinities.affinity3.value = ((f(1).add(aff1).add(aff2).add(aff6).add(aff7).minus(aff5)).mul(aff4).mul(aff8)).dividedBy(f(aff3))
 
   if (getArmyEffectType("hegemony") && f(IUniversalIn.armyInfo.soul.affinities.affinity3.value).lt(f(getArmyEffectValue("hegemony")))) {
     IUniversalIn.armyInfo.soul.affinities.affinity3.value = f(1)
@@ -22324,6 +25223,17 @@ function valuesSetter(type) {
 
   if (f(IUniversalIn.armyInfo.soul.affinities.affinity3.value).lt(f(1))) {
     IUniversalIn.armyInfo.soul.affinities.affinity3.value = f(1)
+  }
+
+  var aff1 = f(IUniversalIn.armyInfo.soul.affinities.affinity1.value)
+  var aff2 = f(IUniversalIn.armyInfo.soul.affinities.affinity2.value)
+  var aff3 = f(IUniversalIn.armyInfo.soul.affinities.affinity3.value)
+  var aff4 = f(IUniversalIn.armyInfo.soul.affinities.affinity4.value)
+
+  if (getTreasureActive("treasure33")) { var aff = f(IUniversalIn.treasures.treasure33.effect) } else { aff = f(1) }
+
+  if (aff3.gt(aff1) && aff3.gt(aff2) && aff3.gt(aff4)) {
+    IUniversalIn.armyInfo.soul.affinities.affinity3.value = f(IUniversalIn.armyInfo.soul.affinities.affinity3.value).mul(aff)
   }
 
   //wind affinity
@@ -22346,7 +25256,13 @@ function valuesSetter(type) {
 
   if (getTreasureActive("treasure23")) { var aff7 = f(IUniversalIn.treasures.treasure23.effect3) } else { aff7 = f(0) }
 
-  IUniversalIn.armyInfo.soul.affinities.affinity4.value = ((f(1).add(aff4).add(aff7).minus(aff6)).mul(aff2)).dividedBy(f(aff5))
+  if (getArmyEffectType("flux") && f(IUniversalIn.armyInfo.soul.affinities.affinity4.value).gt(f(IUniversalIn.armyInfo.elemental.affinities.affinity4.value))) {
+    aff8 = getArmyEffectValue("flux")
+  } else {
+    aff8 = 1
+  }
+
+  IUniversalIn.armyInfo.soul.affinities.affinity4.value = ((f(1).add(aff4).add(aff7).minus(aff6)).mul(aff2).mul(aff8)).dividedBy(f(aff5))
 
   if (getArmyEffectType("hegemony") && f(IUniversalIn.armyInfo.soul.affinities.affinity4.value).lt(f(getArmyEffectValue("hegemony")))) {
     IUniversalIn.armyInfo.soul.affinities.affinity4.value = f(1)
@@ -22356,6 +25272,17 @@ function valuesSetter(type) {
 
   if (f(IUniversalIn.armyInfo.soul.affinities.affinity4.value).lt(f(1))) {
     IUniversalIn.armyInfo.soul.affinities.affinity4.value = f(1)
+  }
+
+  var aff1 = f(IUniversalIn.armyInfo.soul.affinities.affinity1.value)
+  var aff2 = f(IUniversalIn.armyInfo.soul.affinities.affinity2.value)
+  var aff3 = f(IUniversalIn.armyInfo.soul.affinities.affinity3.value)
+  var aff4 = f(IUniversalIn.armyInfo.soul.affinities.affinity4.value)
+
+  if (getTreasureActive("treasure33")) { var aff = f(IUniversalIn.treasures.treasure33.effect) } else { aff = f(1) }
+
+  if (aff4.gt(aff1) && aff4.gt(aff2) && aff4.gt(aff3)) {
+    IUniversalIn.armyInfo.soul.affinities.affinity4.value = f(IUniversalIn.armyInfo.soul.affinities.affinity4.value).mul(aff)
   }
 
   var aff1 = f(IUniversalIn.armyInfo.soul.affinities.affinity1.value)
@@ -22442,26 +25369,54 @@ function valuesSetter(type) {
 
     //affinity1
 
-    IUniversalIn.armyInfo.elemental.affinities.affinity1.value = selectedIn.affinities.affinity1.value
+    if (getTreasureActive("treasure31")) { var aff1 = f(IUniversalIn.treasures.treasure31.effect) } else { aff1 = f(0) }
+
+    IUniversalIn.armyInfo.elemental.affinities.affinity1.value = f(selectedIn.affinities.affinity1.value).minus(aff1)
+
+    if (IUniversalIn.armyInfo.elemental.affinities.affinity1.value.lt(f(1))) {
+      IUniversalIn.armyInfo.elemental.affinities.affinity1.value = f(1)
+    }
 
     //affinity2
 
-    IUniversalIn.armyInfo.elemental.affinities.affinity2.value = selectedIn.affinities.affinity2.value
+    if (getTreasureActive("treasure31")) { var aff1 = f(IUniversalIn.treasures.treasure31.effect) } else { aff1 = f(0) }
+
+    IUniversalIn.armyInfo.elemental.affinities.affinity2.value = f(selectedIn.affinities.affinity2.value).minus(aff1)
+
+    if (IUniversalIn.armyInfo.elemental.affinities.affinity2.value.lt(f(1))) {
+      IUniversalIn.armyInfo.elemental.affinities.affinity2.value = f(1)
+    }
 
     //affinity3
 
-    IUniversalIn.armyInfo.elemental.affinities.affinity3.value = selectedIn.affinities.affinity3.value
+    if (getTreasureActive("treasure31")) { var aff1 = f(IUniversalIn.treasures.treasure31.effect) } else { aff1 = f(0) }
+
+    IUniversalIn.armyInfo.elemental.affinities.affinity3.value = f(selectedIn.affinities.affinity3.value).minus(aff1)
+
+    if (IUniversalIn.armyInfo.elemental.affinities.affinity3.value.lt(f(1))) {
+      IUniversalIn.armyInfo.elemental.affinities.affinity3.value = f(1)
+    }
 
     //affinity4
 
-    IUniversalIn.armyInfo.elemental.affinities.affinity4.value = selectedIn.affinities.affinity4.value
+    if (getTreasureActive("treasure31")) { var aff1 = f(IUniversalIn.treasures.treasure31.effect) } else { aff1 = f(0) }
+
+    IUniversalIn.armyInfo.elemental.affinities.affinity4.value = f(selectedIn.affinities.affinity4.value).minus(aff1)
+
+    if (IUniversalIn.armyInfo.elemental.affinities.affinity4.value.lt(f(1))) {
+      IUniversalIn.armyInfo.elemental.affinities.affinity4.value = f(1)
+    }
 
     var aff1 = f(IUniversalIn.armyInfo.elemental.affinities.affinity1.value)
     var aff2 = f(IUniversalIn.armyInfo.elemental.affinities.affinity2.value)
     var aff3 = f(IUniversalIn.armyInfo.elemental.affinities.affinity3.value)
     var aff4 = f(IUniversalIn.armyInfo.elemental.affinities.affinity4.value)
 
-    IUniversalIn.armyInfo.elemental.affinity = f(aff1).mul(aff2).mul(aff3).mul(aff4)
+    if (getTreasureActive("treasure32")) { var aff5 = f(IUniversalIn.treasures.treasure32.effect1) } else { aff5 = f(1) }
+
+
+    IUniversalIn.armyInfo.elemental.affinity = f(aff1).mul(aff2).mul(aff3).mul(aff4).mul(aff5)
+
 
     IUniversalIn.armyInfo.elemental.effects = deepClone(selectedIn.effects)
   }
@@ -23147,6 +26102,150 @@ function valuesSetter(type) {
   } else {
     sel1.active = false;
   }
+
+  //Treasure 28
+
+  var sel1 = IUniversal.treasures.treasure28
+  var sel2 = IUniversalIn.treasures.treasure28
+
+  sel2.maxLevel = Infinity
+
+  sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
+
+  sel2.effect = f(2).pow(f(sel1.level))
+
+  if (getTreasureActive("treasure28")) {
+    sel1.equip = true;
+  } else {
+    sel1.equip = false;
+  }
+
+  if (f(sel1.level).gt(f(0))) {
+    sel1.active = true;
+  } else {
+    sel1.active = false;
+  }
+
+  //Treasure 29
+
+  var sel1 = IUniversal.treasures.treasure29
+  var sel2 = IUniversalIn.treasures.treasure29
+
+  sel2.maxLevel = Infinity
+
+  sel2.price = f(f(10).pow(f(45))).mul(f(10).pow(f(sel1.level).minus(f(1))))
+
+  sel2.effect = f(25).mul(f(sel1.level))
+
+  if (getTreasureActive("treasure29")) {
+    sel1.equip = true;
+  } else {
+    sel1.equip = false;
+  }
+
+  if (f(sel1.level).gt(f(0))) {
+    sel1.active = true;
+  } else {
+    sel1.active = false;
+  }
+
+  //Treasure 30
+
+  var sel1 = IUniversal.treasures.treasure30
+  var sel2 = IUniversalIn.treasures.treasure30
+
+  sel2.maxLevel = Infinity
+
+  sel2.price = f(f(10).pow(f(42))).mul(f(10).pow(f(sel1.level).minus(f(1))))
+
+  sel2.effect = f(0.01).mul(f(sel1.level)).mul(f(IUniversalIn.armyInfo.soul.affinities.affinity1.value))
+
+  if (sel2.effect.lt(f(1)) || !sel2.effect == undefined) {
+    sel2.effect = f(1)
+  }
+
+  if (getTreasureActive("treasure30")) {
+    sel1.equip = true;
+  } else {
+    sel1.equip = false;
+  }
+
+  if (f(sel1.level).gt(f(0))) {
+    sel1.active = true;
+  } else {
+    sel1.active = false;
+  }
+
+  //Treasure 31
+
+  var sel1 = IUniversal.treasures.treasure31
+  var sel2 = IUniversalIn.treasures.treasure31
+
+  sel2.maxLevel = Infinity
+
+  sel2.price = f(f(10).pow(f(47))).mul(f(10).pow(f(sel1.level).minus(f(1))))
+
+  sel2.effect = f(10).mul(f(sel1.level))
+
+  if (getTreasureActive("treasure31")) {
+    sel1.equip = true;
+  } else {
+    sel1.equip = false;
+  }
+
+  if (f(sel1.level).gt(f(0))) {
+    sel1.active = true;
+  } else {
+    sel1.active = false;
+  }
+
+  //Treasure 32
+
+  var sel1 = IUniversal.treasures.treasure32
+  var sel2 = IUniversalIn.treasures.treasure32
+
+  sel2.maxLevel = Infinity
+
+  sel2.price = f(f(10).pow(f(49))).mul(f(10).pow(f(sel1.level).minus(f(1))))
+
+  sel2.effect1 = f(0.5)
+  sel2.effect2 = f(2).mul(f(sel1.level))
+
+  if (getTreasureActive("treasure32")) {
+    sel1.equip = true;
+  } else {
+    sel1.equip = false;
+  }
+
+  if (f(sel1.level).gt(f(0))) {
+    sel1.active = true;
+  } else {
+    sel1.active = false;
+  }
+
+  //Treasure 33
+
+  var sel1 = IUniversal.treasures.treasure33
+  var sel2 = IUniversalIn.treasures.treasure33
+
+  sel2.maxLevel = Infinity
+
+  sel2.price = f(f(10).pow(f(50))).mul(f(10).pow(f(sel1.level).minus(f(1))))
+
+  sel2.effect1 = f(1.5).add(f(0.2).mul(f(sel1.level)))
+  sel2.effect2 = f(1.2).add(f(0.05).mul(f(sel1.level)))
+
+  if (getTreasureActive("treasure27")) {
+    sel1.equip = true;
+  } else {
+    sel1.equip = false;
+  }
+
+  if (f(sel1.level).gt(f(0))) {
+    sel1.active = true;
+  } else {
+    sel1.active = false;
+  }
   //Expeditions
 
   //expedition 1
@@ -23796,7 +26895,7 @@ function valuesSetter(type) {
     sel.leftLife = f(selIn.life)
   }
 
-  selIn.affinities.affinity1.value = f(f(10).pow(f(13)).mul(f(f(f(10).pow(f(3))).pow(f(sel.level)))))
+  selIn.affinities.affinity1.value = f(f(10).pow(f(13)))
   selIn.affinities.affinity2.value = f(1)
   selIn.affinities.affinity3.value = f(1)
   selIn.affinities.affinity4.value = f(1)
@@ -23812,13 +26911,13 @@ function valuesSetter(type) {
   selIn.effects.effect1.content = `<div class="boldBlackBorder">Hell Energy</div>
                                    <div>Damage and Life ×${format(f(selIn.effects.effect1.effect), 0)}</div>`
 
-  selIn.effects.effect1.effect = f(50).mul(f(sel.level).add(f(1)))
+  selIn.effects.effect1.effect = f(50).mul(f(50).pow(f(sel.level).add(f(1))))
 
   selIn.effects.effect2.type = "honor"
   selIn.effects.effect2.content = `<div class="boldBlackBorder">Honor</div>
                                    <div>Hell Energy ×${format(f(selIn.effects.effect2.effect), 0)} if greater than opponent's Hell Energy</div>`
 
-  selIn.effects.effect2.effect = f(10).mul(f(sel.level).add(f(1)))
+  selIn.effects.effect2.effect = f(2).pow(f(sel.level).add(f(1)))
 
   selIn.rewards.timerPrice = f(2100)
 
@@ -23828,6 +26927,183 @@ function valuesSetter(type) {
   } else {
     sel.active = false
   }
+
+
+  //expedition 17
+  var sel = IUniversal.expeditions.exp17
+  var selIn = IUniversalIn.expeditions.exp17
+
+  selIn.maxLevel = f(6)
+
+  selIn.damage = f(selIn.affinity)
+  selIn.life = f(selIn.affinity)
+
+  if (!IFight.youStats.onFight3) {
+    sel.leftLife = f(selIn.life)
+  }
+
+  selIn.affinities.affinity1.value = f(f(10).pow(f(14)).mul(f(f(f(10).pow(f(1))).pow(f(sel.level)))))
+  selIn.affinities.affinity2.value = f(1)
+  selIn.affinities.affinity3.value = f(1)
+  selIn.affinities.affinity4.value = f(1)
+
+  var aff1 = f(selIn.affinities.affinity1.value)
+  var aff2 = f(selIn.affinities.affinity2.value)
+  var aff3 = f(selIn.affinities.affinity3.value)
+  var aff4 = f(selIn.affinities.affinity4.value)
+
+  selIn.affinity = f(aff1).mul(aff2).mul(aff3).mul(aff4)
+
+  selIn.effects.effect1.type = "hellEnergy"
+  selIn.effects.effect1.content = `<div class="boldBlackBorder">Hell Energy</div>
+                                   <div>Damage and Life ×${format(f(selIn.effects.effect1.effect), 0)}</div>`
+
+  selIn.effects.effect1.effect = f(100).mul(f(10).pow(f(sel.level).add(f(1))))
+
+  selIn.effects.effect2.type = "fireImmunity"
+  selIn.effects.effect2.content = `<div class="boldBlackBorder">Star Shaped</div>
+                                   <div>Opponent's fire affinity is 1</div>`
+
+  selIn.effects.effect2.effect = f(50).mul(f(sel.level).add(f(1)))
+
+  selIn.rewards.timerPrice = f(2100)
+
+
+  if ((f(sel.level).gte(f(selIn.maxLevel)))) {
+    sel.active = true
+  } else {
+    sel.active = false
+  }
+
+
+  //expedition 18
+  var sel = IUniversal.expeditions.exp18
+  var selIn = IUniversalIn.expeditions.exp18
+
+  selIn.maxLevel = f(6)
+
+  selIn.damage = f(selIn.affinity)
+  selIn.life = f(selIn.affinity)
+
+  if (!IFight.youStats.onFight3) {
+    sel.leftLife = f(selIn.life)
+  }
+
+  selIn.affinities.affinity1.value = f(f(10).pow(f(16)).mul(f(f(f(10).pow(f(1))).pow(f(sel.level)))))
+  selIn.affinities.affinity2.value = f(1)
+  selIn.affinities.affinity3.value = f(1)
+  selIn.affinities.affinity4.value = f(1)
+
+  var aff1 = f(selIn.affinities.affinity1.value)
+  var aff2 = f(selIn.affinities.affinity2.value)
+  var aff3 = f(selIn.affinities.affinity3.value)
+  var aff4 = f(selIn.affinities.affinity4.value)
+
+  selIn.affinity = f(aff1).mul(aff2).mul(aff3).mul(aff4)
+
+  selIn.effects.effect1.type = "hellEnergy"
+  selIn.effects.effect1.content = `<div class="boldBlackBorder">Hell Energy</div>
+                                   <div>Damage and Life ×${format(f(selIn.effects.effect1.effect), 0)}</div>`
+
+  selIn.effects.effect1.effect = f(1000).mul(f(10).pow(f(sel.level).add(f(1))))
+
+  selIn.rewards.timerPrice = f(2100)
+
+
+  if ((f(sel.level).gte(f(selIn.maxLevel)))) {
+    sel.active = true
+  } else {
+    sel.active = false
+  }
+
+
+  //expedition 19
+  var sel = IUniversal.expeditions.exp19
+  var selIn = IUniversalIn.expeditions.exp19
+
+  selIn.maxLevel = f(6)
+
+  selIn.damage = f(selIn.affinity)
+  selIn.life = f(selIn.affinity)
+
+  if (!IFight.youStats.onFight3) {
+    sel.leftLife = f(selIn.life)
+  }
+
+  selIn.affinities.affinity1.value = f("1e5").mul(f("10").pow(f(sel.level)))
+  selIn.affinities.affinity2.value = f("1e5").mul(f("10").pow(f(sel.level)))
+  selIn.affinities.affinity3.value = f("1e5").mul(f("10").pow(f(sel.level)))
+  selIn.affinities.affinity4.value = f("1e5").mul(f("10").pow(f(sel.level)))
+
+  var aff1 = f(selIn.affinities.affinity1.value)
+  var aff2 = f(selIn.affinities.affinity2.value)
+  var aff3 = f(selIn.affinities.affinity3.value)
+  var aff4 = f(selIn.affinities.affinity4.value)
+
+  selIn.affinity = f(aff1).mul(aff2).mul(aff3).mul(aff4)
+
+  selIn.effects.effect1.type = "flux"
+  selIn.effects.effect1.content = `<div class="boldBlackBorder">Flux</div>
+                                   <div>Opponent's Affinity is 50% if yours is smaller</div>`
+
+  selIn.effects.effect1.effect = f(0.5)
+
+  selIn.rewards.timerPrice = f(2100)
+
+
+  if ((f(sel.level).gte(f(selIn.maxLevel)))) {
+    sel.active = true
+  } else {
+    sel.active = false
+  }
+
+
+  //expedition 20
+  var sel = IUniversal.expeditions.exp20
+  var selIn = IUniversalIn.expeditions.exp20
+
+  selIn.maxLevel = f(5)
+
+  selIn.damage = f(1).mul(f(getGolemArmyStats("damage", selIn.golemTypes)))
+  selIn.life = f(1).mul(f(getGolemArmyStats("life", selIn.golemTypes)))
+
+  selIn.number = f(f(1).mul(f(10).pow(f(20)))).mul(f(100).pow(f(sel.level)))
+
+  selIn.golemTypes.type1.level = f(selIn.number).dividedBy(f(1))
+  selIn.golemTypes.type2.level = f(0)
+  selIn.golemTypes.type3.level = f(0)
+  selIn.golemTypes.type4.level = f(0)
+  selIn.golemTypes.type5.level = f(0)
+
+  selIn.golemTypes.type1.life = f(2).mul(f(selIn.golemTypes.type1.level))
+  selIn.golemTypes.type2.life = f(6).mul(f(selIn.golemTypes.type2.level))
+  selIn.golemTypes.type3.life = f(1).mul(f(selIn.golemTypes.type3.level))
+  selIn.golemTypes.type4.life = f(1.5).mul(f(selIn.golemTypes.type4.level))
+  selIn.golemTypes.type5.life = f(1.5).mul(f(selIn.golemTypes.type5.level))
+
+  selIn.golemTypes.type1.damage = f(2).mul(f(selIn.golemTypes.type1.level))
+  selIn.golemTypes.type2.damage = f(1).mul(f(selIn.golemTypes.type2.level))
+  selIn.golemTypes.type3.damage = f(5).mul(f(selIn.golemTypes.type3.level))
+  selIn.golemTypes.type4.damage = f(1.5).mul(f(selIn.golemTypes.type4.level))
+  selIn.golemTypes.type5.damage = f(1.5).mul(f(selIn.golemTypes.type5.level))
+
+  //effects
+  selIn.effects.effect1.type = "tankHell"
+  selIn.effects.effect1.content = `<div class="boldBlackBorder">Tank Hell</div>
+                                   <div>Opponent's Tanks are set to 0</div>`
+
+  selIn.effects.effect1.effect = f(0)
+
+  selIn.rewards.timerPrice = f(1800)
+
+
+  if ((f(sel.level).gte(f(selIn.maxLevel)))) {
+    sel.active = true
+  } else {
+    sel.active = false
+  }
+
+
   //spires
 
   //spire 1
@@ -24389,9 +27665,13 @@ function valuesSetterDinamic(type) {
   } else {
     var universalShards3 = f(1)
   }
-  IUniversalChallenger.universalShardsProd = f(universalShards1).mul(f(IGameData.tickSpeed)).mul(universalShards3)
 
-  IUniversalChallenger.universalShardsProdBase = f(universalShards1).mul(f(IGameData.tickSpeed))
+
+  var universalShards4 = f(IUniversalIn.fireTree.node101.effect)
+
+  IUniversalChallenger.universalShardsProd = f(universalShards1).mul(f(IGameData.tickSpeed)).mul(universalShards3).mul(universalShards4)
+
+  IUniversalChallenger.universalShardsProdBase = f(universalShards1).mul(f(IGameData.tickSpeed)).mul(universalShards3).mul(universalShards4).mul(f(IGameData.tickSpeed))
 
 
   IUniversalChallenger.universalShards = f(IUniversalChallenger.universalShards).add(IUniversalChallenger.universalShardsProd)
@@ -24418,7 +27698,9 @@ function valuesSetterDinamic(type) {
     universalNodes3 = f(1)
   }
 
-  IUniversalChallenger.universalNodesProd = f(universalNodes1).mul(f(universalNodes2)).mul(f(universalNodes3)).mul(f(IGameData.tickSpeed))
+  var universalNodes4 = f(IUniversalIn.fireTree.node102.effect)
+
+  IUniversalChallenger.universalNodesProd = f(universalNodes1).mul(f(universalNodes2)).mul(f(universalNodes3)).mul(universalNodes4).mul(f(IGameData.tickSpeed))
   IUniversalChallenger.universalNodesProdBase = f(universalNodes1).mul(f(IGameData.tickSpeed))
 
 
@@ -24453,7 +27735,10 @@ function valuesSetterDinamic(type) {
     universalCores4 = f(1)
   }
 
-  IUniversalChallenger.universalCoresProd = f(universalCores1).mul(f(universalCores3)).mul(f(universalCores4)).mul(f(IGameData.tickSpeed))
+
+  var universalCores5 = f(IUniversalIn.fireTree.node103.effect)
+
+  IUniversalChallenger.universalCoresProd = f(universalCores1).mul(f(universalCores3)).mul(f(universalCores4)).mul(f(universalCores5)).mul(f(IGameData.tickSpeed))
 
   IUniversalChallenger.universalCoresProdBase = f(universalCores1).mul(f(IGameData.tickSpeed))
 
@@ -24479,9 +27764,13 @@ function valuesSetterDinamic(type) {
   var fire9 = f(IUniversalIn.fireTree.node69.effect)
   var fire10 = f(IUniversalIn.fireTree.node70.effect)
   var fire11 = f(IUniversalIn.fireTree.node77.effect)
+  var fire12 = f(IUniversalIn.fireTree.node88.effect)
+  var fire13 = f(IUniversalIn.fireTree.node95.effect)
+  var fire14 = f(IUniversalIn.fireTree.node98.effect)
 
 
-  IUniversal.fireProdBase = f(fire1).mul(f(fire2)).mul(f(fire3)).mul(f(fire4)).mul(f(fire5)).mul(f(fire6)).mul(f(fire7)).mul(fire8).mul(fire9).mul(fire10).mul(fire11)
+
+  IUniversal.fireProdBase = (f(fire1).mul(f(fire2)).mul(f(fire3)).mul(f(fire4)).mul(f(fire5)).mul(f(fire6)).mul(f(fire7)).mul(fire8).mul(fire9).mul(fire10).mul(fire11).mul(fire13).mul(fire14)).pow(f(fire12))
   IUniversal.fireProd = f(IUniversal.fireProdBase).mul(f(IGameData.tickSpeed))
 
   if (!f(IUniversal.fire).lt(f(0))) {
@@ -24545,6 +27834,20 @@ function valuesSetterDinamic(type) {
     IUniversal.light = f(0)
   }
 
+  //size
+
+  var size1 = f(IUniversalIn.fireTree.node11.effect)
+  var size2 = f(IUniversalIn.fireTree.node87.effect)
+  var size3 = f(IUniversalIn.fireTree.node96.effect)
+  var size4 = f(IUniversalIn.fireTree.node99.effect)
+
+
+  IUniversal.sizeProd = (((f(size1).mul(size3).mul(size4)).pow(size2)).mul(f(IGameData.tickSpeed)))
+
+  if (IUniversal.automation.automation14.active) {
+    IUniversal.size = f(IUniversal.size).add(IUniversal.sizeProd)
+  }
+
   //heat
 
   if (f(IUniversal.heatCurrentTimer).gte(f(IUniversal.heatTimer))) {
@@ -24554,8 +27857,10 @@ function valuesSetterDinamic(type) {
   }
 
   var heat1 = f(IUniversalIn.fireTree.node30.effect).mul(f(1).dividedBy(f(IUniversal.fireTree.node30.timer)))
+  var heat2 = f(IUniversalIn.fireTree.node89.effect)
+  var heat3 = f(IUniversalIn.forge.item5.effect)
 
-  IUniversal.heatProd = f(heat1).mul(f(IGameData.baseTickSpeed))
+  IUniversal.heatProd = ((f(heat1).mul(heat3)).pow(heat2)).mul(f(IGameData.baseTickSpeed))
   IUniversal.heat = f(IUniversal.heat)
 
   if (f(IUniversal.heat).lte(f(0.25))) {
@@ -24577,8 +27882,9 @@ function valuesSetterDinamic(type) {
   var fireShard5 = f(IUniversalIn.fireTree.node67.effect)
   var fireShard6 = f(IUniversalIn.fireTree.node73.effect)
   var fireShard7 = f(IUniversalIn.fireTree.node74.effect)
+  var fireShard8 = f(IUniversalIn.fireTree.node86.effect)
 
-  IUniversal.fireShardsProd = f(fireShard1).mul(f(fireShard2)).mul(f(fireShard3)).mul(f(fireShard4)).mul(fireShard5).mul(fireShard6).mul(fireShard7).mul(f(IGameData.tickSpeed))
+  IUniversal.fireShardsProd = ((f(fireShard1).mul(f(fireShard2)).mul(f(fireShard3)).mul(f(fireShard4)).mul(fireShard5).mul(fireShard6).mul(fireShard7)).pow(f(fireShard8))).mul(f(IGameData.tickSpeed))
   IUniversal.fireShards = f(IUniversal.fireShards).add(f(IUniversal.fireShardsProd))
 
   if (f(IUniversal.fireShards).lt(f(0))) {
@@ -24722,19 +28028,24 @@ function valuesSetterDinamic(type) {
   var hellTerritory4 = f(IUniversalIn.fireTree.node66.effect2)
   var hellTerritory5 = f(IUniversalIn.fireTree.node67.effect2)
   var hellTerritory6 = f(IUniversalIn.fireTree.node68.effect2)
+  var hellTerritory7 = f(IUniversal.soulEnergy)
+  var hellTerritory8 = f(IUniversalIn.fireTree.node94.effect)
 
-  IUniversal.hellTerritoryProd = hellTerritory1.mul(f(hellTerritory2)).mul(hellTerritory3).mul(hellTerritory4).mul(hellTerritory5).mul(hellTerritory6).mul(f(IGameData.tickSpeed))
+  IUniversal.hellTerritoryProd = hellTerritory1.mul(f(hellTerritory2)).mul(hellTerritory3).mul(hellTerritory4).mul(hellTerritory5).mul(hellTerritory6).mul(hellTerritory7).mul(hellTerritory8).mul(f(IGameData.tickSpeed))
   IUniversal.hellTerritory = f(IUniversal.hellTerritory).add(IUniversal.hellTerritoryProd)
 
   //Hell Energy
 
   var hellEnergy1 = f(Decimal.log(f(IUniversal.hellTerritory).dividedBy(f(10).pow(f(2))), 2)).pow(f(1.2))
+  var hellEnergy2 = f(IUniversal.soulEnergy)
+
+  var hellEnergy3 = f(IUniversalIn.fireTree.node97.effect)
 
   if (f(hellEnergy1).lt(f(1)) || hellEnergy1 == undefined) {
     hellEnergy1 = f(1)
   }
 
-  IUniversal.hellEnergy = hellEnergy1
+  IUniversal.hellEnergy = hellEnergy1.mul(hellEnergy2).mul(hellEnergy3)
 
   //Fame
 
@@ -24743,6 +28054,40 @@ function valuesSetterDinamic(type) {
   if (f(IUniversal.hellTerritory).gte(f(IUniversal.fameReq))) {
     IUniversal.maxFame = f(IUniversal.maxFame).add(f(1))
     IUniversal.fame = f(IUniversal.fame).add(f(1))
+  }
+
+
+  //Soul
+
+  var soul1 = f(IUniversalIn.fireTree.node104.effect)
+
+  if (IUniversal.automation.automation17.active) {
+
+    IUniversal.soulProd = f(soul1).mul(f(IGameData.tickSpeed).mul(f(IGameData.baseTickSpeed).mul(f(2))))
+    IUniversal.soul = f(IUniversal.soul).add(IUniversal.soulProd);
+  } else {
+
+    IUniversal.soulProd = f(0)
+    IUniversal.soul = f(IUniversal.soul)
+  }
+
+
+  //Soul Energy
+  var soulEnergy1 = f(Decimal.log(f(IUniversal.soul), 2)).pow(f(2))
+
+  if (soulEnergy1 == undefined || isNaN(soulEnergy1) || f(f(Decimal.log(f(IUniversal.soul), 2))).lt(f(1))) {
+    soulEnergy1 = f(1)
+  }
+
+  IUniversal.soulEnergy = soulEnergy1
+
+  //Hope
+
+  IUniversal.hopeReq = f(f(10).pow(f(3))).mul(f(10).pow(f(2)).pow(f(IUniversal.maxHope)))
+
+  if (f(IUniversal.soul).gte(f(IUniversal.hopeReq))) {
+    IUniversal.maxHope = f(IUniversal.maxHope).add(f(1))
+    IUniversal.hope = f(IUniversal.hope).add(f(1))
   }
 
   //WATER
@@ -25068,11 +28413,14 @@ function valuesSetterDinamic(type) {
   }
 
   //iron
-
   var iron1 = f(IUniversalIn.ore.item1.value)
+  var iron2 = f(0.01).mul(f(IUniversalIn.mine.item4.effect))
+  var iron3 = f(IUniversalIn.fireTree.node100.effect)
 
-  IUniversal.ironProdBase = ((iron1).mul(f(f(IUniversalIn.mineStats.minePower).minus(f(IUniversalIn.ore.item1.hardness))).dividedBy(f(IUniversalIn.ore.item1.life)))).mul(f(IGameData.baseTickSpeed))
-  IUniversal.ironProd = ((iron1).mul(f(f(IUniversalIn.mineStats.minePower).minus(f(IUniversalIn.ore.item1.hardness))).dividedBy(f(IUniversalIn.ore.item1.life)))).mul(f(IGameData.tickSpeed))
+  var transform1 = f(iron2.mul(f(f(IUniversalIn.mineStats.minePower).minus(f(IUniversalIn.ore.item1.hardness))).dividedBy(f(IUniversalIn.ore.item1.life))))
+
+  IUniversal.ironProdBase = (((iron1).mul(f(f(IUniversalIn.mineStats.minePower).minus(f(IUniversalIn.ore.item1.hardness))).dividedBy(f(IUniversalIn.ore.item1.life)))).add(transform1)).mul(f(IGameData.baseTickSpeed)).mul(iron3)
+  IUniversal.ironProd = (((iron1).mul(f(f(IUniversalIn.mineStats.minePower).minus(f(IUniversalIn.ore.item1.hardness))).dividedBy(f(IUniversalIn.ore.item1.life)))).add(transform1)).mul(f(IGameData.tickSpeed)).mul(iron3)
 
   if (f(IUniversal.ironProd).lt(f(0))) {
     IUniversal.ironProd = f(0)
@@ -25101,6 +28449,24 @@ function valuesSetterDinamic(type) {
     IUniversal.silver = f(IUniversal.silver).add(f(IUniversal.silverProd))
   } else {
     IUniversal.silver = f(0)
+  }
+
+  //obsidian
+
+  var obsidian1 = f(IUniversalIn.ore.item3.value)
+
+  IUniversal.obsidianProdBase = ((obsidian1).mul(f(f(IUniversalIn.mineStats.minePower).minus(f(IUniversalIn.ore.item3.hardness))).dividedBy(f(IUniversalIn.ore.item3.life)))).mul(f(IGameData.baseTickSpeed))
+  IUniversal.obsidianProd = ((obsidian1).mul(f(f(IUniversalIn.mineStats.minePower).minus(f(IUniversalIn.ore.item3.hardness))).dividedBy(f(IUniversalIn.ore.item3.life)))).mul(f(IGameData.tickSpeed))
+
+  if (f(IUniversal.obsidianProd).lt(f(0))) {
+    IUniversal.obsidianProd = f(0)
+    IUniversal.obsidianProdBase = f(0)
+  }
+
+  if (!f(IUniversal.obsidian).lt(f(0))) {
+    IUniversal.obsidian = f(IUniversal.obsidian).add(f(IUniversal.obsidianProd))
+  } else {
+    IUniversal.obsidian = f(0)
   }
 
 
@@ -25427,6 +28793,86 @@ function valuesSetterDinamic(type) {
     IUniversal.expeditions.exp14.rewards.timer = f(IUniversal.expeditions.exp14.rewards.timer).add(f(IGameData.tickSpeed))
     if (f(IUniversal.expeditions.exp14.timer).lt(f(0))) {
       IUniversal.expeditions.exp14.timer = f(0)
+    }
+  }
+
+  //exp17
+
+  var sel = IUniversal.expeditions.exp17
+  var selIn = IUniversalIn.expeditions.exp17
+
+  if (f(sel.rewards.timer).gte(f(selIn.rewards.timerPrice)) && false) {
+    var number = f(sel.rewards.timer).dividedBy(f(selIn.rewards.timerPrice)).floor();
+
+    selIn.rewards.effect(sel, selIn, sel.rewards, selIn.rewards, number)
+
+    sel.rewards.timer = f(0)
+  }
+
+  if (IUniversal.expeditions.exp14.active) {
+    IUniversal.expeditions.exp14.rewards.timer = f(IUniversal.expeditions.exp14.rewards.timer).add(f(IGameData.tickSpeed))
+    if (f(IUniversal.expeditions.exp14.timer).lt(f(0))) {
+      IUniversal.expeditions.exp14.timer = f(0)
+    }
+  }
+
+  //exp18
+
+  var sel = IUniversal.expeditions.exp18
+  var selIn = IUniversalIn.expeditions.exp18
+
+  if (f(sel.rewards.timer).gte(f(selIn.rewards.timerPrice)) && false) {
+    var number = f(sel.rewards.timer).dividedBy(f(selIn.rewards.timerPrice)).floor();
+
+    selIn.rewards.effect(sel, selIn, sel.rewards, selIn.rewards, number)
+
+    sel.rewards.timer = f(0)
+  }
+
+  if (IUniversal.expeditions.exp14.active) {
+    IUniversal.expeditions.exp14.rewards.timer = f(IUniversal.expeditions.exp14.rewards.timer).add(f(IGameData.tickSpeed))
+    if (f(IUniversal.expeditions.exp14.timer).lt(f(0))) {
+      IUniversal.expeditions.exp14.timer = f(0)
+    }
+  }
+
+  //exp19
+
+  var sel = IUniversal.expeditions.exp19
+  var selIn = IUniversalIn.expeditions.exp19
+
+  if (f(sel.rewards.timer).gte(f(selIn.rewards.timerPrice)) && false) {
+    var number = f(sel.rewards.timer).dividedBy(f(selIn.rewards.timerPrice)).floor();
+
+    selIn.rewards.effect(sel, selIn, sel.rewards, selIn.rewards, number)
+
+    sel.rewards.timer = f(0)
+  }
+
+  if (IUniversal.expeditions.exp14.active) {
+    IUniversal.expeditions.exp14.rewards.timer = f(IUniversal.expeditions.exp14.rewards.timer).add(f(IGameData.tickSpeed))
+    if (f(IUniversal.expeditions.exp14.timer).lt(f(0))) {
+      IUniversal.expeditions.exp14.timer = f(0)
+    }
+  }
+
+  //exp20
+
+  var sel = IUniversal.expeditions.exp20
+  var selIn = IUniversalIn.expeditions.exp20
+
+  if (f(sel.rewards.timer).gte(f(selIn.rewards.timerPrice))) {
+    var number = f(sel.rewards.timer).dividedBy(f(selIn.rewards.timerPrice)).floor();
+
+    selIn.rewards.effect(sel, selIn, sel.rewards, selIn.rewards, number)
+
+    sel.rewards.timer = f(0)
+  }
+
+  if (IUniversal.expeditions.exp20.active) {
+    IUniversal.expeditions.exp20.rewards.timer = f(IUniversal.expeditions.exp20.rewards.timer).add(f(IGameData.tickSpeed))
+    if (f(IUniversal.expeditions.exp20.timer).lt(f(0))) {
+      IUniversal.expeditions.exp20.timer = f(0)
     }
   }
 
@@ -26664,6 +30110,30 @@ document.getElementById("fp3_content1_8_auto14_b1").onclick = function () {
   }
 }
 
+document.getElementById("fp3_content1_8_auto15_b1").onclick = function () {
+  if (!IUniversal.automation.automation15.unlocked) {
+    buyMultiple(IUniversalIn.automation.automation15, IUniversalIn.automation.automation15, IUniversal.automation.automation15, "unlocked", true, "uniChallenger", 0, IUniversal.automation.automation15, IUniversalIn.automation.automation15);
+  } else {
+    IUniversal.automation.automation15.active = !IUniversal.automation.automation15.active;
+  }
+}
+
+document.getElementById("fp3_content1_8_auto16_b1").onclick = function () {
+  if (!IUniversal.automation.automation16.unlocked) {
+    buyMultiple(IUniversalIn.automation.automation16, IUniversalIn.automation.automation16, IUniversal.automation.automation16, "unlocked", true, "uniChallenger", 0, IUniversal.automation.automation16, IUniversalIn.automation.automation16);
+  } else {
+    IUniversal.automation.automation16.active = !IUniversal.automation.automation16.active;
+  }
+}
+
+document.getElementById("fp3_content1_8_auto17_b1").onclick = function () {
+  if (!IUniversal.automation.automation17.unlocked) {
+    buyMultiple(IUniversalIn.automation.automation17, IUniversalIn.automation.automation17, IUniversal.automation.automation17, "unlocked", true, "uniChallenger", 0, IUniversal.automation.automation17, IUniversalIn.automation.automation17);
+  } else {
+    IUniversal.automation.automation17.active = !IUniversal.automation.automation17.active;
+  }
+}
+
 //notation
 
 document.getElementById("optionsMisc_notation_b1").onclick = function () {
@@ -27143,6 +30613,181 @@ document.getElementById("content2_17_node85_button").onclick = function () {
   IUniversal.fireTree.node82.level = f(0)
 
   IUniversal.hellPowers1Points = IUniversal.hellPowers1PointsMax
+}
+
+document.getElementById("content2_17_node86_button").onclick = function () {
+  if (f(IUniversal.fireTree.node86.level).lt(f(IUniversalIn.fireTree.node86.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node86, IUniversalIn.fireTree.node86, IUniversal.fireTree.node86, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node86, IUniversalIn.fireTree.node86);
+}
+
+document.getElementById("content2_17_node87_button").onclick = function () {
+  if (f(IUniversal.fireTree.node87.level).lt(f(IUniversalIn.fireTree.node87.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node87, IUniversalIn.fireTree.node87, IUniversal.fireTree.node87, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node87, IUniversalIn.fireTree.node87);
+}
+
+document.getElementById("content2_17_node83_button").onclick = function () {
+  if (f(IUniversal.fireTree.node83.level).lt(f(IUniversalIn.fireTree.node83.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node83, IUniversalIn.fireTree.node83, IUniversal.fireTree.node83, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node83, IUniversalIn.fireTree.node83);
+}
+
+document.getElementById("content2_17_node85_button").onclick = function () {
+  if (f(IUniversal.fireTree.node85.level).lt(f(IUniversalIn.fireTree.node85.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node85, IUniversalIn.fireTree.node85, IUniversal.fireTree.node85, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node85, IUniversalIn.fireTree.node85);
+}
+
+document.getElementById("content2_17_node88_button").onclick = function () {
+  if (f(IUniversal.fireTree.node88.level).lt(f(IUniversalIn.fireTree.node88.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node88, IUniversalIn.fireTree.node88, IUniversal.fireTree.node88, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node88, IUniversalIn.fireTree.node88);
+}
+
+document.getElementById("content2_17_node89_button").onclick = function () {
+  if (f(IUniversal.fireTree.node89.level).lt(f(IUniversalIn.fireTree.node89.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node89, IUniversalIn.fireTree.node89, IUniversal.fireTree.node89, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node89, IUniversalIn.fireTree.node89);
+}
+
+document.getElementById("content2_17_node90_button").onclick = function () {
+  if (f(IUniversal.fireTree.node90.level).lt(f(IUniversalIn.fireTree.node90.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node90, IUniversalIn.fireTree.node90, IUniversal.fireTree.node90, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node90, IUniversalIn.fireTree.node90);
+}
+
+document.getElementById("content2_17_node91_button").onclick = function () {
+  if (f(IUniversal.fireTree.node91.level).lt(f(IUniversalIn.fireTree.node91.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node91, IUniversalIn.fireTree.node91, IUniversal.fireTree.node91, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node91, IUniversalIn.fireTree.node91);
+}
+
+document.getElementById("content2_17_node92_button").onclick = function () {
+  if (f(IUniversal.fireTree.node92.level).lt(f(IUniversalIn.fireTree.node92.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node92, IUniversalIn.fireTree.node92, IUniversal.fireTree.node92, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node92, IUniversalIn.fireTree.node92);
+}
+
+document.getElementById("content2_17_node93_button").onclick = function () {
+  if (f(IUniversal.fireTree.node93.level).lt(f(IUniversalIn.fireTree.node93.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node93, IUniversalIn.fireTree.node93, IUniversal.fireTree.node93, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node93, IUniversalIn.fireTree.node93);
+}
+
+document.getElementById("content2_17_node94_button").onclick = function () {
+  if (f(IUniversal.fireTree.node94.level).lt(f(IUniversalIn.fireTree.node94.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node94, IUniversalIn.fireTree.node94, IUniversal.fireTree.node94, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node94, IUniversalIn.fireTree.node94);
+}
+
+document.getElementById("content2_17_node95_button").onclick = function () {
+  if (f(IUniversal.fireTree.node95.level).lt(f(IUniversalIn.fireTree.node95.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node95, IUniversalIn.fireTree.node95, IUniversal.fireTree.node95, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node95, IUniversalIn.fireTree.node95);
+}
+
+document.getElementById("content2_17_node96_button").onclick = function () {
+  if (f(IUniversal.fireTree.node96.level).lt(f(IUniversalIn.fireTree.node96.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node96, IUniversalIn.fireTree.node96, IUniversal.fireTree.node96, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node96, IUniversalIn.fireTree.node96);
+}
+
+document.getElementById("content2_17_node97_button").onclick = function () {
+  if (f(IUniversal.fireTree.node97.level).lt(f(IUniversalIn.fireTree.node97.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node97, IUniversalIn.fireTree.node97, IUniversal.fireTree.node97, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node97, IUniversalIn.fireTree.node97);
+}
+
+document.getElementById("content2_17_node98_button").onclick = function () {
+  if (f(IUniversal.fireTree.node98.level).lt(f(IUniversalIn.fireTree.node98.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node98, IUniversalIn.fireTree.node98, IUniversal.fireTree.node98, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node98, IUniversalIn.fireTree.node98);
+}
+
+document.getElementById("content2_17_node99_button").onclick = function () {
+  if (f(IUniversal.fireTree.node99.level).lt(f(IUniversalIn.fireTree.node99.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node99, IUniversalIn.fireTree.node99, IUniversal.fireTree.node99, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node99, IUniversalIn.fireTree.node99);
+}
+
+document.getElementById("content2_17_node100_button").onclick = function () {
+  if (f(IUniversal.fireTree.node100.level).lt(f(IUniversalIn.fireTree.node100.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node100, IUniversalIn.fireTree.node100, IUniversal.fireTree.node100, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node100, IUniversalIn.fireTree.node100);
+}
+
+document.getElementById("content2_17_node101_button").onclick = function () {
+  if (f(IUniversal.fireTree.node101.level).lt(f(IUniversalIn.fireTree.node101.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node101, IUniversalIn.fireTree.node101, IUniversal.fireTree.node101, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node101, IUniversalIn.fireTree.node101);
+}
+
+document.getElementById("content2_17_node102_button").onclick = function () {
+  if (f(IUniversal.fireTree.node102.level).lt(f(IUniversalIn.fireTree.node102.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node102, IUniversalIn.fireTree.node102, IUniversal.fireTree.node102, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node102, IUniversalIn.fireTree.node102);
+}
+
+document.getElementById("content2_17_node103_button").onclick = function () {
+  if (f(IUniversal.fireTree.node103.level).lt(f(IUniversalIn.fireTree.node103.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node103, IUniversalIn.fireTree.node103, IUniversal.fireTree.node103, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node103, IUniversalIn.fireTree.node103);
+}
+
+document.getElementById("content2_17_node104_button").onclick = function () {
+  IUniversal.fireTree.node65.level = f(0)
+  IUniversal.fireTree.node66.level = f(0)
+  IUniversal.fireTree.node67.level = f(0)
+  IUniversal.fireTree.node68.level = f(0)
+  IUniversal.fireTree.node69.level = f(0)
+  IUniversal.fireTree.node70.level = f(0)
+  IUniversal.fireTree.node71.level = f(0)
+  IUniversal.fireTree.node72.level = f(0)
+  IUniversal.fireTree.node73.level = f(0)
+  IUniversal.fireTree.node74.level = f(0)
+  IUniversal.fireTree.node75.level = f(0)
+  IUniversal.fireTree.node76.level = f(0)
+
+
+  IUniversal.soul = f(IUniversal.soul).add(IUniversalIn.fireTree.node104.effect)
+  IUniversal.fame = f(0)
+  IUniversal.maxFame = f(0)
+  IUniversal.hellTerritory = f(0)
+
+
+}
+
+document.getElementById("content2_17_node105_button").onclick = function () {
+  IUniversal.fireTree.node90.level = f(0)
+  IUniversal.fireTree.node91.level = f(0)
+  IUniversal.fireTree.node92.level = f(0)
+  IUniversal.fireTree.node93.level = f(0)
+
+
+  IUniversal.fireTree.node65.level = f(0)
+  IUniversal.fireTree.node66.level = f(0)
+  IUniversal.fireTree.node67.level = f(0)
+  IUniversal.fireTree.node68.level = f(0)
+  IUniversal.fireTree.node69.level = f(0)
+  IUniversal.fireTree.node70.level = f(0)
+  IUniversal.fireTree.node71.level = f(0)
+  IUniversal.fireTree.node72.level = f(0)
+  IUniversal.fireTree.node73.level = f(0)
+  IUniversal.fireTree.node74.level = f(0)
+  IUniversal.fireTree.node75.level = f(0)
+  IUniversal.fireTree.node76.level = f(0)
+
+  IUniversal.fame = f(0)
+  IUniversal.maxFame = f(0)
+
+  IUniversal.hope = IUniversal.maxHope
+}
+
+document.getElementById("content2_17_node106_button").onclick = function () {
+  IUniversal.fireTree.node98.level = f(0)
+  IUniversal.fireTree.node99.level = f(0)
+  IUniversal.fireTree.node100.level = f(0)
+  IUniversal.fireTree.node101.level = f(0)
+  IUniversal.fireTree.node102.level = f(0)
+  IUniversal.fireTree.node103.level = f(0)
+
+  IUniversal.hellPowers2Points = IUniversal.hellPowers2PointsMax
+}
+
+document.getElementById("content2_17_node107_button").onclick = function () {
+  if (f(IUniversal.fireTree.node107.level).lt(f(IUniversalIn.fireTree.node107.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node107, IUniversalIn.fireTree.node107, IUniversal.fireTree.node107, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node107, IUniversalIn.fireTree.node107);
+}
+
+document.getElementById("content2_17_node108_button").onclick = function () {
+  if (f(IUniversal.fireTree.node108.level).lt(f(IUniversalIn.fireTree.node108.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node108, IUniversalIn.fireTree.node108, IUniversal.fireTree.node108, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node108, IUniversalIn.fireTree.node108);
+}
+
+document.getElementById("content2_17_node109_button").onclick = function () {
+  if (f(IUniversal.fireTree.node109.level).lt(f(IUniversalIn.fireTree.node109.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node109, IUniversalIn.fireTree.node109, IUniversal.fireTree.node109, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node109, IUniversalIn.fireTree.node109);
 }
 
 
@@ -27941,6 +31586,30 @@ document.getElementById("content2_23_node16_button").onclick = function () {
   changePage("expedition", "content2_23_crusadePage")
 }
 
+document.getElementById("content2_23_node17_button").onclick = function () {
+
+  IUniversal.armyInfo.elemental.selected = "exp17"
+  changePage("expedition", "content2_23_crusadePage")
+}
+
+document.getElementById("content2_23_node18_button").onclick = function () {
+
+  IUniversal.armyInfo.elemental.selected = "exp18"
+  changePage("expedition", "content2_23_crusadePage")
+}
+
+document.getElementById("content2_23_node19_button").onclick = function () {
+
+  IUniversal.armyInfo.elemental.selected = "exp19"
+  changePage("expedition", "content2_23_crusadePage")
+}
+
+document.getElementById("content2_23_node20_button").onclick = function () {
+
+  IUniversal.armyInfo.enemy.selected = "exp20"
+  changePage("expedition", "content2_23_expeditionPage")
+}
+
 document.getElementById("content2_23_node1_button2").onclick = function () {
   for (let x in IUniversal.expeditions.exp1.rewards.expectedRewards) {
     var sel = IUniversal.expeditions.exp1.rewards.expectedRewards[x]
@@ -28149,6 +31818,58 @@ document.getElementById("content2_23_node16_button2").onclick = function () {
 
 }
 
+document.getElementById("content2_23_node17_button2").onclick = function () {
+  for (let x in IUniversal.expeditions.exp17.rewards.expectedRewards) {
+    var sel = IUniversal.expeditions.exp17.rewards.expectedRewards[x]
+
+    IUniversal.treasures[x].level = f(IUniversal.treasures[x].level).add(f(sel.level))
+    IUniversal.treasures[x].num = f(IUniversal.treasures[x].num).add(f(sel.num))
+    update("content2_23_treasureClaim_d1", `<div class="height20 width100 row overflowX flex zHigh">${IUniversalIn.expeditions.exp17.effectContent(IUniversal.expeditions.exp17.rewards, IUniversalIn.expeditions.exp17.rewards)}</div>`)
+    changePage("expedition", "content2_23_treasureClaim")
+  }
+  IUniversal.expeditions.exp17.rewards.expectedRewards = null
+
+}
+
+document.getElementById("content2_23_node18_button2").onclick = function () {
+  for (let x in IUniversal.expeditions.exp18.rewards.expectedRewards) {
+    var sel = IUniversal.expeditions.exp18.rewards.expectedRewards[x]
+
+    IUniversal.treasures[x].level = f(IUniversal.treasures[x].level).add(f(sel.level))
+    IUniversal.treasures[x].num = f(IUniversal.treasures[x].num).add(f(sel.num))
+    update("content2_23_treasureClaim_d1", `<div class="height20 width100 row overflowX flex zHigh">${IUniversalIn.expeditions.exp18.effectContent(IUniversal.expeditions.exp18.rewards, IUniversalIn.expeditions.exp18.rewards)}</div>`)
+    changePage("expedition", "content2_23_treasureClaim")
+  }
+  IUniversal.expeditions.exp18.rewards.expectedRewards = null
+
+}
+
+document.getElementById("content2_23_node19_button2").onclick = function () {
+  for (let x in IUniversal.expeditions.exp19.rewards.expectedRewards) {
+    var sel = IUniversal.expeditions.exp19.rewards.expectedRewards[x]
+
+    IUniversal.treasures[x].level = f(IUniversal.treasures[x].level).add(f(sel.level))
+    IUniversal.treasures[x].num = f(IUniversal.treasures[x].num).add(f(sel.num))
+    update("content2_23_treasureClaim_d1", `<div class="height20 width100 row overflowX flex zHigh">${IUniversalIn.expeditions.exp19.effectContent(IUniversal.expeditions.exp19.rewards, IUniversalIn.expeditions.exp19.rewards)}</div>`)
+    changePage("expedition", "content2_23_treasureClaim")
+  }
+  IUniversal.expeditions.exp19.rewards.expectedRewards = null
+
+}
+
+document.getElementById("content2_23_node20_button2").onclick = function () {
+  for (let x in IUniversal.expeditions.exp20.rewards.expectedRewards) {
+    var sel = IUniversal.expeditions.exp20.rewards.expectedRewards[x]
+
+    IUniversal.treasures[x].level = f(IUniversal.treasures[x].level).add(f(sel.level))
+    IUniversal.treasures[x].num = f(IUniversal.treasures[x].num).add(f(sel.num))
+    update("content2_23_treasureClaim_d1", `<div class="height20 width100 row overflowX flex zHigh">${IUniversalIn.expeditions.exp20.effectContent(IUniversal.expeditions.exp20.rewards, IUniversalIn.expeditions.exp20.rewards)}</div>`)
+    changePage("expedition", "content2_23_treasureClaim")
+  }
+  IUniversal.expeditions.exp20.rewards.expectedRewards = null
+
+}
+
 
 document.getElementById("content2_23_curtain").onclick = function () {
   changePage("expedition", "out")
@@ -28231,6 +31952,16 @@ document.getElementById("content2_21_forge_item4_button").onclick = function () 
     buyMultiple(IUniversalIn.forge.item4, IUniversalIn.forge.item4, IUniversal.forge.item4, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.forge.item4, IUniversalIn.forge.item4);
 }
 
+document.getElementById("content2_21_forge_item5_button").onclick = function () {
+  if (f(IUniversal.forge.item5.level).lt(f(IUniversalIn.forge.item5.maxLevel)))
+    buyMultiple(IUniversalIn.forge.item5, IUniversalIn.forge.item5, IUniversal.forge.item5, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.forge.item5, IUniversalIn.forge.item5);
+}
+
+document.getElementById("content2_21_forge_item6_button").onclick = function () {
+  if (f(IUniversal.forge.item6.level).lt(f(IUniversalIn.forge.item6.maxLevel)))
+    buyMultiple(IUniversalIn.forge.item6, IUniversalIn.forge.item6, IUniversal.forge.item6, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.forge.item6, IUniversalIn.forge.item6);
+}
+
 
 
 
@@ -28246,6 +31977,16 @@ document.getElementById("content2_21_mine_item2_button").onclick = function () {
     buyMultiple(IUniversalIn.mine.item2, IUniversalIn.mine.item2, IUniversal.mine.item2, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.mine.item2, IUniversalIn.mine.item2);
 }
 
+document.getElementById("content2_21_mine_item3_button").onclick = function () {
+  if (f(IUniversal.mine.item3.level).lt(f(IUniversalIn.mine.item3.maxLevel)))
+    buyMultiple(IUniversalIn.mine.item3, IUniversalIn.mine.item3, IUniversal.mine.item3, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.mine.item3, IUniversalIn.mine.item3);
+}
+
+document.getElementById("content2_21_mine_item4_button").onclick = function () {
+  if (f(IUniversal.mine.item4.level).lt(f(IUniversalIn.mine.item4.maxLevel)))
+    buyMultiple(IUniversalIn.mine.item4, IUniversalIn.mine.item4, IUniversal.mine.item4, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.mine.item4, IUniversalIn.mine.item4);
+}
+
 
 //ores
 
@@ -28255,6 +31996,10 @@ document.getElementById("content2_21_ore_item1_button").onclick = function () {
 
 document.getElementById("content2_21_ore_item2_button").onclick = function () {
   assignGroup(IUniversalIn.ore, IUniversal.ore, "item2")
+}
+
+document.getElementById("content2_21_ore_item3_button").onclick = function () {
+  assignGroup(IUniversalIn.ore, IUniversal.ore, "item3")
 }
 
 
@@ -29658,6 +33403,7 @@ function visualTree() {
     ['content2_17_valutes_valute3', 'Heat', IU.heat, IU.heatProd],
     ['content2_17_valutes_valute4', 'Fire Shards', IU.fireShards, IU.fireShardsProd],
     ['content2_17_valutes_valute5', 'Hell Territory', IU.hellTerritory, IU.hellTerritoryProd],
+    ['content2_17_valutes_valute6', 'Soul', IU.soul, IU.soulProd],
   ];
 
   for (var i = 0; i < valutes.length; i++) {
@@ -29671,7 +33417,7 @@ function visualTree() {
       unlockShow(id, true);
 
       var cacheKey = id + '_val';
-      var newValue = value + '_' + prod;
+      var newValue = format(value) + '_' + format(sec(prod));
 
       if (cache.lastValues[cacheKey] !== newValue) {
         update(id, '<div class="noClick"><div class="noClick">' + name +
@@ -29805,14 +33551,32 @@ function visualTree() {
     unlockShow("hellPowers1", false)
   }
 
+  if ((IUniversal.windTree.node16.active)) {
+    unlockShow("hellInfo2", true)
+    unlockShow("hellPowers2", true)
+  } else {
+    unlockShow("hellInfo2", false)
+    unlockShow("hellPowers2", false)
+  }
+
   if (cache.lastValues["hellInfo1"] !== IUniversalIn.hellDescription1) {
     update("hellInfo1", IUniversalIn.hellDescription1);
     cache.lastValues["hellInfo1"] = IUniversalIn.hellDescription1;
   }
+  if (cache.lastValues["hellInfo2"] !== IUniversalIn.hellDescription2) {
+    update("hellInfo2", IUniversalIn.hellDescription2);
+    cache.lastValues["hellInfo2"] = IUniversalIn.hellDescription2;
+  }
+
+
 
   if (cache.lastValues["hellPowers1"] !== IUniversalIn.hellPowers1) {
     update("hellPowers1", IUniversalIn.hellPowers1);
     cache.lastValues["hellPowers1"] = IUniversalIn.hellPowers1;
+  }
+  if (cache.lastValues["hellPowers2"] !== IUniversalIn.hellPowers2) {
+    update("hellPowers2", IUniversalIn.hellPowers2);
+    cache.lastValues["hellPowers2"] = IUniversalIn.hellPowers2;
   }
 
   cache.initialized = true;
@@ -31008,6 +34772,10 @@ function visualEarthTree() {
   if (f(IUniversal.silver).gt(f(0)) || checkShow("content2_21_valutes_valute3")) {
     unlockShow("content2_21_valutes_valute3", true)
     update("content2_21_valutes_valute3", `<div class="noClick"><div class="noClick">Silver</div><div class="boldBlackBorder noClick fontSize09">${format(IUniversal.silver, 0)}</div><div class="boldBlackBorder noClick">${format(sec(IUniversal.silverProd))}/s</div></div>`)
+  }
+  if (f(IUniversal.obsidian).gt(f(0)) || checkShow("content2_21_valutes_valute4")) {
+    unlockShow("content2_21_valutes_valute4", true)
+    update("content2_21_valutes_valute4", `<div class="noClick"><div class="noClick">Obsidian</div><div class="boldBlackBorder noClick fontSize09">${format(IUniversal.obsidian, 0)}</div><div class="boldBlackBorder noClick">${format(sec(IUniversal.obsidianProd))}/s</div></div>`)
   }
 
   //armyloadout
@@ -32745,23 +36513,38 @@ function format(number, type, formatType = IPermanentIn.notation["notation" + IP
           const hundreds = ["", "Ce", "Dn", "Tc", "Qe", "Qu", "Sc", "Si", "Oe", "Ne"];
           const smallUnits = ["k", "M", "B", "T", "Qa", "Qi", "Sx", "Sp", "Oc", "No"];
 
-          let realNumber = number.toNumber();
+          let exp;
+          let num;
 
-          let exp = Math.floor(Math.log10(realNumber));
+          if (number.exponent > 308) {
+            exp = number.exponent;
+            const mantissaStr = (number.d ? number.d[0] : number.coefficient);
+            const digits = String(mantissaStr).slice(0, 5);
+            num = parseFloat(digits[0] + "." + digits.slice(1));
+          } else {
+            let realNumber = number.toNumber();
+            exp = Math.floor(Math.log10(realNumber));
+            num = realNumber / Math.pow(10, exp);
+          }
 
           let conv = Math.floor(exp / 3) - 1;
 
-          let num = realNumber / Math.pow(10, (conv + 1) * 3);
+          let remainder = exp % 3;
+          num = num * Math.pow(10, remainder);
+
+          if (conv > 9999) conv = 9999;
 
           let formatted = "";
 
           if (conv < 10) {
             formatted = `${num.toFixed(1)}${smallUnits[conv]}`;
           } else {
-            let h = Math.floor(conv / 100);
+            const thousands = ["", "Mi", "Bi", "Ti", "Qi", "Qni", "Sxi", "Spi", "Oi", "Noi"];
+            let th = Math.floor(conv / 1000);
+            let h = Math.floor((conv % 1000) / 100);
             let t = Math.floor((conv % 100) / 10);
             let u = conv % 10;
-            formatted = `${num.toFixed(1)}${units[u]}${tens[t]}${hundreds[h]}`;
+            formatted = `${num.toFixed(1)}${units[u]}${tens[t]}${hundreds[h]}${thousands[th]}`;
           }
 
           return formatted;
@@ -32769,7 +36552,6 @@ function format(number, type, formatType = IPermanentIn.notation["notation" + IP
 
         return number.toNumber().toFixed(1);
       } else {
-
         return number.toExponential(type || 1);
       }
     }
@@ -33283,6 +37065,19 @@ function loopShow() {
     unlockShow("fp3_content1_8_auto14", true);
   }
 
+  if (IU.fireTree.node107.unlocked) {
+    unlockShow("fp3_content1_8_auto15", true);
+  }
+
+  if (IU.fireTree.node108.unlocked) {
+    unlockShow("fp3_content1_8_auto16", true);
+  }
+
+  if (IU.fireTree.node109.unlocked) {
+    unlockShow("fp3_content1_8_auto17", true);
+  }
+
+
   for (var i = 1; i <= Object.keys(IUniversal.fireTree).length; i++) {
     var node = "node" + i;
     if (IUI.fireTree[node].req() || IU.fireTree[node].unlocked || IU.fireTree[node].active) {
@@ -33419,6 +37214,36 @@ function loopShow() {
   unlockShow("content2_21_under1_3", exp10);
   unlockShow("content2_21_under1_4", exp10);
 
+
+  //LOW FORGE
+  for (var i = 1; i <= Object.keys(IUniversal.forge).length; i++) {
+    var node = "item" + i;
+    if (IUI.forge[node].req() || IU.forge[node].unlocked) {
+      unlockShow("content2_21_under1_1_" + node, true);
+    } else {
+      unlockShow("content2_21_under1_1_" + node, false);
+    }
+  }
+
+  for (var i = 1; i <= Object.keys(IUniversal.mine).length; i++) {
+    var node = "item" + i;
+    if (IUI.mine[node].req() || IU.mine[node].unlocked) {
+      unlockShow("content2_21_under1_2_" + node, true);
+    } else {
+      unlockShow("content2_21_under1_2_" + node, false);
+    }
+  }
+
+  for (var i = 1; i <= Object.keys(IUniversal.ore).length; i++) {
+    var node = "item" + i;
+    if (IUI.ore[node].req() || IU.ore[node].unlocked) {
+      unlockShow("content2_21_under1_3_" + node, true);
+    } else {
+      unlockShow("content2_21_under1_3_" + node, false);
+    }
+  }
+
+
   for (var i = 1; i <= Object.keys(IUniversal.earthTree).length; i++) {
     var node = "node" + i;
     if (IUI.earthTree[node].req() || IU.earthTree[node].unlocked) {
@@ -33467,7 +37292,7 @@ function loopShow() {
   if (f(IU.expeditions.exp13.level).gt(f(0))) {
     unlockShow("content2_25_treasureAugment_2", true);
   } else {
-    unlockShow("content2_25_treasureAugment_2", true);
+    unlockShow("content2_25_treasureAugment_2", false);
     updateCached("content2_25_treasureAugment_2", '<div class="boldBlackBorder centerDiv">Defeat Magma Elemental to unlock</div>');
   }
 
@@ -33788,6 +37613,13 @@ function fireLines() {
     ["fireLine73", "content2_17_node67", "content2_17_node68"],
     ["fireLine74", "content2_17_node68", "content2_17_node75"],
     ["fireLine75", "content2_17_node75", "content2_17_node76"],
+    ["fireLine76", "content2_17_node94", "content2_17_node90"],
+    ["fireLine77", "content2_17_node95", "content2_17_node91"],
+    ["fireLine78", "content2_17_node96", "content2_17_node92"],
+    ["fireLine79", "content2_17_node97", "content2_17_node93"],
+    ["fireLine80", "content2_17_node86", "content2_17_node87"],
+    ["fireLine81", "content2_17_node87", "content2_17_node88"],
+    ["fireLine82", "content2_17_node88", "content2_17_node89"],
   ];
 
   drawLines("content2_17_lineLayer", "content2_17_node", connections, "#ff1313ff");
@@ -33879,6 +37711,10 @@ function windLines() {
     ["windLine14", "content2_23_node13", "content2_23_node14"],
     ["windLine15", "content2_23_node13", "content2_23_node15"],
     ["windLine16", "content2_23_node15", "content2_23_node16"],
+    ["windLine17", "content2_23_node16", "content2_23_node17"],
+    ["windLine18", "content2_23_node17", "content2_23_node18"],
+    ["windLine19", "content2_23_node14", "content2_23_node19"],
+    ["windLine20", "content2_23_node12", "content2_23_node20"],
   ];
   drawLines("content2_23_lineLayer", "content2_23_node", connections, "#07c4b4ff");
 }
@@ -36234,9 +40070,95 @@ function automation() {
   }
 
   //FIRE
-  if (IUniversal.automation.automation14.active) {
-    IUniversal.size = f(IUniversal.size).add(f(IUniversalIn.fireTree.node11.effect).mul(f(IGameData.tickSpeed)))
+
+  if (IUniversal.automation.automation15.active) {
+
+    if (f(IUniversal.fireTree.node2.level).lt(f(IUniversalIn.fireTree.node2.maxLevel)))
+      buyMultiple(IUniversalIn.fireTree.node2, IUniversalIn.fireTree.node2, IUniversal.fireTree.node2, "level", 1, "uniFree", IUniversal.buyFireTree, IUniversal.fireTree.node2, IUniversalIn.fireTree.node2);
+
+    if (f(IUniversal.fireTree.node3.level).lt(f(IUniversalIn.fireTree.node3.maxLevel)))
+      buyMultiple(IUniversalIn.fireTree.node3, IUniversalIn.fireTree.node3, IUniversal.fireTree.node3, "level", 1, "uniFree", IUniversal.buyFireTree, IUniversal.fireTree.node3, IUniversalIn.fireTree.node3);
+
+    if (f(IUniversal.fireTree.node4.level).lt(f(IUniversalIn.fireTree.node4.maxLevel)))
+      buyMultiple(IUniversalIn.fireTree.node4, IUniversalIn.fireTree.node4, IUniversal.fireTree.node4, "level", 1, "uniFree", IUniversal.buyFireTree, IUniversal.fireTree.node4, IUniversalIn.fireTree.node4);
+
+    if (f(IUniversal.fireTree.node39.level).lt(f(IUniversalIn.fireTree.node39.maxLevel)))
+      buyMultiple(IUniversalIn.fireTree.node39, IUniversalIn.fireTree.node39, IUniversal.fireTree.node39, "level", 1, "uniFree", IUniversal.buyFireTree, IUniversal.fireTree.node39, IUniversalIn.fireTree.node39);
+
+    if (f(IUniversal.fireTree.node58.level).lt(f(IUniversalIn.fireTree.node58.maxLevel)))
+      buyMultiple(IUniversalIn.fireTree.node58, IUniversalIn.fireTree.node58, IUniversal.fireTree.node58, "level", 1, "uniFree", IUniversal.buyFireTree, IUniversal.fireTree.node58, IUniversalIn.fireTree.node58);
+
+    if (f(IUniversal.fireTree.node59.level).lt(f(IUniversalIn.fireTree.node59.maxLevel)))
+      buyMultiple(IUniversalIn.fireTree.node59, IUniversalIn.fireTree.node59, IUniversal.fireTree.node59, "level", 1, "uniFree", IUniversal.buyFireTree, IUniversal.fireTree.node59, IUniversalIn.fireTree.node59);
+
+    if (f(IUniversal.fireTree.node60.level).lt(f(IUniversalIn.fireTree.node60.maxLevel)))
+      buyMultiple(IUniversalIn.fireTree.node60, IUniversalIn.fireTree.node60, IUniversal.fireTree.node60, "level", 1, "uniFree", IUniversal.buyFireTree, IUniversal.fireTree.node60, IUniversalIn.fireTree.node60);
   }
+
+  if (IUniversal.automation.automation16.active) {
+    if (f(IUniversal.fireTree.node12.level).lt(f(IUniversalIn.fireTree.node12.maxLevel)))
+      buyMultiple(IUniversalIn.fireTree.node12, IUniversalIn.fireTree.node12, IUniversal.fireTree.node12, "level", 1, "uniFree", IUniversal.buyFireTree, IUniversal.fireTree.node12, IUniversalIn.fireTree.node12);
+
+    if (f(IUniversal.fireTree.node13.level).lt(f(IUniversalIn.fireTree.node13.maxLevel)))
+      buyMultiple(IUniversalIn.fireTree.node13, IUniversalIn.fireTree.node13, IUniversal.fireTree.node13, "level", 1, "uniFree", IUniversal.buyFireTree, IUniversal.fireTree.node13, IUniversalIn.fireTree.node13);
+
+    if (f(IUniversal.fireTree.node14.level).lt(f(IUniversalIn.fireTree.node14.maxLevel)))
+      buyMultiple(IUniversalIn.fireTree.node14, IUniversalIn.fireTree.node14, IUniversal.fireTree.node14, "level", 1, "uniFree", IUniversal.buyFireTree, IUniversal.fireTree.node14, IUniversalIn.fireTree.node14);
+
+    if (f(IUniversal.fireTree.node15.level).lt(f(IUniversalIn.fireTree.node15.maxLevel)))
+      buyMultiple(IUniversalIn.fireTree.node15, IUniversalIn.fireTree.node15, IUniversal.fireTree.node15, "level", 1, "uniFree", IUniversal.buyFireTree, IUniversal.fireTree.node15, IUniversalIn.fireTree.node15);
+
+    if (f(IUniversal.fireTree.node16.level).lt(f(IUniversalIn.fireTree.node16.maxLevel)))
+      buyMultiple(IUniversalIn.fireTree.node16, IUniversalIn.fireTree.node16, IUniversal.fireTree.node16, "level", 1, "uniFree", IUniversal.buyFireTree, IUniversal.fireTree.node16, IUniversalIn.fireTree.node16);
+
+    if (f(IUniversal.fireTree.node17.level).lt(f(IUniversalIn.fireTree.node17.maxLevel)))
+      buyMultiple(IUniversalIn.fireTree.node17, IUniversalIn.fireTree.node17, IUniversal.fireTree.node17, "level", 1, "uniFree", IUniversal.buyFireTree, IUniversal.fireTree.node17, IUniversalIn.fireTree.node17);
+
+    if (f(IUniversal.fireTree.node18.level).lt(f(IUniversalIn.fireTree.node18.maxLevel)))
+      buyMultiple(IUniversalIn.fireTree.node18, IUniversalIn.fireTree.node18, IUniversal.fireTree.node18, "level", 1, "uniFree", IUniversal.buyFireTree, IUniversal.fireTree.node18, IUniversalIn.fireTree.node18);
+
+    if (f(IUniversal.fireTree.node19.level).lt(f(IUniversalIn.fireTree.node19.maxLevel)))
+      buyMultiple(IUniversalIn.fireTree.node19, IUniversalIn.fireTree.node19, IUniversal.fireTree.node19, "level", 1, "uniFree", IUniversal.buyFireTree, IUniversal.fireTree.node19, IUniversalIn.fireTree.node19);
+
+    if (f(IUniversal.fireTree.node20.level).lt(f(IUniversalIn.fireTree.node20.maxLevel)))
+      buyMultiple(IUniversalIn.fireTree.node20, IUniversalIn.fireTree.node20, IUniversal.fireTree.node20, "level", 1, "uniFree", IUniversal.buyFireTree, IUniversal.fireTree.node20, IUniversalIn.fireTree.node20);
+
+    if (f(IUniversal.fireTree.node21.level).lt(f(IUniversalIn.fireTree.node21.maxLevel)))
+      buyMultiple(IUniversalIn.fireTree.node21, IUniversalIn.fireTree.node21, IUniversal.fireTree.node21, "level", 1, "uniFree", IUniversal.buyFireTree, IUniversal.fireTree.node21, IUniversalIn.fireTree.node21);
+
+    if (f(IUniversal.fireTree.node22.level).lt(f(IUniversalIn.fireTree.node22.maxLevel)))
+      buyMultiple(IUniversalIn.fireTree.node22, IUniversalIn.fireTree.node22, IUniversal.fireTree.node22, "level", 1, "uniFree", IUniversal.buyFireTree, IUniversal.fireTree.node22, IUniversalIn.fireTree.node22);
+
+    if (f(IUniversal.fireTree.node23.level).lt(f(IUniversalIn.fireTree.node23.maxLevel)))
+      buyMultiple(IUniversalIn.fireTree.node23, IUniversalIn.fireTree.node23, IUniversal.fireTree.node23, "level", 1, "uniFree", IUniversal.buyFireTree, IUniversal.fireTree.node23, IUniversalIn.fireTree.node23);
+
+    if (f(IUniversal.fireTree.node24.level).lt(f(IUniversalIn.fireTree.node24.maxLevel)))
+      buyMultiple(IUniversalIn.fireTree.node24, IUniversalIn.fireTree.node24, IUniversal.fireTree.node24, "level", 1, "uniFree", IUniversal.buyFireTree, IUniversal.fireTree.node24, IUniversalIn.fireTree.node24);
+
+    if (f(IUniversal.fireTree.node25.level).lt(f(IUniversalIn.fireTree.node25.maxLevel)))
+      buyMultiple(IUniversalIn.fireTree.node25, IUniversalIn.fireTree.node25, IUniversal.fireTree.node25, "level", 1, "uniFree", IUniversal.buyFireTree, IUniversal.fireTree.node25, IUniversalIn.fireTree.node25);
+
+    if (f(IUniversal.fireTree.node26.level).lt(f(IUniversalIn.fireTree.node26.maxLevel)))
+      buyMultiple(IUniversalIn.fireTree.node26, IUniversalIn.fireTree.node26, IUniversal.fireTree.node26, "level", 1, "uniFree", IUniversal.buyFireTree, IUniversal.fireTree.node26, IUniversalIn.fireTree.node26);
+
+
+    if (f(IUniversal.fireTree.node45.level).lt(f(IUniversalIn.fireTree.node45.maxLevel)))
+      buyMultiple(IUniversalIn.fireTree.node45, IUniversalIn.fireTree.node45, IUniversal.fireTree.node45, "level", 1, "uniFree", IUniversal.buyFireTree, IUniversal.fireTree.node45, IUniversalIn.fireTree.node45);
+
+    if (f(IUniversal.fireTree.node46.level).lt(f(IUniversalIn.fireTree.node46.maxLevel)))
+      buyMultiple(IUniversalIn.fireTree.node46, IUniversalIn.fireTree.node46, IUniversal.fireTree.node46, "level", 1, "uniFree", IUniversal.buyFireTree, IUniversal.fireTree.node46, IUniversalIn.fireTree.node46);
+
+    if (f(IUniversal.fireTree.node47.level).lt(f(IUniversalIn.fireTree.node47.maxLevel)))
+      buyMultiple(IUniversalIn.fireTree.node47, IUniversalIn.fireTree.node47, IUniversal.fireTree.node47, "level", 1, "uniFree", IUniversal.buyFireTree, IUniversal.fireTree.node47, IUniversalIn.fireTree.node47);
+
+    if (f(IUniversal.fireTree.node61.level).lt(f(IUniversalIn.fireTree.node61.maxLevel)))
+      buyMultiple(IUniversalIn.fireTree.node61, IUniversalIn.fireTree.node61, IUniversal.fireTree.node61, "level", 1, "uniFree", IUniversal.buyFireTree, IUniversal.fireTree.node61, IUniversalIn.fireTree.node61);
+
+    if (f(IUniversal.fireTree.node62.level).lt(f(IUniversalIn.fireTree.node62.maxLevel)))
+      buyMultiple(IUniversalIn.fireTree.node62, IUniversalIn.fireTree.node62, IUniversal.fireTree.node62, "level", 1, "uniFree", IUniversal.buyFireTree, IUniversal.fireTree.node62, IUniversalIn.fireTree.node62);
+
+  }
+
 }
 
 var arrowCache = null;
