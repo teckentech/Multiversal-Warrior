@@ -25119,10 +25119,16 @@ function valuesSetter(type) {
   var aff3 = f(IUniversalIn.armyInfo.soul.affinities.affinity3.value)
   var aff4 = f(IUniversalIn.armyInfo.soul.affinities.affinity4.value)
 
-  if (getTreasureActive("treasure33")) { var aff = f(IUniversalIn.treasures.treasure33.effect) } else { aff = f(1) }
+  if (getTreasureActive("treasure33")) { var aff5 = f(IUniversalIn.treasures.treasure33.effect1) } else { aff5 = f(1) }
+  if (getTreasureActive("treasure33")) { var aff6 = f(IUniversalIn.treasures.treasure33.effect2) } else { aff6 = f(1) }
 
-  if (aff1.gt(aff2) && aff1.gt(aff3) && aff1.gt(aff4)) {
-    IUniversalIn.armyInfo.soul.affinities.affinity1.value = f(IUniversalIn.armyInfo.soul.affinities.affinity1.value).mul(aff)
+  if (aff1.gte(aff2) && aff1.gte(aff3) && aff1.gte(aff4)) {
+    IUniversalIn.armyInfo.soul.affinities.affinity1.value = f(IUniversalIn.armyInfo.soul.affinities.affinity1.value).mul(aff5)
+    IUniversalIn.armyInfo.soul.affinities.affinity1.baseValue = f(IUniversalIn.armyInfo.soul.affinities.affinity1.baseValue).mul(aff5)
+  }
+  if (aff1.lte(aff2) && aff1.lte(aff3) && aff1.lte(aff4)) {
+    IUniversalIn.armyInfo.soul.affinities.affinity1.value = f(IUniversalIn.armyInfo.soul.affinities.affinity1.value).mul(aff6)
+    IUniversalIn.armyInfo.soul.affinities.affinity1.baseValue = f(IUniversalIn.armyInfo.soul.affinities.affinity1.baseValue).mul(aff6)
   }
 
   //water affinity
@@ -25172,11 +25178,23 @@ function valuesSetter(type) {
   var aff3 = f(IUniversalIn.armyInfo.soul.affinities.affinity3.value)
   var aff4 = f(IUniversalIn.armyInfo.soul.affinities.affinity4.value)
 
-  if (getTreasureActive("treasure33")) { var aff = f(IUniversalIn.treasures.treasure33.effect) } else { aff = f(1) }
+  if (getTreasureActive("treasure33")) { var aff5 = f(IUniversalIn.treasures.treasure33.effect1) } else { aff5 = f(1) }
+  if (getTreasureActive("treasure33")) { var aff6 = f(IUniversalIn.treasures.treasure33.effect2) } else { aff6 = f(1) }
 
-  if (aff2.gt(aff1) && aff2.gt(aff3) && aff2.gt(aff4)) {
-    IUniversalIn.armyInfo.soul.affinities.affinity2.value = f(IUniversalIn.armyInfo.soul.affinities.affinity2.value).mul(aff)
+  console.log(getTreasureActive("treasure33"))
+
+  console.log(format(f(IUniversalIn.armyInfo.soul.affinities.affinity2.value)))
+
+  if (aff2.gte(aff1) && aff2.gte(aff3) && aff2.gte(aff4)) {
+    IUniversalIn.armyInfo.soul.affinities.affinity2.value = f(IUniversalIn.armyInfo.soul.affinities.affinity2.value).mul(aff5)
+    IUniversalIn.armyInfo.soul.affinities.affinity2.baseValue = f(IUniversalIn.armyInfo.soul.affinities.affinity2.baseValue).mul(aff5)
   }
+  if (aff2.lte(aff1) && aff2.lte(aff3) && aff2.lte(aff4)) {
+    IUniversalIn.armyInfo.soul.affinities.affinity2.value = f(IUniversalIn.armyInfo.soul.affinities.affinity2.value).mul(aff6)
+    IUniversalIn.armyInfo.soul.affinities.affinity2.baseValue = f(IUniversalIn.armyInfo.soul.affinities.affinity2.baseValue).mul(aff6)
+  }
+  
+  console.log(format(f(IUniversalIn.armyInfo.soul.affinities.affinity2.value)))
 
   //earth affinity
 
@@ -25224,10 +25242,16 @@ function valuesSetter(type) {
   var aff3 = f(IUniversalIn.armyInfo.soul.affinities.affinity3.value)
   var aff4 = f(IUniversalIn.armyInfo.soul.affinities.affinity4.value)
 
-  if (getTreasureActive("treasure33")) { var aff = f(IUniversalIn.treasures.treasure33.effect) } else { aff = f(1) }
+  if (getTreasureActive("treasure33")) { var aff5 = f(IUniversalIn.treasures.treasure33.effect1) } else { aff5 = f(1) }
+  if (getTreasureActive("treasure33")) { var aff6 = f(IUniversalIn.treasures.treasure33.effect2) } else { aff6 = f(1) }
 
-  if (aff3.gt(aff1) && aff3.gt(aff2) && aff3.gt(aff4)) {
-    IUniversalIn.armyInfo.soul.affinities.affinity3.value = f(IUniversalIn.armyInfo.soul.affinities.affinity3.value).mul(aff)
+  if (aff3.gte(aff1) && aff3.gte(aff2) && aff3.gte(aff4)) {
+    IUniversalIn.armyInfo.soul.affinities.affinity3.value = f(IUniversalIn.armyInfo.soul.affinities.affinity3.value).mul(aff5)
+    IUniversalIn.armyInfo.soul.affinities.affinity3.baseValue = f(IUniversalIn.armyInfo.soul.affinities.affinity3.baseValue).mul(aff5)
+  }
+  if (aff3.lte(aff1) && aff3.lte(aff2) && aff3.lte(aff4)) {
+    IUniversalIn.armyInfo.soul.affinities.affinity3.value = f(IUniversalIn.armyInfo.soul.affinities.affinity3.value).mul(aff6)
+    IUniversalIn.armyInfo.soul.affinities.affinity3.baseValue = f(IUniversalIn.armyInfo.soul.affinities.affinity3.baseValue).mul(aff6)
   }
 
   //wind affinity
@@ -25273,10 +25297,16 @@ function valuesSetter(type) {
   var aff3 = f(IUniversalIn.armyInfo.soul.affinities.affinity3.value)
   var aff4 = f(IUniversalIn.armyInfo.soul.affinities.affinity4.value)
 
-  if (getTreasureActive("treasure33")) { var aff = f(IUniversalIn.treasures.treasure33.effect) } else { aff = f(1) }
+  if (getTreasureActive("treasure33")) { var aff5 = f(IUniversalIn.treasures.treasure33.effect1) } else { aff5 = f(1) }
+  if (getTreasureActive("treasure33")) { var aff6 = f(IUniversalIn.treasures.treasure33.effect2) } else { aff6 = f(1) }
 
-  if (aff4.gt(aff1) && aff4.gt(aff2) && aff4.gt(aff3)) {
-    IUniversalIn.armyInfo.soul.affinities.affinity4.value = f(IUniversalIn.armyInfo.soul.affinities.affinity4.value).mul(aff)
+  if (aff4.gte(aff1) && aff4.gte(aff2) && aff4.gte(aff3)) {
+    IUniversalIn.armyInfo.soul.affinities.affinity4.value = f(IUniversalIn.armyInfo.soul.affinities.affinity4.value).mul(aff5)
+    IUniversalIn.armyInfo.soul.affinities.affinity4.baseValue = f(IUniversalIn.armyInfo.soul.affinities.affinity4.baseValue).mul(aff5)
+  }
+  if (aff4.lte(aff1) && aff4.lte(aff2) && aff4.lte(aff3)) {
+    IUniversalIn.armyInfo.soul.affinities.affinity4.value = f(IUniversalIn.armyInfo.soul.affinities.affinity4.value).mul(aff6)
+    IUniversalIn.armyInfo.soul.affinities.affinity4.baseValue = f(IUniversalIn.armyInfo.soul.affinities.affinity4.baseValue).mul(aff6)
   }
 
   var aff1 = f(IUniversalIn.armyInfo.soul.affinities.affinity1.value)
@@ -26229,7 +26259,7 @@ function valuesSetter(type) {
   sel2.effect1 = f(1.5).add(f(0.2).mul(f(sel1.level)))
   sel2.effect2 = f(1.2).add(f(0.05).mul(f(sel1.level)))
 
-  if (getTreasureActive("treasure27")) {
+  if (getTreasureActive("treasure33")) {
     sel1.equip = true;
   } else {
     sel1.equip = false;
