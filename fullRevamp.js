@@ -14008,9 +14008,6 @@ function valuesSetterCycle(type) {
 
   sel2.button = `<div class="centerDiv noClick">RESET</div>`
 
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
 
   //NODE 85
   var sel = IUniversal.fireTree.node85
@@ -14024,9 +14021,6 @@ function valuesSetterCycle(type) {
 
   sel2.button = `<div class="centerDiv noClick">RESET</div>`
 
-  if (f(sel.level).gte(f(sel2.maxLevel))) {
-    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
-  }
 
   //NODE 86
   var sel = IUniversal.fireTree.node86
