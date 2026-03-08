@@ -15768,6 +15768,17 @@ function valuesSetterCycle(type) {
   //FORGE
 
   //miners
+
+  if((IUniversal.windTree.node18.active)){
+    var ore1 = `
+          <div class="height10 width100 column centerDiv backgroundOrange3 roundedEdges">
+            <div><span class="boldBlackBorder">${format(f(IUniversal.obsidian), 2)}</span> Obsidian</div>
+            <div><span class="boldBlackBorder">${format(sec(IUniversal.obsidianProd), 2)}/s</span></div>
+          </div>`
+  }else{
+    ore1 = ""
+  }
+
   IUniversalIn.forgeValute1 =
     `<div class="height100 width100 bDefaultStyle transparent column padding2 centerDivTop">
           <div class="height10 width100 column centerDiv backgroundOrange3 roundedEdges">
@@ -15778,10 +15789,7 @@ function valuesSetterCycle(type) {
             <div><span class="boldBlackBorder">${format(f(IUniversal.silver), 2)}</span> Silver</div>
             <div><span class="boldBlackBorder">${format(sec(IUniversal.silverProd), 2)}/s</span></div>
           </div>
-          <div class="height10 width100 column centerDiv backgroundOrange3 roundedEdges">
-            <div><span class="boldBlackBorder">${format(f(IUniversal.obsidian), 2)}</span> Obsidian</div>
-            <div><span class="boldBlackBorder">${format(sec(IUniversal.obsidianProd), 2)}/s</span></div>
-          </div>
+          ${ore1}
         </div>`
 
 
