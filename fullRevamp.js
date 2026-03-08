@@ -28304,7 +28304,7 @@ function valuesSetterDinamic(type) {
 
   //erbs
 
-  if (f(IUniversal.erbs).lt(f(IUniversal.erbsMax))) {
+  if ((f(IUniversal.erbs).add(f(IUniversal.erbsProd))).lt(f(IUniversal.erbsMax))) {
     IUniversal.erbs = f(IUniversal.erbs).add(f(IUniversal.erbsProd))
   } else {
     IUniversal.erbs = f(IUniversal.erbsMax)
@@ -28332,7 +28332,7 @@ function valuesSetterDinamic(type) {
 
   //FluidFire
 
-  if (f(IUniversal.fluidFire).lt(f(IUniversal.fluidFireMax))) {
+  if ((f(IUniversal.fluidFire).add(f(IUniversal.fluidFireProd))).lt(f(IUniversal.fluidFireMax))) {
     IUniversal.fluidFire = f(IUniversal.fluidFire).add(f(IUniversal.fluidFireProd))
   } else {
     IUniversal.fluidFire = f(IUniversal.fluidFireMax)
@@ -28360,7 +28360,7 @@ function valuesSetterDinamic(type) {
 
   //water gem
 
-  if (f(IUniversal.waterGem).lt(f(IUniversal.waterGemMax))) {
+  if ((f(IUniversal.waterGem).add(f(IUniversal.waterGemProd))).lt(f(IUniversal.waterGemMax))) {
     IUniversal.waterGem = f(IUniversal.waterGem).add(f(IUniversal.waterGemProd))
   } else {
     IUniversal.waterGem = f(IUniversal.waterGemMax)
@@ -28388,7 +28388,7 @@ function valuesSetterDinamic(type) {
 
   //pyroFrost
 
-  if (f(IUniversal.pyroFrost).lt(f(IUniversal.pyroFrostMax))) {
+  if ((f(IUniversal.pyroFrost).add(f(IUniversal.pyroFrostProd))).lt(f(IUniversal.pyroFrostMax))) {
     IUniversal.pyroFrost = f(IUniversal.pyroFrost).add(f(IUniversal.pyroFrostProd))
   } else {
     IUniversal.pyroFrost = f(IUniversal.pyroFrostMax)
