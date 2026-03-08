@@ -6792,7 +6792,7 @@ class ShowableClass {
       content2_21_under1_2_item2: false,
       content2_21_under1_2_item3: false,
       content2_21_under1_2_item4: false,
-      
+
       content2_21_under1_3_item1: false,
       content2_21_under1_3_item2: false,
       content2_21_under1_3_item3: false,
@@ -11513,7 +11513,7 @@ function valuesSetterCycle(type) {
 
   sel2.reqDescription = `
   <div class="width100">
-    <div><i>Why suddenly every knight wants to duel me? Werent Challengers enought?</i></div>
+    <div><i>Why suddenly every knight wants to duel me? Weren't Challengers enought?</i></div>
     <div>Reach 1e4 Damage to unlock Knight  (${format(f(IFight.youStats.damage), 1)} / 1e4)</div>
   </div>`;
 
@@ -25095,7 +25095,7 @@ function valuesSetter(type) {
 
   if (getTreasureActive("treasure29")) { var aff10 = f(IUniversalIn.treasures.treasure29.effect) } else { aff10 = f(0) }
 
-        if (getTreasureActive("treasure32")) { var aff12 = f(IUniversalIn.treasures.treasure32.effect2) } else { aff12 = f(0) }
+  if (getTreasureActive("treasure32")) { var aff12 = f(IUniversalIn.treasures.treasure32.effect2) } else { aff12 = f(0) }
 
 
 
@@ -25161,9 +25161,9 @@ function valuesSetter(type) {
 
   if (getTreasureActive("treasure29")) { var aff9 = f(IUniversalIn.treasures.treasure29.effect) } else { aff9 = f(0) }
 
-      if (getTreasureActive("treasure32")) { var aff10 = f(IUniversalIn.treasures.treasure32.effect2) } else { aff10 = f(0) }
+  if (getTreasureActive("treasure32")) { var aff10 = f(IUniversalIn.treasures.treasure32.effect2) } else { aff10 = f(0) }
 
-        if (getTreasureActive("treasure30")) { var aff11 = f(IUniversalIn.treasures.treasure30.effect) } else { aff11 = f(1) }
+  if (getTreasureActive("treasure30")) { var aff11 = f(IUniversalIn.treasures.treasure30.effect) } else { aff11 = f(1) }
 
 
 
@@ -25200,7 +25200,7 @@ function valuesSetter(type) {
     IUniversalIn.armyInfo.soul.affinities.affinity2.value = f(IUniversalIn.armyInfo.soul.affinities.affinity2.value).mul(aff6)
     IUniversalIn.armyInfo.soul.affinities.affinity2.baseValue = f(IUniversalIn.armyInfo.soul.affinities.affinity2.baseValue).mul(aff6)
   }
-  
+
   console.log(format(f(IUniversalIn.armyInfo.soul.affinities.affinity2.value)))
 
   //earth affinity
@@ -25232,8 +25232,8 @@ function valuesSetter(type) {
     aff8 = 1
   }
 
-  
-    if (getTreasureActive("treasure32")) { var aff9 = f(IUniversalIn.treasures.treasure32.effect2) } else { aff9 = f(0) }
+
+  if (getTreasureActive("treasure32")) { var aff9 = f(IUniversalIn.treasures.treasure32.effect2) } else { aff9 = f(0) }
 
   IUniversalIn.armyInfo.soul.affinities.affinity3.value = ((f(1).add(aff1).add(aff2).add(aff6).add(aff7).minus(aff5).add(aff9)).mul(aff4).mul(aff8)).dividedBy(f(aff3))
 
@@ -25290,8 +25290,8 @@ function valuesSetter(type) {
     aff8 = 1
   }
 
-  
-    if (getTreasureActive("treasure32")) { var aff9 = f(IUniversalIn.treasures.treasure32.effect2) } else { aff9 = f(0) }
+
+  if (getTreasureActive("treasure32")) { var aff9 = f(IUniversalIn.treasures.treasure32.effect2) } else { aff9 = f(0) }
 
   IUniversalIn.armyInfo.soul.affinities.affinity4.value = ((f(1).add(aff4).add(aff7).minus(aff6).add(aff9)).mul(aff2).mul(aff8)).dividedBy(f(aff5))
 
@@ -32997,8 +32997,9 @@ function visualChallenger(type) {
   }
   else {
     update("c2_4_VS", `<span class="boldBlackBorder noClick">STOP</span>
-                       <span class="noClick fontSize08 margin1">Increase fight speed every 5s</span>
-                       <span class="noClick fontSize08 margin1">×${format(f(IFight.onFightStats.fightMulti1))} fight speed</span>`)
+                       <span class="noClick fontSize08 margin1">Increase fight speed every 3s</span>
+                       <span class="noClick fontSize08 margin1">×${format(f(IFight.onFightStats.fightMulti1))} fight speed</span>
+                       <span class="noClick fontSize08 margin1">Skip fight at 20s</span>`)
     document.getElementById("c2_4_VS").style.backgroundColor = "#972a2aff"
   }
 
@@ -33086,8 +33087,9 @@ function visualChallenger(type) {
   }
   else {
     update("c2_10_VS", `<span class="boldBlackBorder noClick">STOP</span>
-                       <span class="noClick fontSize08 margin1">Increase fight speed every 5s</span>
-                       <span class="noClick fontSize08 margin1">×${format(f(IFight.onFightStats.fightMulti2))} fight speed</span>`)
+                       <span class="noClick fontSize08 margin1">Increase fight speed every 3s</span>
+                       <span class="noClick fontSize08 margin1">×${format(f(IFight.onFightStats.fightMulti2))} fight speed</span>
+                       <span class="noClick fontSize08 margin1">Skip fight at 20s</span>`)
     document.getElementById("c2_10_VS").style.backgroundColor = "#972a2aff"
   }
 
@@ -35053,9 +35055,7 @@ function visualWindTree() {
   //exp
 
   if (IFight.youStats.onFight3) {
-    update("content2_23_expeditionPage_b1", `<span class="boldBlackBorder noClick">STOP</span>
-                       <span class="noClick fontSize08 margin1">Increase fight speed every 5s</span>
-                       <span class="noClick fontSize08 margin1">×${format(f(IFight.onFightStats.fightMulti3))} fight speed</span>`)
+    update("content2_23_expeditionPage_b1", `<span class="boldBlackBorder noClick">STOP</span>`)
     document.getElementById("content2_23_expeditionPage_b1").style.backgroundColor = "#972a2aff"
   }
   else {
@@ -35073,9 +35073,7 @@ function visualWindTree() {
   //crusade
 
   if (IFight.youStats.onFight3) {
-    update("content2_23_crusadePage_b1", `<span class="boldBlackBorder noClick">STOP</span>
-                       <span class="noClick fontSize08 margin1">Increase fight speed every 5s</span>
-                       <span class="noClick fontSize08 margin1">×${format(f(IFight.onFightStats.fightMulti3))} fight speed</span>`)
+    update("content2_23_crusadePage_b1", `<span class="boldBlackBorder noClick">STOP</span>`)
     document.getElementById("content2_23_crusadePage_b1").style.backgroundColor = "#972a2aff"
   }
   else {
@@ -35744,6 +35742,7 @@ async function fight(type, enemy, enemyIn = "", signal) {
     IFight.onFightStats.damage = IFight.youStats.damage;
 
     var fightMultiCont = 0
+    var fightMultiTimes = 0
     IFight.onFightStats.fightMulti1 = f(1)
 
     var abortHandler1 = () => { }
@@ -35771,9 +35770,10 @@ async function fight(type, enemy, enemyIn = "", signal) {
           break;
         }
 
-        if (fightMultiCont >= (5000 / delay)) {
-          IFight.onFightStats.fightMulti1 = f(IFight.onFightStats.fightMulti1).mul(f(2))
+        if (fightMultiCont >= (3000 / delay)) {
+          IFight.onFightStats.fightMulti1 = f(IFight.onFightStats.fightMulti1).mul(f(5))
           fightMultiCont = 0
+          fightMultiTimes = fightMultiTimes + 1
         } else {
           fightMultiCont = fightMultiCont + 1;
         }
@@ -35789,6 +35789,38 @@ async function fight(type, enemy, enemyIn = "", signal) {
         IFight.challengers.baseChallenger.leftLife = f(IFight.challengers.baseChallenger.leftLife).minus(f(playerDamage));
         //enemy attack
         IFight.onFightStats.leftLife = f(IFight.onFightStats.leftLife).minus(f(enemyDamage));
+
+        if (fightMultiTimes >= 7) {
+          if ((f(playerDamage).mul(IFight.onFightStats.leftLife)).gt((f(enemyDamage).mul(IFight.challengers.baseChallenger.leftLife)))) {
+
+            const level = f(IFight.challengers.baseChallenger.level)
+            if (level.dividedBy(10).floor().times(10).eq(level)) {
+              rewardSet("finalBase")
+              visualChallenger()
+              flashFight("baseChallengerW")
+              await sleep(1000);
+              flashFight("baseChallengerR")
+              IFight.youStats.onFight1 = false;
+              return
+            }
+
+            rewardSet("base")
+            visualChallenger()
+            flashFight("baseChallengerW")
+            await sleep(1000);
+            flashFight("baseChallengerR")
+            IFight.youStats.onFight1 = false;
+            return;
+          } else {
+
+            visualChallenger()
+            flashFight("baseChallengerL")
+            await sleep(1000);
+            flashFight("baseChallengerR")
+            IFight.youStats.onFight1 = false;
+            return;
+          }
+        }
 
 
         if (f(IFight.onFightStats.leftLife).lt(f(0)) && f(IFight.challengers.baseChallenger.leftLife).lt(f(0))) {
@@ -35887,6 +35919,7 @@ async function fight(type, enemy, enemyIn = "", signal) {
         IUniversalChallenger.challengers.universalChallenger.leftLife = IUniversalChallenger.challengers.universalChallenger.life;
 
         var fightMultiCont = 0
+        var fightMultiTimes = 0
         IFight.onFightStats.fightMulti2 = f(1)
 
         visualChallenger("universalChallengerChallenge")
@@ -35900,9 +35933,10 @@ async function fight(type, enemy, enemyIn = "", signal) {
             }
             await sleep(delay);
 
-            if (fightMultiCont >= (5000 / delay)) {
-              IFight.onFightStats.fightMulti2 = f(IFight.onFightStats.fightMulti2).mul(f(2))
+            if (fightMultiCont >= (3000 / delay)) {
+              IFight.onFightStats.fightMulti2 = f(IFight.onFightStats.fightMulti2).mul(f(5))
               fightMultiCont = 0
+              fightMultiTimes = fightMultiTimes + 1
             } else {
               fightMultiCont = fightMultiCont + 1;
             }
@@ -35915,6 +35949,28 @@ async function fight(type, enemy, enemyIn = "", signal) {
 
             IUniversalChallenger.challengers.universalChallenger.leftLife = f(IUniversalChallenger.challengers.universalChallenger.leftLife).minus(playerDamage);
             IFight.onFightStats.leftLife2 = f(IFight.onFightStats.leftLife2).minus(enemyDamage);
+
+            if (fightMultiTimes >= 7) {
+              if ((f(playerDamage).mul(IFight.onFightStats.leftLife2)).gt((f(enemyDamage).mul(IUniversalChallenger.challengers.universalChallenger.leftLife)))) {
+
+                rewardSet("universalBase");
+                valuesSetter();
+                visualChallenger();
+                flashFight("universalChallengerW")
+                await sleep(1000);
+                break;
+              } else {
+
+                rewardSet("lostUniversalBase");
+                IFight.youStats.onFight2 = false;
+                valuesSetter();
+                visualChallenger();
+                flashFight("universalChallengerL")
+                await sleep(1000);
+                flashFight("universalChallengerR")
+                return;
+              }
+            }
 
             if (f(IFight.onFightStats.leftLife2).lt(f(0)) && f(IUniversalChallenger.challengers.universalChallenger.leftLife).lt(f(0))) {
               if (f(IFight.onFightStats.leftLife2).gte(f(IUniversalChallenger.challengers.universalChallenger.leftLife))) {
@@ -36002,6 +36058,7 @@ async function fight(type, enemy, enemyIn = "", signal) {
         valuesSetter();
 
         var fightMultiCont = 0
+        var fightMultiTimes = 0
         IFight.onFightStats.fightMulti2 = f(1)
 
 
@@ -36020,9 +36077,10 @@ async function fight(type, enemy, enemyIn = "", signal) {
             }
             await sleep(delay);
 
-            if (fightMultiCont >= (5000 / delay)) {
-              IFight.onFightStats.fightMulti2 = f(IFight.onFightStats.fightMulti2).mul(f(2))
+            if (fightMultiCont >= (3000 / delay)) {
+              IFight.onFightStats.fightMulti2 = f(IFight.onFightStats.fightMulti2).mul(f(5))
               fightMultiCont = 0
+              fightMultiTimes = fightMultiTimes + 1
             } else {
               fightMultiCont = fightMultiCont + 1;
             }
@@ -36032,6 +36090,31 @@ async function fight(type, enemy, enemyIn = "", signal) {
 
             IUniversalChallenger.challengers.universalChallenger.leftLife = f(IUniversalChallenger.challengers.universalChallenger.leftLife).minus(playerDamage);
             IFight.onFightStats.leftLife2 = f(IFight.onFightStats.leftLife2).minus(enemyDamage);
+
+            if (fightMultiTimes >= 7) {
+              if ((f(playerDamage).mul(IFight.onFightStats.leftLife2)).gt((f(enemyDamage).mul(IUniversalChallenger.challengers.universalChallenger.leftLife)))) {
+
+                rewardSet("universalChallenge1Win");
+                valuesSetter();
+                visualChallenger();
+                flashFight("universalChallengerW")
+                await sleep(1000);
+                flashFight("universalChallengerR")
+                break;
+              } else {
+
+                rewardSet("universalChallenge1Lost");
+
+                IFight.youStats.onFight2 = false;
+                IUniversalChallenger.universalChallengerChallenges.c1.active = false
+                valuesSetter();
+                visualChallenger();
+                flashFight("universalChallengerL")
+                await sleep(1000);
+                flashFight("universalChallengerR")
+                return;
+              }
+            }
 
             if (f(IFight.onFightStats.leftLife2).lt(f(0)) && f(IUniversalChallenger.challengers.universalChallenger.leftLife).lt(f(0))) {
               if (f(IFight.onFightStats.leftLife2).gte(f(IUniversalChallenger.challengers.universalChallenger.leftLife))) {
@@ -36129,6 +36212,7 @@ async function fight(type, enemy, enemyIn = "", signal) {
         IUniversalChallenger.challengers.universalChallenger.leftLife = IUniversalChallenger.challengers.universalChallenger.life;
 
         var fightMultiCont = 0
+        var fightMultiTimes = 0
         IFight.onFightStats.fightMulti2 = f(1)
 
         visualChallenger("universalChallengerChallenge")
@@ -36142,9 +36226,10 @@ async function fight(type, enemy, enemyIn = "", signal) {
             }
             await sleep(delay);
 
-            if (fightMultiCont >= (5000 / delay)) {
-              IFight.onFightStats.fightMulti2 = f(IFight.onFightStats.fightMulti2).mul(f(2))
+            if (fightMultiCont >= (3000 / delay)) {
+              IFight.onFightStats.fightMulti2 = f(IFight.onFightStats.fightMulti2).mul(f(5))
               fightMultiCont = 0
+              fightMultiTimes = fightMultiTimes + 1
             } else {
               fightMultiCont = fightMultiCont + 1;
             }
@@ -36158,6 +36243,29 @@ async function fight(type, enemy, enemyIn = "", signal) {
             IUniversalChallenger.challengers.universalChallenger.leftLife = f(IUniversalChallenger.challengers.universalChallenger.leftLife).minus(playerDamage);
             IFight.onFightStats.leftLife2 = f(IFight.onFightStats.leftLife2).minus(enemyDamage);
 
+            if (fightMultiTimes >= 7) {
+              if ((f(playerDamage).mul(IFight.onFightStats.leftLife2)).gt((f(enemyDamage).mul(IUniversalChallenger.challengers.universalChallenger.leftLife)))) {
+
+                rewardSet("universalChallenge2Win");
+                valuesSetter();
+                visualChallenger();
+                flashFight("universalChallengerW")
+                await sleep(1000);
+                flashFight("universalChallengerR")
+                break;
+              } else {
+
+                rewardSet("universalChallenge2Lost");
+                IFight.youStats.onFight2 = false;
+                IUniversalChallenger.universalChallengerChallenges.c2.active = false
+                valuesSetter();
+                visualChallenger()
+                flashFight("universalChallengerL")
+                await sleep(1000);
+                flashFight("universalChallengerR")
+                return;
+              }
+            }
 
             if (f(IFight.onFightStats.leftLife2).lt(f(0)) && f(IUniversalChallenger.challengers.universalChallenger.leftLife).lt(f(0))) {
               if (f(IFight.onFightStats.leftLife2).gte(f(IUniversalChallenger.challengers.universalChallenger.leftLife))) {
@@ -36248,12 +36356,14 @@ async function fight(type, enemy, enemyIn = "", signal) {
           break;
         }
 
+        /*
         if (fightMultiCont >= (5000 / delay)) {
           IFight.onFightStats.fightMulti3 = f(IFight.onFightStats.fightMulti3).mul(f(2))
           fightMultiCont = 0
         } else {
           fightMultiCont = fightMultiCont + 1;
         }
+          */
 
         IUniversal.armyInfo.default.leftLife = IUniversal.armyInfo.default.leftLife;
 
@@ -36354,12 +36464,14 @@ async function fight(type, enemy, enemyIn = "", signal) {
           break;
         }
 
+        /*
         if (fightMultiCont >= (5000 / delay)) {
           IFight.onFightStats.fightMulti3 = f(IFight.onFightStats.fightMulti3).mul(f(2))
           fightMultiCont = 0
         } else {
           fightMultiCont = fightMultiCont + 1;
         }
+          */
 
         IUniversal.armyInfo.elemental.leftLife = IUniversal.armyInfo.elemental.leftLife;
 
