@@ -17794,7 +17794,7 @@ function valuesSetterCycle(type) {
     <div class="height50 width100 row ">
       <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
       </div>
-      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Water affinity +1% Fire Affinity (${format(f(sel1.level), 0)}%, +${format(f(sel2.effect), 1)})</div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Water affinity +1% of Fire affinity (${format(f(sel1.level), 0)}%, +${format(f(sel2.effect), 1)})</div>
 
     </div>
     
@@ -17802,7 +17802,7 @@ function valuesSetterCycle(type) {
   </div>`
 
   sel2.content3 = `
-      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Water affinity +1% Fire Affinity (${format(f(sel1.level), 0)}%, +${format(f(sel2.effect), 1)})</div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Water affinity +1% of Fire affinity (${format(f(sel1.level), 0)}%, +${format(f(sel2.effect), 1)})</div>
   `
 
   //Treasure 31
