@@ -9815,28 +9815,28 @@ function valuesSetterInit(type) {
   var sel2 = IUniversalIn.forge.item1
 
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.forge.item1.priceIdentity, IUniversalIn.forge.item1.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.forge.item1.active) }
+  sel2.req = function () { return true }
 
   //item2
   var sel = IUniversal.forge.item2
   var sel2 = IUniversalIn.forge.item2
 
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.forge.item2.priceIdentity, IUniversalIn.forge.item2.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.forge.item2.active) }
+  sel2.req = function () { return true }
 
   //item3
   var sel = IUniversal.forge.item3
   var sel2 = IUniversalIn.forge.item3
 
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.forge.item3.priceIdentity, IUniversalIn.forge.item3.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.forge.item3.active) }
+  sel2.req = function () { return true }
 
   //item4
   var sel = IUniversal.forge.item4
   var sel2 = IUniversalIn.forge.item4
 
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.forge.item4.priceIdentity, IUniversalIn.forge.item4.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.forge.item4.active) }
+  sel2.req = function () { return true }
 
   //item5
   var sel = IUniversal.forge.item5
@@ -9859,14 +9859,14 @@ function valuesSetterInit(type) {
   var sel2 = IUniversalIn.mine.item1
 
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.mine.item1.priceIdentity, IUniversalIn.mine.item1.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.mine.item1.active) }
+  sel2.req = function () { return true }
 
   //item2
   var sel = IUniversal.mine.item2
   var sel2 = IUniversalIn.mine.item2
 
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.mine.item2.priceIdentity, IUniversalIn.mine.item2.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.mine.item2.active) }
+  sel2.req = function () { return true }
 
   //item3
   var sel = IUniversal.mine.item3
@@ -9889,14 +9889,14 @@ function valuesSetterInit(type) {
   var sel2 = IUniversalIn.ore.item1
 
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.ore.item1.priceIdentity, IUniversalIn.ore.item1.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.ore.item1.active) }
+  sel2.req = function () { return true }
 
   //item2
   var sel = IUniversal.ore.item2
   var sel2 = IUniversalIn.ore.item2
 
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.ore.item2.priceIdentity, IUniversalIn.ore.item2.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.ore.item2.active) }
+  sel2.req = function () { return true }
 
   //item3
   var sel = IUniversal.ore.item3
