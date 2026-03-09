@@ -6781,20 +6781,20 @@ class ShowableClass {
       content2_21_under1_3: false,
       content2_21_under1_4: false,
 
-      content2_21_under1_1_item1: false,
-      content2_21_under1_1_item2: false,
-      content2_21_under1_1_item3: false,
-      content2_21_under1_1_item4: false,
+      content2_21_under1_1_item1: true,
+      content2_21_under1_1_item2: true,
+      content2_21_under1_1_item3: true,
+      content2_21_under1_1_item4: true,
       content2_21_under1_1_item5: false,
       content2_21_under1_1_item6: false,
 
-      content2_21_under1_2_item1: false,
-      content2_21_under1_2_item2: false,
+      content2_21_under1_2_item1: true,
+      content2_21_under1_2_item2: true,
       content2_21_under1_2_item3: false,
       content2_21_under1_2_item4: false,
 
-      content2_21_under1_3_item1: false,
-      content2_21_under1_3_item2: false,
+      content2_21_under1_3_item1: true,
+      content2_21_under1_3_item2: true,
       content2_21_under1_3_item3: false,
 
       content2_21_node1: false,
