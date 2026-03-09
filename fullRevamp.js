@@ -22256,7 +22256,7 @@ function valuesSetter(type) {
   sel2.maxLevel = f(1)
 
   if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(1000).pow(f(2).pow(f(IUniversal.hellPowers1PointsMax).minus(f(1))))
+    sel2.effect = f(100).pow(f(2).pow(f(IUniversal.hellPowers2PointsMax).minus(f(1))))
   } else {
     sel2.effect = f(1)
   }
@@ -22274,7 +22274,7 @@ function valuesSetter(type) {
   sel2.maxLevel = f(1)
 
   if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(500).pow(f(2).pow(f(IUniversal.hellPowers1PointsMax).minus(f(1))))
+    sel2.effect = f(100).pow(f(2).pow(f(IUniversal.hellPowers2PointsMax).minus(f(1))))
   } else {
     sel2.effect = f(1)
   }
@@ -22292,7 +22292,7 @@ function valuesSetter(type) {
   sel2.maxLevel = f(1)
 
   if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(2).pow(f(IUniversal.hellPowers1PointsMax).minus(f(1))))
+    sel2.effect = f(2).pow(f(2).pow(f(IUniversal.hellPowers2PointsMax).minus(f(1))))
   } else {
     sel2.effect = f(1)
   }
@@ -22310,7 +22310,7 @@ function valuesSetter(type) {
   sel2.maxLevel = f(1)
 
   if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(10).pow(f(2).pow(f(IUniversal.hellPowers1PointsMax).minus(f(1))))
+    sel2.effect = f(10).pow(f(2).pow(f(IUniversal.hellPowers2PointsMax).minus(f(1))))
   } else {
     sel2.effect = f(1)
   }
@@ -22328,7 +22328,7 @@ function valuesSetter(type) {
   sel2.maxLevel = f(1)
 
   if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(10).pow(f(2).pow(f(IUniversal.hellPowers1PointsMax).minus(f(1))))
+    sel2.effect = f(10).pow(f(2).pow(f(IUniversal.hellPowers2PointsMax).minus(f(1))))
   } else {
     sel2.effect = f(1)
   }
@@ -22346,7 +22346,7 @@ function valuesSetter(type) {
   sel2.maxLevel = f(1)
 
   if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(10).pow(f(2).pow(f(IUniversal.hellPowers1PointsMax).minus(f(1))))
+    sel2.effect = f(10).pow(f(2).pow(f(IUniversal.hellPowers2PointsMax).minus(f(1))))
   } else {
     sel2.effect = f(1)
   }
