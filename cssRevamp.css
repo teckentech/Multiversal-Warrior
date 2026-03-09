@@ -6728,32 +6728,14 @@ svg#content2_21_lineLayer {
   position: absolute;
   border-radius: 0.5em;
   gap: 0.5vw;
+
+  /* Griglia: 5 colonne e 20 righe */
   grid-template-columns: repeat(8, 1fr) !important;
   grid-template-rows: repeat(20, 1fr) !important;
+
   left: 50%;
   transform: translate(-50%, 0);
-
 }
-
-/* Chrome, Safari, Edge */
-#content2_21_treasureGrid::-webkit-scrollbar {
-  width: 1vw;
-}
-
-#content2_21_treasureGrid::-webkit-scrollbar-track {
-  background: #222;
-  border-radius: 0.5em;
-}
-
-#content2_21_treasureGrid::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 0.5em;
-}
-
-#content2_21_treasureGrid::-webkit-scrollbar-thumb:hover {
-  background: #aaa;
-}
-
 
 
 #content2_21_treasureGrid>* {
@@ -7040,26 +7022,6 @@ svg#content2_21_lineLayer {
 
   left: 50%;
   transform: translate(-50%, 0);
-}
-
-
-/* Chrome, Safari, Edge */
-#content2_23_treasureGrid::-webkit-scrollbar {
-  width: 1vw;
-}
-
-#content2_23_treasureGrid::-webkit-scrollbar-track {
-  background: #222;
-  border-radius: 0.5em;
-}
-
-#content2_23_treasureGrid::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 0.5em;
-}
-
-#content2_23_treasureGrid::-webkit-scrollbar-thumb:hover {
-  background: #aaa;
 }
 
 
@@ -7446,28 +7408,6 @@ svg#content2_21_lineLayer {
 
   left: 50%;
   transform: translate(-50%, 0);
-}
-
-
-
-
-/* Chrome, Safari, Edge */
-#content2_25_treasureGrid::-webkit-scrollbar {
-  width: 1vw;
-}
-
-#content2_25_treasureGrid::-webkit-scrollbar-track {
-  background: #222;
-  border-radius: 0.5em;
-}
-
-#content2_25_treasureGrid::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 0.5em;
-}
-
-#content2_25_treasureGrid::-webkit-scrollbar-thumb:hover {
-  background: #aaa;
 }
 
 
