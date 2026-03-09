@@ -21148,6 +21148,7 @@ function valuesSetter(type) {
 
 
   sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
 
   if (f(sel.level).gt(f(0)) && IUniversal.fireTree.node41.trigger) {
     sel2.effect = f(5)
