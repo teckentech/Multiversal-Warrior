@@ -6250,31 +6250,31 @@ class FightIn {
 
       this.normalHunting = options.normalHunting || {
         hunt1: {
-          name: "Slime", nameF: true, effect: 0, price: 0, priceIdentity: "essence", priceIdentityF: true,
+          name: "Slime", nameF: true, effect: 0, price: 0, pricef: function () { return }, priceIdentity: "essence", priceIdentityF: true,
           req: function () { return },
           reqDescription: "", reqDescriptionF: true,
           reqF: true, showLevel: 0,
         },
         hunt2: {
-          name: "Zombie", nameF: true, effect: 0, price: 0, priceIdentity: "essence", priceIdentityF: true,
+          name: "Zombie", nameF: true, effect: 0, price: 0, pricef: function () { return }, price: 0, priceIdentity: "essence", priceIdentityF: true,
           req: function () { return },
           reqDescription: "", reqDescriptionF: true,
           reqF: true, showLevel: 0,
         },
         hunt3: {
-          name: "Knight", nameF: true, effect: 0, price: 0, priceIdentity: "essence", priceIdentityF: true,
+          name: "Knight", nameF: true, effect: 0, price: 0, pricef: function () { return }, price: 0, priceIdentity: "essence", priceIdentityF: true,
           req: function () { return },
           reqDescription: "", reqDescriptionF: true,
           reqF: true, showLevel: 0,
         },
         hunt4: {
-          name: "Demon", nameF: true, effect: 0, price: 0, priceIdentity: "essence", priceIdentityF: true,
+          name: "Demon", nameF: true, effect: 0, price: 0, pricef: function () { return }, price: 0, priceIdentity: "essence", priceIdentityF: true,
           req: function () { return },
           reqDescription: "", reqDescriptionF: true,
           reqF: true, showLevel: 0,
         },
         hunt5: {
-          name: "Wyvern", nameF: true, effect: 0, price: 0, priceIdentity: "essence", priceIdentityF: true,
+          name: "Wyvern", nameF: true, effect: 0, price: 0, pricef: function () { return }, price: 0, priceIdentity: "essence", priceIdentityF: true,
           req: function () { return },
           reqDescription: "", reqDescriptionF: true,
           reqF: true, showLevel: 0,
@@ -6283,31 +6283,31 @@ class FightIn {
 
     this.normalHuntingRewards = options.normalHuntingRewards || {
       upgrade1: {
-        name: "Damage × ", nameF: true, effect: 0, price: 0, priceIdentity: "essence", priceIdentityF: true,
+        name: "Damage × ", nameF: true, effect: 0, price: 0, price: 0, pricef: function () { return }, priceIdentity: "essence", priceIdentityF: true,
         req: function () { return f(IFight.normalHunting.hunt1.level).gte(f(10)) },
         reqDescription: "", reqDescriptionF: true,
         reqF: true, showLevel: 0,
       },
       upgrade2: {
-        name: "Life × ", nameF: true, effect: 0, price: 0, priceIdentity: "essence", priceIdentityF: true,
+        name: "Life × ", nameF: true, effect: 0, price: 0, price: 0, pricef: function () { return }, priceIdentity: "essence", priceIdentityF: true,
         req: function () { return f(IFight.normalHunting.hunt2.level).gte(f(10)) },
         reqDescription: "", reqDescriptionF: true,
         reqF: true, showLevel: 0,
       },
       upgrade3: {
-        name: "Slime Multiplies Essence By × ", nameF: true, effect: 0, price: 0, priceIdentity: "essence", priceIdentityF: true,
+        name: "Slime Multiplies Essence By × ", nameF: true, effect: 0, price: 0, price: 0, pricef: function () { return }, priceIdentity: "essence", priceIdentityF: true,
         req: function () { return f(IFight.normalHunting.hunt3.level).gte(f(10)) },
         reqDescription: "", reqDescriptionF: true,
         reqF: true, showLevel: 0,
       },
       upgrade4: {
-        name: "Percentage Of Damage Added To Life", nameF: true, effect: 0, price: 0, priceIdentity: "essence", priceIdentityF: true,
+        name: "Percentage Of Damage Added To Life", nameF: true, effect: 0, price: 0, price: 0, pricef: function () { return }, priceIdentity: "essence", priceIdentityF: true,
         req: function () { return f(IFight.normalHunting.hunt4.level).gte(f(10)) },
         reqDescription: "", reqDescriptionF: true,
         reqF: true, showLevel: 0,
       },
       upgrade5: {
-        name: "Multiply Challenger First Reward By × ", nameF: true, effect: 0, price: 0, priceIdentity: "essence", priceIdentityF: true,
+        name: "Multiply Challenger First Reward By × ", nameF: true, effect: 0, price: 0, price: 0, pricef: function () { return }, priceIdentity: "essence", priceIdentityF: true,
         req: function () { return f(IFight.normalHunting.hunt5.level).gte(f(10)) },
         reqDescription: "", reqDescriptionF: true,
         reqF: true, showLevel: 0,
@@ -6781,20 +6781,20 @@ class ShowableClass {
       content2_21_under1_3: false,
       content2_21_under1_4: false,
 
-      content2_21_under1_1_item1: false,
-      content2_21_under1_1_item2: false,
-      content2_21_under1_1_item3: false,
-      content2_21_under1_1_item4: false,
+      content2_21_under1_1_item1: true,
+      content2_21_under1_1_item2: true,
+      content2_21_under1_1_item3: true,
+      content2_21_under1_1_item4: true,
       content2_21_under1_1_item5: false,
       content2_21_under1_1_item6: false,
 
-      content2_21_under1_2_item1: false,
-      content2_21_under1_2_item2: false,
+      content2_21_under1_2_item1: true,
+      content2_21_under1_2_item2: true,
       content2_21_under1_2_item3: false,
       content2_21_under1_2_item4: false,
 
-      content2_21_under1_3_item1: false,
-      content2_21_under1_3_item2: false,
+      content2_21_under1_3_item1: true,
+      content2_21_under1_3_item2: true,
       content2_21_under1_3_item3: false,
 
       content2_21_node1: false,
@@ -11495,7 +11495,7 @@ function valuesSetterCycle(type) {
   var sel = IFight.normalHunting.hunt1;
   var sel2 = IFightIn.normalHunting.hunt1;
 
-  sel2.reqDescription = "Reach 1e3 Damage to unlock next";
+  sel2.reqDescription = `Reach ${format(f("1e3"))} Damage to unlock next`;
 
   //Hunt 2
   var sel = IFight.normalHunting.hunt2;
@@ -11504,7 +11504,7 @@ function valuesSetterCycle(type) {
   sel2.reqDescription = `
   <div class="width100">
     <div><i>People who failed this universe</i></div>
-    <div>Reach 1000 Damage to unlock Zombie  (${format(f(IFight.youStats.damage), 1)} / 1000)</div>
+    <div>Reach ${format(f("1000"))} Damage to unlock Zombie  (${format(f(IFight.youStats.damage), 1)} / ${format(f("1000"))})</div>
   </div>`;
 
   //Hunt 3
@@ -11514,7 +11514,7 @@ function valuesSetterCycle(type) {
   sel2.reqDescription = `
   <div class="width100">
     <div><i>Why suddenly every knight wants to duel me? Weren't Challengers enought?</i></div>
-    <div>Reach 1e4 Damage to unlock Knight  (${format(f(IFight.youStats.damage), 1)} / 1e4)</div>
+    <div>Reach ${format(f("1e4"))} Damage to unlock Knight  (${format(f(IFight.youStats.damage), 1)} / ${format(f("1e4"))})</div>
   </div>`;
 
 
@@ -11525,7 +11525,7 @@ function valuesSetterCycle(type) {
   sel2.reqDescription = `
   <div class="width100">
     <div><i>Demons have been meeting me, they tell me im the chosen one</i></div>
-    <div>Reach 1e5 Damage to unlock Demon  (${format(f(IFight.youStats.damage), 1)} / 1e5)</div>
+    <div>Reach ${format(f("1e5"))} Damage to unlock Demon  (${format(f(IFight.youStats.damage), 1)} / ${format(f("1e5"))})</div>
   </div>`;
 
   // Hunt 5
@@ -11535,7 +11535,7 @@ function valuesSetterCycle(type) {
   sel2.reqDescription = `
   <div class="width100">
     <div><i>Fortunately no wyvern knights, i've already dealt with the knights alone</i></div>
-    <div>Reach 1e6 Damage to unlock Wyvern  (${format(f(IFight.youStats.damage), 1)} / 1e6)</div>
+    <div>Reach ${format(f("1e6"))} Damage to unlock Wyvern  (${format(f(IFight.youStats.damage), 1)} / ${format(f("1e6"))})</div>
   </div>`;
 
   //huntingRewards
@@ -15769,13 +15769,13 @@ function valuesSetterCycle(type) {
 
   //miners
 
-  if((IUniversal.windTree.node18.active)){
+  if ((IUniversal.windTree.node18.active)) {
     var ore1 = `
           <div class="height10 width100 column centerDiv backgroundOrange3 roundedEdges">
             <div><span class="boldBlackBorder">${format(f(IUniversal.obsidian), 2)}</span> Obsidian</div>
             <div><span class="boldBlackBorder">${format(sec(IUniversal.obsidianProd), 2)}/s</span></div>
           </div>`
-  }else{
+  } else {
     ore1 = ""
   }
 
@@ -18590,22 +18590,30 @@ function valuesSetter(type) {
     sel2.effect = f(0);
   }
 
-  if (IUniversal.huntEvolution.b1.active2) {
-    var extraEffect1 = f(IUniversalIn.huntEvolution.b1.effect2);
-  } else {
-    extraEffect1 = f(1);
-  }
-
-  if (IUniversalIn.potionEffects.effect11.activeValue) {
-    var extraEffect2 = f(IUniversalIn.potionEffects.effect11.activeValue);
-  } else {
-    extraEffect2 = f(1);
-  }
-
   if (f(sel.level).equals(f(0))) {
     sel2.price = f(0);
   } else {
-    sel2.price = ((f(10).pow(1)).mul(f(1.2).pow(f(sel.level))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2));
+
+    
+    sel2.pricef = function (level) {
+
+      if (IUniversal.huntEvolution.b1.active2) {
+        var extraEffect1 = f(IUniversalIn.huntEvolution.b1.effect2);
+      } else {
+        extraEffect1 = f(1);
+      }
+
+      if (IUniversalIn.potionEffects.effect11.activeValue) {
+        var extraEffect2 = f(IUniversalIn.potionEffects.effect11.activeValue);
+      } else {
+        extraEffect2 = f(1);
+      }
+
+      return ((f(10).pow(1)).mul(f(1.2).pow(f(level))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2));
+    }
+      
+
+    sel2.price = sel2.pricef(sel.level)
   }
 
   sel2.req = function () {
@@ -18655,20 +18663,27 @@ function valuesSetter(type) {
     sel2.effect = f(0);
   }
 
-  if (IUniversal.huntEvolution.b2.active2) {
-    var extraEffect1 = f(IUniversalIn.huntEvolution.b2.effect2);
-  } else {
-    extraEffect1 = f(1);
+  
+  sel2.pricef = function (level) {
+
+    if (IUniversal.huntEvolution.b2.active2) {
+      var extraEffect1 = f(IUniversalIn.huntEvolution.b2.effect2);
+    } else {
+      extraEffect1 = f(1);
+    }
+
+    if (IUniversalIn.potionEffects.effect11.activeValue) {
+      var extraEffect2 = f(IUniversalIn.potionEffects.effect11.activeValue);
+    } else {
+      extraEffect2 = f(1);
+    }
+      
+
+    return (f(1).mul(f(10).pow(3)).mul(f(1.3).pow(f(1).add(f(level)))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2));
   }
+    
 
-  if (IUniversalIn.potionEffects.effect11.activeValue) {
-    var extraEffect2 = f(IUniversalIn.potionEffects.effect11.activeValue);
-  } else {
-    extraEffect2 = f(1);
-  }
-
-
-  sel2.price = (f(1).mul(f(10).pow(3)).mul(f(1.3).pow(f(1).add(f(sel.level)))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2));
+  sel2.price = sel2.pricef(sel.level)
 
   sel2.req = function () {
     if (IFight.youStats.damage != "NaN") {
@@ -18719,20 +18734,27 @@ function valuesSetter(type) {
     sel2.effect = f(0);
   }
 
-  if (IUniversal.huntEvolution.b3.active2) {
-    var extraEffect1 = f(IUniversalIn.huntEvolution.b3.effect2);
-  } else {
-    extraEffect1 = f(1);
+  
+  sel2.pricef = function (level) {
+
+    if (IUniversal.huntEvolution.b3.active2) {
+      var extraEffect1 = f(IUniversalIn.huntEvolution.b3.effect2);
+    } else {
+      extraEffect1 = f(1);
+    }
+
+    if (IUniversalIn.potionEffects.effect11.activeValue) {
+      var extraEffect2 = f(IUniversalIn.potionEffects.effect11.activeValue);
+    } else {
+      extraEffect2 = f(1);
+    }
+      
+
+    return (f(2).mul(f(10).pow(4)).mul(f(1.4).pow(f(1).add(f(level)))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2));
   }
+  
 
-  if (IUniversalIn.potionEffects.effect11.activeValue) {
-    var extraEffect2 = f(IUniversalIn.potionEffects.effect11.activeValue);
-  } else {
-    extraEffect2 = f(1);
-  }
-
-
-  sel2.price = (f(2).mul(f(10).pow(4)).mul(f(1.4).pow(f(1).add(f(sel.level)))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2));
+  sel2.price = sel2.pricef(sel.level)
 
   sel2.req = function () {
     if (IFight.youStats.damage != "NaN") {
@@ -18781,19 +18803,27 @@ function valuesSetter(type) {
     sel2.effect = f(0);
   }
 
-  if (IUniversal.huntEvolution.b4.active2) {
-    var extraEffect1 = f(IUniversalIn.huntEvolution.b4.effect2);
-  } else {
-    extraEffect1 = f(1);
-  }
+  
+  sel2.pricef = function (level) {
 
-  if (IUniversalIn.potionEffects.effect11.activeValue) {
-    var extraEffect2 = f(IUniversalIn.potionEffects.effect11.activeValue);
-  } else {
-    extraEffect2 = f(1);
-  }
+    if (IUniversal.huntEvolution.b4.active2) {
+      var extraEffect1 = f(IUniversalIn.huntEvolution.b4.effect2);
+    } else {
+      extraEffect1 = f(1);
+    }
 
-  sel2.price = (f(1).mul(f(10).pow(7)).mul(f(1.5).pow(f(1).add(f(sel.level)))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2));
+    if (IUniversalIn.potionEffects.effect11.activeValue) {
+      var extraEffect2 = f(IUniversalIn.potionEffects.effect11.activeValue);
+    } else {
+      extraEffect2 = f(1);
+    }
+      
+
+    return (f(1).mul(f(10).pow(7)).mul(f(1.5).pow(f(1).add(f(level)))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2));
+  }
+    
+
+  sel2.price = sel2.pricef(sel.level)
 
   sel2.req = function () {
     if (IFight.youStats.damage != "NaN") {
@@ -18830,37 +18860,31 @@ function valuesSetter(type) {
 
   sel2.showLevel = f(sel.level).add(f(extraEffect1))
 
-  if (IUniversal.huntEvolution.b5.active1) {
-    var extraEffect2 = f(IUniversalIn.huntEvolution.b5.effect1);
-  } else {
-    extraEffect2 = f(1);
-  }
-
-  if (IUniversalIn.potionEffects.effect12.activeValue) {
-    var extraEffect3 = f(IUniversalIn.potionEffects.effect12.activeValue);
-  } else {
-    extraEffect3 = f(1);
-  }
-
   if (sel.active) {
     sel2.effect = f(160000).mul(f(sel.level).add(f(extraEffect1))).mul((f(1).add(f(0.30)).mul(f(sel.level).add(f(extraEffect1))))).mul(f(extraEffect2)).mul(f(hunt1)).mul(f(extraEffect3));
   } else {
     sel2.effect = f(0);
   }
 
-  if (IUniversal.huntEvolution.b5.active2) {
-    var extraEffect1 = f(IUniversalIn.huntEvolution.b5.effect2);
-  } else {
-    extraEffect1 = f(1);
-  }
+  sel2.pricef = function (level) {
 
-  if (IUniversalIn.potionEffects.effect11.activeValue) {
-    var extraEffect2 = f(IUniversalIn.potionEffects.effect11.activeValue);
-  } else {
-    extraEffect2 = f(1);
-  }
+    if (IUniversal.huntEvolution.b5.active2) {
+      var extraEffect1 = f(IUniversalIn.huntEvolution.b5.effect2);
+    } else {
+      extraEffect1 = f(1);
+    }
 
-  sel2.price = (f(5).mul(f(10).pow(8)).mul(f(1.6).pow(f(1).add(f(sel.level)))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2));
+    if (IUniversalIn.potionEffects.effect11.activeValue) {
+      var extraEffect2 = f(IUniversalIn.potionEffects.effect11.activeValue);
+    } else {
+      extraEffect2 = f(1);
+    }
+
+    return (f(5).mul(f(10).pow(8)).mul(f(1.6).pow(f(1).add(f(level)))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2));
+  }
+    
+
+  sel2.price = sel2.pricef(sel.level)
 
   sel2.req = function () {
 
@@ -18899,20 +18923,26 @@ function valuesSetter(type) {
 
   IFightIn.normalHuntingRewards.upgrade1.effect = f(2).pow(f(IFight.normalHuntingRewards.upgrade1.level).add(f(extraLevel1)))
 
-  if (IUniversal.huntEvolution.b1.active3) {
-    var extraEffect1 = f(IUniversalIn.huntEvolution.b1.effect3);
-  } else {
-    extraEffect1 = f(1);
+  
+  IFightIn.normalHuntingRewards.upgrade1.pricef = function (level) {
+
+    if (IUniversal.huntEvolution.b1.active3) {
+      var extraEffect1 = f(IUniversalIn.huntEvolution.b1.effect3);
+    } else {
+      extraEffect1 = f(1);
+    }
+
+    if (IUniversalIn.potionEffects.effect13.activeValue) {
+      var extraEffect2 = f(IUniversalIn.potionEffects.effect13.activeValue);
+    } else {
+      extraEffect2 = f(1);
+    }
+
+    return ((f(10).mul(f(10).pow(f(level).add(f(1))))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2))
   }
+    
 
-  if (IUniversalIn.potionEffects.effect13.activeValue) {
-    var extraEffect2 = f(IUniversalIn.potionEffects.effect13.activeValue);
-  } else {
-    extraEffect2 = f(1);
-  }
-
-  IFightIn.normalHuntingRewards.upgrade1.price = ((f(10).mul(f(10).pow(f(IFight.normalHuntingRewards.upgrade1.level).add(f(1))))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2))
-
+  IFightIn.normalHuntingRewards.upgrade1.price = IFightIn.normalHuntingRewards.upgrade1.pricef(IFight.normalHuntingRewards.upgrade1.level)
 
   if (f(IFight.normalHuntingRewards.upgrade1.level).greaterThan(f(0))) {
     IFight.normalHuntingRewards.upgrade1.active = true;
@@ -18944,20 +18974,27 @@ function valuesSetter(type) {
 
   IFightIn.normalHuntingRewards.upgrade2.effect = f(5).pow(f(IFight.normalHuntingRewards.upgrade2.level).add(f(extraLevel1)))
 
-  if (IUniversal.huntEvolution.b2.active3) {
-    var extraEffect1 = f(IUniversalIn.huntEvolution.b2.effect3);
-  } else {
-    extraEffect1 = f(1);
+  
+  IFightIn.normalHuntingRewards.upgrade2.pricef = function (level) {
+
+    if (IUniversal.huntEvolution.b2.active3) {
+      var extraEffect1 = f(IUniversalIn.huntEvolution.b2.effect3);
+    } else {
+      extraEffect1 = f(1);
+    }
+
+    if (IUniversalIn.potionEffects.effect13.activeValue) {
+      var extraEffect2 = f(IUniversalIn.potionEffects.effect13.activeValue);
+    } else {
+      extraEffect2 = f(1);
+    }
+
+    return ((f(200).mul(f(100).pow(f(level).add(f(1))))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2))
   }
-
-  if (IUniversalIn.potionEffects.effect13.activeValue) {
-    var extraEffect2 = f(IUniversalIn.potionEffects.effect13.activeValue);
-  } else {
-    extraEffect2 = f(1);
-  }
+    
 
 
-  IFightIn.normalHuntingRewards.upgrade2.price = ((f(200).mul(f(100).pow(f(IFight.normalHuntingRewards.upgrade2.level).add(f(1))))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2))
+  IFightIn.normalHuntingRewards.upgrade2.price = IFightIn.normalHuntingRewards.upgrade2.pricef(IFight.normalHuntingRewards.upgrade2.level)
 
 
   if (f(IFight.normalHuntingRewards.upgrade2.level).greaterThan(f(0))) {
@@ -18989,19 +19026,26 @@ function valuesSetter(type) {
 
   IFightIn.normalHuntingRewards.upgrade3.effect = ((f(IFight.normalHuntingRewards.upgrade3.level).add(f(extraLevel1))).mul(f(1.3).pow(f(IFight.normalHunting.hunt1.level).div(f(10)))))
 
-  if (IUniversal.huntEvolution.b3.active3) {
-    var extraEffect1 = f(IUniversalIn.huntEvolution.b3.effect3);
-  } else {
-    extraEffect1 = f(1);
-  }
+  
+  IFightIn.normalHuntingRewards.upgrade3.pricef = function (level) {
 
-  if (IUniversalIn.potionEffects.effect13.activeValue) {
-    var extraEffect2 = f(IUniversalIn.potionEffects.effect13.activeValue);
-  } else {
-    extraEffect2 = f(1);
-  }
+    if (IUniversal.huntEvolution.b3.active3) {
+      var extraEffect1 = f(IUniversalIn.huntEvolution.b3.effect3);
+    } else {
+      extraEffect1 = f(1);
+    }
 
-  IFightIn.normalHuntingRewards.upgrade3.price = ((f(4000).mul(f(1000).pow(f(IFight.normalHuntingRewards.upgrade3.level).add(f(1))))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2))
+    if (IUniversalIn.potionEffects.effect13.activeValue) {
+      var extraEffect2 = f(IUniversalIn.potionEffects.effect13.activeValue);
+    } else {
+      extraEffect2 = f(1);
+    }
+
+    return ((f(4000).mul(f(1000).pow(f(level).add(f(1))))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2))
+  }
+    
+
+  IFightIn.normalHuntingRewards.upgrade3.price = IFightIn.normalHuntingRewards.upgrade3.pricef(IFight.normalHuntingRewards.upgrade3.level)
 
 
   if (f(IFight.normalHuntingRewards.upgrade3.level).greaterThan(f(0))) {
@@ -19033,19 +19077,26 @@ function valuesSetter(type) {
 
   IFightIn.normalHuntingRewards.upgrade4.effect = f(IFight.normalHuntingRewards.upgrade4.level).add(f(extraLevel1))
 
-  if (IUniversal.huntEvolution.b4.active4) {
-    var extraEffect1 = f(IUniversalIn.huntEvolution.b4.effect3);
-  } else {
-    extraEffect1 = f(1);
-  }
+  
+  IFightIn.normalHuntingRewards.upgrade4.pricef = function (level) {
 
-  if (IUniversalIn.potionEffects.effect13.activeValue) {
-    var extraEffect2 = f(IUniversalIn.potionEffects.effect13.activeValue);
-  } else {
-    extraEffect2 = f(1);
-  }
+    if (IUniversal.huntEvolution.b4.active4) {
+      var extraEffect1 = f(IUniversalIn.huntEvolution.b4.effect3);
+    } else {
+      extraEffect1 = f(1);
+    }
 
-  IFightIn.normalHuntingRewards.upgrade4.price = ((f(80000).mul(f(10000).pow(f(IFight.normalHuntingRewards.upgrade4.level).add(f(1))))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2))
+    if (IUniversalIn.potionEffects.effect13.activeValue) {
+      var extraEffect2 = f(IUniversalIn.potionEffects.effect13.activeValue);
+    } else {
+      extraEffect2 = f(1);
+    }
+
+    return ((f(80000).mul(f(10000).pow(f(level).add(f(1))))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2))
+  }
+  
+
+  IFightIn.normalHuntingRewards.upgrade4.price = IFightIn.normalHuntingRewards.upgrade4.pricef(IFight.normalHuntingRewards.upgrade4.level)
 
 
 
@@ -19079,20 +19130,26 @@ function valuesSetter(type) {
 
   IFightIn.normalHuntingRewards.upgrade5.effect = f(1).add(f(0.1).mul(f(IFight.normalHuntingRewards.upgrade5.level).add(f(extraLevel1))).mul(f(IFight.challengers.baseChallenger.level)))
 
-  if (IUniversal.huntEvolution.b5.active3) {
-    var extraEffect1 = f(IUniversalIn.huntEvolution.b5.effect3);
-  } else {
-    extraEffect1 = f(1);
+  
+  IFightIn.normalHuntingRewards.upgrade5.pricef = function (level) {
+
+    if (IUniversal.huntEvolution.b5.active3) {
+      var extraEffect1 = f(IUniversalIn.huntEvolution.b5.effect3);
+    } else {
+      extraEffect1 = f(1);
+    }
+
+    if (IUniversalIn.potionEffects.effect13.activeValue) {
+      var extraEffect2 = f(IUniversalIn.potionEffects.effect13.activeValue);
+    } else {
+      extraEffect2 = f(1);
+    }
+
+    return ((f(1600000).mul(f(100000).pow(f(level).add(f(1))))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2))
   }
+    
 
-  if (IUniversalIn.potionEffects.effect13.activeValue) {
-    var extraEffect2 = f(IUniversalIn.potionEffects.effect13.activeValue);
-  } else {
-    extraEffect2 = f(1);
-  }
-
-
-  IFightIn.normalHuntingRewards.upgrade5.price = ((f(1600000).mul(f(100000).pow(f(IFight.normalHuntingRewards.upgrade5.level).add(f(1))))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2))
+  IFightIn.normalHuntingRewards.upgrade5.price = IFightIn.normalHuntingRewards.upgrade5.pricef(IFight.normalHuntingRewards.upgrade5.level)
 
 
   if (f(IFight.normalHuntingRewards.upgrade5.level).greaterThan(f(0))) {
@@ -25197,10 +25254,6 @@ function valuesSetter(type) {
   if (getTreasureActive("treasure33")) { var aff5 = f(IUniversalIn.treasures.treasure33.effect1) } else { aff5 = f(1) }
   if (getTreasureActive("treasure33")) { var aff6 = f(IUniversalIn.treasures.treasure33.effect2) } else { aff6 = f(1) }
 
-  console.log(getTreasureActive("treasure33"))
-
-  console.log(format(f(IUniversalIn.armyInfo.soul.affinities.affinity2.value)))
-
   if (aff2.gte(aff1) && aff2.gte(aff3) && aff2.gte(aff4)) {
     IUniversalIn.armyInfo.soul.affinities.affinity2.value = f(IUniversalIn.armyInfo.soul.affinities.affinity2.value).mul(aff5)
     IUniversalIn.armyInfo.soul.affinities.affinity2.baseValue = f(IUniversalIn.armyInfo.soul.affinities.affinity2.baseValue).mul(aff5)
@@ -25209,8 +25262,6 @@ function valuesSetter(type) {
     IUniversalIn.armyInfo.soul.affinities.affinity2.value = f(IUniversalIn.armyInfo.soul.affinities.affinity2.value).mul(aff6)
     IUniversalIn.armyInfo.soul.affinities.affinity2.baseValue = f(IUniversalIn.armyInfo.soul.affinities.affinity2.baseValue).mul(aff6)
   }
-
-  console.log(format(f(IUniversalIn.armyInfo.soul.affinities.affinity2.value)))
 
   //earth affinity
 
@@ -38335,6 +38386,30 @@ function buyMultiple(priceIdentity, price, objectToUpdate, propertyToUpdate, eff
   let remainingPurchases = limit;
   if (!remainingPurchases) return;
 
+  
+  if (price.pricef != null) {
+    var num = 0;
+    var totPay = f(0);
+    var success = true;
+    while (success) {
+      if (checkBuy(priceIdentity.priceIdentity, f(price.pricef((objectToUpdate[propertyToUpdate]).add(f(num)))).add(totPay), type)) {
+        num = f(num).add(1);
+        totPay = f(totPay).add(f(price.pricef((objectToUpdate[propertyToUpdate]).add(f(num)))));
+      }else{
+        success = false;
+      }
+    }
+
+    if (num > 0) {
+      buy(priceIdentity, totPay, objectToUpdate, propertyToUpdate, num, type);
+    return true
+    }
+
+    return true
+  }
+    
+
+  
   let affordableCount = 0;
   while (remainingPurchases > 0) {
     if (!buy(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, type)) return false;
@@ -38348,6 +38423,7 @@ function buyMultiple(priceIdentity, price, objectToUpdate, propertyToUpdate, eff
   if (affordableCount > 0) {
     valuesSetter();
   }
+    
 
   return true
 }
@@ -40134,6 +40210,7 @@ function deletePotion(element) {
 //AUTOMATION
 
 function automation() {
+  
   if (IUniversal.automation.automation2.active) {
     buyMultiple(IFightIn.normalHunting.hunt1, IFightIn.normalHunting.hunt1, IFight.normalHunting.hunt1, "level", 1, "free", null, IFight.normalHunting.hunt1, IFightIn.normalHunting.hunt1);
     buyMultiple(IFightIn.normalHunting.hunt2, IFightIn.normalHunting.hunt2, IFight.normalHunting.hunt2, "level", 1, "free", null, IFight.normalHunting.hunt2, IFightIn.normalHunting.hunt2);
@@ -40149,6 +40226,7 @@ function automation() {
     buyMultiple(IFightIn.normalHuntingRewards.upgrade4, IFightIn.normalHuntingRewards.upgrade4, IFight.normalHuntingRewards.upgrade4, "level", 1, "free", null, IFight.normalHuntingRewards.upgrade4, IFightIn.normalHuntingRewards.upgrade4);
     buyMultiple(IFightIn.normalHuntingRewards.upgrade5, IFightIn.normalHuntingRewards.upgrade5, IFight.normalHuntingRewards.upgrade5, "level", 1, "free", null, IFight.normalHuntingRewards.upgrade5, IFightIn.normalHuntingRewards.upgrade5);
   }
+    
 
 
   if (IUniversal.automation.automation4.active) {
