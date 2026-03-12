@@ -7630,9 +7630,6 @@ function buy(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, typ
     }
   }
 
-  console.log(IGameData[priceId])
-  console.log(pri)
-
   if (f(IGameData[priceId]).gte(f(pri))) {
     if (f(effect) instanceof Decimal) {
       objectToUpdate[propertyToUpdate] = f(objectToUpdate[propertyToUpdate]).add(f(effect));
@@ -18617,8 +18614,6 @@ function valuesSetter(type) {
       extraEffect2 = f(1);
     }
 
-    console.log
-
     return level == 0 ? f(0) : ((f(10).pow(1)).mul(f(1.2).pow(f(level))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2));
   }
 
@@ -25239,7 +25234,7 @@ function valuesSetter(type) {
 
   if (getTreasureActive("treasure32")) { var aff10 = f(IUniversalIn.treasures.treasure32.effect2) } else { aff10 = f(0) }
 
-  if (getTreasureActive("treasure30")) { var aff11 = f(IUniversalIn.treasures.treasure30.effect) } else { aff11 = f(1) }
+  if (getTreasureActive("treasure30")) { var aff11 = f(IUniversalIn.treasures.treasure30.effect) } else { aff11 = f(0) }
 
 
 
@@ -25396,8 +25391,6 @@ function valuesSetter(type) {
   var aff2 = f(IUniversalIn.armyInfo.soul.affinities.affinity2.value)
   var aff3 = f(IUniversalIn.armyInfo.soul.affinities.affinity3.value)
   var aff4 = f(IUniversalIn.armyInfo.soul.affinities.affinity4.value)
-
-
 
   IUniversalIn.armyInfo.soul.affinity = f(aff1).mul(aff2).mul(aff3).mul(aff4)
 
