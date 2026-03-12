@@ -7510,6 +7510,10 @@ function buy(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, typ
   var priceId = priceIdentity.priceIdentity
   var pri = f(price.price)
 
+  if(price.price == null || price.price == undefined){
+    pri = f(price)
+  }
+
   if (type == "uni") {
     if (f(IUniversal[priceId]).gte(f(pri))) {
 
@@ -7625,6 +7629,9 @@ function buy(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, typ
       return false;
     }
   }
+
+  console.log(IGameData[priceId])
+  console.log(pri)
 
   if (f(IGameData[priceId]).gte(f(pri))) {
     if (f(effect) instanceof Decimal) {
@@ -38405,8 +38412,10 @@ function buyMultiple(priceIdentity, price, objectToUpdate, propertyToUpdate, eff
       }
     }
 
+    console.log(priceIdentity.priceIdentity + " can buy " + num + " times, total cost: " + totPay.toString());
+
     if (num > 0) {
-      buy(priceIdentity, totPay, objectToUpdate, propertyToUpdate, num, type);
+      if (!buy(priceIdentity, totPay, objectToUpdate, propertyToUpdate, num, type)) return false;
       return true
     }
 
