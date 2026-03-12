@@ -7510,7 +7510,7 @@ function buy(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, typ
   var priceId = priceIdentity.priceIdentity
   var pri = f(price.price)
 
-  if(price.price == null || price.price == undefined){
+  if (price.price == null || price.price == undefined) {
     pri = f(price)
   }
 
@@ -38405,14 +38405,12 @@ function buyMultiple(priceIdentity, price, objectToUpdate, propertyToUpdate, eff
     var success = true;
     while (success) {
       if (checkBuy(priceIdentity.priceIdentity, f(price.pricef((objectToUpdate[propertyToUpdate]).add(f(num)))).add(totPay), type)) {
-        num = f(num).add(1);
         totPay = f(totPay).add(f(price.pricef((objectToUpdate[propertyToUpdate]).add(f(num)))));
+        num = f(num).add(1);
       } else {
         success = false;
       }
     }
-
-    console.log(priceIdentity.priceIdentity + " can buy " + num + " times, total cost: " + totPay.toString());
 
     if (num > 0) {
       if (!buy(priceIdentity, totPay, objectToUpdate, propertyToUpdate, num, type)) return false;
