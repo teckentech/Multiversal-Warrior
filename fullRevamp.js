@@ -18596,32 +18596,28 @@ function valuesSetter(type) {
     sel2.effect = f(0);
   }
 
-  if (f(sel.level).equals(f(0))) {
-    
-    sel2.price = f(0);
-  } else {
+  sel2.pricef = function (level) {
 
-
-    sel2.pricef = function (level) {
-
-      if (IUniversal.huntEvolution.b1.active2) {
-        var extraEffect1 = f(IUniversalIn.huntEvolution.b1.effect2);
-      } else {
-        extraEffect1 = f(1);
-      }
-
-      if (IUniversalIn.potionEffects.effect11.activeValue) {
-        var extraEffect2 = f(IUniversalIn.potionEffects.effect11.activeValue);
-      } else {
-        extraEffect2 = f(1);
-      }
-
-      return ((f(10).pow(1)).mul(f(1.2).pow(f(level))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2));
+    if (IUniversal.huntEvolution.b1.active2) {
+      var extraEffect1 = f(IUniversalIn.huntEvolution.b1.effect2);
+    } else {
+      extraEffect1 = f(1);
     }
 
+    if (IUniversalIn.potionEffects.effect11.activeValue) {
+      var extraEffect2 = f(IUniversalIn.potionEffects.effect11.activeValue);
+    } else {
+      extraEffect2 = f(1);
+    }
 
-    sel2.price = sel2.pricef(sel.level)
+    console.log
+
+    return level == 0 ? f(0) : ((f(10).pow(1)).mul(f(1.2).pow(f(level))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2));
   }
+
+
+  sel2.price = sel2.pricef(sel.level)
+
 
   sel2.req = function () {
     if (IFight.youStats.damage != "NaN") {
