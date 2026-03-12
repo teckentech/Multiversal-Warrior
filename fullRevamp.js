@@ -45,6 +45,7 @@ var secretKey = "DontLookAtMePls";
 var saveData;
 var waiting = false;
 var freeTick = false
+var saving = false;
 
 
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -7162,6 +7163,8 @@ function resetSave() {
 
   const stringifiedData = JSON.stringify(saveData);
 
+  saveGameData();
+
   localStorage.setItem("GameSave", stringifiedData);
 }
 
@@ -7340,6 +7343,7 @@ function importSave() {
 function offImportSave() {
   if (localStorage.getItem("GameSaveOff") !== null) {
     resetSave();
+
     IShowableClass.init = true;
     const savedGameData = JSON.parse(localStorage.getItem("GameSaveOff"));
 
@@ -7384,7 +7388,9 @@ document.addEventListener('visibilitychange', function () {
   } else {
 
     if (localStorage.getItem("GameSaveOff") !== null) {
+      saving = true;
       offImportSave();
+      saving = false;
     }
     freeTick = false
   }
@@ -18591,10 +18597,11 @@ function valuesSetter(type) {
   }
 
   if (f(sel.level).equals(f(0))) {
+    
     sel2.price = f(0);
   } else {
 
-    
+
     sel2.pricef = function (level) {
 
       if (IUniversal.huntEvolution.b1.active2) {
@@ -18611,7 +18618,7 @@ function valuesSetter(type) {
 
       return ((f(10).pow(1)).mul(f(1.2).pow(f(level))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2));
     }
-      
+
 
     sel2.price = sel2.pricef(sel.level)
   }
@@ -18663,7 +18670,7 @@ function valuesSetter(type) {
     sel2.effect = f(0);
   }
 
-  
+
   sel2.pricef = function (level) {
 
     if (IUniversal.huntEvolution.b2.active2) {
@@ -18677,11 +18684,11 @@ function valuesSetter(type) {
     } else {
       extraEffect2 = f(1);
     }
-      
+
 
     return (f(1).mul(f(10).pow(3)).mul(f(1.3).pow(f(1).add(f(level)))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2));
   }
-    
+
 
   sel2.price = sel2.pricef(sel.level)
 
@@ -18734,7 +18741,7 @@ function valuesSetter(type) {
     sel2.effect = f(0);
   }
 
-  
+
   sel2.pricef = function (level) {
 
     if (IUniversal.huntEvolution.b3.active2) {
@@ -18748,11 +18755,11 @@ function valuesSetter(type) {
     } else {
       extraEffect2 = f(1);
     }
-      
+
 
     return (f(2).mul(f(10).pow(4)).mul(f(1.4).pow(f(1).add(f(level)))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2));
   }
-  
+
 
   sel2.price = sel2.pricef(sel.level)
 
@@ -18803,7 +18810,7 @@ function valuesSetter(type) {
     sel2.effect = f(0);
   }
 
-  
+
   sel2.pricef = function (level) {
 
     if (IUniversal.huntEvolution.b4.active2) {
@@ -18817,11 +18824,11 @@ function valuesSetter(type) {
     } else {
       extraEffect2 = f(1);
     }
-      
+
 
     return (f(1).mul(f(10).pow(7)).mul(f(1.5).pow(f(1).add(f(level)))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2));
   }
-    
+
 
   sel2.price = sel2.pricef(sel.level)
 
@@ -18882,7 +18889,7 @@ function valuesSetter(type) {
 
     return (f(5).mul(f(10).pow(8)).mul(f(1.6).pow(f(1).add(f(level)))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2));
   }
-    
+
 
   sel2.price = sel2.pricef(sel.level)
 
@@ -18923,7 +18930,7 @@ function valuesSetter(type) {
 
   IFightIn.normalHuntingRewards.upgrade1.effect = f(2).pow(f(IFight.normalHuntingRewards.upgrade1.level).add(f(extraLevel1)))
 
-  
+
   IFightIn.normalHuntingRewards.upgrade1.pricef = function (level) {
 
     if (IUniversal.huntEvolution.b1.active3) {
@@ -18940,7 +18947,7 @@ function valuesSetter(type) {
 
     return ((f(10).mul(f(10).pow(f(level).add(f(1))))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2))
   }
-    
+
 
   IFightIn.normalHuntingRewards.upgrade1.price = IFightIn.normalHuntingRewards.upgrade1.pricef(IFight.normalHuntingRewards.upgrade1.level)
 
@@ -18974,7 +18981,7 @@ function valuesSetter(type) {
 
   IFightIn.normalHuntingRewards.upgrade2.effect = f(5).pow(f(IFight.normalHuntingRewards.upgrade2.level).add(f(extraLevel1)))
 
-  
+
   IFightIn.normalHuntingRewards.upgrade2.pricef = function (level) {
 
     if (IUniversal.huntEvolution.b2.active3) {
@@ -18991,7 +18998,7 @@ function valuesSetter(type) {
 
     return ((f(200).mul(f(100).pow(f(level).add(f(1))))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2))
   }
-    
+
 
 
   IFightIn.normalHuntingRewards.upgrade2.price = IFightIn.normalHuntingRewards.upgrade2.pricef(IFight.normalHuntingRewards.upgrade2.level)
@@ -19026,7 +19033,7 @@ function valuesSetter(type) {
 
   IFightIn.normalHuntingRewards.upgrade3.effect = ((f(IFight.normalHuntingRewards.upgrade3.level).add(f(extraLevel1))).mul(f(1.3).pow(f(IFight.normalHunting.hunt1.level).div(f(10)))))
 
-  
+
   IFightIn.normalHuntingRewards.upgrade3.pricef = function (level) {
 
     if (IUniversal.huntEvolution.b3.active3) {
@@ -19043,7 +19050,7 @@ function valuesSetter(type) {
 
     return ((f(4000).mul(f(1000).pow(f(level).add(f(1))))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2))
   }
-    
+
 
   IFightIn.normalHuntingRewards.upgrade3.price = IFightIn.normalHuntingRewards.upgrade3.pricef(IFight.normalHuntingRewards.upgrade3.level)
 
@@ -19077,7 +19084,7 @@ function valuesSetter(type) {
 
   IFightIn.normalHuntingRewards.upgrade4.effect = f(IFight.normalHuntingRewards.upgrade4.level).add(f(extraLevel1))
 
-  
+
   IFightIn.normalHuntingRewards.upgrade4.pricef = function (level) {
 
     if (IUniversal.huntEvolution.b4.active4) {
@@ -19094,7 +19101,7 @@ function valuesSetter(type) {
 
     return ((f(80000).mul(f(10000).pow(f(level).add(f(1))))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2))
   }
-  
+
 
   IFightIn.normalHuntingRewards.upgrade4.price = IFightIn.normalHuntingRewards.upgrade4.pricef(IFight.normalHuntingRewards.upgrade4.level)
 
@@ -19130,7 +19137,7 @@ function valuesSetter(type) {
 
   IFightIn.normalHuntingRewards.upgrade5.effect = f(1).add(f(0.1).mul(f(IFight.normalHuntingRewards.upgrade5.level).add(f(extraLevel1))).mul(f(IFight.challengers.baseChallenger.level)))
 
-  
+
   IFightIn.normalHuntingRewards.upgrade5.pricef = function (level) {
 
     if (IUniversal.huntEvolution.b5.active3) {
@@ -19147,7 +19154,7 @@ function valuesSetter(type) {
 
     return ((f(1600000).mul(f(100000).pow(f(level).add(f(1))))).dividedBy(f(extraEffect1))).dividedBy(f(extraEffect2))
   }
-    
+
 
   IFightIn.normalHuntingRewards.upgrade5.price = IFightIn.normalHuntingRewards.upgrade5.pricef(IFight.normalHuntingRewards.upgrade5.level)
 
@@ -38301,7 +38308,9 @@ function stringToNode(str) {
 }
 
 var SaveGameLoop = window.setInterval(function () {
-  saveGameData();
+  if (!saving) {
+    saveGameData();
+  }
 
 }, 500);
 
@@ -38386,7 +38395,7 @@ function buyMultiple(priceIdentity, price, objectToUpdate, propertyToUpdate, eff
   let remainingPurchases = limit;
   if (!remainingPurchases) return;
 
-  
+
   if (price.pricef != null) {
     var num = 0;
     var totPay = f(0);
@@ -38395,21 +38404,21 @@ function buyMultiple(priceIdentity, price, objectToUpdate, propertyToUpdate, eff
       if (checkBuy(priceIdentity.priceIdentity, f(price.pricef((objectToUpdate[propertyToUpdate]).add(f(num)))).add(totPay), type)) {
         num = f(num).add(1);
         totPay = f(totPay).add(f(price.pricef((objectToUpdate[propertyToUpdate]).add(f(num)))));
-      }else{
+      } else {
         success = false;
       }
     }
 
     if (num > 0) {
       buy(priceIdentity, totPay, objectToUpdate, propertyToUpdate, num, type);
-    return true
+      return true
     }
 
     return true
   }
-    
 
-  
+
+
   let affordableCount = 0;
   while (remainingPurchases > 0) {
     if (!buy(priceIdentity, price, objectToUpdate, propertyToUpdate, effect, type)) return false;
@@ -38423,7 +38432,7 @@ function buyMultiple(priceIdentity, price, objectToUpdate, propertyToUpdate, eff
   if (affordableCount > 0) {
     valuesSetter();
   }
-    
+
 
   return true
 }
@@ -40210,7 +40219,7 @@ function deletePotion(element) {
 //AUTOMATION
 
 function automation() {
-  
+
   if (IUniversal.automation.automation2.active) {
     buyMultiple(IFightIn.normalHunting.hunt1, IFightIn.normalHunting.hunt1, IFight.normalHunting.hunt1, "level", 1, "free", null, IFight.normalHunting.hunt1, IFightIn.normalHunting.hunt1);
     buyMultiple(IFightIn.normalHunting.hunt2, IFightIn.normalHunting.hunt2, IFight.normalHunting.hunt2, "level", 1, "free", null, IFight.normalHunting.hunt2, IFightIn.normalHunting.hunt2);
@@ -40226,7 +40235,7 @@ function automation() {
     buyMultiple(IFightIn.normalHuntingRewards.upgrade4, IFightIn.normalHuntingRewards.upgrade4, IFight.normalHuntingRewards.upgrade4, "level", 1, "free", null, IFight.normalHuntingRewards.upgrade4, IFightIn.normalHuntingRewards.upgrade4);
     buyMultiple(IFightIn.normalHuntingRewards.upgrade5, IFightIn.normalHuntingRewards.upgrade5, IFight.normalHuntingRewards.upgrade5, "level", 1, "free", null, IFight.normalHuntingRewards.upgrade5, IFightIn.normalHuntingRewards.upgrade5);
   }
-    
+
 
 
   if (IUniversal.automation.automation4.active) {
