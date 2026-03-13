@@ -25395,8 +25395,6 @@ function valuesSetter(type) {
   var baseAff3 = f(IUniversalIn.armyInfo.soul.affinities.affinity3.baseValue)
   var baseAff4 = f(IUniversalIn.armyInfo.soul.affinities.affinity4.baseValue)
 
-  console.log("base affs: " + baseAff1.toString() + " " + baseAff2.toString() + " " + baseAff3.toString() + " " + baseAff4.toString())
-
   IUniversalIn.armyInfo.soul.baseAffinity = f(baseAff1).mul(baseAff2).mul(baseAff3).mul(baseAff4)
 
   //ENEMY CRUSADE
