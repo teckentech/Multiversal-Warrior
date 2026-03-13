@@ -25180,7 +25180,7 @@ function valuesSetter(type) {
     aff13 = f(IUniversalIn.treasures.treasure33.effect1)
     aff14 = f(1);
   }
-  if (a2.lte(a1) && a2.lte(a3) && a2.lte(a4)) {
+  if (a1.lte(a2) && a1.lte(a3) && a1.lte(a4)) {
     aff14 = f(IUniversalIn.treasures.treasure33.effect2)
     aff13 = f(1);
   }
@@ -25352,7 +25352,7 @@ function valuesSetter(type) {
   }
 
 
-  if (getTreasureActive("treasure32")) { var aff9 = f(IUniversalIn.treasures.treasure32.effect2) } else { aff9 = f(0) }
+  if (getTreasureActive("treasure32")) { var aff9 = f(IUniversalIn.treasures.treasure32.effect2) } else { aff9 = f(1) }
 
     var a1 = f(IUniversalIn.armyInfo.soul.affinities.affinity1.value)
   var a2 = f(IUniversalIn.armyInfo.soul.affinities.affinity2.value)
@@ -25362,22 +25362,22 @@ function valuesSetter(type) {
   if (getTreasureActive("treasure33")) { var aff10 = f(IUniversalIn.treasures.treasure33.effect1) } else { aff10 = f(1) }
   if (getTreasureActive("treasure33")) { var aff11 = f(IUniversalIn.treasures.treasure33.effect2) } else { aff11 = f(1) }
 
-  if (a3.gte(a1) && a3.gte(a2) && a3.gte(a4)) {
+  if (a4.gte(a1) && a4.gte(a2) && a4.gte(a3)) {
     aff10 = f(IUniversalIn.treasures.treasure33.effect1)
     aff11 = f(1);
   }
-  if (a3.lte(a1) && a3.lte(a2) && a3.lte(a4)) {
+  if (a4.lte(a1) && a4.lte(a2) && a4.lte(a3)) {
     aff11 = f(IUniversalIn.treasures.treasure33.effect2)
     aff10 = f(1);
   }
 
-  IUniversalIn.armyInfo.soul.affinities.affinity4.value = ((f(1).add(aff4).add(aff7).minus(aff6).add(aff9)).mul(aff2).mul(aff8).mul(aff9).mul(aff10)).dividedBy(f(aff5))
+  IUniversalIn.armyInfo.soul.affinities.affinity4.value = ((f(1).add(aff4).add(aff7).minus(aff6).add(aff9)).mul(aff2).mul(aff8).mul(aff10).mul(aff11)).dividedBy(f(aff5))
 
   if (getArmyEffectType("hegemony") && f(IUniversalIn.armyInfo.soul.affinities.affinity4.value).lt(f(getArmyEffectValue("hegemony")))) {
     IUniversalIn.armyInfo.soul.affinities.affinity4.value = f(1)
   }
 
-  IUniversalIn.armyInfo.soul.affinities.affinity4.baseValue = (f(1).add(aff4).add(aff7).add(aff9)).mul(aff2).mul(aff9).mul(aff10)
+  IUniversalIn.armyInfo.soul.affinities.affinity4.baseValue = (f(1).add(aff4).add(aff7).add(aff9)).mul(aff2).mul(aff10).mul(aff11)
 
   if (f(IUniversalIn.armyInfo.soul.affinities.affinity4.value).lt(f(1))) {
     IUniversalIn.armyInfo.soul.affinities.affinity4.value = f(1)
