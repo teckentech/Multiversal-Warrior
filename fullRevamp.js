@@ -7470,7 +7470,7 @@ function visualValute() {
     }
     unlockShow("fireValute", true)
 
-    if (checkShow("fp2_content2_19_container")) {
+    if (IUniversalIn.fireMilestones.m6.mCheck()) {
       unlockShow("waterValute", true)
     }
 
@@ -25176,11 +25176,11 @@ function valuesSetter(type) {
   if (getTreasureActive("treasure33")) { var aff13 = f(IUniversalIn.treasures.treasure33.effect1) } else { aff13 = f(1) }
   if (getTreasureActive("treasure33")) { var aff14 = f(IUniversalIn.treasures.treasure33.effect2) } else { aff14 = f(1) }
 
-  if (a1.gte(a2) && a1.gte(a3) && a1.gte(a4)) {
+  if (getTreasureActive("treasure33") && a1.gte(a2) && a1.gte(a3) && a1.gte(a4)) {
     aff13 = f(IUniversalIn.treasures.treasure33.effect1)
     aff14 = f(1);
   }
-  if (a1.lte(a2) && a1.lte(a3) && a1.lte(a4)) {
+  if (getTreasureActive("treasure33") && a1.lte(a2) && a1.lte(a3) && a1.lte(a4)) {
     aff14 = f(IUniversalIn.treasures.treasure33.effect2)
     aff13 = f(1);
   }
@@ -25243,11 +25243,11 @@ function valuesSetter(type) {
   if (getTreasureActive("treasure33")) { var aff12 = f(IUniversalIn.treasures.treasure33.effect1) } else { aff12 = f(1) }
   if (getTreasureActive("treasure33")) { var aff13 = f(IUniversalIn.treasures.treasure33.effect2) } else { aff13 = f(1) }
 
-  if (a2.gte(a1) && a2.gte(a3) && a2.gte(a4)) {
+  if (getTreasureActive("treasure33") && a2.gte(a1) && a2.gte(a3) && a2.gte(a4)) {
     aff12 = f(IUniversalIn.treasures.treasure33.effect1)
     aff13 = f(1);
   }
-  if (a2.lte(a1) && a2.lte(a3) && a2.lte(a4)) {
+  if (getTreasureActive("treasure33") && a2.lte(a1) && a2.lte(a3) && a2.lte(a4)) {
     aff13 = f(IUniversalIn.treasures.treasure33.effect2)
     aff12 = f(1);
   }
@@ -25304,11 +25304,11 @@ function valuesSetter(type) {
   if (getTreasureActive("treasure33")) { var aff10 = f(IUniversalIn.treasures.treasure33.effect1) } else { aff10 = f(1) }
   if (getTreasureActive("treasure33")) { var aff11 = f(IUniversalIn.treasures.treasure33.effect2) } else { aff11 = f(1) }
 
-  if (a3.gte(a1) && a3.gte(a2) && a3.gte(a4)) {
+  if (getTreasureActive("treasure33") && a3.gte(a1) && a3.gte(a2) && a3.gte(a4)) {
     aff10 = f(IUniversalIn.treasures.treasure33.effect1)
     aff11 = f(1);
   }
-  if (a3.lte(a1) && a3.lte(a2) && a3.lte(a4)) {
+  if (getTreasureActive("treasure33") && a3.lte(a1) && a3.lte(a2) && a3.lte(a4)) {
     aff11 = f(IUniversalIn.treasures.treasure33.effect2)
     aff10 = f(1);
   }
@@ -25319,7 +25319,7 @@ function valuesSetter(type) {
     IUniversalIn.armyInfo.soul.affinities.affinity3.value = f(1)
   }
 
-  IUniversalIn.armyInfo.soul.affinities.affinity3.baseValue = ((f(1).add(aff1).add(aff2).add(aff6).add(aff4).add(aff7).add(aff9)).mul(aff4).mul(aff10).mul(aff11))
+  IUniversalIn.armyInfo.soul.affinities.affinity3.baseValue = ((f(1).add(aff1).add(aff2).add(aff6).add(aff7).add(aff9)).mul(aff4).mul(aff10).mul(aff11))
 
   if (f(IUniversalIn.armyInfo.soul.affinities.affinity3.value).lt(f(1))) {
     IUniversalIn.armyInfo.soul.affinities.affinity3.value = f(1)
@@ -25352,7 +25352,7 @@ function valuesSetter(type) {
   }
 
 
-  if (getTreasureActive("treasure32")) { var aff9 = f(IUniversalIn.treasures.treasure32.effect2) } else { aff9 = f(1) }
+  if (getTreasureActive("treasure32")) { var aff9 = f(IUniversalIn.treasures.treasure32.effect2) } else { aff9 = f(0) }
 
     var a1 = f(IUniversalIn.armyInfo.soul.affinities.affinity1.value)
   var a2 = f(IUniversalIn.armyInfo.soul.affinities.affinity2.value)
@@ -25362,11 +25362,11 @@ function valuesSetter(type) {
   if (getTreasureActive("treasure33")) { var aff10 = f(IUniversalIn.treasures.treasure33.effect1) } else { aff10 = f(1) }
   if (getTreasureActive("treasure33")) { var aff11 = f(IUniversalIn.treasures.treasure33.effect2) } else { aff11 = f(1) }
 
-  if (a4.gte(a1) && a4.gte(a2) && a4.gte(a3)) {
+  if (getTreasureActive("treasure33") && a4.gte(a1) && a4.gte(a2) && a4.gte(a3)) {
     aff10 = f(IUniversalIn.treasures.treasure33.effect1)
     aff11 = f(1);
   }
-  if (a4.lte(a1) && a4.lte(a2) && a4.lte(a3)) {
+  if (getTreasureActive("treasure33") && a4.lte(a1) && a4.lte(a2) && a4.lte(a3)) {
     aff11 = f(IUniversalIn.treasures.treasure33.effect2)
     aff10 = f(1);
   }
@@ -25395,6 +25395,7 @@ function valuesSetter(type) {
   var baseAff3 = f(IUniversalIn.armyInfo.soul.affinities.affinity3.baseValue)
   var baseAff4 = f(IUniversalIn.armyInfo.soul.affinities.affinity4.baseValue)
 
+  console.log("base affs: " + baseAff1.toString() + " " + baseAff2.toString() + " " + baseAff3.toString() + " " + baseAff4.toString())
 
   IUniversalIn.armyInfo.soul.baseAffinity = f(baseAff1).mul(baseAff2).mul(baseAff3).mul(baseAff4)
 
