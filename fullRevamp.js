@@ -11497,7 +11497,7 @@ function valuesSetterCycle(type) {
   var sel = IUniversalChallenger.universalChallengerChallengesRewards.c2
   var sel2 = IUniversalChallengerIn.universalChallengerChallengesRewards.c2
 
-  sel2.name = `<div>Maximum Universal Challenger <span class="boldBlackBorder">${sel.level}</span></div><div><span class="boldBlackBorder">${format(f(IUniversalChallenger.universalCoresProdBase))}/s</span> Universal Cores</div>`
+  sel2.name = `<div>Maximum Universal Challenger <span class="boldBlackBorder">${sel.level}</span></div><div><span class="boldBlackBorder">${format(f(IUniversalChallenger.universalCoresProd))}/s</span> Universal Cores</div>`
 
   //hunting
 
@@ -27834,9 +27834,9 @@ function valuesSetterDinamic(type) {
 
   var universalCores5 = f(IUniversalIn.fireTree.node103.effect)
 
-  IUniversalChallenger.universalCoresProd = f(universalCores1).mul(f(universalCores3)).mul(f(universalCores4)).mul(f(universalCores5)).mul(f(IGameData.tickSpeed))
+  IUniversalChallenger.universalCoresProd = f(universalCores1).mul(f(universalCores3)).mul(f(universalCores4)).mul(f(universalCores5))
 
-  IUniversalChallenger.universalCoresProdBase = f(universalCores1).mul(f(IGameData.tickSpeed))
+  IUniversalChallenger.universalCoresProdBase = f(IUniversalChallenger.universalCoresProd).mul(f(IGameData.tickSpeed))
 
   var transit = f(IUniversalChallenger.universalCoresProd).mul(f(universalCores2))
 
@@ -29110,7 +29110,7 @@ document.getElementById("fp2_content2_17").onclick = function () {
 
   var element = document.getElementById("content2_17_scroll")
 
-  element.scrollTop = element.scrollHeight / 5
+  element.scrollTop = element.scrollHeight / 2.5
   element.scrollLeft = element.scrollWidth / 11
 }
 
