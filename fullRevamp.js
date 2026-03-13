@@ -27942,6 +27942,8 @@ function valuesSetterDinamic(type) {
 
   if (IUniversal.automation.automation14.active) {
     IUniversal.size = f(IUniversal.size).add(IUniversal.sizeProd)
+  }else{
+    IUniversal.size = f(IUniversal.size)
   }
 
   //heat
@@ -33505,6 +33507,8 @@ function visualTree() {
       unlockShow(id, true);
 
       var cacheKey = id + '_val';
+
+      console.log(name, value)
       var newValue = format(value) + '_' + format(sec(prod));
 
       if (cache.lastValues[cacheKey] !== newValue) {
