@@ -38397,10 +38397,11 @@ function buyMultiple(priceIdentity, price, objectToUpdate, propertyToUpdate, eff
     var num = 0;
     var totPay = f(0);
     var success = true;
-    while (success) {
+    while (success && remainingPurchases > 0) {
       if (checkBuy(priceIdentity.priceIdentity, f(price.pricef((objectToUpdate[propertyToUpdate]).add(f(num)))).add(totPay), type)) {
         totPay = f(totPay).add(f(price.pricef((objectToUpdate[propertyToUpdate]).add(f(num)))));
         num = f(num).add(1);
+        remainingPurchases--;
       } else {
         success = false;
       }
