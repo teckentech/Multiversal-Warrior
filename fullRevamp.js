@@ -28984,8 +28984,8 @@ function valuesSetterDinamic(type) {
   var metal2 = f(IUniversalIn.forge.item3.effect)
   var metal3 = f(IUniversalIn.fireTree.node81.effect)
 
-  IUniversal.metalProdBase = f(metal1).mul(metal2).mul(metal3).mul(f(IGameData.baseTickSpeed)).mul(f("1e20"))
-  IUniversal.metalProd = f(metal1).mul(metal2).mul(metal3).mul(f(IGameData.tickSpeed)).mul(f("1e20"))
+  IUniversal.metalProdBase = f(metal1).mul(metal2).mul(metal3).mul(f(IGameData.baseTickSpeed))
+  IUniversal.metalProd = f(metal1).mul(metal2).mul(metal3).mul(f(IGameData.tickSpeed))
 
   if (!f(IUniversal.metal).lt(f(0))) {
     IUniversal.metal = f(IUniversal.metal).add(f(IUniversal.metalProd))
