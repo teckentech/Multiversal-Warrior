@@ -37183,7 +37183,7 @@ function loopShow() {
 
   // Hunting rewards
   unlockShow("content2_6_upgrade1", true);
-  var upgrades = ["upgrade1", "upgrade2", "upgrade3", "upgrade4"];
+  var upgrades = ["upgrade1", "upgrade2", "upgrade3", "upgrade4", "upgrade5"];
   for (var i = 0; i < upgrades.length; i++) {
     if (IFI.normalHuntingRewards[upgrades[i]].req()) {
       unlockShow("content2_6_" + upgrades[i + 1], true);
