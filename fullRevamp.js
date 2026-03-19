@@ -19159,7 +19159,7 @@ function valuesSetter(type) {
   }
   //Universe
 
-  IUniversal.universe = f(421)
+  IUniversal.universe = f(IUniversal.universe)
 
   //Milestones
 
