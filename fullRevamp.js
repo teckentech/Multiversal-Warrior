@@ -7104,8 +7104,11 @@ function createClassInstance(type) {
 
     IGameData = new GameData();
 
-    ITraining = new Training();
-    ITrainingIn = new TrainingIn();
+    data.training = Vue.reactive(new Training())
+    ITraining = data.training
+
+    data.trainingIn = Vue.reactive(new TrainingIn())
+    ITrainingIn = data.trainingIn
 
     IFight = new Fight();
 
@@ -7128,7 +7131,7 @@ function createSaveData(type) {
 
       IProgress: IProgress,
       IUniversal: IUniversal,
-      IUniversalChallenger,
+      IUniversalChallenger: IUniversalChallenger,
     };
   }
 
@@ -7343,12 +7346,10 @@ function importSave() {
 function offImportSave() {
   if (localStorage.getItem("GameSaveOff") !== null) {
     resetSave();
-
     IShowableClass.init = true;
     const savedGameData = JSON.parse(localStorage.getItem("GameSaveOff"));
-
     try {
-      saveGameData();
+      createSaveData();
       for (let x in savedGameData) {
         if (saveData[x]) {
           deepMerge(saveData[x], savedGameData[x]);
@@ -7358,19 +7359,15 @@ function offImportSave() {
       console.error("Errore nella decifratura o parsing dei dati: ", e);
     }
   }
-
   IShowableClass.init = true;
 }
 
 function passiveImport() {
-  localStorage.getItem("GameSave")
   if (localStorage.getItem("GameSave") !== null) {
-
-    var encryptedData = JSON.parse(localStorage.getItem("GameSave"));
+    var savedGameData = JSON.parse(localStorage.getItem("GameSave"));
     try {
-      var savedGameData = encryptedData;
+      createSaveData();
       for (let x in savedGameData) {
-        saveGameData()
         if (saveData[x]) {
           deepMerge(saveData[x], savedGameData[x]);
         }
@@ -19162,7 +19159,7 @@ function valuesSetter(type) {
   }
   //Universe
 
-  IUniversal.universe = f(IUniversal.universe)
+  IUniversal.universe = f(421)
 
   //Milestones
 
@@ -25351,7 +25348,7 @@ function valuesSetter(type) {
   }
 
   //aff3
-    var a1 = f(IUniversalIn.armyInfo.soul.affinities.affinity1.value)
+  var a1 = f(IUniversalIn.armyInfo.soul.affinities.affinity1.value)
   var a2 = f(IUniversalIn.armyInfo.soul.affinities.affinity2.value)
   var a3 = f(IUniversalIn.armyInfo.soul.affinities.affinity3.value)
   var a4 = f(IUniversalIn.armyInfo.soul.affinities.affinity4.value)
@@ -27944,7 +27941,7 @@ function valuesSetterDinamic(type) {
 
   if (IUniversal.automation.automation14.active) {
     IUniversal.size = f(IUniversal.size).add(IUniversal.sizeProd)
-  }else{
+  } else {
     IUniversal.size = f(IUniversal.size)
   }
 
@@ -33509,7 +33506,7 @@ function visualTree() {
       unlockShow(id, true);
 
       var cacheKey = id + '_val';
-      
+
       var newValue = format(value) + '_' + format(sec(prod));
 
       if (cache.lastValues[cacheKey] !== newValue) {
