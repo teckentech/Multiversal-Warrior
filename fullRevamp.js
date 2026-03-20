@@ -14416,7 +14416,7 @@ function valuesSetterCycle(type) {
   sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
                  <div class="centerDiv boldBlackBorder">Soul Rights</div>
                  <div class="topRight absolute padding2 grey">107</div>
-                 <div class="centerDiv padding1 column fontSize09">Unlock Fire upgrades Automation</div>
+                 <div class="centerDiv padding1 column fontSize09">Unlock Automation: Fire Upg.</div>
                  </div>`
 
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
@@ -14432,7 +14432,7 @@ function valuesSetterCycle(type) {
   sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
                  <div class="centerDiv boldBlackBorder">Soul Housing</div>
                  <div class="topRight absolute padding2 grey">108</div>
-                 <div class="centerDiv padding1 column fontSize09">Unlock Size upgrades Automation</div>
+                 <div class="centerDiv padding1 column fontSize09">Unlock Automation: Size Upg.</div>
                  </div>`
 
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
@@ -14448,7 +14448,7 @@ function valuesSetterCycle(type) {
   sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
                  <div class="centerDiv boldBlackBorder">Soul Council</div>
                  <div class="topRight absolute padding2 grey">109</div>
-                 <div class="centerDiv column fontSize09">Unlock Soul Automation</div>
+                 <div class="centerDiv column fontSize09">Unlock Automation: Soul</div>
                  <div class="centerDiv column fontSize09">Unlock new upgrades</div>
                  </div>`
 
