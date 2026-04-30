@@ -470,6 +470,8 @@ class Universal {
     this.heat = options.heat || 0;
     this.heatProd = options.heatProd || 0;
 
+    this.heatLock = options.heatLock || false;
+
     this.fireShards = options.fireShards || 0;
     this.fireShardsProd = options.fireShardsProd || 0;
 
@@ -23736,7 +23738,7 @@ function valuesSetter(type) {
     var heat12 = f(IUniversalIn.fireTree.node145.effect)
     var heat13 = f(IUniversalIn.fireTree.node151.effect)
 
-    sel2.effect = f(1).mul(heat1).mul(heat2).mul(heat3).mul(heat4).mul(heat5).mul(heat6).mul(heat7).mul(heat8).mul(heat9).mul(heat10).mul(heat11).mul(heat12)
+    sel2.effect = (f(1).mul(heat1).mul(heat2).mul(heat3).mul(heat4).mul(heat5).mul(heat6).mul(heat7).mul(heat8).mul(heat9).mul(heat10).mul(heat11))
   } else {
     sel2.effect = f(0)
   }
@@ -24300,13 +24302,13 @@ function valuesSetter(type) {
 
 
   if (sel.active) {
-    sel2.effect = ((f(1.15).add(f(IUniversalIn.fireTree.node52.effect)).add(f(IUniversalIn.fireTree.node63.effect)).add(f(IUniversalIn.fireTree.node150.effect)))).pow(f(IUniversalIn.fireTree.node145.effect))
+    sel2.effect = ((f(1.15).add(f(IUniversalIn.fireTree.node52.effect)).add(f(IUniversalIn.fireTree.node63.effect)).add(f(IUniversalIn.fireTree.node150.effect)))).pow(IUniversalIn.fireTree.node145.effect)
   } else {
     sel2.effect = f(1)
   }
 
   if (sel.active) {
-    sel2.effect2 = f(sel2.effect).pow(f(sel.currentTimer))
+    sel2.effect2 = f(f(sel2.effect)).pow(f(sel.currentTimer))
   } else {
     sel2.effect2 = f(1)
   }
@@ -26378,7 +26380,7 @@ function valuesSetter(type) {
   sel2.maxLevel = f(10)
 
   if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(0.01).mul(f(sel.level)).mul(f(IUniversal.heatProd))
+    sel2.effect = f(0.01).mul(f(sel.level))
   } else {
     sel2.effect = f(0)
   }
@@ -31763,8 +31765,6 @@ function valuesSetter(type) {
     sel.leftLife = f(selIn.life)
   }
 
-  console.log(format(f(selIn.affinities.affinity1.value)))
-
   selIn.affinities.affinity1.value = f("1e13").mul(f("1e5").pow(f(sel.level)))
   selIn.affinities.affinity2.value = f(1)
   selIn.affinities.affinity3.value = f("1e13").mul(f("1e5").pow(f(sel.level)))
@@ -32480,9 +32480,9 @@ function valuesSetterDinamic(type) {
 
 
   var universalCores5 = f(IUniversalIn.fireTree.node103.effect)
-  var universalCores5 = f(IUniversalIn.fireTree.node127.effect)
+  var universalCores6 = f(IUniversalIn.fireTree.node127.effect)
 
-  IUniversalChallenger.universalCoresProd = f(universalCores1).mul(f(universalCores3)).mul(f(universalCores4)).mul(f(universalCores5))
+  IUniversalChallenger.universalCoresProd = f(universalCores1).mul(f(universalCores3)).mul(f(universalCores4)).mul(f(universalCores5)).mul(f(universalCores6))
 
   IUniversalChallenger.universalCoresProdBase = f(IUniversalChallenger.universalCoresProd).mul(f(IGameData.tickSpeed))
 
@@ -32616,9 +32616,17 @@ function valuesSetterDinamic(type) {
   var heat5 = f(IUniversalIn.fireTree.node140.effect)
   var heat6 = f(IUniversalIn.fireTree.node155.effect)
 
-  IUniversal.heatProd = ((f(heat1).mul(heat3).mul(heat4).mul(heat6)).pow(heat2)).mul(f(IGameData.baseTickSpeed))
-  IUniversal.heat = f(IUniversal.heat).add(f(heat5))
+  console.log(format(f(IUniversal.heatProd)))
 
+  console.log(format(f(heat1)), format(f(heat2)), format(f(heat3)), format(f(heat4)), format(f(heat5)), format(f(heat6)))
+
+  IUniversal.heatProd = ((f(heat1).mul(heat3).mul(heat4).mul(heat6)).pow(heat2)).mul(f(IGameData.baseTickSpeed))
+
+  if (IUniversal.heatLock == false) {
+    IUniversal.heat = f(IUniversal.heat).add(f(IUniversal.heatProd).mul(heat5))
+  }
+
+  IUniversal.heatLock = false
 
   if (f(IUniversal.heat).lte(f(0.25))) {
     IUniversal.heat = f(0)
@@ -35909,7 +35917,8 @@ document.getElementById("content2_17_node144_button").onclick = function () {
 document.getElementById("content2_17_node145_button").onclick = function () {
   if (f(IUniversal.fireTree.node145.level).lt(f(IUniversalIn.fireTree.node145.maxLevel))) {
     buyMultiple(IUniversalIn.fireTree.node145, IUniversalIn.fireTree.node145, IUniversal.fireTree.node145, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node145, IUniversalIn.fireTree.node145);
-    heatCurrentTimer = f(0)
+
+    IUniversal.heatLock = true;
   }
 }
 
