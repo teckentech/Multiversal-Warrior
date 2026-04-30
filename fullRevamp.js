@@ -32615,11 +32615,7 @@ function valuesSetterDinamic(type) {
   var heat4 = f(IUniversalIn.fireTree.node110.effect)
   var heat5 = f(IUniversalIn.fireTree.node140.effect)
   var heat6 = f(IUniversalIn.fireTree.node155.effect)
-
-  console.log(format(f(IUniversal.heatProd)))
-
-  console.log(format(f(heat1)), format(f(heat2)), format(f(heat3)), format(f(heat4)), format(f(heat5)), format(f(heat6)))
-
+  
   IUniversal.heatProd = ((f(heat1).mul(heat3).mul(heat4).mul(heat6)).pow(heat2)).mul(f(IGameData.baseTickSpeed))
 
   if (IUniversal.heatLock == false) {
