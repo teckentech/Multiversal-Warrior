@@ -7341,8 +7341,6 @@ class ShowableClass {
       content2_11_grid_c7: false,
       content2_11_grid_c8: false,
 
-
-
       content2_11_grid_exit: false,
 
       //fireTree
@@ -16463,7 +16461,7 @@ function valuesSetterCycle(type) {
                <div class="centerDiv boldBlackBorder">Negentropy</div>
                <div class="topRight absolute padding2 grey">140</div>
                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-               <div class="centerDiv fontSize09">Heat/s +1% (<span class="boldBlackBorder">+${format(f(sel2.effect), 0)}</span>)</div>
+               <div class="centerDiv fontSize09">Heat/s +1% (<span class="boldBlackBorder">+${format(f(sel2.effect), 2)}&</span>)</div>
                </div>`
 
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
@@ -33055,7 +33053,6 @@ function valuesSetterDinamic(type) {
   var ambrosia3 = f(IUniversalIn.waterTree.node38.effect)
   var ambrosia4 = f(IUniversalIn.fireTree.node125.effect)
 
-
   IUniversal.ambrosiaProdBase = (f(ambrosia1).mul(f(ambrosia2)).mul(f(ambrosia3)).mul(f(ambrosia4))).mul(f(IGameData.baseTickSpeed))
   IUniversal.ambrosiaProd = (f(ambrosia1).mul(f(ambrosia2)).mul(f(ambrosia3)).mul(f(ambrosia4))).mul(f(IGameData.tickSpeed))
 
@@ -33074,7 +33071,7 @@ function valuesSetterDinamic(type) {
         var tempAmbrosiaProdWithTime = f(tempAmbrosiaProd).mul(f(IGameData.tickSpeed))
         IUniversal.ambrosia = f(IUniversal.ambrosia).add(f(tempAmbrosiaProdWithTime))
       } else {
-        IUniversal.ambrosiaProd = (f(ambrosia1).mul(f(ambrosia2)).mul(f(ambrosia3))).mul(f(IGameData.tickSpeed))
+        IUniversal.ambrosiaProd = (f(ambrosia1).mul(f(ambrosia2)).mul(f(ambrosia3)).mul(f(ambrosia4))).mul(f(IGameData.tickSpeed))
         IUniversal.ambrosia = f(IUniversal.ambrosia).add(f(IUniversal.ambrosiaProd))
       }
     } else {
