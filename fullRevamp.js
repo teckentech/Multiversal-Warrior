@@ -44,6 +44,9 @@ var IUniversalChallengerIn;
 var secretKey = "DontLookAtMePls";
 var saveData;
 var waiting = false;
+
+var deactiveWaiting = false;
+
 var freeTick = false
 var saving = false;
 
@@ -20847,89 +20850,16 @@ function valuesSetter(type) {
 
 
   //life training
-  var base2_2 = IFightIn.challengerRewards.reward1.effect
 
-  if (f(ITraining.base.base3.tot).gte(f(1))) {
-    var base1_4 = ITraining.base.base3.tot;
-  }
-  else {
-    ITraining.base.base3.tot = f(1)
-  }
-
-  if (IUniversal.energyUpgrades.upgrade6.active) {
-    var base1_5 = IUniversalIn.energyUpgrades.upgrade6.effect;
-  }
-  else {
-    base1_5 = f(0)
-  }
-
-  if (IUniversal.energyUpgrades.upgrade7.active) {
-    var lifeTraining6 = IUniversalIn.energyUpgrades.upgrade7.effect;
-  }
-  else {
-    lifeTraining6 = f(1)
-  }
-
-  if (IUniversal.energyUpgrades.upgrade8.active) {
-    var lifeTraining7 = IUniversalIn.energyUpgrades.upgrade8.effect;
-  }
-  else {
-    lifeTraining7 = f(1)
-  }
-
-  if (IUniversal.attributes.attributeBonus3.active) {
-    var lifeTraining8 = f(IUniversalIn.attributes.attributeBonus3.effect)
-  } else {
-    var lifeTraining8 = f(1)
-  }
-
-  if (IUniversalIn.potionEffects.effect2.activeValue) {
-    var lifeTraining9 = f(IUniversalIn.potionEffects.effect2.activeValue)
-  } else {
-    var lifeTraining9 = f(1)
-  }
-
-  ITrainingIn.base.base2.prod = (f(1).mul(f(base2_2)).add(f(base1_5))).mul(f(base1_4)).mul(f(lifeTraining6)).mul(f(lifeTraining7)).mul(f(lifeTraining8)).mul(f(lifeTraining9));
   ITraining.base.base2.level = f(ITraining.base.base2.level);
 
 
   //Will training
 
-  var base3_1 = IFightIn.challengerRewards.reward2.effect
-
-  if (IUniversal.attributes.attributeBonus4.active) {
-    var base3_2 = f(IUniversalIn.attributes.attributeBonus4.effect)
-  } else {
-    var base3_2 = f(1)
-  }
-
-  if (IUniversalIn.potionEffects.effect9.activeValue) {
-    var base3_3 = f(IUniversalIn.potionEffects.effect9.activeValue)
-  } else {
-    var base3_3 = f(1)
-  }
-
-
-  ITrainingIn.base.base3.prod = f(0.01).mul(f(base3_1)).mul(f(base3_2)).mul(f(base3_3))
   ITraining.base.base3.level = f(ITraining.base.base3.level);
 
   //Insight training
 
-  var base4_1 = IFightIn.challengerRewards.reward2.effect
-
-  if (IUniversal.attributes.attributeBonus4.active) {
-    var base4_2 = f(IUniversalIn.attributes.attributeBonus4.effect)
-  } else {
-    var base4_2 = f(1)
-  }
-
-  if (IUniversalIn.potionEffects.effect10.activeValue) {
-    var base4_3 = f(IUniversalIn.potionEffects.effect10.activeValue)
-  } else {
-    var base4_3 = f(1)
-  }
-
-  ITrainingIn.base.base4.prod = f(0.01).mul((base4_1)).mul(f(base4_2)).mul(f(base4_3));
   ITraining.base.base4.level = f(ITraining.base.base4.level);
 
 
@@ -32064,6 +31994,44 @@ function valuesSetterDinamic(type) {
 
   //Damage Training
 
+
+  var base1_2 = IFightIn.challengerRewards.reward1.effect
+
+  if (f(ITraining.base.base3.tot).gte(f(1))) {
+    var base1_3 = ITraining.base.base3.tot;
+  }
+  else {
+    base1_3 = f(1)
+  }
+
+  if (IUniversal.energyUpgrades.upgrade1.active) {
+    var base1_4 = f(IUniversalIn.energyUpgrades.upgrade1.effect);
+  }
+  else {
+    base1_4 = f(0)
+  }
+
+  if (IUniversal.energyUpgrades.upgrade3.active) {
+    var base1_5 = f(IUniversalIn.energyUpgrades.upgrade3.effect);
+  }
+  else {
+    base1_5 = f(1)
+  }
+
+  if (IUniversal.attributes.attributeBonus3.active) {
+    var base1_6 = f(IUniversalIn.attributes.attributeBonus3.effect)
+  } else {
+    var base1_6 = f(1)
+  }
+
+  if (IUniversalIn.potionEffects.effect1.activeValue) {
+    var base1_7 = f(IUniversalIn.potionEffects.effect1.activeValue)
+  } else {
+    var base1_7 = f(1)
+  }
+
+  ITrainingIn.base.base1.prod = (f(0.2).mul(f(base1_2)).add(f(base1_4))).mul(f(base1_3)).mul(f(base1_5)).mul(f(base1_6)).mul(f(base1_7));
+
   if (ITraining.base.base1.active) {
     var damage1 = f(ITrainingIn.base.base1.prod)
   }
@@ -32071,16 +32039,59 @@ function valuesSetterDinamic(type) {
     damage1 = f(0)
   }
 
-
   ITraining.base.base1.tot = f(ITraining.base.base1.tot)
     .add((f(damage1))
       .mul(f(IGameData.tickSpeed))
-    );
+    )
 
   if (f(ITraining.base.base1.tot).lt(f(0))) {
     ITraining.base.base1.tot = f(0)
   }
   //Life Training
+
+  var base2_2 = IFightIn.challengerRewards.reward1.effect
+
+  if (f(ITraining.base.base3.tot).gte(f(1))) {
+    var base1_4 = ITraining.base.base3.tot;
+  }
+  else {
+    ITraining.base.base3.tot = f(1)
+  }
+
+  if (IUniversal.energyUpgrades.upgrade6.active) {
+    var base1_5 = IUniversalIn.energyUpgrades.upgrade6.effect;
+  }
+  else {
+    base1_5 = f(0)
+  }
+
+  if (IUniversal.energyUpgrades.upgrade7.active) {
+    var lifeTraining6 = IUniversalIn.energyUpgrades.upgrade7.effect;
+  }
+  else {
+    lifeTraining6 = f(1)
+  }
+
+  if (IUniversal.energyUpgrades.upgrade8.active) {
+    var lifeTraining7 = IUniversalIn.energyUpgrades.upgrade8.effect;
+  }
+  else {
+    lifeTraining7 = f(1)
+  }
+
+  if (IUniversal.attributes.attributeBonus3.active) {
+    var lifeTraining8 = f(IUniversalIn.attributes.attributeBonus3.effect)
+  } else {
+    var lifeTraining8 = f(1)
+  }
+
+  if (IUniversalIn.potionEffects.effect2.activeValue) {
+    var lifeTraining9 = f(IUniversalIn.potionEffects.effect2.activeValue)
+  } else {
+    var lifeTraining9 = f(1)
+  }
+
+  ITrainingIn.base.base2.prod = (f(1).mul(f(base2_2)).add(f(base1_5))).mul(f(base1_4)).mul(f(lifeTraining6)).mul(f(lifeTraining7)).mul(f(lifeTraining8)).mul(f(lifeTraining9));
 
   if (ITraining.base.base2.active) {
     var life1 = f(ITrainingIn.base.base2.prod)
@@ -32100,6 +32111,24 @@ function valuesSetterDinamic(type) {
   }
 
   //Will Training
+
+
+  var base3_1 = IFightIn.challengerRewards.reward2.effect
+
+  if (IUniversal.attributes.attributeBonus4.active) {
+    var base3_2 = f(IUniversalIn.attributes.attributeBonus4.effect)
+  } else {
+    var base3_2 = f(1)
+  }
+
+  if (IUniversalIn.potionEffects.effect9.activeValue) {
+    var base3_3 = f(IUniversalIn.potionEffects.effect9.activeValue)
+  } else {
+    var base3_3 = f(1)
+  }
+
+
+  ITrainingIn.base.base3.prod = f(0.01).mul(f(base3_1)).mul(f(base3_2)).mul(f(base3_3))
 
   if (ITraining.base.base3.active) {
     var Will1 = f(ITrainingIn.base.base3.prod)
@@ -32121,6 +32150,23 @@ function valuesSetterDinamic(type) {
   }
 
   //Insight Training
+
+
+  var base4_1 = IFightIn.challengerRewards.reward2.effect
+
+  if (IUniversal.attributes.attributeBonus4.active) {
+    var base4_2 = f(IUniversalIn.attributes.attributeBonus4.effect)
+  } else {
+    var base4_2 = f(1)
+  }
+
+  if (IUniversalIn.potionEffects.effect10.activeValue) {
+    var base4_3 = f(IUniversalIn.potionEffects.effect10.activeValue)
+  } else {
+    var base4_3 = f(1)
+  }
+
+  ITrainingIn.base.base4.prod = f(0.01).mul((base4_1)).mul(f(base4_2)).mul(f(base4_3));
 
   if (ITraining.base.base4.active) {
     var Insight1 = f(ITrainingIn.base.base4.prod)
@@ -32613,7 +32659,7 @@ function valuesSetterDinamic(type) {
   var heat4 = f(IUniversalIn.fireTree.node110.effect)
   var heat5 = f(IUniversalIn.fireTree.node140.effect)
   var heat6 = f(IUniversalIn.fireTree.node155.effect)
-  
+
   IUniversal.heatProd = ((f(heat1).mul(heat3).mul(heat4).mul(heat6)).pow(heat2)).mul(f(IGameData.baseTickSpeed))
 
   if (IUniversal.heatLock == false) {
@@ -35038,6 +35084,10 @@ document.getElementById("optionsMisc_notation_b1").onclick = function () {
   }
 }
 
+document.getElementById("optionsMisc_offlineTime_b1").onclick = function () {
+  deactiveWaiting = !deactiveWaiting
+}
+
 //discord
 
 document.getElementById("options_discord").onclick = function () {
@@ -37283,7 +37333,9 @@ function pauseFunctionPassive(fun, time, bool) {
 //OFFLINE TIME
 
 async function offProgress(time) {
-  if (!waiting) {
+
+  if (!waiting && !deactiveWaiting) {
+
     waiting = true;
     IGameData.tickSpeedMult = f(IGameData.tickSpeedMult).mul(f(20)).mul(f(time))
 
@@ -37995,6 +38047,14 @@ function visualMenu() {
 //VISUAL OPTIONS
 function visualOptions() {
   update("optionsMisc_notation_b1", `<div class="noClick">${IPermanentIn.notation["notation" + IPermanent.notationCont]}</div>`)
+
+  if (deactiveWaiting) {
+    document.getElementById("optionsMisc_offlineTime_b1").style.backgroundColor = "#972a2aff"
+    update("optionsMisc_offlineTime_b1", `<div class="noClick">Offline Time Deactivated</div>`)
+  } else {
+    document.getElementById("optionsMisc_offlineTime_b1").style.backgroundColor = "#1e8449"
+    update("optionsMisc_offlineTime_b1", `<div class="noClick">Offline Time Activated</div>`)
+  }
 }
 
 //LORE
