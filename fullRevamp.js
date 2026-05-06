@@ -16346,7 +16346,7 @@ function valuesSetterCycle(type) {
   var sel2 = IUniversalIn.fireTree.node134
 
   sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-    <div class="centerDiv boldBlackBorder">Clense Universes</div>
+    <div class="centerDiv boldBlackBorder">Cleanse Universes</div>
     <div class="centerDiv grey">Get Ash from Universes and Burnt Universes</div>
     <div class="padding1"></div>
     <div class="centerDiv font09 grey">Starting from Universe 100</div>
