@@ -25758,7 +25758,7 @@ function valuesSetter(type) {
 
 
   if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(f(sel.level).add(f(1))).pow(f(IUniversal.fame))
+    sel2.effect = f(f(f(0.2).mul(f(sel.level))).add(f(1))).pow(f(IUniversal.fame))
   } else {
     sel2.effect = f(1)
   }
@@ -25780,7 +25780,7 @@ function valuesSetter(type) {
   sel2.maxLevel = f(5)
 
   if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(f(sel.level).add(f(1))).pow(f(IUniversal.hope))
+    sel2.effect = f(f(f(0.2).mul(f(sel.level))).add(f(1))).pow(f(IUniversal.hope))
   } else {
     sel2.effect = f(1)
   }
