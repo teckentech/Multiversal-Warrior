@@ -40,7 +40,6 @@ body {
 
   #content {
     font-size: 1cqw;
-    /* Testo leggermente più grande per schermi piccoli */
   }
 }
 
@@ -52,7 +51,6 @@ body {
 
   #content {
     font-size: 1cqw;
-    /* Testo proporzionale al viewport */
   }
 }
 
@@ -88,14 +86,12 @@ body {
 
 .defaultButton:hover {
   filter: saturate(3);
-  /* Riduce il contrasto, quindi scurisce l'elemento */
 }
 
 .defaultButton:active {
   filter: brightness(80%);
   transform: translateY(0.2vh);
 
-  /* Ombra esterna più piccola per effetto pressione */
   box-shadow: inset 0 0 0 0.05vw #ffffff,
     0.1vw 0.1vw 0.25vw rgba(0, 0, 0, 0.5);
 }
@@ -114,14 +110,12 @@ body {
 
 .defaultButton5:hover {
   filter: saturate(3);
-  /* Riduce il contrasto, quindi scurisce l'elemento */
 }
 
 .defaultButton5:active {
   filter: brightness(80%);
   transform: translateY(0.2vh);
 
-  /* Ombra esterna più piccola per effetto pressione */
   box-shadow: inset 0 0 0 0.05vw #ffffff,
     0.1vw 0.1vw 0.3vw rgba(0, 0, 0, 0.5);
 }
@@ -141,14 +135,12 @@ body {
 
 .defaultButton15:hover {
   filter: saturate(3);
-  /* Riduce il contrasto, quindi scurisce l'elemento */
 }
 
 .defaultButton15:active {
   filter: brightness(80%);
   transform: translateY(0.2vh);
 
-  /* Ombra esterna più piccola per effetto pressione */
   box-shadow: inset 0 0 0 0.05vw #ffffff,
     0.1vw 0.1vw 0.25vw rgba(0, 0, 0, 0.5);
 }
@@ -168,14 +160,12 @@ body {
 
 .defaultButton30:hover {
   filter: saturate(3);
-  /* Scurisce il colore del 15% */
 }
 
 .defaultButton30:active {
   filter: brightness(80%);
   transform: translateY(0.2vh);
 
-  /* Ombra esterna più piccola per effetto pressione */
   box-shadow: inset 0 0 0 0.05vw #ffffff,
     0.1vw 0.1vw 0.25vw rgba(0, 0, 0, 0.5);
 }
@@ -202,9 +192,56 @@ body {
   filter: brightness(80%);
   transform: translateY(0.2vh);
 
-  /* Ombra esterna più piccola per effetto pressione */
   box-shadow: inset 0 0 0 0.05vw #ffffff,
     0.1vh 0.1vh 0.25vh rgba(0, 0, 0, 0.5);
+}
+
+.defaultButton100Version2 {
+  background: #36454f;
+  border-radius: 1vw;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+
+  box-shadow: inset 0 0 0 0.05vw #ffffff,
+    0vw 0.3vw rgba(0, 0, 0, 0.7);
+
+  width: 100%;
+}
+
+.defaultButton100Version2:hover {
+  filter: saturate(3);
+}
+
+.defaultButton100Version2:active {
+  filter: brightness(80%);
+  transform: translateY(0.2vh);
+
+  box-shadow: inset 0 0 0 0.05vw #ffffff,
+    0.1vh 0.1vh 0.25vh rgba(0, 0, 0, 0.5);
+}
+
+.defaultButton100Version3 {
+  background: #36454f;
+  border-radius: 1vw;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+
+  box-shadow: inset 0 0 0 0.05vw #ffffff,
+    0vw 0.3vw rgba(0, 0, 0, 0.7);
+
+  width: 100%;
+}
+
+.defaultButton100Version4 {
+  background: #36454f;
+  border-radius: 0vw;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+
+  box-shadow: inset 0 0 0 0.05vw #ffffff,
+    0vw 0.3vw rgba(0, 0, 0, 0.7);
+
+  width: 100%;
 }
 
 .bDefaultButton {
@@ -396,6 +433,10 @@ body {
 
 .noClick {
   pointer-events: none;
+}
+
+.Click {
+  pointer-events: auto;
 }
 
 /* questo mi permette di rendere il gioco ridimensionabile, credo almeno*/
@@ -4211,6 +4252,10 @@ button,
   width: 100%;
 }
 
+.width1_3 {
+  width: calculated(100% / 3);
+}
+
 .height5 {
   height: 5%;
 }
@@ -4528,6 +4573,10 @@ button,
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.flexAlignBottom {
+  align-items: flex-end;
 }
 
 .sameCell {
@@ -6205,6 +6254,69 @@ svg#content2_17_lineLayer {
   border-radius: 0.5em;
 }
 
+#content2_17_node165 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 400%;
+  left: 251%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node166 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 425%;
+  left: 251%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node167 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 450%;
+  left: 251%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node168 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 400%;
+  left: 274%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node169 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 425%;
+  left: 274%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node170 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 450%;
+  left: 274%;
+  border-radius: 0.5em;
+}
+
+#content2_17_node171 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 225%;
+  left: 113%;
+  border-radius: 0.5em;
+}
+
 #content2_17_menu {
   position: sticky;
   top: 0%;
@@ -6229,17 +6341,16 @@ svg#content2_17_lineLayer {
 }
 
 #content2_17_valutes_content {
-  display: flex;
-  flex-direction: row;
-  overflow-y: auto;
   pointer-events: none;
-
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); 
+  grid-auto-rows: min-content; 
   width: 70%;
 }
 
-#content2_17_valutes_content>* {
+#content2_17_valutes_content > * {
   pointer-events: all;
-  width: 15%;
+  width: 100%; 
   background-color: rgba(90, 99, 99, 0.8);
 }
 
@@ -6266,19 +6377,19 @@ svg#content2_17_lineLayer {
 #content2_19_limit2 {
   position: absolute;
   top: 0%;
-  left: 300%;
+  left: 200%;
 }
 
 #content2_19_limit3 {
   position: absolute;
-  top: 400%;
+  top: 700%;
   left: 0%;
 }
 
 #content2_19_limit4 {
   position: absolute;
-  top: 400%;
-  left: 300%;
+  top: 700%;
+  left: 200%;
 }
 
 svg#content2_19_lineLayer {
@@ -6310,14 +6421,15 @@ svg#content2_19_lineLayer {
 
 #content2_19_valutes_content {
   pointer-events: none;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); 
+  grid-auto-rows: min-content; 
   width: 70%;
 }
 
-#content2_19_valutes_content>* {
+#content2_19_valutes_content > * {
   pointer-events: all;
-  width: 15%;
+  width: 100%; 
   background-color: rgba(90, 99, 99, 0.8);
 }
 
@@ -6348,7 +6460,10 @@ svg#content2_19_lineLayer {
 }
 
 #content2_19_potionSel {
-  width: 30%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 1%;
+  width:64%;
   height: 50%;
   overflow-y: auto;
   position: absolute;
@@ -6358,7 +6473,7 @@ svg#content2_19_lineLayer {
 }
 
 #content2_19_potionSel>div {
-  height: 40%;
+  height: 100%;
   width: 100%;
 
   margin-top: 2%;
@@ -6498,6 +6613,8 @@ svg#content2_19_lineLayer {
 
 .scrollPage {
   overflow: auto;
+  scroll-behavior: auto;
+
 }
 
 #content2_17_size {
@@ -6642,6 +6759,34 @@ svg#content2_19_lineLayer {
 }
 
 #content2_19_circle3_fill {
+  background: linear-gradient(to top, #2ee3ff 20%, #14656b 20%);
+  /* Green fills from bottom up */
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  /* Ensure it's on top */
+
+  box-shadow: inset 0 0 0 0.2vw #ffffff,
+    0vw 0.3vw rgba(0, 0, 0, 0.7);
+}
+
+
+
+#content2_19_circle4 {
+  width: 20%;
+  aspect-ratio: 1/1;
+  position: absolute;
+  top: 507.5%;
+  left: 90%;
+
+  border-radius: 50%;
+}
+
+#content2_19_circle4_fill {
   background: linear-gradient(to top, #2ee3ff 20%, #14656b 20%);
   /* Green fills from bottom up */
   height: 100%;
@@ -7092,6 +7237,233 @@ svg#content2_19_lineLayer {
   border-radius: 0.5em;
 }
 
+#content2_19_node40 {
+  width: 100%;
+  height: 20%;
+  position: absolute;
+  top: 375%;
+  left: 48%;
+
+  border-radius: 0.5em;
+}
+
+#content2_19_node41 {
+  width: 80%;
+  height: 30%;
+  position: absolute;
+  top: 390%;
+  left: 59.5%;
+
+  border-radius: 0.5em;
+}
+
+#content2_19_node42 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 450%;
+  left: 90%;
+
+  border-radius: 0.5em;
+}
+
+#content2_19_node43 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 425%;
+  left: 78%;
+
+  border-radius: 0.5em;
+}
+
+#content2_19_node44 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 425%;
+  left: 101%;
+
+  border-radius: 0.5em;
+}
+
+#content2_19_node45 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 450%;
+  left: 67%;
+
+  border-radius: 0.5em;
+}
+
+#content2_19_node46 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 450%;
+  left: 113%;
+
+  border-radius: 0.5em;
+}
+
+#content2_19_node47 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 512.5%;
+  left: 136%;
+
+  border-radius: 0.5em;
+}
+
+#content2_19_node48 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 512.5%;
+  left: 44%;
+
+  border-radius: 0.5em;
+}
+
+#content2_19_coreEquip_1 {
+  width: 15%;
+  height: 30%;
+  position: absolute;
+  top: 475%;
+  left: 92.5%;
+
+  border-radius: 0.5em;
+}
+
+#content2_19_coreEquip_2 {
+  width: 15%;
+  height: 30%;
+  position: absolute;
+  top: 512.5%;
+  left: 111.5%;
+
+  border-radius: 0.5em;
+}
+
+#content2_19_coreEquip_3 {
+  width: 15%;
+  height: 30%;
+  position: absolute;
+  top: 512.5%;
+  left: 73%;
+
+  border-radius: 0.5em;
+}
+
+#content2_19_coreEquip_4 {
+  width: 10%;
+  height: 20%;
+  position: absolute;
+  top: 600%;
+  left: 95%;
+
+  border-radius: 0.5em;
+}
+
+#content2_19_coreItem_1 {
+  width: 90%;
+  aspect-ratio: 1/1;
+  border-radius: 0.5em;
+}
+
+#content2_19_coreItem_2 {
+  width: 90%;
+  aspect-ratio: 1/1;
+  border-radius: 0.5em;
+}
+
+#content2_19_coreItem_3 {
+  width: 90%;
+  aspect-ratio: 1/1;
+  border-radius: 0.5em;
+}
+
+#content2_19_coreItem_4 {
+  width: 90%;
+  aspect-ratio: 1/1;
+  border-radius: 0.5em;
+}
+
+#content2_19_treasureShow {
+  z-index: 9;
+  height: 10%;
+  position: absolute;
+  bottom: 3%;
+  right: 1%;
+}
+
+#content2_19_treasureSel {
+  position: sticky;
+  top: 64%;
+  width: 100%;
+  height: 30%;
+  z-index: 8;
+
+  right: 0%;
+}
+
+
+#content2_19_treasureGrid {
+  display: grid;
+  width: 50%;
+  height: 100%;
+  bottom: 0%;
+  overflow-y: auto;
+  position: absolute;
+  border-radius: 0.5em;
+  gap: 0.5vw;
+
+  grid-template-columns: repeat(8, 1fr) !important;
+  grid-template-rows: repeat(20, 1fr) !important;
+
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+#content2_19_treasureGrid::-webkit-scrollbar {
+  width: 2vw;
+}
+
+#content2_19_treasureGrid::-webkit-scrollbar-track {
+  background: #222;
+  border-radius: 0.5em;
+}
+
+#content2_19_treasureGrid::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 0.5em;
+}
+
+#content2_19_treasureGrid::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+
+#content2_19_treasureGrid>* {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#content2_19_treasure_info {
+  position: sticky;
+  left: 0%;
+  width: 25%;
+  height: 100%;
+  z-index: 9999;
+}
+
+
+
 
 #content2_21 {
   position: relative;
@@ -7119,13 +7491,13 @@ svg#content2_19_lineLayer {
 
 #content2_21_limit3 {
   position: absolute;
-  top: 550%;
+  top: 700%;
   left: 0%;
 }
 
 #content2_21_limit4 {
   position: absolute;
-  top: 550%;
+  top: 700%;
   left: 299%;
 }
 
@@ -7158,14 +7530,15 @@ svg#content2_21_lineLayer {
 
 #content2_21_valutes_content {
   pointer-events: none;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); 
+  grid-auto-rows: min-content; 
   width: 70%;
 }
 
-#content2_21_valutes_content>* {
+#content2_21_valutes_content > * {
   pointer-events: all;
-  width: 15%;
+  width: 100%; 
   background-color: rgba(90, 99, 99, 0.8);
 }
 
@@ -7203,6 +7576,76 @@ svg#content2_21_lineLayer {
   position: absolute;
   top: 255%;
   left: 140%;
+
+  border-radius: 0.5em;
+
+  border: 5px dashed rgb(42, 144, 151);
+  z-index: -10;
+
+}
+
+#content2_21_zone4 {
+  width: 46%;
+  height: 110%;
+  position: absolute;
+  top: 140%;
+  left: 48%;
+
+  border-radius: 0.5em;
+
+  border: 5px dashed rgb(42, 144, 151);
+  z-index: -10;
+
+}
+
+#content2_21_zone5 {
+  width: 46%;
+  height: 110%;
+  position: absolute;
+  top: 140%;
+  left: 94%;
+
+  border-radius: 0.5em;
+
+  border: 5px dashed rgb(42, 144, 151);
+  z-index: -10;
+
+}
+
+#content2_21_zone6 {
+  width: 46%;
+  height: 90%;
+  position: absolute;
+  top: 160%;
+  left: 140.5%;
+
+  border-radius: 0.5em;
+
+  border: 5px dashed rgb(42, 144, 151);
+  z-index: -10;
+
+}
+
+#content2_21_zone7 {
+  width:44.5%;
+  height: 80%;
+  position: absolute;
+  top: 170%;
+  left: 3%;
+
+  border-radius: 0.5em;
+
+  border: 5px dashed rgb(42, 144, 151);
+  z-index: -10;
+
+}
+
+#content2_21_zone8 {
+  width:70%;
+  height: 80%;
+  position: absolute;
+  top: 170%;
+  left: 187%;
 
   border-radius: 0.5em;
 
@@ -7391,6 +7834,213 @@ svg#content2_21_lineLayer {
   border-radius: 0.5em;
 }
 
+#content2_21_node13 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 225%;
+  left: 96%;
+  border-radius: 0.5em;
+}
+
+#content2_21_node14 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 200%;
+  left: 96%;
+  border-radius: 0.5em;
+}
+
+#content2_21_node15 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 175%;
+  left: 96%;
+  border-radius: 0.5em;
+}
+
+#content2_21_node16 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 150%;
+  left: 96%;
+  border-radius: 0.5em;
+}
+
+#content2_21_node17 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 225%;
+  left: 142%;
+  border-radius: 0.5em;
+}
+
+#content2_21_node18 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 200%;
+  left: 153.5%;
+  border-radius: 0.5em;
+}
+
+#content2_21_node19 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 175%;
+  left: 142%;
+  border-radius: 0.5em;
+}
+
+#content2_21_node20 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 175%;
+  left: 165%;
+  border-radius: 0.5em;
+}
+
+#content2_21_node21 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 225%;
+  left: 27%;
+  border-radius: 0.5em;
+}
+
+#content2_21_node22 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 200%;
+  left: 4%;
+  border-radius: 0.5em;
+}
+
+#content2_21_node23 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 200%;
+  left: 27%;
+  border-radius: 0.5em;
+}
+
+#content2_21_node24 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 175%;
+  left: 27%;
+  border-radius: 0.5em;
+}
+
+#content2_21_node25 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 225%;
+  left: 211%;
+  border-radius: 0.5em;
+}
+
+#content2_21_node26 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 200%;
+  left: 234%;
+  border-radius: 0.5em;
+}
+
+#content2_21_node27 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 200%;
+  left: 188%;
+  border-radius: 0.5em;
+}
+
+#content2_21_node28 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 175%;
+  left: 234%;
+  border-radius: 0.5em;
+}
+
+#content2_21_node29 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 175%;
+  left: 211%;
+  border-radius: 0.5em;
+}
+
+#content2_21_node30 {
+  width: 43%;
+  height: 45%;
+  position: absolute;
+  top: 200%;
+  left: 50%;
+  border-radius: 0.5em;
+}
+
+#content2_21_node31 {
+  width: 43%;
+  height: 45%;
+  position: absolute;
+  top: 150%;
+  left: 50%;
+  border-radius: 0.5em;
+}
+
+#content2_21_node32 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 225%;
+  left: 119%;
+  border-radius: 0.5em;
+}
+
+#content2_21_node33 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 200%;
+  left: 119%;
+  border-radius: 0.5em;
+}
+
+#content2_21_node34 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 175%;
+  left: 119%;
+  border-radius: 0.5em;
+}
+
+#content2_21_node35 {
+  width: 20%;
+  height: 20%;
+  position: absolute;
+  top: 225%;
+  left: 165%;
+  border-radius: 0.5em;
+}
+
 #content2_21_under1 {
   width: 140%;
   height: 80%;
@@ -7401,6 +8051,24 @@ svg#content2_21_lineLayer {
 }
 
 #content2_21_under1_desc {
+  width: 140%;
+  height: 10%;
+  position: absolute;
+  top: 450%;
+  left: 48%;
+  border-radius: 0.5em;
+}
+
+#content2_21_under2 {
+  width: 140%;
+  height: 80%;
+  position: absolute;
+  top: 540%;
+  left: 48%;
+  border-radius: 0.5em;
+}
+
+#content2_21_under2_desc {
   width: 140%;
   height: 10%;
   position: absolute;
@@ -7486,26 +8154,26 @@ svg#content2_21_lineLayer {
 
 #content2_23_limit1 {
   position: absolute;
-  top: 0%;
-  left: 0%;
+  top: 400%;
+  left: -50%;
 }
 
 #content2_23_limit2 {
   position: absolute;
-  top: 0%;
-  left: 500%;
+  top: 400%;
+  left: 550%;
 }
 
 #content2_23_limit3 {
   position: absolute;
-  top: 2000%;
-  left: 0%;
+  top: 1600%;
+  left: -50%;
 }
 
 #content2_23_limit4 {
   position: absolute;
-  top: 2000%;
-  left: 100%;
+  top: 1600%;
+  left: 550%;
 }
 
 #content2_23_treasureClaimButton {
@@ -7785,6 +8453,15 @@ svg#content2_21_lineLayer {
   border-radius: 0.5em;
 }
 
+#content2_23_node23 {
+  width: 20%;
+  height: 40%;
+  position: absolute;
+  top: 810%;
+  left: 175%;
+  border-radius: 0.5em;
+}
+
 #content2_23_background {
   width: 1800%;
   height: 1800%;
@@ -7792,7 +8469,7 @@ svg#content2_21_lineLayer {
   top: -160%;
   left: -625%;
   border-radius: 0.5em;
-  background-image: url("images/wind islands.png");
+  background-image: url("images/wind islands 3.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -7837,6 +8514,25 @@ svg#content2_21_lineLayer {
   background-color: transparent;
 }
 
+#content2_23_spire3 {
+  width: 15%;
+  height: 20%;
+  position: absolute;
+  top: 865%;
+  left: 156%;
+  border-radius: 0.5em;
+}
+
+#content2_23_spire3Image {
+  width: 60%;
+  height: 80%;
+  position: absolute;
+  top: 800%;
+  left: 135%;
+  background-image: url("images/spire3.png");
+  background-color: transparent;
+}
+
 #content2_23_menu {
   position: sticky;
   top: 0%;
@@ -7858,14 +8554,15 @@ svg#content2_21_lineLayer {
 
 #content2_23_valutes_content {
   pointer-events: none;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); 
+  grid-auto-rows: min-content; 
   width: 70%;
 }
 
-#content2_23_valutes_content>* {
+#content2_23_valutes_content > * {
   pointer-events: all;
-  width: 15%;
+  width: 100%; 
   background-color: rgba(90, 99, 99, 0.8);
 }
 
@@ -7890,14 +8587,15 @@ svg#content2_21_lineLayer {
 
 #content2_25_valutes_content {
   pointer-events: none;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); 
+  grid-auto-rows: min-content; 
   width: 70%;
 }
 
-#content2_25_valutes_content>* {
+#content2_25_valutes_content > * {
   pointer-events: all;
-  width: 15%;
+  width: 100%; 
   background-color: rgba(90, 99, 99, 0.8);
 }
 
@@ -8088,6 +8786,10 @@ svg#content2_21_lineLayer {
   justify-content: space-between;
 }
 
+.flexGrow1 {
+  flex-grow: 1;
+}
+
 .roundedEdges {
   border-radius: 0.5em;
 }
@@ -8140,7 +8842,6 @@ svg#content2_21_lineLayer {
 
 .flexShrinkZero {
   flex-shrink: 0;
-  /* Impedisce agli elementi di ridursi */
 }
 
 .overflowY {

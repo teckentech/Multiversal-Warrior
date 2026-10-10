@@ -44,6 +44,8 @@ var IUniversalChallengerIn;
 var secretKey = "DontLookAtMePls";
 var saveData;
 var waiting = false;
+var loadingSave = false;
+var TickloadingSave = false;
 
 var deactiveWaiting = false;
 
@@ -1383,6 +1385,48 @@ class Universal {
         level: 0,
         click: false,
       },
+
+      node165: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+
+      node166: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+
+      node167: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+
+      node168: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+
+      node169: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+
+      node170: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+
+      node171: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
     }
 
     this.fireMilestones = options.fireMilestones || {
@@ -1451,6 +1495,34 @@ class Universal {
     this.pyroFrostProd = options.pyroFrostProd || 0;
     this.pyroFrostProdBase = options.pyroFrostProdBase || 0;
 
+    //UNIVERSE CORE UPDATE
+
+    //INTENT
+
+    this.intent = options.intent || 0;
+    this.intentMax = options.intentMax || 0;
+    this.intentProd = options.intentProd || 0;
+    this.intentProdBase = options.intentProdBase || 0;
+
+    //Tier 1
+
+    this.origin = options.origin || 0;
+    this.originProd = options.originProd || 0;
+    this.originProdBase = options.originProdBase || 0;
+
+    this.tier = options.tier || 0;
+    this.sacredEnergy = options.sacredEnergy || 0;
+
+    //NOBILITY
+
+    this.nobility = options.nobility || 0;
+    this.nobilityProd = options.nobilityProd || 0;
+
+    //DIVINITY
+
+    this.divinity = options.divinity || 0;
+    this.divinityProd = options.divinityProd || 0;
+
     this.selPotion = ""
     this.lockSelPotion = false
 
@@ -1488,6 +1560,23 @@ class Universal {
       item1: { key: null, drag: "equipment", },
       item2: { key: null, drag: "equipment", },
     };
+
+    this.potionAutoUpgrade = options.potionAutoUpgrade || {
+      item1: { key: null, drag: "equipment" },
+    };
+
+    this.coreItem = options.coreItem || {
+      item1: { key: null, drag: "equipment", value1: 0, },
+      item2: { key: null, drag: "equipment", value1: 0, },
+      item3: { key: null, drag: "equipment", value1: 0, },
+      item4: { key: null, drag: "equipment", value1: 0, },
+    };
+
+    this.universeBonus = options.universeBonus || {
+      item1: { active: false},
+      item2: { active: false},
+      item3: { active: false},
+    }
 
     this.waterTree = options.waterTree || {
       node1: {
@@ -1681,6 +1770,51 @@ class Universal {
         click: false,
       },
       node39: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node40: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node41: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node42: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node43: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node44: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node45: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node46: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node47: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node48: {
         active: false, unlocked: false,
         level: 0,
         click: false,
@@ -1955,6 +2089,169 @@ class Universal {
         level: 0,
         click: false,
       },
+
+      //CRADLE
+
+      node13: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node14: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node15: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node16: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+
+      //GEOMANCY
+
+      node17: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+        learning: 0,
+        assigned: 0,
+      },
+      node18: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+        learning: 0,
+        assigned: 0,
+      },
+      node19: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+        learning: 0,
+        assigned: 0,
+      },
+      node20: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+        learning: 0,
+        assigned: 0,
+      },
+      node21: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+        learning: 0,
+        assigned: 0,
+      },
+      node22: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+        learning: 0,
+        assigned: 0,
+      },
+      node23: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+        learning: 0,
+        assigned: 0,
+      },
+      node24: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+        learning: 0,
+        assigned: 0,
+      },
+      node25: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+        learning: 0,
+        assigned: 0,
+      },
+      node26: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+        learning: 0,
+        assigned: 0,
+      },
+      node27: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+        learning: 0,
+        assigned: 0,
+      },
+      node28: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+        learning: 0,
+        assigned: 0,
+      },
+      node29: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+        learning: 0,
+        assigned: 0,
+      },
+
+      //GEM FACTORY
+
+
+      node30: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      node31: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+
+      //GOLEM UPGRADES
+      node32: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+        learning: 0,
+        assigned: 0,
+      },
+      node33: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+        learning: 0,
+        assigned: 0,
+      },
+      node34: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+        learning: 0,
+        assigned: 0,
+      },
+      node35: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+        learning: 0,
+        assigned: 0,
+      },
+
+
     };
 
     this.iron = options.iron || 0;
@@ -1968,6 +2265,35 @@ class Universal {
     this.obsidian = options.obsidian || 0;
     this.obsidianProd = options.obsidianProd || 0;
     this.obsidianProdBase = options.obsidianProdBase || 0;
+
+    this.mithril = options.mithril || 0;
+    this.mithrilProd = options.mithrilProd || 0;
+    this.mithrilProdBase = options.mithrilProdBase || 0;
+
+    this.ironGolem = options.ironGolem || 0;
+    this.assignedIronGolem = options.assignedIronGolem || 0;
+
+    this.silverGolem = options.silverGolem || 0;
+    this.assignedSilverGolem = options.assignedSilverGolem || 0;
+
+    this.obsidianGolem = options.obsidianGolem || 0;
+    this.assignedObsidianGolem = options.assignedObsidianGolem || 0;
+
+    this.Uron = options.Uron || 0;
+
+    this.silver = options.silver || 0;
+    this.silverProd = options.silverProd || 0;
+    this.silverProdBase = options.silverProdBase || 0;
+
+    this.celesteDust = options.celesteDust || 0;
+    this.celesteDustProd = options.celesteDustProd || 0;
+    this.celesteDustProdBase = options.celesteDustProdBase || 0;
+
+    this.skyDust = options.skyDust || 0;
+    this.skyDustDustProd = options.skyDustDustProd || 0;
+    this.skyDustProdBase = options.skyDustProdBase || 0;
+
+    this.learningProd = options.learningProd || 0;
 
     this.forge = options.forge || {
       item1: {
@@ -2000,6 +2326,16 @@ class Universal {
         level: 0,
         click: false,
       },
+      item7: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      item8: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
     };
 
 
@@ -2024,6 +2360,16 @@ class Universal {
         level: 0,
         click: false,
       },
+      item5: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      item6: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
     };
 
     this.ore = options.ore || {
@@ -2038,6 +2384,11 @@ class Universal {
         click: false,
       },
       item3: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
+      item4: {
         active: false, unlocked: false,
         level: 0,
         click: false,
@@ -2164,6 +2515,11 @@ class Universal {
         level: 0,
         click: false,
       },
+      node23: {
+        active: false, unlocked: false,
+        level: 0,
+        click: false,
+      },
     };
 
     this.showTreasure = options.hiddenTreasure || false;
@@ -2274,13 +2630,19 @@ class Universal {
       treasure35: {
         num: 0, fused: 0, level: 0, active: false, equip: false,
       },
+      treasure36: {
+        num: 0, fused: 0, level: 0, active: false, equip: false,
+      },
     };
 
     this.spires = options.spires || {
       spire1: {
         active: false,
       },
-      spire1: {
+      spire2: {
+        active: false,
+      },
+      spire3: {
         active: false,
       },
     },
@@ -2527,6 +2889,17 @@ class Universal {
             expectedRewardsR: 0,
           }
         },
+
+        exp23: {
+          level: 0, leftLife: 0, active: false,
+
+          rewards: {
+            timer: 0,
+
+            expectedRewards: {},
+            expectedRewardsR: 0,
+          }
+        },
       };
 
     this.treasureFormation = options.treasureFormation || {
@@ -2607,6 +2980,25 @@ class Universal {
 
       this.hellPowers3Points = options.hellPowers3Points || 0,
       this.hellPowers3PointsMax = options.hellPowers3PointsMax || 0,
+
+      //ALCHEMY
+
+      this.massaConfusa = options.massaConfusa || 0;
+    this.massaConfusaProd = options.massaConfusaProd || 0;
+    this.massaConfusaProdBase = options.massaConfusaProdBase || 0;
+
+    this.primaMateria = options.primaMateria || 0;
+    this.primaMateriaProd = options.primaMateriaProd || 0;
+    this.primaMateriaProdBase = options.primaMateriaProdBase || 0;
+
+    //APOCALYPSE BEASTS
+
+    this.apocalypseHunts = options.apocalypseHunts || {
+      hunt1: {
+        active: false, unlocked: false,
+        level: 0, timer: 0, prod: 0, paused: false,
+      },
+    },
 
       this.automation = {
         automation1: {
@@ -4340,6 +4732,63 @@ class UniversalIn {
         price: 0, priceIdentity: "ash", pricef: function () { return },
         maxLevel: 0,
       },
+
+      node165: {
+        content: "", button: "",
+        effect: 0,
+        effect2: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "origin", pricef: function () { return },
+        maxLevel: 0,
+      },
+
+      node166: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "massaConfusa", pricef: function () { return },
+        maxLevel: 0,
+      },
+
+      node167: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "primaMateria", pricef: function () { return },
+        maxLevel: 0,
+      },
+
+      node168: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "massaConfusa", pricef: function () { return },
+        maxLevel: 0,
+      },
+
+      node169: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "primaMateria", pricef: function () { return },
+        maxLevel: 0,
+      },
+
+      node170: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "massaConfusa", pricef: function () { return },
+        maxLevel: 0,
+      },
+
+      node171: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "ash", pricef: function () { return },
+        maxLevel: 0,
+      },
     }
 
     this.fireMilestones = options.fireMilestones || {
@@ -4387,6 +4836,7 @@ class UniversalIn {
     this.maxInventoryStorage = 102
 
     this.potionUpgradeVisual1 = ""
+    this.potionUpgradeVisual2 = ""
 
     this.equipment = options.equipment || {
       item1: { type: "training", subtype: "potion", content: "" },
@@ -4401,6 +4851,9 @@ class UniversalIn {
       challenger: { image: "images/potion_type4_v2.png" },
       attributes: { image: "images/potion_type3_v2.png" },
       source: { image: "images/potion_type5_v2.png" },
+      Gem: { image: "images/gem_baseOpaque_v1.png" },
+      Nobility: { image: "images/alchemy_baseOpaque_v1.png" },
+      Divinity: { image: "images/potion_type5_v2.png" },
     };
 
     this.potionUpgrade = options.potionUpgrade || {
@@ -4428,6 +4881,23 @@ class UniversalIn {
       item1: { type: "", subtype: "potion", content: "", },
       item2: { type: "", subtype: "potion", content: "", },
     };
+
+    this.potionAutoUpgrade = options.potionAutoUpgrade || {
+      item1: {},
+    };
+
+    this.coreItem = options.coreItem || {
+      item1: { type: "training", subtype: "training", content: "", value0: 0, value2: 0, contentType: "static"},
+      item2: { type: "Gem", subtype: "treasure", content: "", value0: 0, value2: 0, contentType: ""},
+      item3: { type: "Nobility", subtype: "treasure", content: "", value0: 0, value2: 0, contentType: ""},
+      item4: { type: "Divinity", subtype: "treasure", content: "", value0: 0, value2: 0, contentType: ""},
+    }
+
+    this.universeBonus = options.universeBonus || {
+      item1: { content: "", value: 0, req: function () { return false }},
+      item2: { content: "", value: 0, req: function () { return false }},
+      item3: { content: "", value: 0, req: function () { return false }},
+    }
 
     this.potionEffects = options.potionEffects || {
       effect1: {
@@ -4488,6 +4958,18 @@ class UniversalIn {
       },
       effect19: {
         type: "universalChallenger_challenger", content: "", value: 0, valueFormula: function () { return 0 }, contentFormula: function () { return 0 }, activeValue: 0,
+      },
+      effect20: {
+        type: "water_intent", content: "", value: 0, valueFormula: function () { return 0 }, contentFormula: function () { return 0 }, activeValue: 0,
+      },
+      effect21: {
+        type: "fire_massaConfusa", content: "", value: 0, valueFormula: function () { return 0 }, contentFormula: function () { return 0 }, activeValue: 0,
+      },
+      effect22: {
+        type: "water_originPower", content: "", value: 0, valueFormula: function () { return 0 }, contentFormula: function () { return 0 }, activeValue: 0,
+      },
+      effect23: {
+        type: "water_divinity", content: "", value: 0, valueFormula: function () { return 0 }, contentFormula: function () { return 0 }, activeValue: 0,
       },
     };
 
@@ -4855,6 +5337,105 @@ class UniversalIn {
           price4: { tier: 2, price: 0, priceFormula: function () { return 0 }, priceIdentity: "pyroFrost", type: "uni" },
         },
       },
+
+      potion15: {
+        id: "potion15",
+        type: "Gem",
+        name: "Acasta",
+        content: "",
+        content2: "",
+        image: "images/gem_1_v1.png",
+        priceTier: 1,
+        merges: 0,
+        level: 0,
+        maxLevel: 0,
+
+        effects: {
+          effect1: {
+            type: "water_intent", level: 1, maxLevel: 3, valueFormula: function () { return 0 }, contentFormula: function () { return 0 },
+          },
+        },
+
+        prices: {
+          price1: { tier: 1, price: 0, priceFormula: function () { return 0 }, priceIdentity: "celesteDust", type: "uni" },
+        },
+      },
+
+      potion16: {
+        id: "potion16",
+        type: "Gem",
+        name: "Yellow Zephyr",
+        content: "",
+        content2: "",
+        image: "images/gem_2_v1.png",
+        priceTier: 1,
+        merges: 0,
+        level: 0,
+        maxLevel: 0,
+
+        effects: {
+          effect1: {
+            type: "water_divinity", level: 1, maxLevel: 3, valueFormula: function () { return 0 }, contentFormula: function () { return 0 },
+          },
+        },
+
+        prices: {
+          price1: { tier: 4, price: 0, priceFormula: function () { return 0 }, priceIdentity: "celesteDust", type: "uni" },
+          price2: { tier: 1, price: 0, priceFormula: function () { return 0 }, priceIdentity: "skyDust", type: "uni" },
+        },
+      },
+
+      potion17: {
+        id: "potion17",
+        type: "Nobility",
+        name: "Sulfur",
+        content: "",
+        content2: "",
+        image: "images/alchemy_1_v1.png",
+        priceTier: 1,
+        merges: 0,
+        level: 0,
+        maxLevel: 0,
+
+        effects: {
+          effect1: {
+            type: "fire_massaConfusa", level: 1, maxLevel: 3, valueFormula: function () { return 0 }, contentFormula: function () { return 0 },
+          },
+          effect2: {
+            type: "water_originPower", level: 1, maxLevel: 3, valueFormula: function () { return 0 }, contentFormula: function () { return 0 },
+          },
+        },
+
+        prices: {
+          price1: { tier: 1, price: 0, priceFormula: function () { return 0 }, priceIdentity: "massaConfusa", type: "uni" },
+        },
+      },
+
+      potion18: {
+        id: "potion18",
+        type: "Nobility",
+        name: "alchemy 2",
+        content: "",
+        content2: "",
+        image: "images/potion_type4_v1.png",
+        priceTier: 1,
+        merges: 0,
+        level: 0,
+        maxLevel: 0,
+
+        effects: {
+          effect1: {
+            type: "universalChallenger_challenger", level: 1, maxLevel: 3, valueFormula: function () { return 0 }, contentFormula: function () { return 0 },
+          },
+        },
+
+        prices: {
+          price1: { tier: 6, price: 0, priceFormula: function () { return 0 }, priceIdentity: "erbs", type: "uni" },
+          price2: { tier: 5, price: 0, priceFormula: function () { return 0 }, priceIdentity: "fluidFire", type: "uni" },
+          price3: { tier: 4, price: 0, priceFormula: function () { return 0 }, priceIdentity: "waterGem", type: "uni" },
+          price4: { tier: 2, price: 0, priceFormula: function () { return 0 }, priceIdentity: "pyroFrost", type: "uni" },
+        },
+      },
     };
 
 
@@ -5133,6 +5714,70 @@ class UniversalIn {
         price: 0, priceIdentity: "ambrosia",
         maxLevel: 0,
       },
+      node40: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "ambrosia",
+        maxLevel: 0,
+      },
+      node41: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "ambrosia",
+        maxLevel: 0,
+      },
+      node42: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "intent",
+        maxLevel: 0,
+      },
+      node43: {
+        content: "", button: "",
+        effect: 0,
+        effect2: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "divinity",
+        maxLevel: 0,
+      },
+      node44: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "origin",
+        maxLevel: 0,
+      },
+      node45: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "origin",
+        maxLevel: 0,
+      },
+      node46: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "intent",
+        maxLevel: 0,
+      },
+      node47: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "intent",
+        maxLevel: 0,
+      },
+      node48: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "celesteDust",
+        maxLevel: 0,
+      },
     }
 
 
@@ -5222,9 +5867,189 @@ class UniversalIn {
         price: 0, priceIdentity: "earth",
         maxLevel: 0,
       },
+      node13: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "iron",
+        maxLevel: 0,
+      },
+      node14: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "silver",
+        maxLevel: 0,
+      },
+      node15: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "obsidian",
+        maxLevel: 0,
+      },
+      node16: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "skyDust",
+        maxLevel: 0,
+      },
+      node17: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "earth",
+        maxLevel: 0,
+        learningMax: 0,
+      },
+      node18: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "earth",
+        maxLevel: 0,
+        learningMax: 0,
+      },
+      node19: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "earth",
+        maxLevel: 0,
+        learningMax: 0,
+      },
+      node20: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "earth",
+        maxLevel: 0,
+        learningMax: 0,
+      },
+      node21: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "earth",
+        maxLevel: 0,
+        learningMax: 0,
+      },
+      node22: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "earth",
+        maxLevel: 0,
+        learningMax: 0,
+      },
+      node23: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "earth",
+        maxLevel: 0,
+        learningMax: 0,
+      },
+      node24: {
+        content: "", button: "",
+        effect: 0,
+        effect2: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "earth",
+        maxLevel: 0,
+        learningMax: 0,
+      },
+      node25: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "earth",
+        maxLevel: 0,
+        learningMax: 0,
+      },
+      node26: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "earth",
+        maxLevel: 0,
+        learningMax: 0,
+      },
+      node27: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "earth",
+        maxLevel: 0,
+        learningMax: 0,
+      },
+      node28: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "earth",
+        maxLevel: 0,
+        learningMax: 0,
+      },
+      node29: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "earth",
+        maxLevel: 0,
+        learningMax: 0,
+      },
+      node30: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "mithril",
+        maxLevel: 0,
+      },
+      node31: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "celesteDust",
+        maxLevel: 0,
+      },
+      node32: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "earth",
+        maxLevel: 0,
+        learningMax: 0,
+      },
+      node33: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "earth",
+        maxLevel: 0,
+        learningMax: 0,
+      },
+      node34: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "earth",
+        maxLevel: 0,
+        learningMax: 0,
+      },
+      node35: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "earth",
+        maxLevel: 0,
+        learningMax: 0,
+      },
     };
 
     this.forgeValute1 = options.forgeValute1 || "",
+      this.forgeValute2 = options.forgeValute2 || "",
 
       this.forge = options.forge || {
         item1: {
@@ -5269,13 +6094,30 @@ class UniversalIn {
           price: 0, priceIdentity: "obsidian",
           maxLevel: 0,
         },
+        item7: {
+          content: "", button: "",
+          effect: 0,
+          req: function () { return false }, checkBuy: function () { return true },
+          price: 0, priceIdentity: "mithril",
+          maxLevel: 0,
+        },
+        item8: {
+          content: "", button: "",
+          effect: 0,
+          effect2: 0,
+          req: function () { return false }, checkBuy: function () { return true },
+          price: 0, priceIdentity: "mithril",
+          maxLevel: 0,
+        },
       };
 
 
     this.mineInfo = options.mineInfo || ""
+    this.mineInfo2 = options.mineInfo2 || ""
 
     this.mineStats = options.mineStats || {
       miners: 0, minePower: 0,
+      miners2: 0, minePower2: 0,
     };
 
     this.mine = options.mine || {
@@ -5307,6 +6149,20 @@ class UniversalIn {
         price: 0, priceIdentity: "obsidian",
         maxLevel: 0,
       },
+      item5: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "mithril",
+        maxLevel: 0,
+      },
+      item6: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "mithril",
+        maxLevel: 0,
+      },
     };
 
     this.ore = options.ore || {
@@ -5321,6 +6177,10 @@ class UniversalIn {
       item3: {
         content: "", value: 0, life: 0, hardness: 0, weight: 0,
         group: "group3",
+      },
+      item4: {
+        content: "", value: 0, life: 0, hardness: 0, weight: 0,
+        group: "group4",
       },
     };
 
@@ -5473,6 +6333,13 @@ class UniversalIn {
         maxLevel: 0,
       },
       node22: {
+        content: "", button: "",
+        effect: 0,
+        req: function () { return false }, checkBuy: function () { return true },
+        price: 0, priceIdentity: "null",
+        maxLevel: 0,
+      },
+      node23: {
         content: "", button: "",
         effect: 0,
         req: function () { return false }, checkBuy: function () { return true },
@@ -5880,6 +6747,17 @@ class UniversalIn {
         price: 0,
         priceIdentity: "metal",
       },
+      treasure36: {
+        type: "support",
+        effect1: 0,
+        content: "",
+        content2: "",
+        content3: "",
+        image: "images/support_1.png",
+        maxLevel: 0,
+        price: 0,
+        priceIdentity: "divinity",
+      },
     };
 
     this.armyEffectContent = options.armyEffectContent || "";
@@ -6005,6 +6883,9 @@ class UniversalIn {
       spire2: {
         effect: 0, content: "",
       },
+      spire3: {
+        effect: 0, content: "",
+      },
     };
 
     this.treasureImages = options.treasureImages || {
@@ -6012,7 +6893,7 @@ class UniversalIn {
       warrior: { image: "images/warrior_baseOpaque_v1.png" },
       tank: { image: "images/tankTreasure_baseOpaque_v1.png" },
       archer: { image: "images/archer_baseOpaque_v1.png" },
-      support: { image: "images/potion_type5_v2.png" },
+      support: { image: "images/support_base.png" },
       commander: { image: "images/potion_type5_v2.png" },
       soul: { image: "images/soul_baseOpaque_v1.png" },
       weapon: { image: "images/sword_baseOpaque_v1.png" },
@@ -6023,7 +6904,7 @@ class UniversalIn {
 
     this.expeditions = options.expeditions || {
       exp1: {
-        name: "Golem Army 1", type: "golem", maxLevel: 0,
+        name: "Golem Army 1", type: "golem", subtype: "", maxLevel: 0,
         damage: 0, life: 0, number: 0,
 
         golemTypes: {
@@ -6059,7 +6940,7 @@ class UniversalIn {
       },
 
       exp2: {
-        name: "Golem Army 2", type: "golem", maxLevel: 0,
+        name: "Golem Army 2", type: "golem", subtype: "", maxLevel: 0,
         damage: 0, life: 0, number: 0,
 
         golemTypes: {
@@ -6095,7 +6976,7 @@ class UniversalIn {
       },
 
       exp3: {
-        damage: 0, life: 0, type: "elemental", content: "",
+        damage: 0, life: 0, type: "elemental", subtype: "", content: "",
         affinity: 0, maxLevel: 0,
 
         affinities: {
@@ -6128,7 +7009,7 @@ class UniversalIn {
       },
 
       exp4: {
-        damage: 0, life: 0, type: "elemental", content: "",
+        damage: 0, life: 0, type: "elemental", subtype: "", content: "",
         affinity: 0, maxLevel: 0,
 
         affinities: {
@@ -6164,7 +7045,7 @@ class UniversalIn {
       },
 
       exp5: {
-        damage: 0, life: 0, type: "elemental", content: "",
+        damage: 0, life: 0, type: "elemental", subtype: "", content: "",
         affinity: 0, maxLevel: 0,
 
         affinities: {
@@ -6200,7 +7081,7 @@ class UniversalIn {
       },
 
       exp6: {
-        name: "Golem Army 2", type: "golem", maxLevel: 0,
+        name: "Golem Army 2", type: "golem", subtype: "", maxLevel: 0,
         damage: 0, life: 0, number: 0,
 
         golemTypes: {
@@ -6233,7 +7114,7 @@ class UniversalIn {
       },
 
       exp7: {
-        name: "Golem Army 2", type: "elemental", maxLevel: 0,
+        name: "Golem Army 2", type: "elemental", subtype: "", maxLevel: 0,
         damage: 0, life: 0, number: 0,
 
         golemTypes: {
@@ -6272,7 +7153,7 @@ class UniversalIn {
       },
 
       exp8: {
-        name: "Golem Army 2", type: "golem", maxLevel: 0,
+        name: "Golem Army 2", type: "golem", subtype: "", maxLevel: 0,
         damage: 0, life: 0, number: 0,
 
         golemTypes: {
@@ -6308,7 +7189,7 @@ class UniversalIn {
       },
 
       exp9: {
-        name: "Golem Army 2", type: "golem", maxLevel: 0,
+        name: "Golem Army 2", type: "golem", subtype: "", maxLevel: 0,
         damage: 0, life: 0, number: 0,
 
         golemTypes: {
@@ -6344,7 +7225,7 @@ class UniversalIn {
       },
 
       exp10: {
-        damage: 0, life: 0, type: "elemental", content: "",
+        damage: 0, life: 0, type: "elemental", subtype: "", content: "",
         affinity: 0, maxLevel: 0,
 
         affinities: {
@@ -6377,7 +7258,7 @@ class UniversalIn {
       },
 
       exp11: {
-        name: "Golem Army 2", type: "golem", maxLevel: 0,
+        name: "Golem Army 2", type: "golem", subtype: "", maxLevel: 0,
         damage: 0, life: 0, number: 0,
 
         golemTypes: {
@@ -6410,7 +7291,7 @@ class UniversalIn {
       },
 
       exp12: {
-        name: "Golem Army 2", type: "golem", maxLevel: 0,
+        name: "Golem Army 2", type: "golem", subtype: "", maxLevel: 0,
         damage: 0, life: 0, number: 0,
 
         golemTypes: {
@@ -6446,7 +7327,7 @@ class UniversalIn {
       },
 
       exp13: {
-        damage: 0, life: 0, type: "elemental", content: "",
+        damage: 0, life: 0, type: "elemental", subtype: "", content: "",
         affinity: 0, maxLevel: 0,
 
         affinities: {
@@ -6482,7 +7363,7 @@ class UniversalIn {
       },
 
       exp14: {
-        damage: 0, life: 0, type: "elemental", content: "",
+        damage: 0, life: 0, type: "elemental", subtype: "", content: "",
         affinity: 0, maxLevel: 0,
 
         affinities: {
@@ -6515,7 +7396,7 @@ class UniversalIn {
       },
 
       exp15: {
-        damage: 0, life: 0, type: "elemental", content: "",
+        damage: 0, life: 0, type: "elemental", subtype: "", content: "",
         affinity: 0, maxLevel: 0,
 
         affinities: {
@@ -6548,7 +7429,7 @@ class UniversalIn {
       },
 
       exp16: {
-        damage: 0, life: 0, type: "elemental", content: "",
+        damage: 0, life: 0, type: "elemental", subtype: "", content: "",
         affinity: 0, maxLevel: 0,
 
         affinities: {
@@ -6584,7 +7465,7 @@ class UniversalIn {
       },
 
       exp17: {
-        damage: 0, life: 0, type: "elemental", content: "",
+        damage: 0, life: 0, type: "elemental", subtype: "", content: "",
         affinity: 0, maxLevel: 0,
 
         affinities: {
@@ -6620,7 +7501,7 @@ class UniversalIn {
       },
 
       exp18: {
-        damage: 0, life: 0, type: "elemental", content: "",
+        damage: 0, life: 0, type: "elemental", subtype: "", content: "",
         affinity: 0, maxLevel: 0,
 
         affinities: {
@@ -6653,7 +7534,7 @@ class UniversalIn {
       },
 
       exp19: {
-        damage: 0, life: 0, type: "elemental", content: "",
+        damage: 0, life: 0, type: "elemental", subtype: "", content: "",
         affinity: 0, maxLevel: 0,
 
         affinities: {
@@ -6722,7 +7603,7 @@ class UniversalIn {
       },
 
       exp21: {
-        damage: 0, life: 0, type: "elemental", content: "",
+        damage: 0, life: 0, type: "elemental", subtype: "", content: "",
         affinity: 0, maxLevel: 0,
 
         affinities: {
@@ -6758,7 +7639,7 @@ class UniversalIn {
       },
 
       exp22: {
-        damage: 0, life: 0, type: "elemental", content: "",
+        damage: 0, life: 0, type: "elemental", subtype: "", content: "",
         affinity: 0, maxLevel: 0,
 
         affinities: {
@@ -6790,6 +7671,42 @@ class UniversalIn {
           effect2: {
             type: "", content: "", effect: 0,
           },
+        },
+      },
+
+      exp23: {
+        name: "boh", type: "golem", subtype: "heaven", maxLevel: 0,
+        damage: 0, life: 0, number: 0,
+
+        golemTypes: {
+          type1: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type2: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type3: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type4: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+          type5: {
+            level: 0, active: false, maxLevel: 0, damage: 0, life: 0, content: "",
+          },
+        },
+
+        rewards: {
+          timerPrice: 0,
+          effect: function () { return },
+          effectContent: function () { return },
+          content: "",
+        },
+
+        effects: {
+          effect1: {
+            type: "", content: "", effect: 0,
+          }
         },
       },
     };
@@ -6828,6 +7745,12 @@ class UniversalIn {
 
       this.hellPowers1 = options.hellPowers1 || "",
       this.hellPowers2 = options.hellPowers2 || "",
+
+      this.apocalypseHunts = options.apocalypseHunts || {
+        hunt1: {
+          effect: 0, content: "",
+        },
+      },
 
       this.automation = {
         automation1: {
@@ -7563,6 +8486,13 @@ class ShowableClass {
       content2_17_node162: false,
       content2_17_node163: false,
       content2_17_node164: false,
+      content2_17_node165: false,
+      content2_17_node166: false,
+      content2_17_node167: false,
+      content2_17_node168: false,
+      content2_17_node169: false,
+      content2_17_node170: false,
+      content2_17_node171: false,
 
       //WATER
 
@@ -7570,13 +8500,16 @@ class ShowableClass {
       content2_19_zone2: false,
       content2_19_zone3: false,
 
+      content2_19_treasureSel: false,
+      content2_19_treasure_info: false,
+
       //potion menu
       content2_19_tutorial: false,
       content2_19_potionDelete: false,
       content2_19_potionSel: false,
-      content2_19_grid1: false,
       content2_19_potionEquip: false,
       content2_19_potionUpgrade: false,
+      content2_19_potionAutoUpgrade: false,
 
       content2_19_potionEquip_1: false,
       content2_19_potionEquip_2: false,
@@ -7600,6 +8533,10 @@ class ShowableClass {
       content2_19_potions_potion12: false,
       content2_19_potions_potion13: false,
       content2_19_potions_potion14: false,
+      content2_19_potions_potion15: false,
+      content2_19_potions_potion16: false,
+      content2_19_potions_potion17: false,
+      content2_19_potions_potion18: false,
 
       //source
 
@@ -7615,15 +8552,18 @@ class ShowableClass {
       content2_19_circle1: false,
       content2_19_circle2: false,
       content2_19_circle3: false,
+      content2_19_circle4: false,
 
       content2_19_potionUpgrade_selector_content1: true,
       content2_19_potionUpgrade_selector_content2: false,
       content2_19_potionUpgrade_selector_content3: false,
+      content2_19_potionUpgrade_selector_content4: false,
 
 
       content2_19_potionUpgrade_selector_button1: false,
       content2_19_potionUpgrade_selector_button2: false,
       content2_19_potionUpgrade_selector_button3: false,
+      content2_19_potionUpgrade_selector_button4: false,
 
       content2_19_potion_info: false,
 
@@ -7635,6 +8575,10 @@ class ShowableClass {
       content2_19_valutes_valute5: false,
       content2_19_valutes_valute6: false,
       content2_19_valutes_valute7: false,
+      content2_19_valutes_valute8: false,
+      content2_19_valutes_valute9: false,
+      content2_19_valutes_valute10: false,
+      content2_19_valutes_valute11: false,
 
 
       content2_19_node1: false,
@@ -7678,6 +8622,23 @@ class ShowableClass {
       content2_19_node37: false,
       content2_19_node38: false, content2_19_node38_button: true,
       content2_19_node39: false,
+      content2_19_node40: false, content2_19_node40_button: false,
+      content2_19_node41: false, content2_19_node41_button: false,
+      content2_19_node42: false,
+      content2_19_node43: false,
+      content2_19_node44: false,
+      content2_19_node45: false,
+      content2_19_node46: false,
+      content2_19_node47: false,
+      content2_19_node48: false,
+
+      //core items
+
+      content2_19_coreEquip_1: false,
+      content2_19_coreEquip_2: false,
+      content2_19_coreEquip_3: false,
+      content2_19_coreEquip_4: false,
+
 
       //treasures
 
@@ -7688,6 +8649,19 @@ class ShowableClass {
       content2_23_treasureClaim: false,
 
       //EARTH
+
+      
+      //WATER
+
+      content2_21_zone1: false,
+      content2_21_zone2: false,
+      content2_21_zone3: false,
+      content2_21_zone4: false,
+      content2_21_zone5: false,
+      content2_21_zone6: false,
+      content2_21_zone7: false,
+      content2_21_zone8: false,
+
       content2_21_potion_info: false,
 
       content2_21_valutes_content: true,
@@ -7695,11 +8669,19 @@ class ShowableClass {
       content2_21_valutes_valute2: false,
       content2_21_valutes_valute3: false,
       content2_21_valutes_valute4: false,
+      content2_21_valutes_valute5: false,
+      content2_21_valutes_valute6: false,
+      content2_21_valutes_valute7: false,
 
       content2_21_under1_1: false,
       content2_21_under1_2: false,
       content2_21_under1_3: false,
       content2_21_under1_4: false,
+
+      content2_21_under2_1: false,
+      content2_21_under2_2: false,
+      content2_21_under2_3: false,
+      content2_21_under2_4: false,
 
       content2_21_under1_1_item1: true,
       content2_21_under1_1_item2: true,
@@ -7707,15 +8689,20 @@ class ShowableClass {
       content2_21_under1_1_item4: true,
       content2_21_under1_1_item5: false,
       content2_21_under1_1_item6: false,
+      content2_21_under1_1_item7: false,
+      content2_21_under1_1_item8: false,
 
       content2_21_under1_2_item1: true,
       content2_21_under1_2_item2: true,
       content2_21_under1_2_item3: false,
       content2_21_under1_2_item4: false,
+      content2_21_under1_2_item5: false,
+      content2_21_under1_2_item6: false,
 
       content2_21_under1_3_item1: true,
       content2_21_under1_3_item2: true,
       content2_21_under1_3_item3: false,
+      content2_21_under1_3_item4: false,
 
       content2_21_node1: false,
       content2_21_node2: false,
@@ -7729,6 +8716,29 @@ class ShowableClass {
       content2_21_node10: false,
       content2_21_node11: false,
       content2_21_node12: false,
+      content2_21_node13: false,
+      content2_21_node14: false,
+      content2_21_node15: false,
+      content2_21_node16: false,
+      content2_21_node17: false,
+      content2_21_node18: false,
+      content2_21_node19: false,
+      content2_21_node20: false,
+      content2_21_node21: false,
+      content2_21_node22: false,
+      content2_21_node23: false,
+      content2_21_node24: false,
+      content2_21_node25: false,
+      content2_21_node26: false,
+      content2_21_node27: false,
+      content2_21_node28: false,
+      content2_21_node29: false,
+      content2_21_node30: false,
+      content2_21_node31: false,
+      content2_21_node32: false,
+      content2_21_node33: false,
+      content2_21_node34: false,
+      content2_21_node35: false,
 
       //army
 
@@ -7764,6 +8774,9 @@ class ShowableClass {
       content2_23_spire2: false,
       content2_23_spire2Image: false,
 
+      content2_23_spire3: false,
+      content2_23_spire3Image: false,
+
       content2_23_node1: false,
       content2_23_node2: false,
       content2_23_node3: false,
@@ -7786,10 +8799,12 @@ class ShowableClass {
       content2_23_node20: false,
       content2_23_node21: false,
       content2_23_node22: false,
+      content2_23_node23: false,
 
       //METAL
       content2_25_valutes_content: true,
       content2_25_valutes_valute1: false,
+      content2_25_valutes_valute2: false,
 
       content2_25_treasureSel: false,
       content2_25_treasureGrid: true,
@@ -7830,6 +8845,9 @@ class SelUpgrade {
         num: 0, maxNum: 1, lastSel: "",
       },
       group3: {
+        num: 0, maxNum: 1, lastSel: "",
+      },
+      group4: {
         num: 0, maxNum: 1, lastSel: "",
       }
     }
@@ -8039,6 +9057,7 @@ function createClassInstance(type) {
 
     ISelUpgrade = new SelUpgrade();
   }
+  cleanDOM()
 }
 
 function createSaveData(type) {
@@ -8267,23 +9286,32 @@ function importSave() {
 }
 
 function offImportSave() {
-  if (localStorage.getItem("GameSaveOff") !== null) {
-    resetSave();
-    IShowableClass.init = true;
-    const savedGameData = JSON.parse(localStorage.getItem("GameSaveOff"));
-    try {
-      createSaveData();
-      for (let x in savedGameData) {
-        if (saveData[x]) {
-          deepMerge(saveData[x], savedGameData[x]);
-        }
+  loadingSave = true;
+  const offlineData = localStorage.getItem("GameSaveOff");
+  if (!offlineData) return;
+
+  try {
+    const savedGameData = JSON.parse(offlineData);
+    createSaveData();
+    
+    for (let x in savedGameData) {
+      if (saveData[x]) {
+        deepMerge(saveData[x], savedGameData[x]);
       }
-    } catch (e) {
-      console.error("Errore nella decifratura o parsing dei dati: ", e);
     }
+    saveGameData(); 
+    loadingSave = false;
+    TickloadingSave = false;
+  } catch (e) {
+    console.error("Failed to safely import:", e);
+    loadingSave = false;
+    TickloadingSave = false;
   }
+
   IShowableClass.init = true;
+
 }
+
 
 function passiveImport() {
   if (localStorage.getItem("GameSave") !== null) {
@@ -8319,6 +9347,8 @@ document.addEventListener('visibilitychange', function () {
 
 const elementCache = Object.create(null);
 
+const updateTemplate = document.createElement('template');
+
 function update(id, html) {
 
   let el = elementCache[id] || (elementCache[id] = document.getElementById(id));
@@ -8326,11 +9356,16 @@ function update(id, html) {
 
   if (html == null) html = "";
 
-  if (el.innerHTML !== html) {
-    const template = document.createElement('template');
-    template.innerHTML = html;
-    el.replaceChildren(...template.content.childNodes);
+  if (el.innerHTML === html) return;
+
+  if (!html.includes('<')) {
+    el.textContent = html;
+    return;
   }
+
+  updateTemplate.innerHTML = html;
+
+  el.replaceChildren(...updateTemplate.content.childNodes);
 }
 
 function updateClass(cla, html) {
@@ -8838,8 +9873,8 @@ function visualAutomation() {
 
   update("fp3_content1_8_auto5_title", `<span class="boldBlackBorder">ASCENSION</span>`)
   update("fp3_content1_8_auto5_1", `<div class="centerDiv">Auto Ascend</div>
-                                    <div class="centerDiv">(Doesnt Reset Anything)</div>
-                                    <div class="centerDiv">You Can Ascend Without Resetting, Permanently</div>`)
+                                    <div class="centerDiv">(Doesnt reset anything)</div>
+                                    <div class="centerDiv">You can ascend without resetting, Permanently</div>`)
 
   if (IUniversal.automation.automation5.unlocked) {
     if (IUniversal.automation.automation5.active) {
@@ -10408,7 +11443,7 @@ function valuesSetterInit(type) {
   var sel2 = IUniversalIn.fireTree.node151
 
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node151.priceIdentity, IUniversalIn.fireTree.node151.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.fireTree.node132.active && IUniversal.fireTree.node148.activeue) }
+  sel2.req = function () { return (IUniversal.fireTree.node132.active && IUniversal.fireTree.node148.active) }
   //NODE 152
   var sel = IUniversal.fireTree.node152
   var sel2 = IUniversalIn.fireTree.node152
@@ -10499,6 +11534,56 @@ function valuesSetterInit(type) {
 
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node164.priceIdentity, IUniversalIn.fireTree.node164.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node132.active && IUniversal.fireTree.node163.active && IUniversal.fireTree.node159.active) }
+
+  //NODE 165
+  var sel = IUniversal.fireTree.node165
+  var sel2 = IUniversalIn.fireTree.node165
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node165.priceIdentity, IUniversalIn.fireTree.node165.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.waterTree.node48.active) }
+
+  //NODE 166
+  var sel = IUniversal.fireTree.node166
+  var sel2 = IUniversalIn.fireTree.node166
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node166.priceIdentity, IUniversalIn.fireTree.node166.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node165.active) }
+
+  //NODE 167
+  var sel = IUniversal.fireTree.node167
+  var sel2 = IUniversalIn.fireTree.node167
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node167.priceIdentity, IUniversalIn.fireTree.node167.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node166.active) }
+
+  //NODE 168
+  var sel = IUniversal.fireTree.node168
+  var sel2 = IUniversalIn.fireTree.node168
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node168.priceIdentity, IUniversalIn.fireTree.node168.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node165.active) }
+
+  //NODE 169
+  var sel = IUniversal.fireTree.node169
+  var sel2 = IUniversalIn.fireTree.node169
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node169.priceIdentity, IUniversalIn.fireTree.node169.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node168.active) }
+
+  //NODE 170
+  var sel = IUniversal.fireTree.node170
+  var sel2 = IUniversalIn.fireTree.node170
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node170.priceIdentity, IUniversalIn.fireTree.node170.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node169.active) }
+
+  //NODE 171
+  var sel = IUniversal.fireTree.node171
+  var sel2 = IUniversalIn.fireTree.node171
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node171.priceIdentity, IUniversalIn.fireTree.node171.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node132.active) }
+
 
   //HELL
 
@@ -10778,6 +11863,69 @@ function valuesSetterInit(type) {
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node39.priceIdentity, IUniversalIn.waterTree.node39.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.waterTree.node38.active) }
 
+  //NODE 40
+  var sel = IUniversal.waterTree.node40
+  var sel2 = IUniversalIn.waterTree.node40
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node40.priceIdentity, IUniversalIn.waterTree.node40.price, "uni")) { return true } }
+  sel2.req = function () { return false }
+
+  //NODE 41
+  var sel = IUniversal.waterTree.node41
+  var sel2 = IUniversalIn.waterTree.node41
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node41.priceIdentity, IUniversalIn.waterTree.node41.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.fireTree.node171.active) }
+
+  //NODE 42
+  var sel = IUniversal.waterTree.node42
+  var sel2 = IUniversalIn.waterTree.node42
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node42.priceIdentity, IUniversalIn.waterTree.node42.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.waterTree.node41.active) }
+
+  //NODE 43
+  var sel = IUniversal.waterTree.node43
+  var sel2 = IUniversalIn.waterTree.node43
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node43.priceIdentity, IUniversalIn.waterTree.node43.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.waterTree.node41.active) }
+
+  //NODE 44
+  var sel = IUniversal.waterTree.node44
+  var sel2 = IUniversalIn.waterTree.node44
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node44.priceIdentity, IUniversalIn.waterTree.node44.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.waterTree.node43.active) }
+
+  //NODE 45
+  var sel = IUniversal.waterTree.node45
+  var sel2 = IUniversalIn.waterTree.node45
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node45.priceIdentity, IUniversalIn.waterTree.node45.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.waterTree.node41.active) }
+
+  //NODE 46
+  var sel = IUniversal.waterTree.node46
+  var sel2 = IUniversalIn.waterTree.node46
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node46.priceIdentity, IUniversalIn.waterTree.node46.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.waterTree.node41.active) }
+
+  //NODE 47
+  var sel = IUniversal.waterTree.node47
+  var sel2 = IUniversalIn.waterTree.node47
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node47.priceIdentity, IUniversalIn.waterTree.node47.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.waterTree.node42.active) }
+
+  //NODE 48
+  var sel = IUniversal.waterTree.node48
+  var sel2 = IUniversalIn.waterTree.node48
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.waterTree.node48.priceIdentity, IUniversalIn.waterTree.node48.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.waterTree.node47.active) }
+
   //Potion Info
 
   //potion1
@@ -10980,6 +12128,46 @@ function valuesSetterInit(type) {
   sel.prices.price3.price = sel.prices.price3.priceFormula()
   sel.prices.price4.price = sel.prices.price4.priceFormula()
 
+  //potion15
+
+  var sel = IUniversalIn.potionInfo.potion15
+
+  sel.prices.price1.priceFormula = function (tier, level, merges) { return (f(10).pow(f(tier).add(f(1)))).mul((f(10).pow(f(merges)))).mul(f(5).pow(f(level))) }
+
+  sel.prices.price1.price = sel.prices.price1.priceFormula()
+
+  //potion16
+
+  var sel = IUniversalIn.potionInfo.potion16
+
+  sel.prices.price1.priceFormula = function (tier, level, merges) { return (f(10).pow(f(tier).add(f(1)))).mul((f(10).pow(f(merges)))).mul(f(5).pow(f(level))) }
+  sel.prices.price2.priceFormula = function (tier, level, merges) { return (f(10).pow(f(tier).add(f(1)))).mul((f(10).pow(f(merges)))).mul(f(5).pow(f(level))) }
+
+  sel.prices.price1.price = sel.prices.price1.priceFormula()
+  sel.prices.price2.price = sel.prices.price2.priceFormula()
+
+  //potion17
+
+  var sel = IUniversalIn.potionInfo.potion17
+
+  sel.prices.price1.priceFormula = function (tier, level, merges) { return (f(10).pow(f(tier).add(f(1)))).mul((f(10).pow(f(merges)))).mul(f(10).pow(f(level).add(f(2)))) }
+
+  sel.prices.price1.price = sel.prices.price1.priceFormula()
+
+  //potion18
+
+  var sel = IUniversalIn.potionInfo.potion18
+
+  sel.prices.price1.priceFormula = function (tier, level, merges) { return (f(10).pow(f(tier))).mul((f(10).pow(f(merges)))).mul(f(2).pow(f(level))) }
+  sel.prices.price2.priceFormula = function (tier, level, merges) { return (f(10).pow(f(tier))).mul((f(10).pow(f(merges)))).mul(f(2).pow(f(level))) }
+  sel.prices.price3.priceFormula = function (tier, level, merges) { return (f(10).pow(f(tier))).mul((f(10).pow(f(merges)))).mul(f(2).pow(f(level))) }
+  sel.prices.price4.priceFormula = function (tier, level, merges) { return (f(10).pow(f(tier))).mul((f(10).pow(f(merges)))).mul(f(2).pow(f(level))) }
+
+  sel.prices.price1.price = sel.prices.price1.priceFormula()
+  sel.prices.price2.price = sel.prices.price2.priceFormula()
+  sel.prices.price3.price = sel.prices.price3.priceFormula()
+  sel.prices.price4.price = sel.prices.price4.priceFormula()
+
   //Potions Effects
 
   //EFFECT 1
@@ -11062,7 +12250,43 @@ function valuesSetterInit(type) {
   IUniversalIn.potionEffects.effect19.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(5).add(f(5).mul(f(effectLevel).minus(f(1))))).pow(f(potionLevel).add(f(1))) }
   IUniversalIn.potionEffects.effect19.contentFormula = function () { return `Universal Challenger is <span class="boldBlackBorder">${format(f(this.value))}</span> times weaker` }
 
+  //EFFECT 20
+  IUniversalIn.potionEffects.effect20.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(2).mul(f(effectLevel))).mul(f(potionLevel).add(f(1))) }
+  IUniversalIn.potionEffects.effect20.contentFormula = function () { return `Intent/s <span class="boldBlackBorder">×${format(f(this.value))}</span>` }
+
+  //EFFECT 21
+  IUniversalIn.potionEffects.effect21.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(2).mul(f(effectLevel))).mul(f(potionLevel).add(f(1))) }
+  IUniversalIn.potionEffects.effect21.contentFormula = function () { return `Massa Confusa/s <span class="boldBlackBorder">×${format(f(this.value))}</span>` }
+
+  //EFFECT 22
+  IUniversalIn.potionEffects.effect22.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(0.5)) }
+  IUniversalIn.potionEffects.effect22.contentFormula = function () { return `Origin/s <span class="boldBlackBorder">^${format(f(this.value))}</span>` }
+
+  //EFFECT 23
+  IUniversalIn.potionEffects.effect23.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(2).mul(f(effectLevel))).mul(f(potionLevel).add(f(1))) }
+  IUniversalIn.potionEffects.effect23.contentFormula = function () { return `Divinity/s <span class="boldBlackBorder">×${format(f(this.value))}</span>` }
+
+  
   potionSetter()
+
+  //Universe Bonus
+
+  //universe bonus 1
+
+  var sel = IUniversal.universeBonus.item1
+  var sel2 = IUniversalIn.universeBonus.item1
+
+  sel2.req = function () { return (f(IUniversal.tier).gte(f(1))) }
+
+  var sel = IUniversal.universeBonus.item2
+  var sel2 = IUniversalIn.universeBonus.item2
+
+  sel2.req = function () { return (f(IUniversal.tier).gte(f(2))) }
+
+  var sel = IUniversal.universeBonus.item3
+  var sel2 = IUniversalIn.universeBonus.item3
+
+  sel2.req = function () { return (f(IUniversal.tier).gte(f(3))) }
 
   //EARTH TREE
 
@@ -11151,6 +12375,167 @@ function valuesSetterInit(type) {
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node12.priceIdentity, IUniversalIn.earthTree.node12.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.earthTree.node10.active) }
 
+  //NODE 13
+  var sel = IUniversal.earthTree.node13
+  var sel2 = IUniversalIn.earthTree.node13
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node13.priceIdentity, IUniversalIn.earthTree.node13.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.waterTree.node47.active) }
+
+  //NODE 14
+  var sel = IUniversal.earthTree.node14
+  var sel2 = IUniversalIn.earthTree.node14
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node14.priceIdentity, IUniversalIn.earthTree.node14.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node30.active) }
+
+  //NODE 15
+  var sel = IUniversal.earthTree.node15
+  var sel2 = IUniversalIn.earthTree.node15
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node15.priceIdentity, IUniversalIn.earthTree.node15.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node31.active) }
+
+  //NODE 16
+  var sel = IUniversal.earthTree.node16
+  var sel2 = IUniversalIn.earthTree.node16
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node16.priceIdentity, IUniversalIn.earthTree.node16.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node15.active) }
+
+  //NODE 17
+  var sel = IUniversal.earthTree.node17
+  var sel2 = IUniversalIn.earthTree.node17
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node17.priceIdentity, IUniversalIn.earthTree.node17.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.waterTree.node47.active) }
+
+  //NODE 18
+  var sel = IUniversal.earthTree.node18
+  var sel2 = IUniversalIn.earthTree.node18
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node18.priceIdentity, IUniversalIn.earthTree.node18.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node17.active) }
+
+  //NODE 19
+  var sel = IUniversal.earthTree.node19
+  var sel2 = IUniversalIn.earthTree.node19
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node19.priceIdentity, IUniversalIn.earthTree.node19.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node18.active) }
+
+  //NODE 20
+  var sel = IUniversal.earthTree.node20
+  var sel2 = IUniversalIn.earthTree.node20
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node20.priceIdentity, IUniversalIn.earthTree.node20.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node18.active) }
+
+  //NODE 21
+  var sel = IUniversal.earthTree.node21
+  var sel2 = IUniversalIn.earthTree.node21
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node21.priceIdentity, IUniversalIn.earthTree.node21.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node30.active) }
+
+  //NODE 22
+  var sel = IUniversal.earthTree.node22
+  var sel2 = IUniversalIn.earthTree.node22
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node22.priceIdentity, IUniversalIn.earthTree.node22.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node21.active) }
+
+  //NODE 23
+  var sel = IUniversal.earthTree.node23
+  var sel2 = IUniversalIn.earthTree.node23
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node23.priceIdentity, IUniversalIn.earthTree.node23.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node21.active) }
+
+  //NODE 24
+  var sel = IUniversal.earthTree.node24
+  var sel2 = IUniversalIn.earthTree.node24
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node24.priceIdentity, IUniversalIn.earthTree.node24.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node22.active && IUniversal.earthTree.node23.active)  }
+
+  //NODE 25
+  var sel = IUniversal.earthTree.node25
+  var sel2 = IUniversalIn.earthTree.node25
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node25.priceIdentity, IUniversalIn.earthTree.node25.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node31.active) }
+
+  //NODE 26
+  var sel = IUniversal.earthTree.node26
+  var sel2 = IUniversalIn.earthTree.node26
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node26.priceIdentity, IUniversalIn.earthTree.node26.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node25.active) }
+
+  //NODE 27
+  var sel = IUniversal.earthTree.node27
+  var sel2 = IUniversalIn.earthTree.node27
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node27.priceIdentity, IUniversalIn.earthTree.node27.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node31.active) }
+
+  //NODE 28
+  var sel = IUniversal.earthTree.node28
+  var sel2 = IUniversalIn.earthTree.node28
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node28.priceIdentity, IUniversalIn.earthTree.node28.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node26.active && IUniversal.earthTree.node29.active) }
+
+  //NODE 29
+  var sel = IUniversal.earthTree.node29
+  var sel2 = IUniversalIn.earthTree.node29
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node29.priceIdentity, IUniversalIn.earthTree.node29.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node27.active) }
+
+  //NODE 30
+  var sel = IUniversal.earthTree.node30
+  var sel2 = IUniversalIn.earthTree.node30
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node30.priceIdentity, IUniversalIn.earthTree.node30.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.waterTree.node47.active) }
+
+  //NODE 31
+  var sel = IUniversal.earthTree.node31
+  var sel2 = IUniversalIn.earthTree.node31
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node31.priceIdentity, IUniversalIn.earthTree.node31.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node30.active) }
+
+  //NODE 32
+  var sel = IUniversal.earthTree.node32
+  var sel2 = IUniversalIn.earthTree.node32
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node32.priceIdentity, IUniversalIn.earthTree.node32.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node13.active) }
+
+  //NODE 33
+  var sel = IUniversal.earthTree.node33
+  var sel2 = IUniversalIn.earthTree.node33
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node33.priceIdentity, IUniversalIn.earthTree.node33.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node14.active) }
+
+  //NODE 34
+  var sel = IUniversal.earthTree.node34
+  var sel2 = IUniversalIn.earthTree.node34
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node34.priceIdentity, IUniversalIn.earthTree.node34.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node15.active) }
+
+  //NODE 35
+  var sel = IUniversal.earthTree.node35
+  var sel2 = IUniversalIn.earthTree.node35
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node35.priceIdentity, IUniversalIn.earthTree.node35.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node17.active) }
+
   //miners
   //item1
   var sel = IUniversal.forge.item1
@@ -11194,6 +12579,20 @@ function valuesSetterInit(type) {
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.forge.item6.priceIdentity, IUniversalIn.forge.item6.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.windTree.node18.active) }
 
+  //item7
+  var sel = IUniversal.forge.item7
+  var sel2 = IUniversalIn.forge.item7
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.forge.item7.priceIdentity, IUniversalIn.forge.item7.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node18.active) }
+
+  //item8
+  var sel = IUniversal.forge.item8
+  var sel2 = IUniversalIn.forge.item8
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.forge.item8.priceIdentity, IUniversalIn.forge.item8.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node18.active) }
+
 
   //mines
   //item1
@@ -11224,6 +12623,20 @@ function valuesSetterInit(type) {
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.mine.item4.priceIdentity, IUniversalIn.mine.item4.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.windTree.node18.active) }
 
+  //item5
+  var sel = IUniversal.mine.item5
+  var sel2 = IUniversalIn.mine.item5
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.mine.item5.priceIdentity, IUniversalIn.mine.item5.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node18.active) }
+
+  //item6
+  var sel = IUniversal.mine.item6
+  var sel2 = IUniversalIn.mine.item6
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.mine.item6.priceIdentity, IUniversalIn.mine.item6.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node18.active) }
+
   //ORES
 
   //item1
@@ -11245,6 +12658,13 @@ function valuesSetterInit(type) {
   var sel2 = IUniversalIn.ore.item3
 
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.ore.item3.priceIdentity, IUniversalIn.ore.item3.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.windTree.node18.active) }
+
+  //item4
+  var sel = IUniversal.ore.item4
+  var sel2 = IUniversalIn.ore.item4
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.ore.item4.priceIdentity, IUniversalIn.ore.item4.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.windTree.node18.active) }
 
   //WIND
@@ -11448,6 +12868,15 @@ function valuesSetterInit(type) {
 
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node22.priceIdentity, IUniversalIn.windTree.node22.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.windTree.node21.active) }
+
+  //NODE 23
+  var sel = IUniversal.windTree.node23
+  var sel2 = IUniversalIn.windTree.node23
+  var exp = IUniversal.expeditions.exp23
+  var exp2 = IUniversalIn.expeditions.exp23
+
+  sel2.checkBuy = function () { if (checkBuy(IUniversalIn.windTree.node23.priceIdentity, IUniversalIn.windTree.node23.price, "uni")) { return true } }
+  sel2.req = function () { return (IUniversal.earthTree.node35.active) }
 
   //Expeditions
   //expedition 1
@@ -12877,6 +14306,100 @@ function valuesSetterInit(type) {
 
     return string;
   }
+
+  //expedition 23
+  var sel = IUniversal.expeditions.exp23
+  var selIn = IUniversalIn.expeditions.exp23
+
+
+  selIn.rewards.effect = function (exp, expIn, selT, selTIn, number) {
+    var sel = ["treasure36"];
+
+    for (let x in sel) {
+      setExpectedReward(selT, sel[x])
+    }
+
+
+    if (f(exp.level).eq(f(0))) {
+      selT.expectedRewards.treasure36.level = f(selT.expectedRewards.treasure36.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(1))) {
+      selT.expectedRewards.treasure36.level = f(selT.expectedRewards.treasure36.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(2))) {
+      selT.expectedRewards.treasure36.level = f(selT.expectedRewards.treasure36.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(3))) {
+      selT.expectedRewards.treasure36.level = f(selT.expectedRewards.treasure36.level).add(f(1));
+      return
+    }
+    if (f(exp.level).eq(f(4))) {
+      selT.expectedRewards.treasure36.level = f(selT.expectedRewards.treasure36.level).add(f(1));
+      return
+    }
+
+    if (f(number).lt(f(sel.length))) {
+      const pick = Math.floor(Math.random() * sel.length);
+      const key = sel[pick];
+
+      if (!selT.expectedRewards) {
+        selT.expectedRewards = {};
+      }
+
+      if (!selT.expectedRewards[key]) {
+        selT.expectedRewards[key] = { num: f(0) };
+      }
+
+      selT.expectedRewards[key].num =
+        f(selT.expectedRewards[key].num).add(f(1));
+      return;
+    }
+
+    for (let x in sel) {
+      var sel2 = sel[x];
+      var level = f(number).dividedBy(f(sel.length));
+
+      if (!selT.expectedRewards) {
+        selT.expectedRewards = {};
+      }
+
+      if (!selT.expectedRewards[sel2]) {
+        selT.expectedRewards[sel2] = { num: f(0) };
+      }
+
+      selT.expectedRewards[sel2].num =
+        f(selT.expectedRewards[sel2].num).add(f(level));
+    }
+  };
+
+  selIn.effectContent = function (sel, selIn) {
+    var string = "";
+
+    for (let x in sel.expectedRewards) {
+      var sel2 = sel.expectedRewards[x];
+
+      if (!f(sel2.level).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.level), 0)} levels</div>
+      </div>`;
+      }
+
+      if (!f(sel2.num).lte(f(0))) {
+        string += `
+      <div class="column height100 width10 flexShrinkZero">
+        <div class="height50 square">${IUniversalIn.treasures[x].content}</div>
+        <div class="height50 width100">+${format(f(sel2.num), 0)} fragments</div>
+      </div>`;
+      }
+    }
+
+    return string;
+  }
 }
 
 function valuesSetterCycle(type) {
@@ -13665,7 +15188,6 @@ function valuesSetterCycle(type) {
 
   if (IUniversal.fireTree.node128.active) {
     unlockShow("content2_17_zone6", true)
-
   }
 
 
@@ -14840,7 +16362,7 @@ function valuesSetterCycle(type) {
 
 
   sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                 <div class="centerDiv boldBlackBorder">Vacum Chamber</div>
+                 <div class="centerDiv boldBlackBorder">Vacuum Chamber</div>
                  <div class="topRight absolute padding2 grey">53</div>
                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
                  <div class="centerDiv padding1 column fontSize09">
@@ -16881,7 +18403,7 @@ function valuesSetterCycle(type) {
 
   sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
              <div class="centerDiv boldBlackBorder">After The End</div>
-             <div class="topRight absolute padding2 grey">164</div>
+             <div class="topRight absolute padding2 grey">165</div>
                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
                  <div class="centerDiv padding1 column fontSize09"><div>Light sacrifice ×10 (<span class="boldBlackBorder">×${format(f(sel2.effect))}</span>)</div>
              </div>`
@@ -16892,6 +18414,129 @@ function valuesSetterCycle(type) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
 
+  //NODE 165
+  var sel = IUniversal.fireTree.node165
+  var sel2 = IUniversalIn.fireTree.node165
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+             <div class="centerDiv boldBlackBorder">Massa Confusa</div>
+             <div class="topRight absolute padding2 grey">165</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div><span class="boldBlackBorder">${format(f(sel2.effect))}</span> Massa Confusa/s </div>
+                 <div><span class="boldBlackBorder">${format(f(IUniversal.massaConfusa))}</span> Massa Confusa </div>
+             </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+            <div class="centerDiv noClick">Origin</div>`
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+
+  //NODE 166
+  var sel = IUniversal.fireTree.node166
+  var sel2 = IUniversalIn.fireTree.node166
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Prima Materia</div>
+                  <div class="topRight absolute padding2 grey">166</div>
+                  <div class="centerDiv padding1 column fontSize09"><div><span class="boldBlackBorder">${format(f(sel.level), 0)}</span>&nbsp;Massa Confusa sacrificed</div>
+                                                 <div><span class="boldBlackBorder">${format(f(sel2.effect), 1)}</span>&nbspPrima Materia</div>
+                  
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">Sacrifice</div>
+                <div class="centerDiv noClick">Massa Confusa</div>`
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 167
+  var sel = IUniversal.fireTree.node167
+  var sel2 = IUniversalIn.fireTree.node167
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+             <div class="centerDiv boldBlackBorder">Prima Purity</div>
+             <div class="topRight absolute padding2 grey">167</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Massa Confusa/s ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect))}</span>)</div>
+             </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+            <div class="centerDiv noClick">Prima Materia</div>`
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 168
+  var sel = IUniversal.fireTree.node168
+  var sel2 = IUniversalIn.fireTree.node168
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+             <div class="centerDiv boldBlackBorder">Consacrate</div>
+             <div class="topRight absolute padding2 grey">168</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Mithril ×${format(f("1.5"), 0)} (<span class="boldBlackBorder">×${format(f(sel2.effect))}</span>)</div>
+             </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+            <div class="centerDiv noClick">Massa Confusa</div>`
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 169
+  var sel = IUniversal.fireTree.node169
+  var sel2 = IUniversalIn.fireTree.node169
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+             <div class="centerDiv boldBlackBorder">Archdemon</div>
+             <div class="topRight absolute padding2 grey">169</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Demons/s ×5 (<span class="boldBlackBorder">×${format(f(sel2.effect))}</span>)</div>
+             </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+            <div class="centerDiv noClick">Prima Materia</div>`
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 170
+  var sel = IUniversal.fireTree.node170
+  var sel2 = IUniversalIn.fireTree.node170
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+             <div class="centerDiv boldBlackBorder">Blackening</div>
+             <div class="topRight absolute padding2 grey">170</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Intent/s ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect))}</span>)</div>
+             </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+            <div class="centerDiv noClick">Massa Confusa</div>`
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 171
+  var sel = IUniversal.fireTree.node171
+  var sel2 = IUniversalIn.fireTree.node171
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+             <div class="centerDiv boldBlackBorder">Breakthrough</div>
+             <div class="topRight absolute padding2 grey">171</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Unlock Your Universe in Water</div>
+             </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+            <div class="centerDiv noClick">Ash</div>`
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
   //WATER TREE
 
   //NODE 1
@@ -17837,6 +19482,261 @@ function valuesSetterCycle(type) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
 
+  //NODE 40
+
+  var sel = IUniversal.waterTree.node40
+  var sel2 = IUniversalIn.waterTree.node40
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Your Universe</div>
+                  <div class="topRight absolute padding2 grey">40</div>
+                  <div class="centerDiv fontSize09">Equip potions to make a universal core</div>
+                  <div class="centerDiv fontSize09">The core produces &nbsp;<span class="boldBlackBorder">${format(f(IUniversal.intentProd))} Intent/s</span> &nbsp; (${format(f(IUniversal.intent))})</div>
+                  <div class="centerDiv fontSize09">Tier up your universe to unlock new features and bonuses</div>
+                 </div>`
+
+
+
+  unlockShow("content2_19_node40_button", false)
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Ambrosia</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 41
+
+  var sel = IUniversal.waterTree.node41
+  var sel2 = IUniversalIn.waterTree.node41
+
+
+  if(IUniversal.universeBonus.item1.active){
+    var tier1 = IUniversalIn.universeBonus.item1.content
+  }else{
+    tier1 = "Reach Tier 1"
+  }
+
+  if(IUniversal.universeBonus.item2.active){
+    var tier2 = IUniversalIn.universeBonus.item2.content
+  }else{
+    tier2 = "Reach Tier 2"
+  }
+
+  if(IUniversal.universeBonus.item3.active){
+    var tier3 = IUniversalIn.universeBonus.item3.content
+  }else{
+    tier3 = "Reach Tier 3"
+  }
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Your Universe</div>
+                  <div class="flex flexShrinkZero flexBetween width100 height100">
+
+                    <div class="flexGrow1 centerDiv column">
+                      <div>Tier ${format(f(IUniversal.tier), 1)}</div>
+                      <div>Sacred Energy ${format(f(IUniversal.sacredEnergy))}</div>
+                    </div>
+
+
+                    <div class="flexGrow1">
+
+                      <div class="flexGrow1">
+                        <div class="centerDiv fontSize09">Equip potions to make a universal core</div>
+                        <div class="centerDiv fontSize09">The core produces &nbsp;<span class="boldBlackBorder">${format(sec(f(IUniversal.intentProd)))} Intent/s</span> &nbsp; (${format(f(IUniversal.intent), 0)}/${format(f(IUniversal.intentMax), 0)})</div>
+                        <div class="centerDiv fontSize09">Tier up your universe to unlock new features and bonuses</div>
+                      </div>
+                      <div class="flexGrow1 backgroundBlue3 overflowY bdefaultButtonSkin">
+                        <div class="centerDiv fontSize09">${tier1}</div>
+                        <div class="centerDiv fontSize09">${tier2}</div>
+                        <div class="centerDiv fontSize09">${tier3}</div>
+                      </div>
+                    </div>
+
+
+                    <div class="flexGrow1 centerDiv column">
+                      <div>${format(f(IUniversal.origin))} Origin</div>
+                      <div>${format(sec(f(IUniversal.originProd), 2))}/s</div>
+                    </div>
+
+                  </div>
+                 </div>`
+
+  unlockShow("content2_19_node41_button", false)
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Ambrosia</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 42
+
+  var sel = IUniversal.waterTree.node42
+  var sel2 = IUniversalIn.waterTree.node42
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Universal Core</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">42</div>
+                  <div class="centerDiv fontSize09">Origin/s ×2 (+<span class="boldBlackBorder">${format(f(sel2.effect), 1)}</span>)</div>
+                  <div class="centerDiv fontSize09"><span>${format(f(IUniversal.origin), 1)} Origin</span></div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Intent</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 43
+
+  var sel = IUniversal.waterTree.node43
+  var sel2 = IUniversalIn.waterTree.node43
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Raidil Blessing</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">43</div>
+                  <div class="centerDiv fontSize09">Sacred Energy +1(+<span class="boldBlackBorder">${format(f(sel2.effect), 0)}</span>)</div>
+                  <div class="centerDiv fontSize09">Intent/s ×2 (×<span class="boldBlackBorder">${format(f(sel2.effect2), 0)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Divinity</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 44
+
+  var sel = IUniversal.waterTree.node44
+  var sel2 = IUniversalIn.waterTree.node44
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Purity</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">44</div>
+                  <div class="centerDiv padding2 fontSize09">Raidil Blessing max lvl +${format(f(sel2.effect), 0)}</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Origin</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 45
+
+  var sel = IUniversal.waterTree.node45
+  var sel2 = IUniversalIn.waterTree.node45
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Condensation</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">45</div>
+                  <div class="centerDiv padding2 fontSize09">Tier +0.2 (<span class="boldBlackBorder">${format(f(sel2.effect), 1)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Origin</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 46
+
+  var sel = IUniversal.waterTree.node46
+  var sel2 = IUniversalIn.waterTree.node46
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Compression</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">46</div>
+                  <div class="centerDiv padding2 fontSize09">Intent Max ×2 (×${format(f(sel2.effect), 1)})</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Intent</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 47
+
+  var sel = IUniversal.waterTree.node47
+  var sel2 = IUniversalIn.waterTree.node47
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Geomancy</div>
+                  <div class="topRight absolute padding2 grey">47</div>
+                  <div class="centerDiv padding2 fontSize09">Unlock Iron Golems in Earth</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Intent</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 48
+
+  var sel = IUniversal.waterTree.node48
+  var sel2 = IUniversalIn.waterTree.node48
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Alchemy</div>
+                  <div class="topRight absolute padding2 grey">48</div>
+                  <div class="centerDiv padding2 fontSize09">Unlock New Upgrades in Fire</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Celeste Dust</div>`
+
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
   //Potion Effects
   //EFFECT 1
   IUniversalIn.potionEffects.effect1.content = `Damage Training <span class="boldBlackBorder">×${format(f(IUniversalIn.potionEffects.effect1.value))}</span> (${format(f(ITrainingIn.base.base1.prod))})`
@@ -17895,6 +19795,18 @@ function valuesSetterCycle(type) {
   //EFFECT 19
   IUniversalIn.potionEffects.effect19.content = `Universal Challenger is <span class="boldBlackBorder">×${format(f(IUniversalIn.potionEffects.effect19.value))} times weaker</span>`
 
+  //EFFECT 20
+  IUniversalIn.potionEffects.effect20.content = `Intent/s <span class="boldBlackBorder">×${format(f(IUniversalIn.potionEffects.effect20.value))}</span>`
+
+  //EFFECT 21
+  IUniversalIn.potionEffects.effect21.content = `Massa Confusa/s <span class="boldBlackBorder">×${format(f(IUniversalIn.potionEffects.effect21.value))}</span>`
+
+  //EFFECT 22
+  IUniversalIn.potionEffects.effect22.content = `Origin/s <span class="boldBlackBorder">^${format(f(IUniversalIn.potionEffects.effect22.value))}</span>`
+
+  //EFFECT 23
+  IUniversalIn.potionEffects.effect23.content = `Divinity/s <span class="boldBlackBorder">×${format(f(IUniversalIn.potionEffects.effect23.value))}</span>`
+
   //POTION SOURCE
 
   //source1
@@ -17946,9 +19858,78 @@ function valuesSetterCycle(type) {
                                                           <div>Ambrosia Max <span class="boldBlackBorder">×${format(IUniversalIn.potionSource.item6.value2, 2)}</span></div>
                                                        </div>`
 
+  //CORE ITEM
+    //core item 1
+  IUniversalIn.coreItem.item1.content = `          <div class="square height30 width100 column">
+                                                          <div><span class="">Max potion level: ${format(IUniversalIn.coreItem.item1.value2, 0)}</span></div>
+                                                          <div><span class="boldBlackBorder">${format(IUniversalIn.coreItem.item1.value0)}</span> Intent/s</div>
+                                                       </div>`
+
+/*
+    //core item 1
+  IUniversalIn.coreItem.item2.content = `          <div class="square height30 width100 centerDiv column">
+                                                          <div><span class="">Max potion level: ${format(IUniversalIn.coreItem.item1.value2, 0)}</span></div>
+                                                          
+                                                          <div><span class="boldBlackBorder">${format(IUniversalIn.inventoryStorage[IUniversal.coreItem.item2.key].content)}</span> Intent/s</div>
+                                                       </div>`
+    //core item 1
+  IUniversalIn.coreItem.item3.content = `          <div class="square height30 width100 centerDiv column">
+                                                          <div><span class="boldBlackBorder">${format(IUniversalIn.inventoryStorage[IUniversal.coreItem.item3.key].content)}</span> Intent/s</div>
+                                                       </div>`
+  */
+ 
+  potionInfoStatic()
   potionSetterInit()
+
+  var sel = IUniversal.universeBonus.item1
+  var sel2 = IUniversalIn.universeBonus.item1
+
+  sel2.content = `Tier 1: Mine Power × Tier (<span class="boldBlackBorder">×${format(f(IUniversalIn.universeBonus.item1.value))}</span>)`
+
+  var sel = IUniversal.universeBonus.item2
+  var sel2 = IUniversalIn.universeBonus.item2
+
+  sel2.content = `Tier 2: Max Core potion level + Tier (<span class="boldBlackBorder">+${format(f(IUniversalIn.universeBonus.item2.value))}</span>)`
+
+  var sel = IUniversal.universeBonus.item3
+  var sel2 = IUniversalIn.universeBonus.item3
+
+  sel2.content = `Tier 3: Damage and Life × Sacred Energy (<span class="boldBlackBorder">×${format(f(IUniversalIn.universeBonus.item3.value))}</span>)`
+
   //EARTH TREE
 
+  //ZONES
+  if (true) {
+    unlockShow("content2_21_zone1", true)
+  }
+
+  if (true) {
+    unlockShow("content2_21_zone2", true)
+  }
+
+  if (true) {
+    unlockShow("content2_21_zone3", true)
+  }
+
+  if (IUniversal.waterTree.node47.active) {
+    unlockShow("content2_21_zone4", true)
+  }
+
+  if (IUniversal.waterTree.node47.active) {
+    unlockShow("content2_21_zone5", true)
+  }
+
+  if (IUniversal.waterTree.node47.active) {
+    unlockShow("content2_21_zone6", true)
+  }
+
+  if (IUniversal.earthTree.node30.active) {
+    unlockShow("content2_21_zone7", true)
+  }
+
+  if (IUniversal.earthTree.node31.active) {
+    unlockShow("content2_21_zone8", true)
+  }
 
   //NODE 1
   var sel = IUniversal.earthTree.node1
@@ -18109,7 +20090,8 @@ function valuesSetterCycle(type) {
                   <div class="centerDiv boldBlackBorder">One Front</div>
                   <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
                   <div class="topRight absolute padding2 grey">8</div>
-                  <div class="centerDiv padding2 fontSize09">Golems Damage × Golems (<span class="boldBlackBorder">×${format(sel2.effect, 1)}</span>)</div>
+                  <div class="centerDiv fontSize09">Golems Damage × Golems</div>
+                  <div class="centerDiv fontSize09">(<span class="boldBlackBorder">×${format(sel2.effect, 1)}</span>)</div>
                  </div>`
 
 
@@ -18206,6 +20188,515 @@ function valuesSetterCycle(type) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
 
+  //NODE 13
+  var sel = IUniversal.earthTree.node13
+  var sel2 = IUniversalIn.earthTree.node13
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Iron Golem</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+                  <div class="topRight absolute padding2 grey">13</div>
+                  <div class="centerDiv fontSize09"><span class="boldBlackBorder">${format(IUniversal.ironGolem, 0)}</span>&nbsp;Iron Golems</div>
+                  <div class="centerDiv fontSize09"><span class="boldBlackBorder">${format(IUniversal.assignedIronGolem, 0)}</span>&nbsp; Assigned Iron Golems</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Iron</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 14
+  var sel = IUniversal.earthTree.node14
+  var sel2 = IUniversalIn.earthTree.node14
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Silver Golem</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+                  <div class="topRight absolute padding2 grey">14</div>
+                  <div class="centerDiv fontSize09"><span class="boldBlackBorder">${format(IUniversal.silverGolem, 0)}</span>&nbsp;Silver Golems</div>
+                  <div class="centerDiv fontSize09"><span class="boldBlackBorder">${format(IUniversal.assignedSilverGolem, 0)}</span>&nbsp; Assigned Silver Golems</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Silver</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 15
+  var sel = IUniversal.earthTree.node15
+  var sel2 = IUniversalIn.earthTree.node15
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Obsidian Golem</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}</div>
+                  <div class="topRight absolute padding2 grey">15</div>
+                  <div class="centerDiv fontSize09"><span class="boldBlackBorder">${format(IUniversal.obsidianGolem, 0)}</span>&nbsp;Obsidian Golems</div>
+                  <div class="centerDiv fontSize09"><span class="boldBlackBorder">${format(IUniversal.assignedObsidianGolem, 0)}</span>&nbsp; Assigned Obsidian Golems</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Obsidian</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 16
+  var sel = IUniversal.earthTree.node16
+  var sel2 = IUniversalIn.earthTree.node16
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Uron</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">16</div>
+                  <div class="centerDiv padding2 fontSize09">All learning ×5 (<span class="boldBlackBorder">×${format(sel2.effect, 0)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Sky Dust</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //NODE 17
+  var sel = IUniversal.earthTree.node17
+  var sel2 = IUniversalIn.earthTree.node17
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Magic Stone</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">17</div>
+                  <div class="centerDiv fontSize09">Golem damage and life ×2</div>
+                  <div class="centerDiv fontSize09">(<span class="boldBlackBorder">×${format(sel2.effect, 1)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.learning), 0)}/${format(f(sel2.learningMax), 1)}</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Iron Golems</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Iron Golems</div>`
+  }
+
+  //NODE 18
+  var sel = IUniversal.earthTree.node18
+  var sel2 = IUniversalIn.earthTree.node18
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Iron Universe</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">18</div>
+                  <div class="centerDiv padding2 fontSize09">Iron ×10 (<span class="boldBlackBorder">×${format(sel2.effect, 0)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.learning), 0)}/${format(f(sel2.learningMax), 0)}</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Iron Golems</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Iron Golems</div>`
+  }
+
+  //NODE 19
+  var sel = IUniversal.earthTree.node19
+  var sel2 = IUniversalIn.earthTree.node19
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Inscription</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">19</div>
+                  <div class="centerDiv padding2 fontSize09">Learning ×1.5&nbsp(<span class="boldBlackBorder">×${format(sel2.effect, 2)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.learning), 0)}/${format(f(sel2.learningMax), 0)}</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Iron Golems</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Iron Golems</div>`
+  }
+
+  //NODE 20
+  var sel = IUniversal.earthTree.node20
+  var sel2 = IUniversalIn.earthTree.node20
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Philosopher's Rock</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">20</div>
+                  <div class="centerDiv padding2 fontSize09">Earth ×5&nbsp(<span class="boldBlackBorder">×${format(sel2.effect, 1)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.learning), 0)}/${format(f(sel2.learningMax), 0)}</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Iron Golems</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Iron Golems</div>`
+  }
+
+  //NODE 21
+  var sel = IUniversal.earthTree.node21
+  var sel2 = IUniversalIn.earthTree.node21
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Eroding Heavens</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">21</div>
+                  <div class="centerDiv padding2 fontSize09">Celeste Dust ×1.5&nbsp(<span class="boldBlackBorder">×${format(sel2.effect, 1)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.learning), 0)}/${format(f(sel2.learningMax), 0)}</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Silver Golems</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Silver Golems</div>`
+  }
+
+  //NODE 22
+  var sel = IUniversal.earthTree.node22
+  var sel2 = IUniversalIn.earthTree.node22
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Universal War</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">22</div>
+                  <div class="centerDiv padding2 fontSize09">Treasure claim time /2&nbsp(<span class="boldBlackBorder">/${format(sel2.effect, 1)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.learning), 0)}/${format(f(sel2.learningMax), 0)}</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Silver Golems</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Silver Golems</div>`
+  }
+
+  //NODE 23
+  var sel = IUniversal.earthTree.node23
+  var sel2 = IUniversalIn.earthTree.node23
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Cracking Cores</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">23</div>
+                  <div class="centerDiv fontSize09">Massa Confusa ×2&nbsp(<span class="boldBlackBorder">×${format(sel2.effect, 1)}</span>)</div>
+                  <div class="centerDiv fontSize09">Origin ×2&nbsp(<span class="boldBlackBorder">×${format(sel2.effect, 1)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.learning), 0)}/${format(f(sel2.learningMax), 0)}</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Silver Golems</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Silver Golems</div>`
+  }
+
+  //NODE 24
+  var sel = IUniversal.earthTree.node24
+  var sel2 = IUniversalIn.earthTree.node24
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">God Stone</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">24</div>
+                  <div class="centerDiv fontSize09">Golem damage and life × Sky Dust</div>
+                  <div class="centerDiv fontSize09">(<span class="boldBlackBorder">×${format(sel2.effect, 1)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.learning), 0)}/${format(f(sel2.learningMax), 0)}</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Silver Golems</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Silver Golems</div>`
+  }
+
+  //NODE 25
+  var sel = IUniversal.earthTree.node25
+  var sel2 = IUniversalIn.earthTree.node25
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Transrockation</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">25</div>
+                  <div class="centerDiv fontSize09"><span class="boldBlackBorder">Max level: Silver Golem</span></div>
+                  <div class="centerDiv fontSize09">Mine Pow. & Holy Breaker ×2 (<span class="boldBlackBorder">×${format(sel2.effect, 1)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.learning), 0)}/${format(f(sel2.learningMax), 0)}</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Obsidian Golems</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Obsidian Golems</div>`
+  }
+
+  //NODE 26
+  var sel = IUniversal.earthTree.node26
+  var sel2 = IUniversalIn.earthTree.node26
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Iron to Uron</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">26</div>
+                  <div class="centerDiv fontSize09"><span class="boldBlackBorder">Max level: Iron Golem</span></div>
+                  <div class="centerDiv fontSize09">Ash/s ×5 (<span class="boldBlackBorder">×${format(sel2.effect, 1)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.learning), 0)}/${format(f(sel2.learningMax), 0)}</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Obsidian Golems</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Obsidian Golems</div>`
+  }
+
+  //NODE 27
+  var sel = IUniversal.earthTree.node27
+  var sel2 = IUniversalIn.earthTree.node27
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Acid Universe</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">27</div>
+                  <div class="centerDiv fontSize09"><span class="boldBlackBorder">Max level: Obsidian Golem</span></div>
+                  <div class="centerDiv fontSize09">Water Elisir Ambrosia/s ×5 (<span class="boldBlackBorder">×${format(sel2.effect, 0)}</span>)</div>
+                  <div class="centerDiv fontSize09"></div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.learning), 0)}/${format(f(sel2.learningMax), 0)}</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Obsidian Golems</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Obsidian Golems</div>`
+  }
+
+  //NODE 28
+  var sel = IUniversal.earthTree.node28
+  var sel2 = IUniversalIn.earthTree.node28
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Titan's History</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">28</div>
+                  <div class="centerDiv fontSize09"><span class="boldBlackBorder">Max level: Uron</span></div>
+                  <div class="centerDiv fontSize09">Upgrade 32, 33, 34 max lvl +1 (<span class="boldBlackBorder">+${format(sel2.effect, 0)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.learning), 0)}/${format(f(sel2.learningMax), 0)}</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Obsidian Golems</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Obsidian Golems</div>`
+  }
+
+  //NODE 29
+  var sel = IUniversal.earthTree.node29
+  var sel2 = IUniversalIn.earthTree.node29
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Titan Crucible</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">29</div>
+                  <div class="centerDiv fontSize09"><span class="boldBlackBorder">Max level: Uron</span></div>
+                  <div class="centerDiv fontSize09">Damage and Life ×${format(f("1e10"), 0)} (<span class="boldBlackBorder">×${format(sel2.effect, 1)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.learning), 0)}/${format(f(sel2.learningMax), 0)}</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Obsidian Golems</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Obsidian Golems</div>`
+  }
+
+  //NODE 30
+  var sel = IUniversal.earthTree.node30
+  var sel2 = IUniversalIn.earthTree.node30
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Celeste Dust</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">30</div>
+                  <div class="centerDiv padding2 fontSize09">Unlock Silver Golem and Infuser</div>
+                  <div class="centerDiv fontSize09">Celeste Dust can be used in Water to make gems in the potions tab</div>
+                  <div class="centerDiv fontSize09">${format(f(IUniversal.celesteDust), 1)} Celeste Dust</div>
+                  <div class="centerDiv fontSize09">${format(f(sec(IUniversal.celesteDustProd)), 1)}/s</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick"><span class="boldBlackBorder">${format(f(sel2.price), 0)}</span>&nbspMithril</div>`;
+
+  //NODE 31
+  var sel = IUniversal.earthTree.node31
+  var sel2 = IUniversalIn.earthTree.node31
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Sky Dust</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">31</div>
+                  <div class="centerDiv padding2 fontSize09">Unlock Obsidian Golem, Sanctum and Uron</div>
+                  <div class="centerDiv fontSize09">Sky Dust can be used in Water to make gems in the potions tabs</div>
+                  <div class="centerDiv fontSize09">${format(f(IUniversal.skyDust), 1)} Sky Dust</div>
+                  <div class="centerDiv fontSize09">${format(sec(f(IUniversal.skyDustProd)), 1)}/s</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick"><span class="boldBlackBorder">${format(f(sel2.price), 0)}</span>&nbspCeleste Dust</div>`;
+
+  //NODE 32
+  var sel = IUniversal.earthTree.node32
+  var sel2 = IUniversalIn.earthTree.node32
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Iron Scroll</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">32</div>
+                  <div class="centerDiv fontSize09">Learning × Iron Golems</div>
+                  <div class="centerDiv fontSize09">(<span class="boldBlackBorder">×${format(sel2.effect, 1)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.learning), 0)}/${format(f(sel2.learningMax), 0)}</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Iron Golems</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Iron Golems</div>`
+  }
+
+  //NODE 33
+  var sel = IUniversal.earthTree.node33
+  var sel2 = IUniversalIn.earthTree.node33
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Immaculate Glass</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">33</div>
+                  <div class="centerDiv fontSize09">Learning × Silver Golems</div>
+                  <div class="centerDiv fontSize09">(<span class="boldBlackBorder">×${format(sel2.effect, 1)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.learning), 0)}/${format(f(sel2.learningMax), 0)}</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Silver Golems</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Silver Golems</div>`
+  }
+
+  //NODE 34
+  var sel = IUniversal.earthTree.node34
+  var sel2 = IUniversalIn.earthTree.node34
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Reality Tower</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">34</div>
+                  <div class="centerDiv fontSize09">Learning × Obsidian Golems</div>
+                  <div class="centerDiv fontSize09">(<span class="boldBlackBorder">×${format(sel2.effect, 1)}</span>)</div>
+                 </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.learning), 0)}/${format(f(sel2.learningMax), 0)}</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Obsidian Golems</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Obsidian Golems</div>`
+  }
+
+  //NODE 35
+  var sel = IUniversal.earthTree.node35
+  var sel2 = IUniversalIn.earthTree.node35
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Heaven's Key</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">35</div>
+                  <div class="centerDiv fontSize09">Unlock Deep Mine in Earth</div>
+                  <div class="centerDiv fontSize09">Unlock Angel in Wind</div>
+                 </div>`
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel.learning), 0)}/${format(f(sel2.learningMax), 0)}</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Iron Golems</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>
+                <div class="centerDiv noClick">${format(f(sel.assigned), 0)} Iron Golems</div>`
+  }
+
   //FORGE
 
   //miners
@@ -18231,6 +20722,14 @@ function valuesSetterCycle(type) {
             <div><span class="boldBlackBorder">${format(sec(IUniversal.silverProd), 2)}/s</span></div>
           </div>
           ${ore1}
+        </div>`
+
+  IUniversalIn.forgeValute2 =
+    `<div class="height100 width100 bDefaultStyle transparent column padding2 centerDivTop">
+          <div class="height10 width100 column centerDiv backgroundOrange3 roundedEdges">
+            <div><span class="boldBlackBorder">${format(f(IUniversal.mithril), 2)}</span> Mithril</div>
+            <div><span class="boldBlackBorder">${format(sec(IUniversal.mithrilProd), 2)}/s</span></div>
+          </div>
         </div>`
 
 
@@ -18362,7 +20861,8 @@ function valuesSetterCycle(type) {
                     <div class="height100 width100 column relative">
                       <div class="topLeft absolute">${format(f(sel.level), 0)}</div>
                       <div class="centerDiv boldBlackBorder">Magic Refinery</div>
-                      <div class="centerDiv">Soul Damage and Life ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 2)}</span>)</div>
+                      <div class="centerDiv">Soul Damage and Life ×2</div>
+                      <div class="centerDiv">(<span class="boldBlackBorder">×${format(f(sel2.effect), 2)}</span>)</div>
                     </div>
                   </div>`
 
@@ -18375,7 +20875,55 @@ function valuesSetterCycle(type) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
 
+  //item7
+  var sel = IUniversal.forge.item7
+  var sel2 = IUniversalIn.forge.item7
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2 width100 height100">
+                    <div class="height100 width100 column relative">
+                      <div class="topLeft absolute">${format(f(sel.level), 0)}</div>
+                      <div class="centerDiv boldBlackBorder">Impenetrable</div>
+                      <div class="centerDiv">Golem Damage and Life ×5</div>
+                      <div class="centerDiv">(<span class="boldBlackBorder">×${format(f(sel2.effect), 1)}</span>)</div>
+                    </div>
+                  </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Mithril</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //item8
+  var sel = IUniversal.forge.item8
+  var sel2 = IUniversalIn.forge.item8
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2 width100 height100">
+                    <div class="height100 width100 column relative">
+                      <div class="topLeft absolute">${format(f(sel.level), 0)}</div>
+                      <div class="centerDiv boldBlackBorder">God Vessel</div>
+                      <div class="centerDiv">Mine Power ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 1)}</span>)</div>
+                      <div class="centerDiv">Holy Breaker ×1.5 (<span class="boldBlackBorder">×${format(f(sel2.effect2), 1)}</span>)</div>
+                    </div>
+                  </div>`
+
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Mithril</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
   //mines
+
+  //LOW MINE
 
   //mineInfo
   IUniversalIn.mineInfo = `
@@ -18394,7 +20942,8 @@ function valuesSetterCycle(type) {
 
 
   sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                    <div class="height100 column">
+                    <div class="height100 column relative width100">
+                      <div class="topLeft absolute">${format(f(sel.level), 0)}</div>
                       <div class="centerDiv boldBlackBorder">Miners</div>
                       <div class="centerDiv">Miners +1 (<span class="boldBlackBorder">+${format(f(sel2.effect), 0)}</span>)</div>
                     </div>
@@ -18417,7 +20966,8 @@ function valuesSetterCycle(type) {
 
 
   sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                    <div class="height100 column">
+                    <div class="height100 column relative width100">
+                      <div class="topLeft absolute">${format(f(sel.level), 0)}</div>
                       <div class="centerDiv boldBlackBorder">Pickaxe</div>
                       <div class="centerDiv">Mine Power ×2 (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)</div>
                     </div>
@@ -18439,7 +20989,8 @@ function valuesSetterCycle(type) {
 
 
   sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                    <div class="height100 column">
+                    <div class="height100 column relative width100">
+                      <div class="topLeft absolute">${format(f(sel.level), 0)}</div>
                       <div class="centerDiv boldBlackBorder">Obsidian Drill</div>
                       <div class="centerDiv">Mine Power ×1.5 (<span class="boldBlackBorder">×${format(f(sel2.effect), 2)}</span>)</div>
                     </div>
@@ -18461,7 +21012,8 @@ function valuesSetterCycle(type) {
 
 
   sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                    <div class="height100 column">
+                    <div class="height100 column relative width100">
+                      <div class="topLeft absolute">${format(f(sel.level), 0)}</div>
                       <div class="centerDiv boldBlackBorder">Iron Alchemy</div>
                       <div class="centerDiv">Get 10% of Iron/s (<span class="boldBlackBorder">${format(f(sel2.effect), 0)}%</span>)</div>
                     </div>
@@ -18475,13 +21027,68 @@ function valuesSetterCycle(type) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
 
+
+  //item5
+  var sel = IUniversal.mine.item5
+  var sel2 = IUniversalIn.mine.item5
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                    <div class="height100 column relative width100">
+                      <div class="topLeft absolute">${format(f(sel.level), 0)}</div>
+                      <div class="centerDiv boldBlackBorder">Heaven's Drill</div>
+                      <div class="centerDiv">Holy Scapers +1 (<span class="boldBlackBorder">+${format(f(sel2.effect), 0)}</span>)</div>
+                    </div>
+                  </div>`
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Mithril</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+
+  //item6
+  var sel = IUniversal.mine.item6
+  var sel2 = IUniversalIn.mine.item6
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                    <div class="height100 column relative width100">
+                      <div class="topLeft absolute">${format(f(sel.level), 0)}</div>
+                      <div class="centerDiv boldBlackBorder">Scourge</div>
+                      <div class="centerDiv">Holy Breaker × Iron Golem (<span class="boldBlackBorder">×${format(f(sel2.effect), 0)}</span>)</div>
+                    </div>
+                  </div>`
+
+
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
+                <div class="centerDiv noClick">Mithril</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //DEEP MINE
+
+  //mineInfo
+  IUniversalIn.mineInfo2 = `
+                  <div class="bDefaultStyle transparent centerDivColumns padding2 width100 height100">
+                      <div class="centerDiv boldBlackBorder width100">Mine Stats</div>
+                      <div class="row width100">
+                        <div class="centerDiv width50">${format(f(IUniversalIn.mineStats.miners2), 0)} Holy Scapers</div>
+                        <div class="centerDiv width50">${format(f(IUniversalIn.mineStats.minePower2), 1)} Holy Breaker</div>
+                      </div>
+                  </div>`
+
   //ORES
 
 
   //item1
   var sel = IUniversal.ore.item1
   var sel2 = IUniversalIn.ore.item1
-
 
   sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
                     <div class="height100 column">
@@ -18538,6 +21145,32 @@ function valuesSetterCycle(type) {
   sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
                     <div class="height100 column">
                       <div class="centerDiv boldBlackBorder">Obsidian</div>
+                      <div class="centerDiv">${format(f(sel2.life), 0)} Life</div>
+                      <div class="centerDiv">${format(f(sel2.hardness))} Hardness</div>
+                    </div>
+                  </div>`
+
+
+
+  if (sel.active) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">ON</div>`
+  }
+  else {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">OFF</div>`
+  }
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
+  }
+
+  //item3
+  var sel = IUniversal.ore.item4
+  var sel2 = IUniversalIn.ore.item4
+
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                    <div class="height100 column">
+                      <div class="centerDiv boldBlackBorder">Mithril</div>
                       <div class="centerDiv">${format(f(sel2.life), 0)} Life</div>
                       <div class="centerDiv">${format(f(sel2.hardness))} Hardness</div>
                     </div>
@@ -19194,6 +21827,39 @@ function valuesSetterCycle(type) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
   }
 
+
+
+
+  //NODE 23
+  var sel = IUniversal.windTree.node23
+  var sel2 = IUniversalIn.windTree.node23
+  var exp = IUniversal.expeditions.exp23
+  var exp2 = IUniversalIn.expeditions.exp23
+
+  if (!f(sel.level).gte(f(sel2.maxLevel))) {
+    var autom = `Reach max level to unlock automation`
+  } else {
+    autom = `${toClock(f(exp2.rewards.timerPrice).minus(f(exp.rewards.timer)))}`
+  }
+
+  sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
+                  <div class="centerDiv boldBlackBorder">Angel</div>
+                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
+                  <div class="topRight absolute padding2 grey">23</div>
+                  <div class="column width100 height50 top20 absolute">
+                    <div class="width100 boldBlackBorder height20">Unlock SUPPORT GOLEMS</div>
+                    <div class="width100 height30">${autom}</div>
+                    <div class="width100 height50 centerDiv">Claim ${getExpectedTreasures("single", IUniversal.expeditions.exp23.rewards.expectedRewards)} Treasures</div>
+                  </div>
+                  </div>
+                 </div>`
+  sel2.button = `<div class="centerDiv noClick boldBlackBorder">EXPEDITION</div>`
+  sel2.button2 = `<div class="centerDiv noClick boldBlackBorder">CLAIM</div>`
+
+  if (f(sel.level).gte(f(sel2.maxLevel))) {
+    sel2.button = `<div class="centerDiv noClick boldBlackBorder">CONQUERED</div>`
+  }
+
   //GOLEM ARMY
   //Army Stats
 
@@ -19219,7 +21885,7 @@ function valuesSetterCycle(type) {
   var finalImage1 = buildImages("golemBase1.png", d1);
   var finalImage2 = buildImages("golemBase2.png", d2);
   var finalImage3 = buildImages("golemBase3.png", d3);
-  var finalImage4 = buildImages("golemBase1.png", d4);
+  var finalImage4 = buildImages("golemBase4.png", d4);
 
   IUniversalIn.armyInfo.default.content = `
   <div class="column height100 width100 relative">
@@ -19333,9 +21999,6 @@ function valuesSetterCycle(type) {
   IUniversalIn.armyInfo.default.golemTypes.type4.content = `<div>
                                                 <div><span class="boldBlackBorder">SUPPORTS</span></div>
                                                 <div class="row spaceEvenly">
-                                                  <div>${f(IUniversalIn.armyInfo.default.golemTypes.type4.baseLevel)} Supports</div>
-                                                  <div>${f(IUniversalIn.armyInfo.default.golemTypes.type4.baseLife)} Life</div>
-                                                  <div>${f(IUniversalIn.armyInfo.default.golemTypes.type4.baseDamage)} Damage</div>
                                                 </div>
                                                 </div>`
 
@@ -20465,6 +23128,36 @@ function valuesSetterCycle(type) {
       <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Soul Damage +200, Wind Affinity +50 (+${format(f(sel2.effect1), 0)}, +${format(f(sel2.effect2), 0)})</div>
   `
 
+  //Treasure 36
+
+  var sel1 = IUniversal.treasures.treasure36
+  var sel2 = IUniversalIn.treasures.treasure36
+
+
+  sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
+                      <div class="topLeft absolute padding2 grey">${format(f(sel1.level), 0)}</div>
+                    </div>`
+
+  sel2.content2 =
+    `<div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
+    <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
+      <div class=" absolute padding2 center fontSize09 width100">Apostate Charm</div>
+      <div class=" left absolute padding2 grey centerTop">${format(f(sel1.level), 0)}</div>
+    </div>
+    <div class="height50 width100 row ">
+      <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
+      </div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Oppenent's Divinity -10 (+${format(f(sel2.effect1), 0)}) (Minimum 1)</div>
+
+    </div>
+    
+    <div class="height30 width100 column roundedEdges">${format(f(sel2.price), 0)} Divinity </div>
+  </div>`
+
+  sel2.content3 = `
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Oppenent's Divinity -10 (+${format(f(sel2.effect1), 0)}) (Minimum 1)</div>
+  `
+
 
   //Expeditions
 
@@ -20579,6 +23272,12 @@ function valuesSetterCycle(type) {
 
   selIn.name = "Hell King"
 
+  //expedition 22
+  var sel = IUniversal.expeditions.exp23
+  var selIn = IUniversalIn.expeditions.exp23
+
+  selIn.name = "Angel"
+
   //spires
 
   //spire 1
@@ -20595,7 +23294,16 @@ function valuesSetterCycle(type) {
   var selIn = IUniversalIn.spires.spire2
 
   selIn.content = `<div>Steel Spire</div>
-                 <div>Metal/s + completed Crusades (+${format(f(selIn.effect))})</div>`
+                 <div>Metal/s × completed Crusades (+${format(f(selIn.effect))})</div>`
+
+  //spire3
+
+  var sel = IUniversal.spires.spire3
+  var selIn = IUniversalIn.spires.spire3
+
+  selIn.content = `<div>Mithril Spire</div>
+                 <div>Divinity/s × completed Heaven Army (+${format(f(selIn.effect))})</div>`
+
 
 
   //visuals content
@@ -20662,7 +23370,7 @@ function valuesSetterCycle(type) {
                                 <div class="width100 padding1 height10 boldBlackBorder centerDiv">LORD</div>
                                 <div class="line"></div>
                                 <div class="width100 padding1 height10 boldBlackBorder centerDiv">HELL TERRITORY</div>
-                                                                <div class="width100 padding1 height10 centerDiv">Get Hell Territory from Heat (Starting from ${format(f(f(10).pow(f(15))), 0)} Heat) (×${format(f(Decimal.log(IUniversal.heat.dividedBy(f(10).pow(f(15))), 2)).pow(f(2)))})</div>
+                                                                <div class="width100 padding1 height10 centerDiv">Get Hell Territory from Heat (Starting from ${format(f(f(10).pow(f(15))), 0)} Heat) (×${format(f(Decimal.log(f(IUniversal.heat).dividedBy(f(10).pow(f(15))), 2)).pow(f(2)))})</div>
 
                                 <div class="width100 padding1 height10 centerDiv">${format(f(IUniversal.hellTerritory))} Hell Territory</div>
                                                                 <div class="width100 padding1 height10 centerDiv">+${format(sec(f(IUniversal.hellTerritoryProd)))}/s</div>
@@ -20791,6 +23499,15 @@ function valuesSetter(type) {
 
   ISelUpgrade.group.group3.num = num
 
+  //group4
+  var num = 0;
+
+  if (IUniversal.ore.item4.active) { num += 1 }
+
+  if (f(num).gt(f(ISelUpgrade.group.group4.maxNum))) { num = ISelUpgrade.group.group4.maxNum }
+
+  ISelUpgrade.group.group4.num = num
+
   //global 
 
   var global1 = f(IGameData.tickSpeedMult);
@@ -20810,42 +23527,7 @@ function valuesSetter(type) {
   //Power bases
 
   //damage training
-  var base1_2 = IFightIn.challengerRewards.reward1.effect
 
-  if (f(ITraining.base.base3.tot).gte(f(1))) {
-    var base1_3 = ITraining.base.base3.tot;
-  }
-  else {
-    base1_3 = f(1)
-  }
-
-  if (IUniversal.energyUpgrades.upgrade1.active) {
-    var base1_4 = f(IUniversalIn.energyUpgrades.upgrade1.effect);
-  }
-  else {
-    base1_4 = f(0)
-  }
-
-  if (IUniversal.energyUpgrades.upgrade3.active) {
-    var base1_5 = f(IUniversalIn.energyUpgrades.upgrade3.effect);
-  }
-  else {
-    base1_5 = f(1)
-  }
-
-  if (IUniversal.attributes.attributeBonus3.active) {
-    var base1_6 = f(IUniversalIn.attributes.attributeBonus3.effect)
-  } else {
-    var base1_6 = f(1)
-  }
-
-  if (IUniversalIn.potionEffects.effect1.activeValue) {
-    var base1_7 = f(IUniversalIn.potionEffects.effect1.activeValue)
-  } else {
-    var base1_7 = f(1)
-  }
-
-  ITrainingIn.base.base1.prod = (f(0.2).mul(f(base1_2)).add(f(base1_4))).mul(f(base1_3)).mul(f(base1_5)).mul(f(base1_6)).mul(f(base1_7));
   ITraining.base.base1.level = f(ITraining.base.base1.level);
 
 
@@ -26899,6 +29581,159 @@ function valuesSetter(type) {
   if (f(sel.level).gt(f(0))) { sel.active = true }
   if (sel.active) { sel.unlocked = true }
 
+  //NODE 165
+  var sel = IUniversal.fireTree.node165
+  var sel2 = IUniversalIn.fireTree.node165
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(100)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.pricef = function (level) {
+    return f(f(10).pow(f(3)))
+      .mul(f("3").pow(f(level)));
+  }
+
+  sel2.price = sel2.pricef(sel.level);
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 166
+  var sel = IUniversal.fireTree.node166
+  var sel2 = IUniversalIn.fireTree.node166
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = Decimal.log10(f(sel.level).dividedBy(f(10)))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.pricef = function (level) {
+    return f(0);
+  }
+
+  sel2.price = sel2.pricef(sel.level);
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 167
+  var sel = IUniversal.fireTree.node167
+  var sel2 = IUniversalIn.fireTree.node167
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(100)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.pricef = function (level) {
+    return f(1).add(f(level).mul(f(1.5)));
+  }
+
+  sel2.price = sel2.pricef(sel.level);
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 168
+  var sel = IUniversal.fireTree.node168
+  var sel2 = IUniversalIn.fireTree.node168
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(20)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.5).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.pricef = function (level) {
+    return f(f(10).pow(f(2)))
+      .mul(f("100").pow(f(level)));
+  }
+
+  sel2.price = sel2.pricef(sel.level);
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 169
+  var sel = IUniversal.fireTree.node169
+  var sel2 = IUniversalIn.fireTree.node169
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(100)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(5).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.pricef = function (level) {
+    return f(1).add(sel.level);
+  }
+
+  sel2.price = sel2.pricef(sel.level);
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 170
+  var sel = IUniversal.fireTree.node170
+  var sel2 = IUniversalIn.fireTree.node170
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(20)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.pricef = function (level) {
+    return f(f(10).pow(f(5)))
+      .mul(f("10").pow(f(level)));
+  }
+
+  sel2.price = sel2.pricef(sel.level);
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 171
+  var sel = IUniversal.fireTree.node171
+  var sel2 = IUniversalIn.fireTree.node171
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  sel2.effect = f(1)
+
+  sel2.pricef = function (level) {
+    return f(f(10).pow(f(40)));
+  }
+
+  sel2.price = sel2.pricef(sel.level);
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
   //WATER TREE
 
 
@@ -27683,10 +30518,176 @@ function valuesSetter(type) {
   if (f(sel.level).gt(f(0))) { sel.active = true }
   if (sel.active) { sel.unlocked = true }
 
+  //NODE 40
+
+  var sel = IUniversal.waterTree.node40
+  var sel2 = IUniversalIn.waterTree.node40
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(10).pow(f(6))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 41
+
+  var sel = IUniversal.waterTree.node41
+  var sel2 = IUniversalIn.waterTree.node41
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(10).pow(f(6))
+
+  if (sel2.req()) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 42
+
+  var sel = IUniversal.waterTree.node42
+  var sel2 = IUniversalIn.waterTree.node42
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(100)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(0.1).mul(f(2).pow(f(sel.level)))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.price = (f(10).pow(f(1))).mul(f(5).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 43
+
+  var sel = IUniversal.waterTree.node43
+  var sel2 = IUniversalIn.waterTree.node43
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1).add(f(IUniversal.waterTree.node44.level))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(sel.level)
+    sel2.effect2 = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(0)
+    sel2.effect2 = f(1)
+  }
+
+  sel2.price = (f(10).pow(f(2))).mul(f(10).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 44
+
+  var sel = IUniversal.waterTree.node44
+  var sel2 = IUniversalIn.waterTree.node44
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = (f(10).pow(f(4))).mul(f(5).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 45
+
+  var sel = IUniversal.waterTree.node45
+  var sel2 = IUniversalIn.waterTree.node45
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(25)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(0.2).mul(f(sel.level))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.price = (f(10).pow(f(1))).mul(f(2).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 46
+
+  var sel = IUniversal.waterTree.node46
+  var sel2 = IUniversalIn.waterTree.node46
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(25)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = (f(10).pow(f(1))).mul(f(2).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 47
+
+  var sel = IUniversal.waterTree.node47
+  var sel2 = IUniversalIn.waterTree.node47
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  sel2.effect = f(1)
+
+  sel2.price = (f(10).pow(f(2)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 48
+
+  var sel = IUniversal.waterTree.node48
+  var sel2 = IUniversalIn.waterTree.node48
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  sel2.effect = f(1)
+
+  sel2.price = (f(10).pow(f(3)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
   //Potions Effects
 
 
-  potionInfoStatic()
+  //potionInfoStatic()
   potionEquipmentStatic()
 
   //EFFECT 1
@@ -27946,6 +30947,55 @@ function valuesSetter(type) {
   IUniversalIn.potionEffects.effect19.value = IUniversalIn.potionEffects.effect19.valueFormula()
 
 
+  //EFFECT 20
+  var potionLevel = getPotionLevel("water_intent", "coreItem")
+
+  var effectLevel = getPotionEffectTier("water_intent", "coreItem")
+
+  if (potionLevel == null && effectLevel == null) {
+    IUniversalIn.potionEffects.effect20.activeValue = f(0)
+  } else {
+    IUniversalIn.potionEffects.effect20.activeValue = (f(2).mul(f(effectLevel))).mul(f(potionLevel).add(f(1)))
+  }
+  IUniversalIn.potionEffects.effect20.value = IUniversalIn.potionEffects.effect20.valueFormula()
+
+  //EFFECT 21
+  var potionLevel = getPotionLevel("fire_massaConfusa", "coreItem")
+
+  var effectLevel = getPotionEffectTier("fire_massaConfusa", "coreItem")
+
+  if (potionLevel == null && effectLevel == null) {
+    IUniversalIn.potionEffects.effect21.activeValue = f(0)
+  } else {
+    IUniversalIn.potionEffects.effect21.activeValue = (f(2).mul(f(effectLevel))).mul(f(potionLevel).add(f(1)))
+  }
+  IUniversalIn.potionEffects.effect21.value = IUniversalIn.potionEffects.effect21.valueFormula()
+
+  //EFFECT 22
+  var potionLevel = getPotionLevel("water_originPower", "coreItem")
+
+  var effectLevel = getPotionEffectTier("water_originPower", "coreItem")
+
+  if (potionLevel == null && effectLevel == null) {
+    IUniversalIn.potionEffects.effect22.activeValue = f(0)
+  } else {
+    IUniversalIn.potionEffects.effect22.activeValue = (f(0.5))
+  }
+  IUniversalIn.potionEffects.effect22.value = IUniversalIn.potionEffects.effect22.valueFormula()
+
+  //EFFECT 23
+  var potionLevel = getPotionLevel("water_divinity", "coreItem")
+
+  var effectLevel = getPotionEffectTier("water_divinity", "coreItem")
+
+  if (potionLevel == null && effectLevel == null) {
+    IUniversalIn.potionEffects.effect23.activeValue = f(0)
+  } else {
+    IUniversalIn.potionEffects.effect23.activeValue = (f(2).mul(f(effectLevel))).mul(f(potionLevel).add(f(1)))
+  }
+  IUniversalIn.potionEffects.effect23.value = IUniversalIn.potionEffects.effect21.valueFormula()
+
+
   //POTION SOURCE
 
   //source1
@@ -28032,6 +31082,63 @@ function valuesSetter(type) {
     IUniversalIn.potionSource.item6.value2 = f(1)
   }
 
+  //core item
+
+  //CORE ITEM
+
+  //core item 1
+
+  var upg1 = IUniversalIn.universeBonus.item2.value
+
+  if (IUniversal.coreItem.item1.key != null) {
+    if(f(getMatchingPotionLevel(IUniversal.coreItem.item1.key, "equipment", "equipment_pass")).gt(f(IUniversalIn.coreItem.item1.value2))){
+      IUniversalIn.coreItem.item1.value0 = f(Decimal.max(f(1), f(IUniversalIn.coreItem.item1.value2).dividedBy(f(10))))
+    }else{
+      IUniversalIn.coreItem.item1.value0 = f(Decimal.max(f(1), f(getMatchingPotionLevel(IUniversal.coreItem.item1.key, "equipment", "equipment_pass")).dividedBy(f(10)))) 
+    }
+    IUniversalIn.coreItem.item1.value2 = f(10).add(f(upg1))
+  } else {
+    IUniversalIn.coreItem.item1.value0 = f(0)
+    IUniversalIn.coreItem.item1.value2 = f(10).add(f(upg1))
+  }
+
+  //Universe Tier Bonus
+
+  //Universe Tier Bonus item 1
+  var sel = IUniversal.universeBonus.item1
+  var sel2 = IUniversalIn.universeBonus.item1
+
+  if(IUniversal.universeBonus.item1.active){
+    sel2.value = f(1.2).pow((f(IUniversal.tier).minus(f(0.8))).mul(f(10)))
+  }else{
+    sel2.value = f(1)
+  }
+
+  if (sel2.req()) { sel.active = true }
+
+  //Universe Tier Bonus item 2
+  var sel = IUniversal.universeBonus.item2
+  var sel2 = IUniversalIn.universeBonus.item2
+
+  if(IUniversal.universeBonus.item2.active){
+    sel2.value = f(10).mul((f(IUniversal.tier).minus(f(1))))
+  }else{
+    sel2.value = f(0)
+  }
+
+  if (sel2.req()) { sel.active = true }
+
+  //Universe Tier Bonus item 3
+  var sel = IUniversal.universeBonus.item3
+  var sel2 = IUniversalIn.universeBonus.item3
+
+  if(IUniversal.universeBonus.item3.active){
+    sel2.value = f("1e10").pow((f(IUniversal.sacredEnergy)))
+  }else{
+    sel2.value = f(1)
+  }
+
+  if (sel2.req()) { sel.active = true }
 
   //EARTH TREE
 
@@ -28271,7 +31378,494 @@ function valuesSetter(type) {
   if (f(sel.level).gt(f(0))) { sel.active = true }
   if (sel.active) { sel.unlocked = true }
 
+  //NODE 13
+  var sel = IUniversal.earthTree.node13
+  var sel2 = IUniversalIn.earthTree.node13
 
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(sel.level)
+  } else {
+    sel2.effect = f(0)
+  }
+
+
+  sel2.price = f(1).mul(f(10).pow(f(20))).mul(f(f("1e3")).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 14
+  var sel = IUniversal.earthTree.node14
+  var sel2 = IUniversalIn.earthTree.node14
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(sel.level)
+  } else {
+    sel2.effect = f(0)
+  }
+
+
+  sel2.price = f(1).mul(f(10).pow(f(12))).mul(f(f("1e2")).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 15
+  var sel = IUniversal.earthTree.node15
+  var sel2 = IUniversalIn.earthTree.node15
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(sel.level)
+  } else {
+    sel2.effect = f(0)
+  }
+
+
+  sel2.price = f(1).mul(f(10).pow(f(15))).mul(f(f("1e2")).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 16
+  var sel = IUniversal.earthTree.node16
+  var sel2 = IUniversalIn.earthTree.node16
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(5).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(4))).mul(f(500).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 17
+  var sel = IUniversal.earthTree.node17
+  var sel2 = IUniversalIn.earthTree.node17
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(20)
+
+  sel.learning = f(sel.learning)
+  sel2.learningMax = f(100).mul(f(2.5).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(8))).mul(f(50).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 18
+  var sel = IUniversal.earthTree.node18
+  var sel2 = IUniversalIn.earthTree.node18
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(IUniversal.earthTree.node17.level)
+
+  sel.learning = f(sel.learning)
+  sel2.learningMax = f(500).mul(f(5).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(10).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(8))).mul(f(50).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 19
+  var sel = IUniversal.earthTree.node19
+  var sel2 = IUniversalIn.earthTree.node19
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(IUniversal.earthTree.node18.level)
+
+  sel.learning = f(sel.learning)
+  sel2.learningMax = f(500).mul(f(2).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.5).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(8))).mul(f(50).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 20
+  var sel = IUniversal.earthTree.node20
+  var sel2 = IUniversalIn.earthTree.node20
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(IUniversal.earthTree.node18.level)
+
+  sel.learning = f(sel.learning)
+  sel2.learningMax = f(500).mul(f(2).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(5).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(8))).mul(f(50).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 21
+  var sel = IUniversal.earthTree.node21
+  var sel2 = IUniversalIn.earthTree.node21
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(20)
+
+  sel.learning = f(sel.learning)
+  sel2.learningMax = f(500).mul(f(2).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.5).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(8))).mul(f(50).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 22
+  var sel = IUniversal.earthTree.node22
+  var sel2 = IUniversalIn.earthTree.node22
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(IUniversal.earthTree.node21.level)
+
+  sel.learning = f(sel.learning)
+  sel2.learningMax = f(2000).mul(f(4).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(8))).mul(f(50).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 23
+  var sel = IUniversal.earthTree.node23
+  var sel2 = IUniversalIn.earthTree.node23
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(IUniversal.earthTree.node21.level)
+
+  sel.learning = f(sel.learning)
+  sel2.learningMax = f(2000).mul(f(3).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(8))).mul(f(50).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 24
+  var sel = IUniversal.earthTree.node24
+  var sel2 = IUniversalIn.earthTree.node24
+
+  sel.level = f(sel.level)
+
+  if(f(IUniversal.earthTree.node22.level).lte(f(IUniversal.earthTree.node23.level))){
+    sel2.maxLevel = f(IUniversal.earthTree.node22.level)
+  }else{
+    sel2.maxLevel = f(IUniversal.earthTree.node23.level)
+  }
+
+  sel.learning = f(sel.learning)
+  sel2.learningMax = f(10000).mul(f(3).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = (f(2).pow(f(Decimal.log(f(IUniversal.celesteDust).dividedBy(f(100)), 10)))).mul(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(8))).mul(f(50).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 25
+  var sel = IUniversal.earthTree.node25
+  var sel2 = IUniversalIn.earthTree.node25
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(IUniversal.silverGolem)
+
+  sel.learning = f(sel.learning)
+  sel2.learningMax = f("1e6").mul(f(100).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(5).pow(f(sel.level))
+    sel2.effect2 = f(2).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+    sel2.effect2 = f(1)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(8))).mul(f(50).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 26
+  var sel = IUniversal.earthTree.node26
+  var sel2 = IUniversalIn.earthTree.node26
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(IUniversal.ironGolem)
+
+  sel.learning = f(sel.learning)
+  sel2.learningMax = f("5e6").mul(f(4).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(5).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(8))).mul(f(50).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 27
+  var sel = IUniversal.earthTree.node27
+  var sel2 = IUniversalIn.earthTree.node27
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(IUniversal.obsidianGolem)
+
+  sel.learning = f(sel.learning)
+  sel2.learningMax = f("1e6").mul(f(5).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(5).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(8))).mul(f(50).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 28
+  var sel = IUniversal.earthTree.node28
+  var sel2 = IUniversalIn.earthTree.node28
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(IUniversal.earthTree.node16.level)
+
+  sel.learning = f(sel.learning)
+  sel2.learningMax = f("5e6").mul(f(2).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(sel.level)
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(8))).mul(f(50).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 29
+  var sel = IUniversal.earthTree.node29
+  var sel2 = IUniversalIn.earthTree.node29
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(IUniversal.earthTree.node16.level)
+
+  sel.learning = f(sel.learning)
+  sel2.learningMax = f("5e8").mul(f(10).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(f("1e10")).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(8))).mul(f(50).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 30
+  var sel = IUniversal.earthTree.node30
+  var sel2 = IUniversalIn.earthTree.node30
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(10)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(5).pow(f(sel.level).minus(f(1)))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(2))).mul((f(100).pow(f(sel.level))))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 31
+  var sel = IUniversal.earthTree.node31
+  var sel2 = IUniversalIn.earthTree.node31
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(5)
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(5).pow(f(sel.level).minus(f(1)))
+  } else {
+    sel2.effect = f(0)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(5))).mul(f(100).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 32
+  var sel = IUniversal.earthTree.node32
+  var sel2 = IUniversalIn.earthTree.node32
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(IUniversal.ironGolem).add(f(IUniversalIn.earthTree.node28.effect))
+
+  sel.learning = f(sel.learning)
+  sel2.learningMax = f(10).pow(f(sel.level).add(f(1)))
+
+
+
+  if (f(sel.level).gt(f(0))) {
+    if(f(sel.level).gt(f(IUniversal.ironGolem))){
+      sel2.effect = f(1.5).pow(f(IUniversal.ironGolem))
+    }else{
+      sel2.effect = f(1.5).pow(f(sel.level))
+    }
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(8))).mul(f(50).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 33
+  var sel = IUniversal.earthTree.node33
+  var sel2 = IUniversalIn.earthTree.node33
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(IUniversal.silverGolem).add(f(IUniversalIn.earthTree.node28.effect))
+
+  sel.learning = f(sel.learning)
+  sel2.learningMax = f(500).mul(f(10).pow(f(sel.level)).add(f(1)))
+
+  if (f(sel.level).gt(f(0))) {
+    if(f(sel.level).gt(f(IUniversal.silverGolem))){
+      sel2.effect = f(1.5).pow(f(IUniversal.silverGolem))
+    }else{
+      sel2.effect = f(1.5).pow(f(sel.level))
+    }
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(8))).mul(f(50).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //NODE 34
+  var sel = IUniversal.earthTree.node34
+  var sel2 = IUniversalIn.earthTree.node34
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(IUniversal.obsidianGolem).add(f(IUniversalIn.earthTree.node28.effect))
+
+  sel.learning = f(sel.learning)
+  sel2.learningMax = f(5000).mul(f(10).pow(f(sel.level).add(f(1))))
+
+  if (f(sel.level).gt(f(0))) {
+    if(f(sel.level).gt(f(IUniversal.obsidianGolem))){
+      sel2.effect = f(1.5).pow(f(IUniversal.obsidianGolem))
+    }else{
+      sel2.effect = f(1.5).pow(f(sel.level))
+    }
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(8))).mul(f(50).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+  
+  //NODE 35
+  var sel = IUniversal.earthTree.node35
+  var sel2 = IUniversalIn.earthTree.node35
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(1)
+
+  sel.learning = f(sel.learning)
+  sel2.learningMax = f("5000")
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1)
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(15))).mul(f(1).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
   //FORGE
 
   //MINE STATS
@@ -28279,21 +31873,43 @@ function valuesSetter(type) {
   var sel = IUniversal.mineStats
   var selIn = IUniversalIn.mineStats
 
+  IUniversalIn.mineStats.miners = f()
+
   //mine power
 
   var minePower1 = f(IUniversalIn.mine.item1.effect)
   var minePower2 = f(IUniversalIn.mine.item2.effect)
   var minePower3 = f(IUniversalIn.mine.item3.effect)
 
+    IUniversalIn.mineStats.miners = f(minePower1)
+
   if (getTreasureActive("treasure28")) { var minePower4 = f(IUniversalIn.treasures.treasure28.effect) } else { minePower4 = f(1) }
 
+  var minePower5 = f(IUniversalIn.forge.item8.effect)
+  var minePower6 = f(IUniversalIn.earthTree.node25.effect)
 
-  selIn.minePower = f(minePower1).mul(minePower2).mul(minePower3).mul(minePower4)
 
-  //miners
-  var miners1 = f(IUniversalIn.mine.item1.effect)
+  selIn.minePower = f(minePower1).mul(minePower2).mul(minePower3).mul(minePower4).mul(minePower5).mul(minePower6)
 
-  selIn.miners = f(miners1)
+
+  //MINE STATS 2
+
+  var sel = IUniversal.mineStats
+  var selIn = IUniversalIn.mineStats
+
+  //mine power
+
+  var minePower1 = f(IUniversalIn.mine.item5.effect)
+  var minePower2 = f(IUniversalIn.mine.item6.effect)
+  var minePower3 = f(IUniversalIn.forge.item8.effect2)
+  var minePower4 = f(IUniversalIn.earthTree.node25.effect2)
+
+  selIn.minePower2 = f(minePower1).mul(minePower2).mul(minePower3).mul(minePower4)
+
+  //holy scapers
+  var holyScapers1 = f(IUniversalIn.mine.item5.effect)
+
+  selIn.miners2 = f(holyScapers1)
 
 
 
@@ -28421,6 +32037,44 @@ function valuesSetter(type) {
   if (f(sel.level).gt(f(0))) { sel.active = true }
   if (sel.active) { sel.unlocked = true }
 
+  //item7
+  var sel = IUniversal.forge.item7
+  var sel2 = IUniversalIn.forge.item7
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(5).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(2))).mul(f(20).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //item8
+  var sel = IUniversal.forge.item8
+  var sel2 = IUniversalIn.forge.item8
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(2).pow(f(sel.level))
+    sel2.effect2 = f(1.5).pow(f(sel.level))
+  } else {
+    sel2.effect = f(1)
+    sel2.effect2 = f(1)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(2))).mul(f(50).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
 
   //mines
 
@@ -28497,6 +32151,48 @@ function valuesSetter(type) {
 
 
   sel2.price = f(1).mul(f(10).pow(f(2))).mul(f(100).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //item5
+  var sel = IUniversal.mine.item5
+  var sel2 = IUniversalIn.mine.item5
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1).mul(sel.level)
+  } else {
+    sel2.effect = f(0)
+  }
+
+
+  if (f(sel.level).equals(f(0))) {
+    sel2.price = f(0)
+  } else {
+    sel2.price = f(1).mul(f(10).pow(f(0))).mul(f(10).pow(f(sel.level)))
+  }
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //item6
+  var sel = IUniversal.mine.item6
+  var sel2 = IUniversalIn.mine.item6
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = Infinity
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.effect = f(1.5).pow(f(IUniversal.ironGolem).add(f(sel.level)))
+  } else {
+    sel2.effect = f(1)
+  }
+
+
+  sel2.price = f(1).mul(f(10).pow(f(2))).mul(f(20).pow(f(sel.level)))
 
   if (f(sel.level).gt(f(0))) { sel.active = true }
   if (sel.active) { sel.unlocked = true }
@@ -28599,6 +32295,42 @@ function valuesSetter(type) {
     sel2.hardness = f(50000)
   } else {
     sel2.hardness = f(50000)
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.weight = f(10)
+  } else {
+    sel2.weight = f(10)
+  }
+
+  sel2.price = f(1).mul(f(10).pow(f(8))).mul(f(50).pow(f(sel.level)))
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+  //item4
+  var sel = IUniversal.ore.item4
+  var sel2 = IUniversalIn.ore.item4
+
+  sel.level = f(sel.level)
+  sel2.maxLevel = f(20)
+
+  if (sel.active) {
+    sel2.value = f(1)
+  } else {
+    sel2.value = f(0)
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.life = f(10)
+  } else {
+    sel2.life = f(10)
+  }
+
+  if (f(sel.level).gt(f(0))) {
+    sel2.hardness = f(0.5)
+  } else {
+    sel2.hardness = f(0.5)
   }
 
   if (f(sel.level).gt(f(0))) {
@@ -29100,6 +32832,31 @@ function valuesSetter(type) {
   if (f(sel.level).gt(f(0))) { sel.active = true }
   if (sel.active) { sel.unlocked = true }
 
+
+
+  //NODE 23
+  var sel = IUniversal.windTree.node23
+  var sel2 = IUniversalIn.windTree.node23
+  var exp = IUniversal.expeditions.exp23
+  var exp2 = IUniversalIn.expeditions.exp23
+
+  sel.level = f(exp.level)
+  sel2.maxLevel = f(exp2.maxLevel)
+
+
+  if (f(sel.level).gt(f(0))) {
+    //give treasure 1
+  } else {
+    //dont give treasure 1
+  }
+
+
+  sel2.price = f(0)
+
+  if (f(sel.level).gt(f(0))) { sel.active = true }
+  if (sel.active) { sel.unlocked = true }
+
+
   //golems
 
   var golem1 = f(IUniversalIn.earthTree.node5.effect)
@@ -29127,9 +32884,29 @@ function valuesSetter(type) {
   var life5 = f(IUniversalIn.armyInfo.default.golemTypes.type5.life)
   var life7 = f(IUniversalIn.earthTree.node9.effect)
   var life8 = f(IUniversalIn.earthTree.node11.effect)
+
+  if (getArmyEffectType("lifeBreaker1")) {
+    var life9 = getArmyEffectValue("lifeBreaker1")
+  } else {
+    life9 = 1;
+  }
+
   var life10 = f(IUniversalIn.earthTree.node7.effect)
   if (getTreasureActive("treasure19")) { var life11 = f(IUniversalIn.treasures.treasure19.effect) } else { life11 = f(1) }
   var life12 = f(IUniversalIn.forge.item2.effect)
+  var life13 = f(IUniversalIn.earthTree.node17.effect)
+  var life14 = f(IUniversalIn.forge.item7.effect)
+
+  if (getArmyEffectType("divinity")) {
+    var life15 = getArmyEffectValue("divinity")
+  } else {
+    life15 = 1;
+  }
+  
+  var life16 = f(IUniversalIn.earthTree.node24.effect)
+
+  if (getTreasureActive("treasure36")) { var divinityDebuff = f(IUniversalIn.treasures.treasure36.effect1) } else { divinityDebuff = f(1) }
+
 
   var baseLife1 = f(IUniversalIn.armyInfo.default.golemTypes.type1.baseLife)
   var baseLife2 = f(IUniversalIn.armyInfo.default.golemTypes.type2.baseLife)
@@ -29141,21 +32918,18 @@ function valuesSetter(type) {
   var baseLife10 = f(IUniversalIn.earthTree.node7.effect)
   if (getTreasureActive("treasure19")) { var baseLife11 = f(IUniversalIn.treasures.treasure19.effect) } else { baseLife11 = f(1) }
   var baseLife12 = f(IUniversalIn.forge.item2.effect)
-
-
-  if (getArmyEffectType("lifeBreaker1")) {
-    var life9 = getArmyEffectValue("lifeBreaker1")
-  } else {
-    life9 = 1;
-  }
+  var baseLife13 = f(IUniversalIn.earthTree.node17.effect)
+  var baseLife14 = f(IUniversalIn.forge.item7.effect)
+  var baseLife16 = f(IUniversalIn.earthTree.node24.effect)
 
   if (f(IUniversal.golem).gt(f(0))) {
-    IUniversalIn.armyInfo.default.life = f(f(f(1).add(life7)).mul((life1).add(life2).add(life3).add(life4).add(life5)).mul(life8).mul(life10).mul(life11).mul(life12)).dividedBy(f(life9))
-    IUniversalIn.armyInfo.default.baseLife = f(f(f(1).add(baseLife7)).mul((baseLife1).add(baseLife2).add(baseLife3).add(baseLife4).add(baseLife5)).mul(baseLife8).mul(baseLife10).mul(baseLife11).mul(baseLife12))
+    IUniversalIn.armyInfo.default.life = f(f(f(1).add(life7)).mul((life1).add(life2).add(life3).add(life4).add(life5)).mul(life8).mul(life10).mul(life11).mul(life12).mul(life13).mul(life14).mul(life16)).dividedBy(f(life9)).dividedBy(f(life15).minus(divinityDebuff))
+    IUniversalIn.armyInfo.default.baseLife = f(f(f(1).add(baseLife7)).mul((baseLife1).add(baseLife2).add(baseLife3).add(baseLife4).add(baseLife5)).mul(baseLife8).mul(baseLife10).mul(baseLife11).mul(baseLife12)).mul(baseLife13).mul(baseLife14).mul(baseLife16)
   } else {
     IUniversalIn.armyInfo.default.life = f(0)
     IUniversalIn.armyInfo.default.baseLife = f(0)
   }
+
 
   var damage1 = f(IUniversalIn.armyInfo.default.golemTypes.type1.damage)
   var damage2 = f(IUniversalIn.armyInfo.default.golemTypes.type2.damage)
@@ -29167,8 +32941,18 @@ function valuesSetter(type) {
   var damage9 = f(IUniversalIn.earthTree.node8.effect)
   if (getTreasureActive("treasure19")) { var damage10 = f(IUniversalIn.treasures.treasure19.effect) } else { damage10 = f(1) }
   var damage12 = f(IUniversalIn.forge.item1.effect)
+  var damage13 = f(IUniversalIn.earthTree.node17.effect)
+  var damage14 = f(IUniversalIn.forge.item7.effect)
 
+  if (getArmyEffectType("divinity")) {
+    var damage15 = getArmyEffectValue("divinity")
+  } else {
+    damage15 = 1;
+  }
 
+  var damage16 = f(IUniversalIn.earthTree.node24.effect)
+  
+  if (getTreasureActive("treasure36")) { var divinityDebuff = f(IUniversalIn.treasures.treasure36.effect1) } else { divinityDebuff = f(1) }
 
   var baseDamage1 = f(IUniversalIn.armyInfo.default.golemTypes.type1.baseDamage)
   var baseDamage2 = f(IUniversalIn.armyInfo.default.golemTypes.type2.baseDamage)
@@ -29180,11 +32964,14 @@ function valuesSetter(type) {
   var baseDamage9 = f(IUniversalIn.earthTree.node8.effect)
   if (getTreasureActive("treasure19")) { var baseDamage10 = f(IUniversalIn.treasures.treasure19.effect) } else { baseDamage10 = f(1) }
   var baseDamage12 = f(IUniversalIn.forge.item1.effect)
+  var baseDamage13 = f(IUniversalIn.earthTree.node17.effect)
+  var baseDamage14 = f(IUniversalIn.forge.item7.effect)
+  var baseDamage16 = f(IUniversalIn.earthTree.node24.effect)
 
 
   if (f(IUniversal.golem).gt(f(0))) {
-    IUniversalIn.armyInfo.default.damage = f(f(1).add(damage7)).mul((damage1).add(damage2).add(damage3).add(damage4).add(damage5)).mul(damage8).mul(damage9).mul(damage10).mul(damage12)
-    IUniversalIn.armyInfo.default.baseDamage = f(f(1).add(baseDamage7)).mul((baseDamage1).add(baseDamage2).add(baseDamage3).add(baseDamage4).add(baseDamage5)).mul(baseDamage8).mul(baseDamage9).mul(baseDamage10).mul(baseDamage12)
+    IUniversalIn.armyInfo.default.damage = (f(f(1).add(damage7)).mul((damage1).add(damage2).add(damage3).add(damage4).add(damage5)).mul(damage8).mul(damage9).mul(damage10).mul(damage12).mul(damage13).mul(damage14).mul(damage16)).dividedBy(f(damage15).minus(divinityDebuff))
+    IUniversalIn.armyInfo.default.baseDamage = f(f(1).add(baseDamage7)).mul((baseDamage1).add(baseDamage2).add(baseDamage3).add(baseDamage4).add(baseDamage5)).mul(baseDamage8).mul(baseDamage9).mul(baseDamage10).mul(baseDamage12).mul(baseDamage13).mul(baseDamage14).mul(baseDamage16)
   } else {
     IUniversalIn.armyInfo.default.damage = f(0)
     IUniversalIn.armyInfo.default.baseDamage = f(0)
@@ -29441,7 +33228,7 @@ function valuesSetter(type) {
     }
 
     if (f(IUniversal.armyInfo.enemy.golemTypes.type4.level).gt(f(0))) {
-      IUniversalIn.armyInfo.enemy.golemTypes.type4.life = f(1.5).mul(f(IUniversal.armyInfo.enemy.golemTypes.type4.level))
+      IUniversalIn.armyInfo.enemy.golemTypes.type4.life = f(1).mul(f(IUniversal.armyInfo.enemy.golemTypes.type4.level))
     } else {
       IUniversalIn.armyInfo.enemy.golemTypes.type4.life = f(1)
     }
@@ -29509,7 +33296,7 @@ function valuesSetter(type) {
 
   var life9 = f(IUniversalIn.forge.item6.effect)
 
-  if (getTreasureActive("treasure35")) { var life10 = f(IUniversalIn.treasures.treasure35.effect1) } else { life10 = f(1) }
+  if (getTreasureActive("treasure35")) { var life10 = f(IUniversalIn.treasures.treasure35.effect1) } else { life10 = f(0) }
 
   var baseLife1 = f(IUniversalIn.armyInfo.soul.baseAffinity)
 
@@ -29538,7 +33325,7 @@ function valuesSetter(type) {
 
   var damage9 = f(IUniversalIn.forge.item6.effect)
 
-  if (getTreasureActive("treasure34")) { var damage10 = f(IUniversalIn.treasures.treasure34.effect1) } else { damage10 = f(1) }
+  if (getTreasureActive("treasure34")) { var damage10 = f(IUniversalIn.treasures.treasure34.effect1) } else { damage10 = f(0) }
 
   var baseDamage1 = f(IUniversalIn.armyInfo.soul.baseAffinity)
 
@@ -29952,8 +33739,7 @@ function valuesSetter(type) {
 
   sel2.maxLevel = Infinity
 
-  sel1.fused = f(sel1.fused)
-  sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
+  sel2.price = f(2).pow(f(sel1.level).add(f(1)))
 
   sel2.effect = f(1.2).pow(f(f(sel1.level)))
 
@@ -29976,8 +33762,7 @@ function valuesSetter(type) {
 
   sel2.maxLevel = Infinity
 
-  sel1.fused = f(sel1.fused)
-  sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
+  sel2.price = f(2).pow(f(sel1.level).add(f(1)))
 
   sel2.effect = f(2).pow(f(f(sel1.level)))
 
@@ -30000,8 +33785,7 @@ function valuesSetter(type) {
 
   sel2.maxLevel = Infinity
 
-  sel1.fused = f(sel1.fused)
-  sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
+  sel2.price = f(2).pow(f(sel1.level).add(f(1)))
 
   sel2.effect = f(Math.log2(f(IUniversalIn.armyInfo.default.golemTypes.type2.baseLevel).add(f(2)))).mul(f(sel1.level))
 
@@ -30025,8 +33809,7 @@ function valuesSetter(type) {
 
   sel2.maxLevel = Infinity
 
-  sel1.fused = f(sel1.fused)
-  sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
+  sel2.price = f(2).pow(f(sel1.level).add(f(1)))
 
 
   sel2.effect = f(5).mul(f(f(sel1.level)))
@@ -30045,8 +33828,7 @@ function valuesSetter(type) {
 
   sel2.maxLevel = Infinity
 
-  sel1.fused = f(sel1.fused)
-  sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
+  sel2.price = f(2).pow(f(sel1.level).add(f(1)))
 
 
   sel2.effect = f(5).mul(f(f(sel1.level)))
@@ -30065,8 +33847,7 @@ function valuesSetter(type) {
 
   sel2.maxLevel = Infinity
 
-  sel1.fused = f(sel1.fused)
-  sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
+  sel2.price = f(2).pow(f(sel1.level).add(f(1)))
 
 
   sel2.effect = f(5).mul(f(f(sel1.level)))
@@ -30085,8 +33866,7 @@ function valuesSetter(type) {
 
   sel2.maxLevel = f(0)
 
-  sel1.fused = f(sel1.fused)
-  sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
+  sel2.price = f(2).pow(f(sel1.level).add(f(1)))
 
 
   if (sel1.equip) {
@@ -30114,8 +33894,7 @@ function valuesSetter(type) {
 
   sel2.maxLevel = f(0)
 
-  sel1.fused = f(sel1.fused)
-  sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
+  sel2.price = f(2).pow(f(sel1.level).add(f(1)))
 
 
   if (sel1.equip) {
@@ -30143,7 +33922,7 @@ function valuesSetter(type) {
 
   sel2.maxLevel = f(0)
 
-  sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
+  sel2.price = f(2).pow(f(sel1.level).add(f(1)))
 
 
   var cont = 0;
@@ -30189,8 +33968,7 @@ function valuesSetter(type) {
     sel2.effect = [0, 0, 0, 0]
   }
 
-  sel1.fused = f(sel1.fused)
-  sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
+  sel2.price = f(2).pow(f(sel1.level).add(f(1)))
 
 
   if (getTreasureActive("treasure10")) {
@@ -30437,7 +34215,7 @@ function valuesSetter(type) {
 
   sel2.maxLevel = Infinity
 
-  sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
+  sel2.price = f(2).pow(f(sel1.level).add(f(1)))
 
   sel2.effect = f(2).pow(f(sel1.level))
 
@@ -30461,7 +34239,7 @@ function valuesSetter(type) {
 
   sel2.maxLevel = Infinity
 
-  sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
+  sel2.price = f(2).pow(f(sel1.level).add(f(1)))
 
   sel2.effect = f(2).pow(f(sel1.level))
 
@@ -30485,7 +34263,7 @@ function valuesSetter(type) {
 
   sel2.maxLevel = Infinity
 
-  sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
+  sel2.price = f(2).pow(f(sel1.level).add(f(1)))
 
   sel2.effect = f(2).pow(f(sel1.level))
 
@@ -30633,7 +34411,7 @@ function valuesSetter(type) {
 
   sel2.maxLevel = Infinity
 
-  sel2.price = f(2).pow(f(sel1.fused).add(f(1)))
+  sel2.price = f(2).pow(f(sel1.level).add(f(1)))
 
   sel2.effect = f(2).pow(f(sel1.level))
 
@@ -30822,7 +34600,36 @@ function valuesSetter(type) {
     sel1.active = false;
   }
 
+
+
+  //Treasure 36
+
+  var sel1 = IUniversal.treasures.treasure36
+  var sel2 = IUniversalIn.treasures.treasure36
+
+  sel2.maxLevel = Infinity
+
+  sel2.price = f(f(10).pow(f(3))).mul(f(2).pow(f(sel1.level).minus(f(1))))
+
+  sel2.effect1 = f(10).mul(sel1.level)
+
+  if (getTreasureActive("treasure36")) {
+    sel1.equip = true;
+  } else {
+    sel1.equip = false;
+  }
+
+  if (f(sel1.level).gt(f(0))) {
+    sel1.active = true;
+  } else {
+    sel1.active = false;
+  }
+
   //Expeditions
+  
+  var timerReduction1 = f(IUniversalIn.earthTree.node22.effect)
+
+  var timerReduction = f(timerReduction1)
 
   //expedition 1
   var sel = IUniversal.expeditions.exp1
@@ -30857,7 +34664,11 @@ function valuesSetter(type) {
   selIn.golemTypes.type4.damage = f(1.5).mul(f(selIn.golemTypes.type4.level))
   selIn.golemTypes.type5.damage = f(1.5).mul(f(selIn.golemTypes.type5.level))
 
-  selIn.rewards.timerPrice = f(300)
+  selIn.rewards.timerPrice = f(300).dividedBy(f(timerReduction))
+
+  if(selIn.rewards.timerPrice.lt(f(1))) {
+    selIn.rewards.timerPrice = f(1)
+  }
 
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -30902,7 +34713,11 @@ function valuesSetter(type) {
 
   selIn.effects.effect1.effect = f(10).mul(f(sel.level).add(f(1)))
 
-  selIn.rewards.timerPrice = f(600)
+  selIn.rewards.timerPrice = f(600).dividedBy(f(timerReduction))
+
+  if(selIn.rewards.timerPrice.lt(f(1))) {
+    selIn.rewards.timerPrice = f(1)
+  }
 
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -30936,7 +34751,11 @@ function valuesSetter(type) {
 
   selIn.affinity = f(aff1).mul(aff2).mul(aff3).mul(aff4)
 
-  selIn.rewards.timerPrice = f(1200)
+  selIn.rewards.timerPrice = f(1200).dividedBy(f(timerReduction))
+
+  if(selIn.rewards.timerPrice.lt(f(1))) {
+    selIn.rewards.timerPrice = f(1)
+  }
 
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -30977,7 +34796,11 @@ function valuesSetter(type) {
 
   selIn.effects.effect1.effect = f(10).mul(f(sel.level).add(f(1)))
 
-  selIn.rewards.timerPrice = f(1500)
+  selIn.rewards.timerPrice = f(1500).dividedBy(f(timerReduction))
+
+  if(selIn.rewards.timerPrice.lt(f(1))) {
+    selIn.rewards.timerPrice = f(1)
+  }
 
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -31022,7 +34845,11 @@ function valuesSetter(type) {
 
   selIn.effects.effect2.effect = f(10).mul(f(sel.level).add(f(1)))
 
-  selIn.rewards.timerPrice = f(1800)
+  selIn.rewards.timerPrice = f(1800).dividedBy(f(timerReduction))
+
+  if(selIn.rewards.timerPrice.lt(f(1))) {
+    selIn.rewards.timerPrice = f(1)
+  }
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
     sel.active = true
@@ -31061,7 +34888,11 @@ function valuesSetter(type) {
 
   //effects
 
-  selIn.rewards.timerPrice = f(600)
+  selIn.rewards.timerPrice = f(600).dividedBy(f(timerReduction))
+
+  if(selIn.rewards.timerPrice.lt(f(1))) {
+    selIn.rewards.timerPrice = f(1)
+  }
 
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -31107,7 +34938,11 @@ function valuesSetter(type) {
 
   selIn.effects.effect1.effect = f(selIn.number)
 
-  selIn.rewards.timerPrice = f(900)
+  selIn.rewards.timerPrice = f(900).dividedBy(f(timerReduction))
+
+  if(selIn.rewards.timerPrice.lt(f(1))) {
+    selIn.rewards.timerPrice = f(1)
+  }
 
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -31152,7 +34987,11 @@ function valuesSetter(type) {
 
   selIn.effects.effect1.effect = f(100).mul(f(10).pow(f(sel.level)))
 
-  selIn.rewards.timerPrice = f(900)
+  selIn.rewards.timerPrice = f(900).dividedBy(f(timerReduction))
+
+  if(selIn.rewards.timerPrice.lt(f(1))) {
+    selIn.rewards.timerPrice = f(1)
+  }
 
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -31197,7 +35036,11 @@ function valuesSetter(type) {
 
   selIn.effects.effect1.effect = Math.log10(f(IUniversalIn.armyInfo.default.level).add(f(10)))
 
-  selIn.rewards.timerPrice = f(1200)
+  selIn.rewards.timerPrice = f(1200).dividedBy(f(timerReduction))
+
+  if(selIn.rewards.timerPrice.lt(f(1))) {
+    selIn.rewards.timerPrice = f(1)
+  }
 
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -31237,7 +35080,11 @@ function valuesSetter(type) {
 
   selIn.effects.effect1.effect = f(10).mul(f(sel.level).add(f(1)))
 
-  selIn.rewards.timerPrice = f(2100)
+  selIn.rewards.timerPrice = f(2100).dividedBy(f(timerReduction))
+
+  if(selIn.rewards.timerPrice.lt(f(1))) {
+    selIn.rewards.timerPrice = f(1)
+  }
 
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -31276,7 +35123,11 @@ function valuesSetter(type) {
   selIn.golemTypes.type5.damage = f(1.5).mul(f(selIn.golemTypes.type5.level))
 
 
-  selIn.rewards.timerPrice = f(1500)
+  selIn.rewards.timerPrice = f(1500).dividedBy(f(timerReduction))
+
+  if(selIn.rewards.timerPrice.lt(f(1))) {
+    selIn.rewards.timerPrice = f(1)
+  }
 
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -31321,7 +35172,11 @@ function valuesSetter(type) {
 
   selIn.effects.effect1.effect = f(0)
 
-  selIn.rewards.timerPrice = f(1800)
+  selIn.rewards.timerPrice = f(1800).dividedBy(f(timerReduction))
+
+  if(selIn.rewards.timerPrice.lt(f(1))) {
+    selIn.rewards.timerPrice = f(1)
+  }
 
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -31368,7 +35223,11 @@ function valuesSetter(type) {
 
   selIn.effects.effect2.effect = f(10).mul(f(sel.level).add(f(1)))
 
-  selIn.rewards.timerPrice = f(2100)
+  selIn.rewards.timerPrice = f(2100).dividedBy(f(timerReduction))
+
+  if(selIn.rewards.timerPrice.lt(f(1))) {
+    selIn.rewards.timerPrice = f(1)
+  }
 
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -31410,7 +35269,11 @@ function valuesSetter(type) {
   selIn.effects.effect1.effect = f(10).mul(f(sel.level).add(f(1)))
 
 
-  selIn.rewards.timerPrice = f(2100)
+  selIn.rewards.timerPrice = f(2100).dividedBy(f(timerReduction))
+
+  if(selIn.rewards.timerPrice.lt(f(1))) {
+    selIn.rewards.timerPrice = f(1)
+  }
 
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -31495,7 +35358,11 @@ function valuesSetter(type) {
 
   selIn.effects.effect2.effect = f(2).pow(f(sel.level).add(f(1)))
 
-  selIn.rewards.timerPrice = f(2100)
+  selIn.rewards.timerPrice = f(2100).dividedBy(f(timerReduction))
+
+  if(selIn.rewards.timerPrice.lt(f(1))) {
+    selIn.rewards.timerPrice = f(1)
+  }
 
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -31542,7 +35409,11 @@ function valuesSetter(type) {
 
   selIn.effects.effect2.effect = f(50).mul(f(sel.level).add(f(1)))
 
-  selIn.rewards.timerPrice = f(2100)
+  selIn.rewards.timerPrice = f(2100).dividedBy(f(timerReduction))
+
+  if(selIn.rewards.timerPrice.lt(f(1))) {
+    selIn.rewards.timerPrice = f(1)
+  }
 
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -31583,7 +35454,11 @@ function valuesSetter(type) {
 
   selIn.effects.effect1.effect = f(1000).mul(f(10).pow(f(sel.level).add(f(1))))
 
-  selIn.rewards.timerPrice = f(2100)
+  selIn.rewards.timerPrice = f(2100).dividedBy(f(timerReduction))
+
+  if(selIn.rewards.timerPrice.lt(f(1))) {
+    selIn.rewards.timerPrice = f(1)
+  }
 
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -31624,7 +35499,11 @@ function valuesSetter(type) {
 
   selIn.effects.effect1.effect = f(0.5)
 
-  selIn.rewards.timerPrice = f(2100)
+  selIn.rewards.timerPrice = f(2100).dividedBy(f(timerReduction))
+
+  if(selIn.rewards.timerPrice.lt(f(1))) {
+    selIn.rewards.timerPrice = f(1)
+  }
 
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -31670,7 +35549,11 @@ function valuesSetter(type) {
 
   selIn.effects.effect1.effect = f(0)
 
-  selIn.rewards.timerPrice = f(1800)
+  selIn.rewards.timerPrice = f(1800).dividedBy(f(timerReduction))
+
+  if(selIn.rewards.timerPrice.lt(f(1))) {
+    selIn.rewards.timerPrice = f(1)
+  }
 
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -31717,7 +35600,11 @@ function valuesSetter(type) {
 
   selIn.effects.effect2.effect = f(100).pow(f(sel.level).add(f(1)))
 
-  selIn.rewards.timerPrice = f(2100)
+  selIn.rewards.timerPrice = f(2100).dividedBy(f(timerReduction))
+
+  if(selIn.rewards.timerPrice.lt(f(1))) {
+    selIn.rewards.timerPrice = f(1)
+  }
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
     sel.active = true
@@ -31763,7 +35650,11 @@ function valuesSetter(type) {
 
   selIn.effects.effect2.effect = f(100).pow(f(sel.level).add(f(1)))
 
-  selIn.rewards.timerPrice = f(2100)
+  selIn.rewards.timerPrice = f(2100).dividedBy(f(timerReduction))
+
+  if(selIn.rewards.timerPrice.lt(f(1))) {
+    selIn.rewards.timerPrice = f(1)
+  }
 
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -31771,6 +35662,61 @@ function valuesSetter(type) {
   } else {
     sel.active = false
   }
+
+
+
+  //expedition 23
+  var sel = IUniversal.expeditions.exp23
+  var selIn = IUniversalIn.expeditions.exp23
+
+  selIn.maxLevel = f(5)
+
+  selIn.damage = f(1).mul(f(getGolemArmyStats("damage", selIn.golemTypes)))
+  selIn.life = f(1).mul(f(getGolemArmyStats("life", selIn.golemTypes)))
+
+  selIn.number = f(f(5).mul(f(10).pow(f(16)))).mul(f(5).pow(f(sel.level)))
+
+  selIn.golemTypes.type1.level = f(0)
+  selIn.golemTypes.type2.level = f(selIn.number).dividedBy(f(4))
+  selIn.golemTypes.type3.level = f(selIn.number).dividedBy(f(1.5))
+  selIn.golemTypes.type4.level = f(0)
+  selIn.golemTypes.type5.level = f(0)
+
+  selIn.golemTypes.type1.life = f(2).mul(f(selIn.golemTypes.type1.level))
+  selIn.golemTypes.type2.life = f(6).mul(f(selIn.golemTypes.type2.level))
+  selIn.golemTypes.type3.life = f(1).mul(f(selIn.golemTypes.type3.level))
+  selIn.golemTypes.type4.life = f(1.5).mul(f(selIn.golemTypes.type4.level))
+  selIn.golemTypes.type5.life = f(1.5).mul(f(selIn.golemTypes.type5.level))
+
+  selIn.golemTypes.type1.damage = f(2).mul(f(selIn.golemTypes.type1.level))
+  selIn.golemTypes.type2.damage = f(1).mul(f(selIn.golemTypes.type2.level))
+  selIn.golemTypes.type3.damage = f(5).mul(f(selIn.golemTypes.type3.level))
+  selIn.golemTypes.type4.damage = f(1.5).mul(f(selIn.golemTypes.type4.level))
+  selIn.golemTypes.type5.damage = f(1.5).mul(f(selIn.golemTypes.type5.level))
+
+  //effects
+
+  
+
+  selIn.effects.effect1.type = "divinity"
+  selIn.effects.effect1.content = `<div class="boldBlackBorder">Divinity</div>
+                                   <div>Opponent's Life and Damage /${format(f(selIn.effects.effect1.effect), 1)} </div>`
+
+  selIn.effects.effect1.effect = f(100).pow(f(sel.level).add(f(1)))
+
+  selIn.rewards.timerPrice = f(2400).dividedBy(f(timerReduction))
+
+  if(selIn.rewards.timerPrice.lt(f(1))) {
+    selIn.rewards.timerPrice = f(1)
+  }
+
+
+  if ((f(sel.level).gte(f(selIn.maxLevel)))) {
+    sel.active = true
+  } else {
+    sel.active = false
+  }
+
 
 
 
@@ -31816,13 +35762,34 @@ function valuesSetter(type) {
     selIn.effect = f(5).pow(f(value))
   }
 
-  //visuals content
+  //spire3
 
-  //formation
+  var sel = IUniversal.spires.spire3
+  var selIn = IUniversalIn.spires.spire3
 
-  //army treasure
+  var value = 0;
+  for (let x in IUniversal.expeditions) {
+    var exp = IUniversal.expeditions[x]
+    var expIn = IUniversalIn.expeditions[x]
 
-  //treasure equipment
+    if (expIn.subtype == "heaven") {
+      value = f(value).add(f(exp.level))
+    }
+  }
+
+  if (value == 0) {
+    selIn.effect = f(0)
+  } else {
+    selIn.effect = f(5).pow(f(value).minus(f(1)))
+  }
+
+  //apocalypse hunt
+
+  if (f(IUniversal.apocalypseHunts.hunt1.timer).gt(f(0))) {
+    IUniversalIn.apocalypseHunts.hunt1.effect = f(f(10).mul(f(10).mul(f(IUniversal.apocalypseHunts.hunt1.level)))).pow(f(IUniversal.apocalypseHunts.hunt1.timer).mul(f(0.01666666666)))
+  } else {
+    IUniversalIn.apocalypseHunts.hunt1.effect = f(1)
+  }
 
 }
 
@@ -31854,6 +35821,23 @@ function getGolemArmyStats(stat, army) {
 }
 
 function getMatchingPotionLevel(keyId, effType, type) {
+  if (type == "equipment_pass") {
+
+    if (IUniversal.inventoryStorage[keyId]) {
+      return f(IUniversal.inventoryStorage[keyId].level)
+    }
+
+    return null
+  }
+
+  if (type == "equipment_pass_merges") {
+
+    if (IUniversal.inventoryStorage[keyId]) {
+      return f(IUniversal.inventoryStorage[keyId].merges)
+    }
+
+    return null
+  }
   if (type == "equipment") {
 
     if (IUniversal.inventoryStorage[keyId]) {
@@ -31949,6 +35933,24 @@ function getPotionLevel(effType, type) {
     }
     return null
   }
+  if (type == "coreItem") {
+
+    for (let x in IUniversal.coreItem) {
+      var sel = IUniversal.coreItem[x]
+
+      if (IUniversal.inventoryStorage[sel.key]) {
+        for (let y in IUniversal.inventoryStorage[sel.key].effects) {
+          var obj = IUniversal.inventoryStorage[sel.key]
+          var sel2 = IUniversal.inventoryStorage[sel.key].effects[y]
+
+          if (sel2.type == effType) {
+            return f(obj.level)
+          }
+        }
+      }
+    }
+    return null
+  }
 }
 
 function getPotionEffectTier(effType, type) {
@@ -31972,6 +35974,23 @@ function getPotionEffectTier(effType, type) {
   if (type == "source") {
     for (let x in IUniversal.potionSource) {
       var sel = IUniversal.potionSource[x]
+
+      if (IUniversal.inventoryStorage[sel.key]) {
+        for (let y in IUniversal.inventoryStorage[sel.key].effects) {
+          var obj = IUniversal.inventoryStorage[sel.key]
+          var sel2 = IUniversal.inventoryStorage[sel.key].effects[y]
+
+          if (sel2.type == effType) {
+            return f(sel2.level)
+          }
+        }
+      }
+    }
+    return null
+  }
+  if (type == "coreItem") {
+    for (let x in IUniversal.coreItem) {
+      var sel = IUniversal.coreItem[x]
 
       if (IUniversal.inventoryStorage[sel.key]) {
         for (let y in IUniversal.inventoryStorage[sel.key].effects) {
@@ -32030,7 +36049,17 @@ function valuesSetterDinamic(type) {
     var base1_7 = f(1)
   }
 
-  ITrainingIn.base.base1.prod = (f(0.2).mul(f(base1_2)).add(f(base1_4))).mul(f(base1_3)).mul(f(base1_5)).mul(f(base1_6)).mul(f(base1_7));
+  if (IUniversal.apocalypseHunts.hunt1.active) {
+    var base1_8 = f(IUniversalIn.apocalypseHunts.hunt1.effect)
+  } else {
+    var base1_8 = f(1)
+  }
+
+  ITrainingIn.base.base1.prod = (f(0.2).mul(base1_2).add(base1_4)).mul(base1_3).mul(base1_5).mul(base1_6).mul(base1_7);
+
+  if (IUniversal.apocalypseHunts.hunt1.active) {
+    ITrainingIn.base.base1.prod = ((f(0.2).mul(base1_2).add(base1_4)).mul(base1_3).mul(base1_5).mul(base1_6)).dividedBy(base1_8)
+  }
 
   if (ITraining.base.base1.active) {
     var damage1 = f(ITrainingIn.base.base1.prod)
@@ -32091,7 +36120,17 @@ function valuesSetterDinamic(type) {
     var lifeTraining9 = f(1)
   }
 
-  ITrainingIn.base.base2.prod = (f(1).mul(f(base2_2)).add(f(base1_5))).mul(f(base1_4)).mul(f(lifeTraining6)).mul(f(lifeTraining7)).mul(f(lifeTraining8)).mul(f(lifeTraining9));
+  if (IUniversal.apocalypseHunts.hunt1.active) {
+    var lifeTraining10 = f(IUniversalIn.apocalypseHunts.hunt1.effect)
+  } else {
+    var lifeTraining10 = f(1)
+  }
+
+  ITrainingIn.base.base2.prod = (f(1).mul(f(base2_2)).add(f(base1_5))).mul(f(base1_4)).mul(f(lifeTraining6)).mul(f(lifeTraining7)).mul(f(lifeTraining8)).mul(f(lifeTraining9))
+
+  if (IUniversal.apocalypseHunts.hunt1.active) {
+    ITrainingIn.base.base2.prod = ((f(1).mul(f(base2_2)).add(f(base1_5))).mul(f(base1_4)).mul(f(lifeTraining6)).mul(f(lifeTraining7)).mul(f(lifeTraining8))).dividedBy(f(lifeTraining10))
+  }
 
   if (ITraining.base.base2.active) {
     var life1 = f(ITrainingIn.base.base2.prod)
@@ -32127,8 +36166,18 @@ function valuesSetterDinamic(type) {
     var base3_3 = f(1)
   }
 
+  if (IUniversal.apocalypseHunts.hunt1.active) {
+    var base3_4 = f(IUniversalIn.apocalypseHunts.hunt1.effect)
+  } else {
+    var base3_4 = f(1)
+  }
+
 
   ITrainingIn.base.base3.prod = f(0.01).mul(f(base3_1)).mul(f(base3_2)).mul(f(base3_3))
+
+  if (IUniversal.apocalypseHunts.hunt1.active) {
+    ITrainingIn.base.base3.prod = (f(0.01).mul(f(base3_1)).mul(f(base3_2))).dividedBy(f(base3_4))
+  }
 
   if (ITraining.base.base3.active) {
     var Will1 = f(ITrainingIn.base.base3.prod)
@@ -32166,7 +36215,17 @@ function valuesSetterDinamic(type) {
     var base4_3 = f(1)
   }
 
+  if (IUniversal.apocalypseHunts.hunt1.active) {
+    var base4_4 = f(IUniversalIn.apocalypseHunts.hunt1.effect)
+  } else {
+    var base4_4 = f(1)
+  }
+
   ITrainingIn.base.base4.prod = f(0.01).mul((base4_1)).mul(f(base4_2)).mul(f(base4_3));
+
+  if (IUniversal.apocalypseHunts.hunt1.active) {
+    ITrainingIn.base.base4.prod = (f(0.01).mul((base4_1)).mul(f(base4_2))).dividedBy(f(base4_4))
+  }
 
   if (ITraining.base.base4.active) {
     var Insight1 = f(ITrainingIn.base.base4.prod)
@@ -32248,7 +36307,15 @@ function valuesSetterDinamic(type) {
     damage10 = f(1)
   }
 
-  IFight.youStats.damage = (f(damage1).mul(f(damage2)).mul(f(damage3)).mul(f(damage4).mul(f(damage6)).mul(f(damage7)).mul(f(damage8)).mul(f(damage9)).mul(f(damage10)))).pow(f(damage5))
+  if (IUniversal.universeBonus.item3.active) {
+    var damage11 = f(IUniversalIn.universeBonus.item3.value)
+  } else {
+    var damage11 = f(1)
+  }
+
+  var damage12 = f(IUniversalIn.earthTree.node29.effect)
+
+  IFight.youStats.damage = (f(damage1).mul(f(damage2)).mul(f(damage3)).mul(f(damage4).mul(f(damage6)).mul(f(damage7)).mul(f(damage8)).mul(f(damage9)).mul(f(damage10)).mul(damage11).mul(damage12))).pow(f(damage5))
 
   if (type == "universalChallengerChallenge2") {
     if (damage1 != null) {
@@ -32265,7 +36332,6 @@ function valuesSetterDinamic(type) {
   //Life
 
   var life1 = ITraining.base.base2.tot
-
 
   if (IFight.normalHuntingRewards.upgrade4.active && type != "universalChallengerChallenge1") {
     var life2 = f(IFight.youStats.damage).mul(f(IFightIn.normalHuntingRewards.upgrade4.effect))
@@ -32321,7 +36387,15 @@ function valuesSetterDinamic(type) {
     life11 = f(1)
   }
 
-  IFight.youStats.life = (f(life1)).mul(f(life4)).mul(f(life5).mul(f(life7)).mul(f(life8)).mul(f(life9)).mul(f(life10)).mul(f(life11))).pow(f(life6)).add(f(life2))
+  if (IUniversal.universeBonus.item3.active) {
+    var life12 = f(IUniversalIn.universeBonus.item3.value)
+  } else {
+    var life12 = f(1)
+  }
+  
+  var life13 = f(IUniversalIn.earthTree.node29.effect)
+  
+  IFight.youStats.life = (f(life1)).mul(f(life4)).mul(f(life5).mul(f(life7)).mul(f(life8)).mul(f(life9)).mul(f(life10)).mul(f(life11)).mul(life12).mul(life13)).pow(f(life6)).add(f(life2))
   if (type == "universalChallengerChallenge2") {
     IFight.youStats.life = f(life1)
   }
@@ -32437,7 +36511,18 @@ function valuesSetterDinamic(type) {
 
   var essence9 = f(IUniversalIn.fireTree.node82.effect)
 
+  if (IUniversal.apocalypseHunts.hunt1.active) {
+    var essence10 = f(IUniversalIn.apocalypseHunts.hunt1.effect)
+  } else {
+    var essence10 = f(1)
+  }
+
   IGameData.essenceProd = (essence1.add(essence2).add(essence3).add(essence4).add(essence5)).mul(f(IGameData.tickSpeed)).mul(f(essenceA)).mul(f(essenceB)).mul(f(essence6)).mul(f(essence7)).mul(f(essence8)).mul(essence9)
+
+  if (IUniversal.apocalypseHunts.hunt1.active) {
+    IGameData.essenceProd = ((essence1.add(essence2).add(essence3).add(essence4).add(essence5)).mul(f(IGameData.tickSpeed)).mul(f(essenceA)).mul(f(essenceB)).mul(f(essence6)).mul(f(essence7)).mul(f(essence8))).dividedBy(f(essence10))
+  }
+
   IGameData.essence = f(IGameData.essence).add(IGameData.essenceProd)
 
   if (f(IGameData.essence).lt(f(0))) {
@@ -32453,13 +36538,22 @@ function valuesSetterDinamic(type) {
     var universalShards3 = f(1)
   }
 
-
   var universalShards4 = f(IUniversalIn.fireTree.node101.effect)
+
+  if (IUniversal.apocalypseHunts.hunt1.active) {
+    var universalShards5 = f(IUniversalIn.apocalypseHunts.hunt1.effect)
+  } else {
+    var universalShards5 = f(1)
+  }
 
   IUniversalChallenger.universalShardsProd = f(universalShards1).mul(f(IGameData.tickSpeed)).mul(universalShards3).mul(universalShards4)
 
   IUniversalChallenger.universalShardsProdBase = f(universalShards1).mul(f(IGameData.tickSpeed)).mul(universalShards3).mul(universalShards4).mul(f(IGameData.tickSpeed))
 
+  if (IUniversal.apocalypseHunts.hunt1.active) {
+    IUniversalChallenger.universalShardsProd = (f(universalShards1).mul(f(IGameData.tickSpeed)).mul(universalShards3)).dividedBy(f(universalShards5))
+    IUniversalChallenger.universalShardsProdBase = f(universalShards1).mul(f(IGameData.tickSpeed)).mul(universalShards3).mul(f(IGameData.tickSpeed)).dividedBy(f(universalShards5))
+  }
 
   IUniversalChallenger.universalShards = f(IUniversalChallenger.universalShards).add(IUniversalChallenger.universalShardsProd)
 
@@ -32487,9 +36581,19 @@ function valuesSetterDinamic(type) {
 
   var universalNodes4 = f(IUniversalIn.fireTree.node102.effect)
 
-  IUniversalChallenger.universalNodesProd = f(universalNodes1).mul(f(universalNodes2)).mul(f(universalNodes3)).mul(universalNodes4).mul(f(IGameData.tickSpeed))
-  IUniversalChallenger.universalNodesProdBase = f(universalNodes1).mul(f(IGameData.tickSpeed))
+  if (IUniversal.apocalypseHunts.hunt1.active) {
+    var universalNodes5 = f(IUniversalIn.apocalypseHunts.hunt1.effect)
+  } else {
+    var universalNodes5 = f(1)
+  }
 
+  IUniversalChallenger.universalNodesProd = f(universalNodes1).mul(f(universalNodes2)).mul(f(universalNodes3)).mul(universalNodes4)
+  IUniversalChallenger.universalNodesProdBase = f(universalNodes1).mul(f(universalNodes2)).mul(f(universalNodes3)).mul(universalNodes4).mul(f(IGameData.tickSpeed))
+
+  if (IUniversal.apocalypseHunts.hunt1.active) {
+    IUniversalChallenger.universalNodesProd = (f(universalNodes1).mul(f(universalNodes2))).dividedBy(f(universalNodes5))
+    IUniversalChallenger.universalNodesProdBase = f(universalNodes1).mul(f(universalNodes2)).mul(f(IGameData.tickSpeed)).dividedBy(f(universalNodes5))
+  }
 
   IUniversalChallenger.universalNodes = f(IUniversalChallenger.universalNodes).add(IUniversalChallenger.universalNodesProd)
 
@@ -32522,13 +36626,22 @@ function valuesSetterDinamic(type) {
     universalCores4 = f(1)
   }
 
-
   var universalCores5 = f(IUniversalIn.fireTree.node103.effect)
   var universalCores6 = f(IUniversalIn.fireTree.node127.effect)
 
-  IUniversalChallenger.universalCoresProd = f(universalCores1).mul(f(universalCores3)).mul(f(universalCores4)).mul(f(universalCores5)).mul(f(universalCores6))
+  if (IUniversal.apocalypseHunts.hunt1.active) {
+    var universalCores7 = f(IUniversalIn.apocalypseHunts.hunt1.effect)
+  } else {
+    var universalCores7 = f(1)
+  }
 
+  IUniversalChallenger.universalCoresProd = f(universalCores1).mul(f(universalCores3)).mul(f(universalCores4)).mul(f(universalCores5)).mul(f(universalCores6))
   IUniversalChallenger.universalCoresProdBase = f(IUniversalChallenger.universalCoresProd).mul(f(IGameData.tickSpeed))
+
+  if (IUniversal.apocalypseHunts.hunt1.active) {
+    IUniversalChallenger.universalCoresProd = (f(universalCores1).mul(f(universalCores3)).mul(f(universalCores4))).dividedBy(f(universalCores7))
+    IUniversalChallenger.universalCoresProdBase = f(IUniversalChallenger.universalCoresProd).mul(f(IGameData.tickSpeed))
+  }
 
   var transit = f(IUniversalChallenger.universalCoresProd).mul(f(universalCores2))
 
@@ -32856,7 +36969,7 @@ function valuesSetterDinamic(type) {
 
   var hellTerritory1 = f(IUniversalIn.fireTree.node83.effect)
 
-  var hellTerritory2 = f(Decimal.log(IUniversal.heat.dividedBy(f(10).pow(f(15))), 2)).pow(f(2))
+  var hellTerritory2 = f(Decimal.log(f(IUniversal.heat).dividedBy(f(10).pow(f(15))), 2)).pow(f(2))
 
   if (hellTerritory2 == undefined || hellTerritory2.lt(f(1))) {
     var hellTerritory2 = f(1)
@@ -32948,10 +37061,11 @@ function valuesSetterDinamic(type) {
   //Demon
 
   var demon1 = f(IUniversalIn.fireTree.node128.effect)
+  var demon2 = f(IUniversalIn.fireTree.node169.effect)
 
   if (IUniversal.automation.automation18.active) {
 
-    IUniversal.demonProd = f(demon1).mul(f(IGameData.tickSpeed).mul(f(IGameData.baseTickSpeed).mul(f(2))))
+    IUniversal.demonProd = (f(demon1).mul(demon2)).mul(f(IGameData.tickSpeed).mul(f(IGameData.baseTickSpeed).mul(f(2))))
     IUniversal.demon = f(IUniversal.demon).add(IUniversal.demonProd);
   } else {
 
@@ -32973,13 +37087,36 @@ function valuesSetterDinamic(type) {
   var ash1 = f(IUniversalIn.fireTree.node135.effect)
   var ash2 = f(IUniversalIn.fireTree.node134.effect)
   var ash3 = f(IUniversalIn.fireTree.node134.effect2)
+  var ash4 = f(IUniversalIn.earthTree.node26.effect)
 
-  IUniversal.ashProd = f(ash1).mul(f(ash2)).mul(f(ash3)).mul(f(IGameData.tickSpeed))
+  IUniversal.ashProd = f(ash1).mul(f(ash2)).mul(f(ash3)).mul(ash4).mul(f(IGameData.tickSpeed))
   IUniversal.ash = f(IUniversal.ash).add(IUniversal.ashProd)
 
   if (f(IUniversal.ash).lt(f(0))) {
     IUniversal.ash = f(0)
   }
+
+  //ALCHEMY
+
+  //Massa confusa
+  var massaConfusa1 = f(IUniversalIn.fireTree.node165.effect)
+  var massaConfusa2 = f(IUniversalIn.fireTree.node167.effect)
+  var massaConfusa3 = f(IUniversalIn.earthTree.node23.effect)
+  if(f(IUniversalIn.potionEffects.effect21.activeValue).gt(f(0))){
+    var massaConfusa4 = f(IUniversalIn.potionEffects.effect21.activeValue);
+  } else{
+    massaConfusa4 = f(1)
+  }
+  
+
+  IUniversal.massaConfusaProd = (f(massaConfusa1).mul(f(massaConfusa2)).mul(f(massaConfusa3)).mul(massaConfusa4)).mul(f(IGameData.tickSpeed))
+  IUniversal.massaConfusa = f(IUniversal.massaConfusa).add(IUniversal.massaConfusaProd)
+
+  //Prima materia
+  var primaMateria1 = f(IUniversalIn.fireTree.node166.effect)
+
+  IUniversal.primaMateriaProd = (f(0)).mul(f(IGameData.tickSpeed))
+  IUniversal.primaMateria = f(primaMateria1).add(IUniversal.primaMateriaProd)
 
   //WATER
 
@@ -32997,7 +37134,7 @@ function valuesSetterDinamic(type) {
 
   IUniversal.waterMax = (f(10).add(f(waterMax1))).mul(f(waterMax2)).mul(f(waterMax4)).mul(f(waterMax5)).mul(f(waterMax6)).mul(f(waterMax7)).mul(f(waterMax8))
 
-  //water Prod
+    //water Prod
 
   var water2 = f(IUniversalIn.waterTree.node2.effect)
   var water3 = f(IUniversalIn.waterTree.node5.effect)
@@ -33005,9 +37142,10 @@ function valuesSetterDinamic(type) {
   var water5 = f(IUniversalIn.waterTree.node1.effect)
   var water6 = f(IUniversalIn.potionSource.item1.value2)
   var water7 = f(IUniversalIn.fireTree.node79.effect)
+  var water9 = f(IUniversal.earthTree.node27.effect)
 
-  IUniversal.waterProdBase = ((f(water2))).mul(f(water3)).mul(f(water4)).mul(f(water6)).mul(f(water5)).mul(water7).mul(f(IGameData.baseTickSpeed))
-  IUniversal.waterProd = ((f(water2))).mul(f(water3)).mul(f(water4)).mul(f(water6)).mul(f(water5)).mul(f(IGameData.tickSpeed))
+  IUniversal.waterProdBase = (((f(water2))).mul(f(water3)).mul(f(water4)).mul(f(water6)).mul(f(water5)).mul(water7).mul(water9)).mul(f(IGameData.baseTickSpeed))
+  IUniversal.waterProd = ((f(water2))).mul(f(water3)).mul(f(water4)).mul(f(water6)).mul(f(water5).mul(water7).mul(water9)).mul(f(IGameData.tickSpeed))
 
   //water
 
@@ -33023,7 +37161,7 @@ function valuesSetterDinamic(type) {
         var tempWaterProdWithTime = f(tempWaterProd).mul(f(IGameData.tickSpeed))
         IUniversal.water = f(IUniversal.water).add(f(tempWaterProdWithTime))
       } else {
-        IUniversal.waterProd = ((f(water2))).mul(f(water3)).mul(f(water4)).mul(f(water6)).mul(f(water5)).mul(water7).mul(f(IGameData.tickSpeed))
+        IUniversal.waterProd = (((f(water2))).mul(f(water3)).mul(f(water4)).mul(f(water6)).mul(f(water5)).mul(water7).mul(water9)).mul(f(IGameData.tickSpeed))
         IUniversal.water = f(IUniversal.water).add(f(IUniversal.waterProd))
       }
     } else {
@@ -33050,11 +37188,12 @@ function valuesSetterDinamic(type) {
   var elisir1 = f(IUniversalIn.waterTree.node25.effect)
   var elisir2 = f(IUniversalIn.potionSource.item3.value2)
   var elisir3 = f(IUniversalIn.waterTree.node26.effect)
+  var elisir4 = f(IUniversal.earthTree.node27.effect)
 
 
 
-  IUniversal.elisirProdBase = (f(elisir1).mul(f(elisir2)).mul(f(elisir3))).mul(f(IGameData.baseTickSpeed))
-  IUniversal.elisirProd = (f(elisir1).mul(f(elisir2)).mul(f(elisir3))).mul(f(IGameData.tickSpeed))
+  IUniversal.elisirProdBase = (f(elisir1).mul(f(elisir2)).mul(f(elisir3)).mul(elisir4)).mul(f(IGameData.baseTickSpeed))
+  IUniversal.elisirProd = (f(elisir1).mul(f(elisir2)).mul(f(elisir3)).mul(elisir4)).mul(f(IGameData.tickSpeed))
   //elisir
 
   if (f(IUniversal.elisir).lt(f(IUniversal.elisirMax))) {
@@ -33069,7 +37208,7 @@ function valuesSetterDinamic(type) {
         var tempElisirProdWithTime = f(tempElisirProd).mul(f(IGameData.tickSpeed))
         IUniversal.elisir = f(IUniversal.elisir).add(f(tempElisirProdWithTime))
       } else {
-        IUniversal.elisirProd = (f(elisir1).mul(f(elisir2)).mul(f(elisir3))).mul(f(IGameData.tickSpeed))
+        IUniversal.elisirProd = (f(elisir1).mul(f(elisir2)).mul(f(elisir3)).mul(elisir4)).mul(f(IGameData.tickSpeed))
         IUniversal.elisir = f(IUniversal.elisir).add(f(IUniversal.elisirProd))
       }
     } else {
@@ -33098,9 +37237,10 @@ function valuesSetterDinamic(type) {
   var ambrosia2 = f(IUniversalIn.potionSource.item5.value2)
   var ambrosia3 = f(IUniversalIn.waterTree.node38.effect)
   var ambrosia4 = f(IUniversalIn.fireTree.node125.effect)
+  var ambrosia5 = f(IUniversal.earthTree.node27.effect)
 
-  IUniversal.ambrosiaProdBase = (f(ambrosia1).mul(f(ambrosia2)).mul(f(ambrosia3)).mul(f(ambrosia4))).mul(f(IGameData.baseTickSpeed))
-  IUniversal.ambrosiaProd = (f(ambrosia1).mul(f(ambrosia2)).mul(f(ambrosia3)).mul(f(ambrosia4))).mul(f(IGameData.tickSpeed))
+  IUniversal.ambrosiaProdBase = (f(ambrosia1).mul(f(ambrosia2)).mul(f(ambrosia3)).mul(f(ambrosia4)).mul(ambrosia5)).mul(f(IGameData.baseTickSpeed))
+  IUniversal.ambrosiaProd = (f(ambrosia1).mul(f(ambrosia2)).mul(f(ambrosia3)).mul(f(ambrosia4)).mul(ambrosia5)).mul(f(IGameData.tickSpeed))
 
   //ambrosia
 
@@ -33117,7 +37257,7 @@ function valuesSetterDinamic(type) {
         var tempAmbrosiaProdWithTime = f(tempAmbrosiaProd).mul(f(IGameData.tickSpeed))
         IUniversal.ambrosia = f(IUniversal.ambrosia).add(f(tempAmbrosiaProdWithTime))
       } else {
-        IUniversal.ambrosiaProd = (f(ambrosia1).mul(f(ambrosia2)).mul(f(ambrosia3)).mul(f(ambrosia4))).mul(f(IGameData.tickSpeed))
+        IUniversal.ambrosiaProd = (f(ambrosia1).mul(f(ambrosia2)).mul(f(ambrosia3)).mul(f(ambrosia4)).mul(ambrosia5)).mul(f(IGameData.tickSpeed))
         IUniversal.ambrosia = f(IUniversal.ambrosia).add(f(IUniversal.ambrosiaProd))
       }
     } else {
@@ -33129,7 +37269,62 @@ function valuesSetterDinamic(type) {
     IUniversal.ambrosia = f(0)
   }
 
+  //INTENT
 
+  //intent Max
+  
+  var intentMax1 = f(IUniversalIn.waterTree.node46.effect)
+
+  IUniversal.intentMax = f(10).mul(f(intentMax1))
+
+  //intent Prod
+
+  var intent1 = f(IUniversalIn.coreItem.item1.value0)
+  var intent2 = f(IUniversalIn.fireTree.node170.effect)
+  var intent3 = f(IUniversalIn.waterTree.node43.effect2)
+
+    if (IUniversalIn.potionEffects.effect20.activeValue) {
+    var intent4 = f(IUniversalIn.potionEffects.effect20.activeValue);
+  }
+  else {
+    intent4 = f(1)
+  }  
+
+  IUniversal.intentProdBase = (f(intent1).mul(intent2).mul(intent3).mul(intent4)).mul(f(IGameData.baseTickSpeed))
+  IUniversal.intentProd = (f(intent1).mul(intent2).mul(intent3).mul(intent4)).mul(f(IGameData.tickSpeed))
+
+  //intent
+
+
+  if (f(IUniversal.intent).lt(f(IUniversal.intentMax))) {
+    IUniversal.intent = f(IUniversal.intent).add(f(IUniversal.intentProd))
+  } else {
+
+    if (false) {
+      if (type == "off") {
+        var tempIntent = f(IUniversal.intent).add(f(IUniversal.intentProd))
+        var fractionIntent = f(tempIntent).dividedBy(f(IUniversal.intentMax))
+        var tempIntentProd = f(IUniversal.intentProdBase).dividedBy(f(fractionIntent))
+        var tempIntentProdWithTime = f(tempIntentProd).mul(f(IGameData.tickSpeed))
+        IUniversal.intent = f(IUniversal.intent).add(f(tempIntentrodWithTime))
+      } else {
+        IUniversal.intentProd = f(intent1).mul(f(IGameData.tickSpeed))
+        IUniversal.intent = f(IUniversal.intent).add(f(IUniversal.intentProd))
+      }
+    } else {
+      IUniversal.intent = f(IUniversal.intentMax)
+    }
+  }
+
+  if (f(IUniversal.intent).lt(f(0))) {
+    IUniversal.intent = f(0)
+  }
+
+  //tier
+
+  var tier1 = f(IUniversalIn.waterTree.node45.effect)
+
+  IUniversal.tier = f(tier1)
 
   //ERBS
 
@@ -33137,7 +37332,6 @@ function valuesSetterDinamic(type) {
 
   var erbsMax1 = IUniversalIn.waterTree.node8.effect
   var erbsMax2 = IUniversalIn.waterTree.node9.effect
-
 
   IUniversal.erbsMax = (f(10).add(f(erbsMax1))).mul(f(erbsMax2))
 
@@ -33244,6 +37438,51 @@ function valuesSetterDinamic(type) {
     IUniversal.pyroFrost = f(0)
   }
 
+  //ORIGIN
+
+  //originProd
+
+  var origin1 = f(IUniversalIn.waterTree.node42.effect)
+  var origin2 = f(IUniversalIn.earthTree.node23.effect)
+  if(f(IUniversalIn.potionEffects.effect22.activeValue).lte(f(0))){
+    var origin3 = 1
+  }else{
+    origin3 = f(IUniversalIn.potionEffects.effect22.activeValue);
+  }
+
+  IUniversal.originProd = (f((origin1).mul(origin2))).pow(origin3).mul(f(IGameData.tickSpeed))
+
+  //origin
+
+  IUniversal.origin = f(IUniversal.origin).add(f(IUniversal.originProd))
+
+  if (f(IUniversal.origin).lt(f(0))) {
+    IUniversal.origin = f(0)
+  }
+
+  //DIVINITY
+
+  //divinityProd
+
+  var divinity1 = f(IUniversalIn.spires.spire3.effect)
+  var divinity2 = f(IUniversalIn.potionEffects.effect23.activeValue);
+
+  IUniversal.divinityProd = f(divinity1).mul(f(divinity2)).mul(f(IGameData.tickSpeed))
+
+  //origin
+
+  IUniversal.divinity = f(IUniversal.divinity).add(f(IUniversal.divinityProd))
+
+  if (f(IUniversal.divinity).lt(f(0))) {
+    IUniversal.divinity = f(0)
+  }
+
+  //sacredEnergy
+
+  var sacredEnergy1 = f(IUniversalIn.waterTree.node43.effect)
+
+  IUniversal.sacredEnergy = f(sacredEnergy1)
+
   //POTION SOURCE
 
   //source1
@@ -33282,7 +37521,6 @@ function valuesSetterDinamic(type) {
 
   IUniversal.potionSource.item6.value1 = f(IUniversal.potionSource.item6.value1).add(prod)
 
-
   //EARTH
 
   //earth prod
@@ -33293,9 +37531,10 @@ function valuesSetterDinamic(type) {
   var earth5 = f(IUniversalIn.spires.spire1.effect)
   var earth6 = f(IUniversalIn.forge.item4.effect)
   var earth7 = f(IUniversalIn.fireTree.node80.effect)
+  var earth8 = f(IUniversalIn.earthTree.node20.effect)
 
-  IUniversal.earthProdBase = (f(earth1).mul(earth2).mul(earth3).mul(earth4).mul(earth5).mul(earth6).mul(earth7)).mul(f(IGameData.baseTickSpeed))
-  IUniversal.earthProd = (f(earth1).mul(earth2).mul(earth3).mul(earth4).mul(earth5).mul(earth6).mul(earth7)).mul(f(IGameData.tickSpeed))
+  IUniversal.earthProdBase = (f(earth1).mul(earth2).mul(earth3).mul(earth4).mul(earth5).mul(earth6).mul(earth7).mul(earth8)).mul(f(IGameData.baseTickSpeed))
+  IUniversal.earthProd = (f(earth1).mul(earth2).mul(earth3).mul(earth4).mul(earth5).mul(earth6).mul(earth7).mul(earth8)).mul(f(IGameData.tickSpeed))
 
   if (!f(IUniversal.earth).lt(f(0))) {
     IUniversal.earth = f(IUniversal.earth).add(f(IUniversal.earthProd))
@@ -33307,11 +37546,13 @@ function valuesSetterDinamic(type) {
   var iron1 = f(IUniversalIn.ore.item1.value)
   var iron2 = f(0.01).mul(f(IUniversalIn.mine.item4.effect))
   var iron3 = f(IUniversalIn.fireTree.node100.effect)
+  var iron4 = f(IUniversalIn.earthTree.node18.effect)
+  var iron5 = f(IUniversalIn.universeBonus.item1.value)
 
   var transform1 = f(iron2.mul(f(f(IUniversalIn.mineStats.minePower).minus(f(IUniversalIn.ore.item1.hardness))).dividedBy(f(IUniversalIn.ore.item1.life))))
 
-  IUniversal.ironProdBase = (((iron1).mul(f(f(IUniversalIn.mineStats.minePower).minus(f(IUniversalIn.ore.item1.hardness))).dividedBy(f(IUniversalIn.ore.item1.life)))).add(transform1)).mul(f(IGameData.baseTickSpeed)).mul(iron3)
-  IUniversal.ironProd = (((iron1).mul(f(f(IUniversalIn.mineStats.minePower).minus(f(IUniversalIn.ore.item1.hardness))).dividedBy(f(IUniversalIn.ore.item1.life)))).add(transform1)).mul(f(IGameData.tickSpeed)).mul(iron3)
+  IUniversal.ironProdBase = (((iron1).mul(f(f(IUniversalIn.mineStats.minePower).minus(f(IUniversalIn.ore.item1.hardness))).dividedBy(f(IUniversalIn.ore.item1.life)))).add(transform1)).mul(f(IGameData.baseTickSpeed)).mul(iron3).mul(iron4).mul(iron5)
+  IUniversal.ironProd = (((iron1).mul(f(f(IUniversalIn.mineStats.minePower).minus(f(IUniversalIn.ore.item1.hardness))).dividedBy(f(IUniversalIn.ore.item1.life)))).add(transform1)).mul(f(IGameData.tickSpeed)).mul(iron3).mul(iron4).mul(iron5)
 
   if (f(IUniversal.ironProd).lt(f(0))) {
     IUniversal.ironProd = f(0)
@@ -33327,9 +37568,10 @@ function valuesSetterDinamic(type) {
   //silver
 
   var silver1 = f(IUniversalIn.ore.item2.value)
+  var silver2 = f(IUniversalIn.universeBonus.item1.value)
 
-  IUniversal.silverProdBase = ((silver1).mul(f(f(IUniversalIn.mineStats.minePower).minus(f(IUniversalIn.ore.item2.hardness))).dividedBy(f(IUniversalIn.ore.item2.life)))).mul(f(IGameData.baseTickSpeed))
-  IUniversal.silverProd = ((silver1).mul(f(f(IUniversalIn.mineStats.minePower).minus(f(IUniversalIn.ore.item2.hardness))).dividedBy(f(IUniversalIn.ore.item2.life)))).mul(f(IGameData.tickSpeed))
+  IUniversal.silverProdBase = ((silver1).mul(f(f(IUniversalIn.mineStats.minePower).minus(f(IUniversalIn.ore.item2.hardness))).dividedBy(f(IUniversalIn.ore.item2.life)))).mul(f(IGameData.baseTickSpeed)).mul(silver2)
+  IUniversal.silverProd = ((silver1).mul(f(f(IUniversalIn.mineStats.minePower).minus(f(IUniversalIn.ore.item2.hardness))).dividedBy(f(IUniversalIn.ore.item2.life)))).mul(f(IGameData.tickSpeed)).mul(silver2)
 
   if (f(IUniversal.silverProd).lt(f(0))) {
     IUniversal.silverProd = f(0)
@@ -33346,9 +37588,10 @@ function valuesSetterDinamic(type) {
 
   var obsidian1 = f(IUniversalIn.ore.item3.value)
   var obsidian2 = f(IUniversalIn.fireTree.node124.effect)
+  var obsidian3 = f(IUniversalIn.universeBonus.item1.value)
 
-  IUniversal.obsidianProdBase = ((obsidian1).mul(f(f(IUniversalIn.mineStats.minePower).minus(f(IUniversalIn.ore.item3.hardness))).dividedBy(f(IUniversalIn.ore.item3.life)))).mul(obsidian2).mul(f(IGameData.baseTickSpeed))
-  IUniversal.obsidianProd = ((obsidian1).mul(f(f(IUniversalIn.mineStats.minePower).minus(f(IUniversalIn.ore.item3.hardness))).dividedBy(f(IUniversalIn.ore.item3.life)))).mul(obsidian2).mul(f(IGameData.tickSpeed))
+  IUniversal.obsidianProdBase = ((obsidian1).mul(f(f(IUniversalIn.mineStats.minePower).minus(f(IUniversalIn.ore.item3.hardness))).dividedBy(f(IUniversalIn.ore.item3.life)))).mul(obsidian2).mul(f(IGameData.baseTickSpeed)).mul(obsidian3)
+  IUniversal.obsidianProd = ((obsidian1).mul(f(f(IUniversalIn.mineStats.minePower).minus(f(IUniversalIn.ore.item3.hardness))).dividedBy(f(IUniversalIn.ore.item3.life)))).mul(obsidian2).mul(f(IGameData.tickSpeed)).mul(obsidian3)
 
   if (f(IUniversal.obsidianProd).lt(f(0))) {
     IUniversal.obsidianProd = f(0)
@@ -33361,6 +37604,253 @@ function valuesSetterDinamic(type) {
     IUniversal.obsidian = f(0)
   }
 
+  //mithril
+
+  var mithril1 = f(IUniversalIn.ore.item4.value)
+  var mithril2 = f(IUniversalIn.fireTree.node168.effect)
+
+  IUniversal.mithrilProdBase = ((mithril1).mul(mithril2).mul(f(f(IUniversalIn.mineStats.minePower2).minus(f(IUniversalIn.ore.item4.hardness))).dividedBy(f(IUniversalIn.ore.item4.life)))).mul(f(IGameData.baseTickSpeed))
+  IUniversal.mithrilProd = ((mithril1).mul(mithril2).mul(f(f(IUniversalIn.mineStats.minePower2).minus(f(IUniversalIn.ore.item4.hardness))).dividedBy(f(IUniversalIn.ore.item4.life)))).mul(f(IGameData.tickSpeed))
+
+  if (f(IUniversal.mithrilProd).lt(f(0))) {
+    IUniversal.mithrilProd = f(0)
+    IUniversal.mithrilProdBase = f(0)
+  }
+
+  if (!f(IUniversal.mithril).lt(f(0))) {
+    IUniversal.mithril = f(IUniversal.mithril).add(f(IUniversal.mithrilProd))
+  } else {
+    IUniversal.mithril = f(0)
+  }
+
+  //celeste Dust
+
+  var celesteDust1 = f(IUniversalIn.earthTree.node30.effect)
+  var celesteDust2 = f(IUniversalIn.earthTree.node21.effect)
+
+  IUniversal.celesteDustProdBase = ((celesteDust1).mul(celesteDust2)).mul(f(IGameData.baseTickSpeed))
+  IUniversal.celesteDustProd = ((celesteDust1).mul(celesteDust2)).mul(f(IGameData.tickSpeed))
+
+  if (f(IUniversal.celesteDustProd).lt(f(0))) {
+    IUniversal.celesteDustProd = f(0)
+    IUniversal.celesteDustProdBase = f(0)
+  }
+
+  if (!f(IUniversal.celesteDust).lt(f(0))) {
+    IUniversal.celesteDust = f(IUniversal.celesteDust).add(f(IUniversal.celesteDustProd))
+  } else {
+    IUniversal.celesteDust = f(0)
+  }
+
+  //celeste Dust
+
+  var skyDust1 = f(IUniversalIn.earthTree.node31.effect)
+
+  IUniversal.skyDustProdBase = (skyDust1).mul(f(IGameData.baseTickSpeed))
+  IUniversal.skyDustProd = (skyDust1).mul(f(IGameData.tickSpeed))
+
+  if (f(IUniversal.skyDustProd).lt(f(0))) {
+    IUniversal.skyDustProd = f(0)
+    IUniversal.skyDustProdBase = f(0)
+  }
+
+  if (!f(IUniversal.skyDust).lt(f(0))) {
+    IUniversal.skyDust = f(IUniversal.skyDust).add(f(IUniversal.skyDustProd))
+  } else {
+    IUniversal.skyDust = f(0)
+  }
+
+  //iron golem
+
+  var ironGolem1 = f(IUniversalIn.earthTree.node13.effect)
+
+  IUniversal.ironGolem = f(ironGolem1)
+  IUniversal.assignedIronGolem = f(IUniversal.assignedIronGolem)
+
+  //silver golem
+
+  var silverGolem1 = f(IUniversalIn.earthTree.node14.effect)
+
+  IUniversal.silverGolem = f(silverGolem1)
+  IUniversal.assignedSilverGolem = f(IUniversal.assignedSilverGolem)
+
+  //obsidian golem
+
+  var obsidianGolem1 = f(IUniversalIn.earthTree.node15.effect)
+
+  IUniversal.obsidianGolem = f(obsidianGolem1)
+  IUniversal.assignedObsidianGolem = f(IUniversal.assignedObsidianGolem)
+
+
+  //LEARNING
+
+  var learning1 = f(IUniversalIn.earthTree.node19.effect)
+  var learning2 = f(IUniversalIn.earthTree.node32.effect)
+  var learning3 = f(IUniversalIn.earthTree.node16.effect)
+  var learning4 = f(IUniversalIn.earthTree.node33.effect)
+  var learning5 = f(IUniversalIn.earthTree.node34.effect)
+
+  IUniversal.learningProd = f(1).mul(learning1).mul(learning2).mul(learning3).mul(learning4).mul(learning5)
+
+  //learning earth tree node 17
+
+
+  // node17
+  if (f(IUniversal.earthTree.node17.assigned).gt(f(0)) && f(IUniversal.earthTree.node17.learning).lt(f(IUniversalIn.earthTree.node17.learningMax))) {
+    IUniversal.earthTree.node17.learning = f(IUniversal.earthTree.node17.learning).add(f(IUniversal.earthTree.node17.assigned).mul(f(IUniversal.learningProd)).mul(f(IGameData.tickSpeed)))
+  }
+  if (f(IUniversal.earthTree.node17.learning).gte(f(IUniversalIn.earthTree.node17.learningMax)) && f(IUniversal.earthTree.node17.level).lt(f(IUniversalIn.earthTree.node17.maxLevel))) {
+    IUniversal.earthTree.node17.level = f(IUniversal.earthTree.node17.level).add(f(1))
+    IUniversal.earthTree.node17.learning = f(IUniversal.earthTree.node17.learning).minus(f(IUniversalIn.earthTree.node17.learningMax))
+  }
+
+  // node18
+  if (f(IUniversal.earthTree.node18.assigned).gt(f(0)) && f(IUniversal.earthTree.node18.learning).lt(f(IUniversalIn.earthTree.node18.learningMax))) {
+    IUniversal.earthTree.node18.learning = f(IUniversal.earthTree.node18.learning).add(f(IUniversal.earthTree.node18.assigned).mul(f(IUniversal.learningProd)).mul(f(IGameData.tickSpeed)))
+  }
+  else if (f(IUniversal.earthTree.node18.learning).gte(f(IUniversalIn.earthTree.node18.learningMax)) && f(IUniversal.earthTree.node18.level).lt(f(IUniversalIn.earthTree.node18.maxLevel))) {
+    IUniversal.earthTree.node18.level = f(IUniversal.earthTree.node18.level).add(f(1))
+    IUniversal.earthTree.node18.learning = f(0)
+  }
+
+  // node19
+  if (f(IUniversal.earthTree.node19.assigned).gt(f(0)) && f(IUniversal.earthTree.node19.learning).lt(f(IUniversalIn.earthTree.node19.learningMax))) {
+    IUniversal.earthTree.node19.learning = f(IUniversal.earthTree.node19.learning).add(f(IUniversal.earthTree.node19.assigned).mul(f(IUniversal.learningProd)).mul(f(IGameData.tickSpeed)))
+  }
+  else if (f(IUniversal.earthTree.node19.learning).gte(f(IUniversalIn.earthTree.node19.learningMax)) && f(IUniversal.earthTree.node19.level).lt(f(IUniversalIn.earthTree.node19.maxLevel))) {
+    IUniversal.earthTree.node19.level = f(IUniversal.earthTree.node19.level).add(f(1))
+    IUniversal.earthTree.node19.learning = f(0)
+  }
+
+  // node20
+  if (f(IUniversal.earthTree.node20.assigned).gt(f(0)) && f(IUniversal.earthTree.node20.learning).lt(f(IUniversalIn.earthTree.node20.learningMax))) {
+    IUniversal.earthTree.node20.learning = f(IUniversal.earthTree.node20.learning).add(f(IUniversal.earthTree.node20.assigned).mul(f(IUniversal.learningProd)).mul(f(IGameData.tickSpeed)))
+  }
+  else if (f(IUniversal.earthTree.node20.learning).gte(f(IUniversalIn.earthTree.node20.learningMax)) && f(IUniversal.earthTree.node20.level).lt(f(IUniversalIn.earthTree.node20.maxLevel))) {
+    IUniversal.earthTree.node20.level = f(IUniversal.earthTree.node20.level).add(f(1))
+    IUniversal.earthTree.node20.learning = f(0)
+  }
+
+  // node21
+  if (f(IUniversal.earthTree.node21.assigned).gt(f(0)) && f(IUniversal.earthTree.node21.learning).lt(f(IUniversalIn.earthTree.node21.learningMax))) {
+    IUniversal.earthTree.node21.learning = f(IUniversal.earthTree.node21.learning).add(f(IUniversal.earthTree.node21.assigned).mul(f(IUniversal.learningProd)).mul(f(IGameData.tickSpeed)))
+  }
+  else if (f(IUniversal.earthTree.node21.learning).gte(f(IUniversalIn.earthTree.node21.learningMax)) && f(IUniversal.earthTree.node21.level).lt(f(IUniversalIn.earthTree.node21.maxLevel))) {
+    IUniversal.earthTree.node21.level = f(IUniversal.earthTree.node21.level).add(f(1))
+    IUniversal.earthTree.node21.learning = f(0)
+  }
+
+  // node22
+  if (f(IUniversal.earthTree.node22.assigned).gt(f(0)) && f(IUniversal.earthTree.node22.learning).lt(f(IUniversalIn.earthTree.node22.learningMax))) {
+    IUniversal.earthTree.node22.learning = f(IUniversal.earthTree.node22.learning).add(f(IUniversal.earthTree.node22.assigned).mul(f(IUniversal.learningProd)).mul(f(IGameData.tickSpeed)))
+  }
+  else if (f(IUniversal.earthTree.node22.learning).gte(f(IUniversalIn.earthTree.node22.learningMax)) && f(IUniversal.earthTree.node22.level).lt(f(IUniversalIn.earthTree.node22.maxLevel))) {
+    IUniversal.earthTree.node22.level = f(IUniversal.earthTree.node22.level).add(f(1))
+    IUniversal.earthTree.node22.learning = f(0)
+  }
+
+  // node23
+  if (f(IUniversal.earthTree.node23.assigned).gt(f(0)) && f(IUniversal.earthTree.node23.learning).lt(f(IUniversalIn.earthTree.node23.learningMax))) {
+    IUniversal.earthTree.node23.learning = f(IUniversal.earthTree.node23.learning).add(f(IUniversal.earthTree.node23.assigned).mul(f(IUniversal.learningProd)).mul(f(IGameData.tickSpeed)))
+  }
+  else if (f(IUniversal.earthTree.node23.learning).gte(f(IUniversalIn.earthTree.node23.learningMax)) && f(IUniversal.earthTree.node23.level).lt(f(IUniversalIn.earthTree.node23.maxLevel))) {
+    IUniversal.earthTree.node23.level = f(IUniversal.earthTree.node23.level).add(f(1))
+    IUniversal.earthTree.node23.learning = f(0)
+  }
+
+  // node24
+  if (f(IUniversal.earthTree.node24.assigned).gt(f(0)) && f(IUniversal.earthTree.node24.learning).lt(f(IUniversalIn.earthTree.node24.learningMax))) {
+    IUniversal.earthTree.node24.learning = f(IUniversal.earthTree.node24.learning).add(f(IUniversal.earthTree.node24.assigned).mul(f(IUniversal.learningProd)).mul(f(IGameData.tickSpeed)))
+  }
+  else if (f(IUniversal.earthTree.node24.learning).gte(f(IUniversalIn.earthTree.node24.learningMax)) && f(IUniversal.earthTree.node24.level).lt(f(IUniversalIn.earthTree.node24.maxLevel))) {
+    IUniversal.earthTree.node24.level = f(IUniversal.earthTree.node24.level).add(f(1))
+    IUniversal.earthTree.node24.learning = f(0)
+  }
+
+  // node25
+  if (f(IUniversal.earthTree.node25.assigned).gt(f(0)) && f(IUniversal.earthTree.node25.learning).lt(f(IUniversalIn.earthTree.node25.learningMax))) {
+    IUniversal.earthTree.node25.learning = f(IUniversal.earthTree.node25.learning).add(f(IUniversal.earthTree.node25.assigned).mul(f(IUniversal.learningProd)).mul(f(IGameData.tickSpeed)))
+  }
+  else if (f(IUniversal.earthTree.node25.learning).gte(f(IUniversalIn.earthTree.node25.learningMax)) && f(IUniversal.earthTree.node25.level).lt(f(IUniversalIn.earthTree.node25.maxLevel))) {
+    IUniversal.earthTree.node25.level = f(IUniversal.earthTree.node25.level).add(f(1))
+    IUniversal.earthTree.node25.learning = f(0)
+  }
+
+  // node26
+  if (f(IUniversal.earthTree.node26.assigned).gt(f(0)) && f(IUniversal.earthTree.node26.learning).lt(f(IUniversalIn.earthTree.node26.learningMax))) {
+    IUniversal.earthTree.node26.learning = f(IUniversal.earthTree.node26.learning).add(f(IUniversal.earthTree.node26.assigned).mul(f(IUniversal.learningProd)).mul(f(IGameData.tickSpeed)))
+  }
+  else if (f(IUniversal.earthTree.node26.learning).gte(f(IUniversalIn.earthTree.node26.learningMax)) && f(IUniversal.earthTree.node26.level).lt(f(IUniversalIn.earthTree.node26.maxLevel))) {
+    IUniversal.earthTree.node26.level = f(IUniversal.earthTree.node26.level).add(f(1))
+    IUniversal.earthTree.node26.learning = f(0)
+  }
+
+  // node27
+  if (f(IUniversal.earthTree.node27.assigned).gt(f(0)) && f(IUniversal.earthTree.node27.learning).lt(f(IUniversalIn.earthTree.node27.learningMax))) {
+    IUniversal.earthTree.node27.learning = f(IUniversal.earthTree.node27.learning).add(f(IUniversal.earthTree.node27.assigned).mul(f(IUniversal.learningProd)).mul(f(IGameData.tickSpeed)))
+  }
+  else if (f(IUniversal.earthTree.node27.learning).gte(f(IUniversalIn.earthTree.node27.learningMax)) && f(IUniversal.earthTree.node27.level).lt(f(IUniversalIn.earthTree.node27.maxLevel))) {
+    IUniversal.earthTree.node27.level = f(IUniversal.earthTree.node27.level).add(f(1))
+    IUniversal.earthTree.node27.learning = f(0)
+  }
+
+  // node28
+  if (f(IUniversal.earthTree.node28.assigned).gt(f(0)) && f(IUniversal.earthTree.node28.learning).lt(f(IUniversalIn.earthTree.node28.learningMax))) {
+    IUniversal.earthTree.node28.learning = f(IUniversal.earthTree.node28.learning).add(f(IUniversal.earthTree.node28.assigned).mul(f(IUniversal.learningProd)).mul(f(IGameData.tickSpeed)))
+  }
+  else if (f(IUniversal.earthTree.node28.learning).gte(f(IUniversalIn.earthTree.node28.learningMax)) && f(IUniversal.earthTree.node28.level).lt(f(IUniversalIn.earthTree.node28.maxLevel))) {
+    IUniversal.earthTree.node28.level = f(IUniversal.earthTree.node28.level).add(f(1))
+    IUniversal.earthTree.node28.learning = f(0)
+  }
+
+  // node29
+  if (f(IUniversal.earthTree.node29.assigned).gt(f(0)) && f(IUniversal.earthTree.node29.learning).lt(f(IUniversalIn.earthTree.node29.learningMax))) {
+    IUniversal.earthTree.node29.learning = f(IUniversal.earthTree.node29.learning).add(f(IUniversal.earthTree.node29.assigned).mul(f(IUniversal.learningProd)).mul(f(IGameData.tickSpeed)))
+  }
+  else if (f(IUniversal.earthTree.node29.learning).gte(f(IUniversalIn.earthTree.node29.learningMax)) && f(IUniversal.earthTree.node29.level).lt(f(IUniversalIn.earthTree.node29.maxLevel))) {
+    IUniversal.earthTree.node29.level = f(IUniversal.earthTree.node29.level).add(f(1))
+    IUniversal.earthTree.node29.learning = f(0)
+  }
+
+  // node32
+  if (f(IUniversal.earthTree.node32.assigned).gt(f(0)) && f(IUniversal.earthTree.node32.learning).lt(f(IUniversalIn.earthTree.node32.learningMax))) {
+    IUniversal.earthTree.node32.learning = f(IUniversal.earthTree.node32.learning).add(f(IUniversal.earthTree.node32.assigned).mul(f(IUniversal.learningProd)).mul(f(IGameData.tickSpeed)))
+  }
+  else if (f(IUniversal.earthTree.node32.learning).gte(f(IUniversalIn.earthTree.node32.learningMax)) && f(IUniversal.earthTree.node32.level).lt(f(IUniversalIn.earthTree.node32.maxLevel))) {
+    IUniversal.earthTree.node32.level = f(IUniversal.earthTree.node32.level).add(f(1))
+    IUniversal.earthTree.node32.learning = f(0)
+  }
+
+  // node33
+  if (f(IUniversal.earthTree.node33.assigned).gt(f(0)) && f(IUniversal.earthTree.node33.learning).lt(f(IUniversalIn.earthTree.node33.learningMax))) {
+    IUniversal.earthTree.node33.learning = f(IUniversal.earthTree.node33.learning).add(f(IUniversal.earthTree.node33.assigned).mul(f(IUniversal.learningProd)).mul(f(IGameData.tickSpeed)))
+  }
+  else if (f(IUniversal.earthTree.node33.learning).gte(f(IUniversalIn.earthTree.node33.learningMax)) && f(IUniversal.earthTree.node33.level).lt(f(IUniversalIn.earthTree.node33.maxLevel))) {
+    IUniversal.earthTree.node33.level = f(IUniversal.earthTree.node33.level).add(f(1))
+    IUniversal.earthTree.node33.learning = f(0)
+  }
+
+  // node34
+  if (f(IUniversal.earthTree.node34.assigned).gt(f(0)) && f(IUniversal.earthTree.node34.learning).lt(f(IUniversalIn.earthTree.node34.learningMax))) {
+    IUniversal.earthTree.node34.learning = f(IUniversal.earthTree.node34.learning).add(f(IUniversal.earthTree.node34.assigned).mul(f(IUniversal.learningProd)).mul(f(IGameData.tickSpeed)))
+  }
+  else if (f(IUniversal.earthTree.node34.learning).gte(f(IUniversalIn.earthTree.node34.learningMax)) && f(IUniversal.earthTree.node34.level).lt(f(IUniversalIn.earthTree.node34.maxLevel))) {
+    IUniversal.earthTree.node34.level = f(IUniversal.earthTree.node34.level).add(f(1))
+    IUniversal.earthTree.node34.learning = f(0)
+  }
+
+  // node35
+  if (f(IUniversal.earthTree.node35.assigned).gt(f(0)) && f(IUniversal.earthTree.node35.learning).lt(f(IUniversalIn.earthTree.node35.learningMax))) {
+    IUniversal.earthTree.node35.learning = f(IUniversal.earthTree.node35.learning).add(f(IUniversal.earthTree.node35.assigned).mul(f(IUniversal.learningProd)).mul(f(IGameData.tickSpeed)))
+  }
+  else if (f(IUniversal.earthTree.node35.learning).gte(f(IUniversalIn.earthTree.node35.learningMax)) && f(IUniversal.earthTree.node35.level).lt(f(IUniversalIn.earthTree.node35.maxLevel))) {
+    IUniversal.earthTree.node35.level = f(IUniversal.earthTree.node35.level).add(f(1))
+    IUniversal.earthTree.node35.learning = f(0)
+  }
+
+
+
+  //uron
 
   //WIND
 
@@ -33378,7 +37868,7 @@ function valuesSetterDinamic(type) {
     sel.rewards.timer = f(0)
   }
 
-  if (IUniversal.expeditions.exp1.active) {
+  if (sel.active) {
     IUniversal.expeditions.exp1.rewards.timer = f(IUniversal.expeditions.exp1.rewards.timer).add(f(IGameData.tickSpeed))
     if (f(IUniversal.expeditions.exp1.timer).lt(f(0))) {
       IUniversal.expeditions.exp1.timer = f(0)
@@ -33788,7 +38278,7 @@ function valuesSetterDinamic(type) {
     }
   }
 
-  //exp19
+  //exp22
 
   var sel = IUniversal.expeditions.exp22
   var selIn = IUniversalIn.expeditions.exp22
@@ -33805,6 +38295,28 @@ function valuesSetterDinamic(type) {
     IUniversal.expeditions.exp22.rewards.timer = f(IUniversal.expeditions.exp22.rewards.timer).add(f(IGameData.tickSpeed))
     if (f(IUniversal.expeditions.exp22.timer).lt(f(0))) {
       IUniversal.expeditions.exp22.timer = f(0)
+    }
+  }
+
+
+
+  //exp23
+
+  var sel = IUniversal.expeditions.exp23
+  var selIn = IUniversalIn.expeditions.exp23
+
+  if (f(sel.rewards.timer).gte(f(selIn.rewards.timerPrice)) && sel.active) {
+    var number = f(sel.rewards.timer).dividedBy(f(selIn.rewards.timerPrice)).floor();
+
+    selIn.rewards.effect(sel, selIn, sel.rewards, selIn.rewards, number)
+
+    sel.rewards.timer = f(0)
+  }
+
+  if (IUniversal.expeditions.exp23.active) {
+    IUniversal.expeditions.exp23.rewards.timer = f(IUniversal.expeditions.exp23.rewards.timer).add(f(IGameData.tickSpeed))
+    if (f(IUniversal.expeditions.exp23.timer).lt(f(0))) {
+      IUniversal.expeditions.exp23.timer = f(0)
     }
   }
 
@@ -33826,6 +38338,11 @@ function valuesSetterDinamic(type) {
   }
 
 
+  //Apocalypse hunts
+
+  if (IUniversal.apocalypseHunts.hunt1.active && !(IUniversal.apocalypseHunts.hunt1.paused)) {
+    IUniversal.apocalypseHunts.hunt1.timer = f(IUniversal.apocalypseHunts.hunt1.timer).add(f(IGameData.tickSpeed))
+  }
 }
 
 //VALUES SETTER FIXED
@@ -33974,7 +38491,7 @@ document.getElementById("fp2_content2_23").onclick = function () {
 
   var element = document.getElementById("content2_23_scroll")
 
-  element.scrollTop = element.scrollHeight / 2.1
+  element.scrollTop = element.scrollHeight / 1.75
   element.scrollLeft = element.scrollWidth / 6
 }
 
@@ -36059,6 +40576,41 @@ document.getElementById("content2_17_node164_button").onclick = function () {
     buyMultiple(IUniversalIn.fireTree.node164, IUniversalIn.fireTree.node164, IUniversal.fireTree.node164, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node164, IUniversalIn.fireTree.node164);
 }
 
+document.getElementById("content2_17_node165_button").onclick = function () {
+  if (f(IUniversal.fireTree.node165.level).lt(f(IUniversalIn.fireTree.node165.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node165, IUniversalIn.fireTree.node165, IUniversal.fireTree.node165, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node165, IUniversalIn.fireTree.node165);
+}
+
+document.getElementById("content2_17_node166_button").onclick = function () {
+  IUniversal.fireTree.node166.level = f(IUniversal.fireTree.node166.level).add(f(IUniversal.massaConfusa))
+  IUniversal.massaConfusa = f(0)
+}
+
+document.getElementById("content2_17_node167_button").onclick = function () {
+  if (f(IUniversal.fireTree.node167.level).lt(f(IUniversalIn.fireTree.node167.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node167, IUniversalIn.fireTree.node167, IUniversal.fireTree.node167, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node167, IUniversalIn.fireTree.node167);
+}
+
+document.getElementById("content2_17_node168_button").onclick = function () {
+  if (f(IUniversal.fireTree.node168.level).lt(f(IUniversalIn.fireTree.node168.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node168, IUniversalIn.fireTree.node168, IUniversal.fireTree.node168, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node168, IUniversalIn.fireTree.node168);
+}
+
+document.getElementById("content2_17_node169_button").onclick = function () {
+  if (f(IUniversal.fireTree.node169.level).lt(f(IUniversalIn.fireTree.node169.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node169, IUniversalIn.fireTree.node169, IUniversal.fireTree.node169, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node169, IUniversalIn.fireTree.node169);
+}
+
+document.getElementById("content2_17_node170_button").onclick = function () {
+  if (f(IUniversal.fireTree.node170.level).lt(f(IUniversalIn.fireTree.node170.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node170, IUniversalIn.fireTree.node170, IUniversal.fireTree.node170, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node170, IUniversalIn.fireTree.node170);
+}
+
+document.getElementById("content2_17_node171_button").onclick = function () {
+  if (f(IUniversal.fireTree.node171.level).lt(f(IUniversalIn.fireTree.node171.maxLevel)))
+    buyMultiple(IUniversalIn.fireTree.node171, IUniversalIn.fireTree.node171, IUniversal.fireTree.node171, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node171, IUniversalIn.fireTree.node171);
+}
+
 
 document.getElementById("content2_17_node41_button2").onclick = function () {
   if (f(IUniversal.fireTree.node41.level).gt(f(0))) {
@@ -36321,6 +40873,51 @@ document.getElementById("content2_19_node39_button").onclick = function () {
     buyMultiple(IUniversalIn.waterTree.node39, IUniversalIn.waterTree.node39, IUniversal.waterTree.node39, "level", 1, "uni", IUniversal.buyWaterTree, IUniversal.waterTree.node39, IUniversalIn.waterTree.node39);
 }
 
+document.getElementById("content2_19_node40_button").onclick = function () {
+  if (f(IUniversal.waterTree.node40.level).lt(f(IUniversalIn.waterTree.node40.maxLevel)))
+    buyMultiple(IUniversalIn.waterTree.node40, IUniversalIn.waterTree.node40, IUniversal.waterTree.node40, "level", 1, "uni", IUniversal.buyWaterTree, IUniversal.waterTree.node40, IUniversalIn.waterTree.node40);
+}
+
+document.getElementById("content2_19_node41_button").onclick = function () {
+  if (f(IUniversal.waterTree.node41.level).lt(f(IUniversalIn.waterTree.node41.maxLevel)))
+    buyMultiple(IUniversalIn.waterTree.node41, IUniversalIn.waterTree.node41, IUniversal.waterTree.node41, "level", 1, "uni", IUniversal.buyWaterTree, IUniversal.waterTree.node41, IUniversalIn.waterTree.node41);
+}
+
+document.getElementById("content2_19_node42_button").onclick = function () {
+  if (f(IUniversal.waterTree.node42.level).lt(f(IUniversalIn.waterTree.node42.maxLevel)))
+    buyMultiple(IUniversalIn.waterTree.node42, IUniversalIn.waterTree.node42, IUniversal.waterTree.node42, "level", 1, "uni", IUniversal.buyWaterTree, IUniversal.waterTree.node42, IUniversalIn.waterTree.node42);
+}
+
+document.getElementById("content2_19_node43_button").onclick = function () {
+  if (f(IUniversal.waterTree.node43.level).lt(f(IUniversalIn.waterTree.node43.maxLevel)))
+    buyMultiple(IUniversalIn.waterTree.node43, IUniversalIn.waterTree.node43, IUniversal.waterTree.node43, "level", 1, "uni", IUniversal.buyWaterTree, IUniversal.waterTree.node43, IUniversalIn.waterTree.node43);
+}
+
+document.getElementById("content2_19_node44_button").onclick = function () {
+  if (f(IUniversal.waterTree.node44.level).lt(f(IUniversalIn.waterTree.node44.maxLevel)))
+    buyMultiple(IUniversalIn.waterTree.node44, IUniversalIn.waterTree.node44, IUniversal.waterTree.node44, "level", 1, "uni", IUniversal.buyWaterTree, IUniversal.waterTree.node44, IUniversalIn.waterTree.node44);
+}
+
+document.getElementById("content2_19_node45_button").onclick = function () {
+  if (f(IUniversal.waterTree.node45.level).lt(f(IUniversalIn.waterTree.node45.maxLevel)))
+    buyMultiple(IUniversalIn.waterTree.node45, IUniversalIn.waterTree.node45, IUniversal.waterTree.node45, "level", 1, "uni", IUniversal.buyWaterTree, IUniversal.waterTree.node45, IUniversalIn.waterTree.node45);
+}
+
+document.getElementById("content2_19_node46_button").onclick = function () {
+  if (f(IUniversal.waterTree.node46.level).lt(f(IUniversalIn.waterTree.node46.maxLevel)))
+    buyMultiple(IUniversalIn.waterTree.node46, IUniversalIn.waterTree.node46, IUniversal.waterTree.node46, "level", 1, "uni", IUniversal.buyWaterTree, IUniversal.waterTree.node46, IUniversalIn.waterTree.node46);
+}
+
+document.getElementById("content2_19_node47_button").onclick = function () {
+  if (f(IUniversal.waterTree.node47.level).lt(f(IUniversalIn.waterTree.node47.maxLevel)))
+    buyMultiple(IUniversalIn.waterTree.node47, IUniversalIn.waterTree.node47, IUniversal.waterTree.node47, "level", 1, "uni", IUniversal.buyWaterTree, IUniversal.waterTree.node47, IUniversalIn.waterTree.node47);
+}
+
+document.getElementById("content2_19_node48_button").onclick = function () {
+  if (f(IUniversal.waterTree.node48.level).lt(f(IUniversalIn.waterTree.node48.maxLevel)))
+    buyMultiple(IUniversalIn.waterTree.node48, IUniversalIn.waterTree.node48, IUniversal.waterTree.node48, "level", 1, "uni", IUniversal.buyWaterTree, IUniversal.waterTree.node48, IUniversalIn.waterTree.node48);
+}
+
 //POTIONS
 
 document.getElementById("content2_19_potions_potion1_button").onclick = function () {
@@ -36437,6 +41034,38 @@ document.getElementById("content2_19_potions_potion14_button").onclick = functio
     }
   }
 }
+
+document.getElementById("content2_19_potions_potion15_button").onclick = function () {
+  if (checkBuyMultiValutes(IUniversalIn.potionInfo.potion15.prices)) {
+    if (buyMultiValutes(IUniversalIn.potionInfo.potion15.prices, "UniNoUpdate")) {
+      craft("potion", "potion15")
+    }
+  }
+}
+
+document.getElementById("content2_19_potions_potion16_button").onclick = function () {
+  if (checkBuyMultiValutes(IUniversalIn.potionInfo.potion16.prices)) {
+    if (buyMultiValutes(IUniversalIn.potionInfo.potion16.prices, "UniNoUpdate")) {
+      craft("potion", "potion16")
+    }
+  }
+}
+
+document.getElementById("content2_19_potions_potion17_button").onclick = function () {
+  if (checkBuyMultiValutes(IUniversalIn.potionInfo.potion17.prices)) {
+    if (buyMultiValutes(IUniversalIn.potionInfo.potion17.prices, "UniNoUpdate")) {
+      craft("potion", "potion17")
+    }
+  }
+}
+
+document.getElementById("content2_19_potions_potion18_button").onclick = function () {
+  if (checkBuyMultiValutes(IUniversalIn.potionInfo.potion18.prices)) {
+    if (buyMultiValutes(IUniversalIn.potionInfo.potion18.prices, "UniNoUpdate")) {
+      craft("potion", "potion18")
+    }
+  }
+}
 //potion Upgrade
 
 //sel
@@ -36453,12 +41082,18 @@ document.getElementById("content2_19_potionUpgrade_selector_button3").onclick = 
   changePage("potionUpgrades", "content2_19_potionUpgrade_selector_content3")
 
 }
+
+document.getElementById("content2_19_potionUpgrade_selector_button4").onclick = function () {
+  changePage("potionUpgrades", "content2_19_potionUpgrade_selector_content4")
+
+}
 //Upgrade
 
 document.getElementById("content2_19_potionUpgrade_upgradeButton").onclick = function () {
 
   const { newPotion, newPotionIn } = potionUpgrade();
 
+  potionInfoStatic()
   potionSetter()
 
   if (IUniversal.potionUpgrade.item1.key) {
@@ -36480,6 +41115,7 @@ document.getElementById("content2_19_potionUpgrade_content3_button1").onclick = 
 
   const { newPotion, newPotionIn } = potionFusion();
 
+  potionInfoStatic()
   potionSetter()
 
   if (newPotion && newPotionIn) {
@@ -36495,6 +41131,28 @@ document.getElementById("content2_19_potionUpgrade_content3_button1").onclick = 
     }
   }
 }
+
+//Auto Upgrade
+
+document.getElementById("content2_19_potionUpgrade_upgradeButton").onclick = function () {
+
+  const { newPotion, newPotionIn } = potionUpgrade();
+
+  potionInfoStatic()
+  potionSetter()
+
+  if (IUniversal.potionUpgrade.item1.key) {
+    if (f(newPotion.level).lte(f(newPotionIn.maxLevel))) {
+      if (checkBuyMultiValutes(IUniversalIn.inventoryStorage[IUniversal.potionUpgrade.item1.key].prices)) {
+        if (buyMultiValutes(IUniversalIn.inventoryStorage[IUniversal.potionUpgrade.item1.key].prices, "UniNoUpdate")) {
+          IUniversal.inventoryStorage[IUniversal.potionUpgrade.item1.key] = newPotion
+          IUniversalIn.inventoryStorage[IUniversal.potionUpgrade.item1.key] = newPotionIn
+        }
+      }
+    }
+  }
+}
+
 //water size
 
 document.getElementById("content2_19_resizeBig").onclick = function () {
@@ -36647,6 +41305,287 @@ document.getElementById("content2_21_node12_button").onclick = function () {
     buyMultiple(IUniversalIn.earthTree.node12, IUniversalIn.earthTree.node12, IUniversal.earthTree.node12, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.earthTree.node12, IUniversalIn.earthTree.node12);
 }
 
+document.getElementById("content2_21_node13_button").onclick = function () {
+  if (f(IUniversal.earthTree.node13.level).lt(f(IUniversalIn.earthTree.node13.maxLevel)))
+    buyMultiple(IUniversalIn.earthTree.node13, IUniversalIn.earthTree.node13, IUniversal.earthTree.node13, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.earthTree.node13, IUniversalIn.earthTree.node13);
+}
+
+document.getElementById("content2_21_node14_button").onclick = function () {
+  if (f(IUniversal.earthTree.node14.level).lt(f(IUniversalIn.earthTree.node14.maxLevel)))
+    buyMultiple(IUniversalIn.earthTree.node14, IUniversalIn.earthTree.node14, IUniversal.earthTree.node14, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.earthTree.node14, IUniversalIn.earthTree.node14);
+}
+
+document.getElementById("content2_21_node15_button").onclick = function () {
+  if (f(IUniversal.earthTree.node15.level).lt(f(IUniversalIn.earthTree.node15.maxLevel)))
+    buyMultiple(IUniversalIn.earthTree.node15, IUniversalIn.earthTree.node15, IUniversal.earthTree.node15, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.earthTree.node15, IUniversalIn.earthTree.node15);
+}
+
+document.getElementById("content2_21_node16_button").onclick = function () {
+  if (f(IUniversal.earthTree.node16.level).lt(f(IUniversalIn.earthTree.node16.maxLevel)))
+    buyMultiple(IUniversalIn.earthTree.node16, IUniversalIn.earthTree.node16, IUniversal.earthTree.node16, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.earthTree.node16, IUniversalIn.earthTree.node16);
+}
+
+document.getElementById("content2_21_node17_buttonLeft").onclick = function () {
+  if (f(IUniversal.assignedIronGolem).gt(f(0)) && f(IUniversal.earthTree.node17.assigned).gt(f(0))) {
+    IUniversal.assignedIronGolem = f(IUniversal.assignedIronGolem).minus(f(1))
+    IUniversal.earthTree.node17.assigned = f(IUniversal.earthTree.node17.assigned).minus(f(1))
+  }
+}
+document.getElementById("content2_21_node17_buttonRight").onclick = function () {
+  if (f(IUniversal.assignedIronGolem).lt(f(IUniversal.ironGolem))) {
+    IUniversal.assignedIronGolem = f(IUniversal.assignedIronGolem).add(f(1))
+    IUniversal.earthTree.node17.assigned = f(IUniversal.earthTree.node17.assigned).add(f(1))
+  }
+}
+
+
+
+document.getElementById("content2_21_node18_buttonLeft").onclick = function () {
+  if (f(IUniversal.assignedIronGolem).gt(f(0)) && f(IUniversal.earthTree.node18.assigned).gt(f(0))) {
+    IUniversal.assignedIronGolem = f(IUniversal.assignedIronGolem).minus(f(1))
+    IUniversal.earthTree.node18.assigned = f(IUniversal.earthTree.node18.assigned).minus(f(1))
+  }
+}
+document.getElementById("content2_21_node18_buttonRight").onclick = function () {
+  if (f(IUniversal.assignedIronGolem).lt(f(IUniversal.ironGolem))) {
+    IUniversal.assignedIronGolem = f(IUniversal.assignedIronGolem).add(f(1))
+    IUniversal.earthTree.node18.assigned = f(IUniversal.earthTree.node18.assigned).add(f(1))
+  }
+}
+
+
+
+document.getElementById("content2_21_node19_buttonLeft").onclick = function () {
+  if (f(IUniversal.assignedIronGolem).gt(f(0)) && f(IUniversal.earthTree.node19.assigned).gt(f(0))) {
+    IUniversal.assignedIronGolem = f(IUniversal.assignedIronGolem).minus(f(1))
+    IUniversal.earthTree.node19.assigned = f(IUniversal.earthTree.node19.assigned).minus(f(1))
+  }
+}
+document.getElementById("content2_21_node19_buttonRight").onclick = function () {
+  if (f(IUniversal.assignedIronGolem).lt(f(IUniversal.ironGolem))) {
+    IUniversal.assignedIronGolem = f(IUniversal.assignedIronGolem).add(f(1))
+    IUniversal.earthTree.node19.assigned = f(IUniversal.earthTree.node19.assigned).add(f(1))
+  }
+}
+
+
+
+document.getElementById("content2_21_node20_buttonLeft").onclick = function () {
+  if (f(IUniversal.assignedIronGolem).gt(f(0)) && f(IUniversal.earthTree.node20.assigned).gt(f(0))) {
+    IUniversal.assignedIronGolem = f(IUniversal.assignedIronGolem).minus(f(1))
+    IUniversal.earthTree.node20.assigned = f(IUniversal.earthTree.node20.assigned).minus(f(1))
+  }
+}
+document.getElementById("content2_21_node20_buttonRight").onclick = function () {
+  if (f(IUniversal.assignedIronGolem).lt(f(IUniversal.ironGolem))) {
+    IUniversal.assignedIronGolem = f(IUniversal.assignedIronGolem).add(f(1))
+    IUniversal.earthTree.node20.assigned = f(IUniversal.earthTree.node20.assigned).add(f(1))
+  }
+}
+
+
+document.getElementById("content2_21_node21_buttonLeft").onclick = function () {
+  if (f(IUniversal.assignedSilverGolem).gt(f(0)) && f(IUniversal.earthTree.node21.assigned).gt(f(0))) {
+    IUniversal.assignedSilverGolem = f(IUniversal.assignedSilverGolem).minus(f(1))
+    IUniversal.earthTree.node21.assigned = f(IUniversal.earthTree.node21.assigned).minus(f(1))
+  }
+}
+document.getElementById("content2_21_node21_buttonRight").onclick = function () {
+  if (f(IUniversal.assignedSilverGolem).lt(f(IUniversal.silverGolem))) {
+    IUniversal.assignedSilverGolem = f(IUniversal.assignedSilverGolem).add(f(1))
+    IUniversal.earthTree.node21.assigned = f(IUniversal.earthTree.node21.assigned).add(f(1))
+  }
+}
+
+
+
+document.getElementById("content2_21_node22_buttonLeft").onclick = function () {
+  if (f(IUniversal.assignedSilverGolem).gt(f(0)) && f(IUniversal.earthTree.node22.assigned).gt(f(0))) {
+    IUniversal.assignedSilverGolem = f(IUniversal.assignedSilverGolem).minus(f(1))
+    IUniversal.earthTree.node22.assigned = f(IUniversal.earthTree.node22.assigned).minus(f(1))
+  }
+}
+document.getElementById("content2_21_node22_buttonRight").onclick = function () {
+  if (f(IUniversal.assignedSilverGolem).lt(f(IUniversal.silverGolem))) {
+    IUniversal.assignedSilverGolem = f(IUniversal.assignedSilverGolem).add(f(1))
+    IUniversal.earthTree.node22.assigned = f(IUniversal.earthTree.node22.assigned).add(f(1))
+  }
+}
+
+
+
+document.getElementById("content2_21_node23_buttonLeft").onclick = function () {
+  if (f(IUniversal.assignedSilverGolem).gt(f(0)) && f(IUniversal.earthTree.node23.assigned).gt(f(0))) {
+    IUniversal.assignedSilverGolem = f(IUniversal.assignedSilverGolem).minus(f(1))
+    IUniversal.earthTree.node23.assigned = f(IUniversal.earthTree.node23.assigned).minus(f(1))
+  }
+}
+
+document.getElementById("content2_21_node23_buttonRight").onclick = function () {
+  if (f(IUniversal.assignedSilverGolem).lt(f(IUniversal.silverGolem))) {
+    IUniversal.assignedSilverGolem = f(IUniversal.assignedSilverGolem).add(f(1))
+    IUniversal.earthTree.node23.assigned = f(IUniversal.earthTree.node23.assigned).add(f(1))
+  }
+}
+
+
+document.getElementById("content2_21_node24_buttonLeft").onclick = function () {
+  if (f(IUniversal.assignedSilverGolem).gt(f(0)) && f(IUniversal.earthTree.node24.assigned).gt(f(0))) {
+    IUniversal.assignedSilverGolem = f(IUniversal.assignedSilverGolem).minus(f(1))
+    IUniversal.earthTree.node24.assigned = f(IUniversal.earthTree.node24.assigned).minus(f(1))
+  }
+}
+document.getElementById("content2_21_node24_buttonRight").onclick = function () {
+  if (f(IUniversal.assignedSilverGolem).lt(f(IUniversal.silverGolem))) {
+    IUniversal.assignedSilverGolem = f(IUniversal.assignedSilverGolem).add(f(1))
+    IUniversal.earthTree.node24.assigned = f(IUniversal.earthTree.node24.assigned).add(f(1))
+  }
+}
+
+
+
+document.getElementById("content2_21_node25_buttonLeft").onclick = function () {
+  if (f(IUniversal.assignedObsidianGolem).gt(f(0)) && f(IUniversal.earthTree.node25.assigned).gt(f(0))) {
+    IUniversal.assignedObsidianGolem = f(IUniversal.assignedObsidianGolem).minus(f(1))
+    IUniversal.earthTree.node25.assigned = f(IUniversal.earthTree.node25.assigned).minus(f(1))
+  }
+}
+document.getElementById("content2_21_node25_buttonRight").onclick = function () {
+  if (f(IUniversal.assignedObsidianGolem).lt(f(IUniversal.obsidianGolem))) {
+    IUniversal.assignedObsidianGolem = f(IUniversal.assignedObsidianGolem).add(f(1))
+    IUniversal.earthTree.node25.assigned = f(IUniversal.earthTree.node25.assigned).add(f(1))
+  }
+}
+
+
+
+document.getElementById("content2_21_node26_buttonLeft").onclick = function () {
+  if (f(IUniversal.assignedObsidianGolem).gt(f(0)) && f(IUniversal.earthTree.node26.assigned).gt(f(0))) {
+    IUniversal.assignedObsidianGolem = f(IUniversal.assignedObsidianGolem).minus(f(1))
+    IUniversal.earthTree.node26.assigned = f(IUniversal.earthTree.node26.assigned).minus(f(1))
+  }
+}
+document.getElementById("content2_21_node26_buttonRight").onclick = function () {
+  if (f(IUniversal.assignedObsidianGolem).lt(f(IUniversal.obsidianGolem))) {
+    IUniversal.assignedObsidianGolem = f(IUniversal.assignedObsidianGolem).add(f(1))
+    IUniversal.earthTree.node26.assigned = f(IUniversal.earthTree.node26.assigned).add(f(1))
+  }
+}
+
+
+
+document.getElementById("content2_21_node27_buttonLeft").onclick = function () {
+  if (f(IUniversal.assignedObsidianGolem).gt(f(0)) && f(IUniversal.earthTree.node27.assigned).gt(f(0))) {
+    IUniversal.assignedObsidianGolem = f(IUniversal.assignedObsidianGolem).minus(f(1))
+    IUniversal.earthTree.node27.assigned = f(IUniversal.earthTree.node27.assigned).minus(f(1))
+  }
+}
+document.getElementById("content2_21_node27_buttonRight").onclick = function () {
+  if (f(IUniversal.assignedObsidianGolem).lt(f(IUniversal.obsidianGolem))) {
+    IUniversal.assignedObsidianGolem = f(IUniversal.assignedObsidianGolem).add(f(1))
+    IUniversal.earthTree.node27.assigned = f(IUniversal.earthTree.node27.assigned).add(f(1))
+  }
+}
+
+
+
+document.getElementById("content2_21_node28_buttonLeft").onclick = function () {
+  if (f(IUniversal.assignedObsidianGolem).gt(f(0)) && f(IUniversal.earthTree.node28.assigned).gt(f(0))) {
+    IUniversal.assignedObsidianGolem = f(IUniversal.assignedObsidianGolem).minus(f(1))
+    IUniversal.earthTree.node28.assigned = f(IUniversal.earthTree.node28.assigned).minus(f(1))
+  }
+}
+document.getElementById("content2_21_node28_buttonRight").onclick = function () {
+  if (f(IUniversal.assignedObsidianGolem).lt(f(IUniversal.obsidianGolem))) {
+    IUniversal.assignedObsidianGolem = f(IUniversal.assignedObsidianGolem).add(f(1))
+    IUniversal.earthTree.node28.assigned = f(IUniversal.earthTree.node28.assigned).add(f(1))
+  }
+}
+
+
+document.getElementById("content2_21_node29_buttonLeft").onclick = function () {
+  if (f(IUniversal.assignedObsidianGolem).gt(f(0)) && f(IUniversal.earthTree.node29.assigned).gt(f(0))) {
+    IUniversal.assignedObsidianGolem = f(IUniversal.assignedObsidianGolem).minus(f(1))
+    IUniversal.earthTree.node29.assigned = f(IUniversal.earthTree.node29.assigned).minus(f(1))
+  }
+}
+
+document.getElementById("content2_21_node29_buttonRight").onclick = function () {
+  if (f(IUniversal.assignedObsidianGolem).lt(f(IUniversal.obsidianGolem))) {
+    IUniversal.assignedObsidianGolem = f(IUniversal.assignedObsidianGolem).add(f(1))
+    IUniversal.earthTree.node29.assigned = f(IUniversal.earthTree.node29.assigned).add(f(1))
+  }
+}
+
+
+
+document.getElementById("content2_21_node30_button").onclick = function () {
+  if (f(IUniversal.earthTree.node30.level).lt(f(IUniversalIn.earthTree.node30.maxLevel)))
+    buyMultiple(IUniversalIn.earthTree.node30, IUniversalIn.earthTree.node30, IUniversal.earthTree.node30, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.earthTree.node30, IUniversalIn.earthTree.node30);
+}
+
+document.getElementById("content2_21_node31_button").onclick = function () {
+  if (f(IUniversal.earthTree.node31.level).lt(f(IUniversalIn.earthTree.node31.maxLevel)))
+    buyMultiple(IUniversalIn.earthTree.node31, IUniversalIn.earthTree.node31, IUniversal.earthTree.node31, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.earthTree.node31, IUniversalIn.earthTree.node31);
+}
+
+
+
+document.getElementById("content2_21_node32_buttonLeft").onclick = function () {
+  if (f(IUniversal.assignedIronGolem).gt(f(0)) && f(IUniversal.earthTree.node32.assigned).gt(f(0))) {
+    IUniversal.assignedIronGolem = f(IUniversal.assignedIronGolem).minus(f(1))
+    IUniversal.earthTree.node32.assigned = f(IUniversal.earthTree.node32.assigned).minus(f(1))
+  }
+}
+document.getElementById("content2_21_node32_buttonRight").onclick = function () {
+  if (f(IUniversal.assignedIronGolem).lt(f(IUniversal.ironGolem))) {
+    IUniversal.assignedIronGolem = f(IUniversal.assignedIronGolem).add(f(1))
+    IUniversal.earthTree.node32.assigned = f(IUniversal.earthTree.node32.assigned).add(f(1))
+  }
+}
+
+
+
+document.getElementById("content2_21_node33_buttonLeft").onclick = function () {
+  if (f(IUniversal.assignedIronGolem).gt(f(0)) && f(IUniversal.earthTree.node33.assigned).gt(f(0))) {
+    IUniversal.assignedSilverGolem = f(IUniversal.assignedSilverGolem).minus(f(1))
+    IUniversal.earthTree.node33.assigned = f(IUniversal.earthTree.node33.assigned).minus(f(1))
+  }
+}
+document.getElementById("content2_21_node33_buttonRight").onclick = function () {
+  if (f(IUniversal.assignedSilverGolem).lt(f(IUniversal.silverGolem))) {
+    IUniversal.assignedSilverGolem = f(IUniversal.assignedSilverGolem).add(f(1))
+    IUniversal.earthTree.node33.assigned = f(IUniversal.earthTree.node33.assigned).add(f(1))
+  }
+}
+
+document.getElementById("content2_21_node34_buttonLeft").onclick = function () {
+  if (f(IUniversal.assignedObsidianGolem).gt(f(0)) && f(IUniversal.earthTree.node34.assigned).gt(f(0))) {
+    IUniversal.assignedObsidianGolem = f(IUniversal.assignedObsidianGolem).minus(f(1))
+    IUniversal.earthTree.node34.assigned = f(IUniversal.earthTree.node34.assigned).minus(f(1))
+  }
+}
+document.getElementById("content2_21_node34_buttonRight").onclick = function () {
+  if (f(IUniversal.assignedObsidianGolem).lt(f(IUniversal.obsidianGolem))) {
+    IUniversal.assignedObsidianGolem = f(IUniversal.assignedObsidianGolem).add(f(1))
+    IUniversal.earthTree.node34.assigned = f(IUniversal.earthTree.node34.assigned).add(f(1))
+  }
+}
+
+document.getElementById("content2_21_node35_buttonLeft").onclick = function () {
+  if (f(IUniversal.assignedIronGolem).gt(f(0)) && f(IUniversal.earthTree.node35.assigned).gt(f(0))) {
+    IUniversal.assignedIronGolem = f(IUniversal.assignedIronGolem).minus(f(1))
+    IUniversal.earthTree.node35.assigned = f(IUniversal.earthTree.node35.assigned).minus(f(1))
+  }
+}
+
+document.getElementById("content2_21_node35_buttonRight").onclick = function () {
+  if (f(IUniversal.assignedIronGolem).lt(f(IUniversal.ironGolem))) {
+    IUniversal.assignedIronGolem = f(IUniversal.assignedIronGolem).add(f(1))
+    IUniversal.earthTree.node35.assigned = f(IUniversal.earthTree.node35.assigned).add(f(1))
+  }
+}
+
 
 //name loadout
 
@@ -36705,6 +41644,10 @@ function armyLoadoutName(id, enter, type) {
     enableDragScroll("content2_21_scroll", true)
 
   }
+}
+
+document.getElementById("content2_19_treasureShow").onclick = function () {
+  IUniversal.showTreasure = !IUniversal.showTreasure
 }
 
 document.getElementById("content2_21_treasureShow").onclick = function () {
@@ -36889,6 +41832,12 @@ document.getElementById("content2_23_node22_button").onclick = function () {
 
   IUniversal.armyInfo.elemental.selected = "exp22"
   changePage("expedition", "content2_23_crusadePage")
+}
+
+document.getElementById("content2_23_node23_button").onclick = function () {
+
+  IUniversal.armyInfo.enemy.selected = "exp23"
+  changePage("expedition", "content2_23_expeditionPage")
 }
 
 
@@ -37178,6 +42127,19 @@ document.getElementById("content2_23_node22_button2").onclick = function () {
 
 }
 
+document.getElementById("content2_23_node23_button2").onclick = function () {
+  for (let x in IUniversal.expeditions.exp23.rewards.expectedRewards) {
+    var sel = IUniversal.expeditions.exp23.rewards.expectedRewards[x]
+
+    IUniversal.treasures[x].level = f(IUniversal.treasures[x].level).add(f(sel.level))
+    IUniversal.treasures[x].num = f(IUniversal.treasures[x].num).add(f(sel.num))
+    update("content2_23_treasureClaim_d1", `<div class="height20 width100 row overflowX flex zHigh">${IUniversalIn.expeditions.exp23.effectContent(IUniversal.expeditions.exp23.rewards, IUniversalIn.expeditions.exp23.rewards)}</div>`)
+    changePage("expedition", "content2_23_treasureClaim")
+  }
+  IUniversal.expeditions.exp23.rewards.expectedRewards = null
+
+}
+
 
 document.getElementById("content2_23_curtain").onclick = function () {
   changePage("expedition", "out")
@@ -37270,6 +42232,16 @@ document.getElementById("content2_21_forge_item6_button").onclick = function () 
     buyMultiple(IUniversalIn.forge.item6, IUniversalIn.forge.item6, IUniversal.forge.item6, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.forge.item6, IUniversalIn.forge.item6);
 }
 
+document.getElementById("content2_21_forge_item7_button").onclick = function () {
+  if (f(IUniversal.forge.item7.level).lt(f(IUniversalIn.forge.item7.maxLevel)))
+    buyMultiple(IUniversalIn.forge.item7, IUniversalIn.forge.item7, IUniversal.forge.item7, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.forge.item7, IUniversalIn.forge.item7);
+}
+
+document.getElementById("content2_21_forge_item8_button").onclick = function () {
+  if (f(IUniversal.forge.item8.level).lt(f(IUniversalIn.forge.item8.maxLevel)))
+    buyMultiple(IUniversalIn.forge.item8, IUniversalIn.forge.item8, IUniversal.forge.item8, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.forge.item8, IUniversalIn.forge.item8);
+}
+
 
 
 
@@ -37295,6 +42267,16 @@ document.getElementById("content2_21_mine_item4_button").onclick = function () {
     buyMultiple(IUniversalIn.mine.item4, IUniversalIn.mine.item4, IUniversal.mine.item4, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.mine.item4, IUniversalIn.mine.item4);
 }
 
+document.getElementById("content2_21_mine_item5_button").onclick = function () {
+  if (f(IUniversal.mine.item5.level).lt(f(IUniversalIn.mine.item5.maxLevel)))
+    buyMultiple(IUniversalIn.mine.item5, IUniversalIn.mine.item5, IUniversal.mine.item5, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.mine.item5, IUniversalIn.mine.item5);
+}
+
+document.getElementById("content2_21_mine_item6_button").onclick = function () {
+  if (f(IUniversal.mine.item6.level).lt(f(IUniversalIn.mine.item6.maxLevel)))
+    buyMultiple(IUniversalIn.mine.item6, IUniversalIn.mine.item6, IUniversal.mine.item6, "level", 1, "uni", IUniversal.buyEarthTree, IUniversal.mine.item6, IUniversalIn.mine.item6);
+}
+
 
 //ores
 
@@ -37308,6 +42290,10 @@ document.getElementById("content2_21_ore_item2_button").onclick = function () {
 
 document.getElementById("content2_21_ore_item3_button").onclick = function () {
   assignGroup(IUniversalIn.ore, IUniversal.ore, "item3")
+}
+
+document.getElementById("content2_21_ore_item4_button").onclick = function () {
+  assignGroup(IUniversalIn.ore, IUniversal.ore, "item4")
 }
 
 
@@ -38972,7 +43958,11 @@ function visualWaterTree() {
     ['content2_19_valutes_valute4', 'Erbs', IU.erbs, IU.erbsMax, IU.erbsProd],
     ['content2_19_valutes_valute5', 'Fluid Fire', IU.fluidFire, IU.fluidFireMax, IU.fluidFireProd],
     ['content2_19_valutes_valute6', 'Water Gem', IU.waterGem, IU.waterGemMax, IU.waterGemProd],
-    ['content2_19_valutes_valute7', 'Pyrofrost', IU.pyroFrost, IU.pyroFrostMax, IU.pyroFrostProd]
+    ['content2_19_valutes_valute7', 'Pyrofrost', IU.pyroFrost, IU.pyroFrostMax, IU.pyroFrostProd],
+    ['content2_19_valutes_valute8', 'Divinity', IU.divinity, null, IU.divinityProd],
+    ['content2_19_valutes_valute9', 'Celeste Dust', IU.celesteDust, null, IU.celesteDustProd],
+    ['content2_19_valutes_valute10', 'Sky Dust', IU.skyDust, null, IU.skyDustProd],
+    ['content2_19_valutes_valute11', 'Massa Confusa', IU.massaConfusa, null, IU.massaConfusaProd],
   ];
 
   for (var i = 0; i < valutes.length; i++) {
@@ -38987,14 +43977,18 @@ function visualWaterTree() {
       unlockShow(id, true);
 
       var cacheKey = id + '_val';
-      var newValue = value + '_' + max + '_' + prod;
+
+      var maxStr = max !== null ? '/' + format(max, 0) : '';
+      var newValue = value + '_' + (max ?? '') + '_' + prod;
 
       if (cache.lastValues[cacheKey] !== newValue) {
-        update(id, '<div class="noClick"><div class="noClick">' + name +
-          '</div><div class="boldBlackBorder noClick fontSize09">' +
-          format(value, 0) + '/' + format(max, 0) +
-          '</div><div class="boldBlackBorder noClick">' +
-          format(sec(prod)) + '/s</div></div>');
+        var html = '<div class="noClick">' +
+                    '<div class="noClick">' + name + '</div>' +
+                    '<div class="boldBlackBorder noClick fontSize09">' + format(value, 0) + maxStr + '</div>' +
+                    '<div class="boldBlackBorder noClick">' + format(sec(prod)) + '/s</div>' +
+                  '</div>';
+
+        update(id, html);
         cache.lastValues[cacheKey] = newValue;
       }
     }
@@ -39003,7 +43997,8 @@ function visualWaterTree() {
   var pools = [
     ['content2_19_circle1_fill', IU.water, IU.waterMax, '#2ee3ff', '#14656b'],
     ['content2_19_circle2_fill', IU.elisir, IU.elisirMax, '#bd2effff', '#4b146bff'],
-    ['content2_19_circle3_fill', IU.ambrosia, IU.ambrosiaMax, '#ffce2eff', '#6b5414ff']
+    ['content2_19_circle3_fill', IU.ambrosia, IU.ambrosiaMax, '#ffce2eff', '#6b5414ff'],
+    ['content2_19_circle4_fill', IU.intent, IU.intentMax, 'rgb(253, 253, 253)', 'rgb(0, 0, 0)']
   ];
 
   for (var i = 0; i < pools.length; i++) {
@@ -39105,6 +44100,8 @@ function visualWaterTree() {
     }
   }
 
+  //Upgrade
+
   var potionUpgradeKey = IU.potionUpgrade.item1.key;
   var potionUpgradeVisual = '';
 
@@ -39115,6 +44112,20 @@ function visualWaterTree() {
   if (cache.lastValues.potionUpgrade !== potionUpgradeVisual) {
     IUI.potionUpgradeVisual1 = potionUpgradeVisual;
     cache.lastValues.potionUpgrade = potionUpgradeVisual;
+  }
+
+  //Auto Upgrade
+
+  var potionUpgradeKey = IU.potionAutoUpgrade.item1.key;
+  var potionUpgradeVisual = '';
+
+  if (IUI.inventoryStorage[potionUpgradeKey]) {
+    potionUpgradeVisual = IUI.inventoryStorage[potionUpgradeKey].content2;
+  }
+
+  if (cache.lastValues.potionAutoUpgrade !== potionUpgradeVisual) {
+    IUI.potionUpgradeVisual2 = potionUpgradeVisual;
+    cache.lastValues.potionAutoUpgrade = potionUpgradeVisual;
   }
 
   var fusionItem1Key = IU.potionFusion.item1.key;
@@ -39130,7 +44141,8 @@ function visualWaterTree() {
   }
 
   var fusionCacheKey = fusionItem1Key + '_' + IU.potionFusion.item2.key;
-  if (cache.lastValues.fusionCacheKey !== fusionCacheKey) {
+
+  if (cache.lastValues.fusionCacheKey !== fusionCacheKey || IUniversalIn.potionFusionVisual2 == "") {
     var fusionResult = potionFusion();
     var fusionVisual2 = '';
 
@@ -39155,6 +44167,12 @@ function visualWaterTree() {
     cache.lastValues.fusionVisual3 = fusionVisual3;
   }
 
+  unlockShow("content2_19_coreEquip_1", (IUniversal.waterTree.node41.active))
+  unlockShow("content2_19_coreEquip_2", (IUniversal.waterTree.node42.active))
+  unlockShow("content2_19_coreEquip_3", (IUniversal.waterTree.node47.active))
+  unlockShow("content2_19_coreEquip_4", false)
+
+  
   cache.initialized = true;
 }
 
@@ -39165,7 +44183,7 @@ function resetVisualWaterTreeCache() {
 
 function visualInventoryWater() {
 
-  var gridContainer = document.getElementById("content2_19_grid1");
+  var gridContainer = document.getElementById("content2_19_treasureGrid");
 
   addElement("void");
 
@@ -39191,6 +44209,10 @@ function visualInventoryWater() {
     addObjectToSpace(null, null, x, "potion_upgrade")
   }
 
+  for (let x in IUniversal.potionAutoUpgrade) {
+    addObjectToSpace(null, null, x, "potion_AutoUpgrade")
+  }
+
   for (let x in IUniversal.potionDelete) {
     addObjectToSpace(null, null, x, "potion_delete")
   }
@@ -39203,11 +44225,19 @@ function visualInventoryWater() {
     addObjectToSpace(null, null, x, "potion_fusion")
   }
 
+  for (let x in IUniversal.coreItem) {
+    addObjectToSpace(null, null, x, "core_item")
+  }
+
   if (IUniversal.selPotion != null && IUniversal.selPotion != undefined && IUniversal.selPotion != "" && IUniversalIn.inventoryStorage[IUniversal.selPotion]) {
-    update("content2_19_potion_info", IUniversalIn.inventoryStorage[IUniversal.selPotion].content2)
+    if (!IUniversal.lockSelPotion || document.getElementById("content2_19_potion_info").innerHTML.trim() === "") {
+      update("content2_19_potion_info", IUniversalIn.inventoryStorage[IUniversal.selPotion].content2)
+    }
   } else {
     update("content2_19_potion_info", "")
   }
+
+
 
 }
 
@@ -39368,10 +44398,24 @@ function returnPotionEquipStatus(element) {
     }
   }
 
+  for (let x in IUniversal.potionAutoUpgrade) {
+    var sel = IUniversal.potionAutoUpgrade[x]
+    if (element == sel.key) {
+      letters += "A"
+    }
+  }
+
   for (let x in IUniversal.potionFusion) {
     var sel = IUniversal.potionFusion[x]
     if (element == sel.key) {
       letters += "F"
+    }
+  }
+
+  for (let x in IUniversal.potionFusion) {
+    var sel = IUniversal.coreItem[x]
+    if (element == sel.key) {
+      letters += "C"
     }
   }
 
@@ -39385,8 +44429,8 @@ function returnPotionEquipStatus(element) {
 function addObjectToSpace(row, col, key, space) {
 
   if (space == "potion_inventory") {
-    const gridContainer = document.getElementById("content2_19_grid1");
-    const existing = document.getElementById(`content2_19_grid1_${col}${row}`);
+    const gridContainer = document.getElementById("content2_19_treasureGrid");
+    const existing = document.getElementById(`content2_19_treasureGrid_${col}${row}`);
 
     if (existing) {
 
@@ -39397,7 +44441,7 @@ function addObjectToSpace(row, col, key, space) {
       }
 
       existing.textContent = ""
-      update(`content2_19_grid1_${col}${row}`, element)
+      update(`content2_19_treasureGrid_${col}${row}`, element)
 
       if (IUniversal.inventory[key].key == null) {
         existing.setAttribute("draggable", "false");
@@ -39409,7 +44453,7 @@ function addObjectToSpace(row, col, key, space) {
 
 
     const div = document.createElement('div');
-    div.id = `content2_19_grid1_${col}${row}`;
+    div.id = `content2_19_treasureGrid_${col}${row}`;
     div.className = "item";
     div.classList.add("defaultStyle");
     div.classList.add("roundedEdges");
@@ -39527,6 +44571,54 @@ function addObjectToSpace(row, col, key, space) {
     var stringKey = `'${key}'`
 
     draggableSet(div, `IUniversal.potionUpgrade[${stringKey}]`, `IUniversalIn.potionUpgrade[${stringKey}]`, "volatile", "potion")
+
+    gridContainer.appendChild(div);
+
+
+  }
+
+  if (space == "potion_AutoUpgrade") {
+    const gridContainer = document.getElementById(`content2_19_potionAutoUpgrade_${key}`);
+    const existing = document.getElementById(`content2_19_potionAutoUpgrade_${key}_div`);
+
+    if (existing) {
+      if (IUniversal.potionAutoUpgrade[key].key) {
+        var element = IUniversalIn.inventoryStorage[IUniversal.potionAutoUpgrade[key].key].content
+      } else {
+        element = ""
+      }
+
+      existing.textContent = ""
+      update(`content2_19_potionAutoUpgrade_${key}_div`, element)
+
+      if (IUniversal.potionAutoUpgrade[key].key == null) {
+        existing.setAttribute("draggable", "false");
+      } else {
+        existing.setAttribute("draggable", "true");
+      }
+      return;
+    }
+
+    const div = document.createElement('div');
+    div.id = `content2_19_potionAutoUpgrade_${key}_div`;
+    div.className = "item";
+    div.classList.add("defaultStyle");
+    div.classList.add("centerDiv");
+    div.classList.add("red");
+    div.classList.add("width100");
+    div.classList.add("height100");
+    div.classList.add("roundedEdges");
+
+
+    const label = document.createElement('span');
+
+    label.textContent = IUniversal.potionAutoUpgrade[key].key
+    label.style.pointerEvents = 'none';
+    div.appendChild(label);
+
+    var stringKey = `'${key}'`
+
+    draggableSet(div, `IUniversal.potionAutoUpgrade[${stringKey}]`, `IUniversalIn.potionAutoUpgrade[${stringKey}]`, "volatile", "potion")
 
     gridContainer.appendChild(div);
 
@@ -40104,6 +45196,64 @@ function addObjectToSpace(row, col, key, space) {
 
 
   }
+
+  if (space == "core_item") {
+    const gridContainer = document.getElementById(`content2_19_coreItem_${key}`);
+    const existing = document.getElementById(`content2_19_coreItem_${key}_div`);
+
+    if (existing) {
+      if (IUniversal.coreItem[key].key != null || IUniversal.coreItem[key].key != undefined && IUniversalIn.inventoryStorage[IUniversal.coreItem[key].key]) {
+        var element = IUniversalIn.inventoryStorage[IUniversal.coreItem[key].key].content
+      } else {
+        element = null
+      }
+
+      var item1 = document.getElementById(`content2_19_coreItem_${key}_div`);
+
+      if (!IUniversal.coreItem[key].key) {
+        item1.style.backgroundImage = `url(${IUniversalIn.potionImages[IUniversalIn.coreItem[key].type].image})`;
+      } else {
+        item1.style.backgroundImage = "";
+      }
+
+      existing.textContent = ""
+      update(`content2_19_coreItem_${key}_div`, element)
+
+      if (IUniversal.coreItem[key].key == null) {
+        existing.setAttribute("draggable", "false");
+      } else {
+        existing.setAttribute("draggable", "true");
+      }
+      return;
+    }
+
+    const div = document.createElement('div');
+    div.id = `content2_19_coreItem_${key}_div`;
+    div.className = "item";
+    div.classList.add("defaultStyle");
+    div.classList.add("centerDiv");
+    div.classList.add("red");
+    div.classList.add("width100");
+    div.classList.add("height100");
+    div.classList.add("roundedEdges");
+    div.classList.add("backgroundImage");
+
+
+    //div.style.backgroundImage = `url(${IUniversalIn.potionImages[IUniversalIn.coreItem[key].type].image})`;
+
+    const label = document.createElement('span');
+
+    label.textContent = IUniversal.coreItem[key].key
+    label.style.pointerEvents = 'none';
+    div.appendChild(label);
+
+    var stringKey = `'${key}'`
+
+    draggableSet(div, `IUniversal.coreItem[${stringKey}]`, `IUniversalIn.coreItem[${stringKey}]`, "coreItem", "potion")
+
+    gridContainer.appendChild(div);
+
+  }
 }
 
 function visualEarthTree() {
@@ -40132,7 +45282,18 @@ function visualEarthTree() {
     unlockShow("content2_21_valutes_valute4", true)
     update("content2_21_valutes_valute4", `<div class="noClick"><div class="noClick">Obsidian</div><div class="boldBlackBorder noClick fontSize09">${format(IUniversal.obsidian, 0)}</div><div class="boldBlackBorder noClick">${format(sec(IUniversal.obsidianProd))}/s</div></div>`)
   }
-
+  if (f(IUniversal.mithril).gt(f(0)) || checkShow("content2_21_valutes_valute5")) {
+    unlockShow("content2_21_valutes_valute5", true)
+    update("content2_21_valutes_valute5", `<div class="noClick"><div class="noClick">Mithril</div><div class="boldBlackBorder noClick fontSize09">${format(IUniversal.mithril, 0)}</div><div class="boldBlackBorder noClick">${format(sec(IUniversal.mithrilProd))}/s</div></div>`)
+  }
+  if (f(IUniversal.celesteDust).gt(f(0)) || checkShow("content2_21_valutes_valute6")) {
+    unlockShow("content2_21_valutes_valute6", true)
+    update("content2_21_valutes_valute6", `<div class="noClick"><div class="noClick">Celeste Dust</div><div class="boldBlackBorder noClick fontSize09">${format(IUniversal.celesteDust, 0)}</div><div class="boldBlackBorder noClick">${format(sec(IUniversal.celesteDustProd))}/s</div></div>`)
+  }
+  if (f(IUniversal.skyDust).gt(f(0)) || checkShow("content2_21_valutes_valute7")) {
+    unlockShow("content2_21_valutes_valute7", true)
+    update("content2_21_valutes_valute7", `<div class="noClick"><div class="noClick">Sky Dust</div><div class="boldBlackBorder noClick fontSize09">${format(IUniversal.skyDust, 0)}</div><div class="boldBlackBorder noClick">${format(sec(IUniversal.skyDustProd))}/s</div></div>`)
+  }
   //armyloadout
 
   for (let x in IUniversal.armyLoadout) {
@@ -40273,6 +45434,10 @@ function visualMetalTree() {
   if (f(IUniversal.metal).gt(f(0)) || checkShow("content2_25_valutes_valute1")) {
     unlockShow("content2_25_valutes_valute1", true)
     update("content2_25_valutes_valute1", `<div class="noClick"><div class="noClick">Metal</div><div class="boldBlackBorder noClick fontSize09">${format(IUniversal.metal, 0)}</div><div class="boldBlackBorder noClick">${format(sec(IUniversal.metalProd))}/s</div></div>`)
+    if(f(IUniversal.divinity).gte(f(0)) || checkShow("content2_25_valutes_valute2")) {
+    unlockShow("content2_25_valutes_valute2", true)
+    update("content2_25_valutes_valute2", `<div class="noClick"><div class="noClick">Divinity</div><div class="boldBlackBorder noClick fontSize09">${format(IUniversal.divinity, 0)}</div><div class="boldBlackBorder noClick">${format(sec(IUniversal.divinityProd))}/s</div></div>`)
+    }
   }
 
   //treasure upgrade
@@ -40294,19 +45459,23 @@ function visualTreasures() {
   updateClass("content2_treasure_upgrade", "TREASURES UPGRADES")
 
   if (IUniversal.showTreasure) {
+    unlockShow("content2_19_treasureSel", true)
     unlockShow("content2_21_treasureSel", true)
     unlockShow("content2_23_treasureSel", true)
     unlockShow("content2_25_treasureSel", true)
 
+    update("content2_19_treasureShow", "HIDE POTIONS")
     update("content2_21_treasureShow", "HIDE TREASURES")
     update("content2_23_treasureShow", "HIDE TREASURES")
     update("content2_25_treasureShow", "HIDE TREASURES")
 
   } else {
+    unlockShow("content2_19_treasureSel", false)
     unlockShow("content2_21_treasureSel", false)
     unlockShow("content2_23_treasureSel", false)
     unlockShow("content2_25_treasureSel", false)
 
+    update("content2_19_treasureShow", "SHOW POTIONS")
     update("content2_21_treasureShow", "SHOW TREASURES")
     update("content2_23_treasureShow", "SHOW TREASURES")
     update("content2_25_treasureShow", "SHOW TREASURES")
@@ -42073,11 +47242,20 @@ function format(number, type, formatType = IPermanentIn.notation["notation" + IP
   return number;
 }
 
-const f = n => (n === n ? new Decimal(n) : undefined);
+const fCache = Array.from({ length: 1001 }, (_, i) => new Decimal(i));
+
+function f(value) {
+  if (value instanceof Decimal) {
+    return value;
+  }
+  if (typeof value === 'number' && value >= 0 && value <= 1000 && value % 1 === 0) {
+    return fCache[value];
+  }
+  return new Decimal(value);
+}
 
 function sec(number) {
-  if (isNaN(number)) {
-
+  if (!(number instanceof Decimal) && isNaN(Number(number))) {
     throw new Error('Il valore passato non è un numero valido.');
   }
 
@@ -42547,13 +47725,11 @@ function loopShow() {
   }
 
 
-  for (var i = 1; i <= Object.keys(IUniversal.fireTree).length; i++) {
+  var totalFireNodes = Object.keys(IUniversal.fireTree).length;
+  for (var i = 1; i <= totalFireNodes; i++) {
     var node = "node" + i;
-    if (IUI.fireTree[node].req() || IU.fireTree[node].unlocked || IU.fireTree[node].active) {
-      unlockShow("content2_17_" + node, true);
-    } else {
-      unlockShow("content2_17_" + node, false);
-    }
+    var isVisible = IUI.fireTree[node].req() || IU.fireTree[node].unlocked || IU.fireTree[node].active;
+    unlockShow("content2_17_" + node, isVisible);
   }
 
   var waterZones = {
@@ -42574,12 +47750,14 @@ function loopShow() {
       if (i === 2) unlockShow("content2_19_circle1", true);
       if (i === 25) unlockShow("content2_19_circle2", true);
       if (i === 29) unlockShow("content2_19_circle3", true);
+      if (i === 41) unlockShow("content2_19_circle4", true);
     } else {
       unlockShow("content2_19_" + node, false);
 
       if (i === 2) unlockShow("content2_19_circle1", false);
       if (i === 25) unlockShow("content2_19_circle2", false);
       if (i === 29) unlockShow("content2_19_circle3", false);
+      if (i === 41) unlockShow("content2_19_circle4", false);
     }
   }
 
@@ -42590,11 +47768,11 @@ function loopShow() {
   var wt = IU.waterTutorial;
   if (wt >= 1) {
     unlockShow("content2_19_potionEquip", true);
-    unlockShow("content2_19_grid1", true);
+    unlockShow("content2_19_treasureGrid", true);
     unlockShow("content2_19_potionDelete", true);
   } else {
     unlockShow("content2_19_potionEquip", false);
-    unlockShow("content2_19_grid1", false);
+    unlockShow("content2_19_treasureGrid", false);
     unlockShow("content2_19_potionDelete", false);
   }
 
@@ -42606,6 +47784,7 @@ function loopShow() {
 
   // Potion upgrade selectors
   unlockShow("content2_19_potionUpgrade_selector_button1", true);
+  unlockShow("content2_19_potionUpgrade_selector_button4", true);
 
   var wn34 = IU.waterTree.node34.unlocked;
   var wn35 = IU.waterTree.node35.unlocked;
@@ -42643,6 +47822,9 @@ function loopShow() {
   var wn10 = IU.waterTree.node10.unlocked;
   var wn14 = IU.waterTree.node14.unlocked;
   var wn18 = IU.waterTree.node18.unlocked;
+  var wn47 = IU.waterTree.node47.unlocked;
+  var wn48 = IU.waterTree.node48.unlocked;
+  var en31 = IU.earthTree.node31.unlocked;
 
   unlockShow("content2_19_potions_potion6", wn10);
   unlockShow("content2_19_potions_potion7", wn10);
@@ -42658,6 +47840,11 @@ function loopShow() {
   unlockShow("content2_19_potions_potion10", wn14);
   unlockShow("content2_19_potions_potion11", wn14);
   unlockShow("content2_19_potionEquip_3", wn14);
+  
+  unlockShow("content2_19_potions_potion15", wn47);
+  unlockShow("content2_19_potions_potion16", en31);
+  unlockShow("content2_19_potions_potion17", wn48);
+  unlockShow("content2_19_potions_potion18", false);
 
   IU.armyInfo.default.golemTypes.type1.active = en5;
   unlockShow("content2_21_army2_army1", en5);
@@ -42665,6 +47852,7 @@ function loopShow() {
 
   var exp6 = IU.expeditions.exp6.level > 0;
   var exp11 = IU.expeditions.exp11.level > 0;
+  var exp23 = IU.expeditions.exp23.level > 0;
 
   IU.armyInfo.default.golemTypes.type2.active = exp6;
   unlockShow("content2_21_army2_army2", exp6);
@@ -42674,14 +47862,23 @@ function loopShow() {
   unlockShow("content2_21_army2_army3", exp11);
   unlockShow("content2_21_armyTreasures_3", exp11);
 
-  IU.armyInfo.default.golemTypes.type4.active = false;
+  IU.armyInfo.default.golemTypes.type3.active = exp11;
+  unlockShow("content2_21_army2_army4", exp23);
+  unlockShow("content2_21_armyTreasures_4", exp23);
+
   IU.armyInfo.default.golemTypes.type5.active = false;
 
   var exp10 = f(IU.expeditions.exp10.level).gte(f(1));
+  var erth35 = IUniversal.earthTree.node35.active
   unlockShow("content2_21_under1_1", exp10);
   unlockShow("content2_21_under1_2", exp10);
   unlockShow("content2_21_under1_3", exp10);
   unlockShow("content2_21_under1_4", exp10);
+
+  unlockShow("content2_21_under2_1", erth35);
+  unlockShow("content2_21_under2_2", erth35);
+  unlockShow("content2_21_under2_3", erth35);
+  unlockShow("content2_21_under2_4", erth35);
 
 
   //LOW FORGE
@@ -42705,7 +47902,7 @@ function loopShow() {
 
   for (var i = 1; i <= Object.keys(IUniversal.ore).length; i++) {
     var node = "item" + i;
-    if (IUI.ore[node].req() || IU.ore[node].unlocked) {
+    if (IUI.mine[node].req() || IU.ore[node].unlocked) {
       unlockShow("content2_21_under1_3_" + node, true);
     } else {
       unlockShow("content2_21_under1_3_" + node, false);
@@ -42735,6 +47932,10 @@ function loopShow() {
         unlockShow("content2_23_spire2", true);
         unlockShow("content2_23_spire2Image", true);
       }
+      if (i === 23) {
+        unlockShow("content2_23_spire3", true);
+        unlockShow("content2_23_spire3Image", true);
+      }
     } else {
       unlockShow("content2_23_" + node, false);
 
@@ -42745,6 +47946,10 @@ function loopShow() {
       if (i === 7) {
         unlockShow("content2_23_spire2", false);
         unlockShow("content2_23_spire2Image", false);
+      }
+      if (i === 23) {
+        unlockShow("content2_23_spire3", false);
+        unlockShow("content2_23_spire3Image", false);
       }
     }
   }
@@ -43127,6 +48332,11 @@ function fireLines() {
     ["fireLine117", "content2_17_node40", "content2_17_node163"],
     ["fireLine118", "content2_17_node163", "content2_17_node164"],
     ["fireLine119", "content2_17_node141", "content2_17_node143"],
+    ["fireLine120", "content2_17_node165", "content2_17_node168"],
+    ["fireLine121", "content2_17_node165", "content2_17_node166"],
+    ["fireLine122", "content2_17_node166", "content2_17_node167"],
+    ["fireLine123", "content2_17_node168", "content2_17_node169"],
+    ["fireLine124", "content2_17_node169", "content2_17_node170"],
   ];
 
   drawLines("content2_17_lineLayer", "content2_17_node", connections, "#ff1313ff");
@@ -43178,7 +48388,10 @@ function waterLines() {
     ["waterLine42", "content2_19_node24", "content2_19_node36"],
     ["waterLine43", "content2_19_node28", "content2_19_node37"],
     ["waterLine44", "content2_19_node28", "content2_19_node38"],
-    ["waterLine45", "content2_19_node38", "content2_19_node39"]
+    ["waterLine45", "content2_19_node38", "content2_19_node39"],
+    ["waterLine46", "content2_19_node42", "content2_19_node45"],
+    ["waterLine47", "content2_19_node42", "content2_19_node46"],
+    ["waterLine48", "content2_19_node43", "content2_19_node44"],
   ];
   drawLines("content2_19_lineLayer", "content2_19_node", connections, "#1313ffff");
 }
@@ -43195,7 +48408,27 @@ function earthLines() {
     ["earthLine8", "content2_21_node6", "content2_21_node8"],
     ["earthLine9", "content2_21_node9", "content2_21_node11"],
     ["earthLine10", "content2_21_node10", "content2_21_node12"],
-    ["earthLine11", "content2_21_node10", "content2_21_node9"]
+    ["earthLine11", "content2_21_node10", "content2_21_node9"],
+    ["earthLine12", "content2_21_node13", "content2_21_node14"],
+    ["earthLine13", "content2_21_node14", "content2_21_node15"],
+    ["earthLine14", "content2_21_node15", "content2_21_node16"],
+    ["earthLine15", "content2_21_node13", "content2_21_node32"],
+    ["earthLine16", "content2_21_node14", "content2_21_node33"],
+    ["earthLine17", "content2_21_node15", "content2_21_node34"],
+    ["earthLine18", "content2_21_node17", "content2_21_node35"],
+    ["earthLine19", "content2_21_node17", "content2_21_node18"],
+    ["earthLine20", "content2_21_node18", "content2_21_node19"],
+    ["earthLine21", "content2_21_node18", "content2_21_node20"],
+    ["earthLine22", "content2_21_node30", "content2_21_node31"],
+    ["earthLine23", "content2_21_node27", "content2_21_node29"],
+    ["earthLine24", "content2_21_node25", "content2_21_node26"],
+    ["earthLine25", "content2_21_node29", "content2_21_node28"],
+    ["earthLine26", "content2_21_node26", "content2_21_node28"],
+    ["earthLine27", "content2_21_node21", "content2_21_node22"],
+    ["earthLine28", "content2_21_node21", "content2_21_node23"],
+    ["earthLine29", "content2_21_node22", "content2_21_node24"],
+    ["earthLine30", "content2_21_node23", "content2_21_node24"],
+    
   ];
   drawLines("content2_21_lineLayer", "content2_21_node", connections, "#b94a00ff");
 }
@@ -43224,6 +48457,7 @@ function windLines() {
     ["windLine20", "content2_23_node12", "content2_23_node20"],
     ["windLine21", "content2_23_node18", "content2_23_node21"],
     ["windLine22", "content2_23_node21", "content2_23_node22"],
+    ["windLine23", "content2_23_node9", "content2_23_node23"],
   ];
   drawLines("content2_23_lineLayer", "content2_23_node", connections, "#07c4b4ff");
 }
@@ -43276,7 +48510,7 @@ function changePage(type, page) {
 
   if (type === "potionUpgrades") {
     hideElements([
-      "content2_19_potionUpgrade_selector_content1", "content2_19_potionUpgrade_selector_content2", "content2_19_potionUpgrade_selector_content3",
+      "content2_19_potionUpgrade_selector_content1", "content2_19_potionUpgrade_selector_content2", "content2_19_potionUpgrade_selector_content3","content2_19_potionUpgrade_selector_content4"
     ]);
 
     unlockShow(page, true)
@@ -43383,13 +48617,11 @@ async function visualLoopFunction() {
     visualInventoryMetal()
   }
 
-  if (checkShow("content2_21") || checkShow("content2_23") || checkShow("content2_25")) {
+  if (checkShow("content2_19") || checkShow("content2_21") || checkShow("content2_23") || checkShow("content2_25")) {
     visualTreasures()
   }
 
   visualLore()
-
-
 }
 
 function svgLoad() {
@@ -43654,6 +48886,9 @@ var noSincLoop3 = window.setInterval(function () {
 
 function idleTimeChecker() {
 
+  if(TickloadingSave) return
+  if(loadingSave) TickloadingSave = true;
+
   if (IGameData.lastTick != null) {
     var diff = Date.now() - IGameData.lastTick
   } else {
@@ -43664,6 +48899,7 @@ function idleTimeChecker() {
 
   if (diffSec > IGameData.offProgressLimit) {
     diffSec = IGameData.offProgressLimit;
+    
   }
   if (diffSec < 2) {
     diffSec = 1;
@@ -43843,7 +49079,7 @@ function removeElement(key) {
 function addElement(type, key) {
 
   if (type == "void") {
-    const gridContainer = document.getElementById("content2_19_grid1");
+    const gridContainer = document.getElementById("content2_19_treasureGrid");
     const styles = getComputedStyle(gridContainer);
 
     const numColumns = styles.gridTemplateColumns.trim().split(/\s+/).length;
@@ -43887,7 +49123,7 @@ function addElement(type, key) {
       }
     }
 
-    const gridContainer = document.getElementById("content2_19_grid1");
+    const gridContainer = document.getElementById("content2_19_treasureGrid");
     const styles = getComputedStyle(gridContainer);
 
     const numColumns = styles.gridTemplateColumns.trim().split(/\s+/).length;
@@ -44174,14 +49410,10 @@ function addElement(type, key) {
   return false;
 }
 
-function waterTutorial(number) {
-  if (f(number).gt(f(IUniversal.waterTutorial))) {
-    IUniversal.waterTutorial = number
-  }
-}
-
 function craft(type, object) {
-  waterTutorial(1)
+
+  potionInfoStatic()
+
   if (type == "potion") {
 
     var sel = IUniversalIn.potionInfo[object]
@@ -44222,6 +49454,13 @@ function craft(type, object) {
 }
 
 function potionInfoStatic() {
+
+  const effectsMap = {};
+  for (let key in IUniversalIn.potionEffects) {
+    let eff = IUniversalIn.potionEffects[key];
+    effectsMap[eff.type] = eff;
+  }
+
   for (let x in IUniversalIn.potionInfo) {
     var sel = IUniversalIn.potionInfo[x]
 
@@ -44229,22 +49468,15 @@ function potionInfoStatic() {
 
     sel.maxLevel = f(10).add(f(sel.merges).mul(f(5)))
 
-    var selName = sel.name;
     //price
     for (let Obj in sel.prices) {
-      if (sel) {
-        if (sel.prices) {
-
-          var selPrice = sel.prices[Obj]
-
-          selPrice.price = selPrice.priceFormula(selPrice.tier, sel.level, sel.merges);
-        }
+      if (sel && sel.prices && sel.prices[Obj]) {
+        var selPrice = sel.prices[Obj];
+        selPrice.price = selPrice.priceFormula(selPrice.tier, sel.level, sel.merges);
       }
     }
 
     //priceText
-    var priceText = "";
-
     var priceText = "<div class='price-grid'>";
 
     for (let Obj in sel.prices) {
@@ -44259,6 +49491,9 @@ function potionInfoStatic() {
       if (priceIdentity == "fluidFire") { priId = "Fluid Fire" }
       if (priceIdentity == "waterGem") { priId = "Water Gem" }
       if (priceIdentity == "pyroFrost") { priId = "Pyrofrost" }
+      if (priceIdentity == "celesteDust") { priId = "Celeste Dust" }
+      if (priceIdentity == "skyDust") { priId = "Sky Dust" }
+      if (priceIdentity == "massaConfusa") { priId = "Massa Confusa" }
 
 
       if (f(priceValue).gt(f(0))) {
@@ -44272,29 +49507,24 @@ function potionInfoStatic() {
     //effectsText
     for (let Obj in sel.effects) {
       var sel3 = sel.effects[Obj]
-      var type = sel3.type;
 
-      let found = null;
-
-      for (let key in IUniversalIn.potionEffects) {
-        if (IUniversalIn.potionEffects[key].type == type) {
-          found = IUniversalIn.potionEffects[key];
-          break;
-        }
-      }
+      let found = effectsMap[sel3.type];
 
       if (found) {
-        effectText += `<div>Tier ${sel3.level}/${sel3.maxLevel}</div>
-                       <div>${found.contentFormula()}</div>`;
+        effectText += `<div class="tier-block" style="margin-bottom: 10%;">
+                   <div>Tier ${sel3.level}/${sel3.maxLevel}</div>
+                   <div>${found.contentFormula()}</div>
+                 </div>`;
       }
+
     }
 
     sel.content2 = `
   <div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
     <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
       <div class=" absolute padding2 center fontSize09">${sel.name}</div>
-      <div class=" left absolute padding2 grey centerTop">${sel.level}/${sel.maxLevel}</div>
-      <div class=" right absolute padding2 grey centerTop">T${sel.merges}</div>
+      <div class=" left absolute padding2 grey centerTop fontSize09">${sel.level}/${sel.maxLevel}</div>
+      <div class=" right absolute padding2 grey centerTop fontSize09">T${sel.merges}</div>
     </div>
     <div class="height50 width100 row ">
       <div class="height100 square backgroundImage" style="background-image: url('${sel.image}');">
@@ -44302,7 +49532,7 @@ function potionInfoStatic() {
       <div class="height100 width100 fontSize08 columns margin1 overflowY">${effectText}</div>
     </div>
     
-    <div class="height30 width100 column roundedEdges">${priceText}</div>
+    <div class="height30 width100 column roundedEdges fontSize08">${priceText}</div>
   </div>
 `;
 
@@ -44311,23 +49541,20 @@ function potionInfoStatic() {
 }
 
 function potionEquipmentStatic() {
+  // EQUIPMENT
   for (let x in IUniversal.equipment) {
     var sel = IUniversal.equipment[x]
     var selIn = IUniversalIn.equipment[x]
 
     var selId = sel.key
-    var selInId = selIn.key
-
     var effectText = ""
 
     if (selId != null) {
-
       var potion = IUniversal.inventoryStorage[selId]
 
       for (let Obj in potion.effects) {
         var sel3 = potion.effects[Obj]
         var type = sel3.type;
-
         let found = null;
 
         for (let key in IUniversalIn.potionEffects) {
@@ -44346,10 +49573,44 @@ function potionEquipmentStatic() {
           <div>&nbsp;</div>`;
         }
       }
-
     }
     selIn.content = `<div>${effectText}</div>`
+  }
 
+  // CORE ITEM
+  for (let x in IUniversal.coreItem) {
+    var sel = IUniversal.coreItem[x]
+    var selIn = IUniversalIn.coreItem[x]
+
+    if(selIn.contentType == "static") continue
+
+    var selId = sel.key
+    var effectText = ""
+
+    if (selId != null) {
+      var potion = IUniversal.inventoryStorage[selId]
+
+      for (let Obj in potion.effects) {
+        var sel3 = potion.effects[Obj]
+        var type = sel3.type;
+        let found = null;
+
+        for (let key in IUniversalIn.potionEffects) {
+          if (IUniversalIn.potionEffects[key].type == type) {
+            sel3.value = IUniversalIn.potionEffects[key].valueFormula(potion.level, sel3.level)
+            sel3.contentFormula = IUniversalIn.potionEffects[key].contentFormula
+
+            found = IUniversalIn.potionEffects[key];
+            break;
+          }
+        }
+
+        if (found) {
+          effectText += `<div class="padding2">${sel3.contentFormula()}</div>`;
+        }
+      }
+    }
+    selIn.content = `<div>${effectText}</div>`
   }
 }
 
@@ -44359,12 +49620,13 @@ function potionSetterInit() {
     var sel = IUniversal.inventoryStorage[x];
     var sel2 = IUniversalIn.inventoryStorage[x];
 
+    if(sel == undefined || sel2 == undefined) return
 
     var equipStatus = returnPotionEquipStatus(x)
 
     sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
-                      <div class="topLeft absolute padding2 grey">${sel.level}/${sel2.maxLevel}</div>
-                      <div class="topRight absolute padding2 grey">T${sel.merges}</div>
+                      <div class="topLeft absolute padding2 grey fontSize09">${sel.level}/${sel2.maxLevel}</div>
+                      <div class="topRight absolute padding2 grey fontSize09">T${sel.merges}</div>
                       ${equipStatus}
                     </div>`;
 
@@ -44396,6 +49658,9 @@ function potionSetterInit() {
           if (priceIdentity == "fluidFire") { priId = "Fluid Fire" }
           if (priceIdentity == "waterGem") { priId = "Water Gem" }
           if (priceIdentity == "pyroFrost") { priId = "Pyrofrost" }
+          if (priceIdentity == "celesteDust") { priId = "Celeste Dust" }
+          if (priceIdentity == "skyDust") { priId = "Sky Dust" }
+          if (priceIdentity == "massaConfusa") { priId = "Massa Confusa" }
 
           if (f(priceValue).gt(f(0))) {
             priceText += `<div class="${c} price-item roundedEdges"><span class="boldBlackBorder">${format(f(priceValue), 0)}</span> ${priId}</div>`;
@@ -44424,8 +49689,10 @@ function potionSetterInit() {
       }
 
       if (found) {
-        effectText += `<div>Tier ${sel4.level}/${sel4.maxLevel}</div>
-      <div>${sel4.contentFormula()}</div>`;
+        effectText += `<div class="tier-block" style="margin-bottom: 5%;">
+                   <div>Tier ${sel4.level}/${sel4.maxLevel}</div>
+                   <div>${sel4.contentFormula()}</div>
+                 </div>`;
       }
     }
 
@@ -44433,8 +49700,8 @@ function potionSetterInit() {
   <div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
     <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
       <div class=" absolute padding2 center">${sel2.name}</div>
-      <div class=" left absolute padding2 grey centerTop">${sel.level}/${sel2.maxLevel}</div>
-      <div class=" right absolute padding2 grey centerTop">T${sel.merges}</div>
+      <div class=" left absolute padding2 grey centerTop fontSize09">${sel.level}/${sel2.maxLevel}</div>
+      <div class=" right absolute padding2 grey centerTop fontSize09">T${sel.merges}</div>
     </div>
     <div class="height50 width100 row ">
       <div class="height100 square backgroundImage" style="background-image: url('${sel2.image}');">
@@ -44442,7 +49709,7 @@ function potionSetterInit() {
       <div class="height100 width100 fontSize08 columns margin1 overflowY">${effectText}</div>
     </div>
     
-    <div class="height30 width100 column roundedEdges">${priceText}</div>
+    <div class="height30 width100 column roundedEdges fontSize08">${priceText}</div>
   </div>
 `;
 
@@ -44516,6 +49783,9 @@ function potionSetter() {
           if (priceIdentity == "fluidFire") { priId = "Fluid Fire" }
           if (priceIdentity == "waterGem") { priId = "Water Gem" }
           if (priceIdentity == "pyroFrost") { priId = "Pyrofrost" }
+          if (priceIdentity == "celesteDust") { priId = "Celeste Dust" }
+          if (priceIdentity == "skyDust") { priId = "Sky Dust" }
+          if (priceIdentity == "massaConfusa") { priId = "Massa Confusa" }
 
           if (f(priceValue).gt(f(0))) {
             priceText += `<div class="${c} price-item roundedEdges"><span class="boldBlackBorder">${format(f(priceValue), 0)}</span> ${priId}</div>`;
@@ -44546,16 +49816,18 @@ function potionSetter() {
       }
 
       if (found) {
-        effectText += `<div>Tier ${sel4.level}/${sel4.maxLevel}</div>
-                       <div>${sel4.contentFormula()}</div>`;
+        effectText += `<div class="tier-block" style="margin-bottom: 5%;">
+                   <div>Tier ${sel4.level}/${sel4.maxLevel}</div>
+                   <div>${sel4.contentFormula()}</div>
+                 </div>`;
       }
     }
 
     var equipStatus = returnPotionEquipStatus(x)
 
     sel2.content = `<div class="relative height100 width100 backgroundTransparent backgroundImage margin2 noClick" style="background-image: url('${sel2.image}')">
-                      <div class="topLeft absolute padding2 grey">${sel.level}/${sel2.maxLevel}</div>
-                      <div class="topRight absolute padding2 grey">T${sel.merges}</div>
+                      <div class="topLeft absolute padding2 grey fontSize09">${sel.level}/${sel2.maxLevel}</div>
+                      <div class="topRight absolute padding2 grey fontSize09">T${sel.merges}</div>
                       ${equipStatus}
                     </div>`;
 
@@ -44563,8 +49835,8 @@ function potionSetter() {
   <div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
     <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
       <div class=" absolute padding2 center">${sel2.name}</div>
-      <div class=" left absolute padding2 grey centerTop">${sel.level}/${sel2.maxLevel}</div>
-      <div class=" right absolute padding2 grey centerTop">T${sel.merges}</div>
+      <div class=" left absolute padding2 grey centerTop fontSize09">${sel.level}/${sel2.maxLevel}</div>
+      <div class=" right absolute padding2 grey centerTop fontSize09">T${sel.merges}</div>
     </div>
     <div class="height50 width100 row ">
       <div class="height100 square backgroundImage" style="background-image: url('${sel2.image}');">
@@ -44572,7 +49844,7 @@ function potionSetter() {
       <div class="height100 width100 fontSize08 columns margin1 overflowY">${effectText}</div>
     </div>
     
-    <div class="height30 width100 column roundedEdges">${priceText}</div>
+    <div class="height30 width100 column roundedEdges fontSize08">${priceText}</div>
   </div>
 `;
   }
@@ -44598,6 +49870,50 @@ function deepClone(obj, hash = new WeakMap()) {
 function potionUpgrade() {
   var potion1 = IUniversal.inventoryStorage[IUniversal.potionUpgrade.item1.key]
   var potion1In = IUniversalIn.inventoryStorage[IUniversal.potionUpgrade.item1.key]
+
+  //reset new potion level
+
+  if (potion1) {
+
+    var newPotion = deepClone(potion1);
+
+    var newPotionIn = deepClone(potion1In);
+
+    newPotion.level = f(potion1.level).add(f(1))
+
+    newPotion.maxLevel = f(10).add(f(f(newPotion.merges)).mul(f(5)))
+
+    //price
+
+    if (newPotionIn) {
+      for (let Obj in newPotionIn.prices) {
+
+        var selPrice = newPotionIn.prices[Obj]
+        if (newPotion.prices) {
+          var selPrice2 = newPotion.prices[Obj]
+        } else {
+          selPrice2 = selPrice
+        }
+
+        selPrice.price = selPrice.priceFormula(selPrice2.tier, newPotion.level, newPotion.merges);
+      }
+    }
+
+    return {
+      newPotion: newPotion,
+      newPotionIn: newPotionIn
+    };
+  } else {
+    return {
+      newPotion: null,
+      newPotionIn: null
+    };
+  }
+}
+
+function potionAutoUpgrade() {
+  var potion1 = IUniversal.inventoryStorage[IUniversal.potionAutoUpgrade.item1.key]
+  var potion1In = IUniversalIn.inventoryStorage[IUniversal.potionAutoUpgrade.item1.key]
 
   //reset new potion level
 
@@ -44797,6 +50113,9 @@ function potionVisual(element, elementIn) {
     if (priceIdentity == "fluidFire") { priId = "Fluid Fire" }
     if (priceIdentity == "waterGem") { priId = "Water Gem" }
     if (priceIdentity == "pyroFrost") { priId = "Pyrofrost" }
+    if (priceIdentity == "celesteDust") { priId = "Celeste Dust" }
+    if (priceIdentity == "skyDust") { priId = "Sky Dust" }
+    if (priceIdentity == "massaConfusa") { priId = "Massa Confusa" }
 
     if (f(selPrice2.price).gt(f(0))) {
       priceText += `<div class="${c} price-item roundedEdges"><span class="boldBlackBorder">${format(f(selPrice2.price), 0)}</span> ${priId}</div>`;
@@ -44823,8 +50142,10 @@ function potionVisual(element, elementIn) {
     }
 
     if (found) {
-      effectText += `<div>Tier ${sel4.level}/${sel4.maxLevel}</div>
-      <div>${sel4.contentFormula()}</div>`;
+      effectText += `<div class="tier-block" style="margin-bottom: 5%;">
+                   <div>Tier ${sel4.level}/${sel4.maxLevel}</div>
+                   <div>${sel4.contentFormula()}</div>
+                 </div>`;
     }
   }
 
@@ -44832,8 +50153,8 @@ function potionVisual(element, elementIn) {
   <div class="relative height100 width100 bDefaultButtonSkin roundedEdges backgroundBlue1 ">
     <div class="backgroundBlue2 height20 width100 roundedEdges backgroundBlue2 relative">
       <div class=" absolute padding2 center">${selIn.name}</div>
-      <div class=" left absolute padding2 grey centerTop">${sel.level}/${sel.maxLevel}</div>
-      <div class=" right absolute padding2 grey centerTop">T${sel.merges}</div>
+      <div class=" left absolute padding2 grey centerTop fontSize09">${sel.level}/${sel.maxLevel}</div>
+      <div class=" right absolute padding2 grey centerTop fontSize09">T${sel.merges}</div>
     </div>
     <div class="height50 width100 row ">
       <div class="height100 square backgroundImage" style="background-image: url('${selIn.image}');">
@@ -44841,7 +50162,7 @@ function potionVisual(element, elementIn) {
       <div class="height100 width100 fontSize08 columns margin1 overflowY">${effectText}</div>
     </div>
     
-    <div class="height30 width100 column roundedEdges">${priceText}</div>
+    <div class="height30 width100 column roundedEdges fontSize08">${priceText}</div>
   </div>
 `;
 
@@ -44851,7 +50172,7 @@ function potionVisual(element, elementIn) {
                           <div class="height100 width60 fontSize08 centerDivColumns ">${effectText}</div>
                         </div>
                         <div class=" line"></div>
-                        <div class=" height50 width100 column">${priceText}</div>
+                        <div class=" height50 width100 column fontSize08">${priceText}</div>
 
                       </div>`;
 
@@ -45432,6 +50753,54 @@ function draggableSet(item, key, keyIn, type, archetype) {
     }
   }
 
+  if (type == "coreItem") {
+    item.addEventListener("drop", function (e) {
+      e.preventDefault();
+
+      var dragged = e.dataTransfer.getData("text/plain");
+      var target = key;
+      var targetIn = keyIn;
+
+      var draggedKeyString = dragged + ".key"
+      var targetKeyString = target + ".key"
+
+      var draggedDrag = eval(dragged + ".drag")
+      var targetDrag = eval(targetIn + ".drag")
+
+      var draggedKey = eval(dragged).key;
+      var targetKey = eval(target).key;
+
+      if (!(IUniversalIn.inventoryStorage[draggedKey].type == eval(targetIn).type)) {
+        return
+      }
+
+      if (draggedDrag == "equipment") {
+        return
+      }
+
+      if (draggedKey == null || draggedKey == undefined) {
+        eval(`${draggedKeyString} = '${draggedKey}'`);
+        eval(`${targetKeyString} = '${draggedKey}'`);
+      } else if (targetKey == null || targetKey == undefined) {
+        eval(`${targetKeyString} = '${draggedKey}'`);
+        eval(`${draggedKeyString} = '${draggedKey}'`);
+      } else {
+        eval(`${targetKeyString} = '${draggedKey}'`);
+        eval(`${draggedKeyString} = '${draggedKey}'`);
+
+      }
+
+
+    });
+
+    item.addEventListener("click", function (e) {
+      e.preventDefault();
+      var selectedKey = eval(key).key;
+
+      IUniversal.selPotion = selectedKey || null;
+    });
+  }
+
   if (type == "default") {
     item.addEventListener("drop", function (e) {
       e.preventDefault();
@@ -45494,6 +50863,15 @@ function deletePotion(element) {
   //upgrade
   for (let x in IUniversal.potionUpgrade) {
     var sel = IUniversal.potionUpgrade[x]
+
+    if (sel.key == element) {
+      sel.key = null
+    }
+  }
+
+  //auto upgrade
+  for (let x in IUniversal.potionAutoUpgrade) {
+    var sel = IUniversal.potionAutoUpgrade[x]
 
     if (sel.key == element) {
       sel.key = null
@@ -45697,6 +51075,28 @@ function automation() {
 
   }
 
+  //WATER
+
+  
+
+//Auto Upgrade
+
+  const { newPotion, newPotionIn } = potionAutoUpgrade();
+
+  potionInfoStatic()
+  potionSetter()
+
+  if (IUniversal.potionAutoUpgrade.item1.key) {
+    if (f(newPotion.level).lte(f(newPotionIn.maxLevel))) {
+      if (checkBuyMultiValutes(IUniversalIn.inventoryStorage[IUniversal.potionAutoUpgrade.item1.key].prices)) {
+        if (buyMultiValutes(IUniversalIn.inventoryStorage[IUniversal.potionAutoUpgrade.item1.key].prices, "UniNoUpdate")) {
+          IUniversal.inventoryStorage[IUniversal.potionAutoUpgrade.item1.key] = newPotion
+          IUniversalIn.inventoryStorage[IUniversal.potionAutoUpgrade.item1.key] = newPotionIn
+        }
+      }
+    }
+  }
+
 }
 
 var arrowCache = null;
@@ -45866,32 +51266,32 @@ function enableDragScroll(containerId, enabled = true) {
 }
 
 function getTreasureActive(key) {
-  var check = false;
-  const treasureIn = IUniversalIn.treasures[key];
-  if (!treasureIn) return false;
+  if (!IUniversal.treasures[key]) return false;
 
-  const groups = [
-    [IUniversal.treasureFormation, IUniversalIn.treasureFormation],
-    [IUniversal.treasureArmy, IUniversalIn.treasureArmy],
-    [IUniversal.treasureEquipment, IUniversalIn.treasureEquipment],
-    [IUniversal.treasureAugments, IUniversalIn.treasureAugments]
-  ];
+  const now = Date.now();
+  if (!getTreasureActive.cache || !getTreasureActive.lastUpdate || now - getTreasureActive.lastUpdate > 100) {
+    getTreasureActive.cache = Object.create(null);
+    getTreasureActive.lastUpdate = now;
 
-  for (const [group, groupIn] of groups) {
-    for (const x in group) {
-      const sel = group[x];
-      const selIn = groupIn[x];
-
-      if (selIn?.type === treasureIn.type) {
-
-        if (sel.key === key) {
-          return true;
-        }
-      }
+    for (const x in IUniversal.treasureFormation) {
+      const k = IUniversal.treasureFormation[x].key;
+      if (k) getTreasureActive.cache[k] = true;
+    }
+    for (const x in IUniversal.treasureArmy) {
+      const k = IUniversal.treasureArmy[x].key;
+      if (k) getTreasureActive.cache[k] = true;
+    }
+    for (const x in IUniversal.treasureEquipment) {
+      const k = IUniversal.treasureEquipment[x].key;
+      if (k) getTreasureActive.cache[k] = true;
+    }
+    for (const x in IUniversal.treasureAugments) {
+      const k = IUniversal.treasureAugments[x].key;
+      if (k) getTreasureActive.cache[k] = true;
     }
   }
 
-  return false;
+  return !!getTreasureActive.cache[key];
 }
 
 function toClock(seconds) {
@@ -45950,3 +51350,15 @@ buttons.forEach(button => {
     visualLoopFunction()
   });
 });
+
+function cleanDOM() {
+  document.querySelectorAll('.behindSvg, .frontSvg').forEach(el => el.remove());
+  
+  const dynamicContainers = ["svgUn", "containUn", "gearUn", "svgAnimationContainer", "svgAnimationContainer2"];
+  dynamicContainers.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = "";
+  });
+
+  resetSpheresCache(); 
+}
