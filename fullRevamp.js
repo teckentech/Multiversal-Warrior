@@ -44189,8 +44189,8 @@ function visualInventoryWater() {
 
   var styles = getComputedStyle(gridContainer);
 
-  var numColumns = styles.gridTemplateColumns.trim().split(/\s+/).length;
-  var numRows = styles.gridTemplateRows.trim().split(/\s+/).length;
+  var numColumns = 8
+  var numRows = 20
 
   for (let y = 1; y <= numRows; y++) {
     for (let x = 1; x <= numColumns; x++) {
@@ -44258,8 +44258,8 @@ function visualInventoryEarth() {
 
   var styles = getComputedStyle(gridContainer);
 
-  var numColumns = styles.gridTemplateColumns.trim().split(/\s+/).length;
-  var numRows = styles.gridTemplateRows.trim().split(/\s+/).length;
+  var numColumns = 8
+  var numRows = 20
 
   for (let y = 1; y <= numRows; y++) {
     for (let x = 1; x <= numColumns; x++) {
@@ -44304,8 +44304,8 @@ function visualInventoryWind() {
 
   var styles = getComputedStyle(gridContainer);
 
-  var numColumns = styles.gridTemplateColumns.trim().split(/\s+/).length;
-  var numRows = styles.gridTemplateRows.trim().split(/\s+/).length;
+  var numColumns = 8
+  var numRows = 20
 
   for (let y = 1; y <= numRows; y++) {
     for (let x = 1; x <= numColumns; x++) {
@@ -44342,8 +44342,8 @@ function visualInventoryMetal() {
 
   var styles = getComputedStyle(gridContainer);
 
-  var numColumns = styles.gridTemplateColumns.trim().split(/\s+/).length;
-  var numRows = styles.gridTemplateRows.trim().split(/\s+/).length;
+  var numColumns = 8
+  var numRows = 20
 
   for (let y = 1; y <= numRows; y++) {
     for (let x = 1; x <= numColumns; x++) {
@@ -49082,8 +49082,8 @@ function addElement(type, key) {
     const gridContainer = document.getElementById("content2_19_treasureGrid");
     const styles = getComputedStyle(gridContainer);
 
-    const numColumns = styles.gridTemplateColumns.trim().split(/\s+/).length;
-    const numRows = styles.gridTemplateRows.trim().split(/\s+/).length;
+    const numColumns = 8
+    const numRows = 20
 
     const children = Array.from(gridContainer.children);
 
@@ -49126,8 +49126,9 @@ function addElement(type, key) {
     const gridContainer = document.getElementById("content2_19_treasureGrid");
     const styles = getComputedStyle(gridContainer);
 
-    const numColumns = styles.gridTemplateColumns.trim().split(/\s+/).length;
-    const numRows = styles.gridTemplateRows.trim().split(/\s+/).length;
+
+    const numColumns = 8
+    const numRows = 20
 
     const children = Array.from(gridContainer.children);
 
@@ -49164,8 +49165,8 @@ function addElement(type, key) {
     const gridContainer = document.getElementById("content2_21_treasureGrid");
     const styles = getComputedStyle(gridContainer);
 
-    const numColumns = styles.gridTemplateColumns.trim().split(/\s+/).length;
-    const numRows = styles.gridTemplateRows.trim().split(/\s+/).length;
+    const numColumns = 8
+    const numRows = 20
 
     const children = Array.from(gridContainer.children);
 
@@ -49199,8 +49200,8 @@ function addElement(type, key) {
     const gridContainer = document.getElementById("content2_23_treasureGrid");
     const styles = getComputedStyle(gridContainer);
 
-    const numColumns = styles.gridTemplateColumns.trim().split(/\s+/).length;
-    const numRows = styles.gridTemplateRows.trim().split(/\s+/).length;
+    const numColumns = 8
+    const numRows = 20
 
     const children = Array.from(gridContainer.children);
 
@@ -49234,8 +49235,8 @@ function addElement(type, key) {
     const gridContainer = document.getElementById("content2_25_treasureGrid");
     const styles = getComputedStyle(gridContainer);
 
-    const numColumns = styles.gridTemplateColumns.trim().split(/\s+/).length;
-    const numRows = styles.gridTemplateRows.trim().split(/\s+/).length;
+    const numColumns = 8
+    const numRows = 20
 
     const children = Array.from(gridContainer.children);
 
@@ -49278,8 +49279,8 @@ function addElement(type, key) {
     const gridContainer = document.getElementById("content2_21_treasureGrid");
     const styles = getComputedStyle(gridContainer);
 
-    const numColumns = styles.gridTemplateColumns.trim().split(/\s+/).length;
-    const numRows = styles.gridTemplateRows.trim().split(/\s+/).length;
+    const numColumns = 8
+    const numRows = 20
 
 
     const children = Array.from(gridContainer.children);
@@ -49325,8 +49326,8 @@ function addElement(type, key) {
     const gridContainer = document.getElementById("content2_23_treasureGrid");
     const styles = getComputedStyle(gridContainer);
 
-    const numColumns = styles.gridTemplateColumns.trim().split(/\s+/).length;
-    const numRows = styles.gridTemplateRows.trim().split(/\s+/).length;
+    const numColumns = 8
+    const numRows = 20
 
 
     const children = Array.from(gridContainer.children);
@@ -49372,8 +49373,8 @@ function addElement(type, key) {
     const gridContainer = document.getElementById("content2_25_treasureGrid");
     const styles = getComputedStyle(gridContainer);
 
-    const numColumns = styles.gridTemplateColumns.trim().split(/\s+/).length;
-    const numRows = styles.gridTemplateRows.trim().split(/\s+/).length;
+    const numColumns = 8
+    const numRows = 20
 
 
     const children = Array.from(gridContainer.children);
@@ -49424,7 +49425,6 @@ function craft(type, object) {
   potionInfoStatic()
 
   if (type == "potion") {
-
     var sel = IUniversalIn.potionInfo[object]
 
     let i = 1;
@@ -49457,8 +49457,9 @@ function craft(type, object) {
       prices: sel.prices,
       image: sel.image,
     };
-
+    
     addElement("potion", keyName)
+    
   }
 }
 
