@@ -49410,8 +49410,17 @@ function addElement(type, key) {
   return false;
 }
 
+function waterTutorial(n) {
+  if(n > IUniversal.waterTutorial){
+    IUniversal.waterTutorial = n
+  }
+  
+}
+
 function craft(type, object) {
 
+  
+  waterTutorial(1)
   potionInfoStatic()
 
   if (type == "potion") {
