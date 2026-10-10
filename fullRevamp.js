@@ -37290,8 +37290,6 @@ function valuesSetterDinamic(type) {
     intent4 = f(1)
   }  
 
-  console.log(intent1, intent2, intent3, intent4)
-
   IUniversal.intentProdBase = (f(intent1).mul(intent2).mul(intent3).mul(intent4)).mul(f(IGameData.baseTickSpeed))
   IUniversal.intentProd = (f(intent1).mul(intent2).mul(intent3).mul(intent4)).mul(f(IGameData.tickSpeed))
 
