@@ -37283,7 +37283,7 @@ function valuesSetterDinamic(type) {
   var intent2 = f(IUniversalIn.fireTree.node170.effect)
   var intent3 = f(IUniversalIn.waterTree.node43.effect2)
 
-    if (IUniversalIn.potionEffects.effect20.activeValue) {
+    if (f(IUniversalIn.potionEffects.effect20.activeValue).gt(f(0))) {
     var intent4 = f(IUniversalIn.potionEffects.effect20.activeValue);
   }
   else {
