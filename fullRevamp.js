@@ -14324,22 +14324,6 @@ function valuesSetterInit(type) {
       selT.expectedRewards.treasure36.level = f(selT.expectedRewards.treasure36.level).add(f(1));
       return
     }
-    if (f(exp.level).eq(f(1))) {
-      selT.expectedRewards.treasure36.level = f(selT.expectedRewards.treasure36.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(2))) {
-      selT.expectedRewards.treasure36.level = f(selT.expectedRewards.treasure36.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(3))) {
-      selT.expectedRewards.treasure36.level = f(selT.expectedRewards.treasure36.level).add(f(1));
-      return
-    }
-    if (f(exp.level).eq(f(4))) {
-      selT.expectedRewards.treasure36.level = f(selT.expectedRewards.treasure36.level).add(f(1));
-      return
-    }
 
     if (f(number).lt(f(sel.length))) {
       const pick = Math.floor(Math.random() * sel.length);
@@ -21848,7 +21832,6 @@ function valuesSetterCycle(type) {
                   <div class="topRight absolute padding2 grey">23</div>
                   <div class="column width100 height50 top20 absolute">
                     <div class="width100 boldBlackBorder height20">Unlock SUPPORT GOLEMS</div>
-                    <div class="width100 height30">${autom}</div>
                     <div class="width100 height50 centerDiv">Claim ${getExpectedTreasures("single", IUniversal.expeditions.exp23.rewards.expectedRewards)} Treasures</div>
                   </div>
                   </div>
@@ -23147,7 +23130,7 @@ function valuesSetterCycle(type) {
     <div class="height50 width100 row ">
       <div class="height100 square backgroundImage" style="background-image: url(${sel2.image});">
       </div>
-      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Oppenent's Divinity -10 (+${format(f(sel2.effect1), 0)}) (Minimum 1)</div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Oppenent's Divinity -10 (-${format(f(sel2.effect1), 0)}) (Minimum 1)</div>
 
     </div>
     
@@ -23155,7 +23138,7 @@ function valuesSetterCycle(type) {
   </div>`
 
   sel2.content3 = `
-      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Oppenent's Divinity -10 (+${format(f(sel2.effect1), 0)}) (Minimum 1)</div>
+      <div class="centerDiv height100 width100 fontSize08 columns margin1 overflowY">Oppenent's Divinity -10 (-${format(f(sel2.effect1), 0)}) (Minimum 1)</div>
   `
 
 
@@ -38305,7 +38288,7 @@ function valuesSetterDinamic(type) {
   var sel = IUniversal.expeditions.exp23
   var selIn = IUniversalIn.expeditions.exp23
 
-  if (f(sel.rewards.timer).gte(f(selIn.rewards.timerPrice)) && sel.active) {
+  if (f(sel.rewards.timer).gte(f(selIn.rewards.timerPrice)) && false) {
     var number = f(sel.rewards.timer).dividedBy(f(selIn.rewards.timerPrice)).floor();
 
     selIn.rewards.effect(sel, selIn, sel.rewards, selIn.rewards, number)
