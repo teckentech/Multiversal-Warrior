@@ -37142,7 +37142,7 @@ function valuesSetterDinamic(type) {
   var water5 = f(IUniversalIn.waterTree.node1.effect)
   var water6 = f(IUniversalIn.potionSource.item1.value2)
   var water7 = f(IUniversalIn.fireTree.node79.effect)
-  var water9 = f(IUniversal.earthTree.node27.effect)
+  var water9 = f(IUniversalIn.earthTree.node27.effect)
 
   IUniversal.waterProdBase = (((f(water2))).mul(f(water3)).mul(f(water4)).mul(f(water6)).mul(f(water5)).mul(water7).mul(water9)).mul(f(IGameData.baseTickSpeed))
   IUniversal.waterProd = ((f(water2))).mul(f(water3)).mul(f(water4)).mul(f(water6)).mul(f(water5).mul(water7).mul(water9)).mul(f(IGameData.tickSpeed))
@@ -37188,7 +37188,7 @@ function valuesSetterDinamic(type) {
   var elisir1 = f(IUniversalIn.waterTree.node25.effect)
   var elisir2 = f(IUniversalIn.potionSource.item3.value2)
   var elisir3 = f(IUniversalIn.waterTree.node26.effect)
-  var elisir4 = f(IUniversal.earthTree.node27.effect)
+  var elisir4 = f(IUniversalIn.earthTree.node27.effect)
 
 
 
@@ -37237,7 +37237,7 @@ function valuesSetterDinamic(type) {
   var ambrosia2 = f(IUniversalIn.potionSource.item5.value2)
   var ambrosia3 = f(IUniversalIn.waterTree.node38.effect)
   var ambrosia4 = f(IUniversalIn.fireTree.node125.effect)
-  var ambrosia5 = f(IUniversal.earthTree.node27.effect)
+  var ambrosia5 = f(IUniversalIn.earthTree.node27.effect)
 
   IUniversal.ambrosiaProdBase = (f(ambrosia1).mul(f(ambrosia2)).mul(f(ambrosia3)).mul(f(ambrosia4)).mul(ambrosia5)).mul(f(IGameData.baseTickSpeed))
   IUniversal.ambrosiaProd = (f(ambrosia1).mul(f(ambrosia2)).mul(f(ambrosia3)).mul(f(ambrosia4)).mul(ambrosia5)).mul(f(IGameData.tickSpeed))
