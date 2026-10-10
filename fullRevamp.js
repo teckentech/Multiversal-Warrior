@@ -30989,7 +30989,7 @@ function valuesSetter(type) {
   var effectLevel = getPotionEffectTier("water_divinity", "coreItem")
 
   if (potionLevel == null && effectLevel == null) {
-    IUniversalIn.potionEffects.effect23.activeValue = f(0)
+    IUniversalIn.potionEffects.effect23.activeValue = f(1)
   } else {
     IUniversalIn.potionEffects.effect23.activeValue = (f(2).mul(f(effectLevel))).mul(f(potionLevel).add(f(1)))
   }
