@@ -20504,7 +20504,7 @@ function valuesSetterCycle(type) {
                   <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
                   <div class="topRight absolute padding2 grey">27</div>
                   <div class="centerDiv fontSize09"><span class="boldBlackBorder">Max level: Obsidian Golem</span></div>
-                  <div class="centerDiv fontSize09">Water Elisir Ambrosia/s ×5 (<span class="boldBlackBorder">×${format(sel2.effect, 0)}</span>)</div>
+                  <div class="centerDiv fontSize09">Water Elixir Ambrosia/s ×5 (<span class="boldBlackBorder">×${format(sel2.effect, 0)}</span>)</div>
                   <div class="centerDiv fontSize09"></div>
                  </div>`
 
