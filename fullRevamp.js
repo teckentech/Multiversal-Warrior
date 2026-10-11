@@ -14329,43 +14329,9 @@ function valuesSetterInit(type) {
       setExpectedReward(selT, sel[x])
     }
 
-
     if (f(exp.level).eq(f(0))) {
       selT.expectedRewards.treasure36.level = f(selT.expectedRewards.treasure36.level).add(f(1));
       return
-    }
-
-    if (f(number).lt(f(sel.length))) {
-      const pick = Math.floor(Math.random() * sel.length);
-      const key = sel[pick];
-
-      if (!selT.expectedRewards) {
-        selT.expectedRewards = {};
-      }
-
-      if (!selT.expectedRewards[key]) {
-        selT.expectedRewards[key] = { num: f(0) };
-      }
-
-      selT.expectedRewards[key].num =
-        f(selT.expectedRewards[key].num).add(f(1));
-      return;
-    }
-
-    for (let x in sel) {
-      var sel2 = sel[x];
-      var level = f(number).dividedBy(f(sel.length));
-
-      if (!selT.expectedRewards) {
-        selT.expectedRewards = {};
-      }
-
-      if (!selT.expectedRewards[sel2]) {
-        selT.expectedRewards[sel2] = { num: f(0) };
-      }
-
-      selT.expectedRewards[sel2].num =
-        f(selT.expectedRewards[sel2].num).add(f(level));
     }
   };
 
