@@ -9350,7 +9350,6 @@ const elementCache = Object.create(null);
 const updateTemplate = document.createElement('template');
 
 function update(id, html) {
-
   let el = elementCache[id] || (elementCache[id] = document.getElementById(id));
   if (!el) return;
 
@@ -9358,15 +9357,26 @@ function update(id, html) {
 
   if (el.innerHTML === html) return;
 
+  if (el.__vue_app__ || el._vnode) {
+    if (data.uiText && id in data.uiText) {
+      if (data.uiText[id] !== html) {
+        data.uiText[id] = html;
+      }
+      return;
+    }
+  }
+
   if (!html.includes('<')) {
-    el.textContent = html;
+    if (el.textContent !== html) {
+      el.textContent = html;
+    }
     return;
   }
 
   updateTemplate.innerHTML = html;
-
   el.replaceChildren(...updateTemplate.content.childNodes);
 }
+
 
 function updateClass(cla, html) {
   if (html == null) html = "";
@@ -29668,7 +29678,7 @@ function valuesSetter(type) {
   }
 
   sel2.pricef = function (level) {
-    return f(1).add(sel.level);
+    return f(1).add(level);
   }
 
   sel2.price = sel2.pricef(sel.level);
@@ -49949,13 +49959,18 @@ function potionAutoUpgrade() {
 }
 
 function potionFusion() {
+  if (!IUniversal || !IUniversal.potionFusion || !IUniversal.potionFusion.item1 || !IUniversal.potionFusion.item2) {
+    return {
+      newPotion: null,
+      newPotionIn: null
+    };
+  }
+
   var potion1 = IUniversal.inventoryStorage[IUniversal.potionFusion.item1.key]
   var potion2 = IUniversal.inventoryStorage[IUniversal.potionFusion.item2.key]
 
   var potion1In = IUniversalIn.inventoryStorage[IUniversal.potionFusion.item1.key]
   var potion2In = IUniversalIn.inventoryStorage[IUniversal.potionFusion.item2.key]
-
-  //reset new potion level
 
   if (potion1 && potion2) {
 
@@ -49969,16 +49984,12 @@ function potionFusion() {
 
     newPotion.maxLevel = f(10).add(f(f(newPotion.merges).add(f(assistPotion.merges)).add(f(1))).mul(f(5)))
 
-    //collect all the potion2 effects
     var potionEffects = []
 
     for (let x in potion2.effects) {
       var sel = potion2.effects[x]
       potionEffects.push(sel)
     }
-
-    //cycle all potions collected, add the level to potion1 effects if they match, add them if they dont match.
-    //every time you add levels of an effect, increment merges by that level, when you add a potion, add its level to merges.
 
     for (let x in potionEffects) {
       var sel = potionEffects[x]
@@ -50006,7 +50017,6 @@ function potionFusion() {
       }
     }
 
-    //price
     if (potion1In) {
       if (potion1In.prices) {
         for (let x in potion1In.prices) {
@@ -50022,7 +50032,9 @@ function potionFusion() {
             sel2 = assistPotionIn.prices[x]
           }
 
-          if (f(sel1.tier).gt(sel2.tier)) {
+          if (!sel1 || !sel2) continue;
+
+          if (f(sel1.tier).gt(f(sel2.tier))) {
             sel2.tier = sel1.tier
           } else {
             sel1.tier = sel2.tier
@@ -50036,6 +50048,8 @@ function potionFusion() {
         for (let Obj in newPotionIn.prices) {
 
           var selPrice = newPotionIn.prices[Obj]
+          if (!selPrice) continue;
+          
           if (newPotionIn.prices) {
             var selTier = selPrice.tier
           } else {
@@ -50048,7 +50062,6 @@ function potionFusion() {
       }
     }
 
-
     return {
       newPotion: newPotion,
       newPotionIn: newPotionIn
@@ -50060,6 +50073,7 @@ function potionFusion() {
     };
   }
 }
+
 
 function potionVisual(element, elementIn) {
   var sel = element
