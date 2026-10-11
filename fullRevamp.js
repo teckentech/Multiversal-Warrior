@@ -41086,6 +41086,8 @@ document.getElementById("content2_19_potionUpgrade_content3_button1").onclick = 
 
   const { newPotion, newPotionIn } = potionFusion();
 
+  console.log(newPotion)
+
   potionInfoStatic()
   potionSetter()
 
@@ -49961,7 +49963,6 @@ function potionFusion() {
     var assistPotionIn = deepClone(potion2In);
 
     newPotion.level = f(0)
-
     newPotion.maxLevel = f(10).add(f(f(newPotion.merges).add(f(assistPotion.merges)).add(f(1))).mul(f(5)))
 
     var potionEffects = []
@@ -49971,9 +49972,10 @@ function potionFusion() {
       potionEffects.push(sel)
     }
 
+    newPotion.merges = f(newPotion.merges).add(f(assistPotion.merges)).add(f(1))
+
     for (let x in potionEffects) {
       var sel = potionEffects[x]
-      var selIn = potionEffects[x]
       var found = false;
 
       for (let y in newPotion.effects) {
@@ -49982,18 +49984,15 @@ function potionFusion() {
         if (sel.type == sel2.type) {
           if (f(sel2.level).add(f(sel.level)).lte(f(sel.maxLevel))) {
             sel2.level = f(sel2.level).add(f(sel.level))
-            newPotion.merges = f(newPotion.merges).add(f(sel.level))
             found = true;
           } else {
             sel2.level = f(sel.maxLevel)
-            newPotion.merges = f(newPotion.merges).add(f(sel.level))
             found = true;
           }
         }
       }
       if (found == false) {
-        newPotion.effects["effect" + (Object.keys(newPotion.effects).length + 1)] = sel;
-        newPotion.merges = f(newPotion.merges).add(f(sel.level))
+        newPotion.effects["effect" + (Object.keys(newPotion.effects).length + 1)] = deepClone(sel);
       }
     }
 
@@ -50053,6 +50052,7 @@ function potionFusion() {
     };
   }
 }
+
 
 
 function potionVisual(element, elementIn) {
