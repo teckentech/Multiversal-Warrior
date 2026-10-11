@@ -41552,7 +41552,7 @@ document.getElementById("content2_21_node32_buttonRight").onclick = function () 
 
 
 document.getElementById("content2_21_node33_buttonLeft").onclick = function () {
-  if (f(IUniversal.assignedIronGolem).gt(f(0)) && f(IUniversal.earthTree.node33.assigned).gt(f(0))) {
+  if (f(IUniversal.assignedSilverGolem).gt(f(0)) && f(IUniversal.earthTree.node33.assigned).gt(f(0))) {
     IUniversal.assignedSilverGolem = f(IUniversal.assignedSilverGolem).minus(f(1))
     IUniversal.earthTree.node33.assigned = f(IUniversal.earthTree.node33.assigned).minus(f(1))
   }
