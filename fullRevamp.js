@@ -32900,6 +32900,11 @@ function valuesSetter(type) {
 
   if (getTreasureActive("treasure36")) { var divinityDebuff = f(IUniversalIn.treasures.treasure36.effect1) } else { divinityDebuff = f(1) }
 
+  if (f(life15).minus(divinityDebuff).lte(f(0))) {
+    var life17 = f(1);
+  } else {
+    var life17 = f(life15).minus(divinityDebuff);
+  }
 
   var baseLife1 = f(IUniversalIn.armyInfo.default.golemTypes.type1.baseLife)
   var baseLife2 = f(IUniversalIn.armyInfo.default.golemTypes.type2.baseLife)
@@ -32916,7 +32921,7 @@ function valuesSetter(type) {
   var baseLife16 = f(IUniversalIn.earthTree.node24.effect)
 
   if (f(IUniversal.golem).gt(f(0))) {
-    IUniversalIn.armyInfo.default.life = f(f(f(1).add(life7)).mul((life1).add(life2).add(life3).add(life4).add(life5)).mul(life8).mul(life10).mul(life11).mul(life12).mul(life13).mul(life14).mul(life16)).dividedBy(f(life9)).dividedBy(f(life15).minus(divinityDebuff))
+    IUniversalIn.armyInfo.default.life = f(f(f(1).add(life7)).mul((life1).add(life2).add(life3).add(life4).add(life5)).mul(life8).mul(life10).mul(life11).mul(life12).mul(life13).mul(life14).mul(life16)).dividedBy(f(life9)).dividedBy(life17)
     IUniversalIn.armyInfo.default.baseLife = f(f(f(1).add(baseLife7)).mul((baseLife1).add(baseLife2).add(baseLife3).add(baseLife4).add(baseLife5)).mul(baseLife8).mul(baseLife10).mul(baseLife11).mul(baseLife12)).mul(baseLife13).mul(baseLife14).mul(baseLife16)
   } else {
     IUniversalIn.armyInfo.default.life = f(0)
@@ -32943,6 +32948,12 @@ function valuesSetter(type) {
     damage15 = 1;
   }
 
+  if (f(damage15).minus(divinityDebuff).lte(f(0))) {
+    var damage17 = f(1);
+  } else {
+    var damage17 = f(damage15).minus(divinityDebuff);
+  }
+
   var damage16 = f(IUniversalIn.earthTree.node24.effect)
   
   if (getTreasureActive("treasure36")) { var divinityDebuff = f(IUniversalIn.treasures.treasure36.effect1) } else { divinityDebuff = f(1) }
@@ -32962,8 +32973,9 @@ function valuesSetter(type) {
   var baseDamage16 = f(IUniversalIn.earthTree.node24.effect)
 
 
+
   if (f(IUniversal.golem).gt(f(0))) {
-    IUniversalIn.armyInfo.default.damage = (f(f(1).add(damage7)).mul((damage1).add(damage2).add(damage3).add(damage4).add(damage5)).mul(damage8).mul(damage9).mul(damage10).mul(damage12).mul(damage13).mul(damage14).mul(damage16)).dividedBy(f(damage15).minus(divinityDebuff))
+    IUniversalIn.armyInfo.default.damage = (f(f(1).add(damage7)).mul((damage1).add(damage2).add(damage3).add(damage4).add(damage5)).mul(damage8).mul(damage9).mul(damage10).mul(damage12).mul(damage13).mul(damage14).mul(damage16)).dividedBy(damage17)
     IUniversalIn.armyInfo.default.baseDamage = f(f(1).add(baseDamage7)).mul((baseDamage1).add(baseDamage2).add(baseDamage3).add(baseDamage4).add(baseDamage5)).mul(baseDamage8).mul(baseDamage9).mul(baseDamage10).mul(baseDamage12).mul(baseDamage13).mul(baseDamage14).mul(baseDamage16)
   } else {
     IUniversalIn.armyInfo.default.damage = f(0)
