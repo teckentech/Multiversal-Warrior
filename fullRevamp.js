@@ -45424,6 +45424,8 @@ function visualEarthTree() {
       }
     }
   }
+
+update(`learningInfo`, `Golem Learning <span class="boldBlackBorder">×${format(f(IUniversal.learningProd))}</span>`);
 }
 
 function visualMetalTree() {
