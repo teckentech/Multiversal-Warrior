@@ -9353,7 +9353,13 @@ function update(id, html) {
   let el = elementCache[id] || (elementCache[id] = document.getElementById(id));
   if (!el) return;
 
+  if (el.matches(':focus-within') || el.hasAttribute('dragging') || document.activeElement === el) {
+    return;
+  }
+
   if (html == null) html = "";
+
+  html = String(html);
 
   if (el.innerHTML === html) return;
 
@@ -31832,15 +31838,13 @@ function valuesSetter(type) {
   var sel = IUniversal.mineStats
   var selIn = IUniversalIn.mineStats
 
-  IUniversalIn.mineStats.miners = f()
-
   //mine power
 
   var minePower1 = f(IUniversalIn.mine.item1.effect)
   var minePower2 = f(IUniversalIn.mine.item2.effect)
   var minePower3 = f(IUniversalIn.mine.item3.effect)
 
-    IUniversalIn.mineStats.miners = f(minePower1)
+  IUniversalIn.mineStats.miners = f(minePower1)
 
   if (getTreasureActive("treasure28")) { var minePower4 = f(IUniversalIn.treasures.treasure28.effect) } else { minePower4 = f(1) }
 
