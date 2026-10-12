@@ -10,7 +10,7 @@ const data = Vue.reactive({
 })
 
 const app = Vue.createApp({ data: () => data })
-app.mount('body')
+app.mount('#app');
 
 /** @type {ShowableClass} */
 
