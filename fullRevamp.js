@@ -20361,7 +20361,7 @@ function valuesSetterCycle(type) {
                   <div class="centerDiv boldBlackBorder">Universal War</div>
                   <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
                   <div class="topRight absolute padding2 grey">22</div>
-                  <div class="centerDiv padding2 fontSize09">Treasure claim time /2&nbsp(<span class="boldBlackBorder">/${format(sel2.effect, 1)}</span>)</div>
+                  <div class="centerDiv padding2 fontSize09">Treasure claim time -10s&nbsp(<span class="boldBlackBorder">-${format(sel2.effect, 1)}</span>)</div>
                  </div>`
 
 
@@ -31534,7 +31534,7 @@ function valuesSetter(type) {
   sel2.learningMax = f(2000).mul(f(4).pow(f(sel.level)))
 
   if (f(sel.level).gt(f(0))) {
-    sel2.effect = f(2).pow(f(sel.level))
+    sel2.effect = f(10).mul(f(sel.level))
   } else {
     sel2.effect = f(1)
   }
@@ -34639,7 +34639,7 @@ function valuesSetter(type) {
   selIn.golemTypes.type4.damage = f(1.5).mul(f(selIn.golemTypes.type4.level))
   selIn.golemTypes.type5.damage = f(1.5).mul(f(selIn.golemTypes.type5.level))
 
-  selIn.rewards.timerPrice = f(300).dividedBy(f(timerReduction))
+  selIn.rewards.timerPrice = f(300).minus(f(timerReduction))
 
   if(selIn.rewards.timerPrice.lt(f(1))) {
     selIn.rewards.timerPrice = f(1)
@@ -34688,7 +34688,7 @@ function valuesSetter(type) {
 
   selIn.effects.effect1.effect = f(10).mul(f(sel.level).add(f(1)))
 
-  selIn.rewards.timerPrice = f(600).dividedBy(f(timerReduction))
+  selIn.rewards.timerPrice = f(600).minus(f(timerReduction))
 
   if(selIn.rewards.timerPrice.lt(f(1))) {
     selIn.rewards.timerPrice = f(1)
@@ -34726,7 +34726,7 @@ function valuesSetter(type) {
 
   selIn.affinity = f(aff1).mul(aff2).mul(aff3).mul(aff4)
 
-  selIn.rewards.timerPrice = f(1200).dividedBy(f(timerReduction))
+  selIn.rewards.timerPrice = f(1200).minus(f(timerReduction))
 
   if(selIn.rewards.timerPrice.lt(f(1))) {
     selIn.rewards.timerPrice = f(1)
@@ -34771,7 +34771,7 @@ function valuesSetter(type) {
 
   selIn.effects.effect1.effect = f(10).mul(f(sel.level).add(f(1)))
 
-  selIn.rewards.timerPrice = f(1500).dividedBy(f(timerReduction))
+  selIn.rewards.timerPrice = f(1500).minus(f(timerReduction))
 
   if(selIn.rewards.timerPrice.lt(f(1))) {
     selIn.rewards.timerPrice = f(1)
@@ -34820,7 +34820,7 @@ function valuesSetter(type) {
 
   selIn.effects.effect2.effect = f(10).mul(f(sel.level).add(f(1)))
 
-  selIn.rewards.timerPrice = f(1800).dividedBy(f(timerReduction))
+  selIn.rewards.timerPrice = f(1800).minus(f(timerReduction))
 
   if(selIn.rewards.timerPrice.lt(f(1))) {
     selIn.rewards.timerPrice = f(1)
@@ -34863,7 +34863,7 @@ function valuesSetter(type) {
 
   //effects
 
-  selIn.rewards.timerPrice = f(600).dividedBy(f(timerReduction))
+  selIn.rewards.timerPrice = f(600).minus(f(timerReduction))
 
   if(selIn.rewards.timerPrice.lt(f(1))) {
     selIn.rewards.timerPrice = f(1)
@@ -34913,7 +34913,7 @@ function valuesSetter(type) {
 
   selIn.effects.effect1.effect = f(selIn.number)
 
-  selIn.rewards.timerPrice = f(900).dividedBy(f(timerReduction))
+  selIn.rewards.timerPrice = f(900).minus(f(timerReduction))
 
   if(selIn.rewards.timerPrice.lt(f(1))) {
     selIn.rewards.timerPrice = f(1)
@@ -34962,7 +34962,7 @@ function valuesSetter(type) {
 
   selIn.effects.effect1.effect = f(100).mul(f(10).pow(f(sel.level)))
 
-  selIn.rewards.timerPrice = f(900).dividedBy(f(timerReduction))
+  selIn.rewards.timerPrice = f(900).minus(f(timerReduction))
 
   if(selIn.rewards.timerPrice.lt(f(1))) {
     selIn.rewards.timerPrice = f(1)
@@ -35011,7 +35011,7 @@ function valuesSetter(type) {
 
   selIn.effects.effect1.effect = Math.log10(f(IUniversalIn.armyInfo.default.level).add(f(10)))
 
-  selIn.rewards.timerPrice = f(1200).dividedBy(f(timerReduction))
+  selIn.rewards.timerPrice = f(1200).minus(f(timerReduction))
 
   if(selIn.rewards.timerPrice.lt(f(1))) {
     selIn.rewards.timerPrice = f(1)
@@ -35055,7 +35055,7 @@ function valuesSetter(type) {
 
   selIn.effects.effect1.effect = f(10).mul(f(sel.level).add(f(1)))
 
-  selIn.rewards.timerPrice = f(2100).dividedBy(f(timerReduction))
+  selIn.rewards.timerPrice = f(2100).minus(f(timerReduction))
 
   if(selIn.rewards.timerPrice.lt(f(1))) {
     selIn.rewards.timerPrice = f(1)
@@ -35098,7 +35098,7 @@ function valuesSetter(type) {
   selIn.golemTypes.type5.damage = f(1.5).mul(f(selIn.golemTypes.type5.level))
 
 
-  selIn.rewards.timerPrice = f(1500).dividedBy(f(timerReduction))
+  selIn.rewards.timerPrice = f(1500).minus(f(timerReduction))
 
   if(selIn.rewards.timerPrice.lt(f(1))) {
     selIn.rewards.timerPrice = f(1)
@@ -35147,7 +35147,7 @@ function valuesSetter(type) {
 
   selIn.effects.effect1.effect = f(0)
 
-  selIn.rewards.timerPrice = f(1800).dividedBy(f(timerReduction))
+  selIn.rewards.timerPrice = f(1800).minus(f(timerReduction))
 
   if(selIn.rewards.timerPrice.lt(f(1))) {
     selIn.rewards.timerPrice = f(1)
@@ -35198,7 +35198,7 @@ function valuesSetter(type) {
 
   selIn.effects.effect2.effect = f(10).mul(f(sel.level).add(f(1)))
 
-  selIn.rewards.timerPrice = f(2100).dividedBy(f(timerReduction))
+  selIn.rewards.timerPrice = f(2100).minus(f(timerReduction))
 
   if(selIn.rewards.timerPrice.lt(f(1))) {
     selIn.rewards.timerPrice = f(1)
@@ -35244,7 +35244,7 @@ function valuesSetter(type) {
   selIn.effects.effect1.effect = f(10).mul(f(sel.level).add(f(1)))
 
 
-  selIn.rewards.timerPrice = f(2100).dividedBy(f(timerReduction))
+  selIn.rewards.timerPrice = f(2100).minus(f(timerReduction))
 
   if(selIn.rewards.timerPrice.lt(f(1))) {
     selIn.rewards.timerPrice = f(1)
@@ -35333,7 +35333,7 @@ function valuesSetter(type) {
 
   selIn.effects.effect2.effect = f(2).pow(f(sel.level).add(f(1)))
 
-  selIn.rewards.timerPrice = f(2100).dividedBy(f(timerReduction))
+  selIn.rewards.timerPrice = f(2100).minus(f(timerReduction))
 
   if(selIn.rewards.timerPrice.lt(f(1))) {
     selIn.rewards.timerPrice = f(1)
@@ -35384,7 +35384,7 @@ function valuesSetter(type) {
 
   selIn.effects.effect2.effect = f(50).mul(f(sel.level).add(f(1)))
 
-  selIn.rewards.timerPrice = f(2100).dividedBy(f(timerReduction))
+  selIn.rewards.timerPrice = f(2100).minus(f(timerReduction))
 
   if(selIn.rewards.timerPrice.lt(f(1))) {
     selIn.rewards.timerPrice = f(1)
@@ -35429,7 +35429,7 @@ function valuesSetter(type) {
 
   selIn.effects.effect1.effect = f(1000).mul(f(10).pow(f(sel.level).add(f(1))))
 
-  selIn.rewards.timerPrice = f(2100).dividedBy(f(timerReduction))
+  selIn.rewards.timerPrice = f(2100).minus(f(timerReduction))
 
   if(selIn.rewards.timerPrice.lt(f(1))) {
     selIn.rewards.timerPrice = f(1)
@@ -35474,7 +35474,7 @@ function valuesSetter(type) {
 
   selIn.effects.effect1.effect = f(0.5)
 
-  selIn.rewards.timerPrice = f(2100).dividedBy(f(timerReduction))
+  selIn.rewards.timerPrice = f(2100).minus(f(timerReduction))
 
   if(selIn.rewards.timerPrice.lt(f(1))) {
     selIn.rewards.timerPrice = f(1)
@@ -35524,7 +35524,7 @@ function valuesSetter(type) {
 
   selIn.effects.effect1.effect = f(0)
 
-  selIn.rewards.timerPrice = f(1800).dividedBy(f(timerReduction))
+  selIn.rewards.timerPrice = f(1800).minus(f(timerReduction))
 
   if(selIn.rewards.timerPrice.lt(f(1))) {
     selIn.rewards.timerPrice = f(1)
@@ -35575,7 +35575,7 @@ function valuesSetter(type) {
 
   selIn.effects.effect2.effect = f(100).pow(f(sel.level).add(f(1)))
 
-  selIn.rewards.timerPrice = f(2100).dividedBy(f(timerReduction))
+  selIn.rewards.timerPrice = f(2100).minus(f(timerReduction))
 
   if(selIn.rewards.timerPrice.lt(f(1))) {
     selIn.rewards.timerPrice = f(1)
@@ -35625,7 +35625,7 @@ function valuesSetter(type) {
 
   selIn.effects.effect2.effect = f(100).pow(f(sel.level).add(f(1)))
 
-  selIn.rewards.timerPrice = f(2100).dividedBy(f(timerReduction))
+  selIn.rewards.timerPrice = f(2100).minus(f(timerReduction))
 
   if(selIn.rewards.timerPrice.lt(f(1))) {
     selIn.rewards.timerPrice = f(1)
@@ -35679,7 +35679,7 @@ function valuesSetter(type) {
 
   selIn.effects.effect1.effect = f(100).pow(f(sel.level).add(f(1)))
 
-  selIn.rewards.timerPrice = f(2400).dividedBy(f(timerReduction))
+  selIn.rewards.timerPrice = f(2400).minus(f(timerReduction))
 
   if(selIn.rewards.timerPrice.lt(f(1))) {
     selIn.rewards.timerPrice = f(1)
