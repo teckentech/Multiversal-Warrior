@@ -9315,8 +9315,8 @@ function offImportSave() {
 
 function passiveImport() {
   if (localStorage.getItem("GameSave") !== null) {
-    var savedGameData = JSON.parse(localStorage.getItem("GameSave"));
     try {
+      var savedGameData = JSON.parse(localStorage.getItem("GameSave"));
       createSaveData();
       for (let x in savedGameData) {
         if (saveData[x]) {
@@ -36282,7 +36282,7 @@ function valuesSetterDinamic(type) {
 
   //Life
 
-  var life1 = ITraining.base.base2.tot
+  var life1 = f(ITraining.base.base2.tot)
 
   if (IFight.normalHuntingRewards.upgrade4.active && type != "universalChallengerChallenge1") {
     var life2 = f(IFight.youStats.damage).mul(f(IFightIn.normalHuntingRewards.upgrade4.effect))
@@ -42270,20 +42270,21 @@ function pauseFunctionPassive(fun, time, bool) {
 //OFFLINE TIME
 
 async function offProgress(time) {
+  if (waiting || deactiveWaiting) return;
 
-  if (!waiting && !deactiveWaiting) {
+  waiting = true;
 
-    waiting = true;
-    IGameData.tickSpeedMult = f(IGameData.tickSpeedMult).mul(f(20)).mul(f(time))
+  try {
+    IGameData.tickSpeedMult =
+      f(IGameData.tickSpeedMult).mul(f(20)).mul(f(time));
 
     await challengerOff(time);
-
-    fullSetter1("off")
-
+    fullSetter1("off");
+  } catch (e) {
+    console.error("Offline progress failed:", e);
+  } finally {
     waiting = false;
-
-    IGameData.tickSpeedMult = f(0.05)
-
+    IGameData.tickSpeedMult = f(0.05);
   }
 }
 
@@ -44364,7 +44365,7 @@ function returnPotionEquipStatus(element) {
     }
   }
 
-  for (let x in IUniversal.potionFusion) {
+  for (let x in IUniversal.coreItem) {
     var sel = IUniversal.coreItem[x]
     if (element == sel.key) {
       letters += "C"
