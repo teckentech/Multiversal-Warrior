@@ -34617,8 +34617,8 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(300).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(1))) {
-    selIn.rewards.timerPrice = f(1)
+  if(selIn.rewards.timerPrice.lt(f(60))) {
+    selIn.rewards.timerPrice = f(60)
   }
 
 
@@ -34666,8 +34666,8 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(600).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(1))) {
-    selIn.rewards.timerPrice = f(1)
+  if(selIn.rewards.timerPrice.lt(f(60))) {
+    selIn.rewards.timerPrice = f(60)
   }
 
 
@@ -34704,8 +34704,8 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(1200).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(1))) {
-    selIn.rewards.timerPrice = f(1)
+  if(selIn.rewards.timerPrice.lt(f(60))) {
+    selIn.rewards.timerPrice = f(60)
   }
 
 
@@ -34749,8 +34749,8 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(1500).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(1))) {
-    selIn.rewards.timerPrice = f(1)
+  if(selIn.rewards.timerPrice.lt(f(60))) {
+    selIn.rewards.timerPrice = f(60)
   }
 
 
@@ -34798,8 +34798,8 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(1800).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(1))) {
-    selIn.rewards.timerPrice = f(1)
+  if(selIn.rewards.timerPrice.lt(f(60))) {
+    selIn.rewards.timerPrice = f(60)
   }
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -34841,8 +34841,8 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(600).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(1))) {
-    selIn.rewards.timerPrice = f(1)
+  if(selIn.rewards.timerPrice.lt(f(60))) {
+    selIn.rewards.timerPrice = f(60)
   }
 
 
@@ -34891,8 +34891,8 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(900).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(1))) {
-    selIn.rewards.timerPrice = f(1)
+  if(selIn.rewards.timerPrice.lt(f(60))) {
+    selIn.rewards.timerPrice = f(60)
   }
 
 
@@ -34940,8 +34940,8 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(900).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(1))) {
-    selIn.rewards.timerPrice = f(1)
+  if(selIn.rewards.timerPrice.lt(f(60))) {
+    selIn.rewards.timerPrice = f(60)
   }
 
 
@@ -34989,8 +34989,8 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(1200).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(1))) {
-    selIn.rewards.timerPrice = f(1)
+  if(selIn.rewards.timerPrice.lt(f(60))) {
+    selIn.rewards.timerPrice = f(60)
   }
 
 
@@ -35033,8 +35033,8 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(2100).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(1))) {
-    selIn.rewards.timerPrice = f(1)
+  if(selIn.rewards.timerPrice.lt(f(60))) {
+    selIn.rewards.timerPrice = f(60)
   }
 
 
@@ -35076,8 +35076,8 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(1500).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(1))) {
-    selIn.rewards.timerPrice = f(1)
+  if(selIn.rewards.timerPrice.lt(f(60))) {
+    selIn.rewards.timerPrice = f(60)
   }
 
 
@@ -35125,8 +35125,8 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(1800).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(1))) {
-    selIn.rewards.timerPrice = f(1)
+  if(selIn.rewards.timerPrice.lt(f(60))) {
+    selIn.rewards.timerPrice = f(60)
   }
 
 
@@ -35176,8 +35176,8 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(2100).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(1))) {
-    selIn.rewards.timerPrice = f(1)
+  if(selIn.rewards.timerPrice.lt(f(60))) {
+    selIn.rewards.timerPrice = f(60)
   }
 
 
@@ -35222,8 +35222,8 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(2100).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(1))) {
-    selIn.rewards.timerPrice = f(1)
+  if(selIn.rewards.timerPrice.lt(f(60))) {
+    selIn.rewards.timerPrice = f(60)
   }
 
 
@@ -35311,8 +35311,8 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(2100).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(1))) {
-    selIn.rewards.timerPrice = f(1)
+  if(selIn.rewards.timerPrice.lt(f(60))) {
+    selIn.rewards.timerPrice = f(60)
   }
 
 
@@ -35362,8 +35362,8 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(2100).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(1))) {
-    selIn.rewards.timerPrice = f(1)
+  if(selIn.rewards.timerPrice.lt(f(60))) {
+    selIn.rewards.timerPrice = f(60)
   }
 
 
@@ -35407,8 +35407,8 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(2100).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(1))) {
-    selIn.rewards.timerPrice = f(1)
+  if(selIn.rewards.timerPrice.lt(f(60))) {
+    selIn.rewards.timerPrice = f(60)
   }
 
 
@@ -35452,8 +35452,8 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(2100).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(1))) {
-    selIn.rewards.timerPrice = f(1)
+  if(selIn.rewards.timerPrice.lt(f(60))) {
+    selIn.rewards.timerPrice = f(60)
   }
 
 
@@ -35502,8 +35502,8 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(1800).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(1))) {
-    selIn.rewards.timerPrice = f(1)
+  if(selIn.rewards.timerPrice.lt(f(60))) {
+    selIn.rewards.timerPrice = f(60)
   }
 
 
@@ -35553,8 +35553,8 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(2100).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(1))) {
-    selIn.rewards.timerPrice = f(1)
+  if(selIn.rewards.timerPrice.lt(f(60))) {
+    selIn.rewards.timerPrice = f(60)
   }
 
   if ((f(sel.level).gte(f(selIn.maxLevel)))) {
@@ -35603,8 +35603,8 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(2100).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(1))) {
-    selIn.rewards.timerPrice = f(1)
+  if(selIn.rewards.timerPrice.lt(f(60))) {
+    selIn.rewards.timerPrice = f(60)
   }
 
 
@@ -35657,8 +35657,8 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(2400).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(1))) {
-    selIn.rewards.timerPrice = f(1)
+  if(selIn.rewards.timerPrice.lt(f(60))) {
+    selIn.rewards.timerPrice = f(60)
   }
 
 
@@ -37990,7 +37990,7 @@ function valuesSetterDinamic(type) {
 
   //exp10
 
-  var sel = IUniversal.expeditions.exp1
+  var sel = IUniversal.expeditions.exp10
   var selIn = IUniversalIn.expeditions.exp10
 
   if (f(sel.rewards.timer).gte(f(selIn.rewards.timerPrice)) && false) {
