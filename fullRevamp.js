@@ -10,7 +10,7 @@ const data = Vue.reactive({
 })
 
 const app = Vue.createApp({ data: () => data })
-app.mount('#app');
+app.mount('body');
 
 /** @type {ShowableClass} */
 
@@ -9347,41 +9347,17 @@ document.addEventListener('visibilitychange', function () {
 
 const elementCache = Object.create(null);
 
-const updateTemplate = document.createElement('template');
-
 function update(id, html) {
   let el = elementCache[id] || (elementCache[id] = document.getElementById(id));
   if (!el) return;
 
-  if (el.matches(':focus-within') || el.hasAttribute('dragging') || document.activeElement === el) {
-    return;
-  }
+  const content = html == null ? "" : String(html);
 
-  if (html == null) html = "";
+  if (el.innerHTML === content) return;
 
-  html = String(html);
-
-  if (el.innerHTML === html) return;
-
-  if (el.__vue_app__ || el._vnode) {
-    if (data.uiText && id in data.uiText) {
-      if (data.uiText[id] !== html) {
-        data.uiText[id] = html;
-      }
-      return;
-    }
-  }
-
-  if (!html.includes('<')) {
-    if (el.textContent !== html) {
-      el.textContent = html;
-    }
-    return;
-  }
-
-  updateTemplate.innerHTML = html;
-  el.replaceChildren(...updateTemplate.content.childNodes);
+  el.innerHTML = content;
 }
+
 
 
 function updateClass(cla, html) {
@@ -34641,8 +34617,6 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(300).minus(f(timerReduction))
 
-  console.log(format(f(selIn.rewards.timerPrice)))
-
   if(selIn.rewards.timerPrice.lt(f(1))) {
     selIn.rewards.timerPrice = f(1)
   }
@@ -41092,8 +41066,6 @@ document.getElementById("content2_19_potionUpgrade_content3_button1").onclick = 
 
   const { newPotion, newPotionIn } = potionFusion();
 
-  console.log(newPotion)
-
   potionInfoStatic()
   potionSetter()
 
@@ -43729,9 +43701,10 @@ function visualTree() {
   }
 
   var buyMax = buyTrium(IU.buyFireTree);
+
   if (cache.lastValues.buyMax !== buyMax) {
-    update("content2_17_buy", '<div class="noClick">' + buyMax + '</div>');
     cache.lastValues.buyMax = buyMax;
+    update("content2_17_buy", '<div class="noClick">' + buyMax + '</div>');
   }
 
   for (var x in IU.fireTree) {
