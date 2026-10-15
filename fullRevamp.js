@@ -49527,7 +49527,7 @@ function potionEquipmentStatic() {
     var selId = sel.key
     var effectText = ""
 
-    if (selId != null && IUniversal.inventoryStorage[selId]) {
+    if (selId != null) {
       var potion = IUniversal.inventoryStorage[selId]
 
       for (let Obj in potion.effects) {
@@ -49565,7 +49565,7 @@ function potionEquipmentStatic() {
     var selId = sel.key
     var effectText = ""
 
-    if (selId != null && IUniversal.inventoryStorage[selId]) {
+    if (selId != null) {
       var potion = IUniversal.inventoryStorage[selId]
 
       for (let Obj in potion.effects) {
