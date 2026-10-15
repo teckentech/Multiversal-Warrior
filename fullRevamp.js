@@ -49530,6 +49530,11 @@ function potionEquipmentStatic() {
     if (selId != null) {
       var potion = IUniversal.inventoryStorage[selId]
 
+      if(!IUniversal.inventoryStorage[selId]){
+        deletePotion(selId) 
+        return
+      } 
+
       for (let Obj in potion.effects) {
         var sel3 = potion.effects[Obj]
         var type = sel3.type;
@@ -49566,6 +49571,12 @@ function potionEquipmentStatic() {
     var effectText = ""
 
     if (selId != null) {
+
+      if(!IUniversal.inventoryStorage[selId]){
+        deletePotion(selId) 
+        return
+      } 
+
       var potion = IUniversal.inventoryStorage[selId]
 
       for (let Obj in potion.effects) {
@@ -50870,6 +50881,15 @@ function deletePotion(element) {
   //fusion
   for (let x in IUniversal.potionFusion) {
     var sel = IUniversal.potionFusion[x]
+
+    if (sel.key == element) {
+      sel.key = null
+    }
+  }
+
+  //core
+  for (let x in IUniversal.coreItem) {
+    var sel = IUniversal.coreItem[x]
 
     if (sel.key == element) {
       sel.key = null
