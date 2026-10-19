@@ -23250,25 +23250,25 @@ function valuesSetterCycle(type) {
   //visuals content
 
   //formation
-
-  if (IUniversal.treasureFormation.item1.key) {
-    IUniversalIn.treasureFormation.content = IUniversalIn.treasures[IUniversal.treasureFormation.item1.key].content3
+  if (IUniversal.treasureFormation.item1.key && IUniversalIn.treasures[IUniversal.treasureFormation.item1.key]) {
+    IUniversalIn.treasureFormation.content = IUniversalIn.treasures[IUniversal.treasureFormation.item1.key].content3;
   } else {
-    IUniversalIn.treasureFormation.content = IUniversalIn.treasures.treasure9.content3
+    IUniversalIn.treasureFormation.content = IUniversalIn.treasures.treasure9 ? IUniversalIn.treasures.treasure9.content3 : "";
   }
+
 
   //army treasure
-
   for (let x in IUniversal.treasureArmy) {
-    var sel = IUniversal.treasureArmy[x]
-    var selIn = IUniversalIn.treasureArmy[x]
+    var sel = IUniversal.treasureArmy[x];
+    var selIn = IUniversalIn.treasureArmy[x];
 
-    if (sel.key) {
-      selIn.content = IUniversalIn.treasures[sel.key].content3
-    } else {
-      selIn.content = ""
+    if (sel && sel.key && IUniversalIn.treasures[sel.key]) {
+      selIn.content = IUniversalIn.treasures[sel.key].content3;
+    } else if (selIn) {
+      selIn.content = "";
     }
   }
+
 
 
   //treasure equipment
@@ -23277,7 +23277,7 @@ function valuesSetterCycle(type) {
     var sel = IUniversal.treasureEquipment[x]
     var selIn = IUniversalIn.treasureEquipment[x]
 
-    if (sel.key) {
+    if (sel && sel.key && IUniversalIn.treasures[sel.key]) {
       selIn.content = IUniversalIn.treasures[sel.key].content3
     } else {
       selIn.content = ""
@@ -23288,7 +23288,7 @@ function valuesSetterCycle(type) {
     var sel = IUniversal.treasureAugments[x]
     var selIn = IUniversalIn.treasureAugments[x]
 
-    if (sel.key) {
+    if (sel && sel.key && IUniversalIn.treasures[sel.key]) {
       selIn.content = IUniversalIn.treasures[sel.key].content3
     } else {
       selIn.content = ""
