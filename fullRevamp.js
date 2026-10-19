@@ -50241,6 +50241,8 @@ function draggableSet(item, key, keyIn, type, archetype) {
 
         var draggedDrag = eval(dragged + ".drag")
         var targetDrag = eval(target + ".drag")
+        
+        if(!eval(dragged + ".drag")) return
 
         var draggedKey = eval(dragged).key;
         var targetKey = eval(target).key;
@@ -50288,6 +50290,9 @@ function draggableSet(item, key, keyIn, type, archetype) {
 
         var draggedKeyString = dragged + ".key"
         var targetKeyString = target + ".key"
+
+        
+        if(!eval(dragged + ".drag")) return
 
         var draggedDrag = eval(dragged + ".drag")
         var targetDrag = eval(targetIn + ".drag")
@@ -50337,6 +50342,8 @@ function draggableSet(item, key, keyIn, type, archetype) {
 
         var draggedKeyString = dragged + ".key"
         var targetKeyString = target + ".key"
+        
+        if(!eval(dragged + ".drag")) return
 
         var draggedDrag = eval(dragged + ".drag")
         var targetDrag = eval(targetIn + ".drag")
@@ -50391,6 +50398,8 @@ function draggableSet(item, key, keyIn, type, archetype) {
 
         var draggedKeyString = dragged + ".key"
         var targetKeyString = target + ".key"
+        
+        if(!eval(dragged + ".drag")) return
 
         var draggedDrag = eval(dragged + ".drag")
         var targetDrag = eval(targetIn + ".drag")
@@ -50434,6 +50443,8 @@ function draggableSet(item, key, keyIn, type, archetype) {
 
         var draggedKeyString = dragged + ".key"
         var targetKeyString = target + ".key"
+        
+        if(!eval(dragged + ".drag")) return
 
         var draggedDrag = eval(dragged + ".drag")
         var targetDrag = eval(targetIn + ".drag")
@@ -50572,6 +50583,8 @@ function draggableSet(item, key, keyIn, type, archetype) {
 
         var draggedKeyString = dragged + ".key"
         var targetKeyString = target + ".key"
+        
+        if(!eval(dragged + ".drag")) return
 
         var draggedDrag = eval(dragged + ".drag")
         var targetDrag = eval(target + ".drag")
@@ -50622,6 +50635,8 @@ function draggableSet(item, key, keyIn, type, archetype) {
 
         var draggedKeyString = dragged + ".key"
         var targetKeyString = target + ".key"
+        
+        if(!eval(dragged + ".drag")) return
 
         var draggedDrag = eval(dragged + ".drag")
         var targetDrag = eval(targetIn + ".drag")
@@ -50669,6 +50684,8 @@ function draggableSet(item, key, keyIn, type, archetype) {
 
         var draggedKeyString = dragged + ".key"
         var targetKeyString = target + ".key"
+        
+        if(!eval(dragged + ".drag")) return
 
         var draggedDrag = eval(dragged + ".drag")
         var targetDrag = eval(targetIn + ".drag")
@@ -50712,6 +50729,8 @@ function draggableSet(item, key, keyIn, type, archetype) {
 
         var draggedKeyString = dragged + ".key";
         var targetKeyString = target + ".key";
+        
+        if(!eval(dragged + ".drag")) return
 
         var draggedDrag = eval(dragged + ".drag");
         var draggedKey = eval(dragged).key;
@@ -50754,6 +50773,8 @@ function draggableSet(item, key, keyIn, type, archetype) {
 
       var draggedKeyString = dragged + ".key"
       var targetKeyString = target + ".key"
+      
+        if(!eval(dragged + ".drag")) return
 
       var draggedDrag = eval(dragged + ".drag")
       var targetDrag = eval(targetIn + ".drag")
@@ -50804,6 +50825,8 @@ function draggableSet(item, key, keyIn, type, archetype) {
 
       var draggedKeyString = dragged + ".key"
       var targetKeyString = target + ".key"
+      
+        if(!eval(dragged + ".drag")) return
 
       var draggedDrag = eval(dragged + ".drag")
       var targetDrag = eval(targetIn + ".drag")
