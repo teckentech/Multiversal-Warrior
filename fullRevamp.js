@@ -9434,7 +9434,7 @@ function visualValute() {
     }
   }
 
-  update("powerValute", `<div><div>Power</div><div class="boldBlackBorder">${format(IGameData.power, 1)}</span></div>`)
+  update("powerValute", `<div><div>Power</div><div class="boldBlackBorder">${format(IGameData.power, 1)}</div></div>`)
   update("universeValute", `<div><div>Universe</div><div class="boldBlackBorder">${format(IUniversal.universe, 0)}</div></div>`)
 
 
@@ -16309,7 +16309,7 @@ function valuesSetterCycle(type) {
                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
                  <div class="centerDiv padding1 column fontSize09">
                     <div>Heat reduction -0.05</div>
-                    <div">(Heat reduction:<span class="boldBlackBorder"> /${format(f(IUniversalIn.fireTree.node27.effect2), 2)}</span>)</div>
+                    <div>(Heat reduction:<span class="boldBlackBorder"> /${format(f(IUniversalIn.fireTree.node27.effect2), 2)}</span>)</div>
                  </div>`
 
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
@@ -26824,7 +26824,7 @@ function valuesSetter(type) {
                  <div class="centerDiv padding1 column fontSize09"><div>Resets when Universe Furnace reduces Heat (<span class="boldBlackBorder">${format(f(IUniversal.heatTimer))}s</span>)</div>
                                                         <div class="line"></div>
                                                         <div class=""><span class="boldBlackBorder">${format(f(f(sel.timer).minus(f(sel.currentTimer))), 1)}s</span> remaining</div>
-                                                        <div">Heat <span class="boldBlackBorder">×${format(f(f(sel2.effect2)), 1)}</span></div>
+                                                        <div>Heat <span class="boldBlackBorder">×${format(f(f(sel2.effect2)), 1)}</span></div>
                                                         <div></div>
                  </div>`
   } else {
@@ -50242,7 +50242,7 @@ function draggableSet(item, key, keyIn, type, archetype) {
         var draggedDrag = eval(dragged + ".drag")
         var targetDrag = eval(target + ".drag")
         
-        if(!eval(dragged + ".drag")) return
+        if(!dragged) return
 
         var draggedKey = eval(dragged).key;
         var targetKey = eval(target).key;
@@ -50292,7 +50292,7 @@ function draggableSet(item, key, keyIn, type, archetype) {
         var targetKeyString = target + ".key"
 
         
-        if(!eval(dragged + ".drag")) return
+        if(!dragged) return
 
         var draggedDrag = eval(dragged + ".drag")
         var targetDrag = eval(targetIn + ".drag")
@@ -50343,7 +50343,7 @@ function draggableSet(item, key, keyIn, type, archetype) {
         var draggedKeyString = dragged + ".key"
         var targetKeyString = target + ".key"
         
-        if(!eval(dragged + ".drag")) return
+        if(!dragged) return
 
         var draggedDrag = eval(dragged + ".drag")
         var targetDrag = eval(targetIn + ".drag")
@@ -50399,7 +50399,7 @@ function draggableSet(item, key, keyIn, type, archetype) {
         var draggedKeyString = dragged + ".key"
         var targetKeyString = target + ".key"
         
-        if(!eval(dragged + ".drag")) return
+        if(!dragged) return
 
         var draggedDrag = eval(dragged + ".drag")
         var targetDrag = eval(targetIn + ".drag")
@@ -50444,7 +50444,7 @@ function draggableSet(item, key, keyIn, type, archetype) {
         var draggedKeyString = dragged + ".key"
         var targetKeyString = target + ".key"
         
-        if(!eval(dragged + ".drag")) return
+        if(!dragged) return
 
         var draggedDrag = eval(dragged + ".drag")
         var targetDrag = eval(targetIn + ".drag")
@@ -50457,7 +50457,6 @@ function draggableSet(item, key, keyIn, type, archetype) {
         }
 
         if (target == "IUniversal.potionFusion['item1']") {
-          //if they are the same potion, return
           if (IUniversal.potionFusion['item2'].key == draggedKey) {
             return
           }
@@ -50584,7 +50583,7 @@ function draggableSet(item, key, keyIn, type, archetype) {
         var draggedKeyString = dragged + ".key"
         var targetKeyString = target + ".key"
         
-        if(!eval(dragged + ".drag")) return
+        if(!dragged) return
 
         var draggedDrag = eval(dragged + ".drag")
         var targetDrag = eval(target + ".drag")
@@ -50636,7 +50635,7 @@ function draggableSet(item, key, keyIn, type, archetype) {
         var draggedKeyString = dragged + ".key"
         var targetKeyString = target + ".key"
         
-        if(!eval(dragged + ".drag")) return
+        if(!dragged) return
 
         var draggedDrag = eval(dragged + ".drag")
         var targetDrag = eval(targetIn + ".drag")
@@ -50685,7 +50684,7 @@ function draggableSet(item, key, keyIn, type, archetype) {
         var draggedKeyString = dragged + ".key"
         var targetKeyString = target + ".key"
         
-        if(!eval(dragged + ".drag")) return
+        if(!dragged) return
 
         var draggedDrag = eval(dragged + ".drag")
         var targetDrag = eval(targetIn + ".drag")
@@ -50730,7 +50729,7 @@ function draggableSet(item, key, keyIn, type, archetype) {
         var draggedKeyString = dragged + ".key";
         var targetKeyString = target + ".key";
         
-        if(!eval(dragged + ".drag")) return
+        if(!dragged) return
 
         var draggedDrag = eval(dragged + ".drag");
         var draggedKey = eval(dragged).key;
@@ -50774,7 +50773,7 @@ function draggableSet(item, key, keyIn, type, archetype) {
       var draggedKeyString = dragged + ".key"
       var targetKeyString = target + ".key"
       
-        if(!eval(dragged + ".drag")) return
+        if(!dragged) return
 
       var draggedDrag = eval(dragged + ".drag")
       var targetDrag = eval(targetIn + ".drag")
@@ -50826,7 +50825,7 @@ function draggableSet(item, key, keyIn, type, archetype) {
       var draggedKeyString = dragged + ".key"
       var targetKeyString = target + ".key"
       
-        if(!eval(dragged + ".drag")) return
+        if(!dragged) return
 
       var draggedDrag = eval(dragged + ".drag")
       var targetDrag = eval(targetIn + ".drag")
