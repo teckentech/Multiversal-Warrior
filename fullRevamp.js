@@ -26061,7 +26061,7 @@ function valuesSetter(type) {
   sel.level = f(sel.level)
   sel2.maxLevel = f(5).add(f(IUniversalIn.fireTree.node119.effect)).add(f(IUniversalIn.fireTree.node153.effect))
 
-  if (f(sel.level).gt(f(0))) {
+  if (f(sel.level).gt(f(0)) && f(1.2).pow(Decimal.log10(f(IUniversal.wood))).mul(f(sel.level)).gt(f(1))) {
     sel2.effect = f(1.2).pow(Decimal.log10(f(IUniversal.wood))).mul(f(sel.level))
   } else {
     sel2.effect = f(1)
@@ -26086,7 +26086,7 @@ function valuesSetter(type) {
   sel2.maxLevel = f(5).add(f(IUniversalIn.fireTree.node119.effect)).add(f(IUniversalIn.fireTree.node153.effect))
 
 
-  if (f(sel.level).gt(f(0))) {
+  if (f(sel.level).gt(f(0)) && f(1.2).pow(Decimal.log10(f(IUniversal.coal))).mul(f(sel.level)).gt(f(1))) {
     sel2.effect = f(1.2).pow(Decimal.log10(f(IUniversal.coal))).mul(f(sel.level))
   } else {
     sel2.effect = f(1)
@@ -39575,6 +39575,9 @@ document.getElementById("options_discord").onclick = function () {
   window.open("https://discord.gg/sVerm9fbhv", "_blank");
 }
 
+document.getElementById("options_kofi").onclick = function () {
+  window.open("https://ko-fi.com/keenedev", "_blank");
+}
 
 //fire Tree
 
