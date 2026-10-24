@@ -1573,9 +1573,9 @@ class Universal {
     };
 
     this.universeBonus = options.universeBonus || {
-      item1: { active: false},
-      item2: { active: false},
-      item3: { active: false},
+      item1: { active: false },
+      item2: { active: false },
+      item3: { active: false },
     }
 
     this.waterTree = options.waterTree || {
@@ -4887,16 +4887,16 @@ class UniversalIn {
     };
 
     this.coreItem = options.coreItem || {
-      item1: { type: "training", subtype: "training", content: "", value0: 0, value2: 0, contentType: "static"},
-      item2: { type: "Gem", subtype: "treasure", content: "", value0: 0, value2: 0, contentType: ""},
-      item3: { type: "Nobility", subtype: "treasure", content: "", value0: 0, value2: 0, contentType: ""},
-      item4: { type: "Divinity", subtype: "treasure", content: "", value0: 0, value2: 0, contentType: ""},
+      item1: { type: "training", subtype: "training", content: "", value0: 0, value2: 0, contentType: "static" },
+      item2: { type: "Gem", subtype: "treasure", content: "", value0: 0, value2: 0, contentType: "" },
+      item3: { type: "Nobility", subtype: "treasure", content: "", value0: 0, value2: 0, contentType: "" },
+      item4: { type: "Divinity", subtype: "treasure", content: "", value0: 0, value2: 0, contentType: "" },
     }
 
     this.universeBonus = options.universeBonus || {
-      item1: { content: "", value: 0, req: function () { return false }},
-      item2: { content: "", value: 0, req: function () { return false }},
-      item3: { content: "", value: 0, req: function () { return false }},
+      item1: { content: "", value: 0, req: function () { return false } },
+      item2: { content: "", value: 0, req: function () { return false } },
+      item3: { content: "", value: 0, req: function () { return false } },
     }
 
     this.potionEffects = options.potionEffects || {
@@ -8650,7 +8650,7 @@ class ShowableClass {
 
       //EARTH
 
-      
+
       //WATER
 
       content2_21_zone1: false,
@@ -9293,13 +9293,13 @@ function offImportSave() {
   try {
     const savedGameData = JSON.parse(offlineData);
     createSaveData();
-    
+
     for (let x in savedGameData) {
       if (saveData[x]) {
         deepMerge(saveData[x], savedGameData[x]);
       }
     }
-    saveGameData(); 
+    saveGameData();
     loadingSave = false;
     TickloadingSave = false;
   } catch (e) {
@@ -9434,7 +9434,7 @@ function visualValute() {
     }
   }
 
-  update("powerValute", `<div><div>Power</div><div class="boldBlackBorder">${format(IGameData.power, 1)}</div></div>`)
+  update("powerValute", `<div><div>Power</div><div class="boldBlackBorder">${format(IGameData.power, 1)}</span></div>`)
   update("universeValute", `<div><div>Universe</div><div class="boldBlackBorder">${format(IUniversal.universe, 0)}</div></div>`)
 
 
@@ -12258,7 +12258,7 @@ function valuesSetterInit(type) {
   IUniversalIn.potionEffects.effect23.valueFormula = function (potionLevel = 0, effectLevel = 1) { return (f(2).mul(f(effectLevel))).mul(f(potionLevel).add(f(1))) }
   IUniversalIn.potionEffects.effect23.contentFormula = function () { return `Divinity/s <span class="boldBlackBorder">×${format(f(this.value))}</span>` }
 
-  
+
   potionSetter()
 
   //Universe Bonus
@@ -12449,7 +12449,7 @@ function valuesSetterInit(type) {
   var sel2 = IUniversalIn.earthTree.node24
 
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.earthTree.node24.priceIdentity, IUniversalIn.earthTree.node24.price, "uni")) { return true } }
-  sel2.req = function () { return (IUniversal.earthTree.node22.active && IUniversal.earthTree.node23.active)  }
+  sel2.req = function () { return (IUniversal.earthTree.node22.active && IUniversal.earthTree.node23.active) }
 
   //NODE 25
   var sel = IUniversal.earthTree.node25
@@ -16309,7 +16309,7 @@ function valuesSetterCycle(type) {
                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
                  <div class="centerDiv padding1 column fontSize09">
                     <div>Heat reduction -0.05</div>
-                    <div>(Heat reduction:<span class="boldBlackBorder"> /${format(f(IUniversalIn.fireTree.node27.effect2), 2)}</span>)</div>
+                    <div">(Heat reduction:<span class="boldBlackBorder"> /${format(f(IUniversalIn.fireTree.node27.effect2), 2)}</span>)</div>
                  </div>`
 
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
@@ -19456,21 +19456,21 @@ function valuesSetterCycle(type) {
   var sel2 = IUniversalIn.waterTree.node41
 
 
-  if(IUniversal.universeBonus.item1.active){
+  if (IUniversal.universeBonus.item1.active) {
     var tier1 = IUniversalIn.universeBonus.item1.content
-  }else{
+  } else {
     tier1 = "Reach Tier 1"
   }
 
-  if(IUniversal.universeBonus.item2.active){
+  if (IUniversal.universeBonus.item2.active) {
     var tier2 = IUniversalIn.universeBonus.item2.content
-  }else{
+  } else {
     tier2 = "Reach Tier 2"
   }
 
-  if(IUniversal.universeBonus.item3.active){
+  if (IUniversal.universeBonus.item3.active) {
     var tier3 = IUniversalIn.universeBonus.item3.content
-  }else{
+  } else {
     tier3 = "Reach Tier 3"
   }
 
@@ -19801,25 +19801,25 @@ function valuesSetterCycle(type) {
                                                        </div>`
 
   //CORE ITEM
-    //core item 1
+  //core item 1
   IUniversalIn.coreItem.item1.content = `          <div class="square height30 width100 column">
                                                           <div><span class="">Max potion level: ${format(IUniversalIn.coreItem.item1.value2, 0)}</span></div>
                                                           <div><span class="boldBlackBorder">${format(IUniversalIn.coreItem.item1.value0)}</span> Intent/s</div>
                                                        </div>`
 
-/*
-    //core item 1
-  IUniversalIn.coreItem.item2.content = `          <div class="square height30 width100 centerDiv column">
-                                                          <div><span class="">Max potion level: ${format(IUniversalIn.coreItem.item1.value2, 0)}</span></div>
-                                                          
-                                                          <div><span class="boldBlackBorder">${format(IUniversalIn.inventoryStorage[IUniversal.coreItem.item2.key].content)}</span> Intent/s</div>
-                                                       </div>`
-    //core item 1
-  IUniversalIn.coreItem.item3.content = `          <div class="square height30 width100 centerDiv column">
-                                                          <div><span class="boldBlackBorder">${format(IUniversalIn.inventoryStorage[IUniversal.coreItem.item3.key].content)}</span> Intent/s</div>
-                                                       </div>`
-  */
- 
+  /*
+      //core item 1
+    IUniversalIn.coreItem.item2.content = `          <div class="square height30 width100 centerDiv column">
+                                                            <div><span class="">Max potion level: ${format(IUniversalIn.coreItem.item1.value2, 0)}</span></div>
+                                                            
+                                                            <div><span class="boldBlackBorder">${format(IUniversalIn.inventoryStorage[IUniversal.coreItem.item2.key].content)}</span> Intent/s</div>
+                                                         </div>`
+      //core item 1
+    IUniversalIn.coreItem.item3.content = `          <div class="square height30 width100 centerDiv column">
+                                                            <div><span class="boldBlackBorder">${format(IUniversalIn.inventoryStorage[IUniversal.coreItem.item3.key].content)}</span> Intent/s</div>
+                                                         </div>`
+    */
+
   potionInfoStatic()
   potionSetterInit()
 
@@ -23250,25 +23250,25 @@ function valuesSetterCycle(type) {
   //visuals content
 
   //formation
-  if (IUniversal.treasureFormation.item1.key && IUniversalIn.treasures[IUniversal.treasureFormation.item1.key]) {
-    IUniversalIn.treasureFormation.content = IUniversalIn.treasures[IUniversal.treasureFormation.item1.key].content3;
-  } else {
-    IUniversalIn.treasureFormation.content = IUniversalIn.treasures.treasure9 ? IUniversalIn.treasures.treasure9.content3 : "";
-  }
 
+  if (IUniversal.treasureFormation.item1.key) {
+    IUniversalIn.treasureFormation.content = IUniversalIn.treasures[IUniversal.treasureFormation.item1.key].content3
+  } else {
+    IUniversalIn.treasureFormation.content = IUniversalIn.treasures.treasure9.content3
+  }
 
   //army treasure
-  for (let x in IUniversal.treasureArmy) {
-    var sel = IUniversal.treasureArmy[x];
-    var selIn = IUniversalIn.treasureArmy[x];
 
-    if (sel && sel.key && IUniversalIn.treasures[sel.key]) {
-      selIn.content = IUniversalIn.treasures[sel.key].content3;
-    } else if (selIn) {
-      selIn.content = "";
+  for (let x in IUniversal.treasureArmy) {
+    var sel = IUniversal.treasureArmy[x]
+    var selIn = IUniversalIn.treasureArmy[x]
+
+    if (sel.key) {
+      selIn.content = IUniversalIn.treasures[sel.key].content3
+    } else {
+      selIn.content = ""
     }
   }
-
 
 
   //treasure equipment
@@ -23277,7 +23277,7 @@ function valuesSetterCycle(type) {
     var sel = IUniversal.treasureEquipment[x]
     var selIn = IUniversalIn.treasureEquipment[x]
 
-    if (sel && sel.key && IUniversalIn.treasures[sel.key]) {
+    if (sel.key) {
       selIn.content = IUniversalIn.treasures[sel.key].content3
     } else {
       selIn.content = ""
@@ -23288,7 +23288,7 @@ function valuesSetterCycle(type) {
     var sel = IUniversal.treasureAugments[x]
     var selIn = IUniversalIn.treasureAugments[x]
 
-    if (sel && sel.key && IUniversalIn.treasures[sel.key]) {
+    if (sel.key) {
       selIn.content = IUniversalIn.treasures[sel.key].content3
     } else {
       selIn.content = ""
@@ -26061,7 +26061,7 @@ function valuesSetter(type) {
   sel.level = f(sel.level)
   sel2.maxLevel = f(5).add(f(IUniversalIn.fireTree.node119.effect)).add(f(IUniversalIn.fireTree.node153.effect))
 
-  if (f(sel.level).gt(f(0)) && f(1.2).pow(Decimal.log10(f(IUniversal.wood))).mul(f(sel.level)).gt(f(1))) {
+  if (f(sel.level).gt(f(0))) {
     sel2.effect = f(1.2).pow(Decimal.log10(f(IUniversal.wood))).mul(f(sel.level))
   } else {
     sel2.effect = f(1)
@@ -26086,7 +26086,7 @@ function valuesSetter(type) {
   sel2.maxLevel = f(5).add(f(IUniversalIn.fireTree.node119.effect)).add(f(IUniversalIn.fireTree.node153.effect))
 
 
-  if (f(sel.level).gt(f(0)) && f(1.2).pow(Decimal.log10(f(IUniversal.coal))).mul(f(sel.level)).gt(f(1))) {
+  if (f(sel.level).gt(f(0))) {
     sel2.effect = f(1.2).pow(Decimal.log10(f(IUniversal.coal))).mul(f(sel.level))
   } else {
     sel2.effect = f(1)
@@ -26824,7 +26824,7 @@ function valuesSetter(type) {
                  <div class="centerDiv padding1 column fontSize09"><div>Resets when Universe Furnace reduces Heat (<span class="boldBlackBorder">${format(f(IUniversal.heatTimer))}s</span>)</div>
                                                         <div class="line"></div>
                                                         <div class=""><span class="boldBlackBorder">${format(f(f(sel.timer).minus(f(sel.currentTimer))), 1)}s</span> remaining</div>
-                                                        <div>Heat <span class="boldBlackBorder">×${format(f(f(sel2.effect2)), 1)}</span></div>
+                                                        <div">Heat <span class="boldBlackBorder">×${format(f(f(sel2.effect2)), 1)}</span></div>
                                                         <div></div>
                  </div>`
   } else {
@@ -31032,11 +31032,11 @@ function valuesSetter(type) {
   var upg1 = IUniversalIn.universeBonus.item2.value
 
   if (IUniversal.coreItem.item1.key != null) {
-    if(f(getPotionLevel(IUniversal.coreItem.item1.key, "coreItem"))
-      .gt(f(IUniversalIn.coreItem.item1.value2))){
+    if (f(getPotionLevel(IUniversal.coreItem.item1.key, "coreItem"))
+      .gt(f(IUniversalIn.coreItem.item1.value2))) {
       IUniversalIn.coreItem.item1.value0 = f(Decimal.max(f(1), f(IUniversalIn.coreItem.item1.value2).dividedBy(f(10))))
-    }else{
-      IUniversalIn.coreItem.item1.value0 = f(Decimal.max(f(1), f(getPotionLevel(IUniversal.coreItem.item1.key, "coreItem")).dividedBy(f(10)))) 
+    } else {
+      IUniversalIn.coreItem.item1.value0 = f(Decimal.max(f(1), f(getPotionLevel(IUniversal.coreItem.item1.key, "coreItem")).dividedBy(f(10))))
     }
     IUniversalIn.coreItem.item1.value2 = f(10).add(f(upg1))
   } else {
@@ -31050,9 +31050,9 @@ function valuesSetter(type) {
   var sel = IUniversal.universeBonus.item1
   var sel2 = IUniversalIn.universeBonus.item1
 
-  if(IUniversal.universeBonus.item1.active){
+  if (IUniversal.universeBonus.item1.active) {
     sel2.value = f(1.2).pow((f(IUniversal.tier).minus(f(0.8))).mul(f(10)))
-  }else{
+  } else {
     sel2.value = f(1)
   }
 
@@ -31062,9 +31062,9 @@ function valuesSetter(type) {
   var sel = IUniversal.universeBonus.item2
   var sel2 = IUniversalIn.universeBonus.item2
 
-  if(IUniversal.universeBonus.item2.active){
+  if (IUniversal.universeBonus.item2.active) {
     sel2.value = f(10).mul((f(IUniversal.tier).minus(f(1))))
-  }else{
+  } else {
     sel2.value = f(0)
   }
 
@@ -31074,9 +31074,9 @@ function valuesSetter(type) {
   var sel = IUniversal.universeBonus.item3
   var sel2 = IUniversalIn.universeBonus.item3
 
-  if(IUniversal.universeBonus.item3.active){
+  if (IUniversal.universeBonus.item3.active) {
     sel2.value = f("1e10").pow((f(IUniversal.sacredEnergy)))
-  }else{
+  } else {
     sel2.value = f(1)
   }
 
@@ -31548,9 +31548,9 @@ function valuesSetter(type) {
 
   sel.level = f(sel.level)
 
-  if(f(IUniversal.earthTree.node22.level).lte(f(IUniversal.earthTree.node23.level))){
+  if (f(IUniversal.earthTree.node22.level).lte(f(IUniversal.earthTree.node23.level))) {
     sel2.maxLevel = f(IUniversal.earthTree.node22.level)
-  }else{
+  } else {
     sel2.maxLevel = f(IUniversal.earthTree.node23.level)
   }
 
@@ -31724,9 +31724,9 @@ function valuesSetter(type) {
 
 
   if (f(sel.level).gt(f(0))) {
-    if(f(sel.level).gt(f(IUniversal.ironGolem))){
+    if (f(sel.level).gt(f(IUniversal.ironGolem))) {
       sel2.effect = f(1.5).pow(f(IUniversal.ironGolem))
-    }else{
+    } else {
       sel2.effect = f(1.5).pow(f(sel.level))
     }
   } else {
@@ -31749,9 +31749,9 @@ function valuesSetter(type) {
   sel2.learningMax = f(500).mul(f(10).pow(f(sel.level)).add(f(1)))
 
   if (f(sel.level).gt(f(0))) {
-    if(f(sel.level).gt(f(IUniversal.silverGolem))){
+    if (f(sel.level).gt(f(IUniversal.silverGolem))) {
       sel2.effect = f(1.5).pow(f(IUniversal.silverGolem))
-    }else{
+    } else {
       sel2.effect = f(1.5).pow(f(sel.level))
     }
   } else {
@@ -31774,9 +31774,9 @@ function valuesSetter(type) {
   sel2.learningMax = f(5000).mul(f(10).pow(f(sel.level).add(f(1))))
 
   if (f(sel.level).gt(f(0))) {
-    if(f(sel.level).gt(f(IUniversal.obsidianGolem))){
+    if (f(sel.level).gt(f(IUniversal.obsidianGolem))) {
       sel2.effect = f(1.5).pow(f(IUniversal.obsidianGolem))
-    }else{
+    } else {
       sel2.effect = f(1.5).pow(f(sel.level))
     }
   } else {
@@ -31787,7 +31787,7 @@ function valuesSetter(type) {
 
   if (f(sel.level).gt(f(0))) { sel.active = true }
   if (sel.active) { sel.unlocked = true }
-  
+
   //NODE 35
   var sel = IUniversal.earthTree.node35
   var sel2 = IUniversalIn.earthTree.node35
@@ -32842,7 +32842,7 @@ function valuesSetter(type) {
   } else {
     life15 = 1;
   }
-  
+
   var life16 = f(IUniversalIn.earthTree.node24.effect)
 
   if (getTreasureActive("treasure36")) { var divinityDebuff = f(IUniversalIn.treasures.treasure36.effect1) } else { divinityDebuff = f(1) }
@@ -32902,7 +32902,7 @@ function valuesSetter(type) {
   }
 
   var damage16 = f(IUniversalIn.earthTree.node24.effect)
-  
+
   if (getTreasureActive("treasure36")) { var divinityDebuff = f(IUniversalIn.treasures.treasure36.effect1) } else { divinityDebuff = f(1) }
 
   var baseDamage1 = f(IUniversalIn.armyInfo.default.golemTypes.type1.baseDamage)
@@ -34578,7 +34578,7 @@ function valuesSetter(type) {
   }
 
   //Expeditions
-  
+
   var timerReduction1 = f(IUniversalIn.earthTree.node22.effect)
 
   var timerReduction = f(timerReduction1)
@@ -34618,7 +34618,7 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(300).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(60))) {
+  if (selIn.rewards.timerPrice.lt(f(60))) {
     selIn.rewards.timerPrice = f(60)
   }
 
@@ -34667,7 +34667,7 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(600).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(60))) {
+  if (selIn.rewards.timerPrice.lt(f(60))) {
     selIn.rewards.timerPrice = f(60)
   }
 
@@ -34705,7 +34705,7 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(1200).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(60))) {
+  if (selIn.rewards.timerPrice.lt(f(60))) {
     selIn.rewards.timerPrice = f(60)
   }
 
@@ -34750,7 +34750,7 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(1500).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(60))) {
+  if (selIn.rewards.timerPrice.lt(f(60))) {
     selIn.rewards.timerPrice = f(60)
   }
 
@@ -34799,7 +34799,7 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(1800).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(60))) {
+  if (selIn.rewards.timerPrice.lt(f(60))) {
     selIn.rewards.timerPrice = f(60)
   }
 
@@ -34842,7 +34842,7 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(600).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(60))) {
+  if (selIn.rewards.timerPrice.lt(f(60))) {
     selIn.rewards.timerPrice = f(60)
   }
 
@@ -34892,7 +34892,7 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(900).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(60))) {
+  if (selIn.rewards.timerPrice.lt(f(60))) {
     selIn.rewards.timerPrice = f(60)
   }
 
@@ -34941,7 +34941,7 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(900).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(60))) {
+  if (selIn.rewards.timerPrice.lt(f(60))) {
     selIn.rewards.timerPrice = f(60)
   }
 
@@ -34990,7 +34990,7 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(1200).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(60))) {
+  if (selIn.rewards.timerPrice.lt(f(60))) {
     selIn.rewards.timerPrice = f(60)
   }
 
@@ -35034,7 +35034,7 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(2100).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(60))) {
+  if (selIn.rewards.timerPrice.lt(f(60))) {
     selIn.rewards.timerPrice = f(60)
   }
 
@@ -35077,7 +35077,7 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(1500).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(60))) {
+  if (selIn.rewards.timerPrice.lt(f(60))) {
     selIn.rewards.timerPrice = f(60)
   }
 
@@ -35126,7 +35126,7 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(1800).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(60))) {
+  if (selIn.rewards.timerPrice.lt(f(60))) {
     selIn.rewards.timerPrice = f(60)
   }
 
@@ -35177,7 +35177,7 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(2100).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(60))) {
+  if (selIn.rewards.timerPrice.lt(f(60))) {
     selIn.rewards.timerPrice = f(60)
   }
 
@@ -35223,7 +35223,7 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(2100).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(60))) {
+  if (selIn.rewards.timerPrice.lt(f(60))) {
     selIn.rewards.timerPrice = f(60)
   }
 
@@ -35312,7 +35312,7 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(2100).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(60))) {
+  if (selIn.rewards.timerPrice.lt(f(60))) {
     selIn.rewards.timerPrice = f(60)
   }
 
@@ -35363,7 +35363,7 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(2100).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(60))) {
+  if (selIn.rewards.timerPrice.lt(f(60))) {
     selIn.rewards.timerPrice = f(60)
   }
 
@@ -35408,7 +35408,7 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(2100).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(60))) {
+  if (selIn.rewards.timerPrice.lt(f(60))) {
     selIn.rewards.timerPrice = f(60)
   }
 
@@ -35453,7 +35453,7 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(2100).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(60))) {
+  if (selIn.rewards.timerPrice.lt(f(60))) {
     selIn.rewards.timerPrice = f(60)
   }
 
@@ -35503,7 +35503,7 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(1800).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(60))) {
+  if (selIn.rewards.timerPrice.lt(f(60))) {
     selIn.rewards.timerPrice = f(60)
   }
 
@@ -35554,7 +35554,7 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(2100).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(60))) {
+  if (selIn.rewards.timerPrice.lt(f(60))) {
     selIn.rewards.timerPrice = f(60)
   }
 
@@ -35604,7 +35604,7 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(2100).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(60))) {
+  if (selIn.rewards.timerPrice.lt(f(60))) {
     selIn.rewards.timerPrice = f(60)
   }
 
@@ -35648,7 +35648,7 @@ function valuesSetter(type) {
 
   //effects
 
-  
+
 
   selIn.effects.effect1.type = "divinity"
   selIn.effects.effect1.content = `<div class="boldBlackBorder">Divinity</div>
@@ -35658,7 +35658,7 @@ function valuesSetter(type) {
 
   selIn.rewards.timerPrice = f(2400).minus(f(timerReduction))
 
-  if(selIn.rewards.timerPrice.lt(f(60))) {
+  if (selIn.rewards.timerPrice.lt(f(60))) {
     selIn.rewards.timerPrice = f(60)
   }
 
@@ -35854,8 +35854,8 @@ function getPotionLevel(effType, type) {
 
     for (let x in IUniversal.equipment) {
       var sel = IUniversal.equipment[x]
-      
-      if(sel.key == null) return
+
+      if (sel.key == null) return
 
       if (IUniversal.inventoryStorage[sel.key]) {
         for (let y in IUniversal.inventoryStorage[sel.key].effects) {
@@ -35873,8 +35873,8 @@ function getPotionLevel(effType, type) {
   if (type == "source") {
     for (let x in IUniversal.potionSource) {
       var sel = IUniversal.potionSource[x]
-      
-      if(sel.key == null) return
+
+      if (sel.key == null) return
 
       if (IUniversal.inventoryStorage[sel.key]) {
         for (let y in IUniversal.inventoryStorage[sel.key].effects) {
@@ -35893,8 +35893,8 @@ function getPotionLevel(effType, type) {
 
     for (let x in IUniversal.coreItem) {
       var sel = IUniversal.coreItem[x]
-      
-      if(sel.key == null) return
+
+      if (sel.key == null) return
 
       if (IUniversal.inventoryStorage[sel.key]) {
         for (let y in IUniversal.inventoryStorage[sel.key].effects) {
@@ -35915,8 +35915,8 @@ function getPotionEffectTier(effType, type) {
   if (type == "equipment") {
     for (let x in IUniversal.equipment) {
       var sel = IUniversal.equipment[x]
-      
-      if(sel.key == null) return
+
+      if (sel.key == null) return
 
       if (IUniversal.inventoryStorage[sel.key]) {
         for (let y in IUniversal.inventoryStorage[sel.key].effects) {
@@ -35934,8 +35934,8 @@ function getPotionEffectTier(effType, type) {
   if (type == "source") {
     for (let x in IUniversal.potionSource) {
       var sel = IUniversal.potionSource[x]
-      
-      if(sel.key == null) return
+
+      if (sel.key == null) return
 
       if (IUniversal.inventoryStorage[sel.key]) {
         for (let y in IUniversal.inventoryStorage[sel.key].effects) {
@@ -35953,8 +35953,8 @@ function getPotionEffectTier(effType, type) {
   if (type == "coreItem") {
     for (let x in IUniversal.coreItem) {
       var sel = IUniversal.coreItem[x]
-      
-      if(sel.key == null) return
+
+      if (sel.key == null) return
 
       if (IUniversal.inventoryStorage[sel.key]) {
         for (let y in IUniversal.inventoryStorage[sel.key].effects) {
@@ -36356,9 +36356,9 @@ function valuesSetterDinamic(type) {
   } else {
     var life12 = f(1)
   }
-  
+
   var life13 = f(IUniversalIn.earthTree.node29.effect)
-  
+
   IFight.youStats.life = (f(life1)).mul(f(life4)).mul(f(life5).mul(f(life7)).mul(f(life8)).mul(f(life9)).mul(f(life10)).mul(f(life11)).mul(life12).mul(life13)).pow(f(life6)).add(f(life2))
   if (type == "universalChallengerChallenge2") {
     IFight.youStats.life = f(life1)
@@ -37066,12 +37066,12 @@ function valuesSetterDinamic(type) {
   var massaConfusa1 = f(IUniversalIn.fireTree.node165.effect)
   var massaConfusa2 = f(IUniversalIn.fireTree.node167.effect)
   var massaConfusa3 = f(IUniversalIn.earthTree.node23.effect)
-  if(f(IUniversalIn.potionEffects.effect21.activeValue).gt(f(0))){
+  if (f(IUniversalIn.potionEffects.effect21.activeValue).gt(f(0))) {
     var massaConfusa4 = f(IUniversalIn.potionEffects.effect21.activeValue);
-  } else{
+  } else {
     massaConfusa4 = f(1)
   }
-  
+
 
   IUniversal.massaConfusaProd = (f(massaConfusa1).mul(f(massaConfusa2)).mul(f(massaConfusa3)).mul(massaConfusa4)).mul(f(IGameData.tickSpeed))
   IUniversal.massaConfusa = f(IUniversal.massaConfusa).add(IUniversal.massaConfusaProd)
@@ -37098,7 +37098,7 @@ function valuesSetterDinamic(type) {
 
   IUniversal.waterMax = (f(10).add(f(waterMax1))).mul(f(waterMax2)).mul(f(waterMax4)).mul(f(waterMax5)).mul(f(waterMax6)).mul(f(waterMax7)).mul(f(waterMax8))
 
-    //water Prod
+  //water Prod
 
   var water2 = f(IUniversalIn.waterTree.node2.effect)
   var water3 = f(IUniversalIn.waterTree.node5.effect)
@@ -37236,7 +37236,7 @@ function valuesSetterDinamic(type) {
   //INTENT
 
   //intent Max
-  
+
   var intentMax1 = f(IUniversalIn.waterTree.node46.effect)
 
   IUniversal.intentMax = f(10).mul(f(intentMax1))
@@ -37247,12 +37247,12 @@ function valuesSetterDinamic(type) {
   var intent2 = f(IUniversalIn.fireTree.node170.effect)
   var intent3 = f(IUniversalIn.waterTree.node43.effect2)
 
-    if (f(IUniversalIn.potionEffects.effect20.activeValue).gt(f(0))) {
+  if (f(IUniversalIn.potionEffects.effect20.activeValue).gt(f(0))) {
     var intent4 = f(IUniversalIn.potionEffects.effect20.activeValue);
   }
   else {
     intent4 = f(1)
-  }  
+  }
 
   IUniversal.intentProdBase = (f(intent1).mul(intent2).mul(intent3).mul(intent4)).mul(f(IGameData.baseTickSpeed))
   IUniversal.intentProd = (f(intent1).mul(intent2).mul(intent3).mul(intent4)).mul(f(IGameData.tickSpeed))
@@ -37408,9 +37408,9 @@ function valuesSetterDinamic(type) {
 
   var origin1 = f(IUniversalIn.waterTree.node42.effect)
   var origin2 = f(IUniversalIn.earthTree.node23.effect)
-  if(f(IUniversalIn.potionEffects.effect22.activeValue).lte(f(0))){
+  if (f(IUniversalIn.potionEffects.effect22.activeValue).lte(f(0))) {
     var origin3 = 1
-  }else{
+  } else {
     origin3 = f(IUniversalIn.potionEffects.effect22.activeValue);
   }
 
@@ -39575,9 +39575,6 @@ document.getElementById("options_discord").onclick = function () {
   window.open("https://discord.gg/sVerm9fbhv", "_blank");
 }
 
-document.getElementById("options_kofi").onclick = function () {
-  window.open("https://ko-fi.com/keenedev", "_blank");
-}
 
 //fire Tree
 
@@ -43952,10 +43949,10 @@ function visualWaterTree() {
 
       if (cache.lastValues[cacheKey] !== newValue) {
         var html = '<div class="noClick">' +
-                    '<div class="noClick">' + name + '</div>' +
-                    '<div class="boldBlackBorder noClick fontSize09">' + format(value, 0) + maxStr + '</div>' +
-                    '<div class="boldBlackBorder noClick">' + format(sec(prod)) + '/s</div>' +
-                  '</div>';
+          '<div class="noClick">' + name + '</div>' +
+          '<div class="boldBlackBorder noClick fontSize09">' + format(value, 0) + maxStr + '</div>' +
+          '<div class="boldBlackBorder noClick">' + format(sec(prod)) + '/s</div>' +
+          '</div>';
 
         update(id, html);
         cache.lastValues[cacheKey] = newValue;
@@ -44141,7 +44138,7 @@ function visualWaterTree() {
   unlockShow("content2_19_coreEquip_3", (IUniversal.waterTree.node47.active))
   unlockShow("content2_19_coreEquip_4", false)
 
-  
+
   cache.initialized = true;
 }
 
@@ -45389,7 +45386,7 @@ function visualEarthTree() {
     }
   }
 
-update(`learningInfo`, `Golem Learning <span class="boldBlackBorder">×${format(f(IUniversal.learningProd))}</span>`);
+  update(`learningInfo`, `Golem Learning <span class="boldBlackBorder">×${format(f(IUniversal.learningProd))}</span>`);
 }
 
 function visualMetalTree() {
@@ -45405,9 +45402,9 @@ function visualMetalTree() {
   if (f(IUniversal.metal).gt(f(0)) || checkShow("content2_25_valutes_valute1")) {
     unlockShow("content2_25_valutes_valute1", true)
     update("content2_25_valutes_valute1", `<div class="noClick"><div class="noClick">Metal</div><div class="boldBlackBorder noClick fontSize09">${format(IUniversal.metal, 0)}</div><div class="boldBlackBorder noClick">${format(sec(IUniversal.metalProd))}/s</div></div>`)
-    if(f(IUniversal.divinity).gte(f(0)) || checkShow("content2_25_valutes_valute2")) {
-    unlockShow("content2_25_valutes_valute2", true)
-    update("content2_25_valutes_valute2", `<div class="noClick"><div class="noClick">Divinity</div><div class="boldBlackBorder noClick fontSize09">${format(IUniversal.divinity, 0)}</div><div class="boldBlackBorder noClick">${format(sec(IUniversal.divinityProd))}/s</div></div>`)
+    if (f(IUniversal.divinity).gte(f(0)) || checkShow("content2_25_valutes_valute2")) {
+      unlockShow("content2_25_valutes_valute2", true)
+      update("content2_25_valutes_valute2", `<div class="noClick"><div class="noClick">Divinity</div><div class="boldBlackBorder noClick fontSize09">${format(IUniversal.divinity, 0)}</div><div class="boldBlackBorder noClick">${format(sec(IUniversal.divinityProd))}/s</div></div>`)
     }
   }
 
@@ -47811,7 +47808,7 @@ function loopShow() {
   unlockShow("content2_19_potions_potion10", wn14);
   unlockShow("content2_19_potions_potion11", wn14);
   unlockShow("content2_19_potionEquip_3", wn14);
-  
+
   unlockShow("content2_19_potions_potion15", wn47);
   unlockShow("content2_19_potions_potion16", en31);
   unlockShow("content2_19_potions_potion17", wn48);
@@ -48399,7 +48396,7 @@ function earthLines() {
     ["earthLine28", "content2_21_node21", "content2_21_node23"],
     ["earthLine29", "content2_21_node22", "content2_21_node24"],
     ["earthLine30", "content2_21_node23", "content2_21_node24"],
-    
+
   ];
   drawLines("content2_21_lineLayer", "content2_21_node", connections, "#b94a00ff");
 }
@@ -48481,7 +48478,7 @@ function changePage(type, page) {
 
   if (type === "potionUpgrades") {
     hideElements([
-      "content2_19_potionUpgrade_selector_content1", "content2_19_potionUpgrade_selector_content2", "content2_19_potionUpgrade_selector_content3","content2_19_potionUpgrade_selector_content4"
+      "content2_19_potionUpgrade_selector_content1", "content2_19_potionUpgrade_selector_content2", "content2_19_potionUpgrade_selector_content3", "content2_19_potionUpgrade_selector_content4"
     ]);
 
     unlockShow(page, true)
@@ -48857,8 +48854,8 @@ var noSincLoop3 = window.setInterval(function () {
 
 function idleTimeChecker() {
 
-  if(TickloadingSave) return
-  if(loadingSave) TickloadingSave = true;
+  if (TickloadingSave) return
+  if (loadingSave) TickloadingSave = true;
 
   if (IGameData.lastTick != null) {
     var diff = Date.now() - IGameData.lastTick
@@ -48870,7 +48867,7 @@ function idleTimeChecker() {
 
   if (diffSec > IGameData.offProgressLimit) {
     diffSec = IGameData.offProgressLimit;
-    
+
   }
   if (diffSec < 2) {
     diffSec = 1;
@@ -49383,15 +49380,15 @@ function addElement(type, key) {
 }
 
 function waterTutorial(n) {
-  if(n > IUniversal.waterTutorial){
+  if (n > IUniversal.waterTutorial) {
     IUniversal.waterTutorial = n
   }
-  
+
 }
 
 function craft(type, object) {
 
-  
+
   waterTutorial(1)
   potionInfoStatic()
 
@@ -49428,9 +49425,9 @@ function craft(type, object) {
       prices: sel.prices,
       image: sel.image,
     };
-    
+
     addElement("potion", keyName)
-    
+
   }
 }
 
@@ -49533,10 +49530,10 @@ function potionEquipmentStatic() {
     if (selId != null) {
       var potion = IUniversal.inventoryStorage[selId]
 
-      if(!IUniversal.inventoryStorage[selId]){
-        deletePotion(selId) 
+      if (!IUniversal.inventoryStorage[selId]) {
+        deletePotion(selId)
         return
-      } 
+      }
 
       for (let Obj in potion.effects) {
         var sel3 = potion.effects[Obj]
@@ -49568,17 +49565,17 @@ function potionEquipmentStatic() {
     var sel = IUniversal.coreItem[x]
     var selIn = IUniversalIn.coreItem[x]
 
-    if(selIn.contentType == "static") continue
+    if (selIn.contentType == "static") continue
 
     var selId = sel.key
     var effectText = ""
 
     if (selId != null) {
 
-      if(!IUniversal.inventoryStorage[selId]){
-        deletePotion(selId) 
+      if (!IUniversal.inventoryStorage[selId]) {
+        deletePotion(selId)
         return
-      } 
+      }
 
       var potion = IUniversal.inventoryStorage[selId]
 
@@ -49612,7 +49609,7 @@ function potionSetterInit() {
     var sel = IUniversal.inventoryStorage[x];
     var sel2 = IUniversalIn.inventoryStorage[x];
 
-    if(sel == undefined || sel2 == undefined) return
+    if (sel == undefined || sel2 == undefined) return
 
     var equipStatus = returnPotionEquipStatus(x)
 
@@ -50035,7 +50032,7 @@ function potionFusion() {
 
           var selPrice = newPotionIn.prices[Obj]
           if (!selPrice) continue;
-          
+
           if (newPotionIn.prices) {
             var selTier = selPrice.tier
           } else {
@@ -50244,8 +50241,6 @@ function draggableSet(item, key, keyIn, type, archetype) {
 
         var draggedDrag = eval(dragged + ".drag")
         var targetDrag = eval(target + ".drag")
-        
-        if(!dragged) return
 
         var draggedKey = eval(dragged).key;
         var targetKey = eval(target).key;
@@ -50293,9 +50288,6 @@ function draggableSet(item, key, keyIn, type, archetype) {
 
         var draggedKeyString = dragged + ".key"
         var targetKeyString = target + ".key"
-
-        
-        if(!dragged) return
 
         var draggedDrag = eval(dragged + ".drag")
         var targetDrag = eval(targetIn + ".drag")
@@ -50345,8 +50337,6 @@ function draggableSet(item, key, keyIn, type, archetype) {
 
         var draggedKeyString = dragged + ".key"
         var targetKeyString = target + ".key"
-        
-        if(!dragged) return
 
         var draggedDrag = eval(dragged + ".drag")
         var targetDrag = eval(targetIn + ".drag")
@@ -50401,8 +50391,6 @@ function draggableSet(item, key, keyIn, type, archetype) {
 
         var draggedKeyString = dragged + ".key"
         var targetKeyString = target + ".key"
-        
-        if(!dragged) return
 
         var draggedDrag = eval(dragged + ".drag")
         var targetDrag = eval(targetIn + ".drag")
@@ -50446,8 +50434,6 @@ function draggableSet(item, key, keyIn, type, archetype) {
 
         var draggedKeyString = dragged + ".key"
         var targetKeyString = target + ".key"
-        
-        if(!dragged) return
 
         var draggedDrag = eval(dragged + ".drag")
         var targetDrag = eval(targetIn + ".drag")
@@ -50460,6 +50446,7 @@ function draggableSet(item, key, keyIn, type, archetype) {
         }
 
         if (target == "IUniversal.potionFusion['item1']") {
+          //if they are the same potion, return
           if (IUniversal.potionFusion['item2'].key == draggedKey) {
             return
           }
@@ -50516,6 +50503,56 @@ function draggableSet(item, key, keyIn, type, archetype) {
         var draggedKey = eval(dragged).key;
 
         deletePotion(draggedKey)
+      });
+    }
+
+    if (type == "coreItem") {
+      item.addEventListener("drop", function (e) {
+        e.preventDefault();
+
+        var dragged = e.dataTransfer.getData("text/plain");
+        var target = key;
+        var targetIn = keyIn;
+
+        var draggedKeyString = dragged + ".key"
+        var targetKeyString = target + ".key"
+
+        if (!dragged) return
+
+        var draggedDrag = eval(dragged + ".drag")
+        var targetDrag = eval(targetIn + ".drag")
+
+        var draggedKey = eval(dragged).key;
+        var targetKey = eval(target).key;
+
+        if (!(IUniversalIn.inventoryStorage[draggedKey].type == eval(targetIn).type)) {
+          return
+        }
+
+        if (draggedDrag == "equipment") {
+          return
+        }
+
+        if (draggedKey == null || draggedKey == undefined) {
+          eval(`${draggedKeyString} = '${draggedKey}'`);
+          eval(`${targetKeyString} = '${draggedKey}'`);
+        } else if (targetKey == null || targetKey == undefined) {
+          eval(`${targetKeyString} = '${draggedKey}'`);
+          eval(`${draggedKeyString} = '${draggedKey}'`);
+        } else {
+          eval(`${targetKeyString} = '${draggedKey}'`);
+          eval(`${draggedKeyString} = '${draggedKey}'`);
+
+        }
+
+
+      });
+
+      item.addEventListener("click", function (e) {
+        e.preventDefault();
+        var selectedKey = eval(key).key;
+
+        IUniversal.selPotion = selectedKey || null;
       });
     }
   }
@@ -50585,8 +50622,6 @@ function draggableSet(item, key, keyIn, type, archetype) {
 
         var draggedKeyString = dragged + ".key"
         var targetKeyString = target + ".key"
-        
-        if(!dragged) return
 
         var draggedDrag = eval(dragged + ".drag")
         var targetDrag = eval(target + ".drag")
@@ -50637,8 +50672,6 @@ function draggableSet(item, key, keyIn, type, archetype) {
 
         var draggedKeyString = dragged + ".key"
         var targetKeyString = target + ".key"
-        
-        if(!dragged) return
 
         var draggedDrag = eval(dragged + ".drag")
         var targetDrag = eval(targetIn + ".drag")
@@ -50686,8 +50719,6 @@ function draggableSet(item, key, keyIn, type, archetype) {
 
         var draggedKeyString = dragged + ".key"
         var targetKeyString = target + ".key"
-        
-        if(!dragged) return
 
         var draggedDrag = eval(dragged + ".drag")
         var targetDrag = eval(targetIn + ".drag")
@@ -50731,8 +50762,6 @@ function draggableSet(item, key, keyIn, type, archetype) {
 
         var draggedKeyString = dragged + ".key";
         var targetKeyString = target + ".key";
-        
-        if(!dragged) return
 
         var draggedDrag = eval(dragged + ".drag");
         var draggedKey = eval(dragged).key;
@@ -50765,56 +50794,6 @@ function draggableSet(item, key, keyIn, type, archetype) {
     }
   }
 
-  if (type == "coreItem") {
-    item.addEventListener("drop", function (e) {
-      e.preventDefault();
-
-      var dragged = e.dataTransfer.getData("text/plain");
-      var target = key;
-      var targetIn = keyIn;
-
-      var draggedKeyString = dragged + ".key"
-      var targetKeyString = target + ".key"
-      
-        if(!dragged) return
-
-      var draggedDrag = eval(dragged + ".drag")
-      var targetDrag = eval(targetIn + ".drag")
-
-      var draggedKey = eval(dragged).key;
-      var targetKey = eval(target).key;
-
-      if (!(IUniversalIn.inventoryStorage[draggedKey].type == eval(targetIn).type)) {
-        return
-      }
-
-      if (draggedDrag == "equipment") {
-        return
-      }
-
-      if (draggedKey == null || draggedKey == undefined) {
-        eval(`${draggedKeyString} = '${draggedKey}'`);
-        eval(`${targetKeyString} = '${draggedKey}'`);
-      } else if (targetKey == null || targetKey == undefined) {
-        eval(`${targetKeyString} = '${draggedKey}'`);
-        eval(`${draggedKeyString} = '${draggedKey}'`);
-      } else {
-        eval(`${targetKeyString} = '${draggedKey}'`);
-        eval(`${draggedKeyString} = '${draggedKey}'`);
-
-      }
-
-
-    });
-
-    item.addEventListener("click", function (e) {
-      e.preventDefault();
-      var selectedKey = eval(key).key;
-
-      IUniversal.selPotion = selectedKey || null;
-    });
-  }
-
   if (type == "default") {
     item.addEventListener("drop", function (e) {
       e.preventDefault();
@@ -50822,18 +50801,16 @@ function draggableSet(item, key, keyIn, type, archetype) {
       var dragged = e.dataTransfer.getData("text/plain");
       var target = key;
 
+      if (!dragged || !target || dragged === target) return;
+
       var draggedKey = eval(dragged).key;
       var targetKey = eval(target).key;
 
-      var draggedKeyString = dragged + ".key"
-      var targetKeyString = target + ".key"
-      
-        if(!dragged) return
+      var draggedKeyString = dragged + ".key";
+      var targetKeyString = target + ".key";
 
-      var draggedDrag = eval(dragged + ".drag")
-      var targetDrag = eval(targetIn + ".drag")
-
-      if (!dragged || !target || dragged === target) return;
+      var draggedDrag = eval(dragged + ".drag");
+      var targetDrag = eval(target + ".drag");
 
       if (draggedKey == null && targetKey == null) {
         return;
@@ -50849,7 +50826,6 @@ function draggableSet(item, key, keyIn, type, archetype) {
         eval(`${dragged} = '${targetKey}'`);
         eval(`${target} = '${draggedKey}'`);
       }
-
     });
   }
 }
@@ -51102,9 +51078,9 @@ function automation() {
 
   //WATER
 
-  
 
-//Auto Upgrade
+
+  //Auto Upgrade
 
   const { newPotion, newPotionIn } = potionAutoUpgrade();
 
@@ -51378,12 +51354,12 @@ buttons.forEach(button => {
 
 function cleanDOM() {
   document.querySelectorAll('.behindSvg, .frontSvg').forEach(el => el.remove());
-  
+
   const dynamicContainers = ["svgUn", "containUn", "gearUn", "svgAnimationContainer", "svgAnimationContainer2"];
   dynamicContainers.forEach(id => {
     const el = document.getElementById(id);
     if (el) el.innerHTML = "";
   });
 
-  resetSpheresCache(); 
+  resetSpheresCache();
 }
