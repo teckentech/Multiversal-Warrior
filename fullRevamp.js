@@ -18656,7 +18656,7 @@ function valuesSetterCycle(type) {
 
 
   sel2.content = `<div class="bDefaultStyle transparent centerDivColumns padding2">
-                  <div class="centerDiv boldBlackBorder">Herbarium</div>
+                  <div class="centerDiv boldBlackBorder">Erbarium</div>
                   <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
                   <div class="topRight absolute padding2 grey">8</div>
                   <div class="centerDiv padding2 fontSize09">Erbs Max +10 (<span class="boldBlackBorder">+${format(f(sel2.effect), 0)}</span>)&nbsp;</div>
@@ -39573,6 +39573,10 @@ document.getElementById("optionsMisc_offlineTime_b1").onclick = function () {
 
 document.getElementById("options_discord").onclick = function () {
   window.open("https://discord.gg/sVerm9fbhv", "_blank");
+}
+
+document.getElementById("options_kofi").onclick = function () {
+  window.open("https://ko-fi.com/keenedev", "_blank");
 }
 
 
