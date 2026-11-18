@@ -4789,6 +4789,7 @@ class UniversalIn {
         price: 0, priceIdentity: "ash", pricef: function () { return },
         maxLevel: 0,
       },
+
     }
 
     this.fireMilestones = options.fireMilestones || {
@@ -8489,7 +8490,7 @@ class ShowableClass {
       content2_17_node165: false,
       content2_17_node166: false,
       content2_17_node167: false,
-      content2_17_node168: false,
+      content2_17_node168: false,      
       content2_17_node169: false,
       content2_17_node170: false,
       content2_17_node171: false,
@@ -11575,7 +11576,6 @@ function valuesSetterInit(type) {
 
   sel2.checkBuy = function () { if (checkBuy(IUniversalIn.fireTree.node171.priceIdentity, IUniversalIn.fireTree.node171.price, "uni")) { return true } }
   sel2.req = function () { return (IUniversal.fireTree.node132.active) }
-
 
   //HELL
 
@@ -18479,6 +18479,7 @@ function valuesSetterCycle(type) {
   if (f(sel.level).gte(f(sel2.maxLevel))) {
     sel2.button = `<div class="centerDiv noClick boldBlackBorder">MAX</div>`
   }
+
   //WATER TREE
 
   //NODE 1
@@ -40579,7 +40580,6 @@ document.getElementById("content2_17_node171_button").onclick = function () {
     buyMultiple(IUniversalIn.fireTree.node171, IUniversalIn.fireTree.node171, IUniversal.fireTree.node171, "level", 1, "uni", IUniversal.buyFireTree, IUniversal.fireTree.node171, IUniversalIn.fireTree.node171);
 }
 
-
 document.getElementById("content2_17_node41_button2").onclick = function () {
   if (f(IUniversal.fireTree.node41.level).gt(f(0))) {
     assignGroup(IUniversalIn.fireTree, IUniversal.fireTree, "node41")
@@ -45008,7 +45008,7 @@ function addObjectToSpace(row, col, key, space) {
 
     var stringKey = `'${key}'`
 
-    draggableSet(div, `IUniversal.treasureInventory[${stringKey}]`, `IUniversal.treasureInventory[${stringKey}]`, "inventory", "treasure")
+    draggableSet(div, `IUniversal.treasureInventory[${stringKey}]`, `IUniversal.treasureInventory[${stringKey}]`, "treasureInventory", "treasure")
 
     gridContainer.appendChild(div);
   }
@@ -45061,7 +45061,7 @@ function addObjectToSpace(row, col, key, space) {
 
     var stringKey = `'${key}'`
 
-    draggableSet(div, `IUniversal.treasureInventory[${stringKey}]`, `IUniversal.treasureInventory[${stringKey}]`, "inventory", "treasure")
+    draggableSet(div, `IUniversal.treasureInventory[${stringKey}]`, `IUniversal.treasureInventory[${stringKey}]`, "treasureInventory", "treasure")
 
     gridContainer.appendChild(div);
   }
@@ -45114,7 +45114,7 @@ function addObjectToSpace(row, col, key, space) {
 
     var stringKey = `'${key}'`
 
-    draggableSet(div, `IUniversal.treasureInventory[${stringKey}]`, `IUniversal.treasureInventory[${stringKey}]`, "inventory", "treasure")
+    draggableSet(div, `IUniversal.treasureInventory[${stringKey}]`, `IUniversal.treasureInventory[${stringKey}]`, "treasureInventory", "treasure")
 
     gridContainer.appendChild(div);
   }
@@ -50184,656 +50184,6 @@ function clearInventory() {
   }
 }
 
-function draggableSet(item, key, keyIn, type, archetype) {
-
-  if (archetype == "potion") {
-    item.classList.add("drag");
-    item.setAttribute("draggable", "true");
-
-    item.addEventListener("dragstart", function (e) {
-      e.dataTransfer.setData("text/plain", key);
-      e.dataTransfer.effectAllowed = "move";
-    });
-
-    item.addEventListener("dragover", function (e) {
-      e.preventDefault();
-    });
-
-    item.addEventListener("mouseenter", function (e) {
-      var selectedKey = eval(key).key;
-
-      if (!IUniversal.lockSelPotion) {
-        IUniversal.selPotion = selectedKey || null;
-        if (IUniversal.selPotion != null) {
-          unlockShow("content2_19_potion_info", true);
-
-        } else {
-          unlockShow("content2_19_potion_info", false);
-
-        }
-      }
-    });
-
-    item.addEventListener("mouseleave", function (e) {
-      var selectedKey = eval(key).key;
-
-      if (!IUniversal.lockSelPotion) {
-        IUniversal.selPotion = null;
-        unlockShow("content2_19_potion_info", false);
-      }
-    });
-
-    item.addEventListener("click", function (e) {
-      e.preventDefault();
-      var selectedKey = eval(key).key;
-
-      IUniversal.lockSelPotion = !IUniversal.lockSelPotion
-
-      IUniversal.selPotion = selectedKey || null;
-    });
-
-    if (type == "inventory") {
-      item.addEventListener("drop", function (e) {
-        e.preventDefault();
-
-        var dragged = e.dataTransfer.getData("text/plain");
-        var target = key;
-        var targetIn = keyIn;
-
-        var draggedKeyString = dragged + ".key"
-        var targetKeyString = target + ".key"
-
-        var draggedDrag = eval(dragged + ".drag")
-        var targetDrag = eval(target + ".drag")
-
-        var draggedKey = eval(dragged).key;
-        var targetKey = eval(target).key;
-
-        if (draggedDrag == "inventory") {
-
-
-          if (!dragged || !target || dragged === target) return;
-
-          if (draggedKey == null && targetKey == null) {
-            return;
-          }
-
-          if (draggedKey == null || draggedKey == undefined) {
-            eval(`${draggedKeyString} = '${targetKey}'`);
-            eval(`${targetKeyString} = null`);
-          } else if (targetKey == null || targetKey == undefined) {
-            eval(`${targetKeyString} = '${draggedKey}'`);
-            eval(`${draggedKeyString} = null`);
-          } else {
-            eval(`${draggedKeyString} = '${targetKey}'`);
-            eval(`${targetKeyString} = '${draggedKey}'`);
-          }
-
-          return
-        }
-
-        if (draggedDrag == "equipment") {
-
-          eval(`${draggedKeyString} = null`);
-
-          return
-        }
-
-      });
-    }
-
-    if (type == "equipmentPotion") {
-      item.addEventListener("drop", function (e) {
-        e.preventDefault();
-
-        var dragged = e.dataTransfer.getData("text/plain");
-        var target = key;
-        var targetIn = keyIn;
-
-        var draggedKeyString = dragged + ".key"
-        var targetKeyString = target + ".key"
-
-        var draggedDrag = eval(dragged + ".drag")
-        var targetDrag = eval(targetIn + ".drag")
-
-        var draggedKey = eval(dragged).key;
-        var targetKey = eval(target).key;
-
-        if (!(IUniversalIn.inventoryStorage[draggedKey].type == eval(targetIn).type)) {
-          return
-        }
-
-        if (draggedDrag == "equipment") {
-          return
-        }
-
-        waterTutorial(2)
-
-        if (draggedKey == null || draggedKey == undefined) {
-          eval(`${draggedKeyString} = '${draggedKey}'`);
-          eval(`${targetKeyString} = '${draggedKey}'`);
-        } else if (targetKey == null || targetKey == undefined) {
-          eval(`${targetKeyString} = '${draggedKey}'`);
-          eval(`${draggedKeyString} = '${draggedKey}'`);
-        } else {
-          eval(`${targetKeyString} = '${draggedKey}'`);
-          eval(`${draggedKeyString} = '${draggedKey}'`);
-
-        }
-
-      });
-
-      item.addEventListener("click", function (e) {
-        e.preventDefault();
-        var selectedKey = eval(key).key;
-
-        IUniversal.selPotion = selectedKey || null;
-      });
-    }
-
-    if (type == "potionSource") {
-      item.addEventListener("drop", function (e) {
-        e.preventDefault();
-
-        var dragged = e.dataTransfer.getData("text/plain");
-        var target = key;
-        var targetIn = keyIn;
-
-        var draggedKeyString = dragged + ".key"
-        var targetKeyString = target + ".key"
-
-        var draggedDrag = eval(dragged + ".drag")
-        var targetDrag = eval(targetIn + ".drag")
-
-        var draggedKey = eval(dragged).key;
-        var targetKey = eval(target).key;
-
-        if (!(IUniversalIn.inventoryStorage[draggedKey].type == eval(targetIn).type)) {
-          return
-        }
-
-        if (draggedDrag == "equipment") {
-          return
-        }
-
-        for (let x in IUniversal.potionSource) {
-          var sel = IUniversal.potionSource[x]
-          if (draggedKey == sel.key) {
-            return
-          }
-        }
-
-        if (draggedKey == null || draggedKey == undefined) {
-          eval(`${draggedKeyString} = '${draggedKey}'`);
-          eval(`${targetKeyString} = '${draggedKey}'`);
-        } else if (targetKey == null || targetKey == undefined) {
-          eval(`${targetKeyString} = '${draggedKey}'`);
-          eval(`${draggedKeyString} = '${draggedKey}'`);
-        } else {
-          eval(`${targetKeyString} = '${draggedKey}'`);
-          eval(`${draggedKeyString} = '${draggedKey}'`);
-
-        }
-
-      });
-
-      item.addEventListener("click", function (e) {
-        e.preventDefault();
-        var selectedKey = eval(key).key;
-
-        IUniversal.selPotion = selectedKey || null;
-      });
-    }
-
-    if (type == "volatile") {
-      item.addEventListener("drop", function (e) {
-        e.preventDefault();
-
-        var dragged = e.dataTransfer.getData("text/plain");
-        var target = key;
-        var targetIn = keyIn;
-
-        var draggedKeyString = dragged + ".key"
-        var targetKeyString = target + ".key"
-
-        var draggedDrag = eval(dragged + ".drag")
-        var targetDrag = eval(targetIn + ".drag")
-
-        var draggedKey = eval(dragged).key;
-        var targetKey = eval(target).key;
-
-        if (draggedDrag == "equipment") {
-          return
-        }
-
-        if (draggedKey == null || draggedKey == undefined) {
-          eval(`${draggedKeyString} = '${draggedKey}'`);
-          eval(`${targetKeyString} = '${draggedKey}'`);
-        } else if (targetKey == null || targetKey == undefined) {
-          eval(`${targetKeyString} = '${draggedKey}'`);
-          eval(`${draggedKeyString} = '${draggedKey}'`);
-        } else {
-          eval(`${targetKeyString} = '${draggedKey}'`);
-          eval(`${draggedKeyString} = '${draggedKey}'`);
-
-        }
-
-      });
-
-      item.addEventListener("click", function (e) {
-        e.preventDefault();
-        var selectedKey = eval(key).key;
-
-        IUniversal.selPotion = selectedKey || null;
-      });
-    }
-
-    if (type == "potionFusion") {
-      item.addEventListener("drop", function (e) {
-        e.preventDefault();
-
-        var dragged = e.dataTransfer.getData("text/plain");
-        var target = key;
-        var targetIn = keyIn;
-
-        var draggedKeyString = dragged + ".key"
-        var targetKeyString = target + ".key"
-
-        var draggedDrag = eval(dragged + ".drag")
-        var targetDrag = eval(targetIn + ".drag")
-
-        var draggedKey = eval(dragged).key;
-        var targetKey = eval(target).key;
-
-        if (draggedDrag == "equipment") {
-          return
-        }
-
-        if (target == "IUniversal.potionFusion['item1']") {
-          //if they are the same potion, return
-          if (IUniversal.potionFusion['item2'].key == draggedKey) {
-            return
-          }
-
-          //if they arent the same potion type, return
-          if (IUniversal.inventoryStorage[IUniversal.potionFusion['item2'].key]) {
-            if (IUniversalIn.inventoryStorage[draggedKey].type != IUniversalIn.inventoryStorage[IUniversal.potionFusion['item2'].key].type) {
-              return
-            }
-          }
-        }
-
-        if (target == "IUniversal.potionFusion['item2']") {
-          if (IUniversal.potionFusion['item1'].key == draggedKey) {
-            return
-          }
-
-          if (IUniversal.inventoryStorage[IUniversal.potionFusion['item1'].key]) {
-
-            if (IUniversalIn.inventoryStorage[draggedKey].type != IUniversalIn.inventoryStorage[IUniversal.potionFusion['item1'].key].type) {
-              return
-            }
-          }
-        }
-
-        if (draggedKey == null || draggedKey == undefined) {
-          eval(`${draggedKeyString} = '${draggedKey}'`);
-          eval(`${targetKeyString} = '${draggedKey}'`);
-        } else if (targetKey == null || targetKey == undefined) {
-          eval(`${targetKeyString} = '${draggedKey}'`);
-          eval(`${draggedKeyString} = '${draggedKey}'`);
-        } else {
-          eval(`${targetKeyString} = '${draggedKey}'`);
-          eval(`${draggedKeyString} = '${draggedKey}'`);
-
-        }
-
-      });
-
-      item.addEventListener("click", function (e) {
-        e.preventDefault();
-        var selectedKey = eval(key).key;
-
-        IUniversal.selPotion = selectedKey || null;
-      });
-    }
-
-    if (type == "delete") {
-      item.addEventListener("drop", function (e) {
-        e.preventDefault();
-
-        var dragged = e.dataTransfer.getData("text/plain");
-
-        var draggedKey = eval(dragged).key;
-
-        deletePotion(draggedKey)
-      });
-    }
-
-    if (type == "coreItem") {
-      item.addEventListener("drop", function (e) {
-        e.preventDefault();
-
-        var dragged = e.dataTransfer.getData("text/plain");
-        var target = key;
-        var targetIn = keyIn;
-
-        var draggedKeyString = dragged + ".key"
-        var targetKeyString = target + ".key"
-
-        if (!dragged) return
-
-        var draggedDrag = eval(dragged + ".drag")
-        var targetDrag = eval(targetIn + ".drag")
-
-        var draggedKey = eval(dragged).key;
-        var targetKey = eval(target).key;
-
-        if (!(IUniversalIn.inventoryStorage[draggedKey].type == eval(targetIn).type)) {
-          return
-        }
-
-        if (draggedDrag == "equipment") {
-          return
-        }
-
-        if (draggedKey == null || draggedKey == undefined) {
-          eval(`${draggedKeyString} = '${draggedKey}'`);
-          eval(`${targetKeyString} = '${draggedKey}'`);
-        } else if (targetKey == null || targetKey == undefined) {
-          eval(`${targetKeyString} = '${draggedKey}'`);
-          eval(`${draggedKeyString} = '${draggedKey}'`);
-        } else {
-          eval(`${targetKeyString} = '${draggedKey}'`);
-          eval(`${draggedKeyString} = '${draggedKey}'`);
-
-        }
-
-
-      });
-
-      item.addEventListener("click", function (e) {
-        e.preventDefault();
-        var selectedKey = eval(key).key;
-
-        IUniversal.selPotion = selectedKey || null;
-      });
-    }
-  }
-
-  if (archetype == "treasure") {
-    item.classList.add("drag");
-    item.setAttribute("draggable", "true");
-
-    item.addEventListener("dragstart", function (e) {
-      e.dataTransfer.setData("text/plain", key);
-      e.dataTransfer.effectAllowed = "move";
-
-    });
-
-    item.addEventListener("dragover", function (e) {
-      e.preventDefault();
-    });
-
-    item.addEventListener("mouseenter", function (e) {
-
-      var selectedKey = eval(key).key;
-
-      IUniversal.selTreasure = selectedKey || null;
-      if (IUniversal.selTreasure != null) {
-        unlockShow("content2_21_treasure_info", true);
-        unlockShow("content2_23_treasure_info", true);
-        unlockShow("content2_25_treasure_info", true);
-
-
-      } else {
-        unlockShow("content2_21_treasure_info", false);
-        unlockShow("content2_23_treasure_info", false);
-        unlockShow("content2_25_treasure_info", false);
-
-
-      }
-
-    });
-
-    item.addEventListener("mouseleave", function (e) {
-      var selectedKey = eval(key).key;
-
-      IUniversal.selTreasure = null;
-      unlockShow("content2_21_treasure_info", false);
-      unlockShow("content2_23_treasure_info", false);
-      unlockShow("content2_25_treasure_info", false);
-
-
-    });
-
-    item.addEventListener("click", function (e) {
-      e.preventDefault();
-      var selectedKey = eval(key).key;
-
-      IUniversal.lockSelTreasure = !IUniversal.lockSelTreasure
-
-      IUniversal.selTreasure = selectedKey || null;
-    });
-
-    if (type == "inventory") {
-      item.addEventListener("drop", function (e) {
-        e.preventDefault();
-
-        var dragged = e.dataTransfer.getData("text/plain");
-        var target = key;
-        var targetIn = keyIn;
-
-        var draggedKeyString = dragged + ".key"
-        var targetKeyString = target + ".key"
-
-        var draggedDrag = eval(dragged + ".drag")
-        var targetDrag = eval(target + ".drag")
-
-        var draggedKey = eval(dragged).key;
-        var targetKey = eval(target).key;
-
-        if (draggedDrag == "inventory") {
-
-
-          if (!dragged || !target || dragged === target) return;
-
-          if (draggedKey == null && targetKey == null) {
-            return;
-          }
-
-          if (draggedKey == null || draggedKey == undefined) {
-            eval(`${draggedKeyString} = '${targetKey}'`);
-            eval(`${targetKeyString} = null`);
-          } else if (targetKey == null || targetKey == undefined) {
-            eval(`${targetKeyString} = '${draggedKey}'`);
-            eval(`${draggedKeyString} = null`);
-          } else {
-            eval(`${draggedKeyString} = '${targetKey}'`);
-            eval(`${targetKeyString} = '${draggedKey}'`);
-          }
-
-          return
-        }
-
-        if (draggedDrag == "equipment") {
-
-          eval(`${draggedKeyString} = null`);
-
-          return
-        }
-
-      });
-    }
-
-    if (type == "equipment") {
-      item.addEventListener("drop", function (e) {
-        e.preventDefault();
-
-        var dragged = e.dataTransfer.getData("text/plain");
-        var target = key;
-        var targetIn = keyIn;
-
-        var draggedKeyString = dragged + ".key"
-        var targetKeyString = target + ".key"
-
-        var draggedDrag = eval(dragged + ".drag")
-        var targetDrag = eval(targetIn + ".drag")
-
-        var draggedKey = eval(dragged).key;
-        var targetKey = eval(target).key;
-
-        if (!(IUniversalIn.treasures[draggedKey].type == eval(targetIn).type)) {
-          return
-        }
-
-        if (draggedDrag == "equipment") {
-          return
-        }
-
-        if (draggedKey == null || draggedKey == undefined) {
-          eval(`${draggedKeyString} = '${draggedKey}'`);
-          eval(`${targetKeyString} = '${draggedKey}'`);
-        } else if (targetKey == null || targetKey == undefined) {
-          eval(`${targetKeyString} = '${draggedKey}'`);
-          eval(`${draggedKeyString} = '${draggedKey}'`);
-        } else {
-          eval(`${targetKeyString} = '${draggedKey}'`);
-          eval(`${draggedKeyString} = '${draggedKey}'`);
-
-        }
-
-      });
-
-      item.addEventListener("click", function (e) {
-        e.preventDefault();
-        var selectedKey = eval(key).key;
-
-        IUniversal.selTreasure = selectedKey || null;
-      });
-    }
-
-    if (type == "volatile") {
-      item.addEventListener("drop", function (e) {
-        e.preventDefault();
-
-        var dragged = e.dataTransfer.getData("text/plain");
-        var target = key;
-        var targetIn = keyIn;
-
-        var draggedKeyString = dragged + ".key"
-        var targetKeyString = target + ".key"
-
-        var draggedDrag = eval(dragged + ".drag")
-        var targetDrag = eval(targetIn + ".drag")
-
-        var draggedKey = eval(dragged).key;
-        var targetKey = eval(target).key;
-
-        if (draggedDrag == "equipment") {
-          return
-        }
-
-        if (draggedKey == null || draggedKey == undefined) {
-          eval(`${draggedKeyString} = '${draggedKey}'`);
-          eval(`${targetKeyString} = '${draggedKey}'`);
-        } else if (targetKey == null || targetKey == undefined) {
-          eval(`${targetKeyString} = '${draggedKey}'`);
-          eval(`${draggedKeyString} = '${draggedKey}'`);
-        } else {
-          eval(`${targetKeyString} = '${draggedKey}'`);
-          eval(`${draggedKeyString} = '${draggedKey}'`);
-
-        }
-
-      });
-
-      item.addEventListener("click", function (e) {
-        e.preventDefault();
-        var selectedKey = eval(key).key;
-
-        IUniversal.selTreasure = selectedKey || null;
-      });
-    }
-
-    if (type == "treasureAugments") {
-      item.addEventListener("drop", function (e) {
-        e.preventDefault();
-
-        var dragged = e.dataTransfer.getData("text/plain");
-        var target = key;        // es: IUniversal.augments['item1']
-        var targetIn = keyIn;
-
-        var draggedKeyString = dragged + ".key";
-        var targetKeyString = target + ".key";
-
-        var draggedDrag = eval(dragged + ".drag");
-        var draggedKey = eval(dragged).key;
-        var targetKey = eval(target).key;
-
-        if (draggedDrag == "equipment") return;
-
-        if (!(IUniversalIn.treasures[draggedKey].type == eval(targetIn).type)) {
-          return
-        }
-
-        if (draggedKey == null || draggedKey == undefined) return;
-
-        for (var slot in IUniversal.treasureAugments) {
-
-          if (IUniversal.treasureAugments[slot].key === draggedKey) {
-            return;
-          }
-        }
-
-        eval(`${targetKeyString} = '${draggedKey}'`);
-        eval(`${draggedKeyString} = null`);
-      });
-
-      item.addEventListener("click", function (e) {
-        e.preventDefault();
-        var selectedKey = eval(key).key;
-        IUniversal.selAugment = selectedKey || null;
-      });
-    }
-  }
-
-  if (type == "default") {
-    item.addEventListener("drop", function (e) {
-      e.preventDefault();
-
-      var dragged = e.dataTransfer.getData("text/plain");
-      var target = key;
-
-      if (!dragged || !target || dragged === target) return;
-
-      var draggedKey = eval(dragged).key;
-      var targetKey = eval(target).key;
-
-      var draggedKeyString = dragged + ".key";
-      var targetKeyString = target + ".key";
-
-      var draggedDrag = eval(dragged + ".drag");
-      var targetDrag = eval(target + ".drag");
-
-      if (draggedKey == null && targetKey == null) {
-        return;
-      }
-
-      if (draggedKey == null || draggedKey == undefined) {
-        eval(`${dragged} = '${targetKey}'`);
-        eval(`${target} = null`);
-      } else if (targetKey == null || targetKey == undefined) {
-        eval(`${target} = '${draggedKey}'`);
-        eval(`${dragged} = null`);
-      } else {
-        eval(`${dragged} = '${targetKey}'`);
-        eval(`${target} = '${draggedKey}'`);
-      }
-    });
-  }
-}
-
 function deletePotion(element) {
   //inventoryStorage
   delete IUniversal.inventoryStorage[element];
@@ -51366,4 +50716,472 @@ function cleanDOM() {
   });
 
   resetSpheresCache();
+}
+
+
+
+function draggableSet(item, key, keyIn, type, archetype) {
+
+  if (archetype == "potion") {
+    item.addEventListener("click", function (e) {
+      e.preventDefault();
+      var selectedKey = eval(key).key;
+
+      var dragged = IUniversalIn.selectedKey ? IUniversalIn.selectedKey : "";
+
+      if (dragged == "") {
+        IUniversalIn.selectedKey = key;
+        IUniversalIn.selectedSlot = item;
+        //highlight the item
+        highlightBackground(IUniversalIn.selectedSlot, "green")
+
+      } else {
+        highlightBackground(IUniversalIn.selectedSlot, null)
+
+        IUniversalIn.selectedKey = "";
+        IUniversalIn.selectedSlot = "";
+
+        var target = key;
+        var targetIn = keyIn;
+
+        var draggedKeyString = dragged + ".key"
+        var targetKeyString = target + ".key"
+
+        var draggedDrag = eval(dragged + ".drag")
+
+        var targetDrag = eval(target + ".drag")
+
+        var draggedKey = eval(dragged).key;
+        var targetKey = eval(target).key;
+
+        if (type == "inventory") {
+          e.preventDefault();
+
+          if (draggedDrag == "inventory") {
+            if (!dragged || !target || dragged === target) return;
+
+            if (draggedKey == null && targetKey == null) {
+              return;
+            }
+
+            if (draggedKey == null || draggedKey == undefined) {
+              eval(`${draggedKeyString} = '${targetKey}'`);
+              eval(`${targetKeyString} = null`);
+            } else if (targetKey == null || targetKey == undefined) {
+              eval(`${targetKeyString} = '${draggedKey}'`);
+              eval(`${draggedKeyString} = null`);
+            } else {
+              eval(`${draggedKeyString} = '${targetKey}'`);
+              eval(`${targetKeyString} = '${draggedKey}'`);
+            }
+
+            return
+          }
+
+          if (draggedDrag == "equipment") {
+
+            eval(`${draggedKeyString} = null`);
+
+            return
+          }
+        }
+
+        if (type == "equipmentPotion") {
+          e.preventDefault();
+
+          var target = key;
+          var targetIn = keyIn;
+
+          var draggedKeyString = dragged + ".key"
+          var targetKeyString = target + ".key"
+
+          var draggedDrag = eval(dragged + ".drag")
+          var targetDrag = eval(targetIn + ".drag")
+
+          var draggedKey = eval(dragged).key;
+          var targetKey = eval(target).key;
+
+          if (!(IUniversalIn.inventoryStorage[draggedKey].type == eval(targetIn).type)) {
+            return
+          }
+
+          if (draggedDrag == "equipment") {
+            return
+          }
+
+          waterTutorial(2)
+
+          if (draggedKey == null || draggedKey == undefined) {
+            eval(`${draggedKeyString} = '${draggedKey}'`);
+            eval(`${targetKeyString} = '${draggedKey}'`);
+          } else if (targetKey == null || targetKey == undefined) {
+            eval(`${targetKeyString} = '${draggedKey}'`);
+            eval(`${draggedKeyString} = '${draggedKey}'`);
+          } else {
+            eval(`${targetKeyString} = '${draggedKey}'`);
+            eval(`${draggedKeyString} = '${draggedKey}'`);
+
+          }
+        }
+
+        if (type == "potionSource") {
+          e.preventDefault();
+          var target = key;
+          var targetIn = keyIn;
+
+          var draggedKeyString = dragged + ".key"
+          var targetKeyString = target + ".key"
+
+          var draggedDrag = eval(dragged + ".drag")
+          var targetDrag = eval(targetIn + ".drag")
+
+          var draggedKey = eval(dragged).key;
+          var targetKey = eval(target).key;
+
+          if (!(IUniversalIn.inventoryStorage[draggedKey].type == eval(targetIn).type)) {
+            return
+          }
+
+          if (draggedDrag == "equipment") {
+            return
+          }
+
+          for (let x in IUniversal.potionSource) {
+            var sel = IUniversal.potionSource[x]
+            if (draggedKey == sel.key) {
+              return
+            }
+          }
+
+          if (draggedKey == null || draggedKey == undefined) {
+            eval(`${draggedKeyString} = '${draggedKey}'`);
+            eval(`${targetKeyString} = '${draggedKey}'`);
+          } else if (targetKey == null || targetKey == undefined) {
+            eval(`${targetKeyString} = '${draggedKey}'`);
+            eval(`${draggedKeyString} = '${draggedKey}'`);
+          } else {
+            eval(`${targetKeyString} = '${draggedKey}'`);
+            eval(`${draggedKeyString} = '${draggedKey}'`);
+
+          }
+        }
+
+        if (type == "volatile") {
+          e.preventDefault();
+
+          var target = key;
+          var targetIn = keyIn;
+
+          var draggedKeyString = dragged + ".key"
+          var targetKeyString = target + ".key"
+
+          var draggedDrag = eval(dragged + ".drag")
+          var targetDrag = eval(targetIn + ".drag")
+
+          var draggedKey = eval(dragged).key;
+          var targetKey = eval(target).key;
+
+          if (draggedDrag == "equipment") {
+            return
+          }
+
+          if (draggedKey == null || draggedKey == undefined) {
+            eval(`${draggedKeyString} = '${draggedKey}'`);
+            eval(`${targetKeyString} = '${draggedKey}'`);
+          } else if (targetKey == null || targetKey == undefined) {
+            eval(`${targetKeyString} = '${draggedKey}'`);
+            eval(`${draggedKeyString} = '${draggedKey}'`);
+          } else {
+            eval(`${targetKeyString} = '${draggedKey}'`);
+            eval(`${draggedKeyString} = '${draggedKey}'`);
+
+          }
+        }
+
+        if (type == "potionFusion") {
+          e.preventDefault();
+
+          var target = key;
+          var targetIn = keyIn;
+
+          var draggedKeyString = dragged + ".key"
+          var targetKeyString = target + ".key"
+
+          var draggedDrag = eval(dragged + ".drag")
+          var targetDrag = eval(targetIn + ".drag")
+
+          var draggedKey = eval(dragged).key;
+          var targetKey = eval(target).key;
+
+          if (draggedDrag == "equipment") {
+            return
+          }
+
+          if (target == "IUniversal.potionFusion['item1']") {
+            //if they are the same potion, return
+            if (IUniversal.potionFusion['item2'].key == draggedKey) {
+              return
+            }
+
+            //if they arent the same potion type, return
+            if (IUniversal.inventoryStorage[IUniversal.potionFusion['item2'].key]) {
+              if (IUniversalIn.inventoryStorage[draggedKey].type != IUniversalIn.inventoryStorage[IUniversal.potionFusion['item2'].key].type) {
+                return
+              }
+            }
+          }
+
+          if (target == "IUniversal.potionFusion['item2']") {
+            if (IUniversal.potionFusion['item1'].key == draggedKey) {
+              return
+            }
+
+            if (IUniversal.inventoryStorage[IUniversal.potionFusion['item1'].key]) {
+
+              if (IUniversalIn.inventoryStorage[draggedKey].type != IUniversalIn.inventoryStorage[IUniversal.potionFusion['item1'].key].type) {
+                return
+              }
+            }
+          }
+
+          if (draggedKey == null || draggedKey == undefined) {
+            eval(`${draggedKeyString} = '${draggedKey}'`);
+            eval(`${targetKeyString} = '${draggedKey}'`);
+          } else if (targetKey == null || targetKey == undefined) {
+            eval(`${targetKeyString} = '${draggedKey}'`);
+            eval(`${draggedKeyString} = '${draggedKey}'`);
+          } else {
+            eval(`${targetKeyString} = '${draggedKey}'`);
+            eval(`${draggedKeyString} = '${draggedKey}'`);
+
+          }
+        }
+
+
+        if (type == "delete") {
+          e.preventDefault();
+
+          var draggedKey = eval(dragged).key;
+
+          deletePotion(draggedKey)
+        }
+
+        if (type == "coreItem") {
+          e.preventDefault();
+
+          var target = key;
+          var targetIn = keyIn;
+
+          var draggedKeyString = dragged + ".key"
+          var targetKeyString = target + ".key"
+
+          if (!dragged) return
+
+          var draggedDrag = eval(dragged + ".drag")
+          var targetDrag = eval(targetIn + ".drag")
+
+          var draggedKey = eval(dragged).key;
+          var targetKey = eval(target).key;
+
+          if (!(IUniversalIn.inventoryStorage[draggedKey].type == eval(targetIn).type)) {
+            return
+          }
+
+          if (draggedDrag == "equipment") {
+            return
+          }
+
+          if (draggedKey == null || draggedKey == undefined) {
+            eval(`${draggedKeyString} = '${draggedKey}'`);
+            eval(`${targetKeyString} = '${draggedKey}'`);
+          } else if (targetKey == null || targetKey == undefined) {
+            eval(`${targetKeyString} = '${draggedKey}'`);
+            eval(`${draggedKeyString} = '${draggedKey}'`);
+          } else {
+            eval(`${targetKeyString} = '${draggedKey}'`);
+            eval(`${draggedKeyString} = '${draggedKey}'`);
+
+          }
+        }
+      }
+
+      IUniversal.selPotion = selectedKey || null;
+    });
+
+
+  }
+
+  if (archetype == "treasure") {
+
+    item.addEventListener("click", function (e) {
+      e.preventDefault();
+      var selectedKey = eval(key).key;
+      var dragged = IUniversalIn.selectedKey ? IUniversalIn.selectedKey : "";
+
+
+      if (dragged == "") {
+        IUniversalIn.selectedKey = key;
+        IUniversalIn.selectedSlot = item;
+        //highlight the item
+        highlightBackground(IUniversalIn.selectedSlot, "green")
+      } else {
+        highlightBackground(IUniversalIn.selectedSlot, null)
+
+        IUniversalIn.selectedKey = "";
+        IUniversalIn.selectedSlot = "";
+
+        var target = key;
+        var targetIn = keyIn;
+
+        var draggedKeyString = dragged + ".key"
+        var targetKeyString = target + ".key"
+
+        var draggedDrag = eval(dragged + ".drag")
+
+        var targetDrag = eval(target + ".drag")
+
+        var draggedKey = eval(dragged).key;
+        var targetKey = eval(target).key;
+
+        if (type == "treasureInventory") {
+          e.preventDefault();
+
+          if (draggedDrag == "inventory") {
+
+            if (!dragged || !target || dragged === target) return;
+
+            if (draggedKey == null && targetKey == null) {
+              return;
+            }
+
+            if (draggedKey == null || draggedKey == undefined) {
+              eval(`${draggedKeyString} = '${targetKey}'`);
+              eval(`${targetKeyString} = null`);
+            } else if (targetKey == null || targetKey == undefined) {
+              eval(`${targetKeyString} = '${draggedKey}'`);
+              eval(`${draggedKeyString} = null`);
+            } else {
+              eval(`${draggedKeyString} = '${targetKey}'`);
+              eval(`${targetKeyString} = '${draggedKey}'`);
+            }
+
+            return
+          }
+
+          if (draggedDrag == "equipment") {
+
+            eval(`${draggedKeyString} = null`);
+
+            return
+          }
+        }
+      }
+
+      if (type == "equipment") {
+        e.preventDefault();
+
+        var target = key;
+        var targetIn = keyIn;
+
+        var draggedKeyString = dragged + ".key"
+        var targetKeyString = target + ".key"
+
+        var draggedDrag = eval(dragged + ".drag")
+        var targetDrag = eval(targetIn + ".drag")
+
+        var draggedKey = eval(dragged).key;
+        var targetKey = eval(target).key;
+
+        if (!(IUniversalIn.treasures[draggedKey].type == eval(targetIn).type)) {
+          return
+        }
+
+        if (draggedDrag == "equipment") {
+          return
+        }
+
+        if (draggedKey == null || draggedKey == undefined) {
+          eval(`${draggedKeyString} = '${draggedKey}'`);
+          eval(`${targetKeyString} = '${draggedKey}'`);
+        } else if (targetKey == null || targetKey == undefined) {
+          eval(`${targetKeyString} = '${draggedKey}'`);
+          eval(`${draggedKeyString} = '${draggedKey}'`);
+        } else {
+          eval(`${targetKeyString} = '${draggedKey}'`);
+          eval(`${draggedKeyString} = '${draggedKey}'`);
+
+        }
+      }
+
+      if (type == "volatile") {
+        e.preventDefault();
+
+        var target = key;
+        var targetIn = keyIn;
+
+        var draggedKeyString = dragged + ".key"
+        var targetKeyString = target + ".key"
+
+        var draggedDrag = eval(dragged + ".drag")
+        var targetDrag = eval(targetIn + ".drag")
+
+        var draggedKey = eval(dragged).key;
+        var targetKey = eval(target).key;
+
+        if (draggedDrag == "equipment") {
+          return
+        }
+
+        if (draggedKey == null || draggedKey == undefined) {
+          eval(`${draggedKeyString} = '${draggedKey}'`);
+          eval(`${targetKeyString} = '${draggedKey}'`);
+        } else if (targetKey == null || targetKey == undefined) {
+          eval(`${targetKeyString} = '${draggedKey}'`);
+          eval(`${draggedKeyString} = '${draggedKey}'`);
+        } else {
+          eval(`${targetKeyString} = '${draggedKey}'`);
+          eval(`${draggedKeyString} = '${draggedKey}'`);
+
+        }
+      }
+
+      if (type == "treasureAugments") {
+        e.preventDefault();
+
+        var target = key;
+        var targetIn = keyIn;
+
+        var draggedKeyString = dragged + ".key";
+        var targetKeyString = target + ".key";
+
+        var draggedDrag = eval(dragged + ".drag");
+        var draggedKey = eval(dragged).key;
+        var targetKey = eval(target).key;
+
+        if (draggedDrag == "equipment") return;
+
+        if (!(IUniversalIn.treasures[draggedKey].type == eval(targetIn).type)) {
+          return
+        }
+
+        if (draggedKey == null || draggedKey == undefined) return;
+
+        for (var slot in IUniversal.treasureAugments) {
+
+          if (IUniversal.treasureAugments[slot].key === draggedKey) {
+            return;
+          }
+        }
+
+        eval(`${targetKeyString} = '${draggedKey}'`);
+        eval(`${draggedKeyString} = null`);
+      }
+
+      IUniversal.selTreasure = selectedKey || null;
+    });
+  }
+}
+
+function highlightBackground(item, color) {
+  item.style.backgroundColor = color;
 }
