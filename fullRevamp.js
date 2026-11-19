@@ -44200,6 +44200,7 @@ function visualInventoryWater() {
   }
 
   if (IUniversal.selPotion != null && IUniversal.selPotion != undefined && IUniversal.selPotion != "" && IUniversalIn.inventoryStorage[IUniversal.selPotion]) {
+    
     if (!IUniversal.lockSelPotion || document.getElementById("content2_19_potion_info").innerHTML.trim() === "") {
       update("content2_19_potion_info", IUniversalIn.inventoryStorage[IUniversal.selPotion].content2)
     }
@@ -50732,11 +50733,13 @@ function draggableSet(item, key, keyIn, type, archetype) {
       if (dragged == "") {
         IUniversalIn.selectedKey = key;
         IUniversalIn.selectedSlot = item;
+        unlockShow("content2_19_potion_info", true);
         //highlight the item
         highlightBackground(IUniversalIn.selectedSlot, "green")
 
       } else {
         highlightBackground(IUniversalIn.selectedSlot, null)
+        unlockShow("content2_19_potion_info", false);
 
         IUniversalIn.selectedKey = "";
         IUniversalIn.selectedSlot = "";
@@ -50957,7 +50960,6 @@ function draggableSet(item, key, keyIn, type, archetype) {
           }
         }
 
-
         if (type == "delete") {
           e.preventDefault();
 
@@ -51022,10 +51024,16 @@ function draggableSet(item, key, keyIn, type, archetype) {
       if (dragged == "") {
         IUniversalIn.selectedKey = key;
         IUniversalIn.selectedSlot = item;
+        unlockShow("content2_21_treasure_info", true);
+        unlockShow("content2_23_treasure_info", true);
+        unlockShow("content2_25_treasure_info", true);
         //highlight the item
         highlightBackground(IUniversalIn.selectedSlot, "green")
       } else {
         highlightBackground(IUniversalIn.selectedSlot, null)
+        unlockShow("content2_21_treasure_info", false);
+        unlockShow("content2_23_treasure_info", false);
+        unlockShow("content2_25_treasure_info", false);
 
         IUniversalIn.selectedKey = "";
         IUniversalIn.selectedSlot = "";
