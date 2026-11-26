@@ -10191,6 +10191,7 @@ function fullSetter4(type) {
 }
 
 function valuesSetterInit(type) {
+  console.log(IShowableClass.init)
   if (!IShowableClass.init) return
 
   //UNIVERSAL CHALLENGER CHALLENGES
@@ -10272,20 +10273,20 @@ function valuesSetterInit(type) {
   //LORE
 
   //note1
-  IUniversalIn.lore.lore1 = "Welcome to your first universe\n" +
+  IUniversalIn.lore.lore1.text = "Welcome to your first universe\n" +
     "A barren realm, the weakest among the infinite worlds scattered across existence\n" +
     "There is only one path forward: grow stronger, by any means necessary\n" +
     "Train, little warrior… and in time, the Multiverse itself will kneel before you";
 
   //note2
-  IUniversalIn.lore.lore2 = "Challengers, Creatures, just like you\n" +
+  IUniversalIn.lore.lore2.text = "Challengers, Creatures, just like you\n" +
     "Here, strength is the only measure of worth, and the only way to prove it is to win\n" +
     "A simple law of nature. No wealth, no luck, only raw Power\n" +
     "But if all that matters is to endlessly grasp for more Power…\n" +
     "What meaning remains in the struggle itself?";
 
   //note3
-  IUniversalIn.lore.lore3 = "There are two absolute truths in this world: you win, or you die\n" +
+  IUniversalIn.lore.lore3.text = "There are two absolute truths in this world: you win, or you die\n" +
     "But what truly happens when something dies?\n" +
     "Some claim its soul merges with yours, resonating in harmony\n" +
     "Others believe the fallen body grants its finest qualities\n" +
@@ -10296,7 +10297,7 @@ function valuesSetterInit(type) {
     "And that alone is enough to satisfy everyone";
 
   //note4
-  IUniversalIn.lore.lore4 = "You stand at the pinnacle of this universe\n" +
+  IUniversalIn.lore.lore4.text = "You stand at the pinnacle of this universe\n" +
     "Nothing can defeat you\n" +
     "But is that truly enough?\n" +
     "As you gaze at the endless stars, you glimpse a boundary, a limit only you can shatter\n" +
@@ -10309,13 +10310,13 @@ function valuesSetterInit(type) {
     "And if you never stop breaking your limits… will you one day stand at the pinnacle of all creation?";
 
   //note5
-  IUniversalIn.lore.lore5 = "As your abilities refine, you begin to strike a roadblock\n" +
+  IUniversalIn.lore.lore5.text = "As your abilities refine, you begin to strike a roadblock\n" +
     "Raw strength can take you far, but not far enough. Talent must now emerge\n" +
     "Attributes, when properly honed, reveal their true essence, a formula for growth\n" +
     "Yet to awaken them, you must gather fragments of other Universal Climbers like yourself\n" +
     "Such power demands sacrifice. Are you ready to face how much further you still have to climb?";
 
-  IUniversalIn.lore.lore6 = "Universal Cores, forged from the hearts of your challengers, fuse and resonate, shattering unseen barriers\n" +
+  IUniversalIn.lore.lore6.text = "Universal Cores, forged from the hearts of your challengers, fuse and resonate, shattering unseen barriers\n" +
     "A red rift tears open before you, emanating a heat you have never known\n" +
     "Pure, elemental fire\n" +
     "These flames cannot be touched, cannot be tamed. You can only feed them… and let them burn you anew\n" +
@@ -10323,7 +10324,7 @@ function valuesSetterInit(type) {
     "You once reached for higher universes in the small pond you called ascension, but now a new paradigm unfolds before you\n" +
     "There is a raw, mysterious secret you have only glimpsed";
 
-  IUniversalIn.lore.lore7 = "What is the universe?\n" +
+  IUniversalIn.lore.lore7.text = "What is the universe?\n" +
     "The universe is made of energies, the more raw they are, and the more an universe contains them, the more likely for a better universe\n" +
     "Flames ravage the very fabric of worlds, and in this chaos, you need water to cleanse and restore\n" +
     "Looking back at your home, made of the simplest of energies, as big as a moon\n" +
@@ -10332,7 +10333,7 @@ function valuesSetterInit(type) {
     "The answer is Water, Water Universes, a new type of universe you just discovered, seems to be the coolant of this chaotic energies, making them able to coexist with each other\n" +
     "Is it possible with Water to make my own universe possible to hold other energies?\n"
 
-  IUniversalIn.lore.lore8 =
+  IUniversalIn.lore.lore8.text =
     "There is an old legend claiming that all beings were once shaped from earth itself.\n" +
     "As unbelievable as it may sound, there are creatures said to be born exactly this way.\n" +
     "The craft required to mold life from dirt,it is of such immense complexity that it borders on madness.\n" +
@@ -10340,7 +10341,7 @@ function valuesSetterInit(type) {
     "What if you tried to forge something that reflects you, shaped by your own hands?\n" +
     "A being of clay and intention... a Golem.\n";
 
-  IUniversalIn.lore.lore9 =
+  IUniversalIn.lore.lore9.text =
     "After this discovery, the Golems proved themselves capable of crossing the wind universe portal.\n" +
     "They ventured far and returned bearing treasures, won through battles\n" +
     "against other golems.\n" +
@@ -14339,6 +14340,8 @@ function valuesSetterInit(type) {
 
     return string;
   }
+  
+  IShowableClass.init = false;
 }
 
 function valuesSetterCycle(type) {
@@ -43012,16 +43015,16 @@ function visualOptions() {
 //LORE
 
 function visualLore() {
-  update("content2_12_text", IUniversalIn.lore.lore1)
-  update("content2_13_text", IUniversalIn.lore.lore2)
-  update("content2_14_text", IUniversalIn.lore.lore3)
-  update("content2_15_text", IUniversalIn.lore.lore4)
-  update("content2_16_text", IUniversalIn.lore.lore5)
-  update("content2_18_text", IUniversalIn.lore.lore6)
-  update("content2_20_text", IUniversalIn.lore.lore7)
-  update("content2_22_text", IUniversalIn.lore.lore8)
-  update("content2_24_text", IUniversalIn.lore.lore9)
-
+  console.log(IUniversalIn.lore.lore1.text)
+  update("content2_12_text", IUniversalIn.lore.lore1.text)
+  update("content2_13_text", IUniversalIn.lore.lore2.text)
+  update("content2_14_text", IUniversalIn.lore.lore3.text)
+  update("content2_15_text", IUniversalIn.lore.lore4.text)
+  update("content2_16_text", IUniversalIn.lore.lore5.text)
+  update("content2_18_text", IUniversalIn.lore.lore6.text)
+  update("content2_20_text", IUniversalIn.lore.lore7.text)
+  update("content2_22_text", IUniversalIn.lore.lore8.text)
+  update("content2_24_text", IUniversalIn.lore.lore9.text)
 }
 
 //VISUAL TRAINING
@@ -47340,7 +47343,6 @@ function loopShow() {
     enableDragScroll("content2_25_scroll");
 
     unlockShow("fireValute", false);
-    IShowableClass.init = false;
   }
 
   if (IPI.progress.p2Check() || f(IU.universe).gte(f(2))) {
