@@ -44342,13 +44342,15 @@ function visualInventoryMetal() {
     addObjectToSpace(null, null, x, "treasure_upgrade")
   }
 
-  if (IUniversal.selTreasure != null && IUniversal.selTreasure != undefined && IUniversal.selTreasure != "" && IUniversalIn.treasures[IUniversal.selTreasure]) {
+  if (IUniversal.selTreasure != null && IUniversal.selTreasure != undefined && IUniversal.selTreasure != "" && IUniversalIn.treasures[IUniversal.selTreasure] != null) {
     update("content2_25_treasure_info", IUniversalIn.treasures[IUniversal.selTreasure].content2)
 
   } else {
     update("content2_25_treasure_info", "")
 
   }
+
+  console.log(IUniversalIn.treasures[IUniversal.selTreasure] != null)
 }
 
 function returnPotionEquipStatus(element) {
@@ -51036,10 +51038,16 @@ function draggableSet(item, key, keyIn, type, archetype) {
       if (dragged == "") {
         IUniversalIn.selectedKey = key;
         IUniversalIn.selectedSlot = item;
+        unlockShow("content2_21_treasure_info", true);
+        unlockShow("content2_23_treasure_info", true);
+        unlockShow("content2_25_treasure_info", true);
         //highlight the item
         highlightBackground(IUniversalIn.selectedSlot, "green")
       } else {
         highlightBackground(IUniversalIn.selectedSlot, null)
+        unlockShow("content2_21_treasure_info", false);
+        unlockShow("content2_23_treasure_info", false);
+        unlockShow("content2_25_treasure_info", false);
 
         IUniversalIn.selectedKey = "";
         IUniversalIn.selectedSlot = "";
