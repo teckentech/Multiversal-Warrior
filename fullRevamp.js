@@ -1822,7 +1822,6 @@ class Universal {
     };
 
 
-
     this.earthTreeSize = options.earthTreeSize || 1;
 
     this.buyEarthTree = options.buyEarthTree || 0
@@ -1836,8 +1835,6 @@ class Universal {
     this.golemMax = options.golemMax || 0;
     this.golemProd = options.golemProd || 0;
     this.golemProdBase = options.golemProdBase || 0;
-
-
 
     this.treasureInventory = options.treasureInventory || {};
     this.treasureInventoryR = options.treasureInventoryR || 0;
@@ -8490,7 +8487,7 @@ class ShowableClass {
       content2_17_node165: false,
       content2_17_node166: false,
       content2_17_node167: false,
-      content2_17_node168: false,      
+      content2_17_node168: false,
       content2_17_node169: false,
       content2_17_node170: false,
       content2_17_node171: false,
@@ -44153,6 +44150,7 @@ function resetVisualWaterTreeCache() {
 
 function visualInventoryWater() {
 
+  potionInventoryCleanup()
   var gridContainer = document.getElementById("content2_19_treasureGrid");
 
   addElement("void");
@@ -44200,7 +44198,7 @@ function visualInventoryWater() {
   }
 
   if (IUniversal.selPotion != null && IUniversal.selPotion != undefined && IUniversal.selPotion != "" && IUniversalIn.inventoryStorage[IUniversal.selPotion]) {
-    
+
     if (!IUniversal.lockSelPotion || document.getElementById("content2_19_potion_info").innerHTML.trim() === "") {
       update("content2_19_potion_info", IUniversalIn.inventoryStorage[IUniversal.selPotion].content2)
     }
@@ -44208,11 +44206,12 @@ function visualInventoryWater() {
     update("content2_19_potion_info", "")
   }
 
-
-
 }
 
 function visualInventoryEarth() {
+
+
+  treasureInventoryCleanup()
 
   addElement("voidTreasure");
 
@@ -44260,6 +44259,9 @@ function visualInventoryEarth() {
 
 function visualInventoryWind() {
 
+
+  treasureInventoryCleanup()
+
   addElement("voidTreasure2");
 
   for (let x in IUniversal.treasures) {
@@ -44297,6 +44299,8 @@ function visualInventoryWind() {
 }
 
 function visualInventoryMetal() {
+
+  treasureInventoryCleanup()
 
   addElement("voidTreasure3");
 
@@ -49077,7 +49081,7 @@ function addElement(type, key) {
             pX: x,
             pY: y,
             amount: 1,
-            drag: "inventory",
+            drag: "potionInventory",
           };
 
           return true;
@@ -49125,7 +49129,7 @@ function addElement(type, key) {
             pX: x,
             pY: y,
             amount: 1,
-            drag: "inventory",
+            drag: "potionInventory",
           };
 
           return true;
@@ -49160,7 +49164,7 @@ function addElement(type, key) {
             pX: x,
             pY: y,
             amount: 1,
-            drag: "inventory",
+            drag: "treasureInventory",
           };
 
           return true;
@@ -49195,7 +49199,7 @@ function addElement(type, key) {
             pX: x,
             pY: y,
             amount: 1,
-            drag: "inventory",
+            drag: "treasureInventory",
           };
 
           return true;
@@ -49230,7 +49234,7 @@ function addElement(type, key) {
             pX: x,
             pY: y,
             amount: 1,
-            drag: "inventory",
+            drag: "treasureInventory",
           };
 
           return true;
@@ -49277,7 +49281,7 @@ function addElement(type, key) {
             pX: x,
             pY: y,
             amount: 1,
-            drag: "inventory",
+            drag: "treasureInventory",
           };
 
           return true;
@@ -49324,7 +49328,7 @@ function addElement(type, key) {
             pX: x,
             pY: y,
             amount: 1,
-            drag: "inventory",
+            drag: "treasureInventory",
           };
 
           return true;
@@ -49371,7 +49375,7 @@ function addElement(type, key) {
             pX: x,
             pY: y,
             amount: 1,
-            drag: "inventory",
+            drag: "treasureInventory",
           };
 
           return true;
@@ -50186,6 +50190,14 @@ function clearInventory() {
 }
 
 function deletePotion(element) {
+
+  for (let i in IUniversal.treasureInventory) {
+    if (IUniversal.treasureInventory[i].key == element) {
+      delete IUniversal.treasureInventory[i];
+    }
+  }
+  //delete IUniversal.treasureInventory[element];
+
   //inventoryStorage
   delete IUniversal.inventoryStorage[element];
 
@@ -50760,7 +50772,7 @@ function draggableSet(item, key, keyIn, type, archetype) {
         if (type == "inventory") {
           e.preventDefault();
 
-          if (draggedDrag == "inventory") {
+          if (draggedDrag == "potionInventory") {
             if (!dragged || !target || dragged === target) return;
 
             if (draggedKey == null && targetKey == null) {
@@ -51024,16 +51036,10 @@ function draggableSet(item, key, keyIn, type, archetype) {
       if (dragged == "") {
         IUniversalIn.selectedKey = key;
         IUniversalIn.selectedSlot = item;
-        unlockShow("content2_21_treasure_info", true);
-        unlockShow("content2_23_treasure_info", true);
-        unlockShow("content2_25_treasure_info", true);
         //highlight the item
         highlightBackground(IUniversalIn.selectedSlot, "green")
       } else {
         highlightBackground(IUniversalIn.selectedSlot, null)
-        unlockShow("content2_21_treasure_info", false);
-        unlockShow("content2_23_treasure_info", false);
-        unlockShow("content2_25_treasure_info", false);
 
         IUniversalIn.selectedKey = "";
         IUniversalIn.selectedSlot = "";
@@ -51054,7 +51060,7 @@ function draggableSet(item, key, keyIn, type, archetype) {
         if (type == "treasureInventory") {
           e.preventDefault();
 
-          if (draggedDrag == "inventory") {
+          if (draggedDrag == "treasureInventory") {
 
             if (!dragged || !target || dragged === target) return;
 
@@ -51188,8 +51194,50 @@ function draggableSet(item, key, keyIn, type, archetype) {
       IUniversal.selTreasure = selectedKey || null;
     });
   }
+
 }
 
 function highlightBackground(item, color) {
   item.style.backgroundColor = color;
+}
+
+function potionInventoryCleanup() {
+
+  //drag type inventory => treasureInventory
+  //drag type inventory => potionInventory
+
+  for (let i in IUniversal.inventory) {
+    if (!IUniversal.inventory[i]?.key?.includes("element") && IUniversal.inventory[i]?.key != null) {
+      deletePotion(IUniversal.inventory[i].key)
+    }
+
+    if (IUniversal.inventory[i].drag != "potionInventory") {
+      IUniversal.inventory[i].drag = "potionInventory"
+    }
+  }
+
+  //potion in treasure inventory
+  //treasure in potion inventory
+
+}
+
+function treasureInventoryCleanup() {
+  for (let i in IUniversal.treasureInventory) {
+    if (!IUniversal.treasureInventory[i]?.key?.includes("treasure") && IUniversal.treasureInventory[i]?.key != null) {
+      deletePotion(IUniversal.treasureInventory[i].key)
+    }
+    if (IUniversal.treasureInventory[i]?.drag != "treasureInventory") {
+      IUniversal.treasureInventory[i].drag = "treasureInventory"
+    }
+  }
+
+  for (let i in IUniversal.inventory) {
+    if (!IUniversal.inventory[i]?.key?.includes("element") && IUniversal.inventory[i]?.key != null) {
+      deletePotion(IUniversal.inventory[i].key)
+    }
+
+    if (IUniversal.inventory[i].drag != "potionInventory") {
+      IUniversal.inventory[i].drag = "potionInventory"
+    }
+  }
 }
