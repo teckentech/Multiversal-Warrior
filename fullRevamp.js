@@ -18418,7 +18418,7 @@ function valuesSetterCycle(type) {
              <div class="centerDiv boldBlackBorder">Consacrate</div>
              <div class="topRight absolute padding2 grey">168</div>
                  <div class="topLeft absolute padding2 grey">${format(f(sel.level), 0)}/${format(f(sel2.maxLevel), 0)}</div>
-                 <div class="centerDiv padding1 column fontSize09"><div>Mithril ×${format(f("1.5"), 0)} (<span class="boldBlackBorder">×${format(f(sel2.effect))}</span>)</div>
+                 <div class="centerDiv padding1 column fontSize09"><div>Mithril ×${format(f("1.5"), 1)} (<span class="boldBlackBorder">×${format(f(sel2.effect))}</span>)</div>
              </div>`
 
   sel2.button = `<div class="centerDiv noClick boldBlackBorder">${format(f(sel2.price), 0)}</div>
