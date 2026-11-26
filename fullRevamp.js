@@ -14393,14 +14393,14 @@ function valuesSetterCycle(type) {
   var sel = IUniversalChallenger.universalChallengerChallengesRewards.c1
   var sel2 = IUniversalChallengerIn.universalChallengerChallengesRewards.c1
 
-  sel2.name = `<div>Maximum Universal Challenger <span class="boldBlackBorder">${sel.level}</span></div><div><span class="boldBlackBorder">${format(f(IUniversalChallenger.universalNodesProdBase))}/s</span> Universal Nodes</div>`
+  sel2.name = `<div>Maximum Universal Challenger <span class="boldBlackBorder">${sel.level}</span></div><div><span class="boldBlackBorder">${format(sec(f(IUniversalChallenger.universalNodesProdBase)))}/s</span> Universal Nodes</div>`
 
 
   //c2
   var sel = IUniversalChallenger.universalChallengerChallengesRewards.c2
   var sel2 = IUniversalChallengerIn.universalChallengerChallengesRewards.c2
 
-  sel2.name = `<div>Maximum Universal Challenger <span class="boldBlackBorder">${sel.level}</span></div><div><span class="boldBlackBorder">${format(f(IUniversalChallenger.universalCoresProd))}/s</span> Universal Cores</div>`
+  sel2.name = `<div>Maximum Universal Challenger <span class="boldBlackBorder">${sel.level}</span></div><div><span class="boldBlackBorder">${format(sec(f(IUniversalChallenger.universalCoresProd)))}/s</span> Universal Cores</div>`
 
   //hunting
 
