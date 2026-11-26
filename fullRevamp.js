@@ -10191,7 +10191,6 @@ function fullSetter4(type) {
 }
 
 function valuesSetterInit(type) {
-  console.log(IShowableClass.init)
   if (!IShowableClass.init) return
 
   //UNIVERSAL CHALLENGER CHALLENGES
@@ -43015,7 +43014,6 @@ function visualOptions() {
 //LORE
 
 function visualLore() {
-  console.log(IUniversalIn.lore.lore1.text)
   update("content2_12_text", IUniversalIn.lore.lore1.text)
   update("content2_13_text", IUniversalIn.lore.lore2.text)
   update("content2_14_text", IUniversalIn.lore.lore3.text)
